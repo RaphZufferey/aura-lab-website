@@ -3022,7 +3022,7 @@ input, select, textarea {
 				-webkit-transition: opacity 1s ease;
 				-ms-transition: opacity 1s ease;
 				transition: opacity 1s ease;
-				background: rgba(49, 36, 80, 0.9);
+				background: rgba(255, 255, 255, 0.9);
 				content: '';
 				display: block;
 				height: 100%;
@@ -3069,6 +3069,10 @@ input, select, textarea {
 
 		.spotlights > section:nth-child(3) {
 			background-color: rgba(0, 0, 0, 0.1);
+		}
+		
+		.spotlights > section:nth-child(4) {
+			background-color: rgba(0, 0, 0, 0.15);
 		}
 
 		.spotlights > section.inactive > .image:before,
@@ -3240,7 +3244,7 @@ input, select, textarea {
 		}
 
 		.wrapper.style1 {
-			background-color: #5e42a6;
+			background-color: #09498f;
 		}
 
 		.wrapper.style1-alt {
@@ -3248,7 +3252,7 @@ input, select, textarea {
 		}
 
 		.wrapper.style2 {
-			background-color: #5052b5;
+			background-color: #0074D9;
 		}
 
 		.wrapper.style2-alt {
@@ -3261,6 +3265,14 @@ input, select, textarea {
 
 		.wrapper.style3-alt {
 			background-color: #953d75;
+		}
+
+		.wrapper.style4 {
+			background-color: #999999;
+		}
+
+		.wrapper.style_darkgray {
+			background-color: #222222;
 		}
 
 		.wrapper.fullscreen {
@@ -3910,7 +3922,7 @@ input, select, textarea {
 
 
 
-/* Main */
+/* Photoalbum */
 
 	#photoalbum {
 		-moz-transition: -moz-filter 0.5s ease, -webkit-filter 0.5s ease, -ms-filter 0.5s ease, -moz-filter 0.5s ease;
@@ -4030,8 +4042,7 @@ input, select, textarea {
 			-webkit-transition-delay: 2.525s;
 			-ms-transition-delay: 2.525s;
 			transition-delay: 2.525s;
-			height: calc(40vh - 2em);
-			min-height: 20em;
+			height: calc(30vh - 2em);
 			width: 25%;
 		}
 
