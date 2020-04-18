@@ -4,9 +4,9 @@
 /// Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 ///
 
-/* Main */
+/* photoalbum */
 
-	#main {
+	#photoalbum {
 		@include vendor('transition', (
 			'-moz-filter #{_duration(panel)} ease',
 			'-webkit-filter #{_duration(panel)} ease',
