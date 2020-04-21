@@ -174,11 +174,26 @@ input, select, textarea {
 		margin: 0 0 2em 0;
 	}
 
+	p.dark{
+		color: #555555;
+		text-align: justify;
+ 		text-justify: inter-word;
+	}
+
 	h1, h2, h3, h4, h5, h6 {
 		color: #ffffff;
 		font-weight: normal;
 		line-height: 1.5;
 		margin: 0 0 0.5em 0;
+	}
+
+	h1.dark {
+		color: #5e42a6;
+	}
+
+	h2.dark, h3.dark, h4.dark, h5.dark, h6.dark {
+		color: #b74e91;
+		text-align: right;
 	}
 
 		h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
@@ -3294,6 +3309,10 @@ input, select, textarea {
 
 		.wrapper.style_darkgray {
 			background-color: #222222;
+		}
+
+		.wrapper.white {
+			background-color: #ffffff;
 		}
 
 		.wrapper.fullscreen {
