@@ -1940,6 +1940,17 @@ input, select, textarea {
 			color: #312450 !important;
 		}
 
+		input[type="submit"].dark,
+		input[type="reset"].dark,
+		input[type="button"].dark,
+		button.dark,
+		.button.dark {
+			background-color: #ffffff;
+			border-color: #222222 !important;
+			color: #222222 !important;
+		}
+
+
 			input[type="submit"].primary:after,
 			input[type="reset"].primary:after,
 			input[type="button"].primary:after,
@@ -4605,3 +4616,20 @@ input, select, textarea {
 			}
 
 		}
+
+
+/* Iframe wrapper */
+.videoWrapper {
+  position: relative;
+  padding-bottom: 28.2%; /* 16:9 */
+  height: 0;
+  overflow: hidden;
+  width:50%;
+}
+.videoWrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
