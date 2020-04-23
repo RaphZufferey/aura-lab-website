@@ -191,10 +191,17 @@ input, select, textarea {
 		color: #5e42a6;
 	}
 
-	h2.dark, h3.dark, h4.dark, h5.dark, h6.dark {
+	h2.dark {
 		color: #b74e91;
 		text-align: right;
 	}
+
+	h3.dark, h4.dark, h5.dark, h6.dark {
+		color: #333333;
+		text-align: right;
+		font-weight: normal;
+	}
+
 
 		h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 			color: inherit;
@@ -234,11 +241,11 @@ input, select, textarea {
 	}
 
 	h3 {
-		font-size: 1.1em;
+		font-size: 1.5em;
 	}
 
 	h4 {
-		font-size: 1em;
+		font-size: 1.2em;
 	}
 
 	h5 {
