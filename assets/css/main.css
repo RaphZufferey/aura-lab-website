@@ -3629,10 +3629,10 @@ input, select, textarea {
 			-webkit-transform: translateY(0);
 			-ms-transform: translateY(0);
 			transform: translateY(0);
-			-moz-transition: opacity 1s ease;
-			-webkit-transition: opacity 1s ease;
-			-ms-transition: opacity 1s ease;
-			transition: opacity 1s ease;
+			-moz-transition: opacity 0.1s ease;
+			-webkit-transition: opacity 0.1s ease;
+			-ms-transition: opacity 0.1s ease;
+			transition: opacity 0.1s ease;
 			min-height: 100%;
 			opacity: 1;
 			width: 100%;
@@ -3652,10 +3652,10 @@ input, select, textarea {
 				-webkit-transform: translateY(0);
 				-ms-transform: translateY(0);
 				transform: translateY(0);
-				-moz-transition: opacity 0.15s ease, -moz-transform 0.75s ease;
-				-webkit-transition: opacity 0.15s ease, -webkit-transform 0.75s ease;
-				-ms-transition: opacity 0.15s ease, -ms-transform 0.75s ease;
-				transition: opacity 0.15s ease, transform 0.75s ease;
+				-moz-transition: opacity 0.15s ease, -moz-transform 0.5s ease;
+				-webkit-transition: opacity 0.15s ease, -webkit-transform 0.5s ease;
+				-ms-transition: opacity 0.15s ease, -ms-transform 0.5s ease;
+				transition: opacity 0.15s ease, transform 0.5s ease;
 				margin: 1.5em 0 0 0;
 				opacity: 1;
 				padding: 0;
@@ -3667,45 +3667,45 @@ input, select, textarea {
 				}
 
 				#sidebar nav > ul > li:nth-child(1) {
-					-moz-transition-delay: 0.45s;
-					-webkit-transition-delay: 0.45s;
-					-ms-transition-delay: 0.45s;
-					transition-delay: 0.45s;
+					-moz-transition-delay: 0.15s;
+					-webkit-transition-delay: 0.15s;
+					-ms-transition-delay: 0.15s;
+					transition-delay: 0.15s;
 				}
 
 				#sidebar nav > ul > li:nth-child(2) {
-					-moz-transition-delay: 0.65s;
-					-webkit-transition-delay: 0.65s;
-					-ms-transition-delay: 0.65s;
-					transition-delay: 0.65s;
+					-moz-transition-delay: 0.35s;
+					-webkit-transition-delay: 0.35s;
+					-ms-transition-delay: 0.35s;
+					transition-delay: 0.35s;
 				}
 
 				#sidebar nav > ul > li:nth-child(3) {
-					-moz-transition-delay: 0.85s;
-					-webkit-transition-delay: 0.85s;
-					-ms-transition-delay: 0.85s;
-					transition-delay: 0.85s;
+					-moz-transition-delay: 0.55s;
+					-webkit-transition-delay: 0.55s;
+					-ms-transition-delay: 0.55s;
+					transition-delay: 0.55s;
 				}
 
 				#sidebar nav > ul > li:nth-child(4) {
+					-moz-transition-delay: 0.75s;
+					-webkit-transition-delay: 0.75s;
+					-ms-transition-delay: 0.75s;
+					transition-delay: 0.75s;
+				}
+
+				#sidebar nav > ul > li:nth-child(5) {
+					-moz-transition-delay: 0.95s;
+					-webkit-transition-delay: 0.95s;
+					-ms-transition-delay: 0.95s;
+					transition-delay: 0.95s;
+				}
+
+				#sidebar nav > ul > li:nth-child(6) {
 					-moz-transition-delay: 1.05s;
 					-webkit-transition-delay: 1.05s;
 					-ms-transition-delay: 1.05s;
 					transition-delay: 1.05s;
-				}
-
-				#sidebar nav > ul > li:nth-child(5) {
-					-moz-transition-delay: 1.25s;
-					-webkit-transition-delay: 1.25s;
-					-ms-transition-delay: 1.25s;
-					transition-delay: 1.25s;
-				}
-
-				#sidebar nav > ul > li:nth-child(6) {
-					-moz-transition-delay: 1.45s;
-					-webkit-transition-delay: 1.45s;
-					-ms-transition-delay: 1.45s;
-					transition-delay: 1.45s;
 				}
 
 				#sidebar nav > ul > li:nth-child(7) {
