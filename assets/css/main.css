@@ -4621,6 +4621,8 @@ input, select, textarea {
 /* Iframe wrapper */
 .videoWrapper {
   position: relative;
+  top: 25%;
+  left: 25%;
   padding-bottom: 28.2%; /* 16:9 */
   height: 0;
   overflow: hidden;
