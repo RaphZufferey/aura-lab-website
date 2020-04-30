@@ -189,7 +189,7 @@
 
 
 	// Photoalbum.
-		var $photoalbum = $('#photoalbum');
+		var $photoalbum = $('.photoalbum');
 
 		// Thumbs.
 			$photoalbum.children('.thumb').each(function() {
