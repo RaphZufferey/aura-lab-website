@@ -2251,7 +2251,7 @@ input, select, textarea {
 		@media screen and (max-width: 736px) {
 
 			.features section {
-				padding: 2.5em 1.5em 0.1em 5.5em ;
+				
 			}
 
 				.features section .icon {
@@ -2271,6 +2271,14 @@ input, select, textarea {
 					left: 0;
 					position: relative;
 					top: 0;
+				}
+
+				.features section .image {
+					left: 0;
+					position: relative;
+					top: 0;
+					opacity: 1;
+					width: 80px
 				}
 
 		}
@@ -3181,11 +3189,11 @@ input, select, textarea {
 
 		}
 
-		@media screen and (max-width: 736px) {
+		@media screen and (max-width: 500px) {
 
 			.spotlights > section > .image {
-				height: 50vh;
-				min-height: 15em;
+				width: 50%;
+				height: 20vh;
 			}
 
 			.spotlights > section > .content {
