@@ -4644,3 +4644,11 @@ input, select, textarea {
   width: 100%;
   height: 100%;
 }
+	@media screen and (max-width: 980px) {
+		.videoWrapper {
+			top: 0%;
+			left: 0%;
+			width: 100%;
+			padding-bottom: 56.4%;
+		}
+	}
