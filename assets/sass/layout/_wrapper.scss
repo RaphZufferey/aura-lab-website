@@ -7,7 +7,7 @@
 /* Wrapper (main) */
 
 	#wrapper {
-		#sidebar + & {
+		.sidebar + & {
 			margin-left: _size(sidebar-width);
 
 			@include breakpoint('<=large') {

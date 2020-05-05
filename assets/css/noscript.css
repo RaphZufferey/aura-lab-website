@@ -30,11 +30,11 @@
 
 /* Sidebar */
 
-	#sidebar > .inner {
+	.sidebar > .inner {
 		opacity: 1 !important;
 	}
 
-	#sidebar nav > ul > li {
+	.sidebar nav > ul > li {
 		-moz-transform: none !important;
 		-webkit-transform: none !important;
 		-ms-transform: none !important;
