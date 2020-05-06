@@ -3947,8 +3947,20 @@ input, select, textarea {
 
 		@media screen and (max-width: 736px) {
 
-			.sidebar {
+			/* .sidebar {
 				display: none;
+			} */
+			.sidebar nav ul li {
+				display: block;
+				height: inherit;
+				line-height: inherit;
+				margin: 0 0 0 1em;
+				padding: 0;
+			}
+
+			.sidebar nav a {
+				font-weight: bold;
+				letter-spacing: 0.02em;
 			}
 
 		}
