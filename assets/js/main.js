@@ -261,6 +261,54 @@
 					$photoalbum[0]._poptrox.windowMargin = 50;
 				});
 
+			document.addEventListener("DOMContentLoaded", function() {
+				const images = document.querySelectorAll(".fullwidthimg .image");
+				const prev = document.querySelector(".nav-arrows .prev");
+				const next = document.querySelector(".nav-arrows .next");
+				let currentIndex = 0;
+				let interval;
 
+				function showImage(index) {
+					images.forEach((img, i) => {
+						img.classList.toggle("active", i === index);
+					});
+				}
+
+				function showNextImage() {
+					currentIndex = (currentIndex + 1) % images.length;
+					showImage(currentIndex);
+				}
+
+				function showPrevImage() {
+					currentIndex = (currentIndex - 1 + images.length) % images.length;
+					showImage(currentIndex);
+				}
+
+				function startAutoRotate() {
+					interval = setInterval(showNextImage, 5000); // Change image every 3 seconds
+				}
+
+				function stopAutoRotate() {
+					clearInterval(interval);
+				}
+
+				next.addEventListener("click", () => {
+					stopAutoRotate();
+					showNextImage();
+					startAutoRotate();
+				});
+
+				prev.addEventListener("click", () => {
+					stopAutoRotate();
+					showPrevImage();
+					startAutoRotate();
+				});
+
+				// Initialize the first image and start auto-rotation
+				showImage(currentIndex);
+				startAutoRotate();
+			});
 
 })(jQuery);
+
+
