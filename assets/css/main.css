@@ -4806,9 +4806,15 @@ input, select, textarea {
     }
 }
 
-@media screen and (min-width: 1800px) {
-    .fullwidthimg > section > .image-container {
-        width: 50%;
-        height: 50%;
+
+@media (min-width: 1600px) {
+    .fullwidthimg > section {
+        width: 1306px; /* Fixed width */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: auto; /* Ensures it only wraps around the image */
+        padding: 350px; /* Remove any extra padding */
     }
 }
+
