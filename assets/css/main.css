@@ -4805,3 +4805,10 @@ input, select, textarea {
         margin: 0 1px; /* Reduce margins on smaller screens */
     }
 }
+
+@media screen and (min-width: 1800px) {
+    .fullwidthimg > section > .image-container {
+        width: 50%;
+        height: 50%;
+    }
+}
