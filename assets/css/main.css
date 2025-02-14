@@ -4807,7 +4807,7 @@ input, select, textarea {
 }
 
 
-@media (min-width: 1600px) {
+@media (min-width: 1680px) {
     .fullwidthimg > section {
         width: 1306px; /* Fixed width */
         display: flex;
