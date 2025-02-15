@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 500">
+  <!-- Generator: Adobe Illustrator 29.4.0, SVG Export Plug-In . SVG Version: 2.1.0 Build 49)  -->
+  <defs>
+    <style>
+      .st0 {
+        fill: none;
+        stroke: #ededed;
+        stroke-miterlimit: 10;
+      }
+    </style>
+  </defs>
+  <g id="Layer_1" zoomAndPan="disable">
+    <line class="st0" x1="1100" y1="500" x2="-1000" y2="250"/>
+    <line class="st0" x1="1100" y1="500" x2="-1000" y2="-100"/>
+    <line class="st0" x1="1100" y1="500" x2="-1000" y2="-500"/>
+    <line class="st0" x1="1100" y1="500" x2="-250" y2="-500"/>
+    <line class="st0" x1="1100" y1="500" x2="300" y2="-500"/>
+    <line class="st0" x1="1100" y1="500" x2="750" y2="-500"/>
+    <line class="st0" x1="1750" x2="346.9" y2="701.6"/>
+    <line class="st0" x1="1419.4" y1="40.3" x2="16.2" y2="741.9"/>
+    <line class="st0" x1="1630.3" y1="-240.2" x2="-268.3" y2="709.1"/>
+    <line class="st0" x1="856.8" y1="-78.4" x2="-1041.8" y2="870.9"/>
+    <line class="st0" x1="609.7" y1="-229.8" x2="-743.4" y2="446.7"/>
+  </g>
+</svg>
