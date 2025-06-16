@@ -2913,7 +2913,7 @@ input, select, textarea {
 	}
 
 		ul.menu > li {
-			border-left: solid 1px rgba(255, 255, 255, 0.15);
+			border-left: solid 1px rgba(255, 255, 255, 0.25);
 			display: inline-block;
 			line-height: 1;
 			margin-left: 1.5em;
@@ -3646,7 +3646,7 @@ input, select, textarea {
 
 	#footer > .inner .menu {
 		font-size: 0.8em;
-		color: rgba(255, 255, 255, 0.15);
+		color: rgba(255, 255, 255, 0.35);
 	}
 
 	#header + #wrapper + #footer > .inner {
