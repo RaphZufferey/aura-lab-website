@@ -1149,6 +1149,10 @@ input, select, textarea {
 					margin-left: 16.66667%;
 				}
 
+				.row > .col-3 {
+					width: 50%; /* 2 images per row */
+				}
+
 				.row > .col-3-medium {
 					width: 25%;
 				}
@@ -2691,6 +2695,51 @@ input, select, textarea {
 				width: 100%;
 			}
 
+/* Style for the image container with overlay text */
+.image.fit.overlay {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    overflow: hidden;
+}
+
+.image.fit.overlay img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover; /* Ensure the image covers the container */
+    transition: transform 0.3s ease, filter 0.3s ease; /* Add hover effect */
+}
+
+.image.fit.overlay:hover img {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+    filter: brightness(0.8); /* Darken the image slightly on hover */
+}
+
+.image.fit.overlay .text {
+	position: absolute;
+    bottom: 0; /* Align the gradient to the bottom of the image */
+    left: 0; /* Start from the left edge */
+    width: 100%; /* Ensure the gradient spans the entire width of the image */
+    z-index: 2; /* Ensure the text is above the image */
+    pointer-events: none; /* Prevent the text from blocking clicks on the image */
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0)); /* Gradient background */
+    padding: 1em; /* Add padding around the text */
+    font-size: 1em; /* Adjust font size */
+    font-weight: normal; /* Ensure normal font weight */
+}
+
+.image.fit.overlay .text h2 {
+	font-size: 1em;
+	margin: 0;
+}
+
+.image.fit.overlay .text p {
+	font-size: 0.9em; /* Adjust font size if needed */
+	margin: 0;
+}
+
+
 /* List */
 
 	ol {
@@ -2741,7 +2790,11 @@ input, select, textarea {
 		dl dd {
 			margin-left: 2em;
 		}
-
+	/* Hide items beyond the first 5 by default */
+	#news-list li:nth-child(n+6) {
+		display: none;
+	}
+	
 /* Actions */
 
 	ul.actions {
@@ -4071,6 +4124,9 @@ input, select, textarea {
 		-ms-flex-wrap: wrap;
 		flex-wrap: wrap;
 		-webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+		gap: 1.5em; /* Add consistent spacing between images */
+		/* justify-content: center; */
+		justify-content: space-between;
 	}
 
 		.photoalbum .thumb {
@@ -4081,7 +4137,7 @@ input, select, textarea {
 			pointer-events: auto;
 			-webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 			opacity: 1;
-			width: 25%;
+			width: 20%;
     		aspect-ratio: 1 / 1; /* This creates a 1:1 aspect ratio */
 			overflow: hidden;
 			position: relative;
@@ -4116,11 +4172,13 @@ input, select, textarea {
 				top: 0;
 				width: 100%;
 				border-radius: 0em;		
+				border-radius: 5px; 	
 			}		
 				
 			.photoalbum .thumb img {
 					width: 100%;
 					height: 100%;
+					border-radius: 5px; 
 					object-fit: cover; /* or 'contain' depending on your requirement */
 				}
 			
@@ -4193,8 +4251,8 @@ input, select, textarea {
 			-webkit-transition-delay: 2.525s;
 			-ms-transition-delay: 2.525s;
 			transition-delay: 2.525s;
-			height: 25%;
-			width: 25%;
+			/* height: 25%;
+			width: 25%; */
 		}
 
 			.photoalbum .thumb:nth-child(1) {
