@@ -261,72 +261,86 @@
 					$photoalbum[0]._poptrox.windowMargin = 50;
 				});
 
-			document.addEventListener("DOMContentLoaded", function() {
-				const images = document.querySelectorAll(".fullwidthimg .image");
-				const prev = document.querySelector(".nav-arrows .prev");
-				const next = document.querySelector(".nav-arrows .next");
-				let currentIndex = 0;
-				let interval;
+			document.addEventListener("DOMContentLoaded", function () {
 
-				function showImage(index) {
-					images.forEach((img, i) => {
-						img.classList.toggle("active", i === index);
+				function initCarousel(carouselId) {
+
+					const carousel = document.getElementById(carouselId);
+					if (!carousel) return;
+
+					const images = carousel.querySelectorAll(":scope > section > .image");
+					const prev = carousel.querySelector(":scope .nav-arrows .prev");
+					const next = carousel.querySelector(":scope .nav-arrows .next");
+
+					if (images.length === 0) return;
+
+					let currentIndex = 0;
+					let interval;
+
+					function showImage(index) {
+						images.forEach((img, i) => {
+							img.classList.toggle("active", i === index);
+						});
+					}
+
+					function showNextImage() {
+						currentIndex = (currentIndex + 1) % images.length;
+						showImage(currentIndex);
+					}
+
+					function showPrevImage() {
+						currentIndex = (currentIndex - 1 + images.length) % images.length;
+						showImage(currentIndex);
+					}
+
+					function startAutoRotate() {
+						interval = setInterval(showNextImage, 5000);
+					}
+
+					function stopAutoRotate() {
+						clearInterval(interval);
+					}
+
+					next?.addEventListener("click", () => {
+						stopAutoRotate();
+						showNextImage();
+						startAutoRotate();
 					});
-				}
 
-				function showNextImage() {
-					currentIndex = (currentIndex + 1) % images.length;
+					prev?.addEventListener("click", () => {
+						stopAutoRotate();
+						showPrevImage();
+						startAutoRotate();
+					});
+
 					showImage(currentIndex);
-				}
-
-				function showPrevImage() {
-					currentIndex = (currentIndex - 1 + images.length) % images.length;
-					showImage(currentIndex);
-				}
-
-				function startAutoRotate() {
-					interval = setInterval(showNextImage, 5000); // Change image every 3 seconds
-				}
-
-				function stopAutoRotate() {
-					clearInterval(interval);
-				}
-
-				next.addEventListener("click", () => {
-					stopAutoRotate();
-					showNextImage();
 					startAutoRotate();
+				}
+
+				// Initialize each carousel independently
+				initCarousel("news");
+				initCarousel("adventures");
+
+				const toggleBtn = document.getElementById("toggle-btn");
+				const newsList = document.getElementById("news-list");
+				let isExpanded = false;
+
+				toggleBtn.addEventListener("click", function () {
+					if (isExpanded) {
+						// Collapse the list
+						const items = newsList.querySelectorAll("li:nth-child(n+6)");
+						items.forEach(item => item.style.display = "none");
+						toggleBtn.textContent = "Show more";
+					} else {
+						// Expand the list
+						const items = newsList.querySelectorAll("li:nth-child(n+6)");
+						items.forEach(item => item.style.display = "list-item");
+						toggleBtn.textContent = "Show less";
+					}
+					isExpanded = !isExpanded;
 				});
-
-				prev.addEventListener("click", () => {
-					stopAutoRotate();
-					showPrevImage();
-					startAutoRotate();
-				});
-
-				// Initialize the first image and start auto-rotation
-				showImage(currentIndex);
-				startAutoRotate();
-			    
-			    const toggleBtn = document.getElementById("toggle-btn");
-			    const newsList = document.getElementById("news-list");
-			    let isExpanded = false;
-
-			    toggleBtn.addEventListener("click", function () {
-			        if (isExpanded) {
-			            // Collapse the list
-			            const items = newsList.querySelectorAll("li:nth-child(n+6)");
-			            items.forEach(item => item.style.display = "none");
-			            toggleBtn.textContent = "Show more";
-			        } else {
-			            // Expand the list
-			            const items = newsList.querySelectorAll("li:nth-child(n+6)");
-			            items.forEach(item => item.style.display = "list-item");
-			            toggleBtn.textContent = "Show less";
-			        }
-			        isExpanded = !isExpanded;
-			    });
 			});
+				
 
 })(jQuery);
 
