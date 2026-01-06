@@ -321,6 +321,24 @@
 				initCarousel("news");
 				initCarousel("adventures");
 
+				const toggleBtn = document.getElementById("toggle-btn");
+				const newsList = document.getElementById("news-list");
+				let isExpanded = false;
+
+				toggleBtn.addEventListener("click", function () {
+					if (isExpanded) {
+						// Collapse the list
+						const items = newsList.querySelectorAll("li:nth-child(n+6)");
+						items.forEach(item => item.style.display = "none");
+						toggleBtn.textContent = "Show more";
+					} else {
+						// Expand the list
+						const items = newsList.querySelectorAll("li:nth-child(n+6)");
+						items.forEach(item => item.style.display = "list-item");
+						toggleBtn.textContent = "Show less";
+					}
+					isExpanded = !isExpanded;
+				});
 			});
 				
 
