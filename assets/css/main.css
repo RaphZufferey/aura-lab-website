@@ -174,7 +174,7 @@ input, select, textarea {
 		margin: 0 0 2em 0;
 	}
 
-	p.dark{
+	p.dark, ul.dark li, ol.dark li {
 		color: #555555;
 		text-align: justify;
  		text-justify: inter-word;
@@ -2737,6 +2737,12 @@ input, select, textarea {
 .image.fit.overlay .text p {
 	font-size: 0.9em; /* Adjust font size if needed */
 	margin: 0;
+}
+
+.image.fit.overlay .text a {
+	pointer-events: auto;
+	color: inherit;
+	text-decoration: underline;
 }
 
 
