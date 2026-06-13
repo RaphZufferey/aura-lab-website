@@ -29,7 +29,7 @@
 		#faav-scroll-driver {
 			height: 260vh;
 			position: relative;
-			margin: 2em -2em;
+			margin: 0.5em 0 -45vh 0;
 		}
 		#faav-sticky-view {
 			position: sticky;
@@ -37,6 +37,7 @@
 			height: 70vh;
 			background: #070b12;
 			overflow: hidden;
+			border-radius: 0.25em;
 		}
 		#faav-canvas {
 			width: 100%;
@@ -112,14 +113,12 @@
 		<section id="main" class="wrapper white">
 			<div class="inner">
 
-				<div style="display: flex;align-items: flex-end;">
-					<div style="flex: 1; padding-right: 50px;">
-						<h1 class="major dark">FAAV</h1></div> <!-- Empty space on the left -->
-					<div style="flex: 0 0 33%;">
-						<span class="image fit">
-							<img src="images/logos/msca_ec_epfl2.jpg" alt="" style="width: 100%;" />
-						</span>
+				<div style="display:flex; align-items:flex-end; gap:1.5em;">
+					<div style="flex:1; padding-right:30px;">
+						<h1 class="major dark" style="margin-bottom:0;">FAAV</h1>
 					</div>
+					<img src="images/logos/AURA_flat_v1_vector.svg" alt="AURA Lab" style="width:190px; flex-shrink:0; display:block; align-self:flex-end;" />
+					<img src="images/logos/msca_ec_epfl2.jpg" alt="" style="width:280px; flex-shrink:0; display:block; align-self:flex-end;" />
 				</div>
 			
 				<h2 class="major dark">Flapping-wing Aerial Aquatic Vehicles</h2>
@@ -134,7 +133,7 @@
 
 				</p>
 
-
+				<span class="image fit"><img src="images/research/faav_transition_3.jpg" alt="" /></span>
 				<!-- Scroll-driven 3D assembly viewer -->
 				<div id="faav-scroll-driver">
 					<div id="faav-sticky-view">
@@ -149,42 +148,200 @@
 						</div>
 					</div>
 				</div>
+				
 
-				<span class="image fit"><img src="images/research/faav_cycle.jpg" alt="" /></span>
+
+			</div>
+		</section>
+
+		<!-- ── Transitions + Aerial + Underwater (unified section) ── -->
+		<section class="wrapper style2">
+			<div class="inner">
+
+				<!-- Transitions ──────────────────────────────────────── -->
+				<h2 class="major">Transitions</h2>
+				<p>The water-air transition is the most demanding maneuver the FAAV performs. Water is
+				800 times denser than air, so the same wing stroke that cruises a bird through the sky meets
+				enormous resistance underwater. Leaving the surface involves the FAAV outputing a short energetic burst, accelerating 
+				a wet body through the interface against gravity in <strong>under one second</strong> using <strong>8-10 wing 
+				strokes</strong>. Our research shows that three conditions must all be met for a successful transition: 
+				intermediate wing stiffness, a short tail (a long taildrags and pitches the robot back), and a <strong>~70&deg; 
+				exit angle</strong> &mdash; too shallow and the tail drags it back, too steep and it tumbles.</p>
+
+				<span class="image fit"><img src="images/research/faav_transition_merge.jpg" alt="Transition merge" /></span>
+
+				<!-- transition_1 and transition_2 cropped to same aspect ratio via CSS -->
+				<div class="box alt">
+					<div class="row gtr-uniform">
+						<div class="col-6">
+							<div style="aspect-ratio:5432/3842;overflow:hidden;border-radius:0.25em;">
+								<img src="images/research/faav_transition_1.jpg" alt="Transition sequence 1" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;" />
+							</div>
+						</div>
+						<div class="col-6">
+							<div style="aspect-ratio:5432/3842;overflow:hidden;border-radius:0.25em;">
+								<img src="images/research/faav_transition_2.jpg" alt="Transition sequence 2" style="width:100%;height:100%;object-fit:cover;object-position:75% center;display:block;" />
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row gtr-uniform">
+					<div class="col-6">
+						<div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:0.25em;">
+							<iframe src="https://www.youtube.com/embed/DqIZASLP58Q?rel=0" title="FAAV Transition 1"
+								allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture"
+								allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"></iframe>
+						</div>
+					</div>
+					<div class="col-6">
+						<div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:0.25em;">
+							<iframe src="https://www.youtube.com/embed/upRVvjo7MB8?rel=0" title="FAAV Transition 2"
+								allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture"
+								allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"></iframe>
+						</div>
+					</div>
+				</div>
+
+				<!-- Horizontal divider -->
+				<hr style="border:none;border-top:1px solid rgba(255,255,255,0.15);margin:3em 0;" />
+
+				<!-- Aerial + Underwater split ────────────────────────── -->
+				<div style="display:flex;flex-wrap:nowrap;align-items:flex-start;gap:0;">
+
+					<!-- Aerial -->
+					<div style="flex:0 0 calc(50% - 1px);padding-right:2em;">
+						<h2 class="major">Aerial</h2>
+						<p>In flight the FAAV uses biologically-inspired flapping wings to generate lift and thrust
+						simultaneously &mdash; no propellers, no exposed blades. The wings are flexible membranes
+						that bend passively in dense water and snap back to full span in air, adapting to both
+						media without any folding mechanism. Flight has been validated indoors and in the
+						WindShape wind tunnel at EPFL.</p>
+
+						<!-- Aerial specs -->
+						<ul style="margin-bottom:1.5em;">
+							<li><strong>Cruise speed:</strong> 6.3&thinsp;m/s &nbsp;(range 4.6&ndash;7.4&thinsp;m/s)</li>
+							<li><strong>Estimated range:</strong> ~6&thinsp;km per charge</li>
+							<li><strong>Flapping frequency:</strong> 5&ndash;11&thinsp;Hz</li>
+							<li><strong>Wingspan:</strong> 88&thinsp;cm tip-to-tip</li>
+						</ul>
+
+						<span class="image fit" style="margin-bottom:1em;"><img src="images/research/faav_windshape_2.jpg" alt="FAAV in WindShape wind tunnel" /></span>
+						<span class="image fit" style="margin-bottom:1em;"><img src="images/research/faav_flight_merge.jpg" alt="FAAV flight merge" /></span>
+
+						<div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:0.25em;">
+							<iframe src="https://www.youtube.com/embed/RGgTO-WEZMI?rel=0" title="FAAV Aerial"
+								allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture"
+								allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"></iframe>
+						</div>
+					</div>
+
+					<!-- Vertical divider -->
+					<div style="flex:0 0 1px;background:rgba(255,255,255,0.15);align-self:stretch;"></div>
+
+					<!-- Underwater -->
+					<div style="flex:0 0 calc(50% - 1px);padding-left:2em;">
+						<h2 class="major">Underwater</h2>
+						<p>The FAAV uses the same flapping wings to propel the robot underwater as in air. Water's high density causes
+						the flexible wings to bend up to 90%, passively reducing the effective stroke and
+						protecting the motor from burning out. Unlike propellors, flexible
+						flapping wings shrug off bumps and don't foul on weeds or debris the way a rigid propeller does
+						- useful in cluttered places like coral reefs, riverbeds and kelp forests. 
+
+						<!-- Underwater specs -->
+						<ul style="margin-bottom:1.5em;">
+							<li><strong>Max swim speed:</strong> 0.95&thinsp;m/s</li>
+							<li><strong>Estimated range:</strong> ~2&thinsp;km per charge</li>
+							<li><strong>Flapping frequency:</strong> 0.1&ndash;6&thinsp;Hz</li>
+							<li><strong>Buoyancy:</strong> Neutrally buoyant</li>
+						</ul>
+
+						<!-- swim_2 cropped top/bottom to match windshape_2's aspect ratio -->
+						<div style="aspect-ratio:5820/3066;overflow:hidden;border-radius:0.25em;margin-bottom:1em;">
+							<img src="images/research/faav_swim_2.jpg" alt="FAAV swimming" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;" />
+						</div>
+
+						<div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:0.25em;margin-bottom:1em;">
+							<iframe src="https://www.youtube.com/embed/JT5y4dZFXo4?rel=0" title="FAAV Swimming 1"
+								allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture"
+								allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"></iframe>
+						</div>
+
+						<div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:0.25em;">
+							<iframe src="https://www.youtube.com/embed/_hlQH3HHMgQ?rel=0" title="FAAV Swimming 2"
+								allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture"
+								allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"></iframe>
+						</div>
+					</div>
+
+				</div><!-- end aerial/underwater row -->
+
+			</div>
+		</section>
+		<!-- ── Quick Facts ────────────────────────────────────────────────── -->
+		<section class="wrapper style3">
+			<div class="inner">
+				<h2 class="major">Quick Facts</h2>
+				<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1.5em;margin-top:1em;">
+					<div style="text-align:center;">
+						<div style="font-size:2.2em;font-weight:700;color:#5aabf5;">250 g</div>
+						<div style="font-size:0.85em;opacity:0.7;">Total mass</div>
+					</div>
+					<div style="text-align:center;">
+						<div style="font-size:2.2em;font-weight:700;color:#5aabf5;">88 cm</div>
+						<div style="font-size:0.85em;opacity:0.7;">Wingspan</div>
+					</div>
+					<div style="text-align:center;">
+						<div style="font-size:2.2em;font-weight:700;color:#5aabf5;">6.3 m/s</div>
+						<div style="font-size:0.85em;opacity:0.7;">Cruise speed in air</div>
+					</div>
+					<div style="text-align:center;">
+						<div style="font-size:2.2em;font-weight:700;color:#5aabf5;">0.95 m/s</div>
+						<div style="font-size:0.85em;opacity:0.7;">Swim speed</div>
+					</div>
+					<div style="text-align:center;">
+						<div style="font-size:2.2em;font-weight:700;color:#5aabf5;">&lt;1 s</div>
+						<div style="font-size:0.85em;opacity:0.7;">Water exit duration</div>
+					</div>
+					<div style="text-align:center;">
+						<div style="font-size:2.2em;font-weight:700;color:#5aabf5;">~$300</div>
+						<div style="font-size:0.85em;opacity:0.7;">Component cost</div>
+					</div>
+					<div style="text-align:center;">
+						<div style="font-size:2.2em;font-weight:700;color:#5aabf5;">6 km</div>
+						<div style="font-size:0.85em;opacity:0.7;">Range in air</div>
+					</div>
+					<div style="text-align:center;">
+						<div style="font-size:2.2em;font-weight:700;color:#5aabf5;">2 km</div>
+						<div style="font-size:0.85em;opacity:0.7;">Range in water</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- ── Why / Objectives ────────────────────────────────────────────── -->
+		<section class="wrapper white">
+			<div class="inner">
 
 				<h3 class="major dark">Why such robots?</h3>
-
-
-
+				<span class="image fit"><img src="images/research/faav_cycle.jpg" alt="" /></span>
 				<p class="dark">More than ever before we are realizing the importance of our lakes, rivers and oceans. Conservation of our water
 				ecosystems as well as climate models and flood management all depend on the availability of local, rapid and extensive
 				environmental data. There are important open questions regarding the impacts of climate change on water temperature and
 				water flow alteration, sedimentation in glacial flows, algal blooms, coral reef degradation, fishery exploitation,
-				pressures due to invasive alien species, emissions of pesticides, pollutants and microplastics. To this day, all these
+				pressures due to invasive species, emissions of pesticides, pollutants and microplastics. To this day, all these
 				issues cannot be well quantified due to a lack of available data. The importance of advancing our knowledge of water
 				systems advocates for the development of aerial-aquatic robots as a transformative solution for effective monitoring.
 				Data collection has improved (for example from remote satellite imagery or autonomous sinking-rising buoys e.g. ARGO
 				floats), but coverage in space and time is still insufficient to provide a consistent picture globally, and the existing
 				solutions are expensive.</p>
-				
-				
-				<div class="box alt">
-					<div class="row gtr-uniform">
-						<div class="col-5"><span class="image fit"><img src="images/research/faav_fly_1.jpg"
-									alt="" /></span></div>
-						<div class="col-7"><span class="image fit"><img src="images/research/faav_swim_1.jpg"
-									alt="" /></span></div>
-
-
-						<div class="col-6"><span class="image fit"><img src="images/research/faav_sensor.jpg"
-									alt="" /></span></div>
-						<div class="col-6"><span class="image fit"><img src="images/research/faav_windshape.jpg"
-									alt="" /></span></div>
-
-					</div>
-				</div>
 
 				<h3 class="major dark">Objectives</h3>
+
+				<div style="display:flex;gap:1em;align-items:flex-start;margin-bottom:1.5em;">
+					<img src="images/research/faav_fig1.jpg" alt="FAAV figure 1" style="flex:1 1 0;width:0;height:auto;border-radius:0.25em;" />
+					<img src="images/research/faav_fig2.jpg" alt="FAAV figure 2" style="flex:1 1 0;width:0;height:auto;border-radius:0.25em;" />
+				</div>
+
 				<p class="dark">
 				This project aims to push our knowledge in mobile robotics, focusing on locomotion capabilities in air and in water.
 				Biology provides a strong source of inspiration for solving the extremely challenging constraints that aerial-aquatic
@@ -198,6 +355,11 @@
 				required to improve control methods, efficiencies and propulsive power, as well as continued research regarding the
 				impact of wind, wave and current natural elements, which are ubiquitous outdoors.
 				</p>
+
+				<ul class="actions">
+					<li><a href="https://doi.org/10.1109/LRA.2019.2921507" class="button dark icon solid fa-external-link-alt">Publication</a></li>
+				</ul>
+
 			</div>
 		</section>
 
