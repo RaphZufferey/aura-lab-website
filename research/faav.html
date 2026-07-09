@@ -16,6 +16,78 @@
 	<noscript>
 		<link rel="stylesheet" href="/assets/css/noscript.css" />
 	</noscript>
+	<script type="importmap">
+	{
+	  "imports": {
+	    "three": "https://cdn.jsdelivr.net/npm/three@0.166.1/build/three.module.js",
+	    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.166.1/examples/jsm/"
+	  }
+	}
+	</script>
+	<style>
+		/* ── 3D assembly scroll section ──────────────────────── */
+		#faav-scroll-driver {
+			height: 260vh;
+			position: relative;
+			margin: 0.5em 0 -45vh 0;
+		}
+		#faav-sticky-view {
+			position: sticky;
+			top: 15vh;
+			height: 70vh;
+			background: #070b12;
+			overflow: hidden;
+			border-radius: 0.25em;
+		}
+		#faav-canvas {
+			width: 100%;
+			height: 100%;
+			display: block;
+		}
+		#faav-loading {
+			position: absolute;
+			inset: 0;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			color: rgba(180,210,255,0.45);
+			font-size: 0.8em;
+			letter-spacing: 0.14em;
+			text-transform: uppercase;
+			font-family: 'Source Sans Pro', Helvetica, sans-serif;
+			pointer-events: none;
+			transition: opacity 0.6s;
+		}
+		#faav-ui {
+			position: absolute;
+			bottom: 2.4rem;
+			left: 50%;
+			transform: translateX(-50%);
+			text-align: center;
+			color: #b8cfe8;
+			font-family: 'Source Sans Pro', Helvetica, sans-serif;
+			font-size: 0.82em;
+			letter-spacing: 0.07em;
+			pointer-events: none;
+			white-space: nowrap;
+		}
+		#faav-assembly-ui { transition: opacity 0.5s; }
+		#faav-explore-ui  { opacity: 0; transition: opacity 0.9s; }
+		#faav-progress-track {
+			width: 190px;
+			height: 2px;
+			background: rgba(180,210,255,0.18);
+			border-radius: 2px;
+			margin: 0.55em auto 0;
+		}
+		#faav-progress-fill {
+			height: 100%;
+			width: 0%;
+			background: #5aabf5;
+			border-radius: 2px;
+			transition: background 0.4s;
+		}
+	</style>
 </head>
 
 <body class="is-preload">
@@ -41,14 +113,12 @@
 		<section id="main" class="wrapper white">
 			<div class="inner">
 
-				<div style="display: flex;align-items: flex-end;">
-					<div style="flex: 1; padding-right: 50px;">
-						<h1 class="major dark">FAAV</h1></div> <!-- Empty space on the left -->
-					<div style="flex: 0 0 33%;">
-						<span class="image fit">
-							<img src="images/logos/msca_ec_epfl2.jpg" alt="" style="width: 100%;" />
-						</span>
+				<div style="display:flex; align-items:flex-end; gap:1.5em;">
+					<div style="flex:1; padding-right:30px;">
+						<h1 class="major dark" style="margin-bottom:0;">FAAV</h1>
 					</div>
+					<img src="images/logos/AURA_flat_v1_vector.svg" alt="AURA Lab" style="width:190px; flex-shrink:0; display:block; align-self:flex-end;" />
+					<img src="images/logos/msca_ec_epfl2.jpg" alt="" style="width:280px; flex-shrink:0; display:block; align-self:flex-end;" />
 				</div>
 			
 				<h2 class="major dark">Flapping-wing Aerial Aquatic Vehicles</h2>
@@ -63,42 +133,215 @@
 
 				</p>
 
+				<span class="image fit"><img src="images/research/faav_transition_3.jpg" alt="" /></span>
+				<!-- Scroll-driven 3D assembly viewer -->
+				<div id="faav-scroll-driver">
+					<div id="faav-sticky-view">
+						<canvas id="faav-canvas"></canvas>
+						<div id="faav-loading">Loading model&hellip;</div>
+						<div id="faav-ui">
+							<div id="faav-assembly-ui">
+								<span id="faav-hint-text">&darr;&nbsp; Scroll to assemble</span>
+								<div id="faav-progress-track"><div id="faav-progress-fill"></div></div>
+							</div>
+							<div id="faav-explore-ui">Drag to rotate &nbsp;&middot;&nbsp; Scroll to zoom</div>
+						</div>
+					</div>
+				</div>
+				
 
-				<span class="image fit"><img src="images/research/faav_cycle.jpg" alt="" /></span>
+
+			</div>
+		</section>
+
+		<!-- ── Transitions + Aerial + Underwater (unified section) ── -->
+		<section class="wrapper style2">
+			<div class="inner">
+
+				<!-- Transitions ──────────────────────────────────────── -->
+				<h2 class="major">Transitions</h2>
+				<p>The water-air transition is the most demanding maneuver the FAAV performs. Water is
+				800 times denser than air, so the same wing stroke that cruises a bird through the sky meets
+				enormous resistance underwater. Leaving the surface involves the FAAV outputing a short energetic burst, accelerating 
+				a wet body through the interface against gravity in <strong>under one second</strong> using <strong>8-10 wing 
+				strokes</strong>. Our research shows that three conditions must all be met for a successful transition: 
+				intermediate wing stiffness, a short tail (a long taildrags and pitches the robot back), and a <strong>~70&deg; 
+				exit angle</strong> &mdash; too shallow and the tail drags it back, too steep and it tumbles.</p>
+
+				<span class="image fit"><img src="images/research/faav_transition_merge.jpg" alt="Transition merge" /></span>
+
+				<!-- transition_1 and transition_2 cropped to same aspect ratio via CSS -->
+				<div class="box alt">
+					<div class="row gtr-uniform">
+						<div class="col-6">
+							<div style="aspect-ratio:5432/3842;overflow:hidden;border-radius:0.25em;">
+								<img src="images/research/faav_transition_1.jpg" alt="Transition sequence 1" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;" />
+							</div>
+						</div>
+						<div class="col-6">
+							<div style="aspect-ratio:5432/3842;overflow:hidden;border-radius:0.25em;">
+								<img src="images/research/faav_transition_2.jpg" alt="Transition sequence 2" style="width:100%;height:100%;object-fit:cover;object-position:75% center;display:block;" />
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row gtr-uniform">
+					<div class="col-6">
+						<div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:0.25em;">
+							<iframe src="https://www.youtube.com/embed/DqIZASLP58Q?rel=0" title="FAAV Transition 1"
+								allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture"
+								allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"></iframe>
+						</div>
+					</div>
+					<div class="col-6">
+						<div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:0.25em;">
+							<iframe src="https://www.youtube.com/embed/upRVvjo7MB8?rel=0" title="FAAV Transition 2"
+								allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture"
+								allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"></iframe>
+						</div>
+					</div>
+				</div>
+
+				<!-- Horizontal divider -->
+				<hr style="border:none;border-top:1px solid rgba(255,255,255,0.15);margin:3em 0;" />
+
+				<!-- Aerial + Underwater split ────────────────────────── -->
+				<div style="display:flex;flex-wrap:nowrap;align-items:flex-start;gap:0;">
+
+					<!-- Aerial -->
+					<div style="flex:0 0 calc(50% - 1px);padding-right:2em;">
+						<h2 class="major">Aerial</h2>
+						<p>In flight the FAAV uses biologically-inspired flapping wings to generate lift and thrust
+						simultaneously &mdash; no propellers, no exposed blades. The wings are flexible membranes
+						that bend passively in dense water and snap back to full span in air, adapting to both
+						media without any folding mechanism. Flight has been validated indoors and in the
+						WindShape wind tunnel at EPFL.</p>
+
+						<!-- Aerial specs -->
+						<ul style="margin-bottom:1.5em;">
+							<li><strong>Cruise speed:</strong> 6.3&thinsp;m/s &nbsp;(range 4.6&ndash;7.4&thinsp;m/s)</li>
+							<li><strong>Estimated range:</strong> ~6&thinsp;km per charge</li>
+							<li><strong>Flapping frequency:</strong> 5&ndash;11&thinsp;Hz</li>
+							<li><strong>Wingspan:</strong> 88&thinsp;cm tip-to-tip</li>
+						</ul>
+
+						<span class="image fit" style="margin-bottom:1em;"><img src="images/research/faav_windshape_2.jpg" alt="FAAV in WindShape wind tunnel" /></span>
+						<span class="image fit" style="margin-bottom:1em;"><img src="images/research/faav_flight_merge.jpg" alt="FAAV flight merge" /></span>
+
+						<div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:0.25em;">
+							<iframe src="https://www.youtube.com/embed/RGgTO-WEZMI?rel=0" title="FAAV Aerial"
+								allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture"
+								allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"></iframe>
+						</div>
+					</div>
+
+					<!-- Vertical divider -->
+					<div style="flex:0 0 1px;background:rgba(255,255,255,0.15);align-self:stretch;"></div>
+
+					<!-- Underwater -->
+					<div style="flex:0 0 calc(50% - 1px);padding-left:2em;">
+						<h2 class="major">Underwater</h2>
+						<p>The FAAV uses the same flapping wings to propel the robot underwater as in air. Water's high density causes
+						the flexible wings to bend up to 90%, passively reducing the effective stroke and
+						protecting the motor from burning out. Unlike propellors, flexible
+						flapping wings shrug off bumps and don't foul on weeds or debris the way a rigid propeller does
+						- useful in cluttered places like coral reefs, riverbeds and kelp forests. 
+
+						<!-- Underwater specs -->
+						<ul style="margin-bottom:1.5em;">
+							<li><strong>Max swim speed:</strong> 0.95&thinsp;m/s</li>
+							<li><strong>Estimated range:</strong> ~2&thinsp;km per charge</li>
+							<li><strong>Flapping frequency:</strong> 0.1&ndash;6&thinsp;Hz</li>
+							<li><strong>Buoyancy:</strong> Neutrally buoyant</li>
+						</ul>
+
+						<!-- swim_2 cropped top/bottom to match windshape_2's aspect ratio -->
+						<div style="aspect-ratio:5820/3066;overflow:hidden;border-radius:0.25em;margin-bottom:1em;">
+							<img src="images/research/faav_swim_2.jpg" alt="FAAV swimming" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;" />
+						</div>
+
+						<div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:0.25em;margin-bottom:1em;">
+							<iframe src="https://www.youtube.com/embed/JT5y4dZFXo4?rel=0" title="FAAV Swimming 1"
+								allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture"
+								allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"></iframe>
+						</div>
+
+						<div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:0.25em;">
+							<iframe src="https://www.youtube.com/embed/_hlQH3HHMgQ?rel=0" title="FAAV Swimming 2"
+								allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture"
+								allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"></iframe>
+						</div>
+					</div>
+
+				</div><!-- end aerial/underwater row -->
+
+			</div>
+		</section>
+		<!-- ── Quick Facts ────────────────────────────────────────────────── -->
+		<section class="wrapper style3">
+			<div class="inner">
+				<h2 class="major">Quick Facts</h2>
+				<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1.5em;margin-top:1em;">
+					<div style="text-align:center;">
+						<div style="font-size:2.2em;font-weight:700;color:#5aabf5;">250 g</div>
+						<div style="font-size:0.85em;opacity:0.7;">Total mass</div>
+					</div>
+					<div style="text-align:center;">
+						<div style="font-size:2.2em;font-weight:700;color:#5aabf5;">88 cm</div>
+						<div style="font-size:0.85em;opacity:0.7;">Wingspan</div>
+					</div>
+					<div style="text-align:center;">
+						<div style="font-size:2.2em;font-weight:700;color:#5aabf5;">6.3 m/s</div>
+						<div style="font-size:0.85em;opacity:0.7;">Cruise speed in air</div>
+					</div>
+					<div style="text-align:center;">
+						<div style="font-size:2.2em;font-weight:700;color:#5aabf5;">0.95 m/s</div>
+						<div style="font-size:0.85em;opacity:0.7;">Swim speed</div>
+					</div>
+					<div style="text-align:center;">
+						<div style="font-size:2.2em;font-weight:700;color:#5aabf5;">&lt;1 s</div>
+						<div style="font-size:0.85em;opacity:0.7;">Water exit duration</div>
+					</div>
+					<div style="text-align:center;">
+						<div style="font-size:2.2em;font-weight:700;color:#5aabf5;">~$300</div>
+						<div style="font-size:0.85em;opacity:0.7;">Component cost</div>
+					</div>
+					<div style="text-align:center;">
+						<div style="font-size:2.2em;font-weight:700;color:#5aabf5;">6 km</div>
+						<div style="font-size:0.85em;opacity:0.7;">Range in air</div>
+					</div>
+					<div style="text-align:center;">
+						<div style="font-size:2.2em;font-weight:700;color:#5aabf5;">2 km</div>
+						<div style="font-size:0.85em;opacity:0.7;">Range in water</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- ── Why / Objectives ────────────────────────────────────────────── -->
+		<section class="wrapper white">
+			<div class="inner">
 
 				<h3 class="major dark">Why such robots?</h3>
-
-
-
+				<span class="image fit"><img src="images/research/faav_cycle.jpg" alt="" /></span>
 				<p class="dark">More than ever before we are realizing the importance of our lakes, rivers and oceans. Conservation of our water
 				ecosystems as well as climate models and flood management all depend on the availability of local, rapid and extensive
 				environmental data. There are important open questions regarding the impacts of climate change on water temperature and
 				water flow alteration, sedimentation in glacial flows, algal blooms, coral reef degradation, fishery exploitation,
-				pressures due to invasive alien species, emissions of pesticides, pollutants and microplastics. To this day, all these
+				pressures due to invasive species, emissions of pesticides, pollutants and microplastics. To this day, all these
 				issues cannot be well quantified due to a lack of available data. The importance of advancing our knowledge of water
 				systems advocates for the development of aerial-aquatic robots as a transformative solution for effective monitoring.
 				Data collection has improved (for example from remote satellite imagery or autonomous sinking-rising buoys e.g. ARGO
 				floats), but coverage in space and time is still insufficient to provide a consistent picture globally, and the existing
 				solutions are expensive.</p>
-				
-				
-				<div class="box alt">
-					<div class="row gtr-uniform">
-						<div class="col-5"><span class="image fit"><img src="images/research/faav_fly_1.jpg"
-									alt="" /></span></div>
-						<div class="col-7"><span class="image fit"><img src="images/research/faav_swim_1.jpg"
-									alt="" /></span></div>
-
-
-						<div class="col-6"><span class="image fit"><img src="images/research/faav_sensor.jpg"
-									alt="" /></span></div>
-						<div class="col-6"><span class="image fit"><img src="images/research/faav_windshape.jpg"
-									alt="" /></span></div>
-
-					</div>
-				</div>
 
 				<h3 class="major dark">Objectives</h3>
+
+				<div style="display:flex;gap:1em;align-items:flex-start;margin-bottom:1.5em;">
+					<img src="images/research/faav_fig1.jpg" alt="FAAV figure 1" style="flex:1 1 0;width:0;height:auto;border-radius:0.25em;" />
+					<img src="images/research/faav_fig2.jpg" alt="FAAV figure 2" style="flex:1 1 0;width:0;height:auto;border-radius:0.25em;" />
+				</div>
+
 				<p class="dark">
 				This project aims to push our knowledge in mobile robotics, focusing on locomotion capabilities in air and in water.
 				Biology provides a strong source of inspiration for solving the extremely challenging constraints that aerial-aquatic
@@ -112,6 +355,11 @@
 				required to improve control methods, efficiencies and propulsive power, as well as continued research regarding the
 				impact of wind, wave and current natural elements, which are ubiquitous outdoors.
 				</p>
+
+				<ul class="actions">
+					<li><a href="https://doi.org/10.1109/LRA.2019.2921507" class="button dark icon solid fa-external-link-alt">Publication</a></li>
+				</ul>
+
 			</div>
 		</section>
 
@@ -136,6 +384,251 @@
 	<script src="assets/js/breakpoints.min.js"></script>
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
+
+	<script type="module">
+	import * as THREE from 'three';
+	import { GLTFLoader }    from 'three/addons/loaders/GLTFLoader.js';
+	import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+	// ── Renderer ─────────────────────────────────────────────────────────────
+	const canvas   = document.getElementById('faav-canvas');
+	const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
+	renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+	renderer.outputColorSpace = THREE.SRGBColorSpace;
+	renderer.setClearColor(0x070b12);
+
+	const scene  = new THREE.Scene();
+	const camera = new THREE.PerspectiveCamera(42, 1, 0.001, 500);
+
+	// ── Lighting ──────────────────────────────────────────────────────────────
+	scene.add(new THREE.AmbientLight(0xffffff, 0.4));
+	const key = new THREE.DirectionalLight(0xffffff, 2.2);
+	key.position.set(2, 3, 2);
+	scene.add(key);
+	const fill = new THREE.DirectionalLight(0x88aadd, 0.7);
+	fill.position.set(-2, -0.5, -1);
+	scene.add(fill);
+	const rim = new THREE.DirectionalLight(0x2255bb, 0.5);
+	rim.position.set(0, -2, -3);
+	scene.add(rim);
+
+	// ── OrbitControls ─────────────────────────────────────────────────────────
+	const controls = new OrbitControls(camera, canvas);
+	controls.enableDamping  = true;
+	controls.dampingFactor  = 0.06;
+	controls.enabled        = false;
+
+	// ── State ─────────────────────────────────────────────────────────────────
+	let meshData    = [];   // { mesh, dir, origPos, explodeDist }
+	let modelScene  = null;
+	let modelCenter = new THREE.Vector3();
+	let maxDim      = 1;
+	let modelLoaded = false;
+	let explodeFactor  = 1.0;  // 1 = fully exploded, 0 = assembled
+	let orbitEnabled   = false;
+
+	// ── GLB Load ──────────────────────────────────────────────────────────────
+	const loadingEl     = document.getElementById('faav-loading');
+	const progressFillEl = document.getElementById('faav-progress-fill');
+	const hintTextEl    = document.getElementById('faav-hint-text');
+	const assemblyUI    = document.getElementById('faav-assembly-ui');
+	const exploreUI     = document.getElementById('faav-explore-ui');
+	const scrollDriver  = document.getElementById('faav-scroll-driver');
+	const stickyViewEl  = document.getElementById('faav-sticky-view');
+
+	new GLTFLoader().load(
+		'../files/FAAV4.0%20Science%20Submission%20v2.glb',
+		(gltf) => {
+			loadingEl.style.opacity = '0';
+			modelScene = gltf.scene;
+			scene.add(modelScene);
+
+			// Bounding box & camera
+			const box  = new THREE.Box3().setFromObject(modelScene);
+			const size = new THREE.Vector3();
+			box.getCenter(modelCenter);
+			box.getSize(size);
+			maxDim = Math.max(size.x, size.y, size.z);
+
+			camera.near = maxDim * 0.001;
+			camera.far  = maxDim * 60;
+			camera.position.set(
+				modelCenter.x + maxDim * 0.15,
+				modelCenter.y + maxDim * 0.4,
+				modelCenter.z + maxDim * 1.8
+			);
+			camera.lookAt(modelCenter);
+			controls.target.copy(modelCenter);
+			controls.update();
+			camera.updateProjectionMatrix();
+
+			// Collect meshes + per-mesh explode vectors
+			const rng = seededRng(13);
+			let meshIndex = 0;
+			modelScene.traverse((child) => {
+				if (!child.isMesh) return;
+				const meshBox = new THREE.Box3().setFromObject(child);
+				const center  = new THREE.Vector3();
+				meshBox.getCenter(center);
+				const radial = center.clone().sub(modelCenter);
+				const dist   = radial.length();
+
+				const roll = rng();
+				const rx = rng() - 0.5, ry = rng() - 0.5, rz = rng() - 0.5;
+				let dir;
+
+				if (roll < 0.30) {
+					// ~30% burst straight upward + slight sideways spread
+					dir = new THREE.Vector3(rx * 0.4, 1.0 + Math.abs(ry) * 0.3, rz * 0.4);
+				} else if (roll < 0.52) {
+					// ~22% fly out to the sides (left/right)
+					const side = (meshIndex % 2 === 0) ? 1 : -1;
+					dir = new THREE.Vector3(side * (0.8 + Math.abs(rx) * 0.4), ry * 0.35, rz * 0.3);
+				} else if (roll < 0.72) {
+					// ~20% radial outward from model centre (original behaviour)
+					if (dist < maxDim * 0.04)
+						dir = new THREE.Vector3(rx, ry, rz);
+					else
+						dir = radial.clone();
+				} else {
+					// ~28% fully random scatter
+					dir = new THREE.Vector3(rx, ry, rz);
+				}
+
+				dir.normalize();
+				const explodeDist = Math.max(dist * 2.0, maxDim * 0.55);
+				meshData.push({ mesh: child, dir, origPos: child.position.clone(), explodeDist });
+				meshIndex++;
+			});
+
+			modelLoaded = true;
+			applyExplosion(1.0);
+			onScroll();
+		},
+		(xhr) => {
+			if (xhr.total)
+				loadingEl.textContent = `Loading model\u2026 ${Math.round(xhr.loaded / xhr.total * 100)}%`;
+		},
+		(err) => {
+			loadingEl.textContent = 'Failed to load model';
+			console.error(err);
+		}
+	);
+
+	// ── Helpers ───────────────────────────────────────────────────────────────
+	function seededRng(seed) {
+		let s = seed;
+		return () => { s = (s * 1664525 + 1013904223) >>> 0; return s / 0xffffffff; };
+	}
+
+	// ── Tuning parameters ───────────────────────────────────────────────────────
+	// How quickly parts fly together — tweak these two to adjust feel:
+	//   EASE_POWER  higher = faster initial rush, more gradual settle (try 3–6)
+	//   SCROLL_START_OFFSET  fraction of viewport height at which assembly begins
+	//                        0 = box top hits screen top, 0.5 = box enters at center
+	const EASE_POWER           = 4;    // exponent for easeOut curve
+	const SCROLL_START_OFFSET  = 0.5;  // 0–1: assembly starts when box is this far down the viewport
+	const SCROLL_END_OFFSET    = 0.5;  // 0–1: box unsticks this many viewport-heights before section end
+	// ─────────────────────────────────────────────────────────────────────────────
+
+	function easeOutPow(t) {
+		return 1 - Math.pow(1 - t, EASE_POWER);
+	}
+
+	function applyExplosion(factor) {
+		if (!modelLoaded) return;
+		// factor: 1 = fully exploded, 0 = assembled
+		const assembled = easeOutPow(1 - factor);  // 0→1 with fast-in, slow-settle
+		for (const { mesh, dir, origPos, explodeDist } of meshData)
+			mesh.position.copy(origPos).addScaledVector(dir, (1 - assembled) * explodeDist);
+	}
+
+	// ── Scroll ────────────────────────────────────────────────────────────────
+	const ASSEMBLY_END = 0.9;  // scroll fraction where model is fully assembled
+
+	function onScroll() {
+		const rect       = scrollDriver.getBoundingClientRect();
+
+		// Sticky end: release the box so it scrolls away once assembly + explore phase is done
+		const stickyH   = stickyViewEl.offsetHeight;
+		const stickyTop = (window.innerHeight - stickyH) / 2;  // centers the box in the viewport
+		const endPx     = stickyTop + stickyH + window.innerHeight * SCROLL_END_OFFSET;
+		if (rect.bottom <= endPx) {
+			stickyViewEl.style.position = 'absolute';
+			stickyViewEl.style.top      = (scrollDriver.offsetHeight - stickyH - window.innerHeight * SCROLL_END_OFFSET) + 'px';
+			stickyViewEl.style.bottom   = 'auto';
+		} else {
+			stickyViewEl.style.position = 'sticky';
+			stickyViewEl.style.top      = stickyTop + 'px';
+			stickyViewEl.style.bottom   = '';
+		}
+
+		// Assembly starts when the box top reaches SCROLL_START_OFFSET down the viewport
+		const startPx    = window.innerHeight * SCROLL_START_OFFSET;
+		const scrolled   = startPx - rect.top;
+		const scrollable = scrollDriver.offsetHeight - window.innerHeight;
+		const raw        = Math.max(0, Math.min(1, scrolled / scrollable));
+		const asmProg    = Math.min(1, raw / ASSEMBLY_END);
+
+		explodeFactor = 1 - asmProg;
+		if (modelLoaded) applyExplosion(explodeFactor);
+
+		// Progress bar
+		progressFillEl.style.width = (asmProg * 100) + '%';
+		if (asmProg >= 1) progressFillEl.style.background = '#4dd98a';
+		else              progressFillEl.style.background = '#5aabf5';
+
+		// Hint text
+		if      (asmProg < 0.05) hintTextEl.textContent = '\u2193\u00a0 Scroll to assemble';
+		else if (asmProg < 1)    hintTextEl.textContent = 'Assembling\u2026';
+		else                     hintTextEl.textContent = 'Assembled';
+
+		// Transition between phases
+		if (raw >= ASSEMBLY_END && !orbitEnabled)  enableOrbit();
+		if (raw <  ASSEMBLY_END &&  orbitEnabled)  disableOrbit();
+	}
+
+	function enableOrbit() {
+		orbitEnabled  = true;
+		controls.enabled = true;
+		assemblyUI.style.opacity = '0';
+		exploreUI.style.opacity  = '1';
+	}
+	function disableOrbit() {
+		orbitEnabled  = false;
+		controls.enabled = false;
+		assemblyUI.style.opacity = '1';
+		exploreUI.style.opacity  = '0';
+	}
+
+	// Prevent page-scroll hijacking OrbitControls zoom
+	canvas.addEventListener('wheel', (e) => { if (orbitEnabled) e.preventDefault(); }, { passive: false });
+	window.addEventListener('scroll', onScroll, { passive: true });
+
+	// ── Resize ────────────────────────────────────────────────────────────────
+	function onResize() {
+		const w = canvas.clientWidth, h = canvas.clientHeight;
+		if (!w || !h) return;
+		renderer.setSize(w, h, false);
+		camera.aspect = w / h;
+		camera.updateProjectionMatrix();
+	}
+	window.addEventListener('resize', onResize);
+	onResize();
+
+	// ── Render loop ───────────────────────────────────────────────────────────
+	const clock = new THREE.Clock();
+	function animate() {
+		requestAnimationFrame(animate);
+		const dt = clock.getDelta();
+		// Gentle auto-rotate when fully assembled but before orbit is active
+		if (modelScene && !orbitEnabled && explodeFactor < 0.02)
+			modelScene.rotation.y += dt * 0.28;
+		if (controls.enabled) controls.update();
+		renderer.render(scene, camera);
+	}
+	animate();
+	</script>
 
 </body>
 
