@@ -24,7 +24,7 @@ website:
   bread-crumbs: true
 
   navbar:
-    background: primary
+    # Background colour comes from $navbar-bg in aura-navbar.scss.
     collapse-below: lg
     left:
       - href: index.qmd
@@ -89,8 +89,8 @@ website:
 format:
   html:
     theme:
-      light: cosmo
-      dark: darkly
+      light: [cosmo, aura-navbar.scss]
+      dark: [darkly, aura-navbar.scss]
     css: styles.css
     toc: true
     toc-depth: 3

@@ -1,0 +1,11 @@
+/*-- scss:defaults --*/
+
+// The dark grey the AURA site uses for its sidebar, taken from the compiled
+// assets/css/main.css (.sidebar { background: #222222 }). Note the site's
+// SCSS source still carries an older purple in libs/_vars.scss --- the
+// compiled CSS is what is actually served, so #222222 is the live colour.
+//
+// Set here rather than via the navbar's `background:` key in _quarto.yml,
+// because that key only accepts named Bootstrap colours and silently falls
+// back to `primary` when given a hex value.
+$navbar-bg: #222222;
