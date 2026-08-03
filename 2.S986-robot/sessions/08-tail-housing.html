@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Session 9 — Flight controller, PCB and dry testing – FAAV Build Manual</title>
+<title>Session 8 — Tail and housing – FAAV Build Manual</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -36,8 +36,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../sessions/10-waterproofing.html" rel="next">
-<link href="../sessions/08-tail-housing.html" rel="prev">
+<link href="../sessions/09-electronics-dry-test.html" rel="next">
+<link href="../sessions/07-wings.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -368,7 +368,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../sessions/01-orientation.html">Build sessions</a></li><li class="breadcrumb-item"><a href="../sessions/09-electronics-dry-test.html">Session 9 — Flight controller, PCB and dry testing</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../sessions/01-orientation.html">Build sessions</a></li><li class="breadcrumb-item"><a href="../sessions/08-tail-housing.html">Session 8 — Tail and housing</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -439,13 +439,13 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../sessions/08-tail-housing.html" class="sidebar-item-text sidebar-link">
+  <a href="../sessions/08-tail-housing.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Session 8 — Tail and housing</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../sessions/09-electronics-dry-test.html" class="sidebar-item-text sidebar-link active">
+  <a href="../sessions/09-electronics-dry-test.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Session 9 — Flight controller, PCB and dry testing</span></a>
   </div>
 </li>
@@ -528,12 +528,11 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#what-you-build-today" id="toc-what-you-build-today" class="nav-link active" data-scroll-target="#what-you-build-today">What you build today</a></li>
   <li><a href="#before-you-arrive" id="toc-before-you-arrive" class="nav-link" data-scroll-target="#before-you-arrive">Before you arrive</a></li>
-  <li><a href="#electronic-architecture" id="toc-electronic-architecture" class="nav-link" data-scroll-target="#electronic-architecture">Electronic architecture</a></li>
-  <li><a href="#flight-controller" id="toc-flight-controller" class="nav-link" data-scroll-target="#flight-controller">Flight controller</a></li>
-  <li><a href="#assembling-the-pcb" id="toc-assembling-the-pcb" class="nav-link" data-scroll-target="#assembling-the-pcb">Assembling the PCB</a></li>
-  <li><a href="#taking-the-pcb-into-operation" id="toc-taking-the-pcb-into-operation" class="nav-link" data-scroll-target="#taking-the-pcb-into-operation">Taking the PCB into operation</a></li>
-  <li><a href="#connectors" id="toc-connectors" class="nav-link" data-scroll-target="#connectors">Connectors</a></li>
-  <li><a href="#dry-testing" id="toc-dry-testing" class="nav-link" data-scroll-target="#dry-testing">Dry testing</a></li>
+  <li><a href="#tail" id="toc-tail" class="nav-link" data-scroll-target="#tail">Tail</a></li>
+  <li><a href="#housing" id="toc-housing" class="nav-link" data-scroll-target="#housing">Housing</a>
+  <ul class="collapse">
+  <li><a href="#choosing-a-foam" id="toc-choosing-a-foam" class="nav-link" data-scroll-target="#choosing-a-foam">Choosing a foam</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -541,9 +540,9 @@ ul.task-list li input[type="checkbox"] {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../sessions/01-orientation.html">Build sessions</a></li><li class="breadcrumb-item"><a href="../sessions/09-electronics-dry-test.html">Session 9 — Flight controller, PCB and dry testing</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../sessions/01-orientation.html">Build sessions</a></li><li class="breadcrumb-item"><a href="../sessions/08-tail-housing.html">Session 8 — Tail and housing</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Session 9 — Flight controller, PCB and dry testing</h1>
+<h1 class="title">Session 8 — Tail and housing</h1>
 </div>
 
 
@@ -561,189 +560,47 @@ ul.task-list li input[type="checkbox"] {
 
 
 <div class="session-meta">
-<p><strong>Week of Nov 9</strong> · Paired lecture: <em>The future of actuation</em></p>
+<p><strong>Week of Nov 2</strong> · Paired lecture: <em>Multi-modal locomotion</em></p>
 </div>
 <section id="what-you-build-today" class="level2">
 <h2 class="anchored" data-anchor-id="what-you-build-today">What you build today</h2>
-<p>The custom PCB assembled and validated, the flight controller flashed and talking to the ESC, and the robot flapping in air under wireless control.</p>
+<p>The passive tail, cut to the shape your simulation produced and mounted on its rod, plus the foam housing that protects the robot and keeps it afloat.</p>
 </section>
 <section id="before-you-arrive" class="level2">
 <h2 class="anchored" data-anchor-id="before-you-arrive">Before you arrive</h2>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
 <tbody>
 <tr class="odd">
 <td><strong>Parts</strong></td>
-<td>FAAV PCB v3.0, stencil, solder paste, XIAO ESP32S3, JST connectors, battery</td>
+<td>Carbon sheet and tail rod, foam stock (XPS or closed-cell PE), epoxy</td>
 </tr>
 <tr class="even">
 <td><strong>Tools</strong></td>
-<td>Hotplate, tweezers, multimeter, bench supply with current limit</td>
+<td>Foam cutter, scalpel</td>
 </tr>
 <tr class="odd">
-<td><strong>Read</strong></td>
-<td>This page and <a href="../reference/pcb.html">PCB revisions</a></td>
+<td><strong>Bring</strong></td>
+<td>Your Session 6 tail geometry, printed 1:1</td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="electronic-architecture" class="level2">
-<h2 class="anchored" data-anchor-id="electronic-architecture">Electronic architecture</h2>
-<p>One 4S (max 16.8 V) battery is connected to a custom PCB that steps VBAT down to 5 V to power the flight controller. The flight controller generates a 3v3 rail to power the sensors on the custom PCB. Battery power goes through a shunt for sensing on the custom PCB, then back out to power the ESC. The flight controller sends commands to the ESC over serial.</p>
-</section>
-<section id="flight-controller" class="level2">
-<h2 class="anchored" data-anchor-id="flight-controller">Flight controller</h2>
-<div id="fig-mcu" class="quarto-float quarto-figure quarto-figure-center anchored">
+<section id="tail" class="level2">
+<h2 class="anchored" data-anchor-id="tail">Tail</h2>
+<div id="fig-tail" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-mcu-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="../Fig/mcu1.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1: Microcontroller in its waterproofing box"><img src="../Fig/mcu1.jpg" class="img-fluid figure-img" style="width:50.0%"></a>
+<div aria-describedby="fig-tail-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="../Fig/tail.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1: Tail assembly"><img src="../Fig/tail.jpg" class="img-fluid figure-img" style="width:75.0%"></a>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mcu-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: Microcontroller in its waterproofing box
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-tail-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Tail assembly
 </figcaption>
 </figure>
 </div>
-<p>Firmware lives in <a href="https://github.com/MIT-AURA-Lab/FAAV-Flight-Controller">FAAV-Flight-Controller</a> (ESP32, FreeRTOS tasks). See <a href="../reference/software.html">Software</a> for older variants.</p>
-</section>
-<section id="assembling-the-pcb" class="level2">
-<h2 class="anchored" data-anchor-id="assembling-the-pcb">Assembling the PCB</h2>
-<p>As of April 2026 the current board is <strong>v3.0</strong>: 4 layers, 21 × 28.5 mm, 34 components. The complete BOM is in the Manufacturing/Assembly folder of the <a href="https://github.com/MIT-AURA-Lab/FAAV-PCB-v3">FAAV-PCB-v3 repository</a>.</p>
-<p>The simplest way to assemble a FAAV PCB is with a stencil, solder paste applied with a cutter blade, then reflow on the hotplate.</p>
-<div class="quarto-layout-panel" data-layout-ncol="2">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="../Fig/PCB_assembly1.jpeg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Tape blank PCBs around the PCB to assemble"><img src="../Fig/PCB_assembly1.jpeg" class="img-fluid figure-img" alt="Tape blank PCBs around the PCB to assemble"></a></p>
-<figcaption>Tape blank PCBs around the PCB to assemble</figcaption>
-</figure>
-</div>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="../Fig/PCB_assembly2.jpeg" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Align the stencil on top and tape it, making sure it sits flat"><img src="../Fig/PCB_assembly2.jpeg" class="img-fluid figure-img" alt="Align the stencil on top and tape it, making sure it sits flat"></a></p>
-<figcaption>Align the stencil on top and tape it, making sure it sits flat</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</div>
-<div class="quarto-layout-panel" data-layout-ncol="2">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="../Fig/PCB_assembly3.jpeg" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Wipe down solder paste with a blade in one firm pass"><img src="../Fig/PCB_assembly3.jpeg" class="img-fluid figure-img" alt="Wipe down solder paste with a blade in one firm pass"></a></p>
-<figcaption>Wipe down solder paste with a blade in one firm pass</figcaption>
-</figure>
-</div>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="../Fig/PCB_assembly4.jpeg" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Place the assembled PCB on the hot plate"><img src="../Fig/PCB_assembly4.jpeg" class="img-fluid figure-img" alt="Place the assembled PCB on the hot plate"></a></p>
-<figcaption>Place the assembled PCB on the hot plate</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="taking-the-pcb-into-operation" class="level2">
-<h2 class="anchored" data-anchor-id="taking-the-pcb-into-operation">Taking the PCB into operation</h2>
-<p>Once assembled, solder power wires for VBAT and GND at the input side of the board. Follow these steps <strong>before powering the PCB for the first time</strong>:</p>
-<ol type="1">
-<li>Check that there is no short circuit between GND and 5V / 3.3V / VBAT.</li>
-<li>Connect a <strong>15 V supply with a 100 mA current limit</strong> to the battery pads and check that it does not draw excessive current.</li>
-<li>Check with a multimeter that the buck regulator outputs 5 V from the 15 V input. The MCU should be on by then.</li>
-</ol>
-<p>With the MCU powered, flash your test firmware and check the connection to all sensors. <a href="#tbl-i2c" class="quarto-xref">Table&nbsp;1</a> gives the I²C addresses.</p>
-<div id="tbl-i2c" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-i2c-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;1: I²C addresses
-</figcaption>
-<div aria-describedby="tbl-i2c-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Component</th>
-<th>I²C address (bin)</th>
-<th>I²C address (hex)</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Pressure sensor</td>
-<td><code>0b1110110</code></td>
-<td><code>0x76</code></td>
-</tr>
-<tr class="even">
-<td>IMU</td>
-<td><code>0b1101000</code></td>
-<td><code>0x68</code></td>
-</tr>
-<tr class="odd">
-<td>INA228 power monitor</td>
-<td><code>0b0101000</code></td>
-<td><code>0x40</code></td>
-</tr>
-</tbody>
-</table>
-</div>
-</figure>
-</div>
-<p>Verify:</p>
-<ul class="task-list">
-<li><label><input type="checkbox">Voltage, current and temperature readings from the INA228</label></li>
-<li><label><input type="checkbox">IMU readings</label></li>
-<li><label><input type="checkbox">Pressure sensor readings</label></li>
-<li><label><input type="checkbox">RGB LED control</label></li>
-</ul>
-<p>Once all the hardware on the board is validated, solder the power wires at the output side of the board to the ESC, and the UART wires.</p>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Warning</span>TX to RX
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>The <strong>TX</strong> output of the PCB has to be connected to the <strong>RX</strong> pin of the ESC, and vice versa.</p>
-</div>
-</div>
-</section>
-<section id="connectors" class="level2">
-<h2 class="anchored" data-anchor-id="connectors">Connectors</h2>
-<p>The waterproof connector is the JST 8-pin <a href="https://ch.farnell.com/jst-japan-solderless-terminals/08r-jwpf-vsle-d/connector-housing-rcpt-8pos/dp/2399256">08R-JWPF-VSLE-D</a> / <a href="https://ch.farnell.com/jst-japan-solderless-terminals/08t-jwpf-vsle-d/connector-housing-tab-8pos/dp/2399257">08T-JWPF-VSLE-D</a>. All pins marked <code>_b</code> are used for balancing the battery during recharge. For use on the robot, connect at least <strong>Vbat</strong> and <strong>GND</strong>; to allow higher currents, connect <strong>Vbat_b</strong> and <strong>GND_b</strong> as well.</p>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Warning</span>Seal the unused cable slots
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Do not forget to seal the back of the connector for the unused cable slots — this is a water ingress path straight into the electronics.</p>
-</div>
-</div>
-<div id="fig-connector" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-connector-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="../Fig/Connector_wiring.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Figure&nbsp;2: Connector wiring scheme. Left: battery connector. Right: connector on the robot / for recharging the battery."><img src="../Fig/Connector_wiring.png" class="img-fluid figure-img"></a>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-connector-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2: Connector wiring scheme. Left: battery connector. Right: connector on the robot / for recharging the battery.
-</figcaption>
-</figure>
-</div>
-</section>
-<section id="dry-testing" class="level2">
-<h2 class="anchored" data-anchor-id="dry-testing">Dry testing</h2>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -754,7 +611,59 @@ Figure&nbsp;2: Connector wiring scheme. Left: battery connector. Right: connecto
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The dry-test protocol is course material, not in the guide. Needed: what the robot is mounted on while flapping in air, the flap frequency sweep, what is measured, the wireless control setup students reprogram to, and abort criteria.</p>
+<p>As with the wings, the guide contains <strong>only the photograph above</strong> for the tail. Still needed: sheet material and thickness, rod diameter, how the tail mounts to the boom, and the incidence setting. The project plan also notes tail actuation is optional if time permits — decide before the semester whether that is in scope.</p>
+</div>
+</div>
+</section>
+<section id="housing" class="level2">
+<h2 class="anchored" data-anchor-id="housing">Housing</h2>
+<p>Use a foam cutter to cut an exterior housing for the FAAV. This is an important step for external tests: it adds a layer of protection and ensures the FAAV floats. Leave space for GPS and antenna insertions if you are using them.</p>
+<p>To keep the FAAV level when floating — which helps visibility and getting it out of the water — it is recommended to put a certain amount of foam on the tail.</p>
+<section id="choosing-a-foam" class="level3">
+<h3 class="anchored" data-anchor-id="choosing-a-foam">Choosing a foam</h3>
+<p>Various foams have been tested, with tradeoffs:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Foam</th>
+<th>Floatability</th>
+<th>Absorption</th>
+<th>Impact behaviour</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Extruded polystyrene (XPS)</td>
+<td>Best, low density</td>
+<td>Zero</td>
+<td>Relatively brittle; little help damping landings</td>
+</tr>
+<tr class="even">
+<td>Closed-cell polyethylene (PE)</td>
+<td>Decent, relatively low density</td>
+<td>Light</td>
+<td>Much more compliant; usable as protection</td>
+</tr>
+</tbody>
+</table>
+<p>If someone ever has time, a multi-material housing could have its use cases.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Check solvent compatibility before painting or gluing foam
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Some foams are very sensitive to solvents. Epoxy is inert and can act as glue.</p>
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -767,11 +676,12 @@ Figure&nbsp;2: Connector wiring scheme. Left: battery connector. Right: connecto
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>PCB validated against all four sensor checks, flight controller commanding the ESC over serial, and a supervised flapping run in air.</p>
+<p>Tail mounted and aligned, housing fitted with clearance for the wings through the full flap cycle, and the assembled robot floating level in the test tank.</p>
 </div>
 </div>
 
 
+</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
@@ -861,7 +771,7 @@ Figure&nbsp;2: Connector wiring scheme. Left: battery connector. Right: connecto
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/aura\.mit\.edu\/manual\/");
+        var filterRegex = new RegExp("https:\/\/aura\.mit\.edu\/2\.S986-robot\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -1195,13 +1105,13 @@ Figure&nbsp;2: Connector wiring scheme. Left: battery connector. Right: connecto
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../sessions/08-tail-housing.html" class="pagination-link" aria-label="Session 8 --- Tail and housing">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Session 8 — Tail and housing</span>
+      <a href="../sessions/07-wings.html" class="pagination-link" aria-label="Session 7 --- Wing fabrication">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Session 7 — Wing fabrication</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../sessions/10-waterproofing.html" class="pagination-link" aria-label="Session 10 --- Waterproofing">
-        <span class="nav-page-text">Session 10 — Waterproofing</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../sessions/09-electronics-dry-test.html" class="pagination-link" aria-label="Session 9 --- Flight controller, PCB and dry testing">
+        <span class="nav-page-text">Session 9 — Flight controller, PCB and dry testing</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Session 12 — Competition – FAAV Build Manual</title>
+<title>Session 6 — Flapping simulation (Ptera) – FAAV Build Manual</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -36,8 +36,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../reference/parts-list.html" rel="next">
-<link href="../sessions/11-wet-testing.html" rel="prev">
+<link href="../sessions/07-wings.html" rel="next">
+<link href="../sessions/05-frame-crank.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -365,7 +365,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../sessions/01-orientation.html">Build sessions</a></li><li class="breadcrumb-item"><a href="../sessions/12-competition.html">Session 12 — Competition</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../sessions/01-orientation.html">Build sessions</a></li><li class="breadcrumb-item"><a href="../sessions/06-simulation.html">Session 6 — Flapping simulation (Ptera)</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -424,7 +424,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../sessions/06-simulation.html" class="sidebar-item-text sidebar-link">
+  <a href="../sessions/06-simulation.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Session 6 — Flapping simulation (Ptera)</span></a>
   </div>
 </li>
@@ -460,7 +460,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../sessions/12-competition.html" class="sidebar-item-text sidebar-link active">
+  <a href="../sessions/12-competition.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Session 12 — Competition</span></a>
   </div>
 </li>
@@ -523,9 +523,9 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#what-happens-today" id="toc-what-happens-today" class="nav-link active" data-scroll-target="#what-happens-today">What happens today</a></li>
+  <li><a href="#what-you-do-today" id="toc-what-you-do-today" class="nav-link active" data-scroll-target="#what-you-do-today">What you do today</a></li>
   <li><a href="#before-you-arrive" id="toc-before-you-arrive" class="nav-link" data-scroll-target="#before-you-arrive">Before you arrive</a></li>
-  <li><a href="#feedback" id="toc-feedback" class="nav-link" data-scroll-target="#feedback">Feedback</a></li>
+  <li><a href="#deliverable" id="toc-deliverable" class="nav-link" data-scroll-target="#deliverable">Deliverable</a></li>
   </ul>
 </nav>
     </div>
@@ -533,9 +533,9 @@ ul.task-list li input[type="checkbox"] {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../sessions/01-orientation.html">Build sessions</a></li><li class="breadcrumb-item"><a href="../sessions/12-competition.html">Session 12 — Competition</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../sessions/01-orientation.html">Build sessions</a></li><li class="breadcrumb-item"><a href="../sessions/06-simulation.html">Session 6 — Flapping simulation (Ptera)</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Session 12 — Competition</h1>
+<h1 class="title">Session 6 — Flapping simulation (Ptera)</h1>
 </div>
 
 
@@ -553,26 +553,30 @@ ul.task-list li input[type="checkbox"] {
 
 
 <div class="session-meta">
-<p><strong>Week of Nov 30</strong> · Paired lecture: <em>Pair presentations</em></p>
+<p><strong>Week of Oct 19</strong> · Paired lecture: <em>Insect-scale flapping</em> · No session Oct 12</p>
 </div>
-<section id="what-happens-today" class="level2">
-<h2 class="anchored" data-anchor-id="what-happens-today">What happens today</h2>
-<p>Robots are scored in two categories: <strong>most efficient</strong> and <strong>fastest</strong>.</p>
+<section id="what-you-do-today" class="level2">
+<h2 class="anchored" data-anchor-id="what-you-do-today">What you do today</h2>
+<p>Choose your wing and tail geometry. You simulate candidate geometries in Ptera and pick the one that gives the best thrust profile when compounded with the provided motor power curve. Sessions 7 and 8 build whatever you decide here.</p>
 </section>
 <section id="before-you-arrive" class="level2">
 <h2 class="anchored" data-anchor-id="before-you-arrive">Before you arrive</h2>
 <table class="caption-top table">
-<colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
-</colgroup>
 <tbody>
 <tr class="odd">
 <td><strong>Bring</strong></td>
-<td>Robot, spare crank–linkage shaft, spare wing, charged packs, your logged cost-of-transport data</td>
+<td>Laptop with Ptera installed, your measured loop performance from <a href="../sessions/04-control.html">Session 4</a></td>
+</tr>
+<tr class="even">
+<td><strong>Read</strong></td>
+<td>This page</td>
 </tr>
 </tbody>
 </table>
+</section>
+<section id="deliverable" class="level2">
+<h2 class="anchored" data-anchor-id="deliverable">Deliverable</h2>
+<p>A wing planform and a tail geometry, with the simulation output that justifies them, carried forward into <a href="../sessions/07-wings.html">Session 7</a> and <a href="../sessions/08-tail-housing.html">Session 8</a>.</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -583,20 +587,29 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Competition format is course material, not in the manufacturing guide. Needed:</p>
+<p>This session has <strong>no counterpart in the manufacturing guide</strong> — the guide documents the research robot’s final geometry, not the design exercise. The following need to be written from course material:</p>
 <ul>
-<li>Course layout and run rules for each category</li>
-<li>How cost of transport is computed and normalised across teams with different masses</li>
-<li>Number of attempts, and repair rules between attempts</li>
-<li>How the competition contributes to the grade</li>
-<li>What happens to robots afterwards</li>
+<li>Ptera installation and a worked example</li>
+<li>The provided motor power curve, and its format</li>
+<li>What “most efficient thrust profile” means quantitatively here, and how it is scored</li>
+<li>Constraints the students must respect so their geometry remains buildable with the frame from <a href="../sessions/05-frame-crank.html">Session 5</a> — span limits, root fitting, mass budget</li>
+<li>Whether teams may deviate from the reference wing, and by how much</li>
 </ul>
 </div>
 </div>
-</section>
-<section id="feedback" class="level2">
-<h2 class="anchored" data-anchor-id="feedback">Feedback</h2>
-<p>The final session is a recap and feedback round. This manual is rebuilt each year from what students report — if something in it cost you time, say so. Corrections made during this semester are listed in the <a href="../changelog.html">Changelog</a>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Checkpoint — TA sign-off
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A geometry chosen, with simulation evidence, and confirmed buildable against the frame and wing-root hardware.</p>
+</div>
+</div>
 
 
 </section>
@@ -688,7 +701,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/aura\.mit\.edu\/manual\/");
+        var filterRegex = new RegExp("https:\/\/aura\.mit\.edu\/2\.S986-robot\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -1022,13 +1035,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../sessions/11-wet-testing.html" class="pagination-link" aria-label="Session 11 --- Wet testing">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Session 11 — Wet testing</span>
+      <a href="../sessions/05-frame-crank.html" class="pagination-link" aria-label="Session 5 --- Frame, crank, linkage and gears">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Session 5 — Frame, crank, linkage and gears</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../reference/parts-list.html" class="pagination-link" aria-label="Parts list">
-        <span class="nav-page-text">Parts list</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../sessions/07-wings.html" class="pagination-link" aria-label="Session 7 --- Wing fabrication">
+        <span class="nav-page-text">Session 7 — Wing fabrication</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Session 1 — Orientation – FAAV Build Manual</title>
+<title>Session 11 — Wet testing – FAAV Build Manual</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -36,8 +36,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../sessions/02-motor.html" rel="next">
-<link href="../index.html" rel="prev">
+<link href="../sessions/12-competition.html" rel="next">
+<link href="../sessions/10-waterproofing.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -52,9 +52,6 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/bootstrap/bootstrap-779814d4eaa9c9e6b02b72ade1d61f9b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/bootstrap/bootstrap-dark-c8bae1f407610881bc621976b8284e03.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <link href="../site_libs/bootstrap/bootstrap-779814d4eaa9c9e6b02b72ade1d61f9b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
-<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
-<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
-<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -368,7 +365,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../sessions/01-orientation.html">Build sessions</a></li><li class="breadcrumb-item"><a href="../sessions/01-orientation.html">Session 1 — Orientation</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../sessions/01-orientation.html">Build sessions</a></li><li class="breadcrumb-item"><a href="../sessions/11-wet-testing.html">Session 11 — Wet testing</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -397,7 +394,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../sessions/01-orientation.html" class="sidebar-item-text sidebar-link active">
+  <a href="../sessions/01-orientation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Session 1 — Orientation</span></a>
   </div>
 </li>
@@ -457,7 +454,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../sessions/11-wet-testing.html" class="sidebar-item-text sidebar-link">
+  <a href="../sessions/11-wet-testing.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Session 11 — Wet testing</span></a>
   </div>
 </li>
@@ -527,9 +524,8 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#what-you-do-today" id="toc-what-you-do-today" class="nav-link active" data-scroll-target="#what-you-do-today">What you do today</a></li>
-  <li><a href="#the-robot" id="toc-the-robot" class="nav-link" data-scroll-target="#the-robot">The robot</a></li>
-  <li><a href="#electronic-architecture" id="toc-electronic-architecture" class="nav-link" data-scroll-target="#electronic-architecture">Electronic architecture</a></li>
-  <li><a href="#before-you-leave-today" id="toc-before-you-leave-today" class="nav-link" data-scroll-target="#before-you-leave-today">Before you leave today</a></li>
+  <li><a href="#before-you-arrive" id="toc-before-you-arrive" class="nav-link" data-scroll-target="#before-you-arrive">Before you arrive</a></li>
+  <li><a href="#pre-immersion-checks" id="toc-pre-immersion-checks" class="nav-link" data-scroll-target="#pre-immersion-checks">Pre-immersion checks</a></li>
   </ul>
 </nav>
     </div>
@@ -537,9 +533,9 @@ ul.task-list li input[type="checkbox"] {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../sessions/01-orientation.html">Build sessions</a></li><li class="breadcrumb-item"><a href="../sessions/01-orientation.html">Session 1 — Orientation</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../sessions/01-orientation.html">Build sessions</a></li><li class="breadcrumb-item"><a href="../sessions/11-wet-testing.html">Session 11 — Wet testing</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Session 1 — Orientation</h1>
+<h1 class="title">Session 11 — Wet testing</h1>
 </div>
 
 
@@ -557,55 +553,68 @@ ul.task-list li input[type="checkbox"] {
 
 
 <div class="session-meta">
-<p><strong>Week of Sep 9</strong> · Paired lecture: <em>Intro to robotic locomotion</em> · Teams formed today</p>
+<p><strong>Week of Nov 23</strong> · Paired lecture: <em>Fixed-wing flyers</em></p>
 </div>
 <section id="what-you-do-today" class="level2">
 <h2 class="anchored" data-anchor-id="what-you-do-today">What you do today</h2>
-<p>Form teams, complete shop training, meet the robot you are going to build, and collect your parts kit.</p>
+<p>Immersion, underwater runs, wing trim, and control tuning in water — the regime the whole transmission was designed around.</p>
 </section>
-<section id="the-robot" class="level2">
-<h2 class="anchored" data-anchor-id="the-robot">The robot</h2>
-<div id="fig-faav-overview" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-faav-overview-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="../Fig/Water-Air-Slider-V3-Carbon-v63.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1: The FAAV3.2"><img src="../Fig/Water-Air-Slider-V3-Carbon-v63.jpg" class="img-fluid figure-img"></a>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-faav-overview-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: The FAAV3.2
-</figcaption>
-</figure>
-</div>
-<p>The FAAV is a flapping-wing vehicle that operates in air and in water with the same actuation. The build divides into four subsystems, and the sessions follow that order:</p>
-<ol type="1">
-<li><strong>Transmission</strong> — motor, custom shaft, gearbox, crank and linkage (Sessions 2, 5)</li>
-<li><strong>Electronics</strong> — ESC, angular sensor, flight controller, custom PCB (Sessions 3, 4, 9)</li>
-<li><strong>Aero/hydro surfaces</strong> — wings, tail, foam housing (Sessions 6–8)</li>
-<li><strong>Waterproofing and testing</strong> — potting, immersion, tuning (Sessions 10–12)</li>
-</ol>
+<section id="before-you-arrive" class="level2">
+<h2 class="anchored" data-anchor-id="before-you-arrive">Before you arrive</h2>
+<table class="caption-top table">
+<tbody>
+<tr class="odd">
+<td><strong>Bring</strong></td>
+<td>Fully waterproofed robot from <a href="../sessions/10-waterproofing.html">Session 10</a>, charged 4S pack, spare crank–linkage shaft</td>
+</tr>
+<tr class="even">
+<td><strong>Read</strong></td>
+<td>This page, and your notes from <a href="../sessions/04-control.html">Session 4</a></td>
+</tr>
+</tbody>
+</table>
 </section>
-<section id="electronic-architecture" class="level2">
-<h2 class="anchored" data-anchor-id="electronic-architecture">Electronic architecture</h2>
-<p>One 4S battery (max 16.8 V) connects to a custom PCB that steps VBAT down to 5 V to power the flight controller. The flight controller generates a 3v3 rail for the sensors on the PCB. Battery power passes through a shunt for current sensing on the custom PCB, then back out to power the ESC. The flight controller sends commands to the ESC over serial.</p>
-</section>
-<section id="before-you-leave-today" class="level2">
-<h2 class="anchored" data-anchor-id="before-you-leave-today">Before you leave today</h2>
+<section id="pre-immersion-checks" class="level2">
+<h2 class="anchored" data-anchor-id="pre-immersion-checks">Pre-immersion checks</h2>
 <ul class="task-list">
-<li><label><input type="checkbox">Team formed and registered</label></li>
-<li><label><input type="checkbox">Shop training complete</label></li>
-<li><label><input type="checkbox">Parts kit collected against the <a href="../reference/parts-list.html">parts list</a></label></li>
-<li><label><input type="checkbox">Access to the lab GitHub organisation confirmed</label></li>
+<li><label><input type="checkbox">Static immersion test from Session 10 passed, robot opened and inspected dry</label></li>
+<li><label><input type="checkbox">Connector back-shell sealed on all unused slots</label></li>
+<li><label><input type="checkbox">Gearbox lubricated with CorrosionX and white lithium grease</label></li>
+<li><label><input type="checkbox">Watchdog enabled on the ESC (<code>W</code>) — target drops to zero if commands stop</label></li>
+<li><label><input type="checkbox">Robot floats level</label></li>
 </ul>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Low speed is where hobby ESCs fail
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Water propulsion runs the motor in exactly the regime where synchronisation is lost. If the drive stutters underwater, stop and check sensor lag compensation before increasing current — see <a href="../sessions/04-control.html">Session 4</a>.</p>
+</div>
+</div>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>To be completed by the instructor
+<span class="screen-reader-only">Important</span>To be written by the instructor
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Shop safety requirements, machine access and booking procedure, team size and formation rules, and where the parts crib is. These are institution-specific and are not carried over from the manufacturing guide.</p>
+<p>The wet-test protocol is course material and has no counterpart in the manufacturing guide. Needed:</p>
+<ul>
+<li>Tank or venue, and supervision requirements</li>
+<li>Run profile: depth, duration, flap frequency sweep</li>
+<li>What is logged, and how it is retrieved — SD card handling on a potted board is not trivial, see <a href="../reference/pcb.html">PCB revisions</a></li>
+<li>How wing trim is adjusted, and against what reference</li>
+<li>Cost of transport measurement procedure, since it is scored in <a href="../sessions/12-competition.html">Session 12</a></li>
+<li>Recovery and abort procedure</li>
+</ul>
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -618,7 +627,7 @@ Figure&nbsp;1: The FAAV3.2
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Team registered, kit checked against the parts list, and every member has completed shop training.</p>
+<p>A completed underwater run with logged data, no water ingress on inspection afterwards, and a recorded cost-of-transport measurement.</p>
 </div>
 </div>
 
@@ -712,7 +721,7 @@ Figure&nbsp;1: The FAAV3.2
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/aura\.mit\.edu\/manual\/");
+        var filterRegex = new RegExp("https:\/\/aura\.mit\.edu\/2\.S986-robot\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -1046,13 +1055,13 @@ Figure&nbsp;1: The FAAV3.2
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../index.html" class="pagination-link" aria-label="Overview">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Overview</span>
+      <a href="../sessions/10-waterproofing.html" class="pagination-link" aria-label="Session 10 --- Waterproofing">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Session 10 — Waterproofing</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../sessions/02-motor.html" class="pagination-link" aria-label="Session 2 --- Motor and transmission shaft">
-        <span class="nav-page-text">Session 2 — Motor and transmission shaft</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../sessions/12-competition.html" class="pagination-link" aria-label="Session 12 --- Competition">
+        <span class="nav-page-text">Session 12 — Competition</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1070,38 +1079,6 @@ Figure&nbsp;1: The FAAV3.2
 </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
-(function() {
-  let previousOnload = window.onload;
-  window.onload = () => {
-    if (previousOnload) {
-      previousOnload();
-    }
-    lightboxQuarto.on('slide_before_load', (data) => {
-      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-      const href = trigger.getAttribute('href');
-      if (href !== null) {
-        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
-        if (imgEl !== null) {
-          const srcAttr = imgEl.getAttribute("src");
-          if (srcAttr && srcAttr.startsWith("data:")) {
-            slideConfig.href = srcAttr;
-          }
-        }
-      } 
-    });
-  
-    lightboxQuarto.on('slide_after_load', (data) => {
-      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(slideNode);
-      }
-    });
-  
-  };
-  
-})();
-          </script>
 
 
 

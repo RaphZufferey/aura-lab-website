@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Parts list – FAAV Build Manual</title>
+<title>CNC — Stepcraft D660 – FAAV Build Manual</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -36,8 +36,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../reference/software.html" rel="next">
-<link href="../sessions/12-competition.html" rel="prev">
+<link href="../reference/design-notes.html" rel="next">
+<link href="../reference/pcb.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -52,6 +52,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/bootstrap/bootstrap-779814d4eaa9c9e6b02b72ade1d61f9b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/bootstrap/bootstrap-dark-c8bae1f407610881bc621976b8284e03.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <link href="../site_libs/bootstrap/bootstrap-779814d4eaa9c9e6b02b72ade1d61f9b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -365,7 +368,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../reference/parts-list.html">Reference</a></li><li class="breadcrumb-item"><a href="../reference/parts-list.html">Parts list</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../reference/parts-list.html">Reference</a></li><li class="breadcrumb-item"><a href="../reference/cnc.html">CNC — Stepcraft D660</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -477,7 +480,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../reference/parts-list.html" class="sidebar-item-text sidebar-link active">
+  <a href="../reference/parts-list.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Parts list</span></a>
   </div>
 </li>
@@ -495,7 +498,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../reference/cnc.html" class="sidebar-item-text sidebar-link">
+  <a href="../reference/cnc.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">CNC — Stepcraft D660</span></a>
   </div>
 </li>
@@ -518,16 +521,24 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#full-guide" id="toc-full-guide" class="nav-link active" data-scroll-target="#full-guide">Full guide</a></li>
+  <li><a href="#cutpath-generation" id="toc-cutpath-generation" class="nav-link" data-scroll-target="#cutpath-generation">Cutpath generation</a></li>
+  <li><a href="#material-specific-notes" id="toc-material-specific-notes" class="nav-link" data-scroll-target="#material-specific-notes">Material-specific notes</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../reference/parts-list.html">Reference</a></li><li class="breadcrumb-item"><a href="../reference/parts-list.html">Parts list</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../reference/parts-list.html">Reference</a></li><li class="breadcrumb-item"><a href="../reference/cnc.html">CNC — Stepcraft D660</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Parts list</h1>
+<h1 class="title">CNC — Stepcraft D660</h1>
 </div>
 
 
@@ -544,171 +555,102 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Carried over from the manufacturing guide. Quantities are per robot.</p>
-<div id="tbl-parts" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-parts-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;1: Parts list
+<p>Used in <a href="../sessions/05-frame-crank.html">Session 5</a> for the carbon frame, the aluminium crank and linkage, and the PEEK gears.</p>
+<section id="full-guide" class="level2">
+<h2 class="anchored" data-anchor-id="full-guide">Full guide</h2>
+<p>The complete Stepcraft guide is available as a PDF:</p>
+<ul>
+<li><a href="../files/CNC-Stepcraft-D600-guide.pdf">CNC Stepcraft D600 LIS guide (PDF)</a></li>
+<li>Original wiki version: <a href="https://wiki.epfl.ch/lis/cnc-stepcraft">wiki.epfl.ch/lis/cnc-stepcraft</a></li>
+</ul>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Before every job
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Make sure the <strong>0 of the machine is at the right location in your file</strong>, and check the orientation of the axes.</p>
+</div>
+</div>
+</section>
+<section id="cutpath-generation" class="level2">
+<h2 class="anchored" data-anchor-id="cutpath-generation">Cutpath generation</h2>
+<p>Fusion360 generates cutpaths from the parts in the <em>manufacture</em> tab, and allows for <em>manufacturing models</em>, where parts can be recombined, realigned and even modified. Chamfers on the body plates were added in the manufacturing model rather than in the design.</p>
+<p>Operation order: <strong>holes → chamfers → pockets → outline.</strong></p>
+<div id="fig-cnc-model" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-cnc-model-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="../Fig/manufacturing2.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1: Manufacturing model in Fusion360"><img src="../Fig/manufacturing2.jpg" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-cnc-model-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Manufacturing model in Fusion360
 </figcaption>
-<div aria-describedby="tbl-parts-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+</figure>
+</div>
+<div id="fig-cnc-setup" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-cnc-setup-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="../Fig/manufacturing.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure&nbsp;2: Setting up on the machine"><img src="../Fig/manufacturing.jpg" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-cnc-setup-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Setting up on the machine
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="material-specific-notes" class="level2">
+<h2 class="anchored" data-anchor-id="material-specific-notes">Material-specific notes</h2>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: right;">#</th>
-<th>Part</th>
-<th>Model / material</th>
-<th style="text-align: right;">Mass [g]</th>
-<th>Supplier</th>
+<th>Material</th>
+<th>Thickness</th>
+<th>Notes</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: right;">2</td>
-<td>Body plates</td>
-<td>CF 1.5 mm</td>
-<td style="text-align: right;"></td>
-<td><a href="https://shop.swiss-composite.ch/pi.php/Halbfabrikate/Plattenmaterial/CFK-Prepreg-Platten/Carbon-Prepreg-Platten-15mm.html">swiss-composites</a></td>
+<td>Woven carbon</td>
+<td>1.5 mm (varies 1.5–1.6)</td>
+<td>Body plates, top and bottom identical except chamfers</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">1</td>
-<td>Motor</td>
-<td>AT2303 1500 kV</td>
-<td style="text-align: right;"></td>
-<td><a href="https://store.tmotor.com/goods.php?id=753">T-Motor</a> · <a href="https://www.rc-shop.ch/motor-750/t-motor-rc-motor-elektro-at2303-2s-3s-kv1500-17g-216857">rc-shop.ch</a></td>
+<td>Aluminium</td>
+<td>5 mm</td>
+<td>Crank and linkage. Linkage faced down from 5 to 4 mm. Use a 2 mm endmill, flood the part</td>
 </tr>
 <tr class="odd">
-<td style="text-align: right;">1</td>
-<td>Transmission</td>
-<td>Faulhaber Series 20/1R 1:23</td>
-<td style="text-align: right;">39</td>
-<td><a href="https://www.faulhaber.com/en/products/series/201r/">Faulhaber</a></td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">4</td>
-<td>Frame parts</td>
-<td>3D-printed Onyx with CF</td>
-<td style="text-align: right;"></td>
-<td>Markforged</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">34</td>
-<td>Screws</td>
-<td>M2×4 countersunk, A4</td>
-<td style="text-align: right;"></td>
-<td><a href="https://www.bossard.com/eshop/ch-fr/vis-a-entrainement-interieur/vis-a-tete-fraisee-a-six-lobes-internes-entierement-filetees/p/20039/">Bossard A4</a> or <a href="https://www.bossard.com/eshop/ch-fr/vis-a-entrainement-interieur/vis-a-tete-fraisee-a-six-lobes-internes-entierement-filetees/p/3803/">A2</a></td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">26</td>
-<td>Plastic inserts</td>
-<td>M2×4 brass</td>
-<td style="text-align: right;"></td>
-<td><a href="https://www.reichelt.com/ch/de/3d-druck-gewindeeinsaetze-m2x4-70-stueck-rx-m2x4-p332211.html">Reichelt</a></td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">2</td>
-<td>Output gears</td>
-<td>CNC-cut PEEK</td>
-<td style="text-align: right;"></td>
-<td><a href="https://ch.rs-online.com/web/p/kunststoffplatten/0514679">RS Pro</a></td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">1</td>
-<td>Transmission crank</td>
-<td>5 mm aluminium</td>
-<td style="text-align: right;"></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">1</td>
-<td>Transmission bearing</td>
-<td>4×8 mm flanged stainless</td>
-<td style="text-align: right;">0.6</td>
-<td></td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">1</td>
-<td>Linkage</td>
-<td>4 mm aluminium</td>
-<td style="text-align: right;"></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">2</td>
-<td>Linkage bearings</td>
-<td>3×7×3 mm stainless</td>
-<td style="text-align: right;">0.6</td>
-<td></td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">1</td>
-<td>Linkage–gear shaft</td>
-<td>3 mm steel</td>
-<td style="text-align: right;">1</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">1</td>
-<td>Linkage–crank shaft</td>
-<td>3 mm steel</td>
-<td style="text-align: right;">0.5</td>
-<td></td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">1</td>
-<td>Primary gear shafts</td>
-<td>3 mm steel</td>
-<td style="text-align: right;">1.7</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">1</td>
-<td>Driven gear shafts</td>
-<td>3 mm steel</td>
-<td style="text-align: right;">0.8</td>
-<td></td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">1</td>
-<td>Battery connector</td>
-<td>JWPF 08T &amp; 08R, 8 pins</td>
-<td style="text-align: right;">3.1</td>
-<td><a href="https://ch.farnell.com/jst-japan-solderless-terminals/08r-jwpf-vsle-d/connector-housing-rcpt-8pos/dp/2399256">Farnell 08R</a> · <a href="https://ch.farnell.com/jst-japan-solderless-terminals/08t-jwpf-vsle-d/connector-housing-tab-8pos/dp/2399257">08T</a></td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">1</td>
-<td>Voltage regulator</td>
-<td>5 V 2 A UBEC</td>
-<td style="text-align: right;">1</td>
-<td><a href="https://www.amazon.com/Adjustable-Step-Down-Regulator-Quadcopter-Martian/dp/B07MS1ND5M">Amazon</a></td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">1</td>
-<td>Battery</td>
-<td>4S 450 mAh</td>
-<td style="text-align: right;">50.8</td>
-<td><a href="https://www.amazon.com/OVONIC-Battery-Package-Including-Batteries/dp/B0D3F7BS7L">Amazon</a></td>
+<td>PEEK</td>
+<td>5 mm</td>
+<td>Gears. Cutting underwater gives good results. Keep advance speed low enough to cut teeth cleanly</td>
 </tr>
 </tbody>
 </table>
-</div>
-</figure>
-</div>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>To be completed before the semester
+<span class="screen-reader-only">Important</span>MIT equivalent
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Several items the sessions rely on are <strong>not</strong> in this list and need adding: the AS2303 motor (the list still shows the older AT2303), the B-G431B-ESC1, the AS5047P sensor, the ST-Link programmer, the FAAV PCB v3.0 and its BOM, the XIAO ESP32S3, 4 mm steel rod for the motor shaft, 5 mm PEEK stock, foam, membrane material, silicone sealant and CorrosionX.</p>
-<p>Suppliers are also mostly Swiss, inherited from the EPFL origin of the project. They will need US equivalents for MIT procurement.</p>
+<p>The linked guide is for the EPFL machine. Confirm which machine the class will actually use at MIT and either re-shoot this guide or replace the link.</p>
 </div>
 </div>
 
 
+</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -797,7 +739,7 @@ Table&nbsp;1: Parts list
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/aura\.mit\.edu\/manual\/");
+        var filterRegex = new RegExp("https:\/\/aura\.mit\.edu\/2\.S986-robot\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -1131,13 +1073,13 @@ Table&nbsp;1: Parts list
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../sessions/12-competition.html" class="pagination-link" aria-label="Session 12 --- Competition">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Session 12 — Competition</span>
+      <a href="../reference/pcb.html" class="pagination-link" aria-label="PCB revisions">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">PCB revisions</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../reference/software.html" class="pagination-link" aria-label="Software">
-        <span class="nav-page-text">Software</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../reference/design-notes.html" class="pagination-link" aria-label="Design notes">
+        <span class="nav-page-text">Design notes</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1155,6 +1097,38 @@ Table&nbsp;1: Parts list
 </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 

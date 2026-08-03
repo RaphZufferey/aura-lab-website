@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Session 8 — Tail and housing – FAAV Build Manual</title>
+<title>Session 5 — Frame, crank, linkage and gears – FAAV Build Manual</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -36,8 +36,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../sessions/09-electronics-dry-test.html" rel="next">
-<link href="../sessions/07-wings.html" rel="prev">
+<link href="../sessions/06-simulation.html" rel="next">
+<link href="../sessions/04-control.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -368,7 +368,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../sessions/01-orientation.html">Build sessions</a></li><li class="breadcrumb-item"><a href="../sessions/08-tail-housing.html">Session 8 — Tail and housing</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../sessions/01-orientation.html">Build sessions</a></li><li class="breadcrumb-item"><a href="../sessions/05-frame-crank.html">Session 5 — Frame, crank, linkage and gears</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -421,7 +421,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../sessions/05-frame-crank.html" class="sidebar-item-text sidebar-link">
+  <a href="../sessions/05-frame-crank.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Session 5 — Frame, crank, linkage and gears</span></a>
   </div>
 </li>
@@ -439,7 +439,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../sessions/08-tail-housing.html" class="sidebar-item-text sidebar-link active">
+  <a href="../sessions/08-tail-housing.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Session 8 — Tail and housing</span></a>
   </div>
 </li>
@@ -528,11 +528,9 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#what-you-build-today" id="toc-what-you-build-today" class="nav-link active" data-scroll-target="#what-you-build-today">What you build today</a></li>
   <li><a href="#before-you-arrive" id="toc-before-you-arrive" class="nav-link" data-scroll-target="#before-you-arrive">Before you arrive</a></li>
-  <li><a href="#tail" id="toc-tail" class="nav-link" data-scroll-target="#tail">Tail</a></li>
-  <li><a href="#housing" id="toc-housing" class="nav-link" data-scroll-target="#housing">Housing</a>
-  <ul class="collapse">
-  <li><a href="#choosing-a-foam" id="toc-choosing-a-foam" class="nav-link" data-scroll-target="#choosing-a-foam">Choosing a foam</a></li>
-  </ul></li>
+  <li><a href="#main-body" id="toc-main-body" class="nav-link" data-scroll-target="#main-body">Main body</a></li>
+  <li><a href="#crank-and-linkage" id="toc-crank-and-linkage" class="nav-link" data-scroll-target="#crank-and-linkage">Crank and linkage</a></li>
+  <li><a href="#gears" id="toc-gears" class="nav-link" data-scroll-target="#gears">Gears</a></li>
   </ul>
 </nav>
     </div>
@@ -540,9 +538,9 @@ ul.task-list li input[type="checkbox"] {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../sessions/01-orientation.html">Build sessions</a></li><li class="breadcrumb-item"><a href="../sessions/08-tail-housing.html">Session 8 — Tail and housing</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../sessions/01-orientation.html">Build sessions</a></li><li class="breadcrumb-item"><a href="../sessions/05-frame-crank.html">Session 5 — Frame, crank, linkage and gears</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Session 8 — Tail and housing</h1>
+<h1 class="title">Session 5 — Frame, crank, linkage and gears</h1>
 </div>
 
 
@@ -560,110 +558,222 @@ ul.task-list li input[type="checkbox"] {
 
 
 <div class="session-meta">
-<p><strong>Week of Nov 2</strong> · Paired lecture: <em>Multi-modal locomotion</em></p>
+<p><strong>Week of Oct 5</strong> · Paired lecture: <em>Modelling of undulatory locomotion</em></p>
 </div>
 <section id="what-you-build-today" class="level2">
 <h2 class="anchored" data-anchor-id="what-you-build-today">What you build today</h2>
-<p>The passive tail, cut to the shape your simulation produced and mounted on its rod, plus the foam housing that protects the robot and keeps it afloat.</p>
+<p>The carbon frame, the CNC-cut crank and linkage, the PEEK gears, and the full mechanical integration that turns motor rotation into flapping. Flapping amplitude is fixed by this design.</p>
 </section>
 <section id="before-you-arrive" class="level2">
 <h2 class="anchored" data-anchor-id="before-you-arrive">Before you arrive</h2>
 <table class="caption-top table">
-<colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
-</colgroup>
 <tbody>
 <tr class="odd">
 <td><strong>Parts</strong></td>
-<td>Carbon sheet and tail rod, foam stock (XPS or closed-cell PE), epoxy</td>
+<td>1.5 mm woven carbon plate, 5 mm aluminium plate, 5 mm PEEK plate, bearings, M2×4 screws, brass inserts</td>
 </tr>
 <tr class="even">
 <td><strong>Tools</strong></td>
-<td>Foam cutter, scalpel</td>
+<td>CNC (booked), drill press, M3 tap, cutting oil, metal glue</td>
 </tr>
 <tr class="odd">
-<td><strong>Bring</strong></td>
-<td>Your Session 6 tail geometry, printed 1:1</td>
+<td><strong>Read</strong></td>
+<td>This page, plus the <a href="../reference/cnc.html">CNC guide</a> if you have not run the Stepcraft before</td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="tail" class="level2">
-<h2 class="anchored" data-anchor-id="tail">Tail</h2>
-<div id="fig-tail" class="quarto-float quarto-figure quarto-figure-center anchored">
+<section id="main-body" class="level2">
+<h2 class="anchored" data-anchor-id="main-body">Main body</h2>
+<p>The main body is a carbon sandwich, spaced <strong>24 mm</strong> apart. The plates are CNC-cut from woven 1.5 mm plates, available from <a href="https://shop.swiss-composite.ch/pi.php/Halbfabrikate/Plattenmaterial/CFK-Prepreg-Platten/Carbon-Prepreg-Platten-15mm.html">swiss-composites</a>; thickness usually varies from 1.5 to 1.6 mm. The top and bottom plates are identical, except for the chamfers needed for the M2 screws. The screws holding plate to plate are <strong>M2×4</strong>, screwing into brass inserts.</p>
+<div id="fig-frame" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-tail-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="../Fig/tail.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1: Tail assembly"><img src="../Fig/tail.jpg" class="img-fluid figure-img" style="width:75.0%"></a>
+<div aria-describedby="fig-frame-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="../Fig/body1.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1: Main carbon frame"><img src="../Fig/body1.jpg" class="img-fluid figure-img" style="width:55.0%"></a>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-tail-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: Tail assembly
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-frame-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Main carbon frame
 </figcaption>
 </figure>
 </div>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<p>Fusion360 generates cutpaths from the parts in the <em>manufacture</em> tab and allows for <em>manufacturing models</em>, where parts can be recombined, realigned and even modified. Here, chamfers were added in the manufacturing model. Operations go: <strong>holes first, then chamfers, then pockets, and finally the outline.</strong></p>
+<div id="fig-manufacturing" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-manufacturing-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="../Fig/manufacturing2.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure&nbsp;2: Manufacturing model"><img src="../Fig/manufacturing2.jpg" class="img-fluid figure-img"></a>
 </div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>To be written by the instructor
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-manufacturing-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Manufacturing model
+</figcaption>
+</figure>
 </div>
-</div>
-<div class="callout-body-container callout-body">
-<p>As with the wings, the guide contains <strong>only the photograph above</strong> for the tail. Still needed: sheet material and thickness, rod diameter, how the tail mounts to the boom, and the incidence setting. The project plan also notes tail actuation is optional if time permits — decide before the semester whether that is in scope.</p>
-</div>
-</div>
-</section>
-<section id="housing" class="level2">
-<h2 class="anchored" data-anchor-id="housing">Housing</h2>
-<p>Use a foam cutter to cut an exterior housing for the FAAV. This is an important step for external tests: it adds a layer of protection and ensures the FAAV floats. Leave space for GPS and antenna insertions if you are using them.</p>
-<p>To keep the FAAV level when floating — which helps visibility and getting it out of the water — it is recommended to put a certain amount of foam on the tail.</p>
-<section id="choosing-a-foam" class="level3">
-<h3 class="anchored" data-anchor-id="choosing-a-foam">Choosing a foam</h3>
-<p>Various foams have been tested, with tradeoffs:</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Foam</th>
-<th>Floatability</th>
-<th>Absorption</th>
-<th>Impact behaviour</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Extruded polystyrene (XPS)</td>
-<td>Best, low density</td>
-<td>Zero</td>
-<td>Relatively brittle; little help damping landings</td>
-</tr>
-<tr class="even">
-<td>Closed-cell polyethylene (PE)</td>
-<td>Decent, relatively low density</td>
-<td>Light</td>
-<td>Much more compliant; usable as protection</td>
-</tr>
-</tbody>
-</table>
-<p>If someone ever has time, a multi-material housing could have its use cases.</p>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Warning</span>Check solvent compatibility before painting or gluing foam
+<span class="screen-reader-only">Warning</span>Check your zero before you cut
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Some foams are very sensitive to solvents. Epoxy is inert and can act as glue.</p>
+<p>Make sure the machine’s 0 is at the right location in your file, and check the orientation of the axes. Full CNC guide for the Stepcraft D660 is in the <a href="../reference/cnc.html">CNC reference</a>.</p>
+</div>
+</div>
+</section>
+<section id="crank-and-linkage" class="level2">
+<h2 class="anchored" data-anchor-id="crank-and-linkage">Crank and linkage</h2>
+<p>Dimensions differ between robot generations — check which one you are building:</p>
+<div id="tbl-crank" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-crank-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: Crank–linkage dimensions
+</figcaption>
+<div aria-describedby="tbl-crank-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th>FAAV3.2</th>
+<th>FAAV4</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Date</td>
+<td>2023</td>
+<td>July 2024</td>
+</tr>
+<tr class="even">
+<td>Crank radius</td>
+<td>4 mm</td>
+<td>4.5 mm</td>
+</tr>
+<tr class="odd">
+<td>Linkage length</td>
+<td>23 mm</td>
+<td>24 mm</td>
+</tr>
+<tr class="even">
+<td>Crank–linkage shaft diameter</td>
+<td>3 mm</td>
+<td>4 mm</td>
+</tr>
+<tr class="odd">
+<td>Bearing, crank side</td>
+<td>10×3×4</td>
+<td>10×4×4</td>
+</tr>
+<tr class="even">
+<td>Bearing, wing side</td>
+<td>8×3×4</td>
+<td>8×3×4 flanged</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>Both the crank and linkage are CNC-cut in a 5 mm aluminium plate. The linkage is only 4 mm thick, cut down from 5 mm with a facing operation on the CNC. Use a <strong>2 mm endmill</strong>. Flooding the part keeps the temperature down and gives good results.</p>
+<p>Once cut:</p>
+<ol type="1">
+<li><p>Manually drill a <strong>2.5 mm</strong> bore hole into the crank, perpendicular to its 4 mm hole and to the flat raised surface. Drill through the part all the way to the 4 mm hole.</p></li>
+<li><p>Carefully tap an <strong>M3</strong> thread. Use cutting oil and make sure to break off the chips.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>This thread carries high forces
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>It <strong>must</strong> be done carefully, keeping the alignment between hole and tap.</p>
+</div>
+</div></li>
+<li><p>Press the bearings into the linkage. They may need to be bonded with metal glue if the press fit is not good enough.</p></li>
+<li><p>Join the crank and linkage with a short 3 or 4 mm shaft, cut to <strong>9.5 mm</strong>. The bearing is kept from coming out with a pointy indent on the shaft end. <em>(To be improved.)</em></p></li>
+</ol>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Alignment of the linkage, perpendicular to the shafts, is extremely important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>An offset of <strong>1 mm</strong> is sufficient to destroy the crank-link in a few flights. To ensure forces are not applied radially, use circular offsets (not shown in the schematics) that fit around the shafts and support proper alignment of the linkage and shafts.</p>
+</div>
+</div>
+<p><a href="#fig-shafts" class="quarto-xref">Figure&nbsp;3</a> shows how the four shafts for the FAAV3.2 should be manufactured. Nothing exotic, but they need to be accurate.</p>
+<div id="fig-shafts" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-shafts-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../Fig/transmissiontopview.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Transmission, top view"><img src="../Fig/transmissiontopview.jpg" class="img-fluid figure-img"></a></p>
+<figcaption>Transmission, top view</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../Fig/shafts.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Shaft dimensions"><img src="../Fig/shafts.jpg" class="img-fluid figure-img"></a></p>
+<figcaption>Shaft dimensions</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-shafts-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: Shafts
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="gears" class="level2">
+<h2 class="anchored" data-anchor-id="gears">Gears</h2>
+<p>Cut in <strong>5 mm PEEK</strong> plastic — a high-performance plastic suited to hard environments and high temperatures. The 5 mm plate comes from RS Components. Cutting underwater again gives good results. Keep the advance speed low enough to cut the teeth cleanly.</p>
+<p>The primary gear consists of <strong>2 parts</strong>, stacked and screwed together. The 3 mm holes where the carbon is fixed need to be <strong>tapped</strong> with a sharp M3 tap.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Keep the tap normal to the surface
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Best done in the drill press, which keeps the tap aligned.</p>
+</div>
+</div>
+<p>The 3 mm shaft is pressed through the two gears’ centre holes — a mildly tight fit at minimum, otherwise glue the shaft. Same for the linkage shaft (also 3 mm), which should be bonded as well as possible; this one matters more, so use glue in all cases.</p>
+<p>Between the gears, a clearance of <strong>0.4 mm</strong> (inter-axis spacing of 25.4 mm) ensures proper operation without too much backlash.</p>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../Fig/transmission.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Transmission assembled"><img src="../Fig/transmission.jpg" class="img-fluid figure-img" alt="Transmission assembled"></a></p>
+<figcaption>Transmission assembled</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../Fig/transmission2.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Transmission, second view"><img src="../Fig/transmission2.jpg" class="img-fluid figure-img" alt="Transmission, second view"></a></p>
+<figcaption>Transmission, second view</figcaption>
+</figure>
+</div>
+</div>
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -676,12 +786,11 @@ Figure&nbsp;1: Tail assembly
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Tail mounted and aligned, housing fitted with clearance for the wings through the full flap cycle, and the assembled robot floating level in the test tank.</p>
+<p>Frame assembled, crank–linkage rotating freely through a full cycle with no binding, linkage visibly perpendicular to the shafts, and gear backlash checked.</p>
 </div>
 </div>
 
 
-</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
@@ -771,7 +880,7 @@ Figure&nbsp;1: Tail assembly
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/aura\.mit\.edu\/manual\/");
+        var filterRegex = new RegExp("https:\/\/aura\.mit\.edu\/2\.S986-robot\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -1105,13 +1214,13 @@ Figure&nbsp;1: Tail assembly
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../sessions/07-wings.html" class="pagination-link" aria-label="Session 7 --- Wing fabrication">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Session 7 — Wing fabrication</span>
+      <a href="../sessions/04-control.html" class="pagination-link" aria-label="Session 4 --- Closed-loop control and tuning">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Session 4 — Closed-loop control and tuning</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../sessions/09-electronics-dry-test.html" class="pagination-link" aria-label="Session 9 --- Flight controller, PCB and dry testing">
-        <span class="nav-page-text">Session 9 — Flight controller, PCB and dry testing</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../sessions/06-simulation.html" class="pagination-link" aria-label="Session 6 --- Flapping simulation (Ptera)">
+        <span class="nav-page-text">Session 6 — Flapping simulation (Ptera)</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

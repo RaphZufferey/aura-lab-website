@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>FAAV Build Manual</title>
+<title>Changelog – FAAV Build Manual</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -36,7 +36,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./sessions/01-orientation.html" rel="next">
+<link href="./reference/design-notes.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -51,9 +51,6 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/bootstrap/bootstrap-779814d4eaa9c9e6b02b72ade1d61f9b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/bootstrap/bootstrap-dark-c8bae1f407610881bc621976b8284e03.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <link href="site_libs/bootstrap/bootstrap-779814d4eaa9c9e6b02b72ade1d61f9b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
-<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
-<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
-<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -367,7 +364,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Overview</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./changelog.html">Changelog</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -381,7 +378,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Overview</span></a>
   </div>
 </li>
@@ -511,7 +508,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./changelog.html" class="sidebar-item-text sidebar-link">
+  <a href="./changelog.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Changelog</span></a>
   </div>
 </li>
@@ -525,11 +522,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#how-this-manual-is-organised" id="toc-how-this-manual-is-organised" class="nav-link active" data-scroll-target="#how-this-manual-is-organised">How this manual is organised</a></li>
-  <li><a href="#semester-map" id="toc-semester-map" class="nav-link" data-scroll-target="#semester-map">Semester map</a></li>
-  <li><a href="#conventions" id="toc-conventions" class="nav-link" data-scroll-target="#conventions">Conventions</a></li>
-  <li><a href="#architecture-in-one-paragraph" id="toc-architecture-in-one-paragraph" class="nav-link" data-scroll-target="#architecture-in-one-paragraph">Architecture in one paragraph</a></li>
-  <li><a href="#versioning" id="toc-versioning" class="nav-link" data-scroll-target="#versioning">Versioning</a></li>
+  <li><a href="#fall-2026" id="toc-fall-2026" class="nav-link active" data-scroll-target="#fall-2026">fall-2026</a></li>
   </ul>
 </nav>
     </div>
@@ -539,8 +532,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">FAAV Build Manual</h1>
-<p class="subtitle lead">MIT AURA Lab — 2026 v4.0</p>
+<h1 class="title">Changelog</h1>
 </div>
 
 
@@ -557,164 +549,47 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div id="fig-faav" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-faav-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="Fig/Water-Air-Slider-V3-Carbon-v63.5.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1: The FAAV3.2"><img src="Fig/Water-Air-Slider-V3-Carbon-v63.5.jpg" class="img-fluid figure-img"></a>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-faav-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: The FAAV3.2
-</figcaption>
-</figure>
-</div>
-<p>Over the semester your team builds a <strong>flapping aerial-aquatic vehicle</strong>: a robot that flies, lands on water, swims by flapping the same wings, and takes off again. This manual is the build side of the course. It is sequenced to the weekly sessions, and each page covers exactly what you do in that session.</p>
-<section id="how-this-manual-is-organised" class="level2">
-<h2 class="anchored" data-anchor-id="how-this-manual-is-organised">How this manual is organised</h2>
-<p><strong>Build sessions</strong> are cumulative and in order. Each one opens with what you are building that day, what to have ready before you arrive, and ends with a checkpoint a TA signs off.</p>
-<p><strong>Reference</strong> holds the material you consult rather than follow: the parts list, the firmware repositories, the PCB revisions, the CNC guide, and the design notes explaining why the robot is the way it is.</p>
-</section>
-<section id="semester-map" class="level2">
-<h2 class="anchored" data-anchor-id="semester-map">Semester map</h2>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th style="text-align: right;">Session</th>
-<th>Week</th>
-<th>Build</th>
-<th>Paired lecture</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;"><a href="./sessions/01-orientation.html">1</a></td>
-<td>Sep 9</td>
-<td>Orientation, teams, the robot</td>
-<td>Intro to robotic locomotion</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;"><a href="./sessions/02-motor.html">2</a></td>
-<td>Sep 14</td>
-<td>Motor and transmission shaft</td>
-<td>Reaction forces in fluids</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;"><a href="./sessions/03-esc.html">3</a></td>
-<td>Sep 21</td>
-<td>Motor driver, sensor, serial</td>
-<td>Bird-scale flapping design</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;"><a href="./sessions/04-control.html">4</a></td>
-<td>Sep 28</td>
-<td>Closed-loop control and tuning</td>
-<td>Swimming robots I</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;"><a href="./sessions/05-frame-crank.html">5</a></td>
-<td>Oct 5</td>
-<td>Frame, crank, linkage, gears</td>
-<td>Undulatory locomotion</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">—</td>
-<td>Oct 12</td>
-<td><em>No session</em></td>
-<td>—</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;"><a href="./sessions/06-simulation.html">6</a></td>
-<td>Oct 19</td>
-<td>Flapping simulation (Ptera)</td>
-<td>Insect-scale flapping</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;"><a href="./sessions/07-wings.html">7</a></td>
-<td>Oct 26</td>
-<td>Wing fabrication</td>
-<td>Swimming robots II</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;"><a href="./sessions/08-tail-housing.html">8</a></td>
-<td>Nov 2</td>
-<td>Tail and housing</td>
-<td>Multi-modal locomotion</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;"><a href="./sessions/09-electronics-dry-test.html">9</a></td>
-<td>Nov 9</td>
-<td>Flight controller, PCB, dry testing</td>
-<td>The future of actuation</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;"><a href="./sessions/10-waterproofing.html">10</a></td>
-<td>Nov 16</td>
-<td>Waterproofing</td>
-<td>Multirotors</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;"><a href="./sessions/11-wet-testing.html">11</a></td>
-<td>Nov 23</td>
-<td>Wet testing</td>
-<td>Fixed-wing flyers</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;"><a href="./sessions/12-competition.html">12</a></td>
-<td>Nov 30</td>
-<td>Competition</td>
-<td>Pair presentations</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="conventions" class="level2">
-<h2 class="anchored" data-anchor-id="conventions">Conventions</h2>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Warning</span>Warning
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>An operation whose likely failure mode destroys a part or injures you. Read it twice before acting.</p>
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Checkpoint — TA sign-off
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Do not proceed past this without a TA looking at your work.</p>
-</div>
-</div>
+<p>Corrections and additions published during the semester, newest first.</p>
+<p>If you are working from a printed copy, check this page before each session. Changes that affect a step you may already have completed are marked in <strong>bold</strong>.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Why
+<span class="screen-reader-only">Tip</span>For maintainers
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Design rationale. Skippable at the bench, useful for your report.</p>
+<p>One row per change: date, page, what changed, and whether teams need to redo anything. Do not edit a step silently — a dated entry is what lets a student at the bench trust the rest of the page.</p>
 </div>
 </div>
-</section>
-<section id="architecture-in-one-paragraph" class="level2">
-<h2 class="anchored" data-anchor-id="architecture-in-one-paragraph">Architecture in one paragraph</h2>
-<p>One 4S battery (16.8 V max) feeds a custom PCB that steps VBAT down to 5 V to power the flight controller, which in turn generates a 3v3 rail for the sensors on that PCB. Battery power passes through a shunt for current sensing, then out to the ESC. The flight controller commands the ESC over serial. The ESC drives a brushless motor through a 23.04:1 gearbox, and a crank–linkage converts that rotation into wing flapping.</p>
-</section>
-<section id="versioning" class="level2">
-<h2 class="anchored" data-anchor-id="versioning">Versioning</h2>
-<p>This is version <strong>fall-2026</strong>. Corrections published during the semester are dated in the <a href="./changelog.html">Changelog</a>. If a step here contradicts what a TA tells you at the bench, the TA is right and this page is stale — report it so the next team does not lose time to it.</p>
+<section id="fall-2026" class="level2">
+<h2 class="anchored" data-anchor-id="fall-2026">fall-2026</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Date</th>
+<th>Page</th>
+<th>Change</th>
+<th>Action needed</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>—</td>
+<td>—</td>
+<td>Manual published for the Fall 2026 cohort, derived from <em>FAAV Manufacturing Guide</em> v4.0</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
 
 
 </section>
@@ -806,7 +681,7 @@ Figure&nbsp;1: The FAAV3.2
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/aura\.mit\.edu\/manual\/");
+        var filterRegex = new RegExp("https:\/\/aura\.mit\.edu\/2\.S986-robot\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -1140,11 +1015,11 @@ Figure&nbsp;1: The FAAV3.2
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./reference/design-notes.html" class="pagination-link" aria-label="Design notes">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Design notes</span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./sessions/01-orientation.html" class="pagination-link" aria-label="Session 1 --- Orientation">
-        <span class="nav-page-text">Session 1 — Orientation</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
@@ -1161,38 +1036,6 @@ Figure&nbsp;1: The FAAV3.2
 </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
-(function() {
-  let previousOnload = window.onload;
-  window.onload = () => {
-    if (previousOnload) {
-      previousOnload();
-    }
-    lightboxQuarto.on('slide_before_load', (data) => {
-      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-      const href = trigger.getAttribute('href');
-      if (href !== null) {
-        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
-        if (imgEl !== null) {
-          const srcAttr = imgEl.getAttribute("src");
-          if (srcAttr && srcAttr.startsWith("data:")) {
-            slideConfig.href = srcAttr;
-          }
-        }
-      } 
-    });
-  
-    lightboxQuarto.on('slide_after_load', (data) => {
-      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(slideNode);
-      }
-    });
-  
-  };
-  
-})();
-          </script>
 
 
 

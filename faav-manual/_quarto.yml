@@ -1,8 +1,9 @@
 project:
   type: website
-  # Renders to a sibling `manual/` folder, i.e. served at aura.mit.edu/manual/
+  # Renders to a sibling `2.S986-robot/` folder, i.e. served at
+  # aura.mit.edu/2.S986-robot/
   # See DEPLOY.md before changing this.
-  output-dir: ../manual
+  output-dir: ../2.S986-robot
   resources:
     - files/
   render:
@@ -13,7 +14,7 @@ project:
 
 website:
   title: "FAAV Build Manual"
-  site-url: "https://aura.mit.edu/manual/"
+  site-url: "https://aura.mit.edu/2.S986-robot/"
   description: "MIT AURA Lab --- building a flapping aerial-aquatic vehicle"
   search:
     location: navbar

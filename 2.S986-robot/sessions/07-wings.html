@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Session 6 — Flapping simulation (Ptera) – FAAV Build Manual</title>
+<title>Session 7 — Wing fabrication – FAAV Build Manual</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -36,8 +36,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../sessions/07-wings.html" rel="next">
-<link href="../sessions/05-frame-crank.html" rel="prev">
+<link href="../sessions/08-tail-housing.html" rel="next">
+<link href="../sessions/06-simulation.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -52,6 +52,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/bootstrap/bootstrap-779814d4eaa9c9e6b02b72ade1d61f9b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/bootstrap/bootstrap-dark-c8bae1f407610881bc621976b8284e03.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <link href="../site_libs/bootstrap/bootstrap-779814d4eaa9c9e6b02b72ade1d61f9b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -365,7 +368,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../sessions/01-orientation.html">Build sessions</a></li><li class="breadcrumb-item"><a href="../sessions/06-simulation.html">Session 6 — Flapping simulation (Ptera)</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../sessions/01-orientation.html">Build sessions</a></li><li class="breadcrumb-item"><a href="../sessions/07-wings.html">Session 7 — Wing fabrication</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -424,13 +427,13 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../sessions/06-simulation.html" class="sidebar-item-text sidebar-link active">
+  <a href="../sessions/06-simulation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Session 6 — Flapping simulation (Ptera)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../sessions/07-wings.html" class="sidebar-item-text sidebar-link">
+  <a href="../sessions/07-wings.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Session 7 — Wing fabrication</span></a>
   </div>
 </li>
@@ -523,9 +526,11 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#what-you-do-today" id="toc-what-you-do-today" class="nav-link active" data-scroll-target="#what-you-do-today">What you do today</a></li>
+  <li><a href="#what-you-build-today" id="toc-what-you-build-today" class="nav-link active" data-scroll-target="#what-you-build-today">What you build today</a></li>
   <li><a href="#before-you-arrive" id="toc-before-you-arrive" class="nav-link" data-scroll-target="#before-you-arrive">Before you arrive</a></li>
-  <li><a href="#deliverable" id="toc-deliverable" class="nav-link" data-scroll-target="#deliverable">Deliverable</a></li>
+  <li><a href="#wing-roots" id="toc-wing-roots" class="nav-link" data-scroll-target="#wing-roots">Wing roots</a></li>
+  <li><a href="#laying-out-and-cutting-the-membrane" id="toc-laying-out-and-cutting-the-membrane" class="nav-link" data-scroll-target="#laying-out-and-cutting-the-membrane">Laying out and cutting the membrane</a></li>
+  <li><a href="#completed-wings" id="toc-completed-wings" class="nav-link" data-scroll-target="#completed-wings">Completed wings</a></li>
   </ul>
 </nav>
     </div>
@@ -533,9 +538,9 @@ ul.task-list li input[type="checkbox"] {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../sessions/01-orientation.html">Build sessions</a></li><li class="breadcrumb-item"><a href="../sessions/06-simulation.html">Session 6 — Flapping simulation (Ptera)</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../sessions/01-orientation.html">Build sessions</a></li><li class="breadcrumb-item"><a href="../sessions/07-wings.html">Session 7 — Wing fabrication</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Session 6 — Flapping simulation (Ptera)</h1>
+<h1 class="title">Session 7 — Wing fabrication</h1>
 </div>
 
 
@@ -553,30 +558,98 @@ ul.task-list li input[type="checkbox"] {
 
 
 <div class="session-meta">
-<p><strong>Week of Oct 19</strong> · Paired lecture: <em>Insect-scale flapping</em> · No session Oct 12</p>
+<p><strong>Week of Oct 26</strong> · Paired lecture: <em>Swimming robots II</em></p>
 </div>
-<section id="what-you-do-today" class="level2">
-<h2 class="anchored" data-anchor-id="what-you-do-today">What you do today</h2>
-<p>Choose your wing and tail geometry. You simulate candidate geometries in Ptera and pick the one that gives the best thrust profile when compounded with the provided motor power curve. Sessions 7 and 8 build whatever you decide here.</p>
+<section id="what-you-build-today" class="level2">
+<h2 class="anchored" data-anchor-id="what-you-build-today">What you build today</h2>
+<p>Both wings: carbon skeleton, membrane cut to the geometry you chose in <a href="../sessions/06-simulation.html">Session 6</a>, bonded and stitched at the load-bearing points.</p>
 </section>
 <section id="before-you-arrive" class="level2">
 <h2 class="anchored" data-anchor-id="before-you-arrive">Before you arrive</h2>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
 <tbody>
 <tr class="odd">
-<td><strong>Bring</strong></td>
-<td>Laptop with Ptera installed, your measured loop performance from <a href="../sessions/04-control.html">Session 4</a></td>
+<td><strong>Parts</strong></td>
+<td>Carbon rods and strips, wing-root fittings, membrane material, glue</td>
 </tr>
 <tr class="even">
-<td><strong>Read</strong></td>
-<td>This page</td>
+<td><strong>Tools</strong></td>
+<td>Cutting mat, steel rule, scalpel, printed full-size template of your geometry</td>
+</tr>
+<tr class="odd">
+<td><strong>Bring</strong></td>
+<td>Your Session 6 geometry, printed 1:1</td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="deliverable" class="level2">
-<h2 class="anchored" data-anchor-id="deliverable">Deliverable</h2>
-<p>A wing planform and a tail geometry, with the simulation output that justifies them, carried forward into <a href="../sessions/07-wings.html">Session 7</a> and <a href="../sessions/08-tail-housing.html">Session 8</a>.</p>
+<section id="wing-roots" class="level2">
+<h2 class="anchored" data-anchor-id="wing-roots">Wing roots</h2>
+<p>The wing roots are carbon, drilled to mate with the linkage bearings from <a href="../sessions/05-frame-crank.html">Session 5</a>.</p>
+<div id="fig-wing-roots" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-wing-roots-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="../Fig/Wing_roots.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1: Wing root parts and spar stock"><img src="../Fig/Wing_roots.jpg" class="img-fluid figure-img" style="width:70.0%"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-wing-roots-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Wing root parts and spar stock
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="laying-out-and-cutting-the-membrane" class="level2">
+<h2 class="anchored" data-anchor-id="laying-out-and-cutting-the-membrane">Laying out and cutting the membrane</h2>
+<p>Work over the full-size printed template, taping the spars in position before cutting the membrane to the outline.</p>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../Fig/Wings_glue.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Spars taped over the template"><img src="../Fig/Wings_glue.jpg" class="img-fluid figure-img" alt="Spars taped over the template"></a></p>
+<figcaption>Spars taped over the template</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../Fig/Wings_cutting.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Cutting the membrane to the outline"><img src="../Fig/Wings_cutting.jpg" class="img-fluid figure-img" alt="Cutting the membrane to the outline"></a></p>
+<figcaption>Cutting the membrane to the outline</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="completed-wings" class="level2">
+<h2 class="anchored" data-anchor-id="completed-wings">Completed wings</h2>
+<div id="fig-wings-complete" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-wings-complete-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="../Fig/Complete_wings.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Figure&nbsp;2: Completed wing pair"><img src="../Fig/Complete_wings.jpg" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-wings-complete-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Completed wing pair
+</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Both wings must match
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Asymmetry between left and right shows up as a roll bias you will spend <a href="../sessions/11-wet-testing.html">Session 11</a> trimming out. Weigh both wings and compare spar positions against the template before bonding.</p>
+</div>
+</div>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -587,13 +660,13 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This session has <strong>no counterpart in the manufacturing guide</strong> — the guide documents the research robot’s final geometry, not the design exercise. The following need to be written from course material:</p>
+<p>The manufacturing guide documents this step <strong>with photographs only</strong> — there is no written procedure in the source. The images above are in build order, but the following still need writing:</p>
 <ul>
-<li>Ptera installation and a worked example</li>
-<li>The provided motor power curve, and its format</li>
-<li>What “most efficient thrust profile” means quantitatively here, and how it is scored</li>
-<li>Constraints the students must respect so their geometry remains buildable with the frame from <a href="../sessions/05-frame-crank.html">Session 5</a> — span limits, root fitting, mass budget</li>
-<li>Whether teams may deviate from the reference wing, and by how much</li>
+<li>Membrane material and its supplier</li>
+<li>Adhesive, and cure time</li>
+<li>Which areas are stitched, and with what</li>
+<li>Spar layup: rod diameters, where the diagonals attach</li>
+<li>Tolerance between left and right wing</li>
 </ul>
 </div>
 </div>
@@ -607,7 +680,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>A geometry chosen, with simulation evidence, and confirmed buildable against the frame and wing-root hardware.</p>
+<p>Both wings complete, matched in mass and geometry, roots fitting the linkage bearings without play.</p>
 </div>
 </div>
 
@@ -701,7 +774,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/aura\.mit\.edu\/manual\/");
+        var filterRegex = new RegExp("https:\/\/aura\.mit\.edu\/2\.S986-robot\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -1035,13 +1108,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../sessions/05-frame-crank.html" class="pagination-link" aria-label="Session 5 --- Frame, crank, linkage and gears">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Session 5 — Frame, crank, linkage and gears</span>
+      <a href="../sessions/06-simulation.html" class="pagination-link" aria-label="Session 6 --- Flapping simulation (Ptera)">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Session 6 — Flapping simulation (Ptera)</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../sessions/07-wings.html" class="pagination-link" aria-label="Session 7 --- Wing fabrication">
-        <span class="nav-page-text">Session 7 — Wing fabrication</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../sessions/08-tail-housing.html" class="pagination-link" aria-label="Session 8 --- Tail and housing">
+        <span class="nav-page-text">Session 8 — Tail and housing</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1059,6 +1132,38 @@ ul.task-list li input[type="checkbox"] {
 </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 

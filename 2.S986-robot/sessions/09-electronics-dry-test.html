@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Session 5 — Frame, crank, linkage and gears – FAAV Build Manual</title>
+<title>Session 9 — Flight controller, PCB and dry testing – FAAV Build Manual</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -36,8 +36,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../sessions/06-simulation.html" rel="next">
-<link href="../sessions/04-control.html" rel="prev">
+<link href="../sessions/10-waterproofing.html" rel="next">
+<link href="../sessions/08-tail-housing.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -368,7 +368,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../sessions/01-orientation.html">Build sessions</a></li><li class="breadcrumb-item"><a href="../sessions/05-frame-crank.html">Session 5 — Frame, crank, linkage and gears</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../sessions/01-orientation.html">Build sessions</a></li><li class="breadcrumb-item"><a href="../sessions/09-electronics-dry-test.html">Session 9 — Flight controller, PCB and dry testing</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -421,7 +421,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../sessions/05-frame-crank.html" class="sidebar-item-text sidebar-link active">
+  <a href="../sessions/05-frame-crank.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Session 5 — Frame, crank, linkage and gears</span></a>
   </div>
 </li>
@@ -445,7 +445,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../sessions/09-electronics-dry-test.html" class="sidebar-item-text sidebar-link">
+  <a href="../sessions/09-electronics-dry-test.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Session 9 — Flight controller, PCB and dry testing</span></a>
   </div>
 </li>
@@ -528,9 +528,12 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#what-you-build-today" id="toc-what-you-build-today" class="nav-link active" data-scroll-target="#what-you-build-today">What you build today</a></li>
   <li><a href="#before-you-arrive" id="toc-before-you-arrive" class="nav-link" data-scroll-target="#before-you-arrive">Before you arrive</a></li>
-  <li><a href="#main-body" id="toc-main-body" class="nav-link" data-scroll-target="#main-body">Main body</a></li>
-  <li><a href="#crank-and-linkage" id="toc-crank-and-linkage" class="nav-link" data-scroll-target="#crank-and-linkage">Crank and linkage</a></li>
-  <li><a href="#gears" id="toc-gears" class="nav-link" data-scroll-target="#gears">Gears</a></li>
+  <li><a href="#electronic-architecture" id="toc-electronic-architecture" class="nav-link" data-scroll-target="#electronic-architecture">Electronic architecture</a></li>
+  <li><a href="#flight-controller" id="toc-flight-controller" class="nav-link" data-scroll-target="#flight-controller">Flight controller</a></li>
+  <li><a href="#assembling-the-pcb" id="toc-assembling-the-pcb" class="nav-link" data-scroll-target="#assembling-the-pcb">Assembling the PCB</a></li>
+  <li><a href="#taking-the-pcb-into-operation" id="toc-taking-the-pcb-into-operation" class="nav-link" data-scroll-target="#taking-the-pcb-into-operation">Taking the PCB into operation</a></li>
+  <li><a href="#connectors" id="toc-connectors" class="nav-link" data-scroll-target="#connectors">Connectors</a></li>
+  <li><a href="#dry-testing" id="toc-dry-testing" class="nav-link" data-scroll-target="#dry-testing">Dry testing</a></li>
   </ul>
 </nav>
     </div>
@@ -538,9 +541,9 @@ ul.task-list li input[type="checkbox"] {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../sessions/01-orientation.html">Build sessions</a></li><li class="breadcrumb-item"><a href="../sessions/05-frame-crank.html">Session 5 — Frame, crank, linkage and gears</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../sessions/01-orientation.html">Build sessions</a></li><li class="breadcrumb-item"><a href="../sessions/09-electronics-dry-test.html">Session 9 — Flight controller, PCB and dry testing</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Session 5 — Frame, crank, linkage and gears</h1>
+<h1 class="title">Session 9 — Flight controller, PCB and dry testing</h1>
 </div>
 
 
@@ -558,11 +561,11 @@ ul.task-list li input[type="checkbox"] {
 
 
 <div class="session-meta">
-<p><strong>Week of Oct 5</strong> · Paired lecture: <em>Modelling of undulatory locomotion</em></p>
+<p><strong>Week of Nov 9</strong> · Paired lecture: <em>The future of actuation</em></p>
 </div>
 <section id="what-you-build-today" class="level2">
 <h2 class="anchored" data-anchor-id="what-you-build-today">What you build today</h2>
-<p>The carbon frame, the CNC-cut crank and linkage, the PEEK gears, and the full mechanical integration that turns motor rotation into flapping. Flapping amplitude is fixed by this design.</p>
+<p>The custom PCB assembled and validated, the flight controller flashed and talking to the ESC, and the robot flapping in air under wireless control.</p>
 </section>
 <section id="before-you-arrive" class="level2">
 <h2 class="anchored" data-anchor-id="before-you-arrive">Before you arrive</h2>
@@ -570,210 +573,188 @@ ul.task-list li input[type="checkbox"] {
 <tbody>
 <tr class="odd">
 <td><strong>Parts</strong></td>
-<td>1.5 mm woven carbon plate, 5 mm aluminium plate, 5 mm PEEK plate, bearings, M2×4 screws, brass inserts</td>
+<td>FAAV PCB v3.0, stencil, solder paste, XIAO ESP32S3, JST connectors, battery</td>
 </tr>
 <tr class="even">
 <td><strong>Tools</strong></td>
-<td>CNC (booked), drill press, M3 tap, cutting oil, metal glue</td>
+<td>Hotplate, tweezers, multimeter, bench supply with current limit</td>
 </tr>
 <tr class="odd">
 <td><strong>Read</strong></td>
-<td>This page, plus the <a href="../reference/cnc.html">CNC guide</a> if you have not run the Stepcraft before</td>
+<td>This page and <a href="../reference/pcb.html">PCB revisions</a></td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="main-body" class="level2">
-<h2 class="anchored" data-anchor-id="main-body">Main body</h2>
-<p>The main body is a carbon sandwich, spaced <strong>24 mm</strong> apart. The plates are CNC-cut from woven 1.5 mm plates, available from <a href="https://shop.swiss-composite.ch/pi.php/Halbfabrikate/Plattenmaterial/CFK-Prepreg-Platten/Carbon-Prepreg-Platten-15mm.html">swiss-composites</a>; thickness usually varies from 1.5 to 1.6 mm. The top and bottom plates are identical, except for the chamfers needed for the M2 screws. The screws holding plate to plate are <strong>M2×4</strong>, screwing into brass inserts.</p>
-<div id="fig-frame" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-frame-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="../Fig/body1.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1: Main carbon frame"><img src="../Fig/body1.jpg" class="img-fluid figure-img" style="width:55.0%"></a>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-frame-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: Main carbon frame
-</figcaption>
-</figure>
-</div>
-<p>Fusion360 generates cutpaths from the parts in the <em>manufacture</em> tab and allows for <em>manufacturing models</em>, where parts can be recombined, realigned and even modified. Here, chamfers were added in the manufacturing model. Operations go: <strong>holes first, then chamfers, then pockets, and finally the outline.</strong></p>
-<div id="fig-manufacturing" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-manufacturing-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="../Fig/manufacturing2.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure&nbsp;2: Manufacturing model"><img src="../Fig/manufacturing2.jpg" class="img-fluid figure-img"></a>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-manufacturing-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2: Manufacturing model
-</figcaption>
-</figure>
-</div>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Warning</span>Check your zero before you cut
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Make sure the machine’s 0 is at the right location in your file, and check the orientation of the axes. Full CNC guide for the Stepcraft D660 is in the <a href="../reference/cnc.html">CNC reference</a>.</p>
-</div>
-</div>
+<section id="electronic-architecture" class="level2">
+<h2 class="anchored" data-anchor-id="electronic-architecture">Electronic architecture</h2>
+<p>One 4S (max 16.8 V) battery is connected to a custom PCB that steps VBAT down to 5 V to power the flight controller. The flight controller generates a 3v3 rail to power the sensors on the custom PCB. Battery power goes through a shunt for sensing on the custom PCB, then back out to power the ESC. The flight controller sends commands to the ESC over serial.</p>
 </section>
-<section id="crank-and-linkage" class="level2">
-<h2 class="anchored" data-anchor-id="crank-and-linkage">Crank and linkage</h2>
-<p>Dimensions differ between robot generations — check which one you are building:</p>
-<div id="tbl-crank" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-crank-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;1: Crank–linkage dimensions
-</figcaption>
-<div aria-describedby="tbl-crank-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th></th>
-<th>FAAV3.2</th>
-<th>FAAV4</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Date</td>
-<td>2023</td>
-<td>July 2024</td>
-</tr>
-<tr class="even">
-<td>Crank radius</td>
-<td>4 mm</td>
-<td>4.5 mm</td>
-</tr>
-<tr class="odd">
-<td>Linkage length</td>
-<td>23 mm</td>
-<td>24 mm</td>
-</tr>
-<tr class="even">
-<td>Crank–linkage shaft diameter</td>
-<td>3 mm</td>
-<td>4 mm</td>
-</tr>
-<tr class="odd">
-<td>Bearing, crank side</td>
-<td>10×3×4</td>
-<td>10×4×4</td>
-</tr>
-<tr class="even">
-<td>Bearing, wing side</td>
-<td>8×3×4</td>
-<td>8×3×4 flanged</td>
-</tr>
-</tbody>
-</table>
-</div>
-</figure>
-</div>
-<p>Both the crank and linkage are CNC-cut in a 5 mm aluminium plate. The linkage is only 4 mm thick, cut down from 5 mm with a facing operation on the CNC. Use a <strong>2 mm endmill</strong>. Flooding the part keeps the temperature down and gives good results.</p>
-<p>Once cut:</p>
-<ol type="1">
-<li><p>Manually drill a <strong>2.5 mm</strong> bore hole into the crank, perpendicular to its 4 mm hole and to the flat raised surface. Drill through the part all the way to the 4 mm hole.</p></li>
-<li><p>Carefully tap an <strong>M3</strong> thread. Use cutting oil and make sure to break off the chips.</p>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Warning</span>This thread carries high forces
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>It <strong>must</strong> be done carefully, keeping the alignment between hole and tap.</p>
-</div>
-</div></li>
-<li><p>Press the bearings into the linkage. They may need to be bonded with metal glue if the press fit is not good enough.</p></li>
-<li><p>Join the crank and linkage with a short 3 or 4 mm shaft, cut to <strong>9.5 mm</strong>. The bearing is kept from coming out with a pointy indent on the shaft end. <em>(To be improved.)</em></p></li>
-</ol>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Warning</span>Alignment of the linkage, perpendicular to the shafts, is extremely important
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>An offset of <strong>1 mm</strong> is sufficient to destroy the crank-link in a few flights. To ensure forces are not applied radially, use circular offsets (not shown in the schematics) that fit around the shafts and support proper alignment of the linkage and shafts.</p>
-</div>
-</div>
-<p><a href="#fig-shafts" class="quarto-xref">Figure&nbsp;3</a> shows how the four shafts for the FAAV3.2 should be manufactured. Nothing exotic, but they need to be accurate.</p>
-<div id="fig-shafts" class="quarto-layout-panel">
+<section id="flight-controller" class="level2">
+<h2 class="anchored" data-anchor-id="flight-controller">Flight controller</h2>
+<div id="fig-mcu" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-shafts-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="../Fig/transmissiontopview.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Transmission, top view"><img src="../Fig/transmissiontopview.jpg" class="img-fluid figure-img"></a></p>
-<figcaption>Transmission, top view</figcaption>
-</figure>
+<div aria-describedby="fig-mcu-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="../Fig/mcu1.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1: Microcontroller in its waterproofing box"><img src="../Fig/mcu1.jpg" class="img-fluid figure-img" style="width:50.0%"></a>
 </div>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="../Fig/shafts.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Shaft dimensions"><img src="../Fig/shafts.jpg" class="img-fluid figure-img"></a></p>
-<figcaption>Shaft dimensions</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-shafts-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3: Shafts
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mcu-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Microcontroller in its waterproofing box
 </figcaption>
 </figure>
 </div>
+<p>Firmware lives in <a href="https://github.com/MIT-AURA-Lab/FAAV-Flight-Controller">FAAV-Flight-Controller</a> (ESP32, FreeRTOS tasks). See <a href="../reference/software.html">Software</a> for older variants.</p>
 </section>
-<section id="gears" class="level2">
-<h2 class="anchored" data-anchor-id="gears">Gears</h2>
-<p>Cut in <strong>5 mm PEEK</strong> plastic — a high-performance plastic suited to hard environments and high temperatures. The 5 mm plate comes from RS Components. Cutting underwater again gives good results. Keep the advance speed low enough to cut the teeth cleanly.</p>
-<p>The primary gear consists of <strong>2 parts</strong>, stacked and screwed together. The 3 mm holes where the carbon is fixed need to be <strong>tapped</strong> with a sharp M3 tap.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Keep the tap normal to the surface
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Best done in the drill press, which keeps the tap aligned.</p>
-</div>
-</div>
-<p>The 3 mm shaft is pressed through the two gears’ centre holes — a mildly tight fit at minimum, otherwise glue the shaft. Same for the linkage shaft (also 3 mm), which should be bonded as well as possible; this one matters more, so use glue in all cases.</p>
-<p>Between the gears, a clearance of <strong>0.4 mm</strong> (inter-axis spacing of 25.4 mm) ensures proper operation without too much backlash.</p>
+<section id="assembling-the-pcb" class="level2">
+<h2 class="anchored" data-anchor-id="assembling-the-pcb">Assembling the PCB</h2>
+<p>As of April 2026 the current board is <strong>v3.0</strong>: 4 layers, 21 × 28.5 mm, 34 components. The complete BOM is in the Manufacturing/Assembly folder of the <a href="https://github.com/MIT-AURA-Lab/FAAV-PCB-v3">FAAV-PCB-v3 repository</a>.</p>
+<p>The simplest way to assemble a FAAV PCB is with a stencil, solder paste applied with a cutter blade, then reflow on the hotplate.</p>
 <div class="quarto-layout-panel" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../Fig/transmission.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Transmission assembled"><img src="../Fig/transmission.jpg" class="img-fluid figure-img" alt="Transmission assembled"></a></p>
-<figcaption>Transmission assembled</figcaption>
+<p><a href="../Fig/PCB_assembly1.jpeg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Tape blank PCBs around the PCB to assemble"><img src="../Fig/PCB_assembly1.jpeg" class="img-fluid figure-img" alt="Tape blank PCBs around the PCB to assemble"></a></p>
+<figcaption>Tape blank PCBs around the PCB to assemble</figcaption>
 </figure>
 </div>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../Fig/transmission2.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Transmission, second view"><img src="../Fig/transmission2.jpg" class="img-fluid figure-img" alt="Transmission, second view"></a></p>
-<figcaption>Transmission, second view</figcaption>
+<p><a href="../Fig/PCB_assembly2.jpeg" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Align the stencil on top and tape it, making sure it sits flat"><img src="../Fig/PCB_assembly2.jpeg" class="img-fluid figure-img" alt="Align the stencil on top and tape it, making sure it sits flat"></a></p>
+<figcaption>Align the stencil on top and tape it, making sure it sits flat</figcaption>
 </figure>
 </div>
 </div>
+</div>
+</div>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../Fig/PCB_assembly3.jpeg" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Wipe down solder paste with a blade in one firm pass"><img src="../Fig/PCB_assembly3.jpeg" class="img-fluid figure-img" alt="Wipe down solder paste with a blade in one firm pass"></a></p>
+<figcaption>Wipe down solder paste with a blade in one firm pass</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../Fig/PCB_assembly4.jpeg" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Place the assembled PCB on the hot plate"><img src="../Fig/PCB_assembly4.jpeg" class="img-fluid figure-img" alt="Place the assembled PCB on the hot plate"></a></p>
+<figcaption>Place the assembled PCB on the hot plate</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="taking-the-pcb-into-operation" class="level2">
+<h2 class="anchored" data-anchor-id="taking-the-pcb-into-operation">Taking the PCB into operation</h2>
+<p>Once assembled, solder power wires for VBAT and GND at the input side of the board. Follow these steps <strong>before powering the PCB for the first time</strong>:</p>
+<ol type="1">
+<li>Check that there is no short circuit between GND and 5V / 3.3V / VBAT.</li>
+<li>Connect a <strong>15 V supply with a 100 mA current limit</strong> to the battery pads and check that it does not draw excessive current.</li>
+<li>Check with a multimeter that the buck regulator outputs 5 V from the 15 V input. The MCU should be on by then.</li>
+</ol>
+<p>With the MCU powered, flash your test firmware and check the connection to all sensors. <a href="#tbl-i2c" class="quarto-xref">Table&nbsp;1</a> gives the I²C addresses.</p>
+<div id="tbl-i2c" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-i2c-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: I²C addresses
+</figcaption>
+<div aria-describedby="tbl-i2c-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Component</th>
+<th>I²C address (bin)</th>
+<th>I²C address (hex)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Pressure sensor</td>
+<td><code>0b1110110</code></td>
+<td><code>0x76</code></td>
+</tr>
+<tr class="even">
+<td>IMU</td>
+<td><code>0b1101000</code></td>
+<td><code>0x68</code></td>
+</tr>
+<tr class="odd">
+<td>INA228 power monitor</td>
+<td><code>0b0101000</code></td>
+<td><code>0x40</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>Verify:</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Voltage, current and temperature readings from the INA228</label></li>
+<li><label><input type="checkbox">IMU readings</label></li>
+<li><label><input type="checkbox">Pressure sensor readings</label></li>
+<li><label><input type="checkbox">RGB LED control</label></li>
+</ul>
+<p>Once all the hardware on the board is validated, solder the power wires at the output side of the board to the ESC, and the UART wires.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>TX to RX
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The <strong>TX</strong> output of the PCB has to be connected to the <strong>RX</strong> pin of the ESC, and vice versa.</p>
+</div>
+</div>
+</section>
+<section id="connectors" class="level2">
+<h2 class="anchored" data-anchor-id="connectors">Connectors</h2>
+<p>The waterproof connector is the JST 8-pin <a href="https://ch.farnell.com/jst-japan-solderless-terminals/08r-jwpf-vsle-d/connector-housing-rcpt-8pos/dp/2399256">08R-JWPF-VSLE-D</a> / <a href="https://ch.farnell.com/jst-japan-solderless-terminals/08t-jwpf-vsle-d/connector-housing-tab-8pos/dp/2399257">08T-JWPF-VSLE-D</a>. All pins marked <code>_b</code> are used for balancing the battery during recharge. For use on the robot, connect at least <strong>Vbat</strong> and <strong>GND</strong>; to allow higher currents, connect <strong>Vbat_b</strong> and <strong>GND_b</strong> as well.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Seal the unused cable slots
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Do not forget to seal the back of the connector for the unused cable slots — this is a water ingress path straight into the electronics.</p>
+</div>
+</div>
+<div id="fig-connector" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-connector-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="../Fig/Connector_wiring.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Figure&nbsp;2: Connector wiring scheme. Left: battery connector. Right: connector on the robot / for recharging the battery."><img src="../Fig/Connector_wiring.png" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-connector-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Connector wiring scheme. Left: battery connector. Right: connector on the robot / for recharging the battery.
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="dry-testing" class="level2">
+<h2 class="anchored" data-anchor-id="dry-testing">Dry testing</h2>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>To be written by the instructor
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The dry-test protocol is course material, not in the guide. Needed: what the robot is mounted on while flapping in air, the flap frequency sweep, what is measured, the wireless control setup students reprogram to, and abort criteria.</p>
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -786,7 +767,7 @@ Figure&nbsp;3: Shafts
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Frame assembled, crank–linkage rotating freely through a full cycle with no binding, linkage visibly perpendicular to the shafts, and gear backlash checked.</p>
+<p>PCB validated against all four sensor checks, flight controller commanding the ESC over serial, and a supervised flapping run in air.</p>
 </div>
 </div>
 
@@ -880,7 +861,7 @@ Figure&nbsp;3: Shafts
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/aura\.mit\.edu\/manual\/");
+        var filterRegex = new RegExp("https:\/\/aura\.mit\.edu\/2\.S986-robot\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -1214,13 +1195,13 @@ Figure&nbsp;3: Shafts
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../sessions/04-control.html" class="pagination-link" aria-label="Session 4 --- Closed-loop control and tuning">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Session 4 — Closed-loop control and tuning</span>
+      <a href="../sessions/08-tail-housing.html" class="pagination-link" aria-label="Session 8 --- Tail and housing">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Session 8 — Tail and housing</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../sessions/06-simulation.html" class="pagination-link" aria-label="Session 6 --- Flapping simulation (Ptera)">
-        <span class="nav-page-text">Session 6 — Flapping simulation (Ptera)</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../sessions/10-waterproofing.html" class="pagination-link" aria-label="Session 10 --- Waterproofing">
+        <span class="nav-page-text">Session 10 — Waterproofing</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
