@@ -1,14 +1,15 @@
 ---
+author: "MIT AURA Lab"
 format:
   typst:
+    # The orange-book design. See _typst/typst-template.typ -- page size,
+    # margins, numbering, colours and the table of contents all come from
+    # there, which is why they are not set here.
+    template-partials:
+      - _typst/typst-template.typ
     toc: true
     toc-depth: 2
-    number-sections: true
-    papersize: us-letter
     fontsize: 10pt
-    margin:
-      x: 2cm
-      y: 2.5cm
 ---
 
 <!--
@@ -44,6 +45,10 @@ format:
 # Overview
 
 {{< include index.qmd >}}
+
+```{=typst}
+#part("Build modules")
+```
 
 # Module 1 --- Orientation
 
@@ -93,23 +98,27 @@ format:
 
 {{< include sessions/12-competition.qmd >}}
 
-# Reference --- Parts list
+```{=typst}
+#part("Reference")
+```
+
+# Parts list
 
 {{< include reference/parts-list.qmd >}}
 
-# Reference --- Software
+# Software
 
 {{< include reference/software.qmd >}}
 
-# Reference --- PCB revisions
+# PCB revisions
 
 {{< include reference/pcb.qmd >}}
 
-# Reference --- CNC (Stepcraft D660)
+# CNC --- Stepcraft D660
 
 {{< include reference/cnc.qmd >}}
 
-# Reference --- Design notes
+# Design notes
 
 {{< include reference/design-notes.qmd >}}
 

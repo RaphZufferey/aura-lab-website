@@ -173,6 +173,42 @@ branch you pushed. Live a minute or two after that commit lands on `master`.
   `manual-pdf.qmd` are what separate the modules. Retitling a module means
   editing it in both places.
 
+### The PDF design
+
+The PDF uses the [orange-book](https://github.com/flavio20002/typst-orange-template)
+Typst template, pinned at `0.7.1`, wired in through
+`_typst/typst-template.typ`.
+
+Quarto calls a function named `article(...)` with the document metadata; that
+file defines it and forwards to orange-book's `book(...)`. Things to know
+before editing it:
+
+- **Only `typst-template.typ` is overridden.** Quarto's `definitions.typ`,
+  which styles callouts, figures and tables, is left alone --- which is why
+  callouts still look like Quarto callouts on top of the orange-book layout.
+  Overriding that partial too would lose them.
+- **`heading-style` means two different things.** Quarto's is a font style
+  (`"normal"`/`"italic"`); orange-book's selects the chapter-opener layout
+  (`0` = the boxed title). Forwarding one to the other compiles fine and
+  produces the wrong design.
+- **Authors must be strings.** orange-book passes the author into
+  `set document(author:)`, which rejects content. Quarto supplies content, so
+  `content-to-str` flattens it first. Without that the compile fails outright.
+- **Figures are excluded from outlines.** orange-book unconditionally emits a
+  list of figures and a list of tables after the contents; with no title they
+  render as an unlabelled run of captions spilling out of the contents page.
+  There is no flag to disable them, so `set figure(outlined: false)` is used
+  instead. Cross-references still work.
+- **Parts come from raw Typst.** The `#part("...")` calls in `manual-pdf.qmd`
+  are ```` ```{=typst} ```` blocks. `part()` is in scope because the template
+  imports orange-book at document level.
+- **The build needs network on first compile.** The package is fetched from the
+  Typst registry rather than vendored, then cached. An offline runner cannot
+  build the PDF.
+
+Page size is A4, matching the reference design. Change `paper-size` in
+`_typst/typst-template.typ` if US Letter suits the shop better.
+
 Links and images throughout the manual use project-root-relative paths
 (`/Fig/...`, `/sessions/...`). Document-relative `../Fig/...` works on the
 website but escapes the Typst sandbox when the same file is included into the

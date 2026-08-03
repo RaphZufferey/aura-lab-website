@@ -6,3 +6,8 @@
 # site publishes it as a resource.
 /manual-pdf.pdf
 /manual-pdf.typ
+
+# Reference copy of the target design, kept locally for comparison. Not shipped
+# -- it is a superseded 10 MB build of the same content. Drop the ignore if you
+# want it tracked.
+/_typst/reference/
