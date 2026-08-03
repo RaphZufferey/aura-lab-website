@@ -42,86 +42,67 @@ format:
   module, update it in both places.
 -->
 
-# Overview
-
+# Overview {#ch-index}
 {{< include index.qmd >}}
 
 ```{=typst}
 #part("Build modules")
 ```
 
-# Module 1 --- Orientation
-
+# Module 1 --- Orientation {#ch-01-orientation}
 {{< include sessions/01-orientation.qmd >}}
 
-# Module 2 --- Motor and transmission shaft
-
+# Module 2 --- Motor and transmission shaft {#ch-02-motor}
 {{< include sessions/02-motor.qmd >}}
 
-# Module 3 --- Motor driver, sensor and serial
-
+# Module 3 --- Motor driver, sensor and serial {#ch-03-esc}
 {{< include sessions/03-esc.qmd >}}
 
-# Module 4 --- Closed-loop control and tuning
-
+# Module 4 --- Closed-loop control and tuning {#ch-04-control}
 {{< include sessions/04-control.qmd >}}
 
-# Module 5 --- Frame, crank, linkage and gears
-
+# Module 5 --- Frame, crank, linkage and gears {#ch-05-frame-crank}
 {{< include sessions/05-frame-crank.qmd >}}
 
-# Module 6 --- Flapping simulation (Ptera)
-
+# Module 6 --- Flapping simulation (Ptera) {#ch-06-simulation}
 {{< include sessions/06-simulation.qmd >}}
 
-# Module 7 --- Wing fabrication
-
+# Module 7 --- Wing fabrication {#ch-07-wings}
 {{< include sessions/07-wings.qmd >}}
 
-# Module 8 --- Tail and housing
-
+# Module 8 --- Tail and housing {#ch-08-tail-housing}
 {{< include sessions/08-tail-housing.qmd >}}
 
-# Module 9 --- Flight controller, PCB and dry testing
-
+# Module 9 --- Flight controller, PCB and dry testing {#ch-09-electronics-dry-test}
 {{< include sessions/09-electronics-dry-test.qmd >}}
 
-# Module 10 --- Waterproofing
-
+# Module 10 --- Waterproofing {#ch-10-waterproofing}
 {{< include sessions/10-waterproofing.qmd >}}
 
-# Module 11 --- Wet testing
-
+# Module 11 --- Wet testing {#ch-11-wet-testing}
 {{< include sessions/11-wet-testing.qmd >}}
 
-# Module 12 --- Competition
-
+# Module 12 --- Competition {#ch-12-competition}
 {{< include sessions/12-competition.qmd >}}
 
 ```{=typst}
 #part("Reference")
 ```
 
-# Parts list
-
+# Parts list {#ch-parts-list}
 {{< include reference/parts-list.qmd >}}
 
-# Software
-
+# Software {#ch-software}
 {{< include reference/software.qmd >}}
 
-# PCB revisions
-
+# PCB revisions {#ch-pcb}
 {{< include reference/pcb.qmd >}}
 
-# CNC --- Stepcraft D660
-
+# CNC --- Stepcraft D660 {#ch-cnc}
 {{< include reference/cnc.qmd >}}
 
-# Design notes
-
+# Design notes {#ch-design-notes}
 {{< include reference/design-notes.qmd >}}
 
-# Changelog
-
+# Changelog {#ch-changelog}
 {{< include changelog.qmd >}}

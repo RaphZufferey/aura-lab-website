@@ -199,6 +199,16 @@ before editing it:
   render as an unlabelled run of captions spilling out of the contents page.
   There is no flag to disable them, so `set figure(outlined: false)` is used
   instead. Cross-references still work.
+- **Cross-page links are rewritten to internal jumps.** The pages link to each
+  other by file path (`./reference/pcb.qmd`), which is correct for the website.
+  Pandoc passes those through as link URLs, so in the PDF they come out styled
+  and blue but pointing at a file that does not exist. A `show link` rule in the
+  template maps them onto labels: an anchor if the target exists
+  (`pcb.qmd#v2-waterproofing` → `<v2-waterproofing>`), otherwise the chapter
+  (`pcb.qmd` → `<ch-pcb>`). Chapter labels are `ch-` plus the included file's
+  basename, assigned by the `{#ch-...}` ids on the headings in `manual-pdf.qmd`
+  --- keep those two conventions in step and new chapters need no template
+  change. External URLs are untouched.
 - **Parts come from raw Typst.** The `#part("...")` calls in `manual-pdf.qmd`
   are ```` ```{=typst} ```` blocks. `part()` is in scope because the template
   imports orange-book at document level.

@@ -75,6 +75,44 @@
     authors.map(a => content-to-str(a.name)).join(", ", last: " & ")
   }
 
+  // Cross-page links resolve to internal jumps.
+  //
+  // The manual's pages link to each other by file path ("./reference/pcb.qmd"),
+  // which is right for the website. Pandoc carries those straight through as
+  // link URLs, so in the PDF they render blue and styled but click through to a
+  // file that does not exist -- dead links that look live.
+  //
+  // Every one of them is a link to a page that IS in this PDF, so they are
+  // rewritten to internal document links:
+  //
+  //   ./reference/pcb.qmd#v2-waterproofing  ->  <v2-waterproofing>  (the anchor)
+  //   ./reference/pcb.qmd                   ->  <ch-pcb>            (the chapter)
+  //
+  // Chapter labels are `ch-` plus the source file's basename, which is exactly
+  // how manual-pdf.qmd assigns them -- so adding a chapter needs no change here.
+  // Anything that fails to resolve degrades to plain text rather than staying a
+  // link that goes nowhere.
+  show link: it => {
+    let dest = it.dest
+    if type(dest) == str and dest.contains(".qmd") {
+      let anchor = if dest.contains("#") { dest.split("#").last() } else { none }
+      let base = dest.split("#").first().split("/").last().replace(".qmd", "")
+      context {
+        let chapter = label("ch-" + base)
+        if anchor != none and query(label(anchor)).len() > 0 {
+          link(label(anchor), it.body)
+        } else if query(chapter).len() > 0 {
+          link(chapter, it.body)
+        } else {
+          it.body
+        }
+      }
+    } else {
+      // External URLs and already-internal links are left alone.
+      it
+    }
+  }
+
   // orange-book always emits a list of figures and a list of tables after the
   // table of contents. With no title set they render as an unlabelled run of
   // captions bleeding out of the contents page, which reads as a bug. There is

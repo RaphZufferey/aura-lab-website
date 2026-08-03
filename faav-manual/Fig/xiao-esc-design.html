@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>XIAO nRF52840 + AS5047P &rarr; B-G431B-ESC1 &mdash; Wiring Diagram (source)</title>
+<style>
+  /* ---- Print page: sized to the drawing's 1080x840 aspect (1.2857) ---- */
+  @page { size: 280mm 220mm; margin: 8mm; }
+  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+  html, body { margin: 0; padding: 0; background: #DFE4E8; }
+  #sheet { background: #fff; margin: 24px auto; box-shadow: 0 2px 14px rgba(0,0,0,.14); max-width: 1120px; }
+  svg { display: block; width: 100%; height: auto; }
+
+  @media print {
+    html, body { background: #fff; }
+    #sheet { margin: 0; box-shadow: none; max-width: none; }
+    svg { width: 262mm; height: 203.8mm; margin: 0 auto; }
+  }
+</style>
+</head>
+<body>
+<div id="sheet"></div>
+
+<script>
+/* ===========================================================================
+   XIAO nRF52840 + AS5047P -> B-G431B-ESC1  :  wiring diagram source
+   ---------------------------------------------------------------------------
+   Everything you would want to change lives in the DESIGN section below.
+   The RENDERER underneath is generic and should rarely need editing.
+
+   Coordinate system: a 1080 x 840 canvas, y increases downward.
+   Blocks are placed by top-left corner; pins are placed by their coordinate
+   along the edge they sit on. Nets are straight lines between two pins, so
+   two pins at the same `at` value give a horizontal wire, and different
+   values give a diagonal (that is how the UART crossover is drawn).
+
+   Open ?debug=1 in a browser for a coordinate grid and overflow warnings.
+   Run make-pdf.ps1 to regenerate the PDF.
+   =========================================================================== */
+
+/* ========================= DESIGN ======================================== */
+
+const PAGE = { w: 1080, h: 840 };
+
+/* Palette. Fixed print colours -- the sheet is always white. */
+const C = {
+  ink:  '#0F1922',   // block outlines, pin labels
+  ink2: '#46596A',   // connector group tags
+  ink3: '#7C8D9C',   // captions, dashed annotation
+  fill: '#F4F6F8',   // block interior
+  zone: '#E4E9ED',   // connector sub-areas inside a block
+  paper:'#FFFFFF',
+
+  bat:  '#C0271F',   // battery rail        (red)
+  v5:   '#CC6A00',   // 5 V supply          (orange)
+  v3:   '#96780A',   // 3.3 V supply        (dark yellow)
+  gnd:  '#5A6E80',   // ground              (slate)
+  uart: '#14707A',   // UART                (teal)
+  spi:  '#3563A8',   // SPI                 (blue)
+  phase:'#6B4E9E',   // motor phases        (purple)
+  flag: '#8A6110'    // "needs attention"   (amber)
+};
+
+/* Type sizes, px on the 1080-wide canvas. Scale these together to resize all
+   text; the last change bumped everything ~24%. */
+const TYPE = { tt: 21, ts: 13, grp: 13.5, pin: 13.5, netl: 12.5 };
+
+const FONT = {
+  disp: '"Arial Narrow", "Helvetica Neue", Arial, sans-serif',
+  mono: 'Consolas, "Cascadia Mono", ui-monospace, monospace'
+};
+
+/* --- Blocks -------------------------------------------------------------
+   text[]  : labels positioned relative to the block corner (dx, dy)
+             cls 'tt' = title, 'ts' = caption; anchor 'end' right-aligns
+   pins[]  : side L/R/T/B, `at` = position along that edge, label drawn inside
+   zones[] : light grey sub-areas (connector groups), relative to the corner
+   groups[]: the connector name tag above a pin group
+   inset   : how far inside the edge pin labels sit (default 16)
+   ---------------------------------------------------------------------- */
+const BLOCKS = [
+  {
+    id: 'pack', x: 60, y: 120, w: 170, h: 160,
+    text: [ {dx:22, dy:38, t:'LiPo 4S', cls:'tt'},
+            {dx:22, dy:58, t:'16 V',    cls:'ts'} ],
+    pins: [ {id:'pos', side:'R', at:210, label:'+'},
+            {id:'neg', side:'R', at:250, label:'−'} ]
+  },
+  {
+    id: 'xiao', x: 60, y: 380, w: 170, h: 240,
+    text: [ {dx:22, dy: 86, t:'XIAO',     cls:'tt'},
+            {dx:22, dy:106, t:'nRF52840', cls:'tt'} ],
+    pins: [ {id:'v5',  side:'R', at:410, label:'5V'},
+            {id:'gnd', side:'R', at:440, label:'GND'},
+            {id:'tx',  side:'R', at:500, label:'D6 · TX'},
+            {id:'rx',  side:'R', at:530, label:'D7 · RX'} ]
+  },
+  {
+    id: 'esc', x: 340, y: 120, w: 300, h: 500,
+    inset: { L: 16, R: 20 },
+    text: [ {dx:22, dy:38, t:'B-G431B-ESC1', cls:'tt'},
+            {dx:22, dy:58, t:'STM32G431CB',  cls:'ts'} ],
+    zones: [ {dx:188, dy:  4, w:112, h:172},   // J3, right side
+             {dx:  0, dy:258, w:112, h: 80},   // J3, left side
+             {dx:  0, dy:348, w:112, h: 80} ], // J8, left side
+    groups: [ {side:'L', at:392, t:'J3'},
+              {side:'L', at:482, t:'J8'},
+              {side:'R', at:136, t:'J3'},
+              {side:'R', at:302, t:'R14', color:C.flag} ],
+    pins: [
+      {id:'vbatp', side:'L', at:210, label:'VBAT+'},
+      {id:'vbatn', side:'L', at:250, label:'VBAT−'},
+      {id:'v5',    side:'L', at:410, label:'5V · BEC'},
+      {id:'gndL',  side:'L', at:440, label:'GND'},
+      {id:'tx',    side:'L', at:500, label:'TX · PB6'},
+      {id:'rx',    side:'L', at:530, label:'RX · PB7'},
+
+      {id:'v3',    side:'R', at:150, label:'3V3'},
+      {id:'gndR',  side:'R', at:180, label:'GND'},
+      {id:'sclk',  side:'R', at:220, label:'SCLK · PB3'},
+      {id:'miso',  side:'R', at:250, label:'MISO · PB4'},
+      {id:'cs',    side:'R', at:280, label:'CS · PA15'},
+      /* PB5 is the BEMF divider's return leg, not a header pin -- flagged. */
+      {id:'mosi',  side:'R', at:315, label:'MOSI · PB5',
+       marker:'circle', color:C.flag},
+
+      {id:'u',     side:'R', at:480, label:'U'},
+      {id:'v',     side:'R', at:520, label:'V'},
+      {id:'w',     side:'R', at:560, label:'W'}
+    ]
+  },
+  {
+    id: 'enc', x: 790, y: 120, w: 220, h: 220,
+    text: [ {dx:210, dy:32, t:'AS5047P',          cls:'tt', anchor:'end'},
+            {dx:210, dy:52, t:'3.3 V mode',       cls:'ts', anchor:'end'},
+            {dx:210, dy:68, t:'VDD tied to VREG', cls:'ts', anchor:'end'} ],
+    pins: [ {id:'vdd',  side:'L', at:150, label:'VDD + VREG'},
+            {id:'gnd',  side:'L', at:180, label:'GND'},
+            {id:'clk',  side:'L', at:220, label:'CLK'},
+            {id:'miso', side:'L', at:250, label:'MISO'},
+            {id:'cs',   side:'L', at:280, label:'CSn'},
+            {id:'mosi', side:'L', at:315, label:'MOSI'} ]
+  },
+  {
+    id: 'motor', x: 790, y: 400, w: 220, h: 220,
+    text: [ {dx:16, dy:42, t:'BLDC Motor', cls:'tt'},
+            {dx:16, dy:62, t:'3-phase',    cls:'ts'} ],
+    pins: [ {id:'u', side:'L', at:480, label:'U'},
+            {id:'v', side:'L', at:520, label:'V'},
+            {id:'w', side:'L', at:560, label:'W'} ]
+  }
+];
+
+/* --- Nets ---------------------------------------------------------------
+   from/to : 'blockId.pinId'
+   label   : {t, dx, dy} offset from the FROM anchor, or {t, x, y} absolute
+   trim    : pull the start back off the pad (used where a marker sits)
+   ---------------------------------------------------------------------- */
+const NETS = [
+  {from:'pack.pos',  to:'esc.vbatp', color:C.bat, w:4,   label:{t:'BAT+',  dx:18, dy:-8}},
+  {from:'pack.neg',  to:'esc.vbatn', color:C.gnd, w:4,   label:{t:'BAT−', dx:18, dy:20}},
+
+  {from:'xiao.v5',   to:'esc.v5',    color:C.v5,  w:2.6, label:{t:'5V',    dx:20, dy:-8}},
+  {from:'xiao.gnd',  to:'esc.gndL',  color:C.gnd, w:4,   label:{t:'GND',   dx:20, dy:20}},
+
+  /* UART crosses: ESC TX -> XIAO RX, XIAO TX -> ESC RX */
+  {from:'esc.tx',    to:'xiao.rx',   color:C.uart, w:2.2, label:{t:'TLM', x:246, y:488}},
+  {from:'xiao.tx',   to:'esc.rx',    color:C.uart, w:2.2, label:{t:'CMD', x:246, y:556}},
+
+  {from:'esc.v3',    to:'enc.vdd',   color:C.v3,  w:2.6, label:{t:'3V3',  dx:10, dy:-8}},
+  {from:'esc.gndR',  to:'enc.gnd',   color:C.gnd, w:2.6, label:{t:'GND',  dx:10, dy:-8}},
+
+  {from:'esc.sclk',  to:'enc.clk',   color:C.spi, w:2.2, label:{t:'SCLK', dx:14, dy:-8}},
+  {from:'esc.miso',  to:'enc.miso',  color:C.spi, w:2.2, label:{t:'MISO', dx:14, dy:-8}},
+  {from:'esc.cs',    to:'enc.cs',    color:C.spi, w:2.2, label:{t:'CS',   dx:14, dy:-8}},
+  {from:'esc.mosi',  to:'enc.mosi',  color:C.spi, w:2.2, trim:5,
+                                                   label:{t:'MOSI', dx:14, dy:-8}},
+
+  {from:'esc.u',     to:'motor.u',   color:C.phase, w:4, label:{t:'U / V / W', dx:20, dy:-8}},
+  {from:'esc.v',     to:'motor.v',   color:C.phase, w:4},
+  {from:'esc.w',     to:'motor.w',   color:C.phase, w:4}
+];
+
+/* --- Annotations --------------------------------------------------------- */
+const NOTES = [
+  {kind:'circle', x:285, y:515, r:14, dash:'5 4'},                     // crossover callout
+  {kind:'text',   x:285, y:596, t:'TX/RX crossed', anchor:'middle'},
+  {kind:'path',   d:'M900,340 V400', dash:'3 5', w:1.4},               // shaft coupling
+  {kind:'text',   x:912, y:376, t:'magnet on shaft'}
+];
+
+/* --- Legend -------------------------------------------------------------- */
+const LEGEND = {
+  x: 60, y: 650, step: 22,
+  rows: [
+    {color:C.bat,   w:4,   t:'Battery rail, 16 V'},
+    {color:C.phase, w:4,   t:'Motor phase'},
+    {color:C.v5,    w:2.6, t:'5 V supply'},
+    {color:C.v3,    w:2.6, t:'3.3 V supply'},
+    {color:C.gnd,   w:4,   t:'Ground'},
+    {color:C.uart,  w:2.2, t:'UART, 3.3 V'},
+    {color:C.spi,   w:2.2, t:'SPI, 3.3 V'},
+    {marker:'circle', color:C.flag, t:'Shares the BEMF divider'}
+  ]
+};
+
+/* ========================= RENDERER ====================================== */
+/* Generic below this line -- edit only to add a new kind of drawing element. */
+
+const NS = 'http://www.w3.org/2000/svg';
+const esc = s => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+const byId = id => BLOCKS.find(b => b.id === id);
+
+function pinAnchor(ref) {
+  const [bid, pid] = ref.split('.');
+  const b = byId(bid);
+  if (!b) throw new Error('unknown block: ' + bid);
+  const p = b.pins.find(q => q.id === pid);
+  if (!p) throw new Error('unknown pin: ' + ref);
+  if (p.side === 'L') return {x: b.x,        y: p.at, p, b};
+  if (p.side === 'R') return {x: b.x + b.w,  y: p.at, p, b};
+  if (p.side === 'T') return {x: p.at, y: b.y,        p, b};
+  return                     {x: p.at, y: b.y + b.h,  p, b};
+}
+
+function textEl(x, y, t, cls, opt = {}) {
+  const a = opt.anchor ? ` text-anchor="${opt.anchor}"` : '';
+  const f = opt.color  ? ` fill="${opt.color}"` : '';
+  return `<text class="${cls}" x="${x}" y="${y}"${a}${f}>${esc(t)}</text>`;
+}
+
+function renderBlock(b) {
+  let s = '';
+  const inL = (b.inset && b.inset.L) || 16;
+  const inR = (b.inset && b.inset.R) || 16;
+
+  // Fill, then connector zones, then the outline on top so the border stays crisp.
+  s += `<rect x="${b.x}" y="${b.y}" width="${b.w}" height="${b.h}" fill="${C.fill}"/>`;
+  (b.zones || []).forEach(z =>
+    s += `<rect x="${b.x + z.dx}" y="${b.y + z.dy}" width="${z.w}" height="${z.h}" fill="${C.zone}"/>`);
+  s += `<rect x="${b.x}" y="${b.y}" width="${b.w}" height="${b.h}" fill="none" stroke="${C.ink}" stroke-width="1.6"/>`;
+
+  (b.text || []).forEach(t =>
+    s += textEl(b.x + t.dx, b.y + t.dy, t.t, t.cls || 'ts', {anchor: t.anchor}));
+
+  (b.groups || []).forEach(g => {
+    const x = g.side === 'L' ? b.x + inL : b.x + b.w - inR;
+    s += textEl(x, g.at, g.t, 'grp', {anchor: g.side === 'L' ? null : 'end', color: g.color});
+  });
+
+  (b.pins || []).forEach(p => {
+    const a = pinAnchor(b.id + '.' + p.id);
+    s += p.marker === 'circle'
+      ? `<circle cx="${a.x}" cy="${a.y}" r="5" fill="${C.paper}" stroke="${p.color || C.ink}" stroke-width="1.6"/>`
+      : `<rect x="${a.x - 4}" y="${a.y - 4}" width="8" height="8" fill="${C.paper}" stroke="${C.ink}" stroke-width="1.4"/>`;
+
+    if (p.label) {
+      const horiz = p.side === 'L' || p.side === 'R';
+      const lx = p.side === 'L' ? b.x + inL : b.x + b.w - inR;
+      if (horiz) s += textEl(lx, a.y + 4, p.label, 'pin',
+                             {anchor: p.side === 'L' ? null : 'end', color: p.color});
+    }
+  });
+  return s;
+}
+
+function renderNet(n) {
+  const A = pinAnchor(n.from), B = pinAnchor(n.to);
+  let x1 = A.x, y1 = A.y;
+  if (n.trim) {                                   // pull the start off the pad
+    const dx = B.x - A.x, dy = B.y - A.y, L = Math.hypot(dx, dy) || 1;
+    x1 += dx / L * n.trim; y1 += dy / L * n.trim;
+  }
+  let s = `<path d="M${x1},${y1} L${B.x},${B.y}" fill="none" stroke="${n.color}" `
+        + `stroke-width="${n.w}" stroke-linecap="butt"/>`;
+  if (n.label) {
+    const lx = n.label.x !== undefined ? n.label.x : A.x + (n.label.dx || 0);
+    const ly = n.label.y !== undefined ? n.label.y : A.y + (n.label.dy || 0);
+    s += textEl(lx, ly, n.label.t, 'netl', {color: n.color});
+  }
+  return s;
+}
+
+function renderNote(n) {
+  if (n.kind === 'circle')
+    return `<circle cx="${n.x}" cy="${n.y}" r="${n.r}" fill="none" stroke="${C.ink3}" `
+         + `stroke-width="1.2" stroke-dasharray="${n.dash || ''}"/>`;
+  if (n.kind === 'path')
+    return `<path d="${n.d}" fill="none" stroke="${C.ink3}" stroke-width="${n.w || 1.2}" `
+         + `stroke-dasharray="${n.dash || ''}"/>`;
+  return textEl(n.x, n.y, n.t, 'ts', {anchor: n.anchor});
+}
+
+function renderLegend(L) {
+  let s = `<g transform="translate(${L.x},${L.y})">` + textEl(0, 0, 'LEGEND', 'ts');
+  L.rows.forEach((r, i) => {
+    const y = (i + 1) * L.step;
+    s += r.marker === 'circle'
+      ? `<circle cx="13" cy="${y - 4}" r="5" fill="${C.paper}" stroke="${r.color}" stroke-width="1.6"/>`
+      : `<path d="M0,${y - 4} H26" fill="none" stroke="${r.color}" stroke-width="${r.w}"/>`;
+    s += textEl(34, y, r.t, 'pin');
+  });
+  return s + '</g>';
+}
+
+function renderDebug() {
+  let s = '<g opacity="0.5">';
+  for (let x = 0; x <= PAGE.w; x += 20)
+    s += `<path d="M${x},0 V${PAGE.h}" stroke="${x % 100 ? '#EAF0F4' : '#CFE0EA'}" stroke-width="1" fill="none"/>`;
+  for (let y = 0; y <= PAGE.h; y += 20)
+    s += `<path d="M0,${y} H${PAGE.w}" stroke="${y % 100 ? '#EAF0F4' : '#CFE0EA'}" stroke-width="1" fill="none"/>`;
+  s += '</g>';
+  BLOCKS.forEach(b => {
+    s += `<rect x="${b.x}" y="${b.y}" width="${b.w}" height="${b.h}" fill="none" `
+       + `stroke="#D02090" stroke-width="1" stroke-dasharray="4 3"/>`;
+    s += `<text x="${b.x}" y="${b.y - 5}" font-family="${FONT.mono}" font-size="11" fill="#D02090">`
+       + `${b.id}  ${b.x},${b.y}  ${b.w}×${b.h}</text>`;
+  });
+  return s;
+}
+
+function build() {
+  const debug = new URLSearchParams(location.search).get('debug') === '1';
+  const style = `
+    .tt   { font-family:${FONT.disp}; font-size:${TYPE.tt}px; font-weight:700;
+            letter-spacing:.06em; text-transform:uppercase; fill:${C.ink}; }
+    .ts   { font-family:${FONT.mono}; font-size:${TYPE.ts}px; fill:${C.ink3}; letter-spacing:.05em; }
+    .grp  { font-family:${FONT.mono}; font-size:${TYPE.grp}px; fill:${C.ink2};
+            letter-spacing:.16em; font-weight:700; }
+    .pin  { font-family:${FONT.mono}; font-size:${TYPE.pin}px; fill:${C.ink}; }
+    .netl { font-family:${FONT.mono}; font-size:${TYPE.netl}px; letter-spacing:.08em; }`;
+
+  const body =
+      `<rect x="0" y="0" width="${PAGE.w}" height="${PAGE.h}" fill="${C.paper}"/>`
+    + (debug ? renderDebug() : '')
+    + BLOCKS.map(renderBlock).join('')
+    + NETS.map(renderNet).join('')
+    + NOTES.map(renderNote).join('')
+    + renderLegend(LEGEND);
+
+  document.getElementById('sheet').innerHTML =
+      `<svg xmlns="${NS}" viewBox="0 0 ${PAGE.w} ${PAGE.h}" role="img" aria-label="Wiring diagram: `
+    + `LiPo 4S pack to B-G431B-ESC1, XIAO nRF52840 on UART, AS5047P encoder on SPI, BLDC motor on U V W.">`
+    + `<defs><style>${style}</style></defs>${body}</svg>`;
+
+  checkOverflow();
+}
+
+/* Warns when a text label runs outside the block it belongs to, or when two
+   labels collide. This is the check that would have caught "TX / RX crossed"
+   overflowing the gap between the XIAO and ESC boxes. */
+function checkOverflow() {
+  const svg = document.querySelector('#sheet svg');
+  if (!svg || !svg.getBBox) return;
+  const rects = BLOCKS.map(b => ({id:b.id, x1:b.x, y1:b.y, x2:b.x + b.w, y2:b.y + b.h}));
+  let warned = 0;
+  svg.querySelectorAll('text').forEach(t => {
+    let bb; try { bb = t.getBBox(); } catch (e) { return; }
+    const cx = bb.x + bb.width / 2, cy = bb.y + bb.height / 2;
+    const inside = rects.find(r => cx > r.x1 && cx < r.x2 && cy > r.y1 && cy < r.y2);
+    if (inside) {
+      if (bb.x < inside.x1 - 1 || bb.x + bb.width > inside.x2 + 1) {
+        console.warn(`[overflow] "${t.textContent}" spills out of block "${inside.id}"`); warned++;
+      }
+    } else {
+      const hit = rects.find(r => bb.x + bb.width > r.x1 && bb.x < r.x2 &&
+                                  bb.y + bb.height > r.y1 && bb.y < r.y2);
+      if (hit) { console.warn(`[collision] "${t.textContent}" overlaps block "${hit.id}"`); warned++; }
+    }
+  });
+  console.log(warned ? `${warned} layout warning(s) -- see above.` : 'Layout OK: no text overflow detected.');
+}
+
+build();
+</script>
+</body>
+</html>
