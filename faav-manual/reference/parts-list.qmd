@@ -1,0 +1,41 @@
+---
+title: "Parts list"
+---
+
+Carried over from the manufacturing guide. Quantities are per robot.
+
+| # | Part | Model / material | Mass [g] | Supplier |
+|---:|---|---|---:|---|
+| 2 | Body plates | CF 1.5 mm | | [swiss-composites](https://shop.swiss-composite.ch/pi.php/Halbfabrikate/Plattenmaterial/CFK-Prepreg-Platten/Carbon-Prepreg-Platten-15mm.html) |
+| 1 | Motor | AT2303 1500 kV | | [T-Motor](https://store.tmotor.com/goods.php?id=753) · [rc-shop.ch](https://www.rc-shop.ch/motor-750/t-motor-rc-motor-elektro-at2303-2s-3s-kv1500-17g-216857) |
+| 1 | Transmission | Faulhaber Series 20/1R 1:23 | 39 | [Faulhaber](https://www.faulhaber.com/en/products/series/201r/) |
+| 4 | Frame parts | 3D-printed Onyx with CF | | Markforged |
+| 34 | Screws | M2×4 countersunk, A4 | | [Bossard A4](https://www.bossard.com/eshop/ch-fr/vis-a-entrainement-interieur/vis-a-tete-fraisee-a-six-lobes-internes-entierement-filetees/p/20039/) or [A2](https://www.bossard.com/eshop/ch-fr/vis-a-entrainement-interieur/vis-a-tete-fraisee-a-six-lobes-internes-entierement-filetees/p/3803/) |
+| 26 | Plastic inserts | M2×4 brass | | [Reichelt](https://www.reichelt.com/ch/de/3d-druck-gewindeeinsaetze-m2x4-70-stueck-rx-m2x4-p332211.html) |
+| 2 | Output gears | CNC-cut PEEK | | [RS Pro](https://ch.rs-online.com/web/p/kunststoffplatten/0514679) |
+| 1 | Transmission crank | 5 mm aluminium | | |
+| 1 | Transmission bearing | 4×8 mm flanged stainless | 0.6 | |
+| 1 | Linkage | 4 mm aluminium | | |
+| 2 | Linkage bearings | 3×7×3 mm stainless | 0.6 | |
+| 1 | Linkage–gear shaft | 3 mm steel | 1 | |
+| 1 | Linkage–crank shaft | 3 mm steel | 0.5 | |
+| 1 | Primary gear shafts | 3 mm steel | 1.7 | |
+| 1 | Driven gear shafts | 3 mm steel | 0.8 | |
+| 1 | Battery connector | JWPF 08T & 08R, 8 pins | 3.1 | [Farnell 08R](https://ch.farnell.com/jst-japan-solderless-terminals/08r-jwpf-vsle-d/connector-housing-rcpt-8pos/dp/2399256) · [08T](https://ch.farnell.com/jst-japan-solderless-terminals/08t-jwpf-vsle-d/connector-housing-tab-8pos/dp/2399257) |
+| 1 | Voltage regulator | 5 V 2 A UBEC | 1 | [Amazon](https://www.amazon.com/Adjustable-Step-Down-Regulator-Quadcopter-Martian/dp/B07MS1ND5M) |
+| 1 | Battery | 4S 450 mAh | 50.8 | [Amazon](https://www.amazon.com/OVONIC-Battery-Package-Including-Batteries/dp/B0D3F7BS7L) |
+
+: Parts list {#tbl-parts}
+
+::: {.callout-important}
+## To be completed before the semester
+
+Several items the sessions rely on are **not** in this list and need adding:
+the AS2303 motor (the list still shows the older AT2303), the B-G431B-ESC1, the
+AS5047P sensor, the ST-Link programmer, the FAAV PCB v3.0 and its BOM, the XIAO
+ESP32S3, 4 mm steel rod for the motor shaft, 5 mm PEEK stock, foam, membrane
+material, silicone sealant and CorrosionX.
+
+Suppliers are also mostly Swiss, inherited from the EPFL origin of the project.
+They will need US equivalents for MIT procurement.
+:::

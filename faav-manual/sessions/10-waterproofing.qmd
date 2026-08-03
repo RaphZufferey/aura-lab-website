@@ -1,0 +1,108 @@
+---
+title: "Session 10 --- Waterproofing"
+---
+
+::: {.session-meta}
+**Week of Nov 16** · Paired lecture: *Multirotors*
+:::
+
+## What you build today
+
+A potted PCB, a lubricated and sealed gearbox, and a robot that survives a
+static immersion test.
+
+::: {.callout-warning}
+## Silicone cure time gates this session
+
+The PCB potting takes **12--24 hours** to cure because of the depth. Plan the
+session so potting happens first and soldering happens after the cure, or
+across two sittings.
+:::
+
+## Before you arrive
+
+| | |
+|---|---|
+| **Parts** | Waterproofing box, Kapton tape, silicone sealant, USB-C cable, CorrosionX, white lithium grease |
+| **Tools** | Needle, soldering iron |
+| **Read** | This whole page before starting --- the ordering matters |
+
+## PCB waterproofing
+
+First ensure that the assembled PCB fits within the box before anything else.
+
+1. Tape the bottom side of the box with Kapton.
+2. Fill the bottom of the box with silicone sealant until it reaches the USB
+   port hole.
+3. *Carefully* slide the PCB assembly in, with the Seeeduino facing the bottom
+   of the box.
+4. **Very important!** Insert a USB-C cable into the port. This keeps the
+   sealant from flowing into the port, and the cable is a convenient point to
+   hold the assembly by.
+5. Add sealant along the three free edges to fill any gaps, until the sealant
+   reaches the level of the top side of the PCB. **The PCB components and
+   contacts should be left exposed.**
+6. Let the silicone cure --- because of the depth this takes about 12--24 h.
+7. Solder the wires and contacts.
+8. Solder the voltage regulator.
+9. Seal the top side of the PCB. The best method here is unclear. Tested
+   solutions:
+   - Nail polish
+   - Silicone sealant
+   - [422C silicone conformal coating](https://mgchemicals.com/products/conformal-coatings/silicone-conformal-coatings/conformal-coating-waterproof/)
+     ([datasheet](https://mgchemicals.com/downloads/tds/tds-422c-l.pdf))
+
+### If you are on a v2.0 board
+
+The method changes slightly. See [PCB revisions](../reference/pcb.qmd#v2-waterproofing)
+for the v2.0 procedure, including the SD-card trap-door recovery and antenna
+potting.
+
+## Gearbox
+
+By default the gearbox on the FAAV4 robot is **not waterproof at all**, and it
+is normal for it to end up completely filled with water once submerged. Over
+years of use the gearbox proved largely immune to corrosion --- after more than
+a year of repeated use in water, including in Lake Geneva, one was opened and
+showed no sign of corrosion.
+
+That is not the whole story, and the exception is the reason for this step:
+
+![Gearbox and sun gear after a few dives with motor oil lubrication](../Fig/gearbox_rust1.jpg){#fig-rust}
+
+Severe corrosion appeared on a newer robot after only 3--4 uses in water. The
+cause is believed to be improper lubrication after cleaning, combined with the
+absence of the shaft bearing, which let more water in through the front. Motor
+oil had been used as a substitute lubricant; its low viscosity is believed to
+have washed it away quickly, leaving the gears dry. Full investigation in
+[Design notes](../reference/design-notes.qmd#gearbox-corrosion).
+
+::: {.callout-warning}
+## Use the right lubricant
+
+A mix of **CorrosionX and white lithium grease**. Do not substitute motor oil.
+Several dives have since been performed with the same gearbox that previously
+corroded, and it now runs smoothly.
+:::
+
+Parts that rust: **sun gear, planet gears, ring gear, planet shafts.**
+Parts that do not: screws, motor shaft, washers, body, circlip.
+
+### Sealing modifications
+
+A few optional modifications to the FAAV structure and assembly process keep
+most of the water out.
+
+::: {layout-ncol=1}
+![Gearbox waterproofing, part 1](../Fig/gear_waterproofing1.png)
+
+![Gearbox waterproofing, part 2](../Fig/gear_waterproofing2.png)
+:::
+
+::: {.callout-note}
+## Checkpoint --- TA sign-off
+
+PCB fully cured and potted with contacts exposed, gearbox lubricated and
+reassembled with the shaft bearing fitted, connector back-shell sealed, and a
+static immersion test passed with no ingress.
+:::

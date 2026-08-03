@@ -1,0 +1,37 @@
+---
+title: "Session 12 --- Competition"
+---
+
+::: {.session-meta}
+**Week of Nov 30** · Paired lecture: *Pair presentations*
+:::
+
+## What happens today
+
+Robots are scored in two categories: **most efficient** and **fastest**.
+
+## Before you arrive
+
+| | |
+|---|---|
+| **Bring** | Robot, spare crank–linkage shaft, spare wing, charged packs, your logged cost-of-transport data |
+
+::: {.callout-important}
+## To be written by the instructor
+
+Competition format is course material, not in the manufacturing guide. Needed:
+
+- Course layout and run rules for each category
+- How cost of transport is computed and normalised across teams with different
+  masses
+- Number of attempts, and repair rules between attempts
+- How the competition contributes to the grade
+- What happens to robots afterwards
+:::
+
+## Feedback
+
+The final session is a recap and feedback round. This manual is rebuilt each
+year from what students report --- if something in it cost you time, say so.
+Corrections made during this semester are listed in the
+[Changelog](../changelog.qmd).

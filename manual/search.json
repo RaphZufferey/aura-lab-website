@@ -1,0 +1,1140 @@
+[
+  {
+    "objectID": "sessions/12-competition.html",
+    "href": "sessions/12-competition.html",
+    "title": "Session 12 — Competition",
+    "section": "",
+    "text": "Week of Nov 30 · Paired lecture: Pair presentations",
+    "crumbs": [
+      "Overview",
+      "Build sessions",
+      "Session 12 --- Competition"
+    ]
+  },
+  {
+    "objectID": "sessions/12-competition.html#what-happens-today",
+    "href": "sessions/12-competition.html#what-happens-today",
+    "title": "Session 12 — Competition",
+    "section": "What happens today",
+    "text": "What happens today\nRobots are scored in two categories: most efficient and fastest.",
+    "crumbs": [
+      "Overview",
+      "Build sessions",
+      "Session 12 --- Competition"
+    ]
+  },
+  {
+    "objectID": "sessions/12-competition.html#before-you-arrive",
+    "href": "sessions/12-competition.html#before-you-arrive",
+    "title": "Session 12 — Competition",
+    "section": "Before you arrive",
+    "text": "Before you arrive\n\n\n\n\n\n\n\nBring\nRobot, spare crank–linkage shaft, spare wing, charged packs, your logged cost-of-transport data\n\n\n\n\n\n\n\n\n\nImportantTo be written by the instructor\n\n\n\nCompetition format is course material, not in the manufacturing guide. Needed:\n\nCourse layout and run rules for each category\nHow cost of transport is computed and normalised across teams with different masses\nNumber of attempts, and repair rules between attempts\nHow the competition contributes to the grade\nWhat happens to robots afterwards",
+    "crumbs": [
+      "Overview",
+      "Build sessions",
+      "Session 12 --- Competition"
+    ]
+  },
+  {
+    "objectID": "sessions/12-competition.html#feedback",
+    "href": "sessions/12-competition.html#feedback",
+    "title": "Session 12 — Competition",
+    "section": "Feedback",
+    "text": "Feedback\nThe final session is a recap and feedback round. This manual is rebuilt each year from what students report — if something in it cost you time, say so. Corrections made during this semester are listed in the Changelog.",
+    "crumbs": [
+      "Overview",
+      "Build sessions",
+      "Session 12 --- Competition"
+    ]
+  },
+  {
+    "objectID": "sessions/10-waterproofing.html",
+    "href": "sessions/10-waterproofing.html",
+    "title": "Session 10 — Waterproofing",
+    "section": "",
+    "text": "Week of Nov 16 · Paired lecture: Multirotors",
+    "crumbs": [
+      "Overview",
+      "Build sessions",
+      "Session 10 --- Waterproofing"
+    ]
+  },
+  {
+    "objectID": "sessions/10-waterproofing.html#what-you-build-today",
+    "href": "sessions/10-waterproofing.html#what-you-build-today",
+    "title": "Session 10 — Waterproofing",
+    "section": "What you build today",
+    "text": "What you build today\nA potted PCB, a lubricated and sealed gearbox, and a robot that survives a static immersion test.\n\n\n\n\n\n\nWarningSilicone cure time gates this session\n\n\n\nThe PCB potting takes 12–24 hours to cure because of the depth. Plan the session so potting happens first and soldering happens after the cure, or across two sittings.",
+    "crumbs": [
+      "Overview",
+      "Build sessions",
+      "Session 10 --- Waterproofing"
+    ]
+  },
+  {
+    "objectID": "sessions/10-waterproofing.html#before-you-arrive",
+    "href": "sessions/10-waterproofing.html#before-you-arrive",
+    "title": "Session 10 — Waterproofing",
+    "section": "Before you arrive",
+    "text": "Before you arrive\n\n\n\n\n\n\n\nParts\nWaterproofing box, Kapton tape, silicone sealant, USB-C cable, CorrosionX, white lithium grease\n\n\nTools\nNeedle, soldering iron\n\n\nRead\nThis whole page before starting — the ordering matters",
+    "crumbs": [
+      "Overview",
+      "Build sessions",
+      "Session 10 --- Waterproofing"
+    ]
+  },
+  {
+    "objectID": "sessions/10-waterproofing.html#pcb-waterproofing",
+    "href": "sessions/10-waterproofing.html#pcb-waterproofing",
+    "title": "Session 10 — Waterproofing",
+    "section": "PCB waterproofing",
+    "text": "PCB waterproofing\nFirst ensure that the assembled PCB fits within the box before anything else.\n\nTape the bottom side of the box with Kapton.\nFill the bottom of the box with silicone sealant until it reaches the USB port hole.\nCarefully slide the PCB assembly in, with the Seeeduino facing the bottom of the box.\nVery important! Insert a USB-C cable into the port. This keeps the sealant from flowing into the port, and the cable is a convenient point to hold the assembly by.\nAdd sealant along the three free edges to fill any gaps, until the sealant reaches the level of the top side of the PCB. The PCB components and contacts should be left exposed.\nLet the silicone cure — because of the depth this takes about 12–24 h.\nSolder the wires and contacts.\nSolder the voltage regulator.\nSeal the top side of the PCB. The best method here is unclear. Tested solutions:\n\nNail polish\nSilicone sealant\n422C silicone conformal coating (datasheet)\n\n\n\nIf you are on a v2.0 board\nThe method changes slightly. See PCB revisions for the v2.0 procedure, including the SD-card trap-door recovery and antenna potting.",
+    "crumbs": [
+      "Overview",
+      "Build sessions",
+      "Session 10 --- Waterproofing"
+    ]
+  },
+  {
+    "objectID": "sessions/10-waterproofing.html#gearbox",
+    "href": "sessions/10-waterproofing.html#gearbox",
+    "title": "Session 10 — Waterproofing",
+    "section": "Gearbox",
+    "text": "Gearbox\nBy default the gearbox on the FAAV4 robot is not waterproof at all, and it is normal for it to end up completely filled with water once submerged. Over years of use the gearbox proved largely immune to corrosion — after more than a year of repeated use in water, including in Lake Geneva, one was opened and showed no sign of corrosion.\nThat is not the whole story, and the exception is the reason for this step:\n\n\n\n\n\n\nFigure 1: Gearbox and sun gear after a few dives with motor oil lubrication\n\n\n\nSevere corrosion appeared on a newer robot after only 3–4 uses in water. The cause is believed to be improper lubrication after cleaning, combined with the absence of the shaft bearing, which let more water in through the front. Motor oil had been used as a substitute lubricant; its low viscosity is believed to have washed it away quickly, leaving the gears dry. Full investigation in Design notes.\n\n\n\n\n\n\nWarningUse the right lubricant\n\n\n\nA mix of CorrosionX and white lithium grease. Do not substitute motor oil. Several dives have since been performed with the same gearbox that previously corroded, and it now runs smoothly.\n\n\nParts that rust: sun gear, planet gears, ring gear, planet shafts. Parts that do not: screws, motor shaft, washers, body, circlip.\n\nSealing modifications\nA few optional modifications to the FAAV structure and assembly process keep most of the water out.\n\n\n\n\n\n\nGearbox waterproofing, part 1\n\n\n\n\n\n\n\n\n\nGearbox waterproofing, part 2\n\n\n\n\n\n\n\n\n\n\n\nNoteCheckpoint — TA sign-off\n\n\n\nPCB fully cured and potted with contacts exposed, gearbox lubricated and reassembled with the shaft bearing fitted, connector back-shell sealed, and a static immersion test passed with no ingress.",
+    "crumbs": [
+      "Overview",
+      "Build sessions",
+      "Session 10 --- Waterproofing"
+    ]
+  },
+  {
+    "objectID": "sessions/08-tail-housing.html",
+    "href": "sessions/08-tail-housing.html",
+    "title": "Session 8 — Tail and housing",
+    "section": "",
+    "text": "Week of Nov 2 · Paired lecture: Multi-modal locomotion",
+    "crumbs": [
+      "Overview",
+      "Build sessions",
+      "Session 8 --- Tail and housing"
+    ]
+  },
+  {
+    "objectID": "sessions/08-tail-housing.html#what-you-build-today",
+    "href": "sessions/08-tail-housing.html#what-you-build-today",
+    "title": "Session 8 — Tail and housing",
+    "section": "What you build today",
+    "text": "What you build today\nThe passive tail, cut to the shape your simulation produced and mounted on its rod, plus the foam housing that protects the robot and keeps it afloat.",
+    "crumbs": [
+      "Overview",
+      "Build sessions",
+      "Session 8 --- Tail and housing"
+    ]
+  },
+  {
+    "objectID": "sessions/08-tail-housing.html#before-you-arrive",
+    "href": "sessions/08-tail-housing.html#before-you-arrive",
+    "title": "Session 8 — Tail and housing",
+    "section": "Before you arrive",
+    "text": "Before you arrive\n\n\n\n\n\n\n\nParts\nCarbon sheet and tail rod, foam stock (XPS or closed-cell PE), epoxy\n\n\nTools\nFoam cutter, scalpel\n\n\nBring\nYour Session 6 tail geometry, printed 1:1",
+    "crumbs": [
+      "Overview",
+      "Build sessions",
+      "Session 8 --- Tail and housing"
+    ]
+  },
+  {
+    "objectID": "sessions/08-tail-housing.html#tail",
+    "href": "sessions/08-tail-housing.html#tail",
+    "title": "Session 8 — Tail and housing",
+    "section": "Tail",
+    "text": "Tail\n\n\n\n\n\n\nFigure 1: Tail assembly\n\n\n\n\n\n\n\n\n\nImportantTo be written by the instructor\n\n\n\nAs with the wings, the guide contains only the photograph above for the tail. Still needed: sheet material and thickness, rod diameter, how the tail mounts to the boom, and the incidence setting. The project plan also notes tail actuation is optional if time permits — decide before the semester whether that is in scope.",
+    "crumbs": [
+      "Overview",
+      "Build sessions",
+      "Session 8 --- Tail and housing"
+    ]
+  },
+  {
+    "objectID": "sessions/08-tail-housing.html#housing",
+    "href": "sessions/08-tail-housing.html#housing",
+    "title": "Session 8 — Tail and housing",
+    "section": "Housing",
+    "text": "Housing\nUse a foam cutter to cut an exterior housing for the FAAV. This is an important step for external tests: it adds a layer of protection and ensures the FAAV floats. Leave space for GPS and antenna insertions if you are using them.\nTo keep the FAAV level when floating — which helps visibility and getting it out of the water — it is recommended to put a certain amount of foam on the tail.\n\nChoosing a foam\nVarious foams have been tested, with tradeoffs:\n\n\n\n\n\n\n\n\n\nFoam\nFloatability\nAbsorption\nImpact behaviour\n\n\n\n\nExtruded polystyrene (XPS)\nBest, low density\nZero\nRelatively brittle; little help damping landings\n\n\nClosed-cell polyethylene (PE)\nDecent, relatively low density\nLight\nMuch more compliant; usable as protection\n\n\n\nIf someone ever has time, a multi-material housing could have its use cases.\n\n\n\n\n\n\nWarningCheck solvent compatibility before painting or gluing foam\n\n\n\nSome foams are very sensitive to solvents. Epoxy is inert and can act as glue.\n\n\n\n\n\n\n\n\nNoteCheckpoint — TA sign-off\n\n\n\nTail mounted and aligned, housing fitted with clearance for the wings through the full flap cycle, and the assembled robot floating level in the test tank.",
+    "crumbs": [
+      "Overview",
+      "Build sessions",
+      "Session 8 --- Tail and housing"
+    ]
+  },
+  {
+    "objectID": "sessions/06-simulation.html",
+    "href": "sessions/06-simulation.html",
+    "title": "Session 6 — Flapping simulation (Ptera)",
+    "section": "",
+    "text": "Week of Oct 19 · Paired lecture: Insect-scale flapping · No session Oct 12",
+    "crumbs": [
+      "Overview",
+      "Build sessions",
+      "Session 6 --- Flapping simulation (Ptera)"
+    ]
+  },
+  {
+    "objectID": "sessions/06-simulation.html#what-you-do-today",
+    "href": "sessions/06-simulation.html#what-you-do-today",
+    "title": "Session 6 — Flapping simulation (Ptera)",
+    "section": "What you do today",
+    "text": "What you do today\nChoose your wing and tail geometry. You simulate candidate geometries in Ptera and pick the one that gives the best thrust profile when compounded with the provided motor power curve. Sessions 7 and 8 build whatever you decide here.",
+    "crumbs": [
+      "Overview",
+      "Build sessions",
+      "Session 6 --- Flapping simulation (Ptera)"
+    ]
+  },
+  {
+    "objectID": "sessions/06-simulation.html#before-you-arrive",
+    "href": "sessions/06-simulation.html#before-you-arrive",
+    "title": "Session 6 — Flapping simulation (Ptera)",
+    "section": "Before you arrive",
+    "text": "Before you arrive\n\n\n\nBring\nLaptop with Ptera installed, your measured loop performance from Session 4\n\n\nRead\nThis page",
+    "crumbs": [
+      "Overview",
+      "Build sessions",
+      "Session 6 --- Flapping simulation (Ptera)"
+    ]
+  },
+  {
+    "objectID": "sessions/06-simulation.html#deliverable",
+    "href": "sessions/06-simulation.html#deliverable",
+    "title": "Session 6 — Flapping simulation (Ptera)",
+    "section": "Deliverable",
+    "text": "Deliverable\nA wing planform and a tail geometry, with the simulation output that justifies them, carried forward into Session 7 and Session 8.\n\n\n\n\n\n\nImportantTo be written by the instructor\n\n\n\nThis session has no counterpart in the manufacturing guide — the guide documents the research robot’s final geometry, not the design exercise. The following need to be written from course material:\n\nPtera installation and a worked example\nThe provided motor power curve, and its format\nWhat “most efficient thrust profile” means quantitatively here, and how it is scored\nConstraints the students must respect so their geometry remains buildable with the frame from Session 5 — span limits, root fitting, mass budget\nWhether teams may deviate from the reference wing, and by how much\n\n\n\n\n\n\n\n\n\nNoteCheckpoint — TA sign-off\n\n\n\nA geometry chosen, with simulation evidence, and confirmed buildable against the frame and wing-root hardware.",
+    "crumbs": [
+      "Overview",
+      "Build sessions",
+      "Session 6 --- Flapping simulation (Ptera)"
+    ]
+  },
+  {
+    "objectID": "sessions/04-control.html",
+    "href": "sessions/04-control.html",
+    "title": "Session 4 — Closed-loop control and tuning",
+    "section": "",
+    "text": "Week of Sep 28 · Paired lecture: Swimming robots I",
+    "crumbs": [
+      "Overview",
+      "Build sessions",
+      "Session 4 --- Closed-loop control and tuning"
+    ]
+  },
+  {
+    "objectID": "sessions/04-control.html#what-you-build-today",
+    "href": "sessions/04-control.html#what-you-build-today",
+    "title": "Session 4 — Closed-loop control and tuning",
+    "section": "What you build today",
+    "text": "What you build today\nThe gearbox installed with a marker flag on the output, running continuously, then holding position, then tracking a velocity setpoint with a tuned loop.",
+    "crumbs": [
+      "Overview",
+      "Build sessions",
+      "Session 4 --- Closed-loop control and tuning"
+    ]
+  },
+  {
+    "objectID": "sessions/04-control.html#before-you-arrive",
+    "href": "sessions/04-control.html#before-you-arrive",
+    "title": "Session 4 — Closed-loop control and tuning",
+    "section": "Before you arrive",
+    "text": "Before you arrive\n\n\n\nParts\nAssembled motor + gearbox from Session 2, ESC from Session 3\n\n\nTools\nBench supply with current limit, tachometer or camera\n\n\nRead\nThis page in full — the speed limits below explain most of what you will hit",
+    "crumbs": [
+      "Overview",
+      "Build sessions",
+      "Session 4 --- Closed-loop control and tuning"
+    ]
+  },
+  {
+    "objectID": "sessions/04-control.html#task-sequence",
+    "href": "sessions/04-control.html#task-sequence",
+    "title": "Session 4 — Closed-loop control and tuning",
+    "section": "Task sequence",
+    "text": "Task sequence\n\nMount a small flag on the gearbox output so rotation is visible and countable.\nAchieve continuous spinning at low speed.\nAchieve position control — the output holds against a hand disturbance.\nTune the loop and characterise your maximum usable speed.\n\n\n\n\n\n\n\nImportantTo be completed by the instructor\n\n\n\nThe specific PID tuning exercise, the target performance, and the sign-off criteria are course material and are not in the manufacturing guide.",
+    "crumbs": [
+      "Overview",
+      "Build sessions",
+      "Session 4 --- Closed-loop control and tuning"
+    ]
+  },
+  {
+    "objectID": "sessions/04-control.html#why-low-speed-is-the-hard-part",
+    "href": "sessions/04-control.html#why-low-speed-is-the-hard-part",
+    "title": "Session 4 — Closed-loop control and tuning",
+    "section": "Why low speed is the hard part",
+    "text": "Why low speed is the hard part\nRegular drone ESCs start losing synchronisation at low speed, which is exactly the regime used for water propulsion. That is the reason this course uses an FOC ESC rather than a hobby unit — see Design notes.",
+    "crumbs": [
+      "Overview",
+      "Build sessions",
+      "Session 4 --- Closed-loop control and tuning"
+    ]
+  },
+  {
+    "objectID": "sessions/04-control.html#going-beyond-600-rads",
+    "href": "sessions/04-control.html#going-beyond-600-rads",
+    "title": "Session 4 — Closed-loop control and tuning",
+    "section": "Going beyond 600 rad/s",
+    "text": "Going beyond 600 rad/s\nTwo issues limit speed: the micro-controller loop rate, and delays from the rotation sensor, which also feed back into the first. The changes below improved maximum speed from 500 to 1700 rad/s, enough to drive the wings at 10 Hz. At very high speeds sensor lag becomes the binding constraint, and shows up as high current draw and noise.\n\nSensor speed\n\nSwitch to an SPI sensor. SPI is faster than I²C or PWM. There is no SPI link directly exposed on the board — the solution is the SPI3 bus, wired as in Session 3.\nIncrease SPI bus speed to 10 MHz.\nUse the AS5047P sensor, rated for speeds up to 28 kRPM.\n\n\n\nMCU speed\nThe goal is to maximise main loop frequency, which reached 13 kHz. Read the current loop frequency with the commander’s F command.\n\n\n\n\n\n\n\nChange\nEffect\n\n\n\n\nmotor.motion_downsample = 3\n+0.8 kHz loop frequency\n\n\nDisable monitoring\n+0.2 kHz\n\n\nSwitch to SVPWM\nNo improvement observed. May help, unconfirmed\n\n\nL = 0.0001\nTuning the inductance value helped — made voltage mode work much better\n\n\n\n\n\nSensor lag\nCompensating sensor lag as speed increases is necessary to go above 500–600 rad/s without wasting current. It is currently hand-tuned every 100 rad/s, and a fitted function is used on the robot. This could be automated by ramping through the speeds and minimising phase current — future work. This SimpleFOC forum thread is useful on the topic.\n\n\n\n\n\n\nFigure 1: Optimal sensor offset against speed, for two sensors\n\n\n\n\n\n\n\n\n\nFigure 2: Current draw with two different sensors, after compensation\n\n\n\n\n\n\n\n\n\nTipAveraging current measurements\n\n\n\nWhen using the ESC’s current measurements (\\(I_{DC}\\), \\(I_d\\), \\(I_q\\), \\(I_u\\), \\(I_v\\), \\(I_w\\)), always average over a time window — the raw measurements are noisy.\n\n\n\n\n\n\n\n\nNoteCheckpoint — TA sign-off\n\n\n\nContinuous low-speed rotation without loss of synchronisation, position hold against a hand disturbance, and a recorded loop frequency from F.",
+    "crumbs": [
+      "Overview",
+      "Build sessions",
+      "Session 4 --- Closed-loop control and tuning"
+    ]
+  },
+  {
+    "objectID": "sessions/02-motor.html",
+    "href": "sessions/02-motor.html",
+    "title": "Session 2 — Motor and transmission shaft",
+    "section": "",
+    "text": "Week of Sep 14 · Paired lecture: Reaction forces in fluids",
+    "crumbs": [
+      "Overview",
+      "Build sessions",
+      "Session 2 --- Motor and transmission shaft"
+    ]
+  },
+  {
+    "objectID": "sessions/02-motor.html#what-you-build-today",
+    "href": "sessions/02-motor.html#what-you-build-today",
+    "title": "Session 2 — Motor and transmission shaft",
+    "section": "What you build today",
+    "text": "What you build today\nA brushless motor with a custom shaft pressed into its rotor bell, paired to the Faulhaber gearbox, with the sun gear and the sensor magnet installed.",
+    "crumbs": [
+      "Overview",
+      "Build sessions",
+      "Session 2 --- Motor and transmission shaft"
+    ]
+  },
+  {
+    "objectID": "sessions/02-motor.html#before-you-arrive",
+    "href": "sessions/02-motor.html#before-you-arrive",
+    "title": "Session 2 — Motor and transmission shaft",
+    "section": "Before you arrive",
+    "text": "Before you arrive\n\n\n\n\n\n\n\nParts\nAS2303 KV1500 motor, 4 mm steel rod, Faulhaber 23.04:1 gearbox, M2.5×10 screws\n\n\nTools\nCirclip pliers, manual arbor press, lathe (booked), cutting oil\n\n\nRead\nThis page, and the Motor shaft section below in full before touching the motor",
+    "crumbs": [
+      "Overview",
+      "Build sessions",
+      "Session 2 --- Motor and transmission shaft"
+    ]
+  },
+  {
+    "objectID": "sessions/02-motor.html#how-the-transmission-works",
+    "href": "sessions/02-motor.html#how-the-transmission-works",
+    "title": "Session 2 — Motor and transmission shaft",
+    "section": "How the transmission works",
+    "text": "How the transmission works\nThe motor is connected via a custom shaft to a gearbox with a 23.04:1 reduction by Faulhaber.1 Both parts are held in place by 3D-printed plates. The output shaft of the gearbox has its own bearing on the inside of the gearbox, and is also supported mid-way on the shaft by a 4×8 mm flanged bearing. This leaves 5 mm of shaft length free for the crank to be mounted on. A flat on the shaft helps lock the rotation of the M3 screw extending through the crank.\n\n\n\n\n\n\nMotor shaft\n\n\n\n\n\n\n\nFaulhaber gearbox",
+    "crumbs": [
+      "Overview",
+      "Build sessions",
+      "Session 2 --- Motor and transmission shaft"
+    ]
+  },
+  {
+    "objectID": "sessions/02-motor.html#sec-motor-variant",
+    "href": "sessions/02-motor.html#sec-motor-variant",
+    "title": "Session 2 — Motor and transmission shaft",
+    "section": "Which motor do you have?",
+    "text": "Which motor do you have?\n\nBlack — AS2303 KV1500 (new)Blue — AT2303 KV1500 (old)\n\n\n\nThe propeller horn cannot be separated from the bell. You will remove the two screws, then clamp the bell in a lathe using the stock shaft and machine it down (step 4 below).\n\n\n\nThe horn is a separate part and comes off easily. Skip the lathe operation.",
+    "crumbs": [
+      "Overview",
+      "Build sessions",
+      "Session 2 --- Motor and transmission shaft"
+    ]
+  },
+  {
+    "objectID": "sessions/02-motor.html#motor-shaft",
+    "href": "sessions/02-motor.html#motor-shaft",
+    "title": "Session 2 — Motor and transmission shaft",
+    "section": "Motor shaft",
+    "text": "Motor shaft\nTo pair the motor with the gearbox, the shaft of the brushless motor needs to be replaced. This is a delicate operation — the motor’s structure is mostly aluminium and quite thin, for weight savings.\n\nRemove the circlip on the shaft with the special pliers. Don’t lose it, nor the brass ring.\nSeparate the rotor from the stator delicately, by hand.\nPress the shaft out of the rotor bell.\n\n\n\n\n\n\nWarningNever load the bell radially\n\n\n\nPress the shaft out very carefully, making sure to never apply forces radially on the bell. Use the manual press with appropriate support below the bell to avoid deforming the dome shape. Do not squeeze the bell with a vice, or even by hand.\n\n\nRemove the propeller horn, which is not needed — see the tabs above for which case applies to you. On the black motor, machine the bell as follows:\n\n\n\n\n\n\nStock bell\n\n\n\n\n\n\n\nBring diameter down to 6 mm\n\n\n\n\n\n\n\nBring the length down to 2.5 mm\n\n\n\n\n\nManufacture the new shaft from 4 mm diameter steel rod. It should have a clearance fit through the bearings and a tight fit on the rotor bell. See Figure 1 for exact dimensions.\n\n\n\n\n\n\nWarningCheck your wall thickness before cutting\n\n\n\n21.5 mm is the shaft length if the motor and the gearbox are separated by a 5.5 mm-thick wall. If your wall is 4 mm thick, reduce the 8.5 mm segment to 7 mm, bringing the total length from 21.5 mm to 20 mm.\n\n\nPress the new shaft into the bell, making sure not to press on the dome-shaped part of the bell without appropriate support underneath.\n\n\n\n\n\n\n\nFigure 1: Motor shaft dimensions",
+    "crumbs": [
+      "Overview",
+      "Build sessions",
+      "Session 2 --- Motor and transmission shaft"
+    ]
+  },
+  {
+    "objectID": "sessions/02-motor.html#gearbox-assembly",
+    "href": "sessions/02-motor.html#gearbox-assembly",
+    "title": "Session 2 — Motor and transmission shaft",
+    "section": "Gearbox assembly",
+    "text": "Gearbox assembly\nThe blue part of the gearbox is fixed on one side using the custom screws that come with the gearbox, and with M2.5×10 screws on the other.\n\n\n\n\n\n\nImportantTo be completed by the instructor\n\n\n\nSun gear installation and sensor magnet bonding are in the course project plan but are not documented in the manufacturing guide. Add the magnet part number, bonding agent, and the concentricity tolerance that matters for Session 4.\n\n\n\n\n\n\n\n\nNoteCheckpoint — TA sign-off\n\n\n\nShaft seated, rotor spinning freely by hand with no wobble, gearbox mounted, and the sensor magnet concentric with the shaft axis. An off-centre magnet produces sensor faults that are very hard to diagnose two sessions later.",
+    "crumbs": [
+      "Overview",
+      "Build sessions",
+      "Session 2 --- Motor and transmission shaft"
+    ]
+  },
+  {
+    "objectID": "sessions/02-motor.html#footnotes",
+    "href": "sessions/02-motor.html#footnotes",
+    "title": "Session 2 — Motor and transmission shaft",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nFaulhaber gearhead reduction ratios (accessed 20.02.2024).↩︎",
+    "crumbs": [
+      "Overview",
+      "Build sessions",
+      "Session 2 --- Motor and transmission shaft"
+    ]
+  },
+  {
+    "objectID": "reference/software.html",
+    "href": "reference/software.html",
+    "title": "Software",
+    "section": "",
+    "text": "Code for the B-G431B-ESC1 motor controller using the SimpleFOC library: FAAV-G431-ESC.\nUsed in Session 3 and Session 4.",
+    "crumbs": [
+      "Overview",
+      "Reference",
+      "Software"
+    ]
+  },
+  {
+    "objectID": "reference/software.html#esc",
+    "href": "reference/software.html#esc",
+    "title": "Software",
+    "section": "",
+    "text": "Code for the B-G431B-ESC1 motor controller using the SimpleFOC library: FAAV-G431-ESC.\nUsed in Session 3 and Session 4.",
+    "crumbs": [
+      "Overview",
+      "Reference",
+      "Software"
+    ]
+  },
+  {
+    "objectID": "reference/software.html#flight-controller",
+    "href": "reference/software.html#flight-controller",
+    "title": "Software",
+    "section": "Flight controller",
+    "text": "Flight controller\n\nCurrent — ESP32, based on FreeRTOS tasks: FAAV-Flight-Controller\n\nOutdated versions, kept for reference:\n\nOld EPFL code for NRF52: FAAV-Seeeduino\nOld MIT code for NRF52/ESP32: FAAV-AUK",
+    "crumbs": [
+      "Overview",
+      "Reference",
+      "Software"
+    ]
+  },
+  {
+    "objectID": "reference/software.html#pcb",
+    "href": "reference/software.html#pcb",
+    "title": "Software",
+    "section": "PCB",
+    "text": "PCB\n\nFAAV-PCB-v3 — current board, including the BOM in the Manufacturing/Assembly folder",
+    "crumbs": [
+      "Overview",
+      "Reference",
+      "Software"
+    ]
+  },
+  {
+    "objectID": "reference/software.html#external-documentation",
+    "href": "reference/software.html#external-documentation",
+    "title": "Software",
+    "section": "External documentation",
+    "text": "External documentation\n\nSimpleFOC communication\nSimpleFOC commander\nXIAO ESP32S3 getting started\n\n\n\n\n\n\n\nImportantAccess\n\n\n\nConfirm before the semester that students have read access to these repositories, and pin the branch or tag each session expects. “Latest main” changing under a cohort mid-semester is the most likely way this manual goes stale without anyone noticing.",
+    "crumbs": [
+      "Overview",
+      "Reference",
+      "Software"
+    ]
+  },
+  {
+    "objectID": "reference/parts-list.html",
+    "href": "reference/parts-list.html",
+    "title": "Parts list",
+    "section": "",
+    "text": "Carried over from the manufacturing guide. Quantities are per robot.\n\n\n\nTable 1: Parts list\n\n\n\n\n\n#\nPart\nModel / material\nMass [g]\nSupplier\n\n\n\n\n2\nBody plates\nCF 1.5 mm\n\nswiss-composites\n\n\n1\nMotor\nAT2303 1500 kV\n\nT-Motor · rc-shop.ch\n\n\n1\nTransmission\nFaulhaber Series 20/1R 1:23\n39\nFaulhaber\n\n\n4\nFrame parts\n3D-printed Onyx with CF\n\nMarkforged\n\n\n34\nScrews\nM2×4 countersunk, A4\n\nBossard A4 or A2\n\n\n26\nPlastic inserts\nM2×4 brass\n\nReichelt\n\n\n2\nOutput gears\nCNC-cut PEEK\n\nRS Pro\n\n\n1\nTransmission crank\n5 mm aluminium\n\n\n\n\n1\nTransmission bearing\n4×8 mm flanged stainless\n0.6\n\n\n\n1\nLinkage\n4 mm aluminium\n\n\n\n\n2\nLinkage bearings\n3×7×3 mm stainless\n0.6\n\n\n\n1\nLinkage–gear shaft\n3 mm steel\n1\n\n\n\n1\nLinkage–crank shaft\n3 mm steel\n0.5\n\n\n\n1\nPrimary gear shafts\n3 mm steel\n1.7\n\n\n\n1\nDriven gear shafts\n3 mm steel\n0.8\n\n\n\n1\nBattery connector\nJWPF 08T & 08R, 8 pins\n3.1\nFarnell 08R · 08T\n\n\n1\nVoltage regulator\n5 V 2 A UBEC\n1\nAmazon\n\n\n1\nBattery\n4S 450 mAh\n50.8\nAmazon\n\n\n\n\n\n\n\n\n\n\n\n\nImportantTo be completed before the semester\n\n\n\nSeveral items the sessions rely on are not in this list and need adding: the AS2303 motor (the list still shows the older AT2303), the B-G431B-ESC1, the AS5047P sensor, the ST-Link programmer, the FAAV PCB v3.0 and its BOM, the XIAO ESP32S3, 4 mm steel rod for the motor shaft, 5 mm PEEK stock, foam, membrane material, silicone sealant and CorrosionX.\nSuppliers are also mostly Swiss, inherited from the EPFL origin of the project. They will need US equivalents for MIT procurement.\n\n\n\n\n\n Back to top",
+    "crumbs": [
+      "Overview",
+      "Reference",
+      "Parts list"
+    ]
+  },
+  {
+    "objectID": "reference/cnc.html",
+    "href": "reference/cnc.html",
+    "title": "CNC — Stepcraft D660",
+    "section": "",
+    "text": "Used in Session 5 for the carbon frame, the aluminium crank and linkage, and the PEEK gears.",
+    "crumbs": [
+      "Overview",
+      "Reference",
+      "CNC --- Stepcraft D660"
+    ]
+  },
+  {
+    "objectID": "reference/cnc.html#full-guide",
+    "href": "reference/cnc.html#full-guide",
+    "title": "CNC — Stepcraft D660",
+    "section": "Full guide",
+    "text": "Full guide\nThe complete Stepcraft guide is available as a PDF:\n\nCNC Stepcraft D600 LIS guide (PDF)\nOriginal wiki version: wiki.epfl.ch/lis/cnc-stepcraft\n\n\n\n\n\n\n\nWarningBefore every job\n\n\n\nMake sure the 0 of the machine is at the right location in your file, and check the orientation of the axes.",
+    "crumbs": [
+      "Overview",
+      "Reference",
+      "CNC --- Stepcraft D660"
+    ]
+  },
+  {
+    "objectID": "reference/cnc.html#cutpath-generation",
+    "href": "reference/cnc.html#cutpath-generation",
+    "title": "CNC — Stepcraft D660",
+    "section": "Cutpath generation",
+    "text": "Cutpath generation\nFusion360 generates cutpaths from the parts in the manufacture tab, and allows for manufacturing models, where parts can be recombined, realigned and even modified. Chamfers on the body plates were added in the manufacturing model rather than in the design.\nOperation order: holes → chamfers → pockets → outline.\n\n\n\n\n\n\nFigure 1: Manufacturing model in Fusion360\n\n\n\n\n\n\n\n\n\nFigure 2: Setting up on the machine",
+    "crumbs": [
+      "Overview",
+      "Reference",
+      "CNC --- Stepcraft D660"
+    ]
+  },
+  {
+    "objectID": "reference/cnc.html#material-specific-notes",
+    "href": "reference/cnc.html#material-specific-notes",
+    "title": "CNC — Stepcraft D660",
+    "section": "Material-specific notes",
+    "text": "Material-specific notes\n\n\n\n\n\n\n\n\nMaterial\nThickness\nNotes\n\n\n\n\nWoven carbon\n1.5 mm (varies 1.5–1.6)\nBody plates, top and bottom identical except chamfers\n\n\nAluminium\n5 mm\nCrank and linkage. Linkage faced down from 5 to 4 mm. Use a 2 mm endmill, flood the part\n\n\nPEEK\n5 mm\nGears. Cutting underwater gives good results. Keep advance speed low enough to cut teeth cleanly\n\n\n\n\n\n\n\n\n\nImportantMIT equivalent\n\n\n\nThe linked guide is for the EPFL machine. Confirm which machine the class will actually use at MIT and either re-shoot this guide or replace the link.",
+    "crumbs": [
+      "Overview",
+      "Reference",
+      "CNC --- Stepcraft D660"
+    ]
+  },
+  {
+    "objectID": "changelog.html",
+    "href": "changelog.html",
+    "title": "Changelog",
+    "section": "",
+    "text": "Corrections and additions published during the semester, newest first.\nIf you are working from a printed copy, check this page before each session. Changes that affect a step you may already have completed are marked in bold.",
+    "crumbs": [
+      "Overview",
+      "Changelog"
+    ]
+  },
+  {
+    "objectID": "changelog.html#fall-2026",
+    "href": "changelog.html#fall-2026",
+    "title": "Changelog",
+    "section": "fall-2026",
+    "text": "fall-2026\n\n\n\n\n\n\n\n\n\nDate\nPage\nChange\nAction needed\n\n\n\n\n—\n—\nManual published for the Fall 2026 cohort, derived from FAAV Manufacturing Guide v4.0\n—",
+    "crumbs": [
+      "Overview",
+      "Changelog"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "FAAV Build Manual",
+    "section": "",
+    "text": "Figure 1: The FAAV3.2\nOver the semester your team builds a flapping aerial-aquatic vehicle: a robot that flies, lands on water, swims by flapping the same wings, and takes off again. This manual is the build side of the course. It is sequenced to the weekly sessions, and each page covers exactly what you do in that session.",
+    "crumbs": [
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "index.html#how-this-manual-is-organised",
+    "href": "index.html#how-this-manual-is-organised",
+    "title": "FAAV Build Manual",
+    "section": "How this manual is organised",
+    "text": "How this manual is organised\nBuild sessions are cumulative and in order. Each one opens with what you are building that day, what to have ready before you arrive, and ends with a checkpoint a TA signs off.\nReference holds the material you consult rather than follow: the parts list, the firmware repositories, the PCB revisions, the CNC guide, and the design notes explaining why the robot is the way it is.",
+    "crumbs": [
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "index.html#semester-map",
+    "href": "index.html#semester-map",
+    "title": "FAAV Build Manual",
+    "section": "Semester map",
+    "text": "Semester map\n\n\n\nSession\nWeek\nBuild\nPaired lecture\n\n\n\n\n1\nSep 9\nOrientation, teams, the robot\nIntro to robotic locomotion\n\n\n2\nSep 14\nMotor and transmission shaft\nReaction forces in fluids\n\n\n3\nSep 21\nMotor driver, sensor, serial\nBird-scale flapping design\n\n\n4\nSep 28\nClosed-loop control and tuning\nSwimming robots I\n\n\n5\nOct 5\nFrame, crank, linkage, gears\nUndulatory locomotion\n\n\n—\nOct 12\nNo session\n—\n\n\n6\nOct 19\nFlapping simulation (Ptera)\nInsect-scale flapping\n\n\n7\nOct 26\nWing fabrication\nSwimming robots II\n\n\n8\nNov 2\nTail and housing\nMulti-modal locomotion\n\n\n9\nNov 9\nFlight controller, PCB, dry testing\nThe future of actuation\n\n\n10\nNov 16\nWaterproofing\nMultirotors\n\n\n11\nNov 23\nWet testing\nFixed-wing flyers\n\n\n12\nNov 30\nCompetition\nPair presentations",
+    "crumbs": [
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "index.html#conventions",
+    "href": "index.html#conventions",
+    "title": "FAAV Build Manual",
+    "section": "Conventions",
+    "text": "Conventions\n\n\n\n\n\n\nWarningWarning\n\n\n\nAn operation whose likely failure mode destroys a part or injures you. Read it twice before acting.\n\n\n\n\n\n\n\n\nNoteCheckpoint — TA sign-off\n\n\n\nDo not proceed past this without a TA looking at your work.\n\n\n\n\n\n\n\n\nTipWhy\n\n\n\nDesign rationale. Skippable at the bench, useful for your report.",
+    "crumbs": [
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "index.html#architecture-in-one-paragraph",
+    "href": "index.html#architecture-in-one-paragraph",
+    "title": "FAAV Build Manual",
+    "section": "Architecture in one paragraph",
+    "text": "Architecture in one paragraph\nOne 4S battery (16.8 V max) feeds a custom PCB that steps VBAT down to 5 V to power the flight controller, which in turn generates a 3v3 rail for the sensors on that PCB. Battery power passes through a shunt for current sensing, then out to the ESC. The flight controller commands the ESC over serial. The ESC drives a brushless motor through a 23.04:1 gearbox, and a crank–linkage converts that rotation into wing flapping.",
+    "crumbs": [
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "index.html#versioning",
+    "href": "index.html#versioning",
+    "title": "FAAV Build Manual",
+    "section": "Versioning",
+    "text": "Versioning\nThis is version fall-2026. Corrections published during the semester are dated in the Changelog. If a step here contradicts what a TA tells you at the bench, the TA is right and this page is stale — report it so the next team does not lose time to it.",
+    "crumbs": [
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "reference/design-notes.html",
+    "href": "reference/design-notes.html",
+    "title": "Design notes",
+    "section": "",
+    "text": "Why the robot is built the way it is. Not needed at the bench — useful for your report, and for anyone changing the design.",
+    "crumbs": [
+      "Overview",
+      "Reference",
+      "Design notes"
+    ]
+  },
+  {
+    "objectID": "reference/design-notes.html#why-an-foc-esc",
+    "href": "reference/design-notes.html#why-an-foc-esc",
+    "title": "Design notes",
+    "section": "Why an FOC ESC",
+    "text": "Why an FOC ESC\nSeveral ESC solutions were explored for the FAAV concept:\n\nRegular drone ESCs. Hobbyking 12A and EP Aer11 were tested. Both start losing synchronisation at low speed, which is a problem for water propulsion — precisely the regime the robot spends most of its time in.\nFOC ESCs tend to be more complex and larger. The G431-ESC1 board is favourable and had already been explored in the lab.\n\nThat tradeoff — accepting a larger, more complex driver to get usable low-speed torque control — is the reason Session 3 spends a whole session on the driver.",
+    "crumbs": [
+      "Overview",
+      "Reference",
+      "Design notes"
+    ]
+  },
+  {
+    "objectID": "reference/design-notes.html#speed-ceiling-and-sensor-lag",
+    "href": "reference/design-notes.html#speed-ceiling-and-sensor-lag",
+    "title": "Design notes",
+    "section": "Speed ceiling and sensor lag",
+    "text": "Speed ceiling and sensor lag\nMaximum speed went from 500 to 1700 rad/s, enough to drive the wings at 10 Hz, through a combination of sensor and MCU changes documented in Session 4. The remaining constraint is sensor lag: above 500–600 rad/s, uncompensated lag shows up as high current draw and noise rather than as a hard speed limit.\nCompensation is currently hand-tuned every 100 rad/s with a fitted function used on the robot. Automating this — ramping through the speeds while minimising phase current — is open work.\n\nOpen question\nCould TorqueControlType::foc_current give better control? The robot currently uses voltage mode, bypassing the current sensors.",
+    "crumbs": [
+      "Overview",
+      "Reference",
+      "Design notes"
+    ]
+  },
+  {
+    "objectID": "reference/design-notes.html#gearbox-corrosion",
+    "href": "reference/design-notes.html#gearbox-corrosion",
+    "title": "Design notes",
+    "section": "Gearbox corrosion",
+    "text": "Gearbox corrosion\nBy default the gearbox on the FAAV4 is not waterproof at all, and it is normal for it to fill completely with water once submerged. This was considered acceptable: over more than a year of repeated use in water, including in Lake Geneva, a gearbox was opened and showed no sign of corrosion.\nThen a newer robot, built to experiment with transitions, showed severe corrosion after only 3–4 uses.\n\n\n\n\n\n\nGearbox after a few dives with motor oil lubrication\n\n\n\n\n\n\n\nSun gear from the same gearbox\n\n\n\n\n\nThe cause is believed to be a combination of improper lubrication after a cleaning event, and the absence of the shaft bearing, which allowed more water in through the front of the gearbox. When an old gearbox was cleaned for installation in the new robot, no proper lubricant was available, so motor oil was used. Its low viscosity is believed to have washed it away quickly, leaving the gears dry and starting corrosion.\n\nWhich parts actually rust\nEach individual part was left in water for 12 hours.\n\n\n\n\n\n\n\nRusts\nDoes not rust\n\n\n\n\nSun gear, planet gears, ring gear, planet shafts\nScrews, motor shaft, washers, body, circlip\n\n\n\n\n\n\n\n\n\nAfter 12 hours in water\n\n\n\n\n\n\n\nShafts, sun gear and planet gears show rust\n\n\n\n\n\n\n\nResolution\nA few simple optional modifications to the structure and assembly process keep most of the water out. Combined with proper lubrication — a mix of CorrosionX and white lithium grease — this appears to have solved the issue. Several dives have since been performed with the same gearbox that had previously corroded, and it now runs smoothly. The practical procedure is in Session 10.",
+    "crumbs": [
+      "Overview",
+      "Reference",
+      "Design notes"
+    ]
+  },
+  {
+    "objectID": "reference/design-notes.html#housing-material-tradeoff",
+    "href": "reference/design-notes.html#housing-material-tradeoff",
+    "title": "Design notes",
+    "section": "Housing material tradeoff",
+    "text": "Housing material tradeoff\n\n\n\n\n\n\n\n\n\nFoam\nFloatability\nAbsorption\nImpact behaviour\n\n\n\n\nExtruded polystyrene\nBest, low density\nZero\nBrittle; little help damping landings\n\n\nClosed-cell polyethylene\nDecent, relatively low density\nLight\nCompliant; usable as protection\n\n\n\nA multi-material housing has never been built but would likely be better than either.",
+    "crumbs": [
+      "Overview",
+      "Reference",
+      "Design notes"
+    ]
+  },
+  {
+    "objectID": "reference/pcb.html",
+    "href": "reference/pcb.html",
+    "title": "PCB revisions",
+    "section": "",
+    "text": "To interface the MCU to the rest of the FAAV, a custom PCB is required. As of April 2026 the latest board in the FAAV is v3.0. More information is in the FAAV-PCB-v3 repository.",
+    "crumbs": [
+      "Overview",
+      "Reference",
+      "PCB revisions"
+    ]
+  },
+  {
+    "objectID": "reference/pcb.html#v3.0-overview",
+    "href": "reference/pcb.html#v3.0-overview",
+    "title": "PCB revisions",
+    "section": "v3.0 overview",
+    "text": "v3.0 overview\n\n\n\n\n\n\nFigure 1: FAAV PCB v3.0 block diagram\n\n\n\nThe PCB is 4 layers, 21 × 28.5 mm, and has 34 components. The complete BOM is in the Manufacturing/Assembly folder of the repository.\nAssembly and bring-up are covered in Session 9.",
+    "crumbs": [
+      "Overview",
+      "Reference",
+      "PCB revisions"
+    ]
+  },
+  {
+    "objectID": "reference/pcb.html#v1-epfl",
+    "href": "reference/pcb.html#v1-epfl",
+    "title": "PCB revisions",
+    "section": "v1.0 — EPFL",
+    "text": "v1.0 — EPFL\nA 2-layer PCB. Its purpose is to connect the flight controller to the battery, ESC and so on, and to provide additional functionality. It was designed with the Fusion360 PCB designer. The PCB contains a current sensor, a voltage sensing circuit, a pressure sensor for measuring water depth, water sensing probes, an LED, an IMU, and several pads for soldering cables. The IMU and current sensor connect to the MCU over I²C.\n\n\n\n\n\n\nWarningKapton between flight controller and PCB\n\n\n\nTo prevent short circuits, put a layer of Kapton tape between the flight controller and the PCB when soldering the Seeeduino to the PCB.\n\n\n\n\n\n\n\n\n\n\nTop\n\n\n\n\n\n\n\nBottom\n\n\n\n\n\n\nFigure 2: PCB v1.0 assembly drawings\n\n\n\n\n\n\n\n\n\n\n\nMCU pin mapping on PCB\n\n\n\n\n\n\n\nPin map for XIAO nRF52840 (Sense) MCU\n\n\n\n\n\n\nFigure 3: Pin mapping of PCB pins and flight controller pins\n\n\n\n\nComponent list\n\n\n\nTable 1: PCB v1.0 components\n\n\n\n\n\nNames\nComponent description\nSupplier\nItem number\n\n\n\n\nIMU1:C1\nCapacitor 0.1 µF (0402)\nMouser\n581-KGM05AR51A104KH\n\n\nI_SENSE1:C1, LED1:C3, P_SENSE1:C1\nCapacitor 0.1 µF (0805)\n\n\n\n\nP_SENSE1:R1, P_SENSE1:R2\nResistor 10 k (0402)\nMouser\n71-CRCW040210K0FKEDC\n\n\nIMU1:C2\nCapacitor 10 nF (0402)\nMouser\n581-KGM05AR71C103KH\n\n\nI_SENSE1:C2\nCapacitor 10 nF (0805)\n\n\n\n\nW_SENSE1:R3\nResistor 1 M (0805)\n\n\n\n\nIMU1:C3\nCapacitor 2.2 µF (0402)\nMouser\n581-KGM05AR51A225KH\n\n\nV_SENSE1:R1\nResistor 330 k (0805)\n\n\n\n\nV_SENSE1:R2\nResistor 33 k (0805)\n\n\n\n\nLED1:LED1\nLED 4691 Adafruit\nMouser\n485-4691\n\n\nI_SENSE1:IC1\nCurrent sensor ACS723LLCTR-20AU-T, Allegro\nMouser\n250-723LLCTR20AUT\n\n\nIMU1:IC1\nIMU ICM-42688-P, TDK InvenSense\nMouser\n410-ICM-42688-P\n\n\nP_SENSE1:U1\nMS583730BA01-50, TE Connectivity\nMouser\n824-MS583730BA01-50\n\n\nI_SENSE1:BAT_GND_REG, I_SENSE1:BAT_VCC_REG\nPin header\n\n\n\n\nMCU1:U1\nXIAO nRF52840 / Sense, Seeed Studio",
+    "crumbs": [
+      "Overview",
+      "Reference",
+      "PCB revisions"
+    ]
+  },
+  {
+    "objectID": "reference/pcb.html#v2-mit",
+    "href": "reference/pcb.html#v2-mit",
+    "title": "PCB revisions",
+    "section": "v2.0 — MIT",
+    "text": "v2.0 — MIT\nThe goal of this version was to fix existing functional problems (I²C, pad spacing) and to introduce a new external I²C pad for GPS functionality. It is also designed to function by default with both the newer ESP32S3 chips and NRF52 chips. Improvements in range through WiFi connection are expected. Manufacturing steps are identical to v1.0.\n\nESP32 compatibility\nHardware and software arrangements were needed for XIAO ESP32S3 compatibility. For software see Software.\nHardware changes: a new PCB housing part allowing SD card removal and reinsertion, a WiFi antenna housing case, and a GPS housing case.\nSD card notes\n\nSD cards should be formatted to a specific format (FAT32, believed).\nUse non-sharp tweezers to gently extract the SD card from the PCB case — otherwise you risk breaking the card and making it unreadable.\nFor simultaneous servo and SD card usage, be careful not to use the same pins as on the previous chip for servos; TX and RX are used for SD card communication. You may use the secondary microSD card PCB’s two additional pins.\n\n\n\nWaterproofing\nThe method changes slightly from Session 10. Admittedly it can be vastly improved, but it works:\n\nInsert the assembled PCB, making sure the secondary SD card PCB does not come loose, and that the WiFi antenna is properly inserted.\nInsert the USB-C cable into the port, and a microSD card in the relevant slit.\nTape the bottom of the PCB so no silicone escapes when pouring. Pour silicone, using a needle to ensure there are no air bubbles between layers.\nWhen fully cured, the SD card is very hard to remove if the protective section broke off during assembly. It can be salvaged by cutting around three sides of the SD card with a knife and opening it like a trap door, freeing the stuck sections. The trap door can then be sealed with epoxy or more silicone — only on the surface, as you do not want to block the SD card again.\n\nThe WiFi antenna should also be potted. Currently the same housing case as for the ESC is used: tape the bottom of the box with Kapton tape, stick the antenna to the bottom of the casing (normally all in sticker form), then pot it with silicone. The silicone layer should be left relatively thin.\n\n\n\n\n\n\nNoteThe antenna stops working when wet\n\n\n\nIt works again once dried. This is expected behaviour, not a fault.\n\n\n\n\nPoints for a redesign\n\nIncorrect wiring for pressure sensor — SDA and SCL are swapped.\nCover the vias (currently open vias).\nVias on pads of small SMD components are not optimal for soldering, or just cover the vias.\nIncrease pad spacing for the cables.\nCurrent sensor: possibly change to a 3.3 V part. Currently a 5 V sensor is used, so current should not exceed \\((3.3\\,\\mathrm{V} - 0.5\\,\\mathrm{V}) / 0.2\\,\\mathrm{V/A} = 14\\,\\mathrm{A}\\) without risking damage to the analog ports of the Seeeduino.\nUART RX and TX are swapped (resolved)",
+    "crumbs": [
+      "Overview",
+      "Reference",
+      "PCB revisions"
+    ]
+  },
+  {
+    "objectID": "sessions/01-orientation.html",
+    "href": "sessions/01-orientation.html",
+    "title": "Session 1 — Orientation",
+    "section": "",
+    "text": "Week of Sep 9 · Paired lecture: Intro to robotic locomotion · Teams formed today",
+    "crumbs": [
+      "Overview",
+      "Build sessions",
+      "Session 1 --- Orientation"
+    ]
+  },
+  {
+    "objectID": "sessions/01-orientation.html#what-you-do-today",
+    "href": "sessions/01-orientation.html#what-you-do-today",
+    "title": "Session 1 — Orientation",
+    "section": "What you do today",
+    "text": "What you do today\nForm teams, complete shop training, meet the robot you are going to build, and collect your parts kit.",
+    "crumbs": [
+      "Overview",
+      "Build sessions",
+      "Session 1 --- Orientation"
+    ]
+  },
+  {
+    "objectID": "sessions/01-orientation.html#the-robot",
+    "href": "sessions/01-orientation.html#the-robot",
+    "title": "Session 1 — Orientation",
+    "section": "The robot",
+    "text": "The robot\n\n\n\n\n\n\nFigure 1: The FAAV3.2\n\n\n\nThe FAAV is a flapping-wing vehicle that operates in air and in water with the same actuation. The build divides into four subsystems, and the sessions follow that order:\n\nTransmission — motor, custom shaft, gearbox, crank and linkage (Sessions 2, 5)\nElectronics — ESC, angular sensor, flight controller, custom PCB (Sessions 3, 4, 9)\nAero/hydro surfaces — wings, tail, foam housing (Sessions 6–8)\nWaterproofing and testing — potting, immersion, tuning (Sessions 10–12)",
+    "crumbs": [
+      "Overview",
+      "Build sessions",
+      "Session 1 --- Orientation"
+    ]
+  },
+  {
+    "objectID": "sessions/01-orientation.html#electronic-architecture",
+    "href": "sessions/01-orientation.html#electronic-architecture",
+    "title": "Session 1 — Orientation",
+    "section": "Electronic architecture",
+    "text": "Electronic architecture\nOne 4S battery (max 16.8 V) connects to a custom PCB that steps VBAT down to 5 V to power the flight controller. The flight controller generates a 3v3 rail for the sensors on the PCB. Battery power passes through a shunt for current sensing on the custom PCB, then back out to power the ESC. The flight controller sends commands to the ESC over serial.",
+    "crumbs": [
+      "Overview",
+      "Build sessions",
+      "Session 1 --- Orientation"
+    ]
+  },
+  {
+    "objectID": "sessions/01-orientation.html#before-you-leave-today",
+    "href": "sessions/01-orientation.html#before-you-leave-today",
+    "title": "Session 1 — Orientation",
+    "section": "Before you leave today",
+    "text": "Before you leave today\n\nTeam formed and registered\nShop training complete\nParts kit collected against the parts list\nAccess to the lab GitHub organisation confirmed\n\n\n\n\n\n\n\nImportantTo be completed by the instructor\n\n\n\nShop safety requirements, machine access and booking procedure, team size and formation rules, and where the parts crib is. These are institution-specific and are not carried over from the manufacturing guide.\n\n\n\n\n\n\n\n\nNoteCheckpoint — TA sign-off\n\n\n\nTeam registered, kit checked against the parts list, and every member has completed shop training.",
+    "crumbs": [
+      "Overview",
+      "Build sessions",
+      "Session 1 --- Orientation"
+    ]
+  },
+  {
+    "objectID": "sessions/03-esc.html",
+    "href": "sessions/03-esc.html",
+    "title": "Session 3 — Motor driver, sensor and serial",
+    "section": "",
+    "text": "Week of Sep 21 · Paired lecture: Bird-scale flapping design",
+    "crumbs": [
+      "Overview",
+      "Build sessions",
+      "Session 3 --- Motor driver, sensor and serial"
+    ]
+  },
+  {
+    "objectID": "sessions/03-esc.html#what-you-build-today",
+    "href": "sessions/03-esc.html#what-you-build-today",
+    "title": "Session 3 — Motor driver, sensor and serial",
+    "section": "What you build today",
+    "text": "What you build today\nA flashed G431 ESC talking to your laptop over serial, with the angular sensor wired on SPI3 and the motor spinning under commander control.",
+    "crumbs": [
+      "Overview",
+      "Build sessions",
+      "Session 3 --- Motor driver, sensor and serial"
+    ]
+  },
+  {
+    "objectID": "sessions/03-esc.html#before-you-arrive",
+    "href": "sessions/03-esc.html#before-you-arrive",
+    "title": "Session 3 — Motor driver, sensor and serial",
+    "section": "Before you arrive",
+    "text": "Before you arrive\n\n\n\nParts\nB-G431B-ESC1 board, AS5047P sensor, ST-Link programmer, wire\n\n\nTools\nSoldering iron, fine tweezers, multimeter\n\n\nRead\nThis page, plus Design notes on why we use an FOC ESC\n\n\n\n\n\n\n\n\n\nFigure 1: ESC running SimpleFOC, with the ST-Link programmer and the angular sensor",
+    "crumbs": [
+      "Overview",
+      "Build sessions",
+      "Session 3 --- Motor driver, sensor and serial"
+    ]
+  },
+  {
+    "objectID": "sessions/03-esc.html#firmware",
+    "href": "sessions/03-esc.html#firmware",
+    "title": "Session 3 — Motor driver, sensor and serial",
+    "section": "Firmware",
+    "text": "Firmware\nCode for the B-G431B-ESC1 motor controller, using the SimpleFOC library, is in the lab repository: FAAV-G431-ESC. See Software for all repositories.",
+    "crumbs": [
+      "Overview",
+      "Build sessions",
+      "Session 3 --- Motor driver, sensor and serial"
+    ]
+  },
+  {
+    "objectID": "sessions/03-esc.html#commanding-and-monitoring",
+    "href": "sessions/03-esc.html#commanding-and-monitoring",
+    "title": "Session 3 — Motor driver, sensor and serial",
+    "section": "Commanding and monitoring",
+    "text": "Commanding and monitoring\nThis is a high-level summary of the SimpleFOC communication docs. Communication with the ESC is over serial, either via the ST-Link programmer (the small attached board) or via a separate microcontroller board.\nOnce serial is established at 115200 baud, you interact with the ESC through the commander — a practical interface for setting and getting values (instructions). Ask the commander for available commands with ?. Currently available:\n\n\n\n\n\n\n\nCommand\nEffect\n\n\n\n\nM\nFull motor configuration\n\n\nF\nGet the main loop frequency\n\n\nL\nTurn the onboard LED on and off (useful as a comms check)\n\n\nT\nSet the target value — rad, rad/s or N/m depending on control mode\n\n\nW\nWatchdog on/off. If no new target arrives for 1 s, target is set to zero. On by default\n\n\nR\nR0/R1 disable/enable a linear ramp when changing setpoint. RD1000 sets ramp duration to 1000 ms (default 1000 ms). Off by default\n\n\n\n\n\n\n\n\n\nWarningCareful when changing control mode\n\n\n\nT means something different in each mode — position, velocity, or torque. Sending a velocity setpoint while in torque mode will do something you did not intend, with the wings attached.",
+    "crumbs": [
+      "Overview",
+      "Build sessions",
+      "Session 3 --- Motor driver, sensor and serial"
+    ]
+  },
+  {
+    "objectID": "sessions/03-esc.html#st-link-serial",
+    "href": "sessions/03-esc.html#st-link-serial",
+    "title": "Session 3 — Motor driver, sensor and serial",
+    "section": "ST-Link serial",
+    "text": "ST-Link serial\nThe ST-Link needs to be connected to the ESC MCU. Out of the box that happens via Serial2, but not once those GPIOs are used as SPI3 for the sensor. In that case you must connect Serial1 to the ST-Link:\n\nDisconnect USART2 and connect USART1: remove R23 and R24 on the daughter board (desolder).\nSolder wires to the now-free pins of R23/R24 — the pads closer to U3, further away from the USB port. Connect the wire from R23 to the pad for hall sensor 2 (PB7), and the wire from R24 to the pad for hall sensor 1 (PB6) on J8.\nRemap the pins in software for SPI use: in platformio.ini via build_flags, and by overwriting the WEAK PinMaps in pinmap_custom.h. See commit 18520ac on GitHub for details.",
+    "crumbs": [
+      "Overview",
+      "Build sessions",
+      "Session 3 --- Motor driver, sensor and serial"
+    ]
+  },
+  {
+    "objectID": "sessions/03-esc.html#angular-sensor-on-spi3",
+    "href": "sessions/03-esc.html#angular-sensor-on-spi3",
+    "title": "Session 3 — Motor driver, sensor and serial",
+    "section": "Angular sensor on SPI3",
+    "text": "Angular sensor on SPI3\nThere is no SPI link exposed directly on the board. The solution is to use the SPI3 bus, exposed through a few hardware modifications and matching software changes.\n\n\n\nTable 1: SPI3 connections on the G431. * Solder onto the outward side of the resistor.\n\n\n\n\n\n\nSCLK\nMISO\nMOSI\nCS\n\n\n\n\nMCU GPIO\nPB3\nPB4\nPB5\nPA15\n\n\nG431B pin\nJ3\nJ3\nR14*\nJ3\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 2: GPIOs of the G431B-ESC1 board\n\n\n\n\n\n\n\n\n\nNoteCheckpoint — TA sign-off\n\n\n\nCommander responds to ? over serial at 115200 baud, L toggles the onboard LED, the sensor returns a plausible angle through a full manual rotation, and the motor spins under a T command.",
+    "crumbs": [
+      "Overview",
+      "Build sessions",
+      "Session 3 --- Motor driver, sensor and serial"
+    ]
+  },
+  {
+    "objectID": "sessions/05-frame-crank.html",
+    "href": "sessions/05-frame-crank.html",
+    "title": "Session 5 — Frame, crank, linkage and gears",
+    "section": "",
+    "text": "Week of Oct 5 · Paired lecture: Modelling of undulatory locomotion",
+    "crumbs": [
+      "Overview",
+      "Build sessions",
+      "Session 5 --- Frame, crank, linkage and gears"
+    ]
+  },
+  {
+    "objectID": "sessions/05-frame-crank.html#what-you-build-today",
+    "href": "sessions/05-frame-crank.html#what-you-build-today",
+    "title": "Session 5 — Frame, crank, linkage and gears",
+    "section": "What you build today",
+    "text": "What you build today\nThe carbon frame, the CNC-cut crank and linkage, the PEEK gears, and the full mechanical integration that turns motor rotation into flapping. Flapping amplitude is fixed by this design.",
+    "crumbs": [
+      "Overview",
+      "Build sessions",
+      "Session 5 --- Frame, crank, linkage and gears"
+    ]
+  },
+  {
+    "objectID": "sessions/05-frame-crank.html#before-you-arrive",
+    "href": "sessions/05-frame-crank.html#before-you-arrive",
+    "title": "Session 5 — Frame, crank, linkage and gears",
+    "section": "Before you arrive",
+    "text": "Before you arrive\n\n\n\nParts\n1.5 mm woven carbon plate, 5 mm aluminium plate, 5 mm PEEK plate, bearings, M2×4 screws, brass inserts\n\n\nTools\nCNC (booked), drill press, M3 tap, cutting oil, metal glue\n\n\nRead\nThis page, plus the CNC guide if you have not run the Stepcraft before",
+    "crumbs": [
+      "Overview",
+      "Build sessions",
+      "Session 5 --- Frame, crank, linkage and gears"
+    ]
+  },
+  {
+    "objectID": "sessions/05-frame-crank.html#main-body",
+    "href": "sessions/05-frame-crank.html#main-body",
+    "title": "Session 5 — Frame, crank, linkage and gears",
+    "section": "Main body",
+    "text": "Main body\nThe main body is a carbon sandwich, spaced 24 mm apart. The plates are CNC-cut from woven 1.5 mm plates, available from swiss-composites; thickness usually varies from 1.5 to 1.6 mm. The top and bottom plates are identical, except for the chamfers needed for the M2 screws. The screws holding plate to plate are M2×4, screwing into brass inserts.\n\n\n\n\n\n\nFigure 1: Main carbon frame\n\n\n\nFusion360 generates cutpaths from the parts in the manufacture tab and allows for manufacturing models, where parts can be recombined, realigned and even modified. Here, chamfers were added in the manufacturing model. Operations go: holes first, then chamfers, then pockets, and finally the outline.\n\n\n\n\n\n\nFigure 2: Manufacturing model\n\n\n\n\n\n\n\n\n\nWarningCheck your zero before you cut\n\n\n\nMake sure the machine’s 0 is at the right location in your file, and check the orientation of the axes. Full CNC guide for the Stepcraft D660 is in the CNC reference.",
+    "crumbs": [
+      "Overview",
+      "Build sessions",
+      "Session 5 --- Frame, crank, linkage and gears"
+    ]
+  },
+  {
+    "objectID": "sessions/05-frame-crank.html#crank-and-linkage",
+    "href": "sessions/05-frame-crank.html#crank-and-linkage",
+    "title": "Session 5 — Frame, crank, linkage and gears",
+    "section": "Crank and linkage",
+    "text": "Crank and linkage\nDimensions differ between robot generations — check which one you are building:\n\n\n\nTable 1: Crank–linkage dimensions\n\n\n\n\n\n\nFAAV3.2\nFAAV4\n\n\n\n\nDate\n2023\nJuly 2024\n\n\nCrank radius\n4 mm\n4.5 mm\n\n\nLinkage length\n23 mm\n24 mm\n\n\nCrank–linkage shaft diameter\n3 mm\n4 mm\n\n\nBearing, crank side\n10×3×4\n10×4×4\n\n\nBearing, wing side\n8×3×4\n8×3×4 flanged\n\n\n\n\n\n\nBoth the crank and linkage are CNC-cut in a 5 mm aluminium plate. The linkage is only 4 mm thick, cut down from 5 mm with a facing operation on the CNC. Use a 2 mm endmill. Flooding the part keeps the temperature down and gives good results.\nOnce cut:\n\nManually drill a 2.5 mm bore hole into the crank, perpendicular to its 4 mm hole and to the flat raised surface. Drill through the part all the way to the 4 mm hole.\nCarefully tap an M3 thread. Use cutting oil and make sure to break off the chips.\n\n\n\n\n\n\nWarningThis thread carries high forces\n\n\n\nIt must be done carefully, keeping the alignment between hole and tap.\n\n\nPress the bearings into the linkage. They may need to be bonded with metal glue if the press fit is not good enough.\nJoin the crank and linkage with a short 3 or 4 mm shaft, cut to 9.5 mm. The bearing is kept from coming out with a pointy indent on the shaft end. (To be improved.)\n\n\n\n\n\n\n\nWarningAlignment of the linkage, perpendicular to the shafts, is extremely important\n\n\n\nAn offset of 1 mm is sufficient to destroy the crank-link in a few flights. To ensure forces are not applied radially, use circular offsets (not shown in the schematics) that fit around the shafts and support proper alignment of the linkage and shafts.\n\n\nFigure 3 shows how the four shafts for the FAAV3.2 should be manufactured. Nothing exotic, but they need to be accurate.\n\n\n\n\n\n\n\n\nTransmission, top view\n\n\n\n\n\n\n\nShaft dimensions\n\n\n\n\n\n\nFigure 3: Shafts",
+    "crumbs": [
+      "Overview",
+      "Build sessions",
+      "Session 5 --- Frame, crank, linkage and gears"
+    ]
+  },
+  {
+    "objectID": "sessions/05-frame-crank.html#gears",
+    "href": "sessions/05-frame-crank.html#gears",
+    "title": "Session 5 — Frame, crank, linkage and gears",
+    "section": "Gears",
+    "text": "Gears\nCut in 5 mm PEEK plastic — a high-performance plastic suited to hard environments and high temperatures. The 5 mm plate comes from RS Components. Cutting underwater again gives good results. Keep the advance speed low enough to cut the teeth cleanly.\nThe primary gear consists of 2 parts, stacked and screwed together. The 3 mm holes where the carbon is fixed need to be tapped with a sharp M3 tap.\n\n\n\n\n\n\nTipKeep the tap normal to the surface\n\n\n\nBest done in the drill press, which keeps the tap aligned.\n\n\nThe 3 mm shaft is pressed through the two gears’ centre holes — a mildly tight fit at minimum, otherwise glue the shaft. Same for the linkage shaft (also 3 mm), which should be bonded as well as possible; this one matters more, so use glue in all cases.\nBetween the gears, a clearance of 0.4 mm (inter-axis spacing of 25.4 mm) ensures proper operation without too much backlash.\n\n\n\n\n\n\nTransmission assembled\n\n\n\n\n\n\n\nTransmission, second view\n\n\n\n\n\n\n\n\n\n\n\nNoteCheckpoint — TA sign-off\n\n\n\nFrame assembled, crank–linkage rotating freely through a full cycle with no binding, linkage visibly perpendicular to the shafts, and gear backlash checked.",
+    "crumbs": [
+      "Overview",
+      "Build sessions",
+      "Session 5 --- Frame, crank, linkage and gears"
+    ]
+  },
+  {
+    "objectID": "sessions/07-wings.html",
+    "href": "sessions/07-wings.html",
+    "title": "Session 7 — Wing fabrication",
+    "section": "",
+    "text": "Week of Oct 26 · Paired lecture: Swimming robots II",
+    "crumbs": [
+      "Overview",
+      "Build sessions",
+      "Session 7 --- Wing fabrication"
+    ]
+  },
+  {
+    "objectID": "sessions/07-wings.html#what-you-build-today",
+    "href": "sessions/07-wings.html#what-you-build-today",
+    "title": "Session 7 — Wing fabrication",
+    "section": "What you build today",
+    "text": "What you build today\nBoth wings: carbon skeleton, membrane cut to the geometry you chose in Session 6, bonded and stitched at the load-bearing points.",
+    "crumbs": [
+      "Overview",
+      "Build sessions",
+      "Session 7 --- Wing fabrication"
+    ]
+  },
+  {
+    "objectID": "sessions/07-wings.html#before-you-arrive",
+    "href": "sessions/07-wings.html#before-you-arrive",
+    "title": "Session 7 — Wing fabrication",
+    "section": "Before you arrive",
+    "text": "Before you arrive\n\n\n\n\n\n\n\nParts\nCarbon rods and strips, wing-root fittings, membrane material, glue\n\n\nTools\nCutting mat, steel rule, scalpel, printed full-size template of your geometry\n\n\nBring\nYour Session 6 geometry, printed 1:1",
+    "crumbs": [
+      "Overview",
+      "Build sessions",
+      "Session 7 --- Wing fabrication"
+    ]
+  },
+  {
+    "objectID": "sessions/07-wings.html#wing-roots",
+    "href": "sessions/07-wings.html#wing-roots",
+    "title": "Session 7 — Wing fabrication",
+    "section": "Wing roots",
+    "text": "Wing roots\nThe wing roots are carbon, drilled to mate with the linkage bearings from Session 5.\n\n\n\n\n\n\nFigure 1: Wing root parts and spar stock",
+    "crumbs": [
+      "Overview",
+      "Build sessions",
+      "Session 7 --- Wing fabrication"
+    ]
+  },
+  {
+    "objectID": "sessions/07-wings.html#laying-out-and-cutting-the-membrane",
+    "href": "sessions/07-wings.html#laying-out-and-cutting-the-membrane",
+    "title": "Session 7 — Wing fabrication",
+    "section": "Laying out and cutting the membrane",
+    "text": "Laying out and cutting the membrane\nWork over the full-size printed template, taping the spars in position before cutting the membrane to the outline.\n\n\n\n\n\n\nSpars taped over the template\n\n\n\n\n\n\n\nCutting the membrane to the outline",
+    "crumbs": [
+      "Overview",
+      "Build sessions",
+      "Session 7 --- Wing fabrication"
+    ]
+  },
+  {
+    "objectID": "sessions/07-wings.html#completed-wings",
+    "href": "sessions/07-wings.html#completed-wings",
+    "title": "Session 7 — Wing fabrication",
+    "section": "Completed wings",
+    "text": "Completed wings\n\n\n\n\n\n\nFigure 2: Completed wing pair\n\n\n\n\n\n\n\n\n\nWarningBoth wings must match\n\n\n\nAsymmetry between left and right shows up as a roll bias you will spend Session 11 trimming out. Weigh both wings and compare spar positions against the template before bonding.\n\n\n\n\n\n\n\n\nImportantTo be written by the instructor\n\n\n\nThe manufacturing guide documents this step with photographs only — there is no written procedure in the source. The images above are in build order, but the following still need writing:\n\nMembrane material and its supplier\nAdhesive, and cure time\nWhich areas are stitched, and with what\nSpar layup: rod diameters, where the diagonals attach\nTolerance between left and right wing\n\n\n\n\n\n\n\n\n\nNoteCheckpoint — TA sign-off\n\n\n\nBoth wings complete, matched in mass and geometry, roots fitting the linkage bearings without play.",
+    "crumbs": [
+      "Overview",
+      "Build sessions",
+      "Session 7 --- Wing fabrication"
+    ]
+  },
+  {
+    "objectID": "sessions/09-electronics-dry-test.html",
+    "href": "sessions/09-electronics-dry-test.html",
+    "title": "Session 9 — Flight controller, PCB and dry testing",
+    "section": "",
+    "text": "Week of Nov 9 · Paired lecture: The future of actuation",
+    "crumbs": [
+      "Overview",
+      "Build sessions",
+      "Session 9 --- Flight controller, PCB and dry testing"
+    ]
+  },
+  {
+    "objectID": "sessions/09-electronics-dry-test.html#what-you-build-today",
+    "href": "sessions/09-electronics-dry-test.html#what-you-build-today",
+    "title": "Session 9 — Flight controller, PCB and dry testing",
+    "section": "What you build today",
+    "text": "What you build today\nThe custom PCB assembled and validated, the flight controller flashed and talking to the ESC, and the robot flapping in air under wireless control.",
+    "crumbs": [
+      "Overview",
+      "Build sessions",
+      "Session 9 --- Flight controller, PCB and dry testing"
+    ]
+  },
+  {
+    "objectID": "sessions/09-electronics-dry-test.html#before-you-arrive",
+    "href": "sessions/09-electronics-dry-test.html#before-you-arrive",
+    "title": "Session 9 — Flight controller, PCB and dry testing",
+    "section": "Before you arrive",
+    "text": "Before you arrive\n\n\n\nParts\nFAAV PCB v3.0, stencil, solder paste, XIAO ESP32S3, JST connectors, battery\n\n\nTools\nHotplate, tweezers, multimeter, bench supply with current limit\n\n\nRead\nThis page and PCB revisions",
+    "crumbs": [
+      "Overview",
+      "Build sessions",
+      "Session 9 --- Flight controller, PCB and dry testing"
+    ]
+  },
+  {
+    "objectID": "sessions/09-electronics-dry-test.html#electronic-architecture",
+    "href": "sessions/09-electronics-dry-test.html#electronic-architecture",
+    "title": "Session 9 — Flight controller, PCB and dry testing",
+    "section": "Electronic architecture",
+    "text": "Electronic architecture\nOne 4S (max 16.8 V) battery is connected to a custom PCB that steps VBAT down to 5 V to power the flight controller. The flight controller generates a 3v3 rail to power the sensors on the custom PCB. Battery power goes through a shunt for sensing on the custom PCB, then back out to power the ESC. The flight controller sends commands to the ESC over serial.",
+    "crumbs": [
+      "Overview",
+      "Build sessions",
+      "Session 9 --- Flight controller, PCB and dry testing"
+    ]
+  },
+  {
+    "objectID": "sessions/09-electronics-dry-test.html#flight-controller",
+    "href": "sessions/09-electronics-dry-test.html#flight-controller",
+    "title": "Session 9 — Flight controller, PCB and dry testing",
+    "section": "Flight controller",
+    "text": "Flight controller\n\n\n\n\n\n\nFigure 1: Microcontroller in its waterproofing box\n\n\n\nFirmware lives in FAAV-Flight-Controller (ESP32, FreeRTOS tasks). See Software for older variants.",
+    "crumbs": [
+      "Overview",
+      "Build sessions",
+      "Session 9 --- Flight controller, PCB and dry testing"
+    ]
+  },
+  {
+    "objectID": "sessions/09-electronics-dry-test.html#assembling-the-pcb",
+    "href": "sessions/09-electronics-dry-test.html#assembling-the-pcb",
+    "title": "Session 9 — Flight controller, PCB and dry testing",
+    "section": "Assembling the PCB",
+    "text": "Assembling the PCB\nAs of April 2026 the current board is v3.0: 4 layers, 21 × 28.5 mm, 34 components. The complete BOM is in the Manufacturing/Assembly folder of the FAAV-PCB-v3 repository.\nThe simplest way to assemble a FAAV PCB is with a stencil, solder paste applied with a cutter blade, then reflow on the hotplate.\n\n\n\n\n\n\nTape blank PCBs around the PCB to assemble\n\n\n\n\n\n\n\nAlign the stencil on top and tape it, making sure it sits flat\n\n\n\n\n\n\n\n\n\n\n\nWipe down solder paste with a blade in one firm pass\n\n\n\n\n\n\n\nPlace the assembled PCB on the hot plate",
+    "crumbs": [
+      "Overview",
+      "Build sessions",
+      "Session 9 --- Flight controller, PCB and dry testing"
+    ]
+  },
+  {
+    "objectID": "sessions/09-electronics-dry-test.html#taking-the-pcb-into-operation",
+    "href": "sessions/09-electronics-dry-test.html#taking-the-pcb-into-operation",
+    "title": "Session 9 — Flight controller, PCB and dry testing",
+    "section": "Taking the PCB into operation",
+    "text": "Taking the PCB into operation\nOnce assembled, solder power wires for VBAT and GND at the input side of the board. Follow these steps before powering the PCB for the first time:\n\nCheck that there is no short circuit between GND and 5V / 3.3V / VBAT.\nConnect a 15 V supply with a 100 mA current limit to the battery pads and check that it does not draw excessive current.\nCheck with a multimeter that the buck regulator outputs 5 V from the 15 V input. The MCU should be on by then.\n\nWith the MCU powered, flash your test firmware and check the connection to all sensors. Table 1 gives the I²C addresses.\n\n\n\nTable 1: I²C addresses\n\n\n\n\n\nComponent\nI²C address (bin)\nI²C address (hex)\n\n\n\n\nPressure sensor\n0b1110110\n0x76\n\n\nIMU\n0b1101000\n0x68\n\n\nINA228 power monitor\n0b0101000\n0x40\n\n\n\n\n\n\nVerify:\n\nVoltage, current and temperature readings from the INA228\nIMU readings\nPressure sensor readings\nRGB LED control\n\nOnce all the hardware on the board is validated, solder the power wires at the output side of the board to the ESC, and the UART wires.\n\n\n\n\n\n\nWarningTX to RX\n\n\n\nThe TX output of the PCB has to be connected to the RX pin of the ESC, and vice versa.",
+    "crumbs": [
+      "Overview",
+      "Build sessions",
+      "Session 9 --- Flight controller, PCB and dry testing"
+    ]
+  },
+  {
+    "objectID": "sessions/09-electronics-dry-test.html#connectors",
+    "href": "sessions/09-electronics-dry-test.html#connectors",
+    "title": "Session 9 — Flight controller, PCB and dry testing",
+    "section": "Connectors",
+    "text": "Connectors\nThe waterproof connector is the JST 8-pin 08R-JWPF-VSLE-D / 08T-JWPF-VSLE-D. All pins marked _b are used for balancing the battery during recharge. For use on the robot, connect at least Vbat and GND; to allow higher currents, connect Vbat_b and GND_b as well.\n\n\n\n\n\n\nWarningSeal the unused cable slots\n\n\n\nDo not forget to seal the back of the connector for the unused cable slots — this is a water ingress path straight into the electronics.\n\n\n\n\n\n\n\n\nFigure 2: Connector wiring scheme. Left: battery connector. Right: connector on the robot / for recharging the battery.",
+    "crumbs": [
+      "Overview",
+      "Build sessions",
+      "Session 9 --- Flight controller, PCB and dry testing"
+    ]
+  },
+  {
+    "objectID": "sessions/09-electronics-dry-test.html#dry-testing",
+    "href": "sessions/09-electronics-dry-test.html#dry-testing",
+    "title": "Session 9 — Flight controller, PCB and dry testing",
+    "section": "Dry testing",
+    "text": "Dry testing\n\n\n\n\n\n\nImportantTo be written by the instructor\n\n\n\nThe dry-test protocol is course material, not in the guide. Needed: what the robot is mounted on while flapping in air, the flap frequency sweep, what is measured, the wireless control setup students reprogram to, and abort criteria.\n\n\n\n\n\n\n\n\nNoteCheckpoint — TA sign-off\n\n\n\nPCB validated against all four sensor checks, flight controller commanding the ESC over serial, and a supervised flapping run in air.",
+    "crumbs": [
+      "Overview",
+      "Build sessions",
+      "Session 9 --- Flight controller, PCB and dry testing"
+    ]
+  },
+  {
+    "objectID": "sessions/11-wet-testing.html",
+    "href": "sessions/11-wet-testing.html",
+    "title": "Session 11 — Wet testing",
+    "section": "",
+    "text": "Week of Nov 23 · Paired lecture: Fixed-wing flyers",
+    "crumbs": [
+      "Overview",
+      "Build sessions",
+      "Session 11 --- Wet testing"
+    ]
+  },
+  {
+    "objectID": "sessions/11-wet-testing.html#what-you-do-today",
+    "href": "sessions/11-wet-testing.html#what-you-do-today",
+    "title": "Session 11 — Wet testing",
+    "section": "What you do today",
+    "text": "What you do today\nImmersion, underwater runs, wing trim, and control tuning in water — the regime the whole transmission was designed around.",
+    "crumbs": [
+      "Overview",
+      "Build sessions",
+      "Session 11 --- Wet testing"
+    ]
+  },
+  {
+    "objectID": "sessions/11-wet-testing.html#before-you-arrive",
+    "href": "sessions/11-wet-testing.html#before-you-arrive",
+    "title": "Session 11 — Wet testing",
+    "section": "Before you arrive",
+    "text": "Before you arrive\n\n\n\nBring\nFully waterproofed robot from Session 10, charged 4S pack, spare crank–linkage shaft\n\n\nRead\nThis page, and your notes from Session 4",
+    "crumbs": [
+      "Overview",
+      "Build sessions",
+      "Session 11 --- Wet testing"
+    ]
+  },
+  {
+    "objectID": "sessions/11-wet-testing.html#pre-immersion-checks",
+    "href": "sessions/11-wet-testing.html#pre-immersion-checks",
+    "title": "Session 11 — Wet testing",
+    "section": "Pre-immersion checks",
+    "text": "Pre-immersion checks\n\nStatic immersion test from Session 10 passed, robot opened and inspected dry\nConnector back-shell sealed on all unused slots\nGearbox lubricated with CorrosionX and white lithium grease\nWatchdog enabled on the ESC (W) — target drops to zero if commands stop\nRobot floats level\n\n\n\n\n\n\n\nWarningLow speed is where hobby ESCs fail\n\n\n\nWater propulsion runs the motor in exactly the regime where synchronisation is lost. If the drive stutters underwater, stop and check sensor lag compensation before increasing current — see Session 4.\n\n\n\n\n\n\n\n\nImportantTo be written by the instructor\n\n\n\nThe wet-test protocol is course material and has no counterpart in the manufacturing guide. Needed:\n\nTank or venue, and supervision requirements\nRun profile: depth, duration, flap frequency sweep\nWhat is logged, and how it is retrieved — SD card handling on a potted board is not trivial, see PCB revisions\nHow wing trim is adjusted, and against what reference\nCost of transport measurement procedure, since it is scored in Session 12\nRecovery and abort procedure\n\n\n\n\n\n\n\n\n\nNoteCheckpoint — TA sign-off\n\n\n\nA completed underwater run with logged data, no water ingress on inspection afterwards, and a recorded cost-of-transport measurement.",
+    "crumbs": [
+      "Overview",
+      "Build sessions",
+      "Session 11 --- Wet testing"
+    ]
+  }
+]

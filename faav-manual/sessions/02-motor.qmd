@@ -1,0 +1,131 @@
+---
+title: "Session 2 --- Motor and transmission shaft"
+---
+
+::: {.session-meta}
+**Week of Sep 14** · Paired lecture: *Reaction forces in fluids*
+:::
+
+## What you build today
+
+A brushless motor with a custom shaft pressed into its rotor bell, paired to
+the Faulhaber gearbox, with the sun gear and the sensor magnet installed.
+
+## Before you arrive
+
+| | |
+|---|---|
+| **Parts** | AS2303 KV1500 motor, 4 mm steel rod, Faulhaber 23.04:1 gearbox, M2.5×10 screws |
+| **Tools** | Circlip pliers, manual arbor press, lathe (booked), cutting oil |
+| **Read** | This page, and the *Motor shaft* section below in full before touching the motor |
+
+## How the transmission works
+
+The motor is connected via a custom shaft to a gearbox with a **23.04:1**
+reduction by Faulhaber.[^1] Both parts are held in place by 3D-printed plates.
+The output shaft of the gearbox has its own bearing on the inside of the
+gearbox, and is also supported mid-way on the shaft by a 4×8 mm flanged
+bearing. This leaves **5 mm of shaft length free** for the crank to be mounted
+on. A flat on the shaft helps lock the rotation of the M3 screw extending
+through the crank.
+
+[^1]: [Faulhaber gearhead reduction ratios](https://www.faulhaber.com/fileadmin/Import/Media/DE_GEARHEADS_REDUCTION_RATIOS.pdf) (accessed 20.02.2024).
+
+::: {layout-ncol=2}
+![Motor shaft](../Fig/shaft_motor.jpg)
+
+![Faulhaber gearbox](../Fig/fhaber.jpg)
+:::
+
+## Which motor do you have? {#sec-motor-variant}
+
+::: {.panel-tabset}
+
+### Black --- AS2303 KV1500 (new)
+
+![](../Fig/TMO-AS2303-1500.jpg){width=45%}
+
+The propeller horn **cannot** be separated from the bell. You will remove the
+two screws, then clamp the bell in a lathe using the stock shaft and machine
+it down (step 4 below).
+
+### Blue --- AT2303 KV1500 (old)
+
+![](../Fig/TMO-AT2303-1500.jpg){width=45%}
+
+The horn is a separate part and comes off easily. Skip the lathe operation.
+
+:::
+
+## Motor shaft
+
+To pair the motor with the gearbox, the shaft of the brushless motor needs to
+be replaced. This is a delicate operation --- the motor's structure is mostly
+aluminium and quite thin, for weight savings.
+
+1. Remove the circlip on the shaft with the special pliers. **Don't lose it,
+   nor the brass ring.**
+
+2. Separate the rotor from the stator delicately, by hand.
+
+3. Press the shaft out of the rotor bell.
+
+   ::: {.callout-warning}
+   ## Never load the bell radially
+
+   Press the shaft out very carefully, making sure to never apply forces
+   radially on the bell. Use the manual press with appropriate support below
+   the bell to avoid deforming the dome shape. **Do not squeeze the bell with a
+   vice, or even by hand.**
+   :::
+
+4. Remove the propeller horn, which is not needed --- see
+   [the tabs above](#sec-motor-variant) for which case applies to you. On the
+   black motor, machine the bell as follows:
+
+   ::: {layout-ncol=3}
+   ![Stock bell](../Fig/bell_machined1.jpg)
+
+   ![Bring diameter down to 6 mm](../Fig/bell_machined2.jpg)
+
+   ![Bring the length down to 2.5 mm](../Fig/bell_machined3.jpg)
+   :::
+
+5. Manufacture the new shaft from 4 mm diameter steel rod. It should have a
+   **clearance fit** through the bearings and a **tight fit** on the rotor
+   bell. See @fig-motor-shaft for exact dimensions.
+
+   ::: {.callout-warning}
+   ## Check your wall thickness before cutting
+
+   21.5 mm is the shaft length **if the motor and the gearbox are separated by
+   a 5.5 mm-thick wall**. If your wall is 4 mm thick, reduce the 8.5 mm segment
+   to 7 mm, bringing the total length from 21.5 mm to 20 mm.
+   :::
+
+6. Press the new shaft into the bell, making sure not to press on the
+   dome-shaped part of the bell without appropriate support underneath.
+
+![Motor shaft dimensions](../Fig/shaft_drawing.png){#fig-motor-shaft width=70%}
+
+## Gearbox assembly
+
+The blue part of the gearbox is fixed on one side using the custom screws that
+come with the gearbox, and with **M2.5×10** screws on the other.
+
+::: {.callout-important}
+## To be completed by the instructor
+
+Sun gear installation and sensor magnet bonding are in the course project plan
+but are not documented in the manufacturing guide. Add the magnet part number,
+bonding agent, and the concentricity tolerance that matters for
+[Session 4](04-control.qmd).
+:::
+
+::: {.callout-note}
+## Checkpoint --- TA sign-off
+
+Shaft seated, rotor spinning freely by hand with no wobble, gearbox mounted,
+and the sensor magnet concentric with the shaft axis. An off-centre magnet
+produces sensor faults that are very hard to diagnose two sessions later.
+:::

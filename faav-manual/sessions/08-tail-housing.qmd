@@ -1,0 +1,68 @@
+---
+title: "Session 8 --- Tail and housing"
+---
+
+::: {.session-meta}
+**Week of Nov 2** · Paired lecture: *Multi-modal locomotion*
+:::
+
+## What you build today
+
+The passive tail, cut to the shape your simulation produced and mounted on its
+rod, plus the foam housing that protects the robot and keeps it afloat.
+
+## Before you arrive
+
+| | |
+|---|---|
+| **Parts** | Carbon sheet and tail rod, foam stock (XPS or closed-cell PE), epoxy |
+| **Tools** | Foam cutter, scalpel |
+| **Bring** | Your Session 6 tail geometry, printed 1:1 |
+
+## Tail
+
+![Tail assembly](../Fig/tail.jpg){#fig-tail width=75%}
+
+::: {.callout-important}
+## To be written by the instructor
+
+As with the wings, the guide contains **only the photograph above** for the
+tail. Still needed: sheet material and thickness, rod diameter, how the tail
+mounts to the boom, and the incidence setting. The project plan also notes tail
+actuation is optional if time permits --- decide before the semester whether
+that is in scope.
+:::
+
+## Housing
+
+Use a foam cutter to cut an exterior housing for the FAAV. This is an important
+step for external tests: it adds a layer of protection and ensures the FAAV
+floats. Leave space for GPS and antenna insertions if you are using them.
+
+To keep the FAAV level when floating --- which helps visibility and getting it
+out of the water --- it is recommended to put a certain amount of foam on the
+tail.
+
+### Choosing a foam
+
+Various foams have been tested, with tradeoffs:
+
+| Foam | Floatability | Absorption | Impact behaviour |
+|---|---|---|---|
+| Extruded polystyrene (XPS) | Best, low density | Zero | Relatively brittle; little help damping landings |
+| Closed-cell polyethylene (PE) | Decent, relatively low density | Light | Much more compliant; usable as protection |
+
+If someone ever has time, a multi-material housing could have its use cases.
+
+::: {.callout-warning}
+## Check solvent compatibility before painting or gluing foam
+
+Some foams are very sensitive to solvents. Epoxy is inert and can act as glue.
+:::
+
+::: {.callout-note}
+## Checkpoint --- TA sign-off
+
+Tail mounted and aligned, housing fitted with clearance for the wings through
+the full flap cycle, and the assembled robot floating level in the test tank.
+:::

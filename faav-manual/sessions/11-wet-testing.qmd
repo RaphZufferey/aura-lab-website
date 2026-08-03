@@ -1,0 +1,58 @@
+---
+title: "Session 11 --- Wet testing"
+---
+
+::: {.session-meta}
+**Week of Nov 23** · Paired lecture: *Fixed-wing flyers*
+:::
+
+## What you do today
+
+Immersion, underwater runs, wing trim, and control tuning in water --- the
+regime the whole transmission was designed around.
+
+## Before you arrive
+
+| | |
+|---|---|
+| **Bring** | Fully waterproofed robot from [Session 10](10-waterproofing.qmd), charged 4S pack, spare crank–linkage shaft |
+| **Read** | This page, and your notes from [Session 4](04-control.qmd) |
+
+## Pre-immersion checks
+
+- [ ] Static immersion test from Session 10 passed, robot opened and inspected dry
+- [ ] Connector back-shell sealed on all unused slots
+- [ ] Gearbox lubricated with CorrosionX and white lithium grease
+- [ ] Watchdog enabled on the ESC (`W`) --- target drops to zero if commands stop
+- [ ] Robot floats level
+
+::: {.callout-warning}
+## Low speed is where hobby ESCs fail
+
+Water propulsion runs the motor in exactly the regime where synchronisation is
+lost. If the drive stutters underwater, stop and check sensor lag compensation
+before increasing current --- see [Session 4](04-control.qmd).
+:::
+
+::: {.callout-important}
+## To be written by the instructor
+
+The wet-test protocol is course material and has no counterpart in the
+manufacturing guide. Needed:
+
+- Tank or venue, and supervision requirements
+- Run profile: depth, duration, flap frequency sweep
+- What is logged, and how it is retrieved --- SD card handling on a potted
+  board is not trivial, see [PCB revisions](../reference/pcb.qmd)
+- How wing trim is adjusted, and against what reference
+- Cost of transport measurement procedure, since it is scored in
+  [Session 12](12-competition.qmd)
+- Recovery and abort procedure
+:::
+
+::: {.callout-note}
+## Checkpoint --- TA sign-off
+
+A completed underwater run with logged data, no water ingress on inspection
+afterwards, and a recorded cost-of-transport measurement.
+:::

@@ -1,0 +1,57 @@
+---
+title: "Session 1 --- Orientation"
+---
+
+::: {.session-meta}
+**Week of Sep 9** · Paired lecture: *Intro to robotic locomotion* · Teams formed today
+:::
+
+## What you do today
+
+Form teams, complete shop training, meet the robot you are going to build, and
+collect your parts kit.
+
+## The robot
+
+![The FAAV3.2](../Fig/Water-Air-Slider-V3-Carbon-v63.jpg){#fig-faav-overview}
+
+The FAAV is a flapping-wing vehicle that operates in air and in water with the
+same actuation. The build divides into four subsystems, and the sessions follow
+that order:
+
+1. **Transmission** --- motor, custom shaft, gearbox, crank and linkage
+   (Sessions 2, 5)
+2. **Electronics** --- ESC, angular sensor, flight controller, custom PCB
+   (Sessions 3, 4, 9)
+3. **Aero/hydro surfaces** --- wings, tail, foam housing (Sessions 6--8)
+4. **Waterproofing and testing** --- potting, immersion, tuning (Sessions 10--12)
+
+## Electronic architecture
+
+One 4S battery (max 16.8 V) connects to a custom PCB that steps VBAT down to
+5 V to power the flight controller. The flight controller generates a 3v3 rail
+for the sensors on the PCB. Battery power passes through a shunt for current
+sensing on the custom PCB, then back out to power the ESC. The flight
+controller sends commands to the ESC over serial.
+
+## Before you leave today
+
+- [ ] Team formed and registered
+- [ ] Shop training complete
+- [ ] Parts kit collected against the [parts list](../reference/parts-list.qmd)
+- [ ] Access to the lab GitHub organisation confirmed
+
+::: {.callout-important}
+## To be completed by the instructor
+
+Shop safety requirements, machine access and booking procedure, team size and
+formation rules, and where the parts crib is. These are institution-specific
+and are not carried over from the manufacturing guide.
+:::
+
+::: {.callout-note}
+## Checkpoint --- TA sign-off
+
+Team registered, kit checked against the parts list, and every member has
+completed shop training.
+:::

@@ -1,0 +1,41 @@
+---
+title: "Software"
+---
+
+## ESC
+
+Code for the B-G431B-ESC1 motor controller using the SimpleFOC library:
+[FAAV-G431-ESC](https://github.com/MIT-AURA-Lab/FAAV-G431-ESC).
+
+Used in [Session 3](../sessions/03-esc.qmd) and
+[Session 4](../sessions/04-control.qmd).
+
+## Flight controller
+
+- **Current** --- ESP32, based on FreeRTOS tasks:
+  [FAAV-Flight-Controller](https://github.com/MIT-AURA-Lab/FAAV-Flight-Controller)
+
+Outdated versions, kept for reference:
+
+- Old EPFL code for NRF52: [FAAV-Seeeduino](https://github.com/MIT-AURA-Lab/FAAV-Seeeduino)
+- Old MIT code for NRF52/ESP32: [FAAV-AUK](https://github.com/MIT-AURA-Lab/FAAV-AUK)
+
+## PCB
+
+- [FAAV-PCB-v3](https://github.com/MIT-AURA-Lab/FAAV-PCB-v3) --- current board,
+  including the BOM in the Manufacturing/Assembly folder
+
+## External documentation
+
+- [SimpleFOC communication](https://docs.simplefoc.com/communication)
+- [SimpleFOC commander](https://docs.simplefoc.com/commander_motor)
+- [XIAO ESP32S3 getting started](https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/)
+
+::: {.callout-important}
+## Access
+
+Confirm before the semester that students have read access to these
+repositories, and pin the branch or tag each session expects. "Latest main"
+changing under a cohort mid-semester is the most likely way this manual goes
+stale without anyone noticing.
+:::

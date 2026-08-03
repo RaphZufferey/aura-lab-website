@@ -1,0 +1,93 @@
+---
+title: "Design notes"
+---
+
+Why the robot is built the way it is. Not needed at the bench --- useful for
+your report, and for anyone changing the design.
+
+## Why an FOC ESC
+
+Several ESC solutions were explored for the FAAV concept:
+
+- **Regular drone ESCs.** Hobbyking 12A and EP Aer11 were tested. Both start
+  **losing synchronisation at low speed**, which is a problem for water
+  propulsion --- precisely the regime the robot spends most of its time in.
+- **FOC ESCs** tend to be more complex and larger. The **G431-ESC1** board is
+  favourable and had already been explored in the lab.
+
+That tradeoff --- accepting a larger, more complex driver to get usable
+low-speed torque control --- is the reason [Session 3](../sessions/03-esc.qmd)
+spends a whole session on the driver.
+
+## Speed ceiling and sensor lag
+
+Maximum speed went from **500 to 1700 rad/s**, enough to drive the wings at
+10 Hz, through a combination of sensor and MCU changes documented in
+[Session 4](../sessions/04-control.qmd). The remaining constraint is sensor
+lag: above 500--600 rad/s, uncompensated lag shows up as high current draw and
+noise rather than as a hard speed limit.
+
+Compensation is currently hand-tuned every 100 rad/s with a fitted function
+used on the robot. Automating this --- ramping through the speeds while
+minimising phase current --- is open work.
+
+### Open question
+
+Could `TorqueControlType::foc_current` give better control? The robot currently
+uses voltage mode, bypassing the current sensors.
+
+## Gearbox corrosion {#gearbox-corrosion}
+
+By default the gearbox on the FAAV4 is not waterproof at all, and it is normal
+for it to fill completely with water once submerged. This was considered
+acceptable: over more than a year of repeated use in water, including in Lake
+Geneva, a gearbox was opened and showed no sign of corrosion.
+
+Then a newer robot, built to experiment with transitions, showed severe
+corrosion after only **3--4 uses**.
+
+::: {layout-ncol=2}
+![Gearbox after a few dives with motor oil lubrication](../Fig/gearbox_rust1.jpg)
+
+![Sun gear from the same gearbox](../Fig/gearbox_rust2.jpg)
+:::
+
+The cause is believed to be a combination of improper lubrication after a
+cleaning event, and the absence of the shaft bearing, which allowed more water
+in through the front of the gearbox. When an old gearbox was cleaned for
+installation in the new robot, no proper lubricant was available, so motor oil
+was used. Its low viscosity is believed to have washed it away quickly, leaving
+the gears dry and starting corrosion.
+
+### Which parts actually rust
+
+Each individual part was left in water for 12 hours.
+
+| Rusts | Does not rust |
+|---|---|
+| Sun gear, planet gears, ring gear, planet shafts | Screws, motor shaft, washers, body, circlip |
+
+::: {layout-ncol=2}
+![After 12 hours in water](../Fig/rust_test1.jpg)
+
+![Shafts, sun gear and planet gears show rust](../Fig/rust_test2.jpg)
+:::
+
+### Resolution
+
+A few simple optional modifications to the structure and assembly process keep
+most of the water out. Combined with proper lubrication --- a mix of
+**CorrosionX and white lithium grease** --- this appears to have solved the
+issue. Several dives have since been performed with the same gearbox that had
+previously corroded, and it now runs smoothly. The practical procedure is in
+[Session 10](../sessions/10-waterproofing.qmd).
+
+## Housing material tradeoff
+
+| Foam | Floatability | Absorption | Impact behaviour |
+|---|---|---|---|
+| Extruded polystyrene | Best, low density | Zero | Brittle; little help damping landings |
+| Closed-cell polyethylene | Decent, relatively low density | Light | Compliant; usable as protection |
+
+A multi-material housing has never been built but would likely be better than
+either.
