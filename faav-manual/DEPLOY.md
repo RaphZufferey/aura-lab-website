@@ -20,9 +20,11 @@ read it. That is intentional.
 
 ```
 <repo root>/
-  index.html          existing hand-written site   (do not touch)
-  faav-manual/        Quarto source                (this folder)
-  2.S986-robot/       generated HTML               (created by the build)
+  index.html                          existing hand-written site (do not touch)
+  faav-manual/                        Quarto source              (this folder)
+  faav-manual/files/                  downloadables, incl. the generated PDF
+  2.S986-robot/                       generated HTML             (built)
+  .github/workflows/build-manual.yml  rebuilds both on push
 ```
 
 Result: the manual is served at **https://aura.mit.edu/2.S986-robot/**
@@ -56,11 +58,35 @@ instead.
 
 ### 2. Build
 
+Normally you do not build by hand at all --- `.github/workflows/build-manual.yml`
+rebuilds and commits both artefacts on any push touching `faav-manual/`. To
+build locally anyway, **keep this order**:
+
 ```bash
 quarto --version || winget install --id Posit.Quarto -e
+
+# 1. PDF first, into files/
 cd faav-manual
-quarto render
+quarto render manual-pdf.qmd --to typst \
+  -M title:"FAAV Build Manual" \
+  -M subtitle:"MIT AURA Lab, 2026 v4.0 (printable edition)"
+cp manual-pdf.pdf files/faav-build-manual.pdf
+
+# 2. Then the website, which publishes files/ as a resource
+cd .. && rm -rf 2.S986-robot && cd faav-manual && quarto render
 ```
+
+The order is not cosmetic. `_quarto.yml` declares `resources: [files/]`, so the
+**website** render is what copies `files/` into the output. Build the site
+first and the PDF is not there to be copied, so the download link on the
+landing page 404s.
+
+The `rm -rf` matters too: `output-dir` points outside the project, and Quarto
+refuses to clean an output directory it does not own. It warns and leaves
+stale files behind, so deleted pages and superseded `site_libs` bundles pile
+up until the directory is cleared by hand.
+
+The PDF needs no TeX install --- Quarto's Typst backend is built in.
 
 This creates `../2.S986-robot/` with `index.html` and `site_libs/`.
 
@@ -70,6 +96,7 @@ Verify before continuing:
 - `2.S986-robot/sessions/02-motor.html` exists
 - Figures are present under `2.S986-robot/Fig/`
 - `2.S986-robot/files/CNC-Stepcraft-D600-guide.pdf` exists
+- `2.S986-robot/files/faav-build-manual.pdf` exists (the ordering check)
 
 Open `2.S986-robot/index.html` in a browser and confirm the sidebar, search box, and
 light/dark toggle work. Report the actual result — do not report success
@@ -105,22 +132,50 @@ the lab site's navigation, header, or footer.
 
 ## Updating later
 
-Edit the `.qmd` files in `faav-manual/`, then:
+Edit the `.qmd` files in `faav-manual/`, commit the source, and push:
 
 ```bash
-cd faav-manual && quarto render && cd ..
-git add faav-manual 2.S986-robot && git commit -m "manual: <what changed>" && git push
+git add faav-manual && git commit -m "manual: <what changed>" && git push
 ```
 
-Live within a minute or two of the push.
+`.github/workflows/build-manual.yml` takes it from there: it renders the PDF,
+renders the site, verifies both, and commits the regenerated
+`2.S986-robot/` and `faav-manual/files/faav-build-manual.pdf` back to the
+branch you pushed. Live a minute or two after that commit lands on `master`.
 
 `quarto preview` gives live reload while writing, without committing anything.
 
-## Optional: build in CI instead
+## The build workflow
 
-If you would rather not commit generated HTML, replace steps 2–3 with a GitHub
-Actions workflow using `quarto-dev/quarto-actions/setup@v2` that renders and
-commits `2.S986-robot/`, or that switches the site to an Actions-based Pages
-deploy.
+`.github/workflows/build-manual.yml`, triggered by any push touching
+`faav-manual/`.
+
+- **No TeX.** The PDF renders through Quarto's Typst backend, which ships
+  inside Quarto. Nothing to install, a few seconds rather than the minutes a
+  TinyTeX install costs.
+- **PDF first, then site.** See the ordering note in step 2 above. The verify
+  step checks `2.S986-robot/files/faav-build-manual.pdf` specifically, so
+  getting the order wrong fails the build instead of shipping a dead link.
+- **No trigger loop.** The workflow commits into `faav-manual/files/`, which
+  is inside its own trigger path. Pushes made with the default `GITHUB_TOKEN`
+  do not start another workflow run, so it terminates.
+
+### Editing the printable PDF
+
+`manual-pdf.qmd` aggregates every page via `{{< include >}}`. Two traps:
+
+- Each include merges that file's YAML front matter into the document, last
+  one winning --- a `title:` in `manual-pdf.qmd` silently loses to the last
+  included page. Title and subtitle are passed with `-M`, which outranks
+  front matter. Keep them in the render command.
+- An include contributes no heading; the included file's `title:` is consumed
+  as metadata and never rendered. The explicit `#` headings in
+  `manual-pdf.qmd` are what separate the modules. Retitling a module means
+  editing it in both places.
+
+Links and images throughout the manual use project-root-relative paths
+(`/Fig/...`, `/sessions/...`). Document-relative `../Fig/...` works on the
+website but escapes the Typst sandbox when the same file is included into the
+PDF from the project root.
 Only do this if asked — the commit-the-output approach is simpler and works
 with the branch-based Pages setup the site already uses.

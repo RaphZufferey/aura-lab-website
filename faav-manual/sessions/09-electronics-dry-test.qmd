@@ -1,5 +1,5 @@
 ---
-title: "Session 9 --- Flight controller, PCB and dry testing"
+title: "Module 9 --- Flight controller, PCB and dry testing"
 ---
 
 ::: {.session-meta}
@@ -17,7 +17,7 @@ talking to the ESC, and the robot flapping in air under wireless control.
 |---|---|
 | **Parts** | FAAV PCB v3.0, stencil, solder paste, XIAO ESP32S3, JST connectors, battery |
 | **Tools** | Hotplate, tweezers, multimeter, bench supply with current limit |
-| **Read** | This page and [PCB revisions](../reference/pcb.qmd) |
+| **Read** | This page and [PCB revisions](/reference/pcb.qmd) |
 
 ## Electronic architecture
 
@@ -29,10 +29,10 @@ controller sends commands to the ESC over serial.
 
 ## Flight controller
 
-![Microcontroller in its waterproofing box](../Fig/mcu1.jpg){#fig-mcu width=50%}
+![Microcontroller in its waterproofing box](/Fig/mcu1.jpg){#fig-mcu width=50%}
 
 Firmware lives in [FAAV-Flight-Controller](https://github.com/MIT-AURA-Lab/FAAV-Flight-Controller)
-(ESP32, FreeRTOS tasks). See [Software](../reference/software.qmd) for older
+(ESP32, FreeRTOS tasks). See [Software](/reference/software.qmd) for older
 variants.
 
 ## Assembling the PCB
@@ -45,15 +45,15 @@ The simplest way to assemble a FAAV PCB is with a stencil, solder paste applied
 with a cutter blade, then reflow on the hotplate.
 
 ::: {layout-ncol=2}
-![Tape blank PCBs around the PCB to assemble](../Fig/PCB_assembly1.jpeg)
+![Tape blank PCBs around the PCB to assemble](/Fig/PCB_assembly1.jpeg)
 
-![Align the stencil on top and tape it, making sure it sits flat](../Fig/PCB_assembly2.jpeg)
+![Align the stencil on top and tape it, making sure it sits flat](/Fig/PCB_assembly2.jpeg)
 :::
 
 ::: {layout-ncol=2}
-![Wipe down solder paste with a blade in one firm pass](../Fig/PCB_assembly3.jpeg)
+![Wipe down solder paste with a blade in one firm pass](/Fig/PCB_assembly3.jpeg)
 
-![Place the assembled PCB on the hot plate](../Fig/PCB_assembly4.jpeg)
+![Place the assembled PCB on the hot plate](/Fig/PCB_assembly4.jpeg)
 :::
 
 ## Taking the PCB into operation
@@ -111,7 +111,7 @@ Do not forget to seal the back of the connector for the unused cable slots ---
 this is a water ingress path straight into the electronics.
 :::
 
-![Connector wiring scheme. Left: battery connector. Right: connector on the robot / for recharging the battery.](../Fig/Connector_wiring.png){#fig-connector}
+![Connector wiring scheme. Left: battery connector. Right: connector on the robot / for recharging the battery.](/Fig/Connector_wiring.png){#fig-connector}
 
 ## Dry testing
 

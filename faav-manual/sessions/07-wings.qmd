@@ -1,5 +1,5 @@
 ---
-title: "Session 7 --- Wing fabrication"
+title: "Module 7 --- Wing fabrication"
 ---
 
 ::: {.session-meta}
@@ -9,7 +9,7 @@ title: "Session 7 --- Wing fabrication"
 ## What you build today
 
 Both wings: carbon skeleton, membrane cut to the geometry you chose in
-[Session 6](06-simulation.qmd), bonded and stitched at the load-bearing points.
+[Module 6](06-simulation.qmd), bonded and stitched at the load-bearing points.
 
 ## Before you arrive
 
@@ -17,14 +17,14 @@ Both wings: carbon skeleton, membrane cut to the geometry you chose in
 |---|---|
 | **Parts** | Carbon rods and strips, wing-root fittings, membrane material, glue |
 | **Tools** | Cutting mat, steel rule, scalpel, printed full-size template of your geometry |
-| **Bring** | Your Session 6 geometry, printed 1:1 |
+| **Bring** | Your Module 6 geometry, printed 1:1 |
 
 ## Wing roots
 
 The wing roots are carbon, drilled to mate with the linkage bearings from
-[Session 5](05-frame-crank.qmd).
+[Module 5](05-frame-crank.qmd).
 
-![Wing root parts and spar stock](../Fig/Wing_roots.jpg){#fig-wing-roots width=70%}
+![Wing root parts and spar stock](/Fig/Wing_roots.jpg){#fig-wing-roots width=70%}
 
 ## Laying out and cutting the membrane
 
@@ -32,20 +32,20 @@ Work over the full-size printed template, taping the spars in position before
 cutting the membrane to the outline.
 
 ::: {layout-ncol=2}
-![Spars taped over the template](../Fig/Wings_glue.jpg)
+![Spars taped over the template](/Fig/Wings_glue.jpg)
 
-![Cutting the membrane to the outline](../Fig/Wings_cutting.jpg)
+![Cutting the membrane to the outline](/Fig/Wings_cutting.jpg)
 :::
 
 ## Completed wings
 
-![Completed wing pair](../Fig/Complete_wings.jpg){#fig-wings-complete}
+![Completed wing pair](/Fig/Complete_wings.jpg){#fig-wings-complete}
 
 ::: {.callout-warning}
 ## Both wings must match
 
 Asymmetry between left and right shows up as a roll bias you will spend
-[Session 11](11-wet-testing.qmd) trimming out. Weigh both wings and compare
+[Module 11](11-wet-testing.qmd) trimming out. Weigh both wings and compare
 spar positions against the template before bonding.
 :::
 

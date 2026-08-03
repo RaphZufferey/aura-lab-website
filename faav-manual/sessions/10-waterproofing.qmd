@@ -1,5 +1,5 @@
 ---
-title: "Session 10 --- Waterproofing"
+title: "Module 10 --- Waterproofing"
 ---
 
 ::: {.session-meta}
@@ -12,10 +12,10 @@ A potted PCB, a lubricated and sealed gearbox, and a robot that survives a
 static immersion test.
 
 ::: {.callout-warning}
-## Silicone cure time gates this session
+## Silicone cure time gates this module
 
 The PCB potting takes **12--24 hours** to cure because of the depth. Plan the
-session so potting happens first and soldering happens after the cure, or
+module so potting happens first and soldering happens after the cure, or
 across two sittings.
 :::
 
@@ -54,7 +54,7 @@ First ensure that the assembled PCB fits within the box before anything else.
 
 ### If you are on a v2.0 board
 
-The method changes slightly. See [PCB revisions](../reference/pcb.qmd#v2-waterproofing)
+The method changes slightly. See [PCB revisions](/reference/pcb.qmd#v2-waterproofing)
 for the v2.0 procedure, including the SD-card trap-door recovery and antenna
 potting.
 
@@ -68,14 +68,14 @@ showed no sign of corrosion.
 
 That is not the whole story, and the exception is the reason for this step:
 
-![Gearbox and sun gear after a few dives with motor oil lubrication](../Fig/gearbox_rust1.jpg){#fig-rust}
+![Gearbox and sun gear after a few dives with motor oil lubrication](/Fig/gearbox_rust1.jpg){#fig-rust}
 
 Severe corrosion appeared on a newer robot after only 3--4 uses in water. The
 cause is believed to be improper lubrication after cleaning, combined with the
 absence of the shaft bearing, which let more water in through the front. Motor
 oil had been used as a substitute lubricant; its low viscosity is believed to
 have washed it away quickly, leaving the gears dry. Full investigation in
-[Design notes](../reference/design-notes.qmd#gearbox-corrosion).
+[Design notes](/reference/design-notes.qmd#gearbox-corrosion).
 
 ::: {.callout-warning}
 ## Use the right lubricant
@@ -94,9 +94,9 @@ A few optional modifications to the FAAV structure and assembly process keep
 most of the water out.
 
 ::: {layout-ncol=1}
-![Gearbox waterproofing, part 1](../Fig/gear_waterproofing1.png)
+![Gearbox waterproofing, part 1](/Fig/gear_waterproofing1.png)
 
-![Gearbox waterproofing, part 2](../Fig/gear_waterproofing2.png)
+![Gearbox waterproofing, part 2](/Fig/gear_waterproofing2.png)
 :::
 
 ::: {.callout-note}

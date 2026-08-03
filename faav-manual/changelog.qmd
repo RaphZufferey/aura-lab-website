@@ -4,7 +4,7 @@ title: "Changelog"
 
 Corrections and additions published during the semester, newest first.
 
-If you are working from a printed copy, check this page before each session.
+If you are working from a printed copy, check this page before each module.
 Changes that affect a step you may already have completed are marked in
 **bold**.
 

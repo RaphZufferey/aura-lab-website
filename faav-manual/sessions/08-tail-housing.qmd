@@ -1,5 +1,5 @@
 ---
-title: "Session 8 --- Tail and housing"
+title: "Module 8 --- Tail and housing"
 ---
 
 ::: {.session-meta}
@@ -17,11 +17,11 @@ rod, plus the foam housing that protects the robot and keeps it afloat.
 |---|---|
 | **Parts** | Carbon sheet and tail rod, foam stock (XPS or closed-cell PE), epoxy |
 | **Tools** | Foam cutter, scalpel |
-| **Bring** | Your Session 6 tail geometry, printed 1:1 |
+| **Bring** | Your Module 6 tail geometry, printed 1:1 |
 
 ## Tail
 
-![Tail assembly](../Fig/tail.jpg){#fig-tail width=75%}
+![Tail assembly](/Fig/tail.jpg){#fig-tail width=75%}
 
 ::: {.callout-important}
 ## To be written by the instructor

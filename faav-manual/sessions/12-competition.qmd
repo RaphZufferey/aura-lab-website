@@ -1,5 +1,5 @@
 ---
-title: "Session 12 --- Competition"
+title: "Module 12 --- Competition"
 ---
 
 ::: {.session-meta}
@@ -31,7 +31,7 @@ Competition format is course material, not in the manufacturing guide. Needed:
 
 ## Feedback
 
-The final session is a recap and feedback round. This manual is rebuilt each
+The final module is a recap and feedback round. This manual is rebuilt each
 year from what students report --- if something in it cost you time, say so.
 Corrections made during this semester are listed in the
-[Changelog](../changelog.qmd).
+[Changelog](/changelog.qmd).

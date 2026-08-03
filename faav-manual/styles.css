@@ -11,7 +11,8 @@ table {
   font-variant-numeric: tabular-nums;
 }
 
-/* The session header block at the top of each build session. */
+/* The header block at the top of each build module. The class name keeps its
+   original spelling so the folder, URLs and this hook stay in step. */
 .session-meta {
   font-size: 0.9rem;
   opacity: 0.8;

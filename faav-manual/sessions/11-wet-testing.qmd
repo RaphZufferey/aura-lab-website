@@ -1,5 +1,5 @@
 ---
-title: "Session 11 --- Wet testing"
+title: "Module 11 --- Wet testing"
 ---
 
 ::: {.session-meta}
@@ -15,12 +15,12 @@ regime the whole transmission was designed around.
 
 | | |
 |---|---|
-| **Bring** | Fully waterproofed robot from [Session 10](10-waterproofing.qmd), charged 4S pack, spare crank–linkage shaft |
-| **Read** | This page, and your notes from [Session 4](04-control.qmd) |
+| **Bring** | Fully waterproofed robot from [Module 10](10-waterproofing.qmd), charged 4S pack, spare crank–linkage shaft |
+| **Read** | This page, and your notes from [Module 4](04-control.qmd) |
 
 ## Pre-immersion checks
 
-- [ ] Static immersion test from Session 10 passed, robot opened and inspected dry
+- [ ] Static immersion test from Module 10 passed, robot opened and inspected dry
 - [ ] Connector back-shell sealed on all unused slots
 - [ ] Gearbox lubricated with CorrosionX and white lithium grease
 - [ ] Watchdog enabled on the ESC (`W`) --- target drops to zero if commands stop
@@ -31,7 +31,7 @@ regime the whole transmission was designed around.
 
 Water propulsion runs the motor in exactly the regime where synchronisation is
 lost. If the drive stutters underwater, stop and check sensor lag compensation
-before increasing current --- see [Session 4](04-control.qmd).
+before increasing current --- see [Module 4](04-control.qmd).
 :::
 
 ::: {.callout-important}
@@ -43,10 +43,10 @@ manufacturing guide. Needed:
 - Tank or venue, and supervision requirements
 - Run profile: depth, duration, flap frequency sweep
 - What is logged, and how it is retrieved --- SD card handling on a potted
-  board is not trivial, see [PCB revisions](../reference/pcb.qmd)
+  board is not trivial, see [PCB revisions](/reference/pcb.qmd)
 - How wing trim is adjusted, and against what reference
 - Cost of transport measurement procedure, since it is scored in
-  [Session 12](12-competition.qmd)
+  [Module 12](12-competition.qmd)
 - Recovery and abort procedure
 :::
 

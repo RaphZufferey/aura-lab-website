@@ -1,2 +1,8 @@
 /.quarto/
 **/*.quarto_ipynb
+
+# Intermediates from the PDF render. The artefact that ships is
+# files/faav-build-manual.pdf, copied there before the website render so the
+# site publishes it as a resource.
+/manual-pdf.pdf
+/manual-pdf.typ

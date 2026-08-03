@@ -1,0 +1,118 @@
+---
+format:
+  typst:
+    toc: true
+    toc-depth: 2
+    number-sections: true
+    papersize: us-letter
+    fontsize: 10pt
+    margin:
+      x: 2cm
+      y: 2.5cm
+---
+
+<!--
+  The whole manual as one printable file. Rendered with Quarto's Typst
+  backend, which ships inside Quarto --- no TeX install needed.
+
+  Excluded from the website render (see `render:` in _quarto.yml) so it does
+  not also become an HTML page. It is built separately and the PDF is copied
+  into files/, which the website render then publishes as a resource.
+  See .github/workflows/build-manual.yml.
+
+  Every page is pulled from the same source the website uses, so there is one
+  copy of the content.
+
+  Two things about `{{< include >}}` that are not obvious:
+
+  1. It merges the included file's YAML front matter into this document, in
+     order, last one winning --- so an unguarded title here ends up as
+     "Changelog", the last file included. Title and subtitle are therefore
+     passed on the command line with -M, which outranks front matter. Keep
+     them in the render command, not here.
+
+  2. It does not contribute the included file's title as a heading; that
+     front matter is consumed as metadata and never rendered. Without the
+     explicit `#` headings below, all twelve modules collapse into one
+     undifferentiated run of `##` subsections. The headings are level 1 so
+     each page's own `##` headings nest underneath as subsections.
+
+  Module titles are repeated here rather than derived. If you retitle a
+  module, update it in both places.
+-->
+
+# Overview
+
+{{< include index.qmd >}}
+
+# Module 1 --- Orientation
+
+{{< include sessions/01-orientation.qmd >}}
+
+# Module 2 --- Motor and transmission shaft
+
+{{< include sessions/02-motor.qmd >}}
+
+# Module 3 --- Motor driver, sensor and serial
+
+{{< include sessions/03-esc.qmd >}}
+
+# Module 4 --- Closed-loop control and tuning
+
+{{< include sessions/04-control.qmd >}}
+
+# Module 5 --- Frame, crank, linkage and gears
+
+{{< include sessions/05-frame-crank.qmd >}}
+
+# Module 6 --- Flapping simulation (Ptera)
+
+{{< include sessions/06-simulation.qmd >}}
+
+# Module 7 --- Wing fabrication
+
+{{< include sessions/07-wings.qmd >}}
+
+# Module 8 --- Tail and housing
+
+{{< include sessions/08-tail-housing.qmd >}}
+
+# Module 9 --- Flight controller, PCB and dry testing
+
+{{< include sessions/09-electronics-dry-test.qmd >}}
+
+# Module 10 --- Waterproofing
+
+{{< include sessions/10-waterproofing.qmd >}}
+
+# Module 11 --- Wet testing
+
+{{< include sessions/11-wet-testing.qmd >}}
+
+# Module 12 --- Competition
+
+{{< include sessions/12-competition.qmd >}}
+
+# Reference --- Parts list
+
+{{< include reference/parts-list.qmd >}}
+
+# Reference --- Software
+
+{{< include reference/software.qmd >}}
+
+# Reference --- PCB revisions
+
+{{< include reference/pcb.qmd >}}
+
+# Reference --- CNC (Stepcraft D660)
+
+{{< include reference/cnc.qmd >}}
+
+# Reference --- Design notes
+
+{{< include reference/design-notes.qmd >}}
+
+# Changelog
+
+{{< include changelog.qmd >}}

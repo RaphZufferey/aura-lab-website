@@ -30,7 +30,7 @@ Carried over from the manufacturing guide. Quantities are per robot.
 ::: {.callout-important}
 ## To be completed before the semester
 
-Several items the sessions rely on are **not** in this list and need adding:
+Several items the modules rely on are **not** in this list and need adding:
 the AS2303 motor (the list still shows the older AT2303), the B-G431B-ESC1, the
 AS5047P sensor, the ST-Link programmer, the FAAV PCB v3.0 and its BOM, the XIAO
 ESP32S3, 4 mm steel rod for the motor shaft, 5 mm PEEK stock, foam, membrane

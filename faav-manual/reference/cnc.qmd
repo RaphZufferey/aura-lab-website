@@ -2,14 +2,14 @@
 title: "CNC --- Stepcraft D660"
 ---
 
-Used in [Session 5](../sessions/05-frame-crank.qmd) for the carbon frame, the
+Used in [Module 5](/sessions/05-frame-crank.qmd) for the carbon frame, the
 aluminium crank and linkage, and the PEEK gears.
 
 ## Full guide
 
 The complete Stepcraft guide is available as a PDF:
 
-- [CNC Stepcraft D600 LIS guide (PDF)](../files/CNC-Stepcraft-D600-guide.pdf)
+- [CNC Stepcraft D600 LIS guide (PDF)](/files/CNC-Stepcraft-D600-guide.pdf)
 - Original wiki version: [wiki.epfl.ch/lis/cnc-stepcraft](https://wiki.epfl.ch/lis/cnc-stepcraft)
 
 ::: {.callout-warning}
@@ -28,9 +28,9 @@ model rather than in the design.
 
 Operation order: **holes → chamfers → pockets → outline.**
 
-![Manufacturing model in Fusion360](../Fig/manufacturing2.jpg){#fig-cnc-model}
+![Manufacturing model in Fusion360](/Fig/manufacturing2.jpg){#fig-cnc-model}
 
-![Setting up on the machine](../Fig/manufacturing.jpg){#fig-cnc-setup}
+![Setting up on the machine](/Fig/manufacturing.jpg){#fig-cnc-setup}
 
 ## Material-specific notes
 

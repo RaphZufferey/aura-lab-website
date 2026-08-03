@@ -1,5 +1,5 @@
 ---
-title: "Session 2 --- Motor and transmission shaft"
+title: "Module 2 --- Motor and transmission shaft"
 ---
 
 ::: {.session-meta}
@@ -32,9 +32,9 @@ through the crank.
 [^1]: [Faulhaber gearhead reduction ratios](https://www.faulhaber.com/fileadmin/Import/Media/DE_GEARHEADS_REDUCTION_RATIOS.pdf) (accessed 20.02.2024).
 
 ::: {layout-ncol=2}
-![Motor shaft](../Fig/shaft_motor.jpg)
+![Motor shaft](/Fig/shaft_motor.jpg)
 
-![Faulhaber gearbox](../Fig/fhaber.jpg)
+![Faulhaber gearbox](/Fig/fhaber.jpg)
 :::
 
 ## Which motor do you have? {#sec-motor-variant}
@@ -43,7 +43,7 @@ through the crank.
 
 ### Black --- AS2303 KV1500 (new)
 
-![](../Fig/TMO-AS2303-1500.jpg){width=45%}
+![](/Fig/TMO-AS2303-1500.jpg){width=45%}
 
 The propeller horn **cannot** be separated from the bell. You will remove the
 two screws, then clamp the bell in a lathe using the stock shaft and machine
@@ -51,7 +51,7 @@ it down (step 4 below).
 
 ### Blue --- AT2303 KV1500 (old)
 
-![](../Fig/TMO-AT2303-1500.jpg){width=45%}
+![](/Fig/TMO-AT2303-1500.jpg){width=45%}
 
 The horn is a separate part and comes off easily. Skip the lathe operation.
 
@@ -84,11 +84,11 @@ aluminium and quite thin, for weight savings.
    black motor, machine the bell as follows:
 
    ::: {layout-ncol=3}
-   ![Stock bell](../Fig/bell_machined1.jpg)
+   ![Stock bell](/Fig/bell_machined1.jpg)
 
-   ![Bring diameter down to 6 mm](../Fig/bell_machined2.jpg)
+   ![Bring diameter down to 6 mm](/Fig/bell_machined2.jpg)
 
-   ![Bring the length down to 2.5 mm](../Fig/bell_machined3.jpg)
+   ![Bring the length down to 2.5 mm](/Fig/bell_machined3.jpg)
    :::
 
 5. Manufacture the new shaft from 4 mm diameter steel rod. It should have a
@@ -106,7 +106,7 @@ aluminium and quite thin, for weight savings.
 6. Press the new shaft into the bell, making sure not to press on the
    dome-shaped part of the bell without appropriate support underneath.
 
-![Motor shaft dimensions](../Fig/shaft_drawing.png){#fig-motor-shaft width=70%}
+![Motor shaft dimensions](/Fig/shaft_drawing.png){#fig-motor-shaft width=70%}
 
 ## Gearbox assembly
 
@@ -119,7 +119,7 @@ come with the gearbox, and with **M2.5×10** screws on the other.
 Sun gear installation and sensor magnet bonding are in the course project plan
 but are not documented in the manufacturing guide. Add the magnet part number,
 bonding agent, and the concentricity tolerance that matters for
-[Session 4](04-control.qmd).
+[Module 4](04-control.qmd).
 :::
 
 ::: {.callout-note}
@@ -127,5 +127,5 @@ bonding agent, and the concentricity tolerance that matters for
 
 Shaft seated, rotor spinning freely by hand with no wobble, gearbox mounted,
 and the sensor magnet concentric with the shaft axis. An off-centre magnet
-produces sensor faults that are very hard to diagnose two sessions later.
+produces sensor faults that are very hard to diagnose two modules later.
 :::

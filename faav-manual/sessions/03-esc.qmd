@@ -1,5 +1,5 @@
 ---
-title: "Session 3 --- Motor driver, sensor and serial"
+title: "Module 3 --- Motor driver, sensor and serial"
 ---
 
 ::: {.session-meta}
@@ -17,15 +17,15 @@ wired on SPI3 and the motor spinning under commander control.
 |---|---|
 | **Parts** | B-G431B-ESC1 board, AS5047P sensor, ST-Link programmer, wire |
 | **Tools** | Soldering iron, fine tweezers, multimeter |
-| **Read** | This page, plus [Design notes](../reference/design-notes.qmd) on why we use an FOC ESC |
+| **Read** | This page, plus [Design notes](/reference/design-notes.qmd) on why we use an FOC ESC |
 
-![ESC running SimpleFOC, with the ST-Link programmer and the angular sensor](../Fig/esc1.jpg){#fig-esc width=60%}
+![ESC running SimpleFOC, with the ST-Link programmer and the angular sensor](/Fig/esc1.jpg){#fig-esc width=60%}
 
 ## Firmware
 
 Code for the B-G431B-ESC1 motor controller, using the SimpleFOC library, is in
 the lab repository: [FAAV-G431-ESC](https://github.com/MIT-AURA-Lab/FAAV-G431-ESC).
-See [Software](../reference/software.qmd) for all repositories.
+See [Software](/reference/software.qmd) for all repositories.
 
 ## Commanding and monitoring
 
@@ -84,7 +84,7 @@ software changes.
 
 : SPI3 connections on the G431. \* Solder onto the outward side of the resistor. {#tbl-spi3}
 
-![GPIOs of the G431B-ESC1 board](../Fig/b431g.jpg){#fig-g431-gpio}
+![GPIOs of the G431B-ESC1 board](/Fig/b431g.jpg){#fig-g431-gpio}
 
 ::: {.callout-note}
 ## Checkpoint --- TA sign-off

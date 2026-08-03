@@ -3,16 +3,26 @@ title: "FAAV Build Manual"
 subtitle: "MIT AURA Lab --- 2026 v4.0"
 ---
 
-![The FAAV3.2](Fig/Water-Air-Slider-V3-Carbon-v63.5.jpg){#fig-faav}
+![The FAAV3.2](/Fig/Water-Air-Slider-V3-Carbon-v63.5.jpg){#fig-faav}
+
+::: {.content-visible when-format="html"}
+::: {.callout-note appearance="simple"}
+## Printable manual
+
+**[Download the printable manual (PDF)](/files/faav-build-manual.pdf)** ---
+every module and reference page in a single file, for the bench or for
+printing. Rebuilt automatically whenever the manual changes.
+:::
+:::
 
 Over the semester your team builds a **flapping aerial-aquatic vehicle**: a
 robot that flies, lands on water, swims by flapping the same wings, and takes
 off again. This manual is the build side of the course. It is sequenced to the
-weekly sessions, and each page covers exactly what you do in that session.
+weekly modules, and each page covers exactly what you do in that module.
 
 ## How this manual is organised
 
-**Build sessions** are cumulative and in order. Each one opens with what you
+**Build modules** are cumulative and in order. Each one opens with what you
 are building that day, what to have ready before you arrive, and ends with a
 checkpoint a TA signs off.
 
@@ -22,21 +32,21 @@ design notes explaining why the robot is the way it is.
 
 ## Semester map
 
-| Session | Week | Build | Paired lecture |
+| Module | Week | Build | Paired lecture |
 |---:|---|---|---|
-| [1](sessions/01-orientation.qmd) | Sep 9 | Orientation, teams, the robot | Intro to robotic locomotion |
-| [2](sessions/02-motor.qmd) | Sep 14 | Motor and transmission shaft | Reaction forces in fluids |
-| [3](sessions/03-esc.qmd) | Sep 21 | Motor driver, sensor, serial | Bird-scale flapping design |
-| [4](sessions/04-control.qmd) | Sep 28 | Closed-loop control and tuning | Swimming robots I |
-| [5](sessions/05-frame-crank.qmd) | Oct 5 | Frame, crank, linkage, gears | Undulatory locomotion |
-| — | Oct 12 | *No session* | — |
-| [6](sessions/06-simulation.qmd) | Oct 19 | Flapping simulation (Ptera) | Insect-scale flapping |
-| [7](sessions/07-wings.qmd) | Oct 26 | Wing fabrication | Swimming robots II |
-| [8](sessions/08-tail-housing.qmd) | Nov 2 | Tail and housing | Multi-modal locomotion |
-| [9](sessions/09-electronics-dry-test.qmd) | Nov 9 | Flight controller, PCB, dry testing | The future of actuation |
-| [10](sessions/10-waterproofing.qmd) | Nov 16 | Waterproofing | Multirotors |
-| [11](sessions/11-wet-testing.qmd) | Nov 23 | Wet testing | Fixed-wing flyers |
-| [12](sessions/12-competition.qmd) | Nov 30 | Competition | Pair presentations |
+| [1](/sessions/01-orientation.qmd) | Sep 9 | Orientation, teams, the robot | Intro to robotic locomotion |
+| [2](/sessions/02-motor.qmd) | Sep 14 | Motor and transmission shaft | Reaction forces in fluids |
+| [3](/sessions/03-esc.qmd) | Sep 21 | Motor driver, sensor, serial | Bird-scale flapping design |
+| [4](/sessions/04-control.qmd) | Sep 28 | Closed-loop control and tuning | Swimming robots I |
+| [5](/sessions/05-frame-crank.qmd) | Oct 5 | Frame, crank, linkage, gears | Undulatory locomotion |
+| — | Oct 12 | *No module* | — |
+| [6](/sessions/06-simulation.qmd) | Oct 19 | Flapping simulation (Ptera) | Insect-scale flapping |
+| [7](/sessions/07-wings.qmd) | Oct 26 | Wing fabrication | Swimming robots II |
+| [8](/sessions/08-tail-housing.qmd) | Nov 2 | Tail and housing | Multi-modal locomotion |
+| [9](/sessions/09-electronics-dry-test.qmd) | Nov 9 | Flight controller, PCB, dry testing | The future of actuation |
+| [10](/sessions/10-waterproofing.qmd) | Nov 16 | Waterproofing | Multirotors |
+| [11](/sessions/11-wet-testing.qmd) | Nov 23 | Wet testing | Fixed-wing flyers |
+| [12](/sessions/12-competition.qmd) | Nov 30 | Competition | Pair presentations |
 
 ## Conventions
 

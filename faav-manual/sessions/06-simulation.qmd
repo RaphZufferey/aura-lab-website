@@ -1,34 +1,34 @@
 ---
-title: "Session 6 --- Flapping simulation (Ptera)"
+title: "Module 6 --- Flapping simulation (Ptera)"
 ---
 
 ::: {.session-meta}
-**Week of Oct 19** · Paired lecture: *Insect-scale flapping* · No session Oct 12
+**Week of Oct 19** · Paired lecture: *Insect-scale flapping* · No module Oct 12
 :::
 
 ## What you do today
 
 Choose your wing and tail geometry. You simulate candidate geometries in Ptera
 and pick the one that gives the best thrust profile when compounded with the
-provided motor power curve. Sessions 7 and 8 build whatever you decide here.
+provided motor power curve. Modules 7 and 8 build whatever you decide here.
 
 ## Before you arrive
 
 | | |
 |---|---|
-| **Bring** | Laptop with Ptera installed, your measured loop performance from [Session 4](04-control.qmd) |
+| **Bring** | Laptop with Ptera installed, your measured loop performance from [Module 4](04-control.qmd) |
 | **Read** | This page |
 
 ## Deliverable
 
 A wing planform and a tail geometry, with the simulation output that justifies
-them, carried forward into [Session 7](07-wings.qmd) and
-[Session 8](08-tail-housing.qmd).
+them, carried forward into [Module 7](07-wings.qmd) and
+[Module 8](08-tail-housing.qmd).
 
 ::: {.callout-important}
 ## To be written by the instructor
 
-This session has **no counterpart in the manufacturing guide** --- the guide
+This module has **no counterpart in the manufacturing guide** --- the guide
 documents the research robot's final geometry, not the design exercise. The
 following need to be written from course material:
 
@@ -37,7 +37,7 @@ following need to be written from course material:
 - What "most efficient thrust profile" means quantitatively here, and how it is
   scored
 - Constraints the students must respect so their geometry remains buildable
-  with the frame from [Session 5](05-frame-crank.qmd) --- span limits, root
+  with the frame from [Module 5](05-frame-crank.qmd) --- span limits, root
   fitting, mass budget
 - Whether teams may deviate from the reference wing, and by how much
 :::

@@ -10,7 +10,8 @@ project:
     - "*.qmd"
     - "sessions/*.qmd"
     - "reference/*.qmd"
-    - "!DEPLOY.md"    # internal deployment notes, not part of the site
+    - "!DEPLOY.md"        # internal deployment notes, not part of the site
+    - "!manual-pdf.qmd"   # PDF-only aggregate; built separately, not a web page
 
 website:
   title: "FAAV Build Manual"
@@ -29,7 +30,7 @@ website:
     left:
       - href: index.qmd
         text: Overview
-      - text: Build sessions
+      - text: Build modules
         menu:
           - sessions/01-orientation.qmd
           - sessions/02-motor.qmd
@@ -59,7 +60,7 @@ website:
     contents:
       - href: index.qmd
         text: Overview
-      - section: "Build sessions"
+      - section: "Build modules"
         contents:
           - sessions/01-orientation.qmd
           - sessions/02-motor.qmd

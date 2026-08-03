@@ -1,5 +1,5 @@
 ---
-title: "Session 1 --- Orientation"
+title: "Module 1 --- Orientation"
 ---
 
 ::: {.session-meta}
@@ -13,18 +13,18 @@ collect your parts kit.
 
 ## The robot
 
-![The FAAV3.2](../Fig/Water-Air-Slider-V3-Carbon-v63.jpg){#fig-faav-overview}
+![The FAAV3.2](/Fig/Water-Air-Slider-V3-Carbon-v63.jpg){#fig-faav-overview}
 
 The FAAV is a flapping-wing vehicle that operates in air and in water with the
-same actuation. The build divides into four subsystems, and the sessions follow
+same actuation. The build divides into four subsystems, and the modules follow
 that order:
 
 1. **Transmission** --- motor, custom shaft, gearbox, crank and linkage
-   (Sessions 2, 5)
+   (Modules 2, 5)
 2. **Electronics** --- ESC, angular sensor, flight controller, custom PCB
-   (Sessions 3, 4, 9)
-3. **Aero/hydro surfaces** --- wings, tail, foam housing (Sessions 6--8)
-4. **Waterproofing and testing** --- potting, immersion, tuning (Sessions 10--12)
+   (Modules 3, 4, 9)
+3. **Aero/hydro surfaces** --- wings, tail, foam housing (Modules 6--8)
+4. **Waterproofing and testing** --- potting, immersion, tuning (Modules 10--12)
 
 ## Electronic architecture
 
@@ -38,7 +38,7 @@ controller sends commands to the ESC over serial.
 
 - [ ] Team formed and registered
 - [ ] Shop training complete
-- [ ] Parts kit collected against the [parts list](../reference/parts-list.qmd)
+- [ ] Parts kit collected against the [parts list](/reference/parts-list.qmd)
 - [ ] Access to the lab GitHub organisation confirmed
 
 ::: {.callout-important}

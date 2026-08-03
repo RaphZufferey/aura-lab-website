@@ -13,22 +13,22 @@ April 2026 the latest board in the FAAV is **v3.0**. More information is in the
 | v3.0 | FAAV PCB v3.0 | Current board |
 
 ::: {layout-ncol=3}
-![v1.0](../Fig/PCBv1.png)
+![v1.0](/Fig/PCBv1.png)
 
-![v2.0](../Fig/PCBv2.png)
+![v2.0](/Fig/PCBv2.png)
 
-![v3.0](../Fig/PCBv3.png)
+![v3.0](/Fig/PCBv3.png)
 :::
 
 ## v3.0 overview
 
-![FAAV PCB v3.0 block diagram](../Fig/PCBv3_block_diagram.png){#fig-pcb3-block width=75%}
+![FAAV PCB v3.0 block diagram](/Fig/PCBv3_block_diagram.png){#fig-pcb3-block width=75%}
 
 The PCB is 4 layers, 21 × 28.5 mm, and has 34 components. The complete BOM is
 in the Manufacturing/Assembly folder of the repository.
 
 Assembly and bring-up are covered in
-[Session 9](../sessions/09-electronics-dry-test.qmd).
+[Module 9](/sessions/09-electronics-dry-test.qmd).
 
 ## v1.0 --- EPFL {#v1-epfl}
 
@@ -47,17 +47,17 @@ controller and the PCB when soldering the Seeeduino to the PCB.
 :::
 
 ::: {#fig-pcb1-assembly layout-ncol=2}
-![Top](../Fig/PCB_assembly_drawing_top.png)
+![Top](/Fig/PCB_assembly_drawing_top.png)
 
-![Bottom](../Fig/PCB_assembly_drawing_bottom.png)
+![Bottom](/Fig/PCB_assembly_drawing_bottom.png)
 
 PCB v1.0 assembly drawings
 :::
 
 ::: {#fig-pcb1-pins layout-ncol=2}
-![MCU pin mapping on PCB](../Fig/MCU_pins.png)
+![MCU pin mapping on PCB](/Fig/MCU_pins.png)
 
-![Pin map for XIAO nRF52840 (Sense) MCU](../Fig/Seeed_pinout.png)
+![Pin map for XIAO nRF52840 (Sense) MCU](/Fig/Seeed_pinout.png)
 
 Pin mapping of PCB pins and flight controller pins
 :::
@@ -113,7 +113,7 @@ reinsertion, a WiFi antenna housing case, and a GPS housing case.
 
 ### Waterproofing {#v2-waterproofing}
 
-The method changes slightly from [Session 10](../sessions/10-waterproofing.qmd).
+The method changes slightly from [Module 10](/sessions/10-waterproofing.qmd).
 Admittedly it can be vastly improved, but it works:
 
 1. Insert the assembled PCB, making sure the secondary SD card PCB does not
