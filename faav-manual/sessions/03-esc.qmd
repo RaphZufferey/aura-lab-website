@@ -11,6 +11,11 @@ title: "Module 3 --- Motor driver, sensor and serial"
 A flashed G431 ESC talking to your laptop over serial, with the angular sensor
 wired on SPI3 and the motor spinning under commander control.
 
+![How the battery, ESC, encoder, motor and microcontroller connect. The XIAO nRF52840 shown here is the separate-microcontroller option for serial described below --- note that TX and RX are crossed. SPI3 and UART pin assignments match the rework in @tbl-spi3 and *ST-Link serial*.](/Fig/xiao-esc-wiring-diagram.png){#fig-wiring width=6.5in}
+
+Work through the module with this diagram open: every step below either wires
+one of these links or configures it in firmware.
+
 ## Before you arrive
 
 | | |
@@ -75,7 +80,8 @@ that case you must connect **Serial1** to the ST-Link:
 
 There is no SPI link exposed directly on the board. The solution is to use the
 **SPI3 bus**, exposed through a few hardware modifications and matching
-software changes.
+software changes. @fig-wiring shows the four signals in context, including the
+MOSI tap on R14 that shares the BEMF divider.
 
 | | SCLK | MISO | MOSI | CS |
 |---|---|---|---|---|

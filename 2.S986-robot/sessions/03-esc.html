@@ -564,6 +564,17 @@ ul.task-list li input[type="checkbox"] {
 <section id="what-you-build-today" class="level2">
 <h2 class="anchored" data-anchor-id="what-you-build-today">What you build today</h2>
 <p>A flashed G431 ESC talking to your laptop over serial, with the angular sensor wired on SPI3 and the motor spinning under commander control.</p>
+<div id="fig-wiring" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-wiring-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="../Fig/xiao-esc-wiring-diagram.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1: How the battery, ESC, encoder, motor and microcontroller connect. The XIAO nRF52840 shown here is the separate-microcontroller option for serial described below — note that TX and RX are crossed. SPI3 and UART pin assignments match the rework in Table&nbsp;1 and ST-Link serial."><img src="../Fig/xiao-esc-wiring-diagram.png" class="img-fluid figure-img" style="width:6.5in"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-wiring-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: How the battery, ESC, encoder, motor and microcontroller connect. The XIAO nRF52840 shown here is the separate-microcontroller option for serial described below — note that TX and RX are crossed. SPI3 and UART pin assignments match the rework in <a href="#tbl-spi3" class="quarto-xref">Table&nbsp;1</a> and <em>ST-Link serial</em>.
+</figcaption>
+</figure>
+</div>
+<p>Work through the module with this diagram open: every step below either wires one of these links or configures it in firmware.</p>
 </section>
 <section id="before-you-arrive" class="level2">
 <h2 class="anchored" data-anchor-id="before-you-arrive">Before you arrive</h2>
@@ -586,10 +597,10 @@ ul.task-list li input[type="checkbox"] {
 <div id="fig-esc" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-esc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="../Fig/esc1.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1: ESC running SimpleFOC, with the ST-Link programmer and the angular sensor"><img src="../Fig/esc1.jpg" class="img-fluid figure-img" style="width:60.0%"></a>
+<a href="../Fig/esc1.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure&nbsp;2: ESC running SimpleFOC, with the ST-Link programmer and the angular sensor"><img src="../Fig/esc1.jpg" class="img-fluid figure-img" style="width:60.0%"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-esc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: ESC running SimpleFOC, with the ST-Link programmer and the angular sensor
+Figure&nbsp;2: ESC running SimpleFOC, with the ST-Link programmer and the angular sensor
 </figcaption>
 </figure>
 </div>
@@ -665,7 +676,7 @@ Figure&nbsp;1: ESC running SimpleFOC, with the ST-Link programmer and the angula
 </section>
 <section id="angular-sensor-on-spi3" class="level2">
 <h2 class="anchored" data-anchor-id="angular-sensor-on-spi3">Angular sensor on SPI3</h2>
-<p>There is no SPI link exposed directly on the board. The solution is to use the <strong>SPI3 bus</strong>, exposed through a few hardware modifications and matching software changes.</p>
+<p>There is no SPI link exposed directly on the board. The solution is to use the <strong>SPI3 bus</strong>, exposed through a few hardware modifications and matching software changes. <a href="#fig-wiring" class="quarto-xref">Figure&nbsp;1</a> shows the four signals in context, including the MOSI tap on R14 that shares the BEMF divider.</p>
 <div id="tbl-spi3" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-spi3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -705,10 +716,10 @@ Table&nbsp;1: SPI3 connections on the G431. * Solder onto the outward side of th
 <div id="fig-g431-gpio" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-g431-gpio-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="../Fig/b431g.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure&nbsp;2: GPIOs of the G431B-ESC1 board"><img src="../Fig/b431g.jpg" class="img-fluid figure-img"></a>
+<a href="../Fig/b431g.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure&nbsp;3: GPIOs of the G431B-ESC1 board"><img src="../Fig/b431g.jpg" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-g431-gpio-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2: GPIOs of the G431B-ESC1 board
+Figure&nbsp;3: GPIOs of the G431B-ESC1 board
 </figcaption>
 </figure>
 </div>

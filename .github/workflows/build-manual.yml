@@ -59,14 +59,12 @@ jobs:
         working-directory: faav-manual
         run: |
           set -euo pipefail
-          # Title and subtitle must be passed with -M. Every {{< include >}}
-          # merges that file's YAML front matter into the document, last one
-          # winning, so a title in manual-pdf.qmd is overwritten by the last
-          # included page. -M outranks front matter.
-          quarto render manual-pdf.qmd --to typst \
-            -M title:"FAAV Build Manual" \
-            -M subtitle:"MIT AURA Lab, 2026 v4.0 (printable edition)"
-          cp manual-pdf.pdf files/faav-build-manual.pdf
+          # The `pdf` profile (_quarto-pdf.yml) re-renders the same .qmd files
+          # as a Quarto book: chapters and parts come from that config, and the
+          # book type resolves the pages' .qmd cross-links into internal PDF
+          # jumps. Title, subtitle and author live in the profile, not here.
+          quarto render --profile pdf
+          cp ../manual-pdf/FAAV-Build-Manual.pdf files/faav-build-manual.pdf
 
       - name: Render website
         run: |
@@ -137,12 +135,20 @@ jobs:
             fail=1
           fi
 
-          # The PDF-only aggregate must not become a web page.
-          if [ -e 2.S986-robot/manual-pdf.html ]; then
-            echo "manual-pdf.qmd leaked into the website render"
+          # The PDF is built as a Quarto book, which starts each chapter on a
+          # recto page and so inserts some blank versos by design. A runaway
+          # page count means something is wrong with the page-break handling --
+          # an earlier custom template silently produced 241 pages instead of
+          # ~65, and nothing caught it.
+          pages=$(pdfinfo 2.S986-robot/files/faav-build-manual.pdf 2>/dev/null \
+                  | awk '/^Pages:/ {print $2}')
+          if [ -z "${pages:-}" ]; then
+            echo "note    pdfinfo unavailable; skipped page-count check"
+          elif [ "$pages" -gt 120 ]; then
+            echo "PDF is $pages pages -- expected well under 120; check for blank-page insertion"
             fail=1
           else
-            echo "ok      manual-pdf.qmd excluded from the site"
+            echo "ok      PDF page count $pages"
           fi
 
           exit $fail

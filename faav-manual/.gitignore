@@ -1,13 +1,5 @@
 /.quarto/
 **/*.quarto_ipynb
 
-# Intermediates from the PDF render. The artefact that ships is
-# files/faav-build-manual.pdf, copied there before the website render so the
-# site publishes it as a resource.
-/manual-pdf.pdf
-/manual-pdf.typ
-
-# Reference copy of the target design, kept locally for comparison. Not shipped
-# -- it is a superseded 10 MB build of the same content. Drop the ignore if you
-# want it tracked.
-/_typst/reference/
+# The `pdf` profile builds into ../manual-pdf, which is outside this directory
+# and so is ignored from the repo-root .gitignore instead.

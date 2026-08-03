@@ -770,7 +770,7 @@
     "href": "sessions/03-esc.html#what-you-build-today",
     "title": "Module 3 — Motor driver, sensor and serial",
     "section": "What you build today",
-    "text": "What you build today\nA flashed G431 ESC talking to your laptop over serial, with the angular sensor wired on SPI3 and the motor spinning under commander control.",
+    "text": "What you build today\nA flashed G431 ESC talking to your laptop over serial, with the angular sensor wired on SPI3 and the motor spinning under commander control.\n\n\n\n\n\n\nFigure 1: How the battery, ESC, encoder, motor and microcontroller connect. The XIAO nRF52840 shown here is the separate-microcontroller option for serial described below — note that TX and RX are crossed. SPI3 and UART pin assignments match the rework in Table 1 and ST-Link serial.\n\n\n\nWork through the module with this diagram open: every step below either wires one of these links or configures it in firmware.",
     "crumbs": [
       "Overview",
       "Build modules",
@@ -782,7 +782,7 @@
     "href": "sessions/03-esc.html#before-you-arrive",
     "title": "Module 3 — Motor driver, sensor and serial",
     "section": "Before you arrive",
-    "text": "Before you arrive\n\n\n\nParts\nB-G431B-ESC1 board, AS5047P sensor, ST-Link programmer, wire\n\n\nTools\nSoldering iron, fine tweezers, multimeter\n\n\nRead\nThis page, plus Design notes on why we use an FOC ESC\n\n\n\n\n\n\n\n\n\nFigure 1: ESC running SimpleFOC, with the ST-Link programmer and the angular sensor",
+    "text": "Before you arrive\n\n\n\nParts\nB-G431B-ESC1 board, AS5047P sensor, ST-Link programmer, wire\n\n\nTools\nSoldering iron, fine tweezers, multimeter\n\n\nRead\nThis page, plus Design notes on why we use an FOC ESC\n\n\n\n\n\n\n\n\n\nFigure 2: ESC running SimpleFOC, with the ST-Link programmer and the angular sensor",
     "crumbs": [
       "Overview",
       "Build modules",
@@ -830,7 +830,7 @@
     "href": "sessions/03-esc.html#angular-sensor-on-spi3",
     "title": "Module 3 — Motor driver, sensor and serial",
     "section": "Angular sensor on SPI3",
-    "text": "Angular sensor on SPI3\nThere is no SPI link exposed directly on the board. The solution is to use the SPI3 bus, exposed through a few hardware modifications and matching software changes.\n\n\n\nTable 1: SPI3 connections on the G431. * Solder onto the outward side of the resistor.\n\n\n\n\n\n\nSCLK\nMISO\nMOSI\nCS\n\n\n\n\nMCU GPIO\nPB3\nPB4\nPB5\nPA15\n\n\nG431B pin\nJ3\nJ3\nR14*\nJ3\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 2: GPIOs of the G431B-ESC1 board\n\n\n\n\n\n\n\n\n\nNoteCheckpoint — TA sign-off\n\n\n\nCommander responds to ? over serial at 115200 baud, L toggles the onboard LED, the sensor returns a plausible angle through a full manual rotation, and the motor spins under a T command.",
+    "text": "Angular sensor on SPI3\nThere is no SPI link exposed directly on the board. The solution is to use the SPI3 bus, exposed through a few hardware modifications and matching software changes. Figure 1 shows the four signals in context, including the MOSI tap on R14 that shares the BEMF divider.\n\n\n\nTable 1: SPI3 connections on the G431. * Solder onto the outward side of the resistor.\n\n\n\n\n\n\nSCLK\nMISO\nMOSI\nCS\n\n\n\n\nMCU GPIO\nPB3\nPB4\nPB5\nPA15\n\n\nG431B pin\nJ3\nJ3\nR14*\nJ3\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 3: GPIOs of the G431B-ESC1 board\n\n\n\n\n\n\n\n\n\nNoteCheckpoint — TA sign-off\n\n\n\nCommander responds to ? over serial at 115200 baud, L toggles the onboard LED, the sensor returns a plausible angle through a full manual rotation, and the motor spins under a T command.",
     "crumbs": [
       "Overview",
       "Build modules",

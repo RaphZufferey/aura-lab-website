@@ -67,10 +67,8 @@ quarto --version || winget install --id Posit.Quarto -e
 
 # 1. PDF first, into files/
 cd faav-manual
-quarto render manual-pdf.qmd --to typst \
-  -M title:"FAAV Build Manual" \
-  -M subtitle:"MIT AURA Lab, 2026 v4.0 (printable edition)"
-cp manual-pdf.pdf files/faav-build-manual.pdf
+quarto render --profile pdf
+cp ../manual-pdf/FAAV-Build-Manual.pdf files/faav-build-manual.pdf
 
 # 2. Then the website, which publishes files/ as a resource
 cd .. && rm -rf 2.S986-robot && cd faav-manual && quarto render
@@ -160,68 +158,34 @@ branch you pushed. Live a minute or two after that commit lands on `master`.
   is inside its own trigger path. Pushes made with the default `GITHUB_TOKEN`
   do not start another workflow run, so it terminates.
 
-### Editing the printable PDF
+### The printable PDF
 
-`manual-pdf.qmd` aggregates every page via `{{< include >}}`. Two traps:
+`_quarto-pdf.yml` is a Quarto **profile**. `quarto render --profile pdf`
+merges it over `_quarto.yml` and re-renders the same `.qmd` files as a
+`type: book`, which is where the chapter/part layout and the cover page come
+from. The website build (`quarto render`, no profile) is untouched.
 
-- Each include merges that file's YAML front matter into the document, last
-  one winning --- a `title:` in `manual-pdf.qmd` silently loses to the last
-  included page. Title and subtitle are passed with `-M`, which outranks
-  front matter. Keep them in the render command.
-- An include contributes no heading; the included file's `title:` is consumed
-  as metadata and never rendered. The explicit `#` headings in
-  `manual-pdf.qmd` are what separate the modules. Retitling a module means
-  editing it in both places.
+There is no custom Typst template and no aggregate `.qmd` --- chapters and
+parts are just the `chapters:` list in the profile. To add a page to the PDF,
+add it there; its `title:` front matter becomes the chapter heading.
 
-### The PDF design
+- **Chapter titles come from front matter,** so they are never duplicated and
+  cannot drift.
+- **The page order in the PDF is the profile's order,** independent of the
+  website's sidebar order in `_quarto.yml`. Changing one does not change the
+  other.
+- **Blank pages are by design.** Chapters start on a recto page, so a short
+  chapter leaves a blank verso. Expect roughly 65 pages. A count far above
+  that means something is inserting page breaks it should not --- the workflow
+  fails the build over 120 pages for exactly this reason.
 
-The PDF uses the [orange-book](https://github.com/flavio20002/typst-orange-template)
-Typst template, pinned at `0.7.1`, wired in through
-`_typst/typst-template.typ`.
-
-Quarto calls a function named `article(...)` with the document metadata; that
-file defines it and forwards to orange-book's `book(...)`. Things to know
-before editing it:
-
-- **Only `typst-template.typ` is overridden.** Quarto's `definitions.typ`,
-  which styles callouts, figures and tables, is left alone --- which is why
-  callouts still look like Quarto callouts on top of the orange-book layout.
-  Overriding that partial too would lose them.
-- **`heading-style` means two different things.** Quarto's is a font style
-  (`"normal"`/`"italic"`); orange-book's selects the chapter-opener layout
-  (`0` = the boxed title). Forwarding one to the other compiles fine and
-  produces the wrong design.
-- **Authors must be strings.** orange-book passes the author into
-  `set document(author:)`, which rejects content. Quarto supplies content, so
-  `content-to-str` flattens it first. Without that the compile fails outright.
-- **Figures are excluded from outlines.** orange-book unconditionally emits a
-  list of figures and a list of tables after the contents; with no title they
-  render as an unlabelled run of captions spilling out of the contents page.
-  There is no flag to disable them, so `set figure(outlined: false)` is used
-  instead. Cross-references still work.
-- **Cross-page links are rewritten to internal jumps.** The pages link to each
-  other by file path (`./reference/pcb.qmd`), which is correct for the website.
-  Pandoc passes those through as link URLs, so in the PDF they come out styled
-  and blue but pointing at a file that does not exist. A `show link` rule in the
-  template maps them onto labels: an anchor if the target exists
-  (`pcb.qmd#v2-waterproofing` → `<v2-waterproofing>`), otherwise the chapter
-  (`pcb.qmd` → `<ch-pcb>`). Chapter labels are `ch-` plus the included file's
-  basename, assigned by the `{#ch-...}` ids on the headings in `manual-pdf.qmd`
-  --- keep those two conventions in step and new chapters need no template
-  change. External URLs are untouched.
-- **Parts come from raw Typst.** The `#part("...")` calls in `manual-pdf.qmd`
-  are ```` ```{=typst} ```` blocks. `part()` is in scope because the template
-  imports orange-book at document level.
-- **The build needs network on first compile.** The package is fetched from the
-  Typst registry rather than vendored, then cached. An offline runner cannot
-  build the PDF.
-
-Page size is A4, matching the reference design. Change `paper-size` in
-`_typst/typst-template.typ` if US Letter suits the shop better.
+**Known limitation:** cross-page links (`[parts list](/reference/parts-list.qmd)`)
+are *not* resolved into internal PDF jumps. Pandoc passes the `.qmd` path
+through as a link URL, so in the PDF they are styled and blue but click
+through to nothing. This affects the reference design too, so it is not a
+regression. Fixing it needs a `show link` rule in a Typst template partial
+that maps those paths onto chapter labels.
 
 Links and images throughout the manual use project-root-relative paths
-(`/Fig/...`, `/sessions/...`). Document-relative `../Fig/...` works on the
-website but escapes the Typst sandbox when the same file is included into the
-PDF from the project root.
-Only do this if asked — the commit-the-output approach is simpler and works
-with the branch-based Pages setup the site already uses.
+(`/Fig/...`, `/sessions/...`) rather than document-relative `../Fig/...`, so
+the same source resolves correctly from both the website and the book build.
