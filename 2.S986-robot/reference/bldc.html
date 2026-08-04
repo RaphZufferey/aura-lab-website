@@ -571,6 +571,7 @@ window.Quarto = {
   <li><a href="#the-envelope-not-the-line" id="toc-the-envelope-not-the-line" class="nav-link" data-scroll-target="#the-envelope-not-the-line">The envelope, not the line</a></li>
   </ul></li>
   <li><a href="#thermal-limits" id="toc-thermal-limits" class="nav-link" data-scroll-target="#thermal-limits">Thermal limits</a></li>
+  <li><a href="#sec-measured" id="toc-sec-measured" class="nav-link" data-scroll-target="#sec-measured">Measured behaviour of the AS2303</a></li>
   <li><a href="#why-an-outrunner" id="toc-why-an-outrunner" class="nav-link" data-scroll-target="#why-an-outrunner">Why an outrunner</a></li>
   </ul>
 </nav>
@@ -616,6 +617,9 @@ window.Quarto = {
 <li><strong>No-load speed</strong> <span class="math inline">\(\omega_0 = k_V U\)</span>, at <span class="math inline">\(\tau = 0\)</span>. The rotor spins fast enough that the back-EMF nearly cancels the supply, so almost no current flows.</li>
 </ul>
 <p>Everything the motor can do at that voltage lies on the line between them. Mechanical power is <span class="math inline">\(P = \tau \omega\)</span>, the product of a falling line and a rising one, so it is a parabola peaking at <strong>half the no-load speed</strong> with half the stall torque. Efficiency peaks somewhere else entirely — much closer to <span class="math inline">\(\omega_0\)</span>, because the copper loss that dominates at low speed scales with <span class="math inline">\(I^2\)</span> while the useful output only scales with <span class="math inline">\(I\)</span>.</p>
+<div id="viz-dc" class="viz">
+
+</div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -628,6 +632,9 @@ window.Quarto = {
 <div class="callout-body-container callout-body">
 <p>Raising the voltage shifts the line outwards without changing its slope: more speed <em>and</em> more torque, same trade-off between them. That is why speed control is voltage control, and why a “faster” motor at fixed voltage is a lower-torque one.</p>
 </div>
+</div>
+<div id="viz-volt" class="viz">
+
 </div>
 </section>
 </section>
@@ -701,6 +708,9 @@ window.Quarto = {
 <li><strong>Continuous and peak ratings are different numbers.</strong> A peak rating assumes seconds; a continuous rating assumes thermal equilibrium. Flapping is a <em>reciprocating</em> load, so the current is far from constant — what matters for heating is the <strong>RMS</strong> current over the cycle, not the peak you see on the bench supply.</li>
 <li><strong>Iron losses grow with speed.</strong> Hysteresis and eddy-current losses in the stator scale with electrical frequency, so at the 1700 rad/s discussed in <a href="../sessions/04-control.html">Module 4</a> the copper is no longer the only thing getting warm.</li>
 </ol>
+<div id="viz-thermal" class="viz">
+
+</div>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -714,6 +724,13 @@ window.Quarto = {
 <p>Current is the only symptom you can see, and it appears instantly, while the temperature it causes lags behind by tens of seconds. A run that looks fine on the ammeter can still be depositing heat faster than the motor sheds it. When tuning in <a href="../sessions/04-control.html">Module 4</a>, stop and touch the motor.</p>
 </div>
 </div>
+</section>
+<section id="sec-measured" class="level2">
+<h2 class="anchored" data-anchor-id="sec-measured">Measured behaviour of the AS2303</h2>
+<p>Everything above is the model. The plot below is where the <strong>test-stand measurements</strong> go, so you can see how far the straight line actually holds for the motor on your bench.</p>
+<div id="viz-as2303" class="viz">
+
+</div>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -724,7 +741,11 @@ window.Quarto = {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The measured winding resistance of the AS2303, its continuous current rating, and the current limit actually configured on the ESC belong here — they turn every equation on this page into numbers students can check against.</p>
+<p>Two things, and the second depends on the first:</p>
+<ol type="1">
+<li>The measured winding resistance of the AS2303, its continuous current rating, and the current limit configured on the ESC. These turn every equation on this page into numbers students can check against — the plots above currently run on a <strong>placeholder</strong> <span class="math inline">\(R\)</span>.</li>
+<li>The test-stand data itself. Paste it into the <code>MEASURED</code> array in the script block at the bottom of <code>reference/bldc.qmd</code>; the schema and an example row are in the comment there. The plot switches from its empty state to a measured-versus-model comparison as soon as the array is non-empty.</li>
+</ol>
 </div>
 </div>
 </section>
@@ -740,6 +761,601 @@ window.Quarto = {
 <li><strong>Something to attach to.</strong> The bell is a large-diameter rotating surface, which is what makes the shaft press-fit in <a href="../sessions/02-motor.html">Module 2</a> mechanically sensible in the first place.</li>
 </ul>
 <p>The costs are real: outrunners spin more slowly for a given voltage, the exposed rotating bell is a hazard and an ingress path, and cooling is worse because the heat-producing stator is wrapped inside the rotor rather than mounted against the case. The last point ties directly back to <a href="#thermal-limits">Thermal limits</a> — an outrunner’s stator sheds heat mainly through its mount, which on our robot is a 3D-printed plate.</p>
+<style>
+.viz {
+  --surface-1: #fcfcfb; --text-primary: #0b0b0b; --text-secondary: #52514e;
+  --muted: #898781; --grid: #e1e0d9; --axis: #c3c2b7;
+  --s1: #2a78d6; --s2: #eb6834; --s3: #1baf7a;
+  --critical: #d03b3b; --border: rgba(11,11,11,0.10);
+  background: var(--surface-1);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 1rem 1.1rem 0.9rem;
+  margin: 1.6rem 0;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  color: var(--text-primary);
+  position: relative;
+}
+body.quarto-dark .viz {
+  --surface-1: #1a1a19; --text-primary: #ffffff; --text-secondary: #c3c2b7;
+  --muted: #898781; --grid: #2c2c2a; --axis: #383835;
+  --s1: #3987e5; --s2: #d95926; --s3: #199e70;
+  --border: rgba(255,255,255,0.10);
+}
+.viz-title { font-size: 0.95rem; font-weight: 600; margin: 0 0 0.15rem; }
+.viz-sub { font-size: 0.8rem; color: var(--text-secondary); margin: 0 0 0.8rem; line-height: 1.4; }
+.viz-controls { display: flex; flex-wrap: wrap; gap: 1.1rem; margin-bottom: 0.9rem; }
+.viz-ctl { display: flex; flex-direction: column; gap: 0.15rem; min-width: 190px; flex: 1 1 190px; }
+.viz-ctl label { font-size: 0.75rem; color: var(--text-secondary); display: flex; justify-content: space-between; gap: 0.5rem; }
+.viz-ctl label b { color: var(--text-primary); font-variant-numeric: tabular-nums; font-weight: 600; }
+.viz-ctl input[type=range] { width: 100%; accent-color: var(--s1); margin: 0; }
+.viz-stats { display: flex; flex-wrap: wrap; gap: 1.4rem; margin: 0.2rem 0 0.9rem; }
+.viz-stat { display: flex; flex-direction: column; }
+.viz-stat span { font-size: 0.72rem; color: var(--muted); }
+.viz-stat b { font-size: 1.05rem; font-weight: 600; font-variant-numeric: tabular-nums; }
+.viz-legend { display: flex; flex-wrap: wrap; gap: 1rem; margin: 0.55rem 0 0.2rem; font-size: 0.78rem; color: var(--text-secondary); }
+.viz-legend i { display: inline-block; width: 14px; height: 3px; border-radius: 2px; margin-right: 0.35rem; vertical-align: middle; }
+.viz svg { display: block; width: 100%; height: auto; overflow: visible; }
+.viz-tip {
+  position: absolute; pointer-events: none; opacity: 0;
+  background: var(--surface-1); border: 1px solid var(--border);
+  border-radius: 4px; padding: 0.4rem 0.55rem; font-size: 0.74rem;
+  line-height: 1.45; white-space: nowrap; z-index: 5;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.13); font-variant-numeric: tabular-nums;
+  transition: opacity 0.08s;
+}
+.viz-tip b { font-weight: 600; }
+.viz details { margin-top: 0.7rem; font-size: 0.8rem; color: var(--text-secondary); }
+.viz details summary { cursor: pointer; color: var(--text-secondary); }
+.viz table { width: auto; font-size: 0.75rem; margin-top: 0.5rem; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+.viz th, .viz td { padding: 0.15rem 0.7rem 0.15rem 0; text-align: right; border: 0; }
+.viz th:first-child, .viz td:first-child { text-align: left; }
+.viz th { color: var(--muted); font-weight: 600; }
+.viz-empty { font-size: 0.82rem; color: var(--text-secondary); border: 1px dashed var(--axis); border-radius: 5px; padding: 0.9rem 1rem; line-height: 1.5; }
+.viz-note { font-size: 0.75rem; color: var(--muted); margin-top: 0.6rem; line-height: 1.45; }
+</style>
+<script>
+(function () {
+  "use strict";
+
+  // ---------------------------------------------------------------
+  // TEST-STAND DATA -- paste AS2303 measurements here.
+  // One object per operating point:
+  //   w      shaft speed          [rad/s]
+  //   tau    measured torque      [mN.m]
+  //   I      measured DC current  [A]   (optional)
+  // Example:  { w: 420, tau: 38.5, I: 6.1 },
+  // The final plot stays in its empty state while this array is empty.
+  var MEASURED = [];
+
+  // Motor parameters. KV is from the datasheet; R and I0 are PLACEHOLDERS
+  // until the bench measurement lands -- see the instructor callout above.
+  var KV = 1500;        // rpm/V
+  var R_DEF = 0.06;     // ohm      PLACEHOLDER
+  var I0_DEF = 0.9;     // A        PLACEHOLDER (no-load current)
+  var U_DEF = 14.8;     // V        4S nominal
+
+  var RPM2RAD = Math.PI / 30;
+  var KT = 1 / (KV * RPM2RAD);          // N.m/A
+
+  function model(U, R) {
+    var w0 = KV * RPM2RAD * U;
+    return {
+      U: U, R: R, w0: w0,
+      iStall: U / R,
+      tStall: KT * U / R,
+      cur: function (w) { return (U - KT * w) / R; },
+      tau: function (w) { return KT * (U - KT * w) / R; },     // N.m
+      pmech: function (w) { return w * KT * (U - KT * w) / R; }
+    };
+  }
+  function effAt(m, w, i0) {
+    var I = m.cur(w);
+    if (I <= i0) return 0;
+    return (KT * (I - i0) * w) / (m.U * I);
+  }
+
+  var NS = "http://www.w3.org/2000/svg";
+  function mk(tag, attrs) {
+    var e = document.createElementNS(NS, tag);
+    for (var k in attrs) if (attrs[k] !== null) e.setAttribute(k, attrs[k]);
+    return e;
+  }
+  function fmt(v, d) {
+    return v.toLocaleString("en-US", { minimumFractionDigits: d, maximumFractionDigits: d });
+  }
+  function html(tag, cls, txt) {
+    var e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (txt !== undefined) e.innerHTML = txt;
+    return e;
+  }
+
+  // A single line panel with axes, gridlines, crosshair and tooltip.
+  function Panel(host, opt) {
+    var W = 720, H = opt.height || 210;
+    var M = { t: 14, r: 78, b: 38, l: 62 };
+    var iw = W - M.l - M.r, ih = H - M.t - M.b;
+    var svg = mk("svg", { viewBox: "0 0 " + W + " " + H, role: "img",
+                          "aria-label": opt.aria || opt.yLabel });
+    host.appendChild(svg);
+
+    var self = {
+      svg: svg, W: W, H: H, M: M, iw: iw, ih: ih,
+      xd: opt.xDomain, yd: opt.yDomain,
+      x: function (v) { return M.l + (v - self.xd[0]) / (self.xd[1] - self.xd[0]) * iw; },
+      y: function (v) { return M.t + ih - (v - self.yd[0]) / (self.yd[1] - self.yd[0]) * ih; },
+      layers: {}
+    };
+    ["grid", "area", "line", "mark", "label", "hover"].forEach(function (n) {
+      var g = mk("g", {}); svg.appendChild(g); self.layers[n] = g;
+    });
+
+    self.axes = function (xTicks, yTicks, xLabel, yLabel) {
+      var g = self.layers.grid;
+      while (g.firstChild) g.removeChild(g.firstChild);
+      yTicks.forEach(function (t) {
+        g.appendChild(mk("line", { x1: M.l, x2: M.l + iw, y1: self.y(t), y2: self.y(t),
+                                   stroke: "var(--grid)", "stroke-width": 1 }));
+        var lb = mk("text", { x: M.l - 8, y: self.y(t) + 4, "text-anchor": "end",
+                              fill: "var(--muted)", "font-size": 11 });
+        lb.textContent = opt.yFmt ? opt.yFmt(t) : t.toLocaleString("en-US");
+        g.appendChild(lb);
+      });
+      xTicks.forEach(function (t) {
+        var lb = mk("text", { x: self.x(t), y: M.t + ih + 17, "text-anchor": "middle",
+                              fill: "var(--muted)", "font-size": 11 });
+        lb.textContent = t.toLocaleString("en-US");
+        g.appendChild(lb);
+      });
+      g.appendChild(mk("line", { x1: M.l, x2: M.l + iw, y1: M.t + ih, y2: M.t + ih,
+                                 stroke: "var(--axis)", "stroke-width": 1 }));
+      if (xLabel) {
+        var xl = mk("text", { x: M.l + iw / 2, y: H - 2, "text-anchor": "middle",
+                              fill: "var(--text-secondary)", "font-size": 11.5 });
+        xl.textContent = xLabel; g.appendChild(xl);
+      }
+      if (yLabel) {
+        var yl = mk("text", { x: 0, y: 0, "text-anchor": "middle", fill: "var(--text-secondary)",
+                              "font-size": 11.5,
+                              transform: "translate(13," + (M.t + ih / 2) + ") rotate(-90)" });
+        yl.textContent = yLabel; g.appendChild(yl);
+      }
+    };
+
+    self.path = function (pts, o) {
+      o = o || {};
+      var d = pts.map(function (p, i) {
+        return (i ? "L" : "M") + self.x(p[0]).toFixed(2) + " " + self.y(p[1]).toFixed(2);
+      }).join(" ");
+      var el = mk("path", { d: d, fill: "none", stroke: o.stroke || "var(--s1)",
+                            "stroke-width": o.width || 2, "stroke-linecap": "round",
+                            "stroke-dasharray": o.dash || null, opacity: o.opacity || null });
+      (o.layer ? self.layers[o.layer] : self.layers.line).appendChild(el);
+      return el;
+    };
+    self.band = function (pts, y0, o) {
+      var d = pts.map(function (p, i) {
+        return (i ? "L" : "M") + self.x(p[0]).toFixed(2) + " " + self.y(p[1]).toFixed(2);
+      }).join(" ");
+      d += " L" + self.x(pts[pts.length - 1][0]).toFixed(2) + " " + self.y(y0).toFixed(2);
+      d += " L" + self.x(pts[0][0]).toFixed(2) + " " + self.y(y0).toFixed(2) + " Z";
+      self.layers.area.appendChild(mk("path", { d: d, fill: o.fill, opacity: o.opacity || 0.1,
+                                                stroke: "none" }));
+    };
+    self.dot = function (px, py, o) {
+      o = o || {};
+      self.layers.mark.appendChild(mk("circle", { cx: self.x(px), cy: self.y(py), r: o.r || 4.5,
+        fill: o.fill || "var(--s1)", stroke: "var(--surface-1)", "stroke-width": 2 }));
+    };
+    self.tag = function (px, py, text, color, anchor, dx, dy) {
+      var t = mk("text", { x: self.x(px) + (dx || 0), y: self.y(py) + (dy || 0),
+                           "text-anchor": anchor || "start", fill: color,
+                           "font-size": 11.5, "font-weight": 600 });
+      t.textContent = text;
+      self.layers.label.appendChild(t);
+    };
+    self.clear = function () {
+      ["area", "line", "mark", "label"].forEach(function (n) {
+        var g = self.layers[n];
+        while (g.firstChild) g.removeChild(g.firstChild);
+      });
+    };
+    return self;
+  }
+
+  // Shared crosshair + tooltip across one or more panels sharing an x scale.
+  function attachHover(container, panels, readout) {
+    var tip = html("div", "viz-tip");
+    container.appendChild(tip);
+    panels.forEach(function (p) {
+      var line = mk("line", { y1: p.M.t, y2: p.M.t + p.ih, stroke: "var(--muted)",
+                              "stroke-width": 1, "stroke-dasharray": "3 3", opacity: 0 });
+      p.layers.hover.appendChild(line);
+      p.cross = line;
+      var rect = mk("rect", { x: p.M.l, y: p.M.t, width: p.iw, height: p.ih,
+                              fill: "transparent", style: "cursor:crosshair" });
+      p.layers.hover.appendChild(rect);
+
+      function move(ev) {
+        var box = p.svg.getBoundingClientRect();
+        var sx = (ev.clientX - box.left) / box.width * p.W;
+        var xv = p.xd[0] + (sx - p.M.l) / p.iw * (p.xd[1] - p.xd[0]);
+        xv = Math.max(p.xd[0], Math.min(p.xd[1], xv));
+        panels.forEach(function (q) {
+          q.cross.setAttribute("x1", q.x(xv));
+          q.cross.setAttribute("x2", q.x(xv));
+          q.cross.setAttribute("opacity", 1);
+        });
+        tip.innerHTML = readout(xv);
+        tip.style.opacity = 1;
+        var cbox = container.getBoundingClientRect();
+        var left = ev.clientX - cbox.left + 14;
+        if (left + tip.offsetWidth > cbox.width - 4) left = ev.clientX - cbox.left - tip.offsetWidth - 14;
+        tip.style.left = Math.max(4, left) + "px";
+        tip.style.top = (ev.clientY - cbox.top + 12) + "px";
+      }
+      function leave() {
+        panels.forEach(function (q) { q.cross.setAttribute("opacity", 0); });
+        tip.style.opacity = 0;
+      }
+      rect.addEventListener("pointermove", move);
+      rect.addEventListener("pointerleave", leave);
+    });
+  }
+
+  function ticks(lo, hi, n) {
+    var out = [], step = (hi - lo) / n;
+    for (var i = 0; i <= n; i++) out.push(Math.round((lo + i * step) * 100) / 100);
+    return out;
+  }
+  // Round tick steps: 1, 2, 2.5, 3, 4, 5 or 10 times a power of ten.
+  function niceStep(range, n) {
+    var raw = range / n;
+    var mag = Math.pow(10, Math.floor(Math.log(raw) / Math.LN10));
+    var norm = raw / mag;
+    var s = norm <= 1 ? 1 : norm <= 2 ? 2 : norm <= 2.5 ? 2.5
+          : norm <= 3 ? 3 : norm <= 4 ? 4 : norm <= 5 ? 5 : 10;
+    return s * mag;
+  }
+  function niceIn(max, n) {                 // ticks inside [0, max]; domain unchanged
+    var st = niceStep(max, n), out = [];
+    for (var v = 0; v <= max + st * 1e-9; v += st) out.push(Math.round(v * 1e6) / 1e6);
+    return out;
+  }
+  function niceUp(max, n) {                 // round the domain top up to a tick
+    var st = niceStep(max, n), top = Math.ceil(max / st - 1e-9) * st, out = [];
+    for (var v = 0; v <= top + st * 1e-9; v += st) out.push(Math.round(v * 1e6) / 1e6);
+    return { top: top, ticks: out };
+  }
+  function samples(m, n, f, wEnd) {
+    var out = [], end = wEnd === undefined ? m.w0 : wEnd;
+    for (var i = 0; i <= n; i++) { var w = end * i / n; out.push([w, f(w)]); }
+    return out;
+  }
+  function legend(items) {
+    var l = html("div", "viz-legend");
+    items.forEach(function (it) {
+      l.appendChild(html("span", null,
+        '<i style="background:' + it.c + (it.dash ? ";height:0;border-top:2px dashed " + it.c : "") + '"></i>' + it.t));
+    });
+    return l;
+  }
+  function table(host, cols, rows) {
+    var d = html("details");
+    d.appendChild(html("summary", null, "Data table"));
+    var t = html("table"), thead = html("tr");
+    cols.forEach(function (c) { thead.appendChild(html("th", null, c)); });
+    t.appendChild(thead);
+    rows.forEach(function (r) {
+      var tr = html("tr");
+      r.forEach(function (c) { tr.appendChild(html("td", null, c)); });
+      t.appendChild(tr);
+    });
+    d.appendChild(t);
+    host.appendChild(d);
+  }
+
+  // ============================================================ 1. DC motor
+  (function () {
+    var host = document.getElementById("viz-dc");
+    if (!host) return;
+    var m = model(U_DEF, R_DEF), i0 = I0_DEF;
+
+    host.appendChild(html("p", "viz-title", "The three curves of a DC motor at fixed voltage"));
+    host.appendChild(html("p", "viz-sub",
+      "Same motor, same " + U_DEF + "&nbsp;V supply, read three ways against shaft speed. " +
+      "Torque falls in a straight line; power is their product, so it peaks in the middle; " +
+      "efficiency peaks close to no-load. Hover to read all three at one speed."));
+
+    var xT = niceIn(m.w0, 5);
+    var pk = m.pmech(m.w0 / 2);
+    // Efficiency is only defined while the motor still makes output torque,
+    // i.e. while the total current exceeds the no-load current.
+    var wEff = (m.U - i0 * m.R) / KT;
+    var specs = [
+      { yMax: m.tStall * 1000, lab: "Torque", unit: "mN·m", c: "var(--s1)", end: m.w0,
+        f: function (w) { return m.tau(w) * 1000; } },
+      { yMax: pk * 1.1, lab: "Power", unit: "W", c: "var(--s2)", end: m.w0,
+        f: function (w) { return m.pmech(w); } },
+      { yMax: 100, lab: "Efficiency", unit: "%", c: "var(--s3)", end: wEff,
+        f: function (w) { return effAt(m, w, i0) * 100; } }
+    ];
+    var panels = specs.map(function (s, idx) {
+      var ny = niceUp(s.yMax, 4);
+      var p = Panel(host, { height: idx === 2 ? 190 : 165, yDomain: [0, ny.top],
+                            xDomain: [0, m.w0], aria: s.lab + " against shaft speed" });
+      p.axes(xT, ny.ticks, idx === 2 ? "Shaft speed ω [rad/s]" : null,
+             s.lab + " [" + s.unit + "]");
+      p.path(samples(m, 220, s.f, s.end), { stroke: s.c });
+      return p;
+    });
+    // Direct labels on the features the text calls out.
+    panels[0].dot(0, m.tStall * 1000, { fill: "var(--s1)" });
+    panels[0].tag(0, m.tStall * 1000, "stall " + fmt(m.tStall * 1000, 0) + " mN·m",
+                  "var(--s1)", "start", 8, 4);
+    panels[1].dot(m.w0 / 2, pk, { fill: "var(--s2)" });
+    panels[1].tag(m.w0 / 2, pk, "peak " + fmt(pk, 0) + " W at ω₀/2", "var(--s2)", "middle", 0, -10);
+    var wBest = 0, eBest = 0;
+    for (var i = 1; i < 400; i++) {
+      var w = wEff * i / 400, e = effAt(m, w, i0);
+      if (e > eBest) { eBest = e; wBest = w; }
+    }
+    panels[2].dot(wBest, eBest * 100, { fill: "var(--s3)" });
+    panels[2].tag(wBest, eBest * 100, "peak " + fmt(eBest * 100, 0) + "%", "var(--s3)", "end", -9, 4);
+
+    host.appendChild(legend([
+      { c: "var(--s1)", t: "Torque" }, { c: "var(--s2)", t: "Power" }, { c: "var(--s3)", t: "Efficiency" }
+    ]));
+    attachHover(host, panels, function (w) {
+      return "<b>" + fmt(w, 0) + " rad/s</b><br>Torque " + fmt(m.tau(w) * 1000, 0) +
+             " mN·m<br>Current " + fmt(m.cur(w), 1) + " A<br>Power " + fmt(m.pmech(w), 0) +
+             " W<br>Efficiency " + fmt(effAt(m, w, i0) * 100, 0) + "%";
+    });
+    table(host, ["ω [rad/s]", "Torque [mN·m]", "Current [A]", "Power [W]", "Eff [%]"],
+      ticks(0, m.w0, 8).map(function (w) {
+        return [fmt(w, 0), fmt(m.tau(w) * 1000, 0), fmt(m.cur(w), 1), fmt(m.pmech(w), 0),
+                fmt(effAt(m, w, i0) * 100, 0)];
+      }));
+    host.appendChild(html("p", "viz-note",
+      "k<sub>V</sub> = " + KV + " rpm/V from the datasheet. R = " + R_DEF + "&nbsp;Ω and " +
+      "no-load current I₀ = " + I0_DEF + "&nbsp;A are placeholders until the bench measurement " +
+      "lands. The efficiency curve is the only one that uses I₀; without it the model would " +
+      "predict 100% efficiency at no load."));
+  })();
+
+  // ======================================================== 2. Voltage slider
+  (function () {
+    var host = document.getElementById("viz-volt");
+    if (!host) return;
+
+    host.appendChild(html("p", "viz-title", "What the supply voltage does to the line"));
+    host.appendChild(html("p", "viz-sub",
+      "Drag the voltage. The line slides outwards and keeps its slope — the trade-off " +
+      "between speed and torque never changes, only how much of both you get. " +
+      "Grey lines mark 3S, 4S and 6S nominal for comparison."));
+
+    var ctl = html("div", "viz-controls");
+    var wrap = html("div", "viz-ctl");
+    var lab = html("label", null, "Supply voltage <b>14.8 V</b>");
+    var rng = html("input");
+    rng.type = "range"; rng.min = 6; rng.max = 25.2; rng.step = 0.2; rng.value = U_DEF;
+    rng.setAttribute("aria-label", "Supply voltage in volts");
+    wrap.appendChild(lab); wrap.appendChild(rng); ctl.appendChild(wrap);
+    host.appendChild(ctl);
+
+    var stats = html("div", "viz-stats");
+    var sDef = [["No-load speed", "rad/s"], ["Stall torque", "mN·m"],
+                ["Stall current", "A"], ["Peak power", "W"]];
+    var sEls = sDef.map(function (s) {
+      var d = html("div", "viz-stat");
+      d.appendChild(html("span", null, s[0] + " [" + s[1] + "]"));
+      var b = html("b", null, "—");
+      d.appendChild(b); stats.appendChild(d); return b;
+    });
+    host.appendChild(stats);
+
+    var mMax = model(25.2, R_DEF);
+    var nyV = niceUp(mMax.tStall * 1000, 4), xtV = niceIn(mMax.w0, 5);
+    var p = Panel(host, { height: 250, xDomain: [0, mMax.w0], yDomain: [0, nyV.top],
+                          aria: "Torque against speed for the selected supply voltage" });
+    var cur = model(U_DEF, R_DEF);
+
+    function draw() {
+      var U = parseFloat(rng.value);
+      cur = model(U, R_DEF);
+      lab.innerHTML = "Supply voltage <b>" + fmt(U, 1) + " V</b>";
+      p.clear();
+      p.axes(xtV, nyV.ticks, "Shaft speed ω [rad/s]", "Torque [mN·m]");
+      [11.1, 14.8, 22.2].forEach(function (u) {
+        var r = model(u, R_DEF);
+        p.path([[0, r.tStall * 1000], [r.w0, 0]], { stroke: "var(--muted)", width: 1.5, opacity: 0.45 });
+      });
+      p.band([[0, cur.tStall * 1000], [cur.w0, 0]], 0, { fill: "var(--s1)", opacity: 0.09 });
+      p.path([[0, cur.tStall * 1000], [cur.w0, 0]], { stroke: "var(--s1)", width: 2.5 });
+      p.dot(0, cur.tStall * 1000); p.dot(cur.w0, 0);
+      p.tag(cur.w0, 0, fmt(U, 1) + " V", "var(--s1)", "start", 8, -4);
+      sEls[0].textContent = fmt(cur.w0, 0);
+      sEls[1].textContent = fmt(cur.tStall * 1000, 0);
+      sEls[2].textContent = fmt(cur.iStall, 0);
+      sEls[3].textContent = fmt(cur.pmech(cur.w0 / 2), 0);
+    }
+    rng.addEventListener("input", draw);
+    draw();
+
+    host.appendChild(legend([
+      { c: "var(--s1)", t: "Selected voltage" },
+      { c: "var(--muted)", t: "3S / 4S / 6S nominal" }
+    ]));
+    attachHover(host, [p], function (w) {
+      if (w > cur.w0) return "<b>" + fmt(w, 0) + " rad/s</b><br>beyond no-load speed";
+      return "<b>" + fmt(w, 0) + " rad/s</b><br>Torque " + fmt(cur.tau(w) * 1000, 0) +
+             " mN·m<br>Current " + fmt(cur.cur(w), 1) + " A";
+    });
+    host.appendChild(html("p", "viz-note",
+      "Every line has the same slope — k<sub>T</sub><sup>2</sup>/R, set by the winding, " +
+      "not by the supply. Raising the voltage moves both intercepts outwards together, which is " +
+      "why stall current climbs just as fast as no-load speed does."));
+  })();
+
+  // ======================================================= 3. Thermal limits
+  (function () {
+    var host = document.getElementById("viz-thermal");
+    if (!host) return;
+
+    host.appendChild(html("p", "viz-title", "Where the current limit cuts the line off"));
+    host.appendChild(html("p", "viz-sub",
+      "The straight line assumes the supply will deliver whatever current the equation asks " +
+      "for. The ESC will not. Set a limit and the usable region becomes a flat constant-torque " +
+      "shelf, a corner speed, then the original line. The red band is everything above the " +
+      "motor's continuous rating — survivable for seconds, not minutes."));
+
+    var m = model(U_DEF, R_DEF);
+    var ctl = html("div", "viz-controls");
+    function slider(text, min, max, step, val, unit) {
+      var w = html("div", "viz-ctl");
+      var l = html("label", null, text + " <b>" + val + " " + unit + "</b>");
+      var r = html("input");
+      r.type = "range"; r.min = min; r.max = max; r.step = step; r.value = val;
+      r.setAttribute("aria-label", text + " in " + unit);
+      w.appendChild(l); w.appendChild(r); ctl.appendChild(w);
+      return { r: r, l: l, text: text, unit: unit };
+    }
+    var sLim = slider("ESC current limit", 2, 60, 1, 20, "A");
+    var sCon = slider("Motor continuous rating", 1, 30, 1, 10, "A");
+    host.appendChild(ctl);
+
+    var stats = html("div", "viz-stats");
+    var sDef = [["Torque at limit", "mN·m"], ["Corner speed", "rad/s"],
+                ["Copper loss at limit", "W"], ["Loss at continuous", "W"]];
+    var sEls = sDef.map(function (s) {
+      var d = html("div", "viz-stat");
+      d.appendChild(html("span", null, s[0] + " [" + s[1] + "]"));
+      var b = html("b", null, "—"); d.appendChild(b); stats.appendChild(d); return b;
+    });
+    host.appendChild(stats);
+
+    var p = Panel(host, { height: 260, xDomain: [0, m.w0], yDomain: [0, 1],
+                          aria: "Current-limited torque envelope against speed" });
+    var state = { lim: 20, con: 10, yMax: 1 };
+
+    function draw() {
+      state.lim = parseFloat(sLim.r.value);
+      state.con = Math.min(parseFloat(sCon.r.value), state.lim);
+      sLim.l.innerHTML = sLim.text + " <b>" + state.lim + " A</b>";
+      sCon.l.innerHTML = sCon.text + " <b>" + parseFloat(sCon.r.value) + " A</b>";
+
+      var tLim = KT * state.lim * 1000, tCon = KT * state.con * 1000;
+      var nyT = niceUp(tLim * 1.55, 4);
+      state.yMax = nyT.top;
+      p.yd = [0, state.yMax];
+      p.clear();
+      p.axes(niceIn(m.w0, 5), nyT.ticks, "Shaft speed ω [rad/s]", "Torque [mN·m]");
+
+      // Above the continuous rating: heating faster than the motor sheds it.
+      p.band([[0, state.yMax], [m.w0, state.yMax]], tCon,
+             { fill: "var(--critical)", opacity: 0.09 });
+
+      // Ideal line, mostly off the top of this scale.
+      var wTop = (m.U - (state.yMax / 1000 / KT) * R_DEF) / KT;
+      p.path([[Math.max(0, wTop), Math.min(m.tau(Math.max(0, wTop)) * 1000, state.yMax)],
+              [m.w0, 0]], { stroke: "var(--s1)", width: 2, dash: "5 4" });
+
+      // Current-limited envelope.
+      var wCorner = (m.U - state.lim * R_DEF) / KT;
+      var env = [[0, tLim], [wCorner, tLim]];
+      for (var i = 1; i <= 40; i++) {
+        var w = wCorner + (m.w0 - wCorner) * i / 40;
+        env.push([w, m.tau(w) * 1000]);
+      }
+      p.band(env, 0, { fill: "var(--s2)", opacity: 0.12 });
+      p.path(env, { stroke: "var(--s2)", width: 2.5 });
+      p.dot(wCorner, tLim, { fill: "var(--s2)" });
+      p.tag(wCorner, tLim, "corner " + fmt(wCorner, 0) + " rad/s", "var(--s2)", "start", 9, -8);
+      p.tag(Math.max(0, wTop), state.yMax, "ideal line: " + fmt(m.tStall * 1000, 0) +
+            " mN·m at stall", "var(--s1)", "end", -9, 15);
+      p.tag(0, tCon, "continuous " + state.con + " A", "var(--critical)", "start", 6, -6);
+
+      sEls[0].textContent = fmt(tLim, 0);
+      sEls[1].textContent = fmt(wCorner, 0);
+      sEls[2].textContent = fmt(state.lim * state.lim * R_DEF, 1);
+      sEls[3].textContent = fmt(state.con * state.con * R_DEF, 1);
+    }
+    sLim.r.addEventListener("input", draw);
+    sCon.r.addEventListener("input", draw);
+    draw();
+
+    host.appendChild(legend([
+      { c: "var(--s2)", t: "Usable envelope" },
+      { c: "var(--s1)", t: "Ideal line (unlimited current)", dash: true },
+      { c: "var(--critical)", t: "Above continuous rating" }
+    ]));
+    attachHover(host, [p], function (w) {
+      var tIdeal = m.tau(w) * 1000, tLim = KT * state.lim * 1000;
+      var t = Math.min(tIdeal, tLim);
+      if (t < 0) return "<b>" + fmt(w, 0) + " rad/s</b><br>beyond no-load speed";
+      var I = t / 1000 / KT;
+      return "<b>" + fmt(w, 0) + " rad/s</b><br>Torque " + fmt(t, 0) + " mN·m<br>Current " +
+             fmt(I, 1) + " A<br>Copper loss " + fmt(I * I * R_DEF, 1) + " W" +
+             (I > state.con ? "<br><b>above continuous</b>" : "");
+    });
+    host.appendChild(html("p", "viz-note",
+      "Copper loss is I<sup>2</sup>R, so the two loss readouts move apart much faster than the " +
+      "two currents do. That is the whole argument of this section in one pair of numbers: " +
+      "double the current and you quadruple the heat."));
+  })();
+
+  // ==================================================== 4. AS2303 measured
+  (function () {
+    var host = document.getElementById("viz-as2303");
+    if (!host) return;
+
+    host.appendChild(html("p", "viz-title", "AS2303 — measured against model"));
+
+    if (!MEASURED.length) {
+      host.appendChild(html("p", "viz-sub",
+        "Placeholder. The model line below is drawn from the datasheet k<sub>V</sub> and a " +
+        "placeholder winding resistance; no bench data has been loaded yet."));
+      var m0 = model(U_DEF, R_DEF), ny0 = niceUp(m0.tStall * 1000, 4);
+      var p0 = Panel(host, { height: 230, xDomain: [0, m0.w0], yDomain: [0, ny0.top],
+                             aria: "Model torque-speed line, awaiting measured data" });
+      p0.axes(niceIn(m0.w0, 5), ny0.ticks, "Shaft speed ω [rad/s]", "Torque [mN·m]");
+      p0.path([[0, m0.tStall * 1000], [m0.w0, 0]],
+              { stroke: "var(--muted)", width: 2, dash: "6 5" });
+      host.appendChild(html("div", "viz-empty",
+        "<b>No test-stand data loaded.</b><br>Paste the measured operating points into the " +
+        "<code>MEASURED</code> array at the top of the script block in " +
+        "<code>reference/bldc.qmd</code>. Each row is <code>{ w, tau, I }</code> — speed in " +
+        "rad/s, torque in mN·m, DC current in amps. The plot switches to a " +
+        "measured-versus-model comparison automatically, and the fitted resistance appears " +
+        "below it."));
+      return;
+    }
+
+    host.appendChild(html("p", "viz-sub",
+      "Points are test-stand measurements; the dashed line is the ideal model. Divergence at " +
+      "the low-speed end is where the straight-line assumption gives out."));
+    var wMax = Math.max.apply(null, MEASURED.map(function (d) { return d.w; }));
+    var tMax = Math.max.apply(null, MEASURED.map(function (d) { return d.tau; }));
+    var m = model(U_DEF, R_DEF);
+    var xMax = Math.max(wMax * 1.05, m.w0);
+    var nyM = niceUp(Math.max(tMax * 1.15, KT * 30 * 1000), 4);
+    var p = Panel(host, { height: 250, xDomain: [0, xMax], yDomain: [0, nyM.top],
+                          aria: "Measured torque against speed compared with the model" });
+    p.axes(niceIn(xMax, 5), nyM.ticks, "Shaft speed ω [rad/s]", "Torque [mN·m]");
+    p.path([[0, m.tStall * 1000], [m.w0, 0]], { stroke: "var(--s1)", width: 2, dash: "5 4" });
+    MEASURED.forEach(function (d) { p.dot(d.w, d.tau, { fill: "var(--s2)", r: 4.5 }); });
+    host.appendChild(legend([
+      { c: "var(--s2)", t: "Measured" },
+      { c: "var(--s1)", t: "Model", dash: true }
+    ]));
+    table(host, ["ω [rad/s]", "Torque [mN·m]", "Current [A]"],
+      MEASURED.map(function (d) {
+        return [fmt(d.w, 0), fmt(d.tau, 1), d.I === undefined ? "—" : fmt(d.I, 1)];
+      }));
+  })();
+})();
+</script>
 
 
 </section>
