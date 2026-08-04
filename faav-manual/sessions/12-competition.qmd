@@ -17,7 +17,7 @@ Robots are scored in two categories: **most efficient** and **fastest**.
 | **Bring** | Robot, spare crank–linkage shaft, spare wing, charged packs, your logged cost-of-transport data |
 
 ::: {.callout-important}
-## To be written by the instructor
+## To be written by the instructor 
 
 Competition format is course material, not in the manufacturing guide. Needed:
 
@@ -32,6 +32,6 @@ Competition format is course material, not in the manufacturing guide. Needed:
 ## Feedback
 
 The final module is a recap and feedback round. This manual is rebuilt each
-year from what students report --- if something in it cost you time, say so.
+year from what students report -if something in it cost you time, say so.
 Corrections made during this semester are listed in the
 [Changelog](/changelog.qmd).

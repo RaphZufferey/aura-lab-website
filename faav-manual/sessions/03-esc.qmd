@@ -49,9 +49,17 @@ Ordinary drone ESCs infer this from back-EMF, i.e the voltage the spinning rotor
 
 The AS5047P reports angle over SPI, a four-wire synchronous bus: the controller drives the clock (**SCLK**), data goes out on **MOSI** and comes back on **MISO**, and **CS** selects the chip. Transfer speed is limited only by how fast the two ends can shift bits. We use SPI because it offers **10 MHz** communication. The reason speed matters is that the angle has to be re-read every single control loop, and a stale angle is gad: the controller ends up placing the stator field where the rotor **was**, not where it is. That error shows up as wasted current and audible noise. The same 10 MHz clock is why the wiring has to stay short, see below.
 
+
 ### Wiring it to the board
 
 There is no SPI link exposed directly on the ESC board. The solution is to use the **SPI3 bus**, exposed through a few hardware modifications and matching software changes. @fig-wiring shows the four signals in context, including the MOSI tap on R14. 
+
+::: {.callout-warning}
+#### You lose the micro-USB serial link
+Serial2, used by the daughterboard for serial communication will not work anymore as we are using those pins for SPI3 for the encoder instead. Flashing the ESC still works (programming runs over SWD, on different pins) but every
+command and every value you read back now has to pass through a different serial.
+:::
+
 
 |               | SCLK | MISO | MOSI  | CS   |
 |---------------|------|------|-------|------|
@@ -77,18 +85,14 @@ Since the pads are large, make sure to use enough heat / large tip on the solder
 
 ## How to program the ESC
 With the encoder and motor connected to the ESC, we can start programing the ESC!
-The daughterboard is already connected to the ESC MCU. We can program it, but we cannot communicate between our laptop and the ESC. Out of the box that happens via **Serial2**, but we will reuse those GPIOs for the encoder connections. In that case we must connect **Serial1** (on the MCU) to the daughterboard:
-
-1.  Disconnect USART2 and connect USART1: remove **R23** and **R24** on the daughter board (desolder).
-2.  Solder wires to the now-free pins of R23/R24 - the pads closer to U3, further away from the USB port. Connect the wire from **R23** to the pad for hall sensor 2 (**PB7**), and the wire from **R24** to the pad for hall sensor 1 (**PB6**) on J8.
-3.  Remap the pins in software for SPI use: in `platformio.ini` via `build_flags`, and by overwriting the `WEAK PinMap`s in `pinmap_custom.h`. See commit `18520ac` on GitHub for details.
+Remap the pins in software for SPI use: in `platformio.ini` via `build_flags`, and by overwriting the `WEAK PinMap`s in `pinmap_custom.h`. See commit `18520ac` on GitHub for details.
 
 ## Firmware
 
 Code for the B-G431B-ESC1 motor controller, using the SimpleFOC library, is in the lab repository: [FAAV-G431-ESC](https://github.com/MIT-AURA-Lab/FAAV-G431-ESC). See [Software](/reference/software.qmd) for all repositories.
 
 ## Commanding and monitoring
-This is a high-level summary of [the SimpleFOC communication docs](https://docs.simplefoc.com/communication). Communication with the ESC is over **serial**, either via the ST-Link programmer (the small attached board that we will use for now) or via a separate microcontroller board (that will come next week).
+This is a high-level summary of [the SimpleFOC communication docs](https://docs.simplefoc.com/communication). Communication with the ESC is over **serial**, via a separate microcontroller board.
 
 Once serial communication is established, you interact with the ESC through the **commander**, a practical interface for setting and getting values ([instructions](https://docs.simplefoc.com/commander_motor)). Ask the commander for available commands with `?`. Commands available:
 

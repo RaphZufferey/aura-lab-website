@@ -3,3 +3,6 @@
 # faav-manual/files/faav-build-manual.pdf, copied out of here before the website
 # render so the site publishes it as a resource.
 /manual-pdf/
+
+/.quarto/
+**/*.quarto_ipynb

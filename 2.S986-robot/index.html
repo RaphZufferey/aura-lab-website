@@ -538,7 +538,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#how-this-manual-is-organised" id="toc-how-this-manual-is-organised" class="nav-link active" data-scroll-target="#how-this-manual-is-organised">How this manual is organised</a></li>
   <li><a href="#semester-map" id="toc-semester-map" class="nav-link" data-scroll-target="#semester-map">Semester map</a></li>
   <li><a href="#conventions" id="toc-conventions" class="nav-link" data-scroll-target="#conventions">Conventions</a></li>
-  <li><a href="#architecture-in-one-paragraph" id="toc-architecture-in-one-paragraph" class="nav-link" data-scroll-target="#architecture-in-one-paragraph">Architecture in one paragraph</a></li>
+  <li><a href="#robot-architecture-in-one-paragraph" id="toc-robot-architecture-in-one-paragraph" class="nav-link" data-scroll-target="#robot-architecture-in-one-paragraph">Robot architecture in one paragraph</a></li>
   <li><a href="#versioning" id="toc-versioning" class="nav-link" data-scroll-target="#versioning">Versioning</a></li>
   </ul>
 </nav>
@@ -590,10 +590,10 @@ Figure&nbsp;1: The FAAV3.2
 <p><strong><a href="./files/faav-build-manual.pdf">Download the printable manual (PDF)</a></strong> — every module and reference page in a single file, for the bench or for printing. Rebuilt automatically whenever the manual changes.</p>
 </div>
 </div>
-<p>Over the semester your team builds a <strong>flapping aerial-aquatic vehicle</strong>: a robot that flies, lands on water, swims by flapping the same wings, and takes off again. This manual is the build side of the course. It is sequenced to the weekly modules, and each page covers exactly what you do in that module.</p>
+<p>Over the semester you build a <strong>flapping aerial-aquatic vehicle</strong>: a robot that with the right design can fly, land on water, swim by flapping the same wings, and takes off again. The aim of this project is to demonstrate swimming behavior. This manual is the build side of the course. It is sequenced to the weekly modules, and each page covers exactly what you do in that module.</p>
 <section id="how-this-manual-is-organised" class="level2">
 <h2 class="anchored" data-anchor-id="how-this-manual-is-organised">How this manual is organised</h2>
-<p><strong>Build modules</strong> are cumulative and in order. Each one opens with what you are building that day, what to have ready before you arrive, and ends with a checkpoint a TA signs off.</p>
+<p><strong>Build modules</strong> are cumulative and in order. Each one opens with what you are building that day.</p>
 <p><strong>Reference</strong> holds the material you consult rather than follow: the parts list, the firmware repositories, the PCB revisions, the CNC guide, and the design notes explaining why the robot is the way it is.</p>
 </section>
 <section id="semester-map" class="level2">
@@ -710,11 +710,11 @@ Figure&nbsp;1: The FAAV3.2
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Checkpoint — TA sign-off
+<span class="screen-reader-only">Note</span>Checkpoint
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Do not proceed past this without a TA looking at your work.</p>
+<p>Do not proceed past this without having completed all the tasks listed.</p>
 </div>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -727,12 +727,12 @@ Figure&nbsp;1: The FAAV3.2
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Design rationale. Skippable at the bench, useful for your report.</p>
+<p>Design rationale.</p>
 </div>
 </div>
 </section>
-<section id="architecture-in-one-paragraph" class="level2">
-<h2 class="anchored" data-anchor-id="architecture-in-one-paragraph">Architecture in one paragraph</h2>
+<section id="robot-architecture-in-one-paragraph" class="level2">
+<h2 class="anchored" data-anchor-id="robot-architecture-in-one-paragraph">Robot architecture in one paragraph</h2>
 <p>One 4S battery (16.8 V max) feeds a custom PCB that steps VBAT down to 5 V to power the flight controller, which in turn generates a 3v3 rail for the sensors on that PCB. Battery power passes through a shunt for current sensing, then out to the ESC. The flight controller commands the ESC over serial. The ESC drives a brushless motor through a 23.04:1 gearbox, and a crank–linkage converts that rotation into wing flapping.</p>
 </section>
 <section id="versioning" class="level2">

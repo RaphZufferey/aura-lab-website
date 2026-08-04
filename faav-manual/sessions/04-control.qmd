@@ -84,17 +84,6 @@ ESC.
 4.  Modify the sketch to spin the motor at **100 rad/s** and confirm it on the
     flag you mounted on the gearbox output.
 
-::: {.callout-warning}
-## You lose the micro-USB serial link
-
-Serial1 now goes to the Seeeduino rather than to the daughterboard, so the
-serial console you used in [Module 3](03-esc.qmd) stops working. Flashing the
-ESC still works --- programming runs over SWD, on different pins --- but every
-command and every value you read back now has to pass through the Seeeduino.
-
-Plan for it: anything you still want to inspect over micro-USB, inspect
-**before** you solder these three wires.
-:::
 
 ::: {.callout-important}
 ## To be completed by the instructor

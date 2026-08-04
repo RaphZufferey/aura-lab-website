@@ -15,16 +15,15 @@ printing. Rebuilt automatically whenever the manual changes.
 :::
 :::
 
-Over the semester your team builds a **flapping aerial-aquatic vehicle**: a
-robot that flies, lands on water, swims by flapping the same wings, and takes
-off again. This manual is the build side of the course. It is sequenced to the
+Over the semester you build a **flapping aerial-aquatic vehicle**: a
+robot that with the right design can fly, land on water, swim by flapping the same wings, and takes
+off again. The aim of this project is to demonstrate swimming behavior. This manual is the build side of the course. It is sequenced to the
 weekly modules, and each page covers exactly what you do in that module.
 
 ## How this manual is organised
 
 **Build modules** are cumulative and in order. Each one opens with what you
-are building that day, what to have ready before you arrive, and ends with a
-checkpoint a TA signs off.
+are building that day.
 
 **Reference** holds the material you consult rather than follow: the parts
 list, the firmware repositories, the PCB revisions, the CNC guide, and the
@@ -58,19 +57,17 @@ twice before acting.
 :::
 
 ::: {.callout-note}
-## Checkpoint --- TA sign-off
+## Checkpoint
 
-Do not proceed past this without a TA looking at your work.
+Do not proceed past this without having completed all the tasks listed.
 :::
 
 ::: {.callout-tip}
 ## Why
-
-Design rationale. Skippable at the bench, useful for your report.
+Design rationale. 
 :::
 
-## Architecture in one paragraph
-
+## Robot architecture in one paragraph
 One 4S battery (16.8 V max) feeds a custom PCB that steps VBAT down to 5 V to
 power the flight controller, which in turn generates a 3v3 rail for the sensors
 on that PCB. Battery power passes through a shunt for current sensing, then out

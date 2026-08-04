@@ -657,20 +657,6 @@ Figure&nbsp;1: The Seeeduino XIAO nRF52840. <strong>TX</strong> and <strong>RX</
 <li><p>Load the barebone Arduino sketch onto the Seeeduino — see <a href="../reference/software.html">Software</a> for the repository.</p></li>
 <li><p>Modify the sketch to spin the motor at <strong>100 rad/s</strong> and confirm it on the flag you mounted on the gearbox output.</p></li>
 </ol>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Warning</span>You lose the micro-USB serial link
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Serial1 now goes to the Seeeduino rather than to the daughterboard, so the serial console you used in <a href="../sessions/03-esc.html">Module 3</a> stops working. Flashing the ESC still works — programming runs over SWD, on different pins — but every command and every value you read back now has to pass through the Seeeduino.</p>
-<p>Plan for it: anything you still want to inspect over micro-USB, inspect <strong>before</strong> you solder these three wires.</p>
-</div>
-</div>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">

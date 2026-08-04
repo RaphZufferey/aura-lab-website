@@ -10,8 +10,7 @@ title: "Module 1 --- Orientation"
 
 ![The FAAV3.2](/Fig/Water-Air-Slider-V3-Carbon-v63.jpg){#fig-faav-overview}
 
-The FAAV is a flapping-wing vehicle that operates in air and in water with the
-same actuation. The build divides into four subsystems, and the modules follow
+We will develop, plan and optimize a vehicle with powerful custom actuation for flapping locomotion. The build divides into four subsystems, and the modules follow
 that order:
 
 1. **Transmission** --- motor, custom shaft, gearbox, crank and linkage
@@ -37,8 +36,7 @@ and are not carried over from the manufacturing guide.
 :::
 
 ::: {.callout-note}
-## Checkpoint --- TA sign-off
-
+## Checkpoint
 Kit checked against the parts list, and every member has
-completed shop training.
+completed the required training.
 :::

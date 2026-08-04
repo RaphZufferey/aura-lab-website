@@ -658,6 +658,19 @@ Figure&nbsp;3: The power stage of the B-G431B-ESC1. The six MOSFETs are the larg
 <section id="wiring-it-to-the-board" class="level3">
 <h3 class="anchored" data-anchor-id="wiring-it-to-the-board">Wiring it to the board</h3>
 <p>There is no SPI link exposed directly on the ESC board. The solution is to use the <strong>SPI3 bus</strong>, exposed through a few hardware modifications and matching software changes. <a href="#fig-wiring" class="quarto-xref">Figure&nbsp;1</a> shows the four signals in context, including the MOSI tap on R14.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>You lose the micro-USB serial link
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Serial2, used by the daughterboard for serial communication will not work anymore as we are using those pins for SPI3 for the encoder instead. Flashing the ESC still works (programming runs over SWD, on different pins) but every command and every value you read back now has to pass through a different serial.</p>
+</div>
+</div>
 <div id="tbl-spi3" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-spi3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -726,12 +739,7 @@ Figure&nbsp;4: GPIOs of the G431B-ESC1 board
 </section>
 <section id="how-to-program-the-esc" class="level2">
 <h2 class="anchored" data-anchor-id="how-to-program-the-esc">How to program the ESC</h2>
-<p>With the encoder and motor connected to the ESC, we can start programing the ESC! The daughterboard is already connected to the ESC MCU. We can program it, but we cannot communicate between our laptop and the ESC. Out of the box that happens via <strong>Serial2</strong>, but we will reuse those GPIOs for the encoder connections. In that case we must connect <strong>Serial1</strong> (on the MCU) to the daughterboard:</p>
-<ol type="1">
-<li>Disconnect USART2 and connect USART1: remove <strong>R23</strong> and <strong>R24</strong> on the daughter board (desolder).</li>
-<li>Solder wires to the now-free pins of R23/R24 - the pads closer to U3, further away from the USB port. Connect the wire from <strong>R23</strong> to the pad for hall sensor 2 (<strong>PB7</strong>), and the wire from <strong>R24</strong> to the pad for hall sensor 1 (<strong>PB6</strong>) on J8.</li>
-<li>Remap the pins in software for SPI use: in <code>platformio.ini</code> via <code>build_flags</code>, and by overwriting the <code>WEAK PinMap</code>s in <code>pinmap_custom.h</code>. See commit <code>18520ac</code> on GitHub for details.</li>
-</ol>
+<p>With the encoder and motor connected to the ESC, we can start programing the ESC! Remap the pins in software for SPI use: in <code>platformio.ini</code> via <code>build_flags</code>, and by overwriting the <code>WEAK PinMap</code>s in <code>pinmap_custom.h</code>. See commit <code>18520ac</code> on GitHub for details.</p>
 </section>
 <section id="firmware" class="level2">
 <h2 class="anchored" data-anchor-id="firmware">Firmware</h2>
@@ -739,7 +747,7 @@ Figure&nbsp;4: GPIOs of the G431B-ESC1 board
 </section>
 <section id="commanding-and-monitoring" class="level2">
 <h2 class="anchored" data-anchor-id="commanding-and-monitoring">Commanding and monitoring</h2>
-<p>This is a high-level summary of <a href="https://docs.simplefoc.com/communication">the SimpleFOC communication docs</a>. Communication with the ESC is over <strong>serial</strong>, either via the ST-Link programmer (the small attached board that we will use for now) or via a separate microcontroller board (that will come next week).</p>
+<p>This is a high-level summary of <a href="https://docs.simplefoc.com/communication">the SimpleFOC communication docs</a>. Communication with the ESC is over <strong>serial</strong>, via a separate microcontroller board.</p>
 <p>Once serial communication is established, you interact with the ESC through the <strong>commander</strong>, a practical interface for setting and getting values (<a href="https://docs.simplefoc.com/commander_motor">instructions</a>). Ask the commander for available commands with <code>?</code>. Commands available:</p>
 <table class="caption-top table">
 <colgroup>
