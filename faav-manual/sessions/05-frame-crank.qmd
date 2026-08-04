@@ -10,7 +10,8 @@ title: "Module 5 --- Frame, crank, linkage and gears"
 
 We assemble the carbon frame, the CNC-cut crank and linkage, the gears, and the full
 mechanical integration that turns motor rotation into flapping. Flapping
-amplitude is fixed by this design to **60 degrees** [^lapsansky].
+amplitude is fixed by this design to **60 degrees** [^lapsansky] --- 34° up and
+26° down, as laid out in @fig-transmission-exploded.
 
 [^lapsansky]: Lapsansky AB, Zatz D, Tobalske BW (2020). [Alcids 'fly' at efficient Strouhal numbers in both air and water but vary stroke velocity and angle](https://doi.org/10.7554/eLife.55774). *eLife* **9**:e55774.
 
@@ -33,7 +34,9 @@ plate to plate are **M2×4**, screwing into brass inserts.
 
 ## Crank and linkage
 
-Dimensions:
+![The transmission, exploded, with the length that matters and the material for each part. Follow it left to right: the gearbox output turns the crank, the crank drives the linkage, and the linkage swings the inter-wing gear. The **34°** up and **−26°** down at the right are where the 60° flapping amplitude comes from --- it is set here, by these lengths, and cannot be changed in software.](/Fig/transmission-exploded.png){#fig-transmission-exploded width="100%"}
+
+The dimensions called out in @fig-transmission-exploded are the ones you cut to:
 
 | | Crank-linkage dimensions |
 |---|---|

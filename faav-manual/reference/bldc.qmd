@@ -208,6 +208,8 @@ a bell that rotates around the outside. Ours is an outrunner --- it is the bell
 you machine and press the shaft into in
 [Module 2](/sessions/02-motor.qmd).
 
+![An outrunner seen from the back. The copper windings are the **stator** and do not move; the dark magnet segments around the rim are carried on the rotating bell. Note how far out the magnets sit — that radius is the lever arm in @eq-torque-radius, and it is the whole reason for this arrangement. Note also that the heat is generated in the middle, wrapped inside the part that spins.](/Fig/motor.jpg){#fig-outrunner width="65%"}
+
 The reason is torque. Torque is force times radius, and in an outrunner the
 magnets sit at the *largest* radius the motor's diameter allows, rather than
 the smallest:

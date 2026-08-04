@@ -30,6 +30,9 @@ The **B-G431B-ESC1** is ST's reference three-phase motor driver: a complete ESC 
 
 - **An STM32G431 microcontroller.** A 170 MHz Cortex-M4 with hardware floating point. Motor control recomputes the field orientation every control loop. This MCU is the reason we can.
 - **A three-phase inverter with current sensing.** Six power MOSFETs drive the three motor phases, and shunt resistors on the low side report the current actually flowing in each. That measurement is what turns "spin the motor" into **torque control**. You cannot regulate a current you cannot see.
+
+![The power stage of the B-G431B-ESC1. The six MOSFETs are the large flat packages, arranged as three half-bridges --- one per motor phase, each with a high-side and a low-side switch. The three copper tabs on the left are the U, V and W outputs you solder the motor to below, and the grey block behind is the heatsink.](/Fig/g431-power-stage.jpg){#fig-g431-power width="75%"}
+
 - **A detachable ST-Link programmer (the daughterboard).** The small daughter board is how we program the MCU over USB, and it also carries a serial port back to your laptop. When snapped-off, the MCU cannot be reprogramed without physically resoldering it.
 
 It also brings out a hall/encoder connector (**J8**), a CAN transceiver and a potentiometer input, none of which we use as intended. In this build J8 gets repurposed for serial, and the encoder arrives on SPI instead. Both of those reworks are below. The board is rated well above what the wing motor draws, so current is not the constraint here.

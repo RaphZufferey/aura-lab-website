@@ -538,14 +538,11 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#what-you-build-today" id="toc-what-you-build-today" class="nav-link active" data-scroll-target="#what-you-build-today">What you build today</a></li>
   <li><a href="#before-you-arrive" id="toc-before-you-arrive" class="nav-link" data-scroll-target="#before-you-arrive">Before you arrive</a></li>
-  <li><a href="#pcb-waterproofing" id="toc-pcb-waterproofing" class="nav-link" data-scroll-target="#pcb-waterproofing">PCB waterproofing</a>
-  <ul class="collapse">
-  <li><a href="#if-you-are-on-a-v2.0-board" id="toc-if-you-are-on-a-v2.0-board" class="nav-link" data-scroll-target="#if-you-are-on-a-v2.0-board">If you are on a v2.0 board</a></li>
-  </ul></li>
-  <li><a href="#gearbox" id="toc-gearbox" class="nav-link" data-scroll-target="#gearbox">Gearbox</a>
-  <ul class="collapse">
-  <li><a href="#sealing-modifications" id="toc-sealing-modifications" class="nav-link" data-scroll-target="#sealing-modifications">Sealing modifications</a></li>
-  </ul></li>
+  <li><a href="#flight-controller-waterproofing" id="toc-flight-controller-waterproofing" class="nav-link" data-scroll-target="#flight-controller-waterproofing">Flight controller waterproofing</a></li>
+  <li><a href="#esc-waterproofing" id="toc-esc-waterproofing" class="nav-link" data-scroll-target="#esc-waterproofing">ESC waterproofing</a></li>
+  <li><a href="#battery-waterproofing" id="toc-battery-waterproofing" class="nav-link" data-scroll-target="#battery-waterproofing">Battery waterproofing</a></li>
+  <li><a href="#battery-connector-waterproofing" id="toc-battery-connector-waterproofing" class="nav-link" data-scroll-target="#battery-connector-waterproofing">Battery connector waterproofing</a></li>
+  <li><a href="#gearbox" id="toc-gearbox" class="nav-link" data-scroll-target="#gearbox">Gearbox</a></li>
   </ul>
 </nav>
     </div>
@@ -615,9 +612,9 @@ ul.task-list li input[type="checkbox"] {
 </tbody>
 </table>
 </section>
-<section id="pcb-waterproofing" class="level2">
-<h2 class="anchored" data-anchor-id="pcb-waterproofing">PCB waterproofing</h2>
-<p>First ensure that the assembled PCB fits within the box before anything else.</p>
+<section id="flight-controller-waterproofing" class="level2">
+<h2 class="anchored" data-anchor-id="flight-controller-waterproofing">Flight controller waterproofing</h2>
+<p>First ensure that the FC fits within the 3D box before anything else.</p>
 <ol type="1">
 <li>Tape the bottom side of the box with Kapton.</li>
 <li>Fill the bottom of the box with silicone sealant until it reaches the USB port hole.</li>
@@ -634,26 +631,43 @@ ul.task-list li input[type="checkbox"] {
 <li><a href="https://mgchemicals.com/products/conformal-coatings/silicone-conformal-coatings/conformal-coating-waterproof/">422C silicone conformal coating</a> (<a href="https://mgchemicals.com/downloads/tds/tds-422c-l.pdf">datasheet</a>)</li>
 </ul></li>
 </ol>
-<section id="if-you-are-on-a-v2.0-board" class="level3">
-<h3 class="anchored" data-anchor-id="if-you-are-on-a-v2.0-board">If you are on a v2.0 board</h3>
-<p>The method changes slightly. See <a href="../reference/pcb.html#v2-waterproofing">PCB revisions</a> for the v2.0 procedure, including the SD-card trap-door recovery and antenna potting.</p>
 </section>
-</section>
-<section id="gearbox" class="level2">
-<h2 class="anchored" data-anchor-id="gearbox">Gearbox</h2>
-<p>By default the gearbox on the FAAV4 robot is <strong>not waterproof at all</strong>, and it is normal for it to end up completely filled with water once submerged. Over years of use the gearbox proved largely immune to corrosion — after more than a year of repeated use in water, including in Lake Geneva, one was opened and showed no sign of corrosion.</p>
-<p>That is not the whole story, and the exception is the reason for this step:</p>
-<div id="fig-rust" class="quarto-float quarto-figure quarto-figure-center anchored">
+<section id="esc-waterproofing" class="level2">
+<h2 class="anchored" data-anchor-id="esc-waterproofing">ESC waterproofing</h2>
+<p>The ESC is potted the same way as the flight controller: it sits in its own 3D-printed frame, which is then filled with <strong>Silcoset</strong> so only the wire exits remain open. <a href="#fig-esc-potted" class="quarto-xref">Figure&nbsp;1</a> shows the three pieces together — motor, bare ESC, and the potted frame.</p>
+<div id="fig-esc-potted" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-rust-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="../Fig/gearbox_rust1.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1: Gearbox and sun gear after a few dives with motor oil lubrication"><img src="../Fig/gearbox_rust1.jpg" class="img-fluid figure-img"></a>
+<div aria-describedby="fig-esc-potted-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="../Fig/esc-potted.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1: The motor, the ESC and the potted frame. The dark block is the frame filled with Silcoset; the ESC drops into it before the fill so the board ends up fully encapsulated with only the phase and signal wires leaving."><img src="../Fig/esc-potted.png" class="img-fluid figure-img" style="width:65.0%"></a>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-rust-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: Gearbox and sun gear after a few dives with motor oil lubrication
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-esc-potted-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: The motor, the ESC and the potted frame. The dark block is the frame filled with Silcoset; the ESC drops into it before the fill so the board ends up fully encapsulated with only the phase and signal wires leaving.
 </figcaption>
 </figure>
 </div>
-<p>Severe corrosion appeared on a newer robot after only 3–4 uses in water. The cause is believed to be improper lubrication after cleaning, combined with the absence of the shaft bearing, which let more water in through the front. Motor oil had been used as a substitute lubricant; its low viscosity is believed to have washed it away quickly, leaving the gears dry. Full investigation in <a href="../reference/design-notes.html#gearbox-corrosion">Design notes</a>.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>To be completed by the instructor
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The written procedure for this step, to the level of detail the flight controller has above: fill order, how the phase wires are held clear while the compound cures, cure time for this depth, and whether the ESC is potted before or after the motor wires are soldered in <a href="../sessions/03-esc.html">Module 3</a>.</p>
+</div>
+</div>
+</section>
+<section id="battery-waterproofing" class="level2">
+<h2 class="anchored" data-anchor-id="battery-waterproofing">Battery waterproofing</h2>
+</section>
+<section id="battery-connector-waterproofing" class="level2">
+<h2 class="anchored" data-anchor-id="battery-connector-waterproofing">Battery connector waterproofing</h2>
+</section>
+<section id="gearbox" class="level2">
+<h2 class="anchored" data-anchor-id="gearbox">Gearbox</h2>
+<p>By default the gearbox on the FAAV4 robot is <strong>not waterproof at all</strong>, and it is normal for it to end up completely filled with water once submerged. Over years of use the gearbox proved resistant to fresh water with the factory lubricant. If that is removed/cleaned, then use the right lubricant below. The best is to avoid opening the gearbox and cleaning the gears.</p>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -664,42 +678,17 @@ Figure&nbsp;1: Gearbox and sun gear after a few dives with motor oil lubrication
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>A mix of <strong>CorrosionX and white lithium grease</strong>. Do not substitute motor oil. Several dives have since been performed with the same gearbox that previously corroded, and it now runs smoothly.</p>
+<p>A mix of <strong>CorrosionX and white lithium grease</strong>. Several dives have since been performed with the same gearbox that previously corroded, and it now runs smoothly.</p>
 </div>
 </div>
 <p>Parts that rust: <strong>sun gear, planet gears, ring gear, planet shafts.</strong> Parts that do not: screws, motor shaft, washers, body, circlip.</p>
-<section id="sealing-modifications" class="level3">
-<h3 class="anchored" data-anchor-id="sealing-modifications">Sealing modifications</h3>
-<p>A few optional modifications to the FAAV structure and assembly process keep most of the water out.</p>
-<div class="quarto-layout-panel" data-layout-ncol="1">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="../Fig/gear_waterproofing1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Gearbox waterproofing, part 1"><img src="../Fig/gear_waterproofing1.png" class="img-fluid figure-img" alt="Gearbox waterproofing, part 1"></a></p>
-<figcaption>Gearbox waterproofing, part 1</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="../Fig/gear_waterproofing2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Gearbox waterproofing, part 2"><img src="../Fig/gear_waterproofing2.png" class="img-fluid figure-img" alt="Gearbox waterproofing, part 2"></a></p>
-<figcaption>Gearbox waterproofing, part 2</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Checkpoint — TA sign-off
+<span class="screen-reader-only">Note</span>Checkpoint
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -708,7 +697,6 @@ Figure&nbsp;1: Gearbox and sun gear after a few dives with motor oil lubrication
 </div>
 
 
-</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->

@@ -68,6 +68,8 @@ it. From here on the **Seeeduino XIAO nRF52840** rides on the robot and sends
 those same commands, and your laptop talks to the Seeeduino instead of to the
 ESC.
 
+![The Seeeduino XIAO nRF52840. **TX** and **RX** are the two pads at the bottom corners --- those are the ones you solder to, and they cross over to the ESC's RX and TX respectively. The board is 21 × 17.5 mm, which is why it can ride on the robot at all.](/Fig/xiao-nrf52840.jpg){#fig-xiao width="55%"}
+
 1.  Solder the Seeeduino and the ESC's **Serial1**:
     TX, RX and **GND** lines. In Serial communication, TX and RX are **crossed**,  each board's transmit
     line goes to the other's receive line, as drawn in the

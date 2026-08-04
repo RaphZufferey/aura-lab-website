@@ -27,9 +27,9 @@ across two sittings.
 | **Tools** | Needle, soldering iron |
 | **Read** | This whole page before starting --- the ordering matters |
 
-## PCB waterproofing
+## Flight controller waterproofing
 
-First ensure that the assembled PCB fits within the box before anything else.
+First ensure that the FC fits within the 3D box before anything else.
 
 1. Tape the bottom side of the box with Kapton.
 2. Fill the bottom of the box with silicone sealant until it reaches the USB
@@ -52,35 +52,41 @@ First ensure that the assembled PCB fits within the box before anything else.
    - [422C silicone conformal coating](https://mgchemicals.com/products/conformal-coatings/silicone-conformal-coatings/conformal-coating-waterproof/)
      ([datasheet](https://mgchemicals.com/downloads/tds/tds-422c-l.pdf))
 
-### If you are on a v2.0 board
 
-The method changes slightly. See [PCB revisions](/reference/pcb.qmd#v2-waterproofing)
-for the v2.0 procedure, including the SD-card trap-door recovery and antenna
-potting.
+## ESC waterproofing
+
+The ESC is potted the same way as the flight controller: it sits in its own
+3D-printed frame, which is then filled with **Silcoset** so only the wire exits
+remain open. @fig-esc-potted shows the three pieces together --- motor, bare
+ESC, and the potted frame.
+
+![The motor, the ESC and the potted frame. The dark block is the frame filled with Silcoset; the ESC drops into it before the fill so the board ends up fully encapsulated with only the phase and signal wires leaving.](/Fig/esc-potted.png){#fig-esc-potted width="65%"}
+
+::: {.callout-important}
+## To be completed by the instructor
+
+The written procedure for this step, to the level of detail the flight
+controller has above: fill order, how the phase wires are held clear while the
+compound cures, cure time for this depth, and whether the ESC is potted before
+or after the motor wires are soldered in
+[Module 3](03-esc.qmd).
+:::
+
+## Battery waterproofing
+
+## Battery connector waterproofing
+
+
 
 ## Gearbox
-
 By default the gearbox on the FAAV4 robot is **not waterproof at all**, and it
 is normal for it to end up completely filled with water once submerged. Over
-years of use the gearbox proved largely immune to corrosion --- after more than
-a year of repeated use in water, including in Lake Geneva, one was opened and
-showed no sign of corrosion.
-
-That is not the whole story, and the exception is the reason for this step:
-
-![Gearbox and sun gear after a few dives with motor oil lubrication](/Fig/gearbox_rust1.jpg){#fig-rust}
-
-Severe corrosion appeared on a newer robot after only 3--4 uses in water. The
-cause is believed to be improper lubrication after cleaning, combined with the
-absence of the shaft bearing, which let more water in through the front. Motor
-oil had been used as a substitute lubricant; its low viscosity is believed to
-have washed it away quickly, leaving the gears dry. Full investigation in
-[Design notes](/reference/design-notes.qmd#gearbox-corrosion).
+years of use the gearbox proved resistant to fresh water with the factory lubricant. If that is removed/cleaned, then use the right lubricant below. The best is to avoid opening the gearbox and cleaning the gears.
 
 ::: {.callout-warning}
 ## Use the right lubricant
 
-A mix of **CorrosionX and white lithium grease**. Do not substitute motor oil.
+A mix of **CorrosionX and white lithium grease**. 
 Several dives have since been performed with the same gearbox that previously
 corroded, and it now runs smoothly.
 :::
@@ -88,19 +94,9 @@ corroded, and it now runs smoothly.
 Parts that rust: **sun gear, planet gears, ring gear, planet shafts.**
 Parts that do not: screws, motor shaft, washers, body, circlip.
 
-### Sealing modifications
-
-A few optional modifications to the FAAV structure and assembly process keep
-most of the water out.
-
-::: {layout-ncol=1}
-![Gearbox waterproofing, part 1](/Fig/gear_waterproofing1.png)
-
-![Gearbox waterproofing, part 2](/Fig/gear_waterproofing2.png)
-:::
 
 ::: {.callout-note}
-## Checkpoint --- TA sign-off
+## Checkpoint
 
 PCB fully cured and potted with contacts exposed, gearbox lubricated and
 reassembled with the shaft bearing fitted, connector back-shell sealed, and a

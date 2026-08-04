@@ -571,7 +571,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <section id="what-you-build-today" class="level2">
 <h2 class="anchored" data-anchor-id="what-you-build-today">What you build today</h2>
-<p>We assemble the carbon frame, the CNC-cut crank and linkage, the gears, and the full mechanical integration that turns motor rotation into flapping. Flapping amplitude is fixed by this design to <strong>60 degrees</strong> <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
+<p>We assemble the carbon frame, the CNC-cut crank and linkage, the gears, and the full mechanical integration that turns motor rotation into flapping. Flapping amplitude is fixed by this design to <strong>60 degrees</strong> <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> — 34° up and 26° down, as laid out in <a href="#fig-transmission-exploded" class="quarto-xref">Figure&nbsp;2</a>.</p>
 </section>
 <section id="before-you-arrive" class="level2">
 <h2 class="anchored" data-anchor-id="before-you-arrive">Before you arrive</h2>
@@ -612,7 +612,17 @@ Figure&nbsp;1: Main carbon frame
 </section>
 <section id="crank-and-linkage" class="level2">
 <h2 class="anchored" data-anchor-id="crank-and-linkage">Crank and linkage</h2>
-<p>Dimensions:</p>
+<div id="fig-transmission-exploded" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-transmission-exploded-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="../Fig/transmission-exploded.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure&nbsp;2: The transmission, exploded, with the length that matters and the material for each part. Follow it left to right: the gearbox output turns the crank, the crank drives the linkage, and the linkage swings the inter-wing gear. The 34° up and −26° down at the right are where the 60° flapping amplitude comes from — it is set here, by these lengths, and cannot be changed in software."><img src="../Fig/transmission-exploded.png" class="img-fluid figure-img" style="width:100.0%"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-transmission-exploded-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: The transmission, exploded, with the length that matters and the material for each part. Follow it left to right: the gearbox output turns the crank, the crank drives the linkage, and the linkage swings the inter-wing gear. The <strong>34°</strong> up and <strong>−26°</strong> down at the right are where the 60° flapping amplitude comes from — it is set here, by these lengths, and cannot be changed in software.
+</figcaption>
+</figure>
+</div>
+<p>The dimensions called out in <a href="#fig-transmission-exploded" class="quarto-xref">Figure&nbsp;2</a> are the ones you cut to:</p>
 <div id="tbl-crank" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-crank-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -685,7 +695,7 @@ Table&nbsp;1: Crank–linkage dimensions
 <p>An offset of <strong>1 mm</strong> is sufficient to destroy the crank-link in a few strokes.</p>
 </div>
 </div>
-<p><a href="#fig-shafts" class="quarto-xref">Figure&nbsp;2</a> shows how the four shafts for the FAAV3.2 should be manufactured. Nothing exotic, but they need to be accurate.</p>
+<p><a href="#fig-shafts" class="quarto-xref">Figure&nbsp;3</a> shows how the four shafts for the FAAV3.2 should be manufactured. Nothing exotic, but they need to be accurate.</p>
 <div id="fig-shafts" class="quarto-layout-panel">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-shafts-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -693,7 +703,7 @@ Table&nbsp;1: Crank–linkage dimensions
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../Fig/transmissiontopview.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Transmission, top view"><img src="../Fig/transmissiontopview.jpg" class="img-fluid figure-img"></a></p>
+<p><a href="../Fig/transmissiontopview.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Transmission, top view"><img src="../Fig/transmissiontopview.jpg" class="img-fluid figure-img"></a></p>
 <figcaption>Transmission, top view</figcaption>
 </figure>
 </div>
@@ -701,7 +711,7 @@ Table&nbsp;1: Crank–linkage dimensions
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../Fig/shafts.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Shaft dimensions"><img src="../Fig/shafts.jpg" class="img-fluid figure-img"></a></p>
+<p><a href="../Fig/shafts.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Shaft dimensions"><img src="../Fig/shafts.jpg" class="img-fluid figure-img"></a></p>
 <figcaption>Shaft dimensions</figcaption>
 </figure>
 </div>
@@ -709,7 +719,7 @@ Table&nbsp;1: Crank–linkage dimensions
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-shafts-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2
+Figure&nbsp;3
 </figcaption>
 </figure>
 </div>
@@ -720,7 +730,7 @@ Figure&nbsp;2
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../Fig/transmission.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Transmission assembled"><img src="../Fig/transmission.jpg" class="img-fluid figure-img" alt="Transmission assembled"></a></p>
+<p><a href="../Fig/transmission.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Transmission assembled"><img src="../Fig/transmission.jpg" class="img-fluid figure-img" alt="Transmission assembled"></a></p>
 <figcaption>Transmission assembled</figcaption>
 </figure>
 </div>
@@ -728,7 +738,7 @@ Figure&nbsp;2
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../Fig/transmission2.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Transmission, second view"><img src="../Fig/transmission2.jpg" class="img-fluid figure-img" alt="Transmission, second view"></a></p>
+<p><a href="../Fig/transmission2.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Transmission, second view"><img src="../Fig/transmission2.jpg" class="img-fluid figure-img" alt="Transmission, second view"></a></p>
 <figcaption>Transmission, second view</figcaption>
 </figure>
 </div>

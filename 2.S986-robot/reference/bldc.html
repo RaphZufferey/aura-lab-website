@@ -52,6 +52,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/bootstrap/bootstrap-3bc97f2477fb7965bce9454950d60e55.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/bootstrap/bootstrap-dark-dea204dea6f735ae4ecf1dae3d686bcc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <link href="../site_libs/bootstrap/bootstrap-3bc97f2477fb7965bce9454950d60e55.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -752,6 +755,16 @@ window.Quarto = {
 <section id="why-an-outrunner" class="level2">
 <h2 class="anchored" data-anchor-id="why-an-outrunner">Why an outrunner</h2>
 <p>Brushless motors come in two arrangements. An <strong>inrunner</strong> spins a magnet rotor inside a stationary stator, the familiar shape from a drill. An <strong>outrunner</strong> inverts it: the stator sits still in the middle and the magnets are carried on a bell that rotates around the outside. Ours is an outrunner — it is the bell you machine and press the shaft into in <a href="../sessions/02-motor.html">Module 2</a>.</p>
+<div id="fig-outrunner" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-outrunner-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="../Fig/motor.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1: An outrunner seen from the back. The copper windings are the stator and do not move; the dark magnet segments around the rim are carried on the rotating bell. Note how far out the magnets sit — that radius is the lever arm in Equation&nbsp;5, and it is the whole reason for this arrangement. Note also that the heat is generated in the middle, wrapped inside the part that spins."><img src="../Fig/motor.jpg" class="img-fluid figure-img" style="width:65.0%"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-outrunner-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: An outrunner seen from the back. The copper windings are the <strong>stator</strong> and do not move; the dark magnet segments around the rim are carried on the rotating bell. Note how far out the magnets sit — that radius is the lever arm in <a href="#eq-torque-radius" class="quarto-xref">Equation&nbsp;5</a>, and it is the whole reason for this arrangement. Note also that the heat is generated in the middle, wrapped inside the part that spins.
+</figcaption>
+</figure>
+</div>
 <p>The reason is torque. Torque is force times radius, and in an outrunner the magnets sit at the <em>largest</em> radius the motor’s diameter allows, rather than the smallest:</p>
 <p><span id="eq-torque-radius"><span class="math display">\[\tau = F \times r \tag{5}\]</span></span></p>
 <p>The same tangential force from the same windings acts on a longer lever arm. It also leaves room for more magnet poles around the circumference. Together these raise <span class="math inline">\(k_T\)</span> for a motor of the same mass, which by <a href="#eq-two-constants" class="quarto-xref">Equation&nbsp;1</a> means a <strong>lower KV</strong> — more torque per amp, less speed per volt.</p>
@@ -1805,6 +1818,38 @@ body.quarto-dark .viz {
 </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 

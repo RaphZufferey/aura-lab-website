@@ -628,6 +628,18 @@ Figure&nbsp;2: ESC running SimpleFOC and the angular sensor
 <ul>
 <li><strong>An STM32G431 microcontroller.</strong> A 170 MHz Cortex-M4 with hardware floating point. Motor control recomputes the field orientation every control loop. This MCU is the reason we can.</li>
 <li><strong>A three-phase inverter with current sensing.</strong> Six power MOSFETs drive the three motor phases, and shunt resistors on the low side report the current actually flowing in each. That measurement is what turns “spin the motor” into <strong>torque control</strong>. You cannot regulate a current you cannot see.</li>
+</ul>
+<div id="fig-g431-power" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-g431-power-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="../Fig/g431-power-stage.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure&nbsp;3: The power stage of the B-G431B-ESC1. The six MOSFETs are the large flat packages, arranged as three half-bridges — one per motor phase, each with a high-side and a low-side switch. The three copper tabs on the left are the U, V and W outputs you solder the motor to below, and the grey block behind is the heatsink."><img src="../Fig/g431-power-stage.jpg" class="img-fluid figure-img" style="width:75.0%"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-g431-power-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: The power stage of the B-G431B-ESC1. The six MOSFETs are the large flat packages, arranged as three half-bridges — one per motor phase, each with a high-side and a low-side switch. The three copper tabs on the left are the U, V and W outputs you solder the motor to below, and the grey block behind is the heatsink.
+</figcaption>
+</figure>
+</div>
+<ul>
 <li><strong>A detachable ST-Link programmer (the daughterboard).</strong> The small daughter board is how we program the MCU over USB, and it also carries a serial port back to your laptop. When snapped-off, the MCU cannot be reprogramed without physically resoldering it.</li>
 </ul>
 <p>It also brings out a hall/encoder connector (<strong>J8</strong>), a CAN transceiver and a potentiometer input, none of which we use as intended. In this build J8 gets repurposed for serial, and the encoder arrives on SPI instead. Both of those reworks are below. The board is rated well above what the wing motor draws, so current is not the constraint here.</p>
@@ -685,10 +697,10 @@ Table&nbsp;1: SPI3 connections on the G431. * Solder onto the outward side of th
 <div id="fig-g431-gpio" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-g431-gpio-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="../Fig/b431g.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure&nbsp;3: GPIOs of the G431B-ESC1 board"><img src="../Fig/b431g.jpg" class="img-fluid figure-img"></a>
+<a href="../Fig/b431g.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Figure&nbsp;4: GPIOs of the G431B-ESC1 board"><img src="../Fig/b431g.jpg" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-g431-gpio-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3: GPIOs of the G431B-ESC1 board
+Figure&nbsp;4: GPIOs of the G431B-ESC1 board
 </figcaption>
 </figure>
 </div>
