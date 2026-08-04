@@ -83,35 +83,6 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <meta name="robots" content="noindex, nofollow">
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="../styles.css">
 </head>
@@ -364,6 +335,10 @@ window.Quarto = {
  <span class="dropdown-text">Parts list</span></a>
   </li>  
         <li>
+    <a class="dropdown-item" href="../reference/bldc.html">
+ <span class="dropdown-text">Brushless motors</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="../reference/software.html">
  <span class="dropdown-text">Software</span></a>
   </li>  
@@ -515,6 +490,12 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../reference/bldc.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Brushless motors</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../reference/software.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Software</span></a>
   </div>
@@ -557,13 +538,17 @@ window.Quarto = {
   <ul>
   <li><a href="#what-you-build-today" id="toc-what-you-build-today" class="nav-link active" data-scroll-target="#what-you-build-today">What you build today</a></li>
   <li><a href="#before-you-arrive" id="toc-before-you-arrive" class="nav-link" data-scroll-target="#before-you-arrive">Before you arrive</a></li>
+  <li><a href="#reduction" id="toc-reduction" class="nav-link" data-scroll-target="#reduction">Reduction</a>
+  <ul class="collapse">
+  <li><a href="#installing-the-reduction" id="toc-installing-the-reduction" class="nav-link" data-scroll-target="#installing-the-reduction">Installing the reduction</a></li>
+  </ul></li>
+  <li><a href="#onboard-microcontroller" id="toc-onboard-microcontroller" class="nav-link" data-scroll-target="#onboard-microcontroller">Onboard microcontroller</a></li>
   <li><a href="#task-sequence" id="toc-task-sequence" class="nav-link" data-scroll-target="#task-sequence">Task sequence</a></li>
   <li><a href="#why-low-speed-is-the-hard-part" id="toc-why-low-speed-is-the-hard-part" class="nav-link" data-scroll-target="#why-low-speed-is-the-hard-part">Why low speed is the hard part</a></li>
   <li><a href="#going-beyond-600-rads" id="toc-going-beyond-600-rads" class="nav-link" data-scroll-target="#going-beyond-600-rads">Going beyond 600 rad/s</a>
   <ul class="collapse">
-  <li><a href="#sensor-speed" id="toc-sensor-speed" class="nav-link" data-scroll-target="#sensor-speed">Sensor speed</a></li>
-  <li><a href="#mcu-speed" id="toc-mcu-speed" class="nav-link" data-scroll-target="#mcu-speed">MCU speed</a></li>
   <li><a href="#sensor-lag" id="toc-sensor-lag" class="nav-link" data-scroll-target="#sensor-lag">Sensor lag</a></li>
+  <li><a href="#mcu-speed" id="toc-mcu-speed" class="nav-link" data-scroll-target="#mcu-speed">MCU speed</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -596,7 +581,7 @@ window.Quarto = {
 </div>
 <section id="what-you-build-today" class="level2">
 <h2 class="anchored" data-anchor-id="what-you-build-today">What you build today</h2>
-<p>The gearbox installed with a marker flag on the output, running continuously, then holding position, then tracking a velocity setpoint with a tuned loop.</p>
+<p>The gearbox installed with a marker flag on the output, the Seeeduino wired in and commanding the ESC untethered, running continuously, then holding position, then tracking a velocity setpoint with a tuned loop.</p>
 </section>
 <section id="before-you-arrive" class="level2">
 <h2 class="anchored" data-anchor-id="before-you-arrive">Before you arrive</h2>
@@ -604,25 +589,98 @@ window.Quarto = {
 <tbody>
 <tr class="odd">
 <td><strong>Parts</strong></td>
-<td>Assembled motor + gearbox from <a href="../sessions/02-motor.html">Module 2</a>, ESC from <a href="../sessions/03-esc.html">Module 3</a></td>
+<td>Motor with shaft and sun gear from <a href="../sessions/02-motor.html">Module 2</a>, Faulhaber 23.04:1 gearbox, M2.5×10 screws, 3D-printed plates, second vertical bracket, 3× M2.5 and 3× M2 screws, ESC from <a href="../sessions/03-esc.html">Module 3</a>, 4x8 mm flanged bearing, Seeeduino XIAO nRF52840, its 3D-printed bracket, 3 wires</td>
 </tr>
 <tr class="even">
 <td><strong>Tools</strong></td>
-<td>Bench supply with current limit, tachometer or camera</td>
+<td>Bench supply with current limit, tachometer or camera, soldering iron</td>
 </tr>
 <tr class="odd">
 <td><strong>Read</strong></td>
-<td>This page in full — the speed limits below explain most of what you will hit</td>
+<td>This page in full - the speed limits below explain most of what you will hit</td>
 </tr>
 </tbody>
 </table>
+</section>
+<section id="reduction" class="level2">
+<h2 class="anchored" data-anchor-id="reduction">Reduction</h2>
+<p>The motor is connected via a custom shaft to a gearbox with a <strong>23.04:1</strong> reduction by Faulhaber.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> Both parts are held in place by 3D-printed plates. The output shaft of the gearbox has its own bearing on the inside of the gearbox, and is also supported mid-way on the shaft by a 4×8 mm flanged bearing. This leaves <strong>5 mm of shaft length free</strong> for the crank to be mounted on. A flat on the shaft helps lock the rotation of the M3 screw extending through the crank.</p>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../Fig/shaft_motor.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Motor shaft"><img src="../Fig/shaft_motor.jpg" class="img-fluid figure-img" alt="Motor shaft"></a></p>
+<figcaption>Motor shaft</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../Fig/fhaber.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Faulhaber gearbox"><img src="../Fig/fhaber.jpg" class="img-fluid figure-img" alt="Faulhaber gearbox"></a></p>
+<figcaption>Faulhaber gearbox</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<section id="installing-the-reduction" class="level3">
+<h3 class="anchored" data-anchor-id="installing-the-reduction">Installing the reduction</h3>
+<p>Our sun gear is already pressed onto the motor shaft from <a href="../sessions/02-motor.html">Module 2</a>. What is left is mating the gearbox to the motor and fixing the pair to the plates.</p>
+<ol type="1">
+<li><p>Slide the gearbox onto the motor shaft so the sun gear engages the planets. It should seat with light hand pressure, if it resists, back off and check the sun gear is square on the shaft rather than forcing it.</p></li>
+<li><p>Fix the blue part of the gearbox: the custom screws that come with the gearbox on one side, and <strong>M2.5×10</strong> screws on the other.</p></li>
+<li><p>Check the output turns freely by hand through a full revolution before applying power.</p></li>
+<li><p>Close the gearbox: the <strong>silver part threads onto the blue part</strong>. Don’t tighten it.</p></li>
+<li><p>Attach the <strong>second vertical bracket</strong> to the silver part of the gearbox with <strong>3 × M2.5</strong> screws.</p></li>
+<li><p>Secure that bracket to the <strong>bottom fuselage plate</strong> with <strong>3 × M2</strong> screws. The motor bracket from <a href="../sessions/02-motor.html">Module 2</a> is already on the same plate, so between them the two brackets set the alignment of the whole drivetrain. Check the output still turns freely once both are bolted down.</p></li>
+</ol>
+</section>
+</section>
+<section id="onboard-microcontroller" class="level2">
+<h2 class="anchored" data-anchor-id="onboard-microcontroller">Onboard microcontroller</h2>
+<p>So far every command has come from your laptop over micro-USB. That works on the bench and nowhere else, a robot that has to move cannot stay tethered. The commander interface does not change; what changes is who talks to it. From here on the <strong>Seeeduino XIAO nRF52840</strong> rides on the robot and sends those same commands, and your laptop talks to the Seeeduino instead of to the ESC.</p>
+<ol type="1">
+<li><p>Solder the Seeeduino and the ESC’s <strong>Serial1</strong>: TX, RX and <strong>GND</strong> lines. In Serial communication, TX and RX are <strong>crossed</strong>, each board’s transmit line goes to the other’s receive line, as drawn in the <a href="../sessions/03-esc.html#fig-wiring">wiring diagram</a> in Module 3. GND is not optional: without a shared reference the two boards have no agreed voltage for what counts as a high or low bit. To do this step, you will need to desolder the existing Serial1 TX RX lines to the daughterboard.</p></li>
+<li><p>Install the Seeeduino in its 3D-printed bracket and into the robot.</p></li>
+<li><p>Load the barebone Arduino sketch onto the Seeeduino — see <a href="../reference/software.html">Software</a> for the repository.</p></li>
+<li><p>Modify the sketch to spin the motor at <strong>100 rad/s</strong> and confirm it on the flag you mounted on the gearbox output.</p></li>
+</ol>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>You lose the micro-USB serial link
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Serial1 now goes to the Seeeduino rather than to the daughterboard, so the serial console you used in <a href="../sessions/03-esc.html">Module 3</a> stops working. Flashing the ESC still works — programming runs over SWD, on different pins — but every command and every value you read back now has to pass through the Seeeduino.</p>
+<p>Plan for it: anything you still want to inspect over micro-USB, inspect <strong>before</strong> you solder these three wires.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>To be completed by the instructor
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Which repository holds the barebone Seeeduino sketch, and on which branch. The nRF52 repositories currently in <a href="../reference/software.html">Software</a> are marked outdated, so students following this page have nothing to clone.</p>
+</div>
+</div>
 </section>
 <section id="task-sequence" class="level2">
 <h2 class="anchored" data-anchor-id="task-sequence">Task sequence</h2>
 <ol type="1">
 <li>Mount a small flag on the gearbox output so rotation is visible and countable.</li>
 <li>Achieve continuous spinning at low speed.</li>
-<li>Achieve position control — the output holds against a hand disturbance.</li>
+<li>Achieve position control - the output holds against a hand disturbance.</li>
 <li>Tune the loop and characterise your maximum usable speed.</li>
 </ol>
 <div class="callout callout-style-default callout-important callout-titled">
@@ -645,14 +703,23 @@ window.Quarto = {
 </section>
 <section id="going-beyond-600-rads" class="level2">
 <h2 class="anchored" data-anchor-id="going-beyond-600-rads">Going beyond 600 rad/s</h2>
-<p>Two issues limit speed: the micro-controller loop rate, and delays from the rotation sensor, which also feed back into the first. The changes below improved maximum speed from <strong>500 to 1700 rad/s</strong>, enough to drive the wings at 10 Hz. At very high speeds sensor lag becomes the binding constraint, and shows up as high current draw and noise.</p>
-<section id="sensor-speed" class="level3">
-<h3 class="anchored" data-anchor-id="sensor-speed">Sensor speed</h3>
-<ul>
-<li>Switch to an <strong>SPI sensor</strong>. SPI is faster than I²C or PWM. There is no SPI link directly exposed on the board — the solution is the SPI3 bus, wired as in <a href="../sessions/03-esc.html#tbl-spi3">Module 3</a>.</li>
-<li>Increase SPI bus speed to <strong>10 MHz</strong>.</li>
-<li>Use the <strong>AS5047P</strong> sensor, rated for speeds up to 28 kRPM.</li>
-</ul>
+<p>Two issues limit speed: the micro-controller loop rate, and delays from the rotation sensor. Using SPI at 10 MHz and an AS5047P sensor rated for 28kRPM speeds are the required hardware changes that improves on delay. But at very high speeds, sensor lag still becomes the binding constraint, and shows up as high current draw and noise. We need to update the sensor electrical angle offset as a function of speed.</p>
+<section id="sensor-lag" class="level3">
+<h3 class="anchored" data-anchor-id="sensor-lag">Sensor lag</h3>
+<p>Compensating sensor lag as speed increases is necessary to go above 600 rad/s without wasting current. It is currently hand-tuned every 100 rad/s, and a fitted function is used on the robot. This could be automated by ramping through the speeds and minimising phase current — future work. This <a href="https://community.simplefoc.com/t/challenges-going-faster-than-certain-rpm/1688/39">SimpleFOC forum thread</a> is useful on the topic.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Checkpoint
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Continuous rotation resulting in frequencies of 1 Hz all the way to 8 Hz without loss of synchronisation, position hold against a hand disturbance, and a recorded loop frequency from <code>F</code>. Do not exceed 8 Hz.</p>
+</div>
+</div>
 </section>
 <section id="mcu-speed" class="level3">
 <h3 class="anchored" data-anchor-id="mcu-speed">MCU speed</h3>
@@ -687,62 +754,18 @@ window.Quarto = {
 </tr>
 </tbody>
 </table>
-</section>
-<section id="sensor-lag" class="level3">
-<h3 class="anchored" data-anchor-id="sensor-lag">Sensor lag</h3>
-<p>Compensating sensor lag as speed increases is necessary to go above 500–600 rad/s without wasting current. It is currently hand-tuned every 100 rad/s, and a fitted function is used on the robot. This could be automated by ramping through the speeds and minimising phase current — future work. This <a href="https://community.simplefoc.com/t/challenges-going-faster-than-certain-rpm/1688/39">SimpleFOC forum thread</a> is useful on the topic.</p>
-<div id="fig-sensor-offset" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-sensor-offset-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="../Fig/sensoroffset.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1: Optimal sensor offset against speed, for two sensors"><img src="../Fig/sensoroffset.jpg" class="img-fluid figure-img"></a>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-sensor-offset-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: Optimal sensor offset against speed, for two sensors
-</figcaption>
-</figure>
-</div>
-<div id="fig-esc-current" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-esc-current-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="../Fig/sensor_current_draw.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure&nbsp;2: Current draw with two different sensors, after compensation"><img src="../Fig/sensor_current_draw.jpg" class="img-fluid figure-img"></a>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-esc-current-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2: Current draw with two different sensors, after compensation
-</figcaption>
-</figure>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Averaging current measurements
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>When using the ESC’s current measurements (<span class="math inline">\(I_{DC}\)</span>, <span class="math inline">\(I_d\)</span>, <span class="math inline">\(I_q\)</span>, <span class="math inline">\(I_u\)</span>, <span class="math inline">\(I_v\)</span>, <span class="math inline">\(I_w\)</span>), always average over a time window — the raw measurements are noisy.</p>
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Checkpoint — TA sign-off
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Continuous low-speed rotation without loss of synchronisation, position hold against a hand disturbance, and a recorded loop frequency from <code>F</code>.</p>
-</div>
-</div>
 
 
 </section>
 </section>
 
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p><a href="https://www.faulhaber.com/fileadmin/Import/Media/DE_GEARHEADS_REDUCTION_RATIOS.pdf">Faulhaber gearhead reduction ratios</a> (accessed 20.02.2024).<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right

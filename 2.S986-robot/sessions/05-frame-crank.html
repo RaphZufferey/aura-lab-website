@@ -335,6 +335,10 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">Parts list</span></a>
   </li>  
         <li>
+    <a class="dropdown-item" href="../reference/bldc.html">
+ <span class="dropdown-text">Brushless motors</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="../reference/software.html">
  <span class="dropdown-text">Software</span></a>
   </li>  
@@ -486,6 +490,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../reference/bldc.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Brushless motors</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../reference/software.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Software</span></a>
   </div>
@@ -530,7 +540,6 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#before-you-arrive" id="toc-before-you-arrive" class="nav-link" data-scroll-target="#before-you-arrive">Before you arrive</a></li>
   <li><a href="#main-body" id="toc-main-body" class="nav-link" data-scroll-target="#main-body">Main body</a></li>
   <li><a href="#crank-and-linkage" id="toc-crank-and-linkage" class="nav-link" data-scroll-target="#crank-and-linkage">Crank and linkage</a></li>
-  <li><a href="#gears" id="toc-gears" class="nav-link" data-scroll-target="#gears">Gears</a></li>
   </ul>
 </nav>
     </div>
@@ -562,30 +571,34 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <section id="what-you-build-today" class="level2">
 <h2 class="anchored" data-anchor-id="what-you-build-today">What you build today</h2>
-<p>The carbon frame, the CNC-cut crank and linkage, the PEEK gears, and the full mechanical integration that turns motor rotation into flapping. Flapping amplitude is fixed by this design.</p>
+<p>We assemble the carbon frame, the CNC-cut crank and linkage, the gears, and the full mechanical integration that turns motor rotation into flapping. Flapping amplitude is fixed by this design to <strong>60 degrees</strong> <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
 </section>
 <section id="before-you-arrive" class="level2">
 <h2 class="anchored" data-anchor-id="before-you-arrive">Before you arrive</h2>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
 <tbody>
 <tr class="odd">
 <td><strong>Parts</strong></td>
-<td>1.5 mm woven carbon plate, 5 mm aluminium plate, 5 mm PEEK plate, bearings, M2×4 screws, brass inserts</td>
+<td>5 mm aluminium link and crank, 2 gears, bearings, M2×4 screws</td>
 </tr>
 <tr class="even">
 <td><strong>Tools</strong></td>
-<td>CNC (booked), drill press, M3 tap, cutting oil, metal glue</td>
+<td>drill press, metal glue</td>
 </tr>
 <tr class="odd">
 <td><strong>Read</strong></td>
-<td>This page, plus the <a href="../reference/cnc.html">CNC guide</a> if you have not run the Stepcraft before</td>
+<td>This page</td>
 </tr>
 </tbody>
 </table>
 </section>
 <section id="main-body" class="level2">
 <h2 class="anchored" data-anchor-id="main-body">Main body</h2>
-<p>The main body is a carbon sandwich, spaced <strong>24 mm</strong> apart. The plates are CNC-cut from woven 1.5 mm plates, available from <a href="https://shop.swiss-composite.ch/pi.php/Halbfabrikate/Plattenmaterial/CFK-Prepreg-Platten/Carbon-Prepreg-Platten-15mm.html">swiss-composites</a>; thickness usually varies from 1.5 to 1.6 mm. The top and bottom plates are identical, except for the chamfers needed for the M2 screws. The screws holding plate to plate are <strong>M2×4</strong>, screwing into brass inserts.</p>
+<p>The main body is a carbon sandwich, spaced <strong>24 mm</strong> apart. The plates are CNC-cut from woven 1.5 mm plates. The top and bottom plates are identical, except for the chamfers needed for the M2 screws. The screws holding plate to plate are <strong>M2×4</strong>, screwing into brass inserts.</p>
 <div id="fig-frame" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-frame-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -596,34 +609,10 @@ Figure&nbsp;1: Main carbon frame
 </figcaption>
 </figure>
 </div>
-<p>Fusion360 generates cutpaths from the parts in the <em>manufacture</em> tab and allows for <em>manufacturing models</em>, where parts can be recombined, realigned and even modified. Here, chamfers were added in the manufacturing model. Operations go: <strong>holes first, then chamfers, then pockets, and finally the outline.</strong></p>
-<div id="fig-manufacturing" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-manufacturing-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="../Fig/manufacturing2.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure&nbsp;2: Manufacturing model"><img src="../Fig/manufacturing2.jpg" class="img-fluid figure-img"></a>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-manufacturing-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2: Manufacturing model
-</figcaption>
-</figure>
-</div>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Warning</span>Check your zero before you cut
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Make sure the machine’s 0 is at the right location in your file, and check the orientation of the axes. Full CNC guide for the Stepcraft D660 is in the <a href="../reference/cnc.html">CNC reference</a>.</p>
-</div>
-</div>
 </section>
 <section id="crank-and-linkage" class="level2">
 <h2 class="anchored" data-anchor-id="crank-and-linkage">Crank and linkage</h2>
-<p>Dimensions differ between robot generations — check which one you are building:</p>
+<p>Dimensions:</p>
 <div id="tbl-crank" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-crank-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -634,39 +623,28 @@ Table&nbsp;1: Crank–linkage dimensions
 <thead>
 <tr class="header">
 <th></th>
-<th>FAAV3.2</th>
-<th>FAAV4</th>
+<th>Crank-linkage dimensions</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Date</td>
-<td>2023</td>
-<td>July 2024</td>
-</tr>
-<tr class="even">
 <td>Crank radius</td>
-<td>4 mm</td>
 <td>4.5 mm</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Linkage length</td>
-<td>23 mm</td>
 <td>24 mm</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Crank–linkage shaft diameter</td>
-<td>3 mm</td>
 <td>4 mm</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Bearing, crank side</td>
-<td>10×3×4</td>
 <td>10×4×4</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Bearing, wing side</td>
-<td>8×3×4</td>
 <td>8×3×4 flanged</td>
 </tr>
 </tbody>
@@ -674,10 +652,9 @@ Table&nbsp;1: Crank–linkage dimensions
 </div>
 </figure>
 </div>
-<p>Both the crank and linkage are CNC-cut in a 5 mm aluminium plate. The linkage is only 4 mm thick, cut down from 5 mm with a facing operation on the CNC. Use a <strong>2 mm endmill</strong>. Flooding the part keeps the temperature down and gives good results.</p>
+<p>Both the crank and linkage are CNC-cut in a 5 mm aluminium plate.</p>
 <p>Once cut:</p>
 <ol type="1">
-<li><p>Manually drill a <strong>2.5 mm</strong> bore hole into the crank, perpendicular to its 4 mm hole and to the flat raised surface. Drill through the part all the way to the 4 mm hole.</p></li>
 <li><p>Carefully tap an <strong>M3</strong> thread. Use cutting oil and make sure to break off the chips.</p>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -693,7 +670,7 @@ Table&nbsp;1: Crank–linkage dimensions
 </div>
 </div></li>
 <li><p>Press the bearings into the linkage. They may need to be bonded with metal glue if the press fit is not good enough.</p></li>
-<li><p>Join the crank and linkage with a short 3 or 4 mm shaft, cut to <strong>9.5 mm</strong>. The bearing is kept from coming out with a pointy indent on the shaft end. <em>(To be improved.)</em></p></li>
+<li><p>Join the crank and linkage with a short 4 mm shaft, cut to <strong>9.5 mm</strong>. The bearing is kept from coming out with a pointy indent on the shaft end. <em>(To be improved.)</em></p></li>
 </ol>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -705,10 +682,10 @@ Table&nbsp;1: Crank–linkage dimensions
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>An offset of <strong>1 mm</strong> is sufficient to destroy the crank-link in a few flights. To ensure forces are not applied radially, use circular offsets (not shown in the schematics) that fit around the shafts and support proper alignment of the linkage and shafts.</p>
+<p>An offset of <strong>1 mm</strong> is sufficient to destroy the crank-link in a few strokes.</p>
 </div>
 </div>
-<p><a href="#fig-shafts" class="quarto-xref">Figure&nbsp;3</a> shows how the four shafts for the FAAV3.2 should be manufactured. Nothing exotic, but they need to be accurate.</p>
+<p><a href="#fig-shafts" class="quarto-xref">Figure&nbsp;2</a> shows how the four shafts for the FAAV3.2 should be manufactured. Nothing exotic, but they need to be accurate.</p>
 <div id="fig-shafts" class="quarto-layout-panel">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-shafts-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -716,7 +693,7 @@ Table&nbsp;1: Crank–linkage dimensions
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../Fig/transmissiontopview.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Transmission, top view"><img src="../Fig/transmissiontopview.jpg" class="img-fluid figure-img"></a></p>
+<p><a href="../Fig/transmissiontopview.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Transmission, top view"><img src="../Fig/transmissiontopview.jpg" class="img-fluid figure-img"></a></p>
 <figcaption>Transmission, top view</figcaption>
 </figure>
 </div>
@@ -724,44 +701,26 @@ Table&nbsp;1: Crank–linkage dimensions
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../Fig/shafts.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Shaft dimensions"><img src="../Fig/shafts.jpg" class="img-fluid figure-img"></a></p>
+<p><a href="../Fig/shafts.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Shaft dimensions"><img src="../Fig/shafts.jpg" class="img-fluid figure-img"></a></p>
 <figcaption>Shaft dimensions</figcaption>
 </figure>
 </div>
 </div>
 </div>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-shafts-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3: Shafts
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-shafts-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2
 </figcaption>
 </figure>
 </div>
-</section>
-<section id="gears" class="level2">
-<h2 class="anchored" data-anchor-id="gears">Gears</h2>
-<p>Cut in <strong>5 mm PEEK</strong> plastic — a high-performance plastic suited to hard environments and high temperatures. The 5 mm plate comes from RS Components. Cutting underwater again gives good results. Keep the advance speed low enough to cut the teeth cleanly.</p>
-<p>The primary gear consists of <strong>2 parts</strong>, stacked and screwed together. The 3 mm holes where the carbon is fixed need to be <strong>tapped</strong> with a sharp M3 tap.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Keep the tap normal to the surface
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Best done in the drill press, which keeps the tap aligned.</p>
-</div>
-</div>
-<p>The 3 mm shaft is pressed through the two gears’ centre holes — a mildly tight fit at minimum, otherwise glue the shaft. Same for the linkage shaft (also 3 mm), which should be bonded as well as possible; this one matters more, so use glue in all cases.</p>
+<p>The 3 mm shafts are pressed through the two gears’ centre holes. Should be a mildly tight fit at minimum, otherwise glue the shaft. Same for the linkage shaft (also 3 mm).</p>
 <p>Between the gears, a clearance of <strong>0.4 mm</strong> (inter-axis spacing of 25.4 mm) ensures proper operation without too much backlash.</p>
 <div class="quarto-layout-panel" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../Fig/transmission.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Transmission assembled"><img src="../Fig/transmission.jpg" class="img-fluid figure-img" alt="Transmission assembled"></a></p>
+<p><a href="../Fig/transmission.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Transmission assembled"><img src="../Fig/transmission.jpg" class="img-fluid figure-img" alt="Transmission assembled"></a></p>
 <figcaption>Transmission assembled</figcaption>
 </figure>
 </div>
@@ -769,7 +728,7 @@ Figure&nbsp;3: Shafts
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../Fig/transmission2.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Transmission, second view"><img src="../Fig/transmission2.jpg" class="img-fluid figure-img" alt="Transmission, second view"></a></p>
+<p><a href="../Fig/transmission2.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Transmission, second view"><img src="../Fig/transmission2.jpg" class="img-fluid figure-img" alt="Transmission, second view"></a></p>
 <figcaption>Transmission, second view</figcaption>
 </figure>
 </div>
@@ -782,18 +741,24 @@ Figure&nbsp;3: Shafts
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Checkpoint — TA sign-off
+<span class="screen-reader-only">Note</span>Checkpoint
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Frame assembled, crank–linkage rotating freely through a full cycle with no binding, linkage visibly perpendicular to the shafts, and gear backlash checked.</p>
+<p>Frame assembled, crank–linkage rotating freely through a full cycle with no binding, linkage visibly perpendicular to the shafts, and gear backlash checked. Flapping shown at 1-5 Hz.</p>
 </div>
 </div>
 
 
 </section>
 
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Lapsansky AB, Zatz D, Tobalske BW (2020). <a href="https://doi.org/10.7554/eLife.55774">Alcids ‘fly’ at efficient Strouhal numbers in both air and water but vary stroke velocity and angle</a>. <em>eLife</em> <strong>9</strong>:e55774.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right

@@ -52,9 +52,6 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/bootstrap/bootstrap-3bc97f2477fb7965bce9454950d60e55.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/bootstrap/bootstrap-dark-dea204dea6f735ae4ecf1dae3d686bcc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <link href="../site_libs/bootstrap/bootstrap-3bc97f2477fb7965bce9454950d60e55.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
-<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
-<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
-<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -335,6 +332,10 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">Parts list</span></a>
   </li>  
         <li>
+    <a class="dropdown-item" href="../reference/bldc.html">
+ <span class="dropdown-text">Brushless motors</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="../reference/software.html">
  <span class="dropdown-text">Software</span></a>
   </li>  
@@ -486,6 +487,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../reference/bldc.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Brushless motors</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../reference/software.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Software</span></a>
   </div>
@@ -527,15 +534,8 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#why-an-foc-esc" id="toc-why-an-foc-esc" class="nav-link active" data-scroll-target="#why-an-foc-esc">Why an FOC ESC</a></li>
-  <li><a href="#speed-ceiling-and-sensor-lag" id="toc-speed-ceiling-and-sensor-lag" class="nav-link" data-scroll-target="#speed-ceiling-and-sensor-lag">Speed ceiling and sensor lag</a>
-  <ul class="collapse">
-  <li><a href="#open-question" id="toc-open-question" class="nav-link" data-scroll-target="#open-question">Open question</a></li>
-  </ul></li>
-  <li><a href="#gearbox-corrosion" id="toc-gearbox-corrosion" class="nav-link" data-scroll-target="#gearbox-corrosion">Gearbox corrosion</a>
-  <ul class="collapse">
-  <li><a href="#which-parts-actually-rust" id="toc-which-parts-actually-rust" class="nav-link" data-scroll-target="#which-parts-actually-rust">Which parts actually rust</a></li>
-  <li><a href="#resolution" id="toc-resolution" class="nav-link" data-scroll-target="#resolution">Resolution</a></li>
-  </ul></li>
+  <li><a href="#speed-ceiling-and-sensor-lag" id="toc-speed-ceiling-and-sensor-lag" class="nav-link" data-scroll-target="#speed-ceiling-and-sensor-lag">Speed ceiling and sensor lag</a></li>
+  <li><a href="#gearbox-corrosion" id="toc-gearbox-corrosion" class="nav-link" data-scroll-target="#gearbox-corrosion">Gearbox corrosion</a></li>
   <li><a href="#housing-material-tradeoff" id="toc-housing-material-tradeoff" class="nav-link" data-scroll-target="#housing-material-tradeoff">Housing material tradeoff</a></li>
   </ul>
 </nav>
@@ -577,82 +577,11 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="speed-ceiling-and-sensor-lag">Speed ceiling and sensor lag</h2>
 <p>Maximum speed went from <strong>500 to 1700 rad/s</strong>, enough to drive the wings at 10 Hz, through a combination of sensor and MCU changes documented in <a href="../sessions/04-control.html">Module 4</a>. The remaining constraint is sensor lag: above 500–600 rad/s, uncompensated lag shows up as high current draw and noise rather than as a hard speed limit.</p>
 <p>Compensation is currently hand-tuned every 100 rad/s with a fitted function used on the robot. Automating this — ramping through the speeds while minimising phase current — is open work.</p>
-<section id="open-question" class="level3">
-<h3 class="anchored" data-anchor-id="open-question">Open question</h3>
-<p>Could <code>TorqueControlType::foc_current</code> give better control? The robot currently uses voltage mode, bypassing the current sensors.</p>
-</section>
 </section>
 <section id="gearbox-corrosion" class="level2">
 <h2 class="anchored" data-anchor-id="gearbox-corrosion">Gearbox corrosion</h2>
 <p>By default the gearbox on the FAAV4 is not waterproof at all, and it is normal for it to fill completely with water once submerged. This was considered acceptable: over more than a year of repeated use in water, including in Lake Geneva, a gearbox was opened and showed no sign of corrosion.</p>
-<p>Then a newer robot, built to experiment with transitions, showed severe corrosion after only <strong>3–4 uses</strong>.</p>
-<div class="quarto-layout-panel" data-layout-ncol="2">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="../Fig/gearbox_rust1.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Gearbox after a few dives with motor oil lubrication"><img src="../Fig/gearbox_rust1.jpg" class="img-fluid figure-img" alt="Gearbox after a few dives with motor oil lubrication"></a></p>
-<figcaption>Gearbox after a few dives with motor oil lubrication</figcaption>
-</figure>
-</div>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="../Fig/gearbox_rust2.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Sun gear from the same gearbox"><img src="../Fig/gearbox_rust2.jpg" class="img-fluid figure-img" alt="Sun gear from the same gearbox"></a></p>
-<figcaption>Sun gear from the same gearbox</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</div>
-<p>The cause is believed to be a combination of improper lubrication after a cleaning event, and the absence of the shaft bearing, which allowed more water in through the front of the gearbox. When an old gearbox was cleaned for installation in the new robot, no proper lubricant was available, so motor oil was used. Its low viscosity is believed to have washed it away quickly, leaving the gears dry and starting corrosion.</p>
-<section id="which-parts-actually-rust" class="level3">
-<h3 class="anchored" data-anchor-id="which-parts-actually-rust">Which parts actually rust</h3>
-<p>Each individual part was left in water for 12 hours.</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Rusts</th>
-<th>Does not rust</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Sun gear, planet gears, ring gear, planet shafts</td>
-<td>Screws, motor shaft, washers, body, circlip</td>
-</tr>
-</tbody>
-</table>
-<div class="quarto-layout-panel" data-layout-ncol="2">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="../Fig/rust_test1.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="After 12 hours in water"><img src="../Fig/rust_test1.jpg" class="img-fluid figure-img" alt="After 12 hours in water"></a></p>
-<figcaption>After 12 hours in water</figcaption>
-</figure>
-</div>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="../Fig/rust_test2.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Shafts, sun gear and planet gears show rust"><img src="../Fig/rust_test2.jpg" class="img-fluid figure-img" alt="Shafts, sun gear and planet gears show rust"></a></p>
-<figcaption>Shafts, sun gear and planet gears show rust</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="resolution" class="level3">
-<h3 class="anchored" data-anchor-id="resolution">Resolution</h3>
-<p>A few simple optional modifications to the structure and assembly process keep most of the water out. Combined with proper lubrication — a mix of <strong>CorrosionX and white lithium grease</strong> — this appears to have solved the issue. Several dives have since been performed with the same gearbox that had previously corroded, and it now runs smoothly. The practical procedure is in <a href="../sessions/10-waterproofing.html">Module 10</a>.</p>
-</section>
+<p>Proper lubrication — a mix of <strong>CorrosionX and white lithium grease</strong> - help with corrosion problems. The practical procedure is in <a href="../sessions/10-waterproofing.html">Module 10</a>.</p>
 </section>
 <section id="housing-material-tradeoff" class="level2">
 <h2 class="anchored" data-anchor-id="housing-material-tradeoff">Housing material tradeoff</h2>
@@ -1136,38 +1065,6 @@ ul.task-list li input[type="checkbox"] {
 </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
-(function() {
-  let previousOnload = window.onload;
-  window.onload = () => {
-    if (previousOnload) {
-      previousOnload();
-    }
-    lightboxQuarto.on('slide_before_load', (data) => {
-      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-      const href = trigger.getAttribute('href');
-      if (href !== null) {
-        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
-        if (imgEl !== null) {
-          const srcAttr = imgEl.getAttribute("src");
-          if (srcAttr && srcAttr.startsWith("data:")) {
-            slideConfig.href = srcAttr;
-          }
-        }
-      } 
-    });
-  
-    lightboxQuarto.on('slide_after_load', (data) => {
-      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(slideNode);
-      }
-    });
-  
-  };
-  
-})();
-          </script>
 
 
 

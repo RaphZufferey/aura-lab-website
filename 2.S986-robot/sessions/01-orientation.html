@@ -335,6 +335,10 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">Parts list</span></a>
   </li>  
         <li>
+    <a class="dropdown-item" href="../reference/bldc.html">
+ <span class="dropdown-text">Brushless motors</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="../reference/software.html">
  <span class="dropdown-text">Software</span></a>
   </li>  
@@ -486,6 +490,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../reference/bldc.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Brushless motors</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../reference/software.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Software</span></a>
   </div>
@@ -526,10 +536,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#what-you-do-today" id="toc-what-you-do-today" class="nav-link active" data-scroll-target="#what-you-do-today">What you do today</a></li>
-  <li><a href="#the-robot" id="toc-the-robot" class="nav-link" data-scroll-target="#the-robot">The robot</a></li>
+  <li><a href="#the-robot" id="toc-the-robot" class="nav-link active" data-scroll-target="#the-robot">The robot</a></li>
   <li><a href="#electronic-architecture" id="toc-electronic-architecture" class="nav-link" data-scroll-target="#electronic-architecture">Electronic architecture</a></li>
-  <li><a href="#before-you-leave-today" id="toc-before-you-leave-today" class="nav-link" data-scroll-target="#before-you-leave-today">Before you leave today</a></li>
   </ul>
 </nav>
     </div>
@@ -559,10 +567,6 @@ ul.task-list li input[type="checkbox"] {
 <div class="session-meta">
 <p><strong>Week of Sep 9</strong> · Paired lecture: <em>Intro to robotic locomotion</em> · Teams formed today</p>
 </div>
-<section id="what-you-do-today" class="level2">
-<h2 class="anchored" data-anchor-id="what-you-do-today">What you do today</h2>
-<p>Form teams, complete shop training, meet the robot you are going to build, and collect your parts kit.</p>
-</section>
 <section id="the-robot" class="level2">
 <h2 class="anchored" data-anchor-id="the-robot">The robot</h2>
 <div id="fig-faav-overview" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -585,16 +589,7 @@ Figure&nbsp;1: The FAAV3.2
 </section>
 <section id="electronic-architecture" class="level2">
 <h2 class="anchored" data-anchor-id="electronic-architecture">Electronic architecture</h2>
-<p>One 4S battery (max 16.8 V) connects to a custom PCB that steps VBAT down to 5 V to power the flight controller. The flight controller generates a 3v3 rail for the sensors on the PCB. Battery power passes through a shunt for current sensing on the custom PCB, then back out to power the ESC. The flight controller sends commands to the ESC over serial.</p>
-</section>
-<section id="before-you-leave-today" class="level2">
-<h2 class="anchored" data-anchor-id="before-you-leave-today">Before you leave today</h2>
-<ul class="task-list">
-<li><label><input type="checkbox">Team formed and registered</label></li>
-<li><label><input type="checkbox">Shop training complete</label></li>
-<li><label><input type="checkbox">Parts kit collected against the <a href="../reference/parts-list.html">parts list</a></label></li>
-<li><label><input type="checkbox">Access to the lab GitHub organisation confirmed</label></li>
-</ul>
+<p>One 4S battery (max 16.8 V) powers the motor electronic speed controller (ESC). The motor controller generates a 3.3V rail for the encoder and a 5V rail for the flight controller. The flight controller sends commands to the ESC over serial.</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -618,7 +613,7 @@ Figure&nbsp;1: The FAAV3.2
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Team registered, kit checked against the parts list, and every member has completed shop training.</p>
+<p>Kit checked against the parts list, and every member has completed shop training.</p>
 </div>
 </div>
 

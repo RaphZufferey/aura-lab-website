@@ -335,6 +335,10 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">Parts list</span></a>
   </li>  
         <li>
+    <a class="dropdown-item" href="../reference/bldc.html">
+ <span class="dropdown-text">Brushless motors</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="../reference/software.html">
  <span class="dropdown-text">Software</span></a>
   </li>  
@@ -486,6 +490,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../reference/bldc.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Brushless motors</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../reference/software.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Software</span></a>
   </div>
@@ -529,8 +539,8 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#what-you-build-today" id="toc-what-you-build-today" class="nav-link active" data-scroll-target="#what-you-build-today">What you build today</a></li>
   <li><a href="#before-you-arrive" id="toc-before-you-arrive" class="nav-link" data-scroll-target="#before-you-arrive">Before you arrive</a></li>
   <li><a href="#wing-roots" id="toc-wing-roots" class="nav-link" data-scroll-target="#wing-roots">Wing roots</a></li>
-  <li><a href="#laying-out-and-cutting-the-membrane" id="toc-laying-out-and-cutting-the-membrane" class="nav-link" data-scroll-target="#laying-out-and-cutting-the-membrane">Laying out and cutting the membrane</a></li>
-  <li><a href="#completed-wings" id="toc-completed-wings" class="nav-link" data-scroll-target="#completed-wings">Completed wings</a></li>
+  <li><a href="#building-the-wing" id="toc-building-the-wing" class="nav-link" data-scroll-target="#building-the-wing">Building the wing</a></li>
+  <li><a href="#assembly" id="toc-assembly" class="nav-link" data-scroll-target="#assembly">Assembly</a></li>
   </ul>
 </nav>
     </div>
@@ -574,11 +584,11 @@ ul.task-list li input[type="checkbox"] {
 <tbody>
 <tr class="odd">
 <td><strong>Parts</strong></td>
-<td>Carbon rods and strips, wing-root fittings, membrane material, glue</td>
+<td>Carbon rods and strips, wing roots, 2× nylon adapters per wing, ripstop nylon membrane, 3M tape, superglue, thread</td>
 </tr>
 <tr class="even">
 <td><strong>Tools</strong></td>
-<td>Cutting mat, steel rule, scalpel, printed full-size template of your geometry</td>
+<td>Cutting mat, steel rule, scalpel, needle, printed full-size template of your geometry</td>
 </tr>
 <tr class="odd">
 <td><strong>Bring</strong></td>
@@ -589,7 +599,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="wing-roots" class="level2">
 <h2 class="anchored" data-anchor-id="wing-roots">Wing roots</h2>
-<p>The wing roots are carbon, drilled to mate with the linkage bearings from <a href="../sessions/05-frame-crank.html">Module 5</a>.</p>
+<p>The wing roots are carbon, drilled to mate with the gears from <a href="../sessions/05-frame-crank.html">Module 5</a>.</p>
 <div id="fig-wing-roots" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-wing-roots-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -601,32 +611,38 @@ Figure&nbsp;1: Wing root parts and spar stock
 </figure>
 </div>
 </section>
-<section id="laying-out-and-cutting-the-membrane" class="level2">
-<h2 class="anchored" data-anchor-id="laying-out-and-cutting-the-membrane">Laying out and cutting the membrane</h2>
-<p>Work over the full-size printed template, taping the spars in position before cutting the membrane to the outline.</p>
+<section id="building-the-wing" class="level2">
+<h2 class="anchored" data-anchor-id="building-the-wing">Building the wing</h2>
+<p>The whole wing is built <strong>over the printed pattern</strong>, working from the leading edge outwards. Everything is cut oversize and trimmed to the outline at the very end — margin is easy to remove and impossible to add back.</p>
+<ol type="1">
+<li><p><strong>Decide on the shape</strong> and print the pattern on paper. Print it <strong>1:1</strong> — check the scale before you cut anything, by measuring a known dimension on the printout against a rule. Printer drivers scale to fit by default, and a pattern that came out at 97% quietly discards the geometry you chose in <a href="../sessions/06-simulation.html">Module 6</a>.</p></li>
+<li><p><strong>Cut two membranes</strong> with a <strong>3 cm margin</strong> all round the pattern. Use the ripstop nylon listed in <a href="../reference/parts-list.html">Parts</a>.</p></li>
+<li><p><strong>Bond the leading edge.</strong> Lay a strip of <strong>3M tape</strong> along the leading-edge region of the membrane, press the leading-edge rod down onto the tape, and wrap the membrane around the rod. This joint carries the highest load of any on the wing — everything downstream pulls against it.</p></li>
+<li><p><strong>Lay out the carbon strips.</strong> Cut each to approximate length <strong>plus 3 cm</strong>, position them on the membrane over the pattern, and bond them with <strong>superglue</strong>.</p></li>
+<li><p><strong>Stitch the strips down</strong>, at minimum at every <strong>intersection point</strong> and at the <strong>extremities</strong>. Superglue alone will peel off the membrane under repeated flapping; the stitches are what keep the skeleton attached once the glue starts to fail.</p></li>
+<li><p><strong>Trim the excess</strong> beyond the outline with a blade, cutting on the mat.</p></li>
+</ol>
 <div class="quarto-layout-panel" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../Fig/Wings_glue.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Spars taped over the template"><img src="../Fig/Wings_glue.jpg" class="img-fluid figure-img" alt="Spars taped over the template"></a></p>
-<figcaption>Spars taped over the template</figcaption>
+<p><a href="../Fig/Wings_glue.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Strips laid out and bonded over the template"><img src="../Fig/Wings_glue.jpg" class="img-fluid figure-img" alt="Strips laid out and bonded over the template"></a></p>
+<figcaption>Strips laid out and bonded over the template</figcaption>
 </figure>
 </div>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../Fig/Wings_cutting.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Cutting the membrane to the outline"><img src="../Fig/Wings_cutting.jpg" class="img-fluid figure-img" alt="Cutting the membrane to the outline"></a></p>
-<figcaption>Cutting the membrane to the outline</figcaption>
+<p><a href="../Fig/Wings_cutting.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Trimming the membrane to the outline"><img src="../Fig/Wings_cutting.jpg" class="img-fluid figure-img" alt="Trimming the membrane to the outline"></a></p>
+<figcaption>Trimming the membrane to the outline</figcaption>
 </figure>
 </div>
 </div>
 </div>
 </div>
-</section>
-<section id="completed-wings" class="level2">
-<h2 class="anchored" data-anchor-id="completed-wings">Completed wings</h2>
+<p>Repeat for the second wing, and remember that it is flipped.</p>
 <div id="fig-wings-complete" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-wings-complete-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -637,6 +653,14 @@ Figure&nbsp;2: Completed wing pair
 </figcaption>
 </figure>
 </div>
+</section>
+<section id="assembly" class="level2">
+<h2 class="anchored" data-anchor-id="assembly">Assembly</h2>
+<ol type="1">
+<li>Mount each wing in its <strong>wing root</strong> using the <strong>two nylon adapters</strong>.</li>
+<li>Mount the wing roots in the robot, onto the gears from <a href="../sessions/05-frame-crank.html">Module 5</a>.</li>
+<li><strong>Check that it flaps.</strong> Run it slowly first and watch both wings through a full cycle before going any faster.</li>
+</ol>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -647,7 +671,7 @@ Figure&nbsp;2: Completed wing pair
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Asymmetry between left and right shows up as a roll bias you will spend <a href="../sessions/11-wet-testing.html">Module 11</a> trimming out. Weigh both wings and compare spar positions against the template before bonding.</p>
+<p>Asymmetry between left and right shows up as a roll bias that may not be possible to correct later. See <a href="../sessions/11-wet-testing.html">Module 11</a> for trimming out. Weigh both wings and compare spar positions against the template before bonding.</p>
 </div>
 </div>
 <div class="callout callout-style-default callout-important callout-titled">
@@ -656,17 +680,16 @@ Figure&nbsp;2: Completed wing pair
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>To be written by the instructor
+<span class="screen-reader-only">Important</span>To be completed by the instructor
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The manufacturing guide documents this step <strong>with photographs only</strong> — there is no written procedure in the source. The images above are in build order, but the following still need writing:</p>
+<p>Still missing from the procedure above:</p>
 <ul>
-<li>Membrane material and its supplier</li>
-<li>Adhesive, and cure time</li>
-<li>Which areas are stitched, and with what</li>
-<li>Spar layup: rod diameters, where the diagonals attach</li>
-<li>Tolerance between left and right wing</li>
+<li>Which 3M tape — the <a href="../reference/parts-list.html">parts list</a> says VHB, the width and where exactly it lands on the leading edge are not recorded</li>
+<li>Spar layup: rod and strip diameters, and where the diagonals attach</li>
+<li>What to stitch with — thread type and stitch spacing</li>
+<li>Numerical tolerance between left and right wing, for the check below</li>
 </ul>
 </div>
 </div>
@@ -676,11 +699,11 @@ Figure&nbsp;2: Completed wing pair
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Checkpoint — TA sign-off
+<span class="screen-reader-only">Note</span>Checkpoint
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Both wings complete, matched in mass and geometry, roots fitting the linkage bearings without play.</p>
+<p>Both wings complete, matched in mass and geometry, mounted in their roots and fitted to the robot, and flapping through a full cycle without binding.</p>
 </div>
 </div>
 

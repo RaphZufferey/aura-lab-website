@@ -15,57 +15,88 @@ Both wings: carbon skeleton, membrane cut to the geometry you chose in
 
 | | |
 |---|---|
-| **Parts** | Carbon rods and strips, wing-root fittings, membrane material, glue |
-| **Tools** | Cutting mat, steel rule, scalpel, printed full-size template of your geometry |
+| **Parts** | Carbon rods and strips, wing roots, 2× nylon adapters per wing, ripstop nylon membrane, 3M tape, superglue, thread |
+| **Tools** | Cutting mat, steel rule, scalpel, needle, printed full-size template of your geometry |
 | **Bring** | Your Module 6 geometry, printed 1:1 |
 
 ## Wing roots
-
-The wing roots are carbon, drilled to mate with the linkage bearings from
-[Module 5](05-frame-crank.qmd).
+The wing roots are carbon, drilled to mate with the gears from
+[Module 5](05-frame-crank.qmd). 
 
 ![Wing root parts and spar stock](/Fig/Wing_roots.jpg){#fig-wing-roots width=70%}
 
-## Laying out and cutting the membrane
+## Building the wing
 
-Work over the full-size printed template, taping the spars in position before
-cutting the membrane to the outline.
+The whole wing is built **over the printed pattern**, working from the leading
+edge outwards. Everything is cut oversize and trimmed to the outline at the
+very end --- margin is easy to remove and impossible to add back.
+
+1.  **Decide on the shape** and print the pattern on paper. Print it **1:1**
+    --- check the scale before you cut anything, by measuring a known dimension
+    on the printout against a rule. Printer drivers scale to fit by default, and
+    a pattern that came out at 97% quietly discards the geometry you chose in
+    [Module 6](06-simulation.qmd).
+
+2.  **Cut two membranes** with a **3 cm margin** all round the pattern. Use the
+    ripstop nylon listed in [Parts](/reference/parts-list.qmd).
+
+3.  **Bond the leading edge.** Lay a strip of **3M tape** along the
+    leading-edge region of the membrane, press the leading-edge rod down onto
+    the tape, and wrap the membrane around the rod. This joint carries the
+    highest load of any on the wing --- everything downstream pulls against it.
+
+4.  **Lay out the carbon strips.** Cut each to approximate length **plus 3 cm**,
+    position them on the membrane over the pattern, and bond them with
+    **superglue**.
+
+5.  **Stitch the strips down**, at minimum at every **intersection point** and
+    at the **extremities**. Superglue alone will peel off the membrane under
+    repeated flapping; the stitches are what keep the skeleton attached once
+    the glue starts to fail.
+
+6.  **Trim the excess** beyond the outline with a blade, cutting on the mat.
 
 ::: {layout-ncol=2}
-![Spars taped over the template](/Fig/Wings_glue.jpg)
+![Strips laid out and bonded over the template](/Fig/Wings_glue.jpg)
 
-![Cutting the membrane to the outline](/Fig/Wings_cutting.jpg)
+![Trimming the membrane to the outline](/Fig/Wings_cutting.jpg)
 :::
 
-## Completed wings
+Repeat for the second wing, and remember that it is flipped.
 
 ![Completed wing pair](/Fig/Complete_wings.jpg){#fig-wings-complete}
+
+## Assembly
+
+1.  Mount each wing in its **wing root** using the **two nylon adapters**.
+2.  Mount the wing roots in the robot, onto the gears from
+    [Module 5](05-frame-crank.qmd).
+3.  **Check that it flaps.** Run it slowly first and watch both wings through a
+    full cycle before going any faster.
 
 ::: {.callout-warning}
 ## Both wings must match
 
-Asymmetry between left and right shows up as a roll bias you will spend
-[Module 11](11-wet-testing.qmd) trimming out. Weigh both wings and compare
+Asymmetry between left and right shows up as a roll bias that may not be possible to correct later. See
+[Module 11](11-wet-testing.qmd) for trimming out. Weigh both wings and compare
 spar positions against the template before bonding.
 :::
 
 ::: {.callout-important}
-## To be written by the instructor
+## To be completed by the instructor
 
-The manufacturing guide documents this step **with photographs only** --- there
-is no written procedure in the source. The images above are in build order, but
-the following still need writing:
+Still missing from the procedure above:
 
-- Membrane material and its supplier
-- Adhesive, and cure time
-- Which areas are stitched, and with what
-- Spar layup: rod diameters, where the diagonals attach
-- Tolerance between left and right wing
+- Which 3M tape --- the [parts list](/reference/parts-list.qmd) says VHB, the
+  width and where exactly it lands on the leading edge are not recorded
+- Spar layup: rod and strip diameters, and where the diagonals attach
+- What to stitch with --- thread type and stitch spacing
+- Numerical tolerance between left and right wing, for the check below
 :::
 
 ::: {.callout-note}
-## Checkpoint --- TA sign-off
+## Checkpoint
 
-Both wings complete, matched in mass and geometry, roots fitting the linkage
-bearings without play.
+Both wings complete, matched in mass and geometry, mounted in their roots and
+fitted to the robot, and flapping through a full cycle without binding.
 :::

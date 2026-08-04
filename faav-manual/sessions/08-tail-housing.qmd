@@ -33,6 +33,10 @@ actuation is optional if time permits --- decide before the semester whether
 that is in scope.
 :::
 
+
+## Trailing edge holder
+Insert part on tube.
+
 ## Housing
 
 Use a foam cutter to cut an exterior housing for the FAAV. This is an important

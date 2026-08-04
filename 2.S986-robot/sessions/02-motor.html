@@ -83,6 +83,35 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <meta name="robots" content="noindex, nofollow">
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
 </head>
@@ -335,6 +364,10 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">Parts list</span></a>
   </li>  
         <li>
+    <a class="dropdown-item" href="../reference/bldc.html">
+ <span class="dropdown-text">Brushless motors</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="../reference/software.html">
  <span class="dropdown-text">Software</span></a>
   </li>  
@@ -486,6 +519,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../reference/bldc.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Brushless motors</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../reference/software.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Software</span></a>
   </div>
@@ -528,10 +567,14 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#what-you-build-today" id="toc-what-you-build-today" class="nav-link active" data-scroll-target="#what-you-build-today">What you build today</a></li>
   <li><a href="#before-you-arrive" id="toc-before-you-arrive" class="nav-link" data-scroll-target="#before-you-arrive">Before you arrive</a></li>
-  <li><a href="#how-the-transmission-works" id="toc-how-the-transmission-works" class="nav-link" data-scroll-target="#how-the-transmission-works">How the transmission works</a></li>
-  <li><a href="#sec-motor-variant" id="toc-sec-motor-variant" class="nav-link" data-scroll-target="#sec-motor-variant">Which motor do you have?</a></li>
+  <li><a href="#sec-motor-variant" id="toc-sec-motor-variant" class="nav-link" data-scroll-target="#sec-motor-variant">The motor — AS2303 KV1500</a>
+  <ul class="collapse">
+  <li><a href="#sec-kv" id="toc-sec-kv" class="nav-link" data-scroll-target="#sec-kv">What the KV rating means</a></li>
+  <li><a href="#what-this-means-for-our-robot" id="toc-what-this-means-for-our-robot" class="nav-link" data-scroll-target="#what-this-means-for-our-robot">What this means for our robot</a></li>
+  </ul></li>
   <li><a href="#motor-shaft" id="toc-motor-shaft" class="nav-link" data-scroll-target="#motor-shaft">Motor shaft</a></li>
-  <li><a href="#gearbox-assembly" id="toc-gearbox-assembly" class="nav-link" data-scroll-target="#gearbox-assembly">Gearbox assembly</a></li>
+  <li><a href="#sensor-magnet" id="toc-sensor-magnet" class="nav-link" data-scroll-target="#sensor-magnet">Sensor magnet</a></li>
+  <li><a href="#mounting-the-motor" id="toc-mounting-the-motor" class="nav-link" data-scroll-target="#mounting-the-motor">Mounting the motor</a></li>
   </ul>
 </nav>
     </div>
@@ -563,78 +606,65 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <section id="what-you-build-today" class="level2">
 <h2 class="anchored" data-anchor-id="what-you-build-today">What you build today</h2>
-<p>A brushless motor with a custom shaft pressed into its rotor bell, paired to the Faulhaber gearbox, with the sun gear and the sensor magnet installed.</p>
+<p>A brushless motor with a custom shaft pressed into its rotor bell, with the sun gear and the sensor magnet installed, bolted to its bracket and mounted on the motor plate. The gearbox itself goes on in <a href="../sessions/04-control.html">Module 4</a>.</p>
 </section>
 <section id="before-you-arrive" class="level2">
 <h2 class="anchored" data-anchor-id="before-you-arrive">Before you arrive</h2>
 <table class="caption-top table">
-<colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
-</colgroup>
 <tbody>
 <tr class="odd">
 <td><strong>Parts</strong></td>
-<td>AS2303 KV1500 motor, 4 mm steel rod, Faulhaber 23.04:1 gearbox, M2.5×10 screws</td>
+<td>AS2303 KV1500 motor with pre-machined bell, custom motor shaft, sun gear from the Faulhaber 23.04:1 gearbox, 6 × 2.5 mm diametric magnet, 3D-printed magnet bracket, vertical nylon motor bracket, bottom fuselage plate, mounting screws</td>
 </tr>
 <tr class="even">
 <td><strong>Tools</strong></td>
-<td>Circlip pliers, manual arbor press, lathe (booked), cutting oil</td>
+<td>Circlip pliers, manual arbor press, superglue, hex drivers</td>
 </tr>
 <tr class="odd">
 <td><strong>Read</strong></td>
-<td>This page, and the <em>Motor shaft</em> section below in full before touching the motor</td>
+<td>This page, and the <em>Motor shaft</em> section below in full before touching the motor. <a href="../reference/bldc.html">Brushless motors</a> for the background</td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="how-the-transmission-works" class="level2">
-<h2 class="anchored" data-anchor-id="how-the-transmission-works">How the transmission works</h2>
-<p>The motor is connected via a custom shaft to a gearbox with a <strong>23.04:1</strong> reduction by Faulhaber.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> Both parts are held in place by 3D-printed plates. The output shaft of the gearbox has its own bearing on the inside of the gearbox, and is also supported mid-way on the shaft by a 4×8 mm flanged bearing. This leaves <strong>5 mm of shaft length free</strong> for the crank to be mounted on. A flat on the shaft helps lock the rotation of the M3 screw extending through the crank.</p>
-<div class="quarto-layout-panel" data-layout-ncol="2">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="../Fig/shaft_motor.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Motor shaft"><img src="../Fig/shaft_motor.jpg" class="img-fluid figure-img" alt="Motor shaft"></a></p>
-<figcaption>Motor shaft</figcaption>
-</figure>
-</div>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="../Fig/fhaber.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Faulhaber gearbox"><img src="../Fig/fhaber.jpg" class="img-fluid figure-img" alt="Faulhaber gearbox"></a></p>
-<figcaption>Faulhaber gearbox</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</section>
 <section id="sec-motor-variant" class="level2">
-<h2 class="anchored" data-anchor-id="sec-motor-variant">Which motor do you have?</h2>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Black — AS2303 KV1500 (new)</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Blue — AT2303 KV1500 (old)</a></li></ul>
-<div class="tab-content">
-<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<p><a href="../Fig/TMO-AS2303-1500.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="../Fig/TMO-AS2303-1500.jpg" class="img-fluid" style="width:45.0%"></a></p>
-<p>The propeller horn <strong>cannot</strong> be separated from the bell. You will remove the two screws, then clamp the bell in a lathe using the stock shaft and machine it down (step 4 below).</p>
-</div>
-<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<p><a href="../Fig/TMO-AT2303-1500.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="../Fig/TMO-AT2303-1500.jpg" class="img-fluid" style="width:45.0%"></a></p>
-<p>The horn is a separate part and comes off easily. Skip the lathe operation.</p>
-</div>
-</div>
-</div>
+<h2 class="anchored" data-anchor-id="sec-motor-variant">The motor — AS2303 KV1500</h2>
+<p>The AS2303 is a <strong>brushless outrunner</strong>. Read <a href="../reference/bldc.html">Brushless motors</a> first.</p>
+<p><a href="../Fig/TMO-AS2303-1500.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="../Fig/TMO-AS2303-1500.jpg" class="img-fluid" style="width:45.0%"></a></p>
+<p>We use the AS2303 KV1500 motor throughout the course. Its propeller horn <strong>cannot</strong> be separated from the bell, it has to be machined off in a lathe. That work, and the custom shaft, are prepared for you before the session.</p>
+<section id="sec-kv" class="level3">
+<h3 class="anchored" data-anchor-id="sec-kv">What the KV rating means</h3>
+<p><strong>KV</strong> is the motor’s <em>velocity constant</em>, quoted in rpm per volt. It says how fast the rotor spins per volt applied, <strong>with no load on the shaft</strong>:</p>
+<p><span id="eq-kv"><span class="math display">\[\omega_0 = k_V \, U \tag{1}\]</span></span></p>
+<p>The constant is not a marketing number — it falls out of the motor’s physics. As the rotor turns, its magnets sweep past the windings and induce a voltage that opposes the supply (the <em>back-EMF</em>):</p>
+<p><span id="eq-bemf"><span class="math display">\[U_\text{emf} = \frac{\omega}{k_V} \tag{2}\]</span></span></p>
+<p>The supply voltage splits between this back-EMF and the ohmic drop across the winding resistance <span class="math inline">\(R\)</span>, so <span class="math inline">\(U = U_\text{emf} + R\,I\)</span> and the speed under load becomes</p>
+<p><span id="eq-loaded"><span class="math display">\[\omega = k_V \left( U - R\,I \right) \tag{3}\]</span></span></p>
+<p>which is why <a href="#eq-kv" class="quarto-xref">Equation&nbsp;1</a> only holds at <span class="math inline">\(I \approx 0\)</span>. Draw current and the motor slows down.</p>
+<p>The same constant fixes the torque. Electrical power in equals mechanical power out, <span class="math inline">\(U_\text{emf} I = \tau \omega\)</span>, and substituting <a href="#eq-bemf" class="quarto-xref">Equation&nbsp;2</a> gives <span class="math inline">\(\tau = I / k_V\)</span> in SI units. Converting <span class="math inline">\(k_V\)</span> from rpm/V to rad/s/V:</p>
+<p><span id="eq-kt"><span class="math display">\[k_T = \frac{60}{2\pi \, k_V} \approx \frac{9.55}{k_V}
+\qquad \text{with} \qquad \tau = k_T \, I \tag{4}\]</span></span></p>
+<p>with <span class="math inline">\(k_T\)</span> in N·m/A when <span class="math inline">\(k_V\)</span> is in rpm/V. <strong>Torque and speed constants are inverses of each other.</strong> A high-KV motor spins fast but gives little torque per amp; a low-KV motor of the same size and mass does the opposite. You cannot buy both — you choose where on that trade-off to sit, and then recover the missing torque with a reduction.</p>
+</section>
+<section id="what-this-means-for-our-robot" class="level3">
+<h3 class="anchored" data-anchor-id="what-this-means-for-our-robot">What this means for our robot</h3>
+<p>With <span class="math inline">\(k_V = 1500\)</span> rpm/V and a 4S LiPo at its 14.8 V nominal voltage:</p>
+<p><span class="math display">\[\omega_0 = 1500 \times 14.8 = 22\,200 \ \text{rpm}
+\qquad
+k_T = \frac{9.55}{1500} = 6.4 \ \text{mN·m/A}\]</span></p>
+<p>6.4 mN·m/A is very little torque, too little to drive the wings directly, which is exactly why the 23.04:1 Faulhaber gearbox is there. It multiplies torque by 23.04 and divides speed by the same factor. One revolution of the gearbox output is one full flapping cycle, so</p>
+<p><span id="eq-fflap"><span class="math display">\[f_\text{flap} = \frac{\omega}{60 \, r}
+= \frac{22\,200}{60 \times 23.04} = 16.1 \ \text{Hz} \tag{5}\]</span></span></p>
+<p>at no load. Under real aerodynamic and hydrodynamic loading the drive tops out near 15 200 rpm, i.e.&nbsp;about <strong>11 Hz</strong> of flapping, the figure you will see again in <a href="../sessions/04-control.html">Module 4</a>.</p>
+</section>
 </section>
 <section id="motor-shaft" class="level2">
 <h2 class="anchored" data-anchor-id="motor-shaft">Motor shaft</h2>
-<p>To pair the motor with the gearbox, the shaft of the brushless motor needs to be replaced. This is a delicate operation — the motor’s structure is mostly aluminium and quite thin, for weight savings.</p>
+<p>To pair the motor with the gearbox, the stock shaft of the brushless motor is replaced by a custom one. You will be handed a <strong>machined bell</strong> and a <strong>finished shaft</strong> — both are prepared before the session. What is left to you is the disassembly and the press fit, which is still a delicate operation: the motor’s structure is mostly aluminium and quite thin, for weight savings.</p>
 <ol type="1">
 <li><p>Remove the circlip on the shaft with the special pliers. <strong>Don’t lose it, nor the brass ring.</strong></p></li>
 <li><p>Separate the rotor from the stator delicately, by hand.</p></li>
-<li><p>Press the shaft out of the rotor bell.</p>
+<li><p>Press the stock shaft out of the rotor bell.</p>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -648,55 +678,26 @@ ul.task-list li input[type="checkbox"] {
 <p>Press the shaft out very carefully, making sure to never apply forces radially on the bell. Use the manual press with appropriate support below the bell to avoid deforming the dome shape. <strong>Do not squeeze the bell with a vice, or even by hand.</strong></p>
 </div>
 </div></li>
-<li><p>Remove the propeller horn, which is not needed — see <a href="#sec-motor-variant">the tabs above</a> for which case applies to you. On the black motor, machine the bell as follows:</p>
-<div class="quarto-layout-panel" data-layout-ncol="3">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="../Fig/bell_machined1.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Stock bell"><img src="../Fig/bell_machined1.jpg" class="img-fluid figure-img" alt="Stock bell"></a></p>
-<figcaption>Stock bell</figcaption>
-</figure>
-</div>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="../Fig/bell_machined2.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Bring diameter down to 6 mm"><img src="../Fig/bell_machined2.jpg" class="img-fluid figure-img" alt="Bring diameter down to 6 mm"></a></p>
-<figcaption>Bring diameter down to 6 mm</figcaption>
-</figure>
-</div>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="../Fig/bell_machined3.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="Bring the length down to 2.5 mm"><img src="../Fig/bell_machined3.jpg" class="img-fluid figure-img" alt="Bring the length down to 2.5 mm"></a></p>
-<figcaption>Bring the length down to 2.5 mm</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</div></li>
-<li><p>Manufacture the new shaft from 4 mm diameter steel rod. It should have a <strong>clearance fit</strong> through the bearings and a <strong>tight fit</strong> on the rotor bell. See <a href="#fig-motor-shaft" class="quarto-xref">Figure&nbsp;1</a> for exact dimensions.</p>
+<li><p>Press the sun gear onto the new shaft.</p>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Warning</span>Check your wall thickness before cutting
+<span class="screen-reader-only">Warning</span>Sun gear first — this order cannot be undone
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>21.5 mm is the shaft length <strong>if the motor and the gearbox are separated by a 5.5 mm-thick wall</strong>. If your wall is 4 mm thick, reduce the 8.5 mm segment to 7 mm, bringing the total length from 21.5 mm to 20 mm.</p>
+<p>The sun gear goes on <strong>while the shaft is still free</strong>. Once the shaft is pressed into the bell you can no longer support the shaft properly to press the gear on.</p>
 </div>
 </div></li>
-<li><p>Press the new shaft into the bell, making sure not to press on the dome-shaped part of the bell without appropriate support underneath.</p></li>
+<li><p>Press the new shaft into the bell, making sure not to press on the dome-shaped part of the bell without appropriate support underneath. It is a <strong>tight fit</strong> on the bell and a <strong>clearance fit</strong> through the bearings.</p></li>
 </ol>
 <div id="fig-motor-shaft" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-motor-shaft-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="../Fig/shaft_drawing.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="Figure&nbsp;1: Motor shaft dimensions"><img src="../Fig/shaft_drawing.png" class="img-fluid figure-img" style="width:70.0%"></a>
+<a href="../Fig/shaft_drawing.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure&nbsp;1: Motor shaft dimensions"><img src="../Fig/shaft_drawing.png" class="img-fluid figure-img" style="width:70.0%"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-motor-shaft-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1: Motor shaft dimensions
@@ -704,9 +705,37 @@ Figure&nbsp;1: Motor shaft dimensions
 </figure>
 </div>
 </section>
-<section id="gearbox-assembly" class="level2">
-<h2 class="anchored" data-anchor-id="gearbox-assembly">Gearbox assembly</h2>
-<p>The blue part of the gearbox is fixed on one side using the custom screws that come with the gearbox, and with <strong>M2.5×10</strong> screws on the other.</p>
+<section id="sensor-magnet" class="level2">
+<h2 class="anchored" data-anchor-id="sensor-magnet">Sensor magnet</h2>
+<p>The AS5047P encoder you wire up in <a href="../sessions/03-esc.html">Module 3</a> does not touch the shaft. It reads the direction of the magnetic field from a small magnet rotating in front of it, so the magnet has to go on the motor.</p>
+<p>Use a <strong>6 × 2.5 mm diametrically magnetised disc magnet</strong>. <em>Diametrically</em> magnetised is the part that matters: the poles are across the diameter, not through the thickness, so the field seen by the sensor sweeps through a full rotation as the shaft turns. An ordinary axially magnetised disc of identical size presents the same pole to the sensor all the way round and gives no angle at all.</p>
+<ol type="1">
+<li><p>Drop the magnet into its recess in the 3D-printed bracket. It should sit flat, fully seated, with no rocking.</p></li>
+<li><p><strong>Centre it on the axis of rotation.</strong> The bracket locates it, but check. Keep the magnet concentric with the shaft to within <strong>0.5 mm</strong>.</p></li>
+<li><p>Bond it with <strong>a single drop of superglue</strong>. One drop is enough.</p></li>
+<li><p>Turn the assembly through a full revolution by hand and watch the magnet. Any visible wobble means it is off-centre or not seated.</p></li>
+</ol>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Off-centre magnets are hard to diagnose later
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>An eccentric magnet may still produces a perfectly plausible angle reading at times.</p>
+</div>
+</div>
+</section>
+<section id="mounting-the-motor" class="level2">
+<h2 class="anchored" data-anchor-id="mounting-the-motor">Mounting the motor</h2>
+<p>With the shaft and the magnet done, the motor goes onto the robot. This happens in two stages: motor to bracket, then bracket to plate.</p>
+<ol type="1">
+<li><p>Fix the motor to the vertical <strong>3D-printed nylon bracket</strong> using <strong>four screws</strong> through the mounting holes in the motor base. Don’t over tighten. Check that the rotor still turns freely by hand. Nylon is compliant, and overtightening can pull the bracket out of flat enough to preload the bearings. A motor that spun freely on the bench and feels stiff once bolted down is telling you to back the screws off and retighten more gently.</p></li>
+<li><p>Mount the bracket to the <strong>bottom fuselage plate</strong>. Before tightening, check the orientation: the shaft and sun gear must point towards the front of the robot.</p></li>
+</ol>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -717,7 +746,7 @@ Figure&nbsp;1: Motor shaft dimensions
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Sun gear installation and sensor magnet bonding are in the course project plan but are not documented in the manufacturing guide. Add the magnet part number, bonding agent, and the concentricity tolerance that matters for <a href="../sessions/04-control.html">Module 4</a>.</p>
+<p>Fastener specification for both stages — screw size and length for the motor to the bracket, and the count and size for the bracket to the bottom fuselage plate. Length matters most: screws that are too long reach the stator windings inside the motor.</p>
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -726,24 +755,62 @@ Figure&nbsp;1: Motor shaft dimensions
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Checkpoint — TA sign-off
+<span class="screen-reader-only">Note</span>Checkpoint
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Shaft seated, rotor spinning freely by hand with no wobble, gearbox mounted, and the sensor magnet concentric with the shaft axis. An off-centre magnet produces sensor faults that are very hard to diagnose two modules later.</p>
+<p>Shaft seated with the sun gear on it, the rotor spinning freely by hand with no wobble, the magnet bonded concentric to within 0.5 mm, and the motor bolted to its bracket and mounted on the plate — still turning freely once bolted down.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>To be prepared by the instructor before the session
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Both the bells and the shafts must be prepared ahead of time, one set per student. Neither fits in the session: the lathe work is on thin-walled aluminium that is easy to ruin, and there is not enough machine time for the whole cohort.</p>
+<p><strong>Machine the bells.</strong> Clamp the bell in the lathe using its stock shaft, then take the propeller horn off by bringing the diameter down to <strong>6 mm</strong> and the length to <strong>2.5 mm</strong>.</p>
+<div class="quarto-layout-panel" data-layout-ncol="3">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../Fig/bell_machined1.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Stock bell"><img src="../Fig/bell_machined1.jpg" class="img-fluid figure-img" alt="Stock bell"></a></p>
+<figcaption>Stock bell</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../Fig/bell_machined2.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Bring diameter down to 6 mm"><img src="../Fig/bell_machined2.jpg" class="img-fluid figure-img" alt="Bring diameter down to 6 mm"></a></p>
+<figcaption>Bring diameter down to 6 mm</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../Fig/bell_machined3.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Bring the length down to 2.5 mm"><img src="../Fig/bell_machined3.jpg" class="img-fluid figure-img" alt="Bring the length down to 2.5 mm"></a></p>
+<figcaption>Bring the length down to 2.5 mm</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<p><strong>Turn the shafts</strong> from 4 mm steel rod to the dimensions in <a href="#fig-motor-shaft" class="quarto-xref">Figure&nbsp;1</a> — clearance fit through the bearings, tight fit on the bell. The 21.5 mm total assumes the motor and gearbox are separated by a <strong>5.5 mm-thick wall</strong>; for a 4 mm wall, shorten the 8.5 mm segment to 7 mm, giving 20 mm overall.</p>
+<p>Prepare spares of both — a deformed bell cannot be recovered.</p>
 </div>
 </div>
 
 
 </section>
 
-
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
-
-<ol>
-<li id="fn1"><p><a href="https://www.faulhaber.com/fileadmin/Import/Media/DE_GEARHEADS_REDUCTION_RATIOS.pdf">Faulhaber gearhead reduction ratios</a> (accessed 20.02.2024).<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
-</section></div></main> <!-- /main -->
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right

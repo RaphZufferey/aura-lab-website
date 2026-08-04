@@ -39,6 +39,7 @@ book:
     - part: "Reference"
       chapters:
         - reference/parts-list.qmd
+        - reference/bldc.qmd
         - reference/software.qmd
         - reference/pcb.qmd
         - reference/cnc.qmd

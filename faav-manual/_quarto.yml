@@ -46,6 +46,7 @@ website:
       - text: Reference
         menu:
           - reference/parts-list.qmd
+          - reference/bldc.qmd
           - reference/software.qmd
           - reference/pcb.qmd
           - reference/cnc.qmd
@@ -76,6 +77,7 @@ website:
       - section: "Reference"
         contents:
           - reference/parts-list.qmd
+          - reference/bldc.qmd
           - reference/software.qmd
           - reference/pcb.qmd
           - reference/cnc.qmd
