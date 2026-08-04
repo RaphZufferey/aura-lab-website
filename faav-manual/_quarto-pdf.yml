@@ -50,6 +50,11 @@ format:
   html: default        # suppressed below; book always needs one html format
   typst:
     output-file: "FAAV-Build-Manual"
+    # Local copy of the orange-book format's partial, changed in exactly one
+    # place: outline-small-depth. See the comment in the file. Without it the
+    # Part I divider page overprints its own mini-outline.
+    template-partials:
+      - typst-show.typ
     papersize: us-letter
     margin:
       x: 2cm
