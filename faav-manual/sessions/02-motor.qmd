@@ -10,7 +10,7 @@ title: "Module 2 --- Motor and transmission shaft"
 
 A brushless motor with a custom shaft pressed into its rotor bell, with the sun
 gear and the sensor magnet installed, bolted to its bracket and mounted on the
-motor plate. The gearbox itself goes on in [Module 4](04-control.qmd).
+motor plate. The motor is soldered to the electronic speed controller. The gearbox itself goes on in [Module 4](04-control.qmd).
 
 ## Before you arrive
 
@@ -161,7 +161,7 @@ With the shaft and the magnet done, the motor goes onto the robot. This happens
 in two stages: motor to bracket, then bracket to plate.
 
 1. Fix the motor to the vertical **3D-printed nylon bracket** using **four
-   screws** through the mounting holes in the motor base. Don't over tighten. Check that the rotor still turns freely by hand. Nylon is compliant, and
+   screws M2x5 mm** through the mounting holes in the motor base. Don't over tighten. Check that the rotor still turns freely by hand. Nylon is compliant, and
    overtightening can pull the bracket out of flat enough to preload the
    bearings. A motor that spun freely on the bench and feels stiff once bolted
    down is telling you to back the screws off and retighten more gently.
@@ -169,13 +169,13 @@ in two stages: motor to bracket, then bracket to plate.
 3. Mount the bracket to the **bottom fuselage plate**. Before tightening,
    check the orientation: the shaft and sun gear must point towards the front of the robot.
 
-::: {.callout-important}
-## To be completed by the instructor
 
-Fastener specification for both stages --- screw size and length for the motor
-to the bracket, and the count and size for the bracket to the bottom fuselage
-plate. Length matters most: screws that are too long reach the stator windings
-inside the motor.
+## Solder the motor wires to the Electronic Speed Controller
+Since the pads are large, make sure to use enough heat / large tip on the soldering iron. The order of the cables UVW do not matter.
+
+::: {.callout-tip}
+## Watch this before you pick up the iron
+[Soldering Crash Course: Basic Techniques, Tips and Advice](https://youtu.be/6rmErwU5E-k)
 :::
 
 ::: {.callout-note}

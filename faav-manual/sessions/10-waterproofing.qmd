@@ -55,6 +55,8 @@ First ensure that the FC fits within the 3D box before anything else.
 
 ## ESC waterproofing
 
+![The B-G431B-ESC1 assembly. ](/Fig/g431-power-stage.jpg){#fig-g431-power width="50%"}
+
 The ESC is potted the same way as the flight controller: it sits in its own
 3D-printed frame, which is then filled with **Silcoset** so only the wire exits
 remain open. @fig-esc-potted shows the three pieces together --- motor, bare

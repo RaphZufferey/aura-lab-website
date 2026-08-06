@@ -47,6 +47,8 @@ website:
         menu:
           - reference/parts-list.qmd
           - reference/bldc.qmd
+          - reference/g431-esc.qmd
+          - reference/simple-foc.qmd
           - reference/software.qmd
           - reference/pcb.qmd
           - reference/cnc.qmd
@@ -78,6 +80,8 @@ website:
         contents:
           - reference/parts-list.qmd
           - reference/bldc.qmd
+          - reference/g431-esc.qmd
+          - reference/simple-foc.qmd
           - reference/software.qmd
           - reference/pcb.qmd
           - reference/cnc.qmd

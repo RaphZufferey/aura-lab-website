@@ -17,7 +17,7 @@ that order:
    (Modules 2, 5)
 2. **Electronics** --- ESC, angular sensor, flight controller, custom PCB
    (Modules 3, 4, 9)
-3. **Aero/hydro surfaces** --- wings, tail, foam housing (Modules 6--8)
+3. **Aero/hydro surfaces** --- wings, tail (Modules 6--8)
 4. **Waterproofing and testing** --- potting, immersion, tuning (Modules 10--12)
 
 ## Electronic architecture

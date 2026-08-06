@@ -35,6 +35,21 @@ through the crank.
 ![Faulhaber gearbox](/Fig/fhaber.jpg)
 :::
 
+## Commanding and monitoring
+This is a high-level summary of [the SimpleFOC communication docs](https://docs.simplefoc.com/communication). Communication with the ESC is over **serial**, via a separate microcontroller board.
+
+Once serial communication is established, you interact with the ESC through the **commander**, a practical interface for setting and getting values ([instructions](https://docs.simplefoc.com/commander_motor)). Ask the commander for available commands with `?`. Commands available:
+
+| Command | Effect |
+|------------------------------------|------------------------------------|
+| `M` | Full motor configuration |
+| `F` | Get the main loop frequency |
+| `L` | Turn the onboard LED on and off (useful as a comms check) |
+| `T` | Set the target value --- rad, rad/s or N/m depending on control mode |
+| `W` | Watchdog on/off. If no new target arrives for 1 s, target is set to zero. **On by default** |
+| `R` | `R0`/`R1` disable/enable a linear ramp when changing setpoint. `RD1000` sets ramp duration to 1000 ms (default 1000 ms). Off by default |
+
+
 ### Installing the reduction
 Our sun gear is already pressed onto the motor shaft from
 [Module 2](02-motor.qmd). What is left is mating the gearbox to the motor and
@@ -60,29 +75,7 @@ fixing the pair to the plates.
     plate, so between them the two brackets set the alignment of the whole
     drivetrain. Check the output still turns freely once both are bolted down.
 
-## Onboard microcontroller
-So far every command has come from your laptop over micro-USB. That works on
-the bench and nowhere else, a robot that has to move cannot stay
-tethered. The commander interface does not change; what changes is who talks to
-it. From here on the **Seeeduino XIAO nRF52840** rides on the robot and sends
-those same commands, and your laptop talks to the Seeeduino instead of to the
-ESC.
 
-![The Seeeduino XIAO nRF52840. **TX** and **RX** are the two pads at the bottom corners --- those are the ones you solder to, and they cross over to the ESC's RX and TX respectively. The board is 21 × 17.5 mm, which is why it can ride on the robot at all.](/Fig/xiao-nrf52840.jpg){#fig-xiao width="55%"}
-
-1.  Solder the Seeeduino and the ESC's **Serial1**:
-    TX, RX and **GND** lines. In Serial communication, TX and RX are **crossed**,  each board's transmit
-    line goes to the other's receive line, as drawn in the
-    [wiring diagram](03-esc.qmd#fig-wiring) in Module 3. GND is not optional: without a shared reference the
-    two boards have no agreed voltage for what counts as a high or low bit. To do this step, you will need to desolder the existing Serial1 TX RX lines to the daughterboard.
-
-2.  Install the Seeeduino in its 3D-printed bracket and into the robot.
-
-3.  Load the barebone Arduino sketch onto the Seeeduino --- see
-    [Software](/reference/software.qmd) for the repository.
-
-4.  Modify the sketch to spin the motor at **100 rad/s** and confirm it on the
-    flag you mounted on the gearbox output.
 
 
 ::: {.callout-important}

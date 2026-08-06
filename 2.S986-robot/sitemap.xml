@@ -62,7 +62,7 @@
   </url>
   <url>
     <loc>https://aura.mit.edu/2.S986-robot/sessions/03-esc.html</loc>
-    <lastmod>2026-08-04T17:52:29.663Z</lastmod>
+    <lastmod>2026-08-05T22:07:12.300Z</lastmod>
   </url>
   <url>
     <loc>https://aura.mit.edu/2.S986-robot/sessions/05-frame-crank.html</loc>
@@ -78,6 +78,14 @@
   </url>
   <url>
     <loc>https://aura.mit.edu/2.S986-robot/sessions/11-wet-testing.html</loc>
-    <lastmod>2026-08-04T03:04:40.557Z</lastmod>
+    <lastmod>2026-08-04T18:09:13.007Z</lastmod>
+  </url>
+  <url>
+    <loc>https://aura.mit.edu/2.S986-robot/reference/simple-foc.html</loc>
+    <lastmod>2026-08-05T21:35:58.132Z</lastmod>
+  </url>
+  <url>
+    <loc>https://aura.mit.edu/2.S986-robot/reference/g431-esc.html</loc>
+    <lastmod>2026-08-05T21:36:51.770Z</lastmod>
   </url>
 </urlset>
