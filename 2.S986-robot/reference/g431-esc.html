@@ -648,7 +648,7 @@ Figure&nbsp;1: The power stage. The six large flat packages are the MOSFETs, in 
 </tbody>
 </table>
 <p>Sources: ST’s <a href="https://www.st.com/en/evaluation-tools/b-g431b-esc1.html">product page</a> and data brief.</p>
-<p>The MCU is the interesting choice. FOC recomputes the field orientation every control loop, and each iteration costs a handful of trigonometric evaluations (see <a href="../reference/simple-foc.html">How SimpleFOC works</a>). At 170 MHz with hardware floating point that fits comfortably inside a 13 kHz loop. A hobby ESC’s 8-bit microcontroller could not do this arithmetic in the time available, which is precisely why hobby ESCs use the cruder back-EMF scheme instead.</p>
+<p>The MCU is the interesting choice. FOC recomputes the field orientation every control loop, and each iteration costs a handful of trigonometric evaluations (see <a href="../reference/simple-foc.html">How SimpleFOC works</a>). At 170 MHz with hardware floating point that fits comfortably inside a 10 kHz loop. A hobby ESC’s 8-bit microcontroller could not do this arithmetic in the time available, which is precisely why hobby ESCs use the cruder back-EMF scheme instead.</p>
 </section>
 <section id="how-the-three-phases-are-generated" class="level2">
 <h2 class="anchored" data-anchor-id="how-the-three-phases-are-generated">How the three phases are generated</h2>

@@ -558,21 +558,22 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#what-you-build-today" id="toc-what-you-build-today" class="nav-link active" data-scroll-target="#what-you-build-today">What you build today</a></li>
   <li><a href="#before-you-arrive" id="toc-before-you-arrive" class="nav-link" data-scroll-target="#before-you-arrive">Before you arrive</a></li>
+  <li><a href="#electrical-connections" id="toc-electrical-connections" class="nav-link" data-scroll-target="#electrical-connections">Electrical connections</a></li>
   <li><a href="#electronic-speed-controller" id="toc-electronic-speed-controller" class="nav-link" data-scroll-target="#electronic-speed-controller">Electronic Speed Controller</a></li>
-  <li><a href="#encoder-or-angular-sensor" id="toc-encoder-or-angular-sensor" class="nav-link" data-scroll-target="#encoder-or-angular-sensor">Encoder or Angular sensor</a>
+  <li><a href="#flight-controller-microcontroller" id="toc-flight-controller-microcontroller" class="nav-link" data-scroll-target="#flight-controller-microcontroller">Flight controller microcontroller</a></li>
+  <li><a href="#encoder-or-angular-sensor" id="toc-encoder-or-angular-sensor" class="nav-link" data-scroll-target="#encoder-or-angular-sensor">Encoder (or Angular sensor)</a>
   <ul class="collapse">
-  <li><a href="#why-the-motor-needs-an-encoder" id="toc-why-the-motor-needs-an-encoder" class="nav-link" data-scroll-target="#why-the-motor-needs-an-encoder">Why the motor needs an encoder</a></li>
+  <li><a href="#first-why-does-the-motor-need-an-encoder" id="toc-first-why-does-the-motor-need-an-encoder" class="nav-link" data-scroll-target="#first-why-does-the-motor-need-an-encoder">First, why does the motor need an encoder?</a></li>
   <li><a href="#what-spi-is-and-why-we-run-it-at-10-mhz" id="toc-what-spi-is-and-why-we-run-it-at-10-mhz" class="nav-link" data-scroll-target="#what-spi-is-and-why-we-run-it-at-10-mhz">What SPI is, and why we run it at 10 MHz</a></li>
   <li><a href="#wire-it-to-the-board" id="toc-wire-it-to-the-board" class="nav-link" data-scroll-target="#wire-it-to-the-board">Wire it to the board</a></li>
   </ul></li>
-  <li><a href="#onboard-microcontroller" id="toc-onboard-microcontroller" class="nav-link" data-scroll-target="#onboard-microcontroller">Onboard microcontroller</a></li>
   <li><a href="#how-to-program-the-esc" id="toc-how-to-program-the-esc" class="nav-link" data-scroll-target="#how-to-program-the-esc">How to program the ESC</a></li>
   <li><a href="#firmware" id="toc-firmware" class="nav-link" data-scroll-target="#firmware">Firmware</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../sessions/01-orientation.html">Build modules</a></li><li class="breadcrumb-item"><a href="../sessions/03-esc.html">Module 3 — Motor driver, sensor and serial</a></li></ol></nav>
@@ -641,16 +642,62 @@ Figure&nbsp;2: ESC running SimpleFOC and the angular sensor. The six MOSFETs are
 </figure>
 </div>
 </section>
+<section id="electrical-connections" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="electrical-connections">Electrical connections</h2>
+<p><a href="#fig-electronics" class="quarto-xref">Figure&nbsp;3</a> is the same set of connections as <a href="#fig-wiring" class="quarto-xref">Figure&nbsp;1</a>, drawn on the actual boards rather than as blocks. Use <a href="#fig-wiring" class="quarto-xref">Figure&nbsp;1</a> when you need the pin names, and this one when you need to find the pad.</p>
+<div id="fig-electronics" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-electronics-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<a href="../Fig/SchematicFAAVclass.jpg" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-3" title="Figure&nbsp;3: The complete electrical system. The 4S battery enters the ESC at J5, the three phase wires leave from the large OUT1–3 tabs to the motor, the AS5047P encoder returns angle over SPI, and the XIAO nRF52840 talks to the ESC over serial. Note that the encoder and the flight controller share the same supply. The MOSI tap on R14, marked Hardest connection!, is the one to leave until last - see Table&nbsp;1."><img src="../Fig/SchematicFAAVclass.jpg" class="img-fluid figure-img column-page" style="width:100.0%"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-electronics-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: The complete electrical system. The 4S battery enters the ESC at <strong>J5</strong>, the three phase wires leave from the large <strong>OUT1–3</strong> tabs to the motor, the AS5047P encoder returns angle over SPI, and the XIAO nRF52840 talks to the ESC over serial. Note that the encoder and the flight controller share the same supply. The <strong>MOSI</strong> tap on <strong>R14</strong>, marked <em>Hardest connection!</em>, is the one to leave until last - see <a href="#tbl-spi3" class="quarto-xref">Table&nbsp;1</a>.
+</figcaption>
+</figure>
+</div>
+</section>
 <section id="electronic-speed-controller" class="level2">
 <h2 class="anchored" data-anchor-id="electronic-speed-controller">Electronic Speed Controller</h2>
 <p>The <strong>B-G431B-ESC1</strong> is ST’s reference three-phase motor driver: a complete ESC on one small board, sold as an evaluation kit. It contains: - <strong>An STM32G431 microcontroller.</strong> A 170 MHz Cortex-M4 with hardware floating point. Motor control recomputes the field orientation every control loop. This MCU is the reason we can. - <strong>A three-phase inverter.</strong> Six power MOSFETs drive the three motor phases. - <strong>A detachable ST-Link programmer (the daughterboard).</strong> The small daughter board is how we program the MCU over USB, and it also carries a serial port back to your laptop. When snapped-off, the MCU cannot be reprogramed without physically resoldering it.</p>
-<p>It also brings out many input/outputs (for example<strong>J8</strong>), a CAN transceiver and a potentiometer input, none of which we use as intended. In this build J8 gets repurposed for serial, and the encoder arrives on SPI instead. Both of those reworks are below. The board is rated well above what the wing motor draws (40A), so current is not the constraint here.</p>
-<p>Get familiar with every component on the board, how six MOSFETs turn one DC rail into three rotating phases, what current it can actually deliver, and why the programmer is a separate snap-off board under <a href="../reference/g431-esc.html">The G431 ESC board</a>.</p>
+<p>It also brings out many input/outputs (for example<strong>J8</strong>), a CAN transceiver and a potentiometer input, none of which we use as intended. In this build J8 gets repurposed for serial, and the encoder arrives on SPI instead. Both of those reworks are below. The board is rated well above what the wing motor draws (40A), so current is not the constraint here. Get familiar with every component on the board, how six MOSFETs turn one DC rail into three rotating phases, what current it can actually deliver, and why the programmer is a separate snap-off board under <a href="../reference/g431-esc.html">The G431 ESC board</a>.</p>
+</section>
+<section id="flight-controller-microcontroller" class="level2">
+<h2 class="anchored" data-anchor-id="flight-controller-microcontroller">Flight controller microcontroller</h2>
+<p>We will use a <strong>Seeeduino XIAO nRF52840 Sense</strong> to send commands to the ESC and record information from the ESC. Why?</p>
+<ul>
+<li><strong>It is small and light.</strong> 21 × 17.5 mm and <strong>2.4 g</strong>. On a robot that has to move, every gram saved matters.</li>
+<li><strong>It has wireless communication out of the box.</strong> The nRF52840 is a Bluetooth Low Energy chip and a microcontroller. Once the robot is sealed in <a href="../sessions/10-waterproofing.html">Module 10</a> BLE becomes the only way commands to interact with the robot during operation, which is exactly how you retrieve a run in <a href="../sessions/11-wet-testing.html">Module 11</a>.</li>
+<li><strong>It has somewhere to put the data.</strong> 256 kB of RAM and 1 MB of flash on the chip itself are the two logging destinations used during wet testing. No SD card, no extra memory chip, nothing else to waterproof.</li>
+<li><strong>Onboard IMU</strong> to log the attitude of the robot without additional components.</li>
+<li><strong>It costs 20$</strong>. In case a failure, it can be replaced.</li>
+</ul>
+<p>It programs from the Arduino IDE like any other Arduino board, but we highly recommend using Visual Studio Code + PlatformIO. The reason we use PlatformIO is that it handles multiple file projects much betters, lets you use git versioning and handles library better. You also you a more peformant editor.</p>
+<div id="fig-xiao" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-xiao-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="../Fig/xiao-nrf52840.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Figure&nbsp;4: The Seeeduino XIAO nRF52840. TX and RX are the two pads at the bottom corners — those are the ones you solder to, and they cross over to the ESC’s RX and TX respectively. The board is 21 × 17.5 mm, which is why it can ride on the robot at all."><img src="../Fig/xiao-nrf52840.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:55.0%"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-xiao-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4: The Seeeduino XIAO nRF52840. <strong>TX</strong> and <strong>RX</strong> are the two pads at the bottom corners — those are the ones you solder to, and they cross over to the ESC’s RX and TX respectively. The board is 21 × 17.5 mm, which is why it can ride on the robot at all.
+</figcaption>
+</figure>
+</div>
+<ol type="1">
+<li><p>Solder the Seeeduino and the ESC’s <strong>Serial1</strong>: TX, RX and <strong>GND</strong> lines. In Serial communication, TX and RX are <strong>crossed</strong>, each board’s transmit line goes to the other’s receive line, as drawn in the <a href="../sessions/03-esc.html#fig-wiring">wiring diagram</a> in Module 3. GND is not optional: without a shared reference the two boards have no agreed voltage for what counts as a high or low bit. To do this step, you will need to desolder the existing Serial1 TX RX lines to the daughterboard.</p></li>
+<li><p>Install the Seeeduino in its 3D-printed bracket and into the robot.</p></li>
+<li><p>Load the barebone Arduino sketch onto the Seeeduino, see <a href="../reference/software.html">Software</a> for the repository. First, you need Visual Studio Code and the plugin PlatformIO installed.</p></li>
+<li><p>Modify the sketch to turn the LED on the <strong>ESC</strong> on and off via commander instructions. This confirms three things at once:</p>
+<ol type="a">
+<li>You can flash the Seeeduino.</li>
+<li>You can communicate with the Seeeduino over serial.</li>
+<li>The Seeeduino can communicate both ways over serial.</li>
+</ol></li>
+</ol>
 </section>
 <section id="encoder-or-angular-sensor" class="level2">
-<h2 class="anchored" data-anchor-id="encoder-or-angular-sensor">Encoder or Angular sensor</h2>
-<section id="why-the-motor-needs-an-encoder" class="level3">
-<h3 class="anchored" data-anchor-id="why-the-motor-needs-an-encoder">Why the motor needs an encoder</h3>
+<h2 class="anchored" data-anchor-id="encoder-or-angular-sensor">Encoder (or Angular sensor)</h2>
+<section id="first-why-does-the-motor-need-an-encoder" class="level3">
+<h3 class="anchored" data-anchor-id="first-why-does-the-motor-need-an-encoder">First, why does the motor need an encoder?</h3>
 <p>Field-Oriented Control works by holding the stator’s magnetic field roughly 90° ahead of the rotor’s magnets, which is the orientation that produces the most torque per amp. To place the field there, the controller has to know where the rotor is <strong>right now</strong>.</p>
 <p>Ordinary drone ESCs infer this from back-EMF, i.e the voltage the spinning rotor induces in the phase that is not currently being driven (<strong>?@eq-bemf</strong> in <a href="../sessions/02-motor.html">Module 2</a>). That voltage is proportional to speed, so as the motor slows the signal sinks into the noise and the estimate falls apart. This causes <em>loss of synchronisation at low speed</em> described in <a href="../reference/design-notes.html">Design notes</a>. The AS5047P removes the guess. It measures the field of the magnet bonded to the shaft end and reports the <strong>absolute</strong> angle — valid at standstill just as much as at 15 000 rpm, and correct immediately at power-on with no homing move.</p>
 </section>
@@ -678,7 +725,7 @@ Figure&nbsp;2: ESC running SimpleFOC and the angular sensor. The six MOSFETs are
 <div id="tbl-spi3" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-spi3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;1: SPI3 connections on the G431. * Solder onto the outward side of the resistor.
+Table&nbsp;1: SPI3 connections on the G431. * This connection is on the outward side of the resistor.
 </figcaption>
 <div aria-describedby="tbl-spi3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
@@ -689,7 +736,7 @@ Table&nbsp;1: SPI3 connections on the G431. * Solder onto the outward side of th
 <th>MISO</th>
 <th>MOSI</th>
 <th>CS</th>
-<th>3.3V</th>
+<th>5V</th>
 <th>GND</th>
 </tr>
 </thead>
@@ -709,7 +756,7 @@ Table&nbsp;1: SPI3 connections on the G431. * Solder onto the outward side of th
 <td>J3</td>
 <td>R14*</td>
 <td>J3</td>
-<td>J4</td>
+<td>J8</td>
 <td>J3</td>
 </tr>
 </tbody>
@@ -717,14 +764,14 @@ Table&nbsp;1: SPI3 connections on the G431. * Solder onto the outward side of th
 </div>
 </figure>
 </div>
-<p>Note that <strong>3.3 V and GND come from different connectors</strong>. J3 carries the three bus signals and a ground, but its only supply pin is <strong>5 V</strong> from the break-away BEC — too high for the AS5047P. The 3.3 V rail is exposed on <strong>J4</strong>, the SWD header, alongside SWDIO and SWCLK. Take power from there and ground from J3, and check both against <a href="#fig-g431-gpio" class="quarto-xref">Figure&nbsp;3</a> before soldering.</p>
+<p>Note that <strong>3.3 V and GND come from different connectors</strong>. J3 carries the three bus signals and a ground, but its only supply pin is <strong>5 V</strong> from the break-away BEC — too high for the AS5047P. The 3.3 V rail is exposed on <strong>J4</strong>, the SWD header, alongside SWDIO and SWCLK. Take power from there and ground from J3, and check both against <a href="#fig-g431-gpio" class="quarto-xref">Figure&nbsp;5</a> before soldering.</p>
 <div id="fig-g431-gpio" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-g431-gpio-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="../Fig/b431g.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure&nbsp;3: GPIOs of the G431B-ESC1 board. J3 carries SCLK, MISO, PA15 and GND; the 3.3 V rail is on the J4 SWD header."><img src="../Fig/b431g.jpg" class="img-fluid figure-img"></a>
+<a href="../Fig/b431g.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Figure&nbsp;5: GPIOs of the G431B-ESC1 board. J3 carries SCLK, MISO, PA15 and GND; the 3.3 V rail is on the J4 SWD header."><img src="../Fig/b431g.jpg" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-g431-gpio-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3: GPIOs of the G431B-ESC1 board. J3 carries SCLK, MISO, PA15 and GND; the 3.3 V rail is on the J4 SWD header.
+Figure&nbsp;5: GPIOs of the G431B-ESC1 board. J3 carries SCLK, MISO, PA15 and GND; the 3.3 V rail is on the J4 SWD header.
 </figcaption>
 </figure>
 </div>
@@ -743,27 +790,6 @@ Figure&nbsp;3: GPIOs of the G431B-ESC1 board. J3 carries SCLK, MISO, PA15 and GN
 </div>
 <p>Next, use M2 screws to mount the encoder on the 3D printed bracket that sits around the motor. Check that the distance between sensor and magnet is 0.5 mm, and centered.</p>
 </section>
-</section>
-<section id="onboard-microcontroller" class="level2">
-<h2 class="anchored" data-anchor-id="onboard-microcontroller">Onboard microcontroller</h2>
-<p>We will use a <strong>Seeeduino XIAO nRF52840 Sense</strong> to send commands to the ESC and record information from the ESC. Why? - <strong>It is small and light.</strong> 21 × 17.5 mm and <strong>2.4 g</strong>. On a robot that has to move, every gram saved matters.. - <strong>It has wireless communication out of the box.</strong> The nRF52840 is a Bluetooth Low Energy chip and a microcontroller. Once the robot is sealed in <a href="../sessions/10-waterproofing.html">Module 10</a> BLE becomes the only way commands to interact with the robot during operation — which is exactly how you retrieve a run in <a href="../sessions/11-wet-testing.html">Module 11</a>. - <strong>It has somewhere to put the data.</strong> 256 kB of RAM and 1 MB of flash on the chip itself are the two logging destinations used during wet testing. No SD card, no extra memory chip, nothing else to waterproof. - <strong>Onboard IMU</strong> to log the attitude of the robot without additional components. - <strong>It costs 20$</strong>. In case a failure, it can be replaced.</p>
-<p>It programs from the Arduino IDE like any other Arduino board, but we highly recommend using Visual Studio Code + PlatformIO.</p>
-<div id="fig-xiao" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-xiao-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="../Fig/xiao-nrf52840.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Figure&nbsp;4: The Seeeduino XIAO nRF52840. TX and RX are the two pads at the bottom corners — those are the ones you solder to, and they cross over to the ESC’s RX and TX respectively. The board is 21 × 17.5 mm, which is why it can ride on the robot at all."><img src="../Fig/xiao-nrf52840.jpg" class="img-fluid figure-img" style="width:55.0%"></a>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-xiao-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;4: The Seeeduino XIAO nRF52840. <strong>TX</strong> and <strong>RX</strong> are the two pads at the bottom corners — those are the ones you solder to, and they cross over to the ESC’s RX and TX respectively. The board is 21 × 17.5 mm, which is why it can ride on the robot at all.
-</figcaption>
-</figure>
-</div>
-<ol type="1">
-<li><p>Solder the Seeeduino and the ESC’s <strong>Serial1</strong>: TX, RX and <strong>GND</strong> lines. In Serial communication, TX and RX are <strong>crossed</strong>, each board’s transmit line goes to the other’s receive line, as drawn in the <a href="../sessions/03-esc.html#fig-wiring">wiring diagram</a> in Module 3. GND is not optional: without a shared reference the two boards have no agreed voltage for what counts as a high or low bit. To do this step, you will need to desolder the existing Serial1 TX RX lines to the daughterboard.</p></li>
-<li><p>Install the Seeeduino in its 3D-printed bracket and into the robot.</p></li>
-<li><p>Load the barebone Arduino sketch onto the Seeeduino — see <a href="../reference/software.html">Software</a> for the repository.</p></li>
-<li><p>Modify the sketch to spin the motor at <strong>100 rad/s</strong> and confirm it on the flag you mounted on the gearbox output.</p></li>
-</ol>
 </section>
 <section id="how-to-program-the-esc" class="level2">
 <h2 class="anchored" data-anchor-id="how-to-program-the-esc">How to program the ESC</h2>

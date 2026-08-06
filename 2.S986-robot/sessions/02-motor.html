@@ -368,6 +368,14 @@ window.Quarto = {
  <span class="dropdown-text">Brushless motors</span></a>
   </li>  
         <li>
+    <a class="dropdown-item" href="../reference/g431-esc.html">
+ <span class="dropdown-text">The G431 ESC board</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../reference/simple-foc.html">
+ <span class="dropdown-text">How SimpleFOC works</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="../reference/software.html">
  <span class="dropdown-text">Software</span></a>
   </li>  
@@ -525,6 +533,18 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../reference/g431-esc.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The G431 ESC board</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/simple-foc.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">How SimpleFOC works</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../reference/software.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Software</span></a>
   </div>
@@ -575,6 +595,7 @@ window.Quarto = {
   <li><a href="#motor-shaft" id="toc-motor-shaft" class="nav-link" data-scroll-target="#motor-shaft">Motor shaft</a></li>
   <li><a href="#sensor-magnet" id="toc-sensor-magnet" class="nav-link" data-scroll-target="#sensor-magnet">Sensor magnet</a></li>
   <li><a href="#mounting-the-motor" id="toc-mounting-the-motor" class="nav-link" data-scroll-target="#mounting-the-motor">Mounting the motor</a></li>
+  <li><a href="#solder-the-motor-wires-to-the-electronic-speed-controller" id="toc-solder-the-motor-wires-to-the-electronic-speed-controller" class="nav-link" data-scroll-target="#solder-the-motor-wires-to-the-electronic-speed-controller">Solder the motor wires to the Electronic Speed Controller</a></li>
   </ul>
 </nav>
     </div>
@@ -606,7 +627,7 @@ window.Quarto = {
 </div>
 <section id="what-you-build-today" class="level2">
 <h2 class="anchored" data-anchor-id="what-you-build-today">What you build today</h2>
-<p>A brushless motor with a custom shaft pressed into its rotor bell, with the sun gear and the sensor magnet installed, bolted to its bracket and mounted on the motor plate. The gearbox itself goes on in <a href="../sessions/04-control.html">Module 4</a>.</p>
+<p>A brushless motor with a custom shaft pressed into its rotor bell, with the sun gear and the sensor magnet installed, bolted to its bracket and mounted on the motor plate. The motor is soldered to the electronic speed controller. The gearbox itself goes on in <a href="../sessions/04-control.html">Module 4</a>.</p>
 </section>
 <section id="before-you-arrive" class="level2">
 <h2 class="anchored" data-anchor-id="before-you-arrive">Before you arrive</h2>
@@ -733,20 +754,24 @@ Figure&nbsp;1: Motor shaft dimensions
 <h2 class="anchored" data-anchor-id="mounting-the-motor">Mounting the motor</h2>
 <p>With the shaft and the magnet done, the motor goes onto the robot. This happens in two stages: motor to bracket, then bracket to plate.</p>
 <ol type="1">
-<li><p>Fix the motor to the vertical <strong>3D-printed nylon bracket</strong> using <strong>four screws</strong> through the mounting holes in the motor base. Don’t over tighten. Check that the rotor still turns freely by hand. Nylon is compliant, and overtightening can pull the bracket out of flat enough to preload the bearings. A motor that spun freely on the bench and feels stiff once bolted down is telling you to back the screws off and retighten more gently.</p></li>
+<li><p>Fix the motor to the vertical <strong>3D-printed nylon bracket</strong> using <strong>four screws M2x5 mm</strong> through the mounting holes in the motor base. Don’t over tighten. Check that the rotor still turns freely by hand. Nylon is compliant, and overtightening can pull the bracket out of flat enough to preload the bearings. A motor that spun freely on the bench and feels stiff once bolted down is telling you to back the screws off and retighten more gently.</p></li>
 <li><p>Mount the bracket to the <strong>bottom fuselage plate</strong>. Before tightening, check the orientation: the shaft and sun gear must point towards the front of the robot.</p></li>
 </ol>
-<div class="callout callout-style-default callout-important callout-titled">
+</section>
+<section id="solder-the-motor-wires-to-the-electronic-speed-controller" class="level2">
+<h2 class="anchored" data-anchor-id="solder-the-motor-wires-to-the-electronic-speed-controller">Solder the motor wires to the Electronic Speed Controller</h2>
+<p>Since the pads are large, make sure to use enough heat / large tip on the soldering iron. The order of the cables UVW do not matter.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>To be completed by the instructor
+<span class="screen-reader-only">Tip</span>Watch this before you pick up the iron
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Fastener specification for both stages — screw size and length for the motor to the bracket, and the count and size for the bracket to the bottom fuselage plate. Length matters most: screws that are too long reach the stator windings inside the motor.</p>
+<p><a href="https://youtu.be/6rmErwU5E-k">Soldering Crash Course: Basic Techniques, Tips and Advice</a></p>
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">

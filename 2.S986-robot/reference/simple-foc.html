@@ -623,8 +623,7 @@ window.Quarto = {
   <li><a href="#what-the-inner-loop-actually-computes" id="toc-what-the-inner-loop-actually-computes" class="nav-link" data-scroll-target="#what-the-inner-loop-actually-computes">What the inner loop actually computes</a></li>
   <li><a href="#what-the-outer-loop-computes" id="toc-what-the-outer-loop-computes" class="nav-link" data-scroll-target="#what-the-outer-loop-computes">What the outer loop computes</a></li>
   <li><a href="#alignment-and-why-the-motor-twitches-at-power-on" id="toc-alignment-and-why-the-motor-twitches-at-power-on" class="nav-link" data-scroll-target="#alignment-and-why-the-motor-twitches-at-power-on">Alignment, and why the motor twitches at power-on</a></li>
-  <li><a href="#the-sketch-you-actually-write" id="toc-the-sketch-you-actually-write" class="nav-link" data-scroll-target="#the-sketch-you-actually-write">The sketch you actually write</a></li>
-  <li><a href="#where-our-build-departs-from-the-defaults" id="toc-where-our-build-departs-from-the-defaults" class="nav-link" data-scroll-target="#where-our-build-departs-from-the-defaults">Where our build departs from the defaults</a></li>
+  <li><a href="#the-main-esc-code" id="toc-the-main-esc-code" class="nav-link" data-scroll-target="#the-main-esc-code">The main ESC code</a></li>
   <li><a href="#where-to-look-next" id="toc-where-to-look-next" class="nav-link" data-scroll-target="#where-to-look-next">Where to look next</a></li>
   </ul>
 </nav>
@@ -655,12 +654,12 @@ window.Quarto = {
 <p>The firmware in <a href="https://github.com/MIT-AURA-Lab/FAAV-G431-ESC">FAAV-G431-ESC</a> is a <a href="https://docs.simplefoc.com">SimpleFOC</a> application. This page is what you need to read that firmware and change it with confidence: what the library computes, in what order, and where your settings enter. It is background for <a href="../sessions/03-esc.html">Module 3</a> and <a href="../sessions/04-control.html">Module 4</a>, not a procedure.</p>
 <section id="the-problem-it-solves" class="level2">
 <h2 class="anchored" data-anchor-id="the-problem-it-solves">The problem it solves</h2>
-<p>A brushless motor has three windings and no brushes, so nothing decides on its own which winding should be energised. Something has to look at where the rotor is and energise the windings to put the stator’s magnetic field about <strong>90° ahead</strong> of the rotor’s magnets — the orientation that produces the most torque per amp. Do that continuously and the motor behaves like a brushed DC motor: torque proportional to current, no commutator to wear out. That is <strong>Field-Oriented Control</strong>, and it is why <a href="../sessions/02-motor.html">Module 2</a>’s <span class="math inline">\(\tau = k_T I\)</span> is usable at all.</p>
+<p>A brushless motor has three windings and no brushes, so nothing decides on its own which winding should be energised. Something has to look at where the rotor is and energise the windings to put the stator’s magnetic field about <strong>90° ahead</strong> of the rotor’s magnets, the orientation that produces the most torque per amp. Do that continuously and the motor behaves like a brushed DC motor: torque proportional to current, no commutator to wear out. That is <strong>Field-Oriented Control</strong>, and it is why <a href="../sessions/02-motor.html">Module 2</a>’s <span class="math inline">\(\tau = k_T I\)</span> is usable at all.</p>
 <p>The awkward part is that “90° ahead” is a statement about a <em>rotating</em> frame, while the three phase currents live in a <em>stationary</em> one. FOC is mostly the bookkeeping that moves between the two.</p>
 </section>
 <section id="three-objects-and-what-links-them" class="level2">
 <h2 class="anchored" data-anchor-id="three-objects-and-what-links-them">Three objects, and what links them</h2>
-<p>A SimpleFOC sketch is built from three objects, each wrapping one piece of hardware:</p>
+<p>The SimpleFOC architecture is built around three objects, each wrapping one piece of hardware:</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -693,7 +692,7 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="the-two-loops">The two loops</h2>
 <p>Every iteration runs <strong>two nested controllers</strong>, and keeping them straight is most of understanding the library:</p>
 <ul>
-<li><code>motor.loopFOC()</code> — the <strong>inner</strong> loop. Reads the angle, works out where the field should point, and sets the PWM duty cycles. It runs as fast as you can call it, and its rate is the loop frequency you read back with the commander’s <code>F</code> command.</li>
+<li><code>motor.loopFOC()</code> — the <strong>inner</strong> loop. Reads the angle, works out where the field should point, and sets the PWM duty cycles. It runs as fast as you can call it (above 10 kHz), and its rate is the loop frequency you read back with the commander’s <code>F</code> command.</li>
 <li><code>motor.move(target)</code> — the <strong>outer</strong> loop. Turns your setpoint (a position, a speed, or a torque) into the q-axis demand the inner loop chases.</li>
 </ul>
 <p>The inner loop is where speed matters; the outer loop is where tuning matters.</p>
@@ -707,7 +706,7 @@ window.Quarto = {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><code>loopFOC()</code> without <code>move()</code> holds whatever demand it last had. <code>move()</code> without <code>loopFOC()</code> updates a number nothing acts on. Anything blocking in <code>loop()</code> — a <code>delay()</code>, a slow <code>print</code> — drops the inner-loop rate and shows up as a motor that runs rough at speed.</p>
+<p><code>loopFOC()</code> without <code>move()</code> holds whatever demand it last had. <code>move()</code> without <code>loopFOC()</code> updates a number nothing acts on. Anything blocking in <code>loop()</code> - a <code>delay()</code>, a slow <code>print</code> - drops the inner-loop rate and shows up as a motor that runs rough at speed.</p>
 </div>
 </div>
 </section>
@@ -744,7 +743,7 @@ window.Quarto = {
 <span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>      <span class="co">//    q is torque-producing; d is pure flux and is driven to zero</span></span>
 <span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>      <span class="co">//    because it costs current and produces nothing.</span></span>
 <span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>      Uq <span class="op">=</span> PID_current_q<span class="op">(</span>target_current_q <span class="op">-</span> i<span class="op">.</span>q<span class="op">);</span></span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>      Ud <span class="op">=</span> PID_current_d<span class="op">(</span><span class="fl">0.0</span><span class="bu">f</span>          <span class="op">-</span> i<span class="op">.</span>d<span class="op">);</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>      Ud <span class="op">=</span> PID_current_d<span class="op">(</span><span class="fl">0.0</span><span class="bu">f</span> <span class="op">-</span> i<span class="op">.</span>d<span class="op">);</span></span>
 <span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>      <span class="cf">break</span><span class="op">;</span></span>
 <span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
 <span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
@@ -791,10 +790,10 @@ window.Quarto = {
 </section>
 <section id="alignment-and-why-the-motor-twitches-at-power-on" class="level2">
 <h2 class="anchored" data-anchor-id="alignment-and-why-the-motor-twitches-at-power-on">Alignment, and why the motor twitches at power-on</h2>
-<p><code>motor.initFOC()</code> performs the one calibration FOC cannot do without. The sensor reports <em>some</em> absolute angle, but nothing tells it how that number relates to the motor’s magnetic poles — that depends on how the magnet was glued on and how the phase wires happened to be soldered. So <code>initFOC()</code> drives a known field, watches which way the rotor moves and where it settles, and stores two things:</p>
+<p><code>motor.initFOC()</code> performs the one calibration FOC cannot do without. The sensor reports <em>some</em> absolute angle, but nothing tells it how that number relates to the motor’s magnetic poles - that depends on how the magnet was glued on and how the phase wires happened to be soldered. So <code>initFOC()</code> drives a known field, watches which way the rotor moves and where it settles, and stores two things:</p>
 <ul>
-<li><strong><code>zero_electric_angle</code></strong> — the offset between sensor zero and electrical zero</li>
-<li><strong>sensor direction</strong> — whether the sensor counts up or down relative to the motor’s positive rotation</li>
+<li><strong><code>zero_electric_angle</code></strong> - the offset between sensor zero and electrical zero</li>
+<li><strong>sensor direction</strong> - whether the sensor counts up or down relative to the motor’s positive rotation</li>
 </ul>
 <p>That is the twitch you see at every power-on. If it is skipped or wrong, the field is placed at the wrong angle and the motor draws current while producing little torque, or runs away.</p>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -807,12 +806,12 @@ window.Quarto = {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><a href="../sessions/03-esc.html">Module 3</a> says you can solder the phase wires in any order. Swapping two phases reverses the motor’s direction, and <code>initFOC()</code> measures direction rather than assuming it — so the calibration simply comes out with the other sign. The cost of getting it “wrong” is a stored constant, not a rework.</p>
+<p><a href="../sessions/03-esc.html">Module 3</a> says you can solder the phase wires in any order. Swapping two phases reverses the motor’s direction, and <code>initFOC()</code> measures direction rather than assuming it - so the calibration simply comes out with the other sign. The cost of getting it “wrong” is a stored constant, not a rework.</p>
 </div>
 </div>
 </section>
-<section id="the-sketch-you-actually-write" class="level2">
-<h2 class="anchored" data-anchor-id="the-sketch-you-actually-write">The sketch you actually write</h2>
+<section id="the-main-esc-code" class="level2">
+<h2 class="anchored" data-anchor-id="the-main-esc-code">The main ESC code</h2>
 <p>Setup is configuration; the loop is two calls. Trimmed to the parts that matter:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;SimpleFOC.h&gt;</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -849,46 +848,6 @@ window.Quarto = {
 <span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>  motor<span class="op">.</span>move<span class="op">(</span>target<span class="op">);</span></span>
 <span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>The pole-pair count must match the motor or every angle in the chain is wrong by a fixed ratio, and the symptom is a motor that vibrates instead of turning. <code>voltage_limit</code> is the one setting to get right before the first spin-up: it caps what the inner loop can ask for regardless of what the outer loop demands.</p>
-</section>
-<section id="where-our-build-departs-from-the-defaults" class="level2">
-<h2 class="anchored" data-anchor-id="where-our-build-departs-from-the-defaults">Where our build departs from the defaults</h2>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Setting</th>
-<th>Ours</th>
-<th>Why</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Sensor</td>
-<td><code>MagneticSensorSPI</code> at 10 MHz</td>
-<td>A stale angle misplaces the field — <a href="../sessions/03-esc.html">Module 3</a></td>
-</tr>
-<tr class="even">
-<td>Modulation</td>
-<td><code>SpaceVectorPWM</code></td>
-<td>Tried for loop-rate gains; no improvement measured</td>
-</tr>
-<tr class="odd">
-<td>Torque control</td>
-<td>Voltage mode</td>
-<td>Simplest, and adequate at our speeds</td>
-</tr>
-<tr class="even">
-<td><code>motion_downsample</code></td>
-<td>3</td>
-<td>Runs <code>move()</code> once per three <code>loopFOC()</code> calls, buying inner-loop rate</td>
-</tr>
-<tr class="odd">
-<td>Sensor offset</td>
-<td>Hand-tuned against speed</td>
-<td>Sensor lag — <a href="../sessions/04-control.html">Module 4</a></td>
-</tr>
-</tbody>
-</table>
-<p><code>motion_downsample</code> is worth understanding: the outer loop does not need to run as often as the inner one, because the mechanical system it controls is far slower than the electrical one. Running it every third iteration frees time for the loop that actually needs the speed.</p>
 </section>
 <section id="where-to-look-next" class="level2">
 <h2 class="anchored" data-anchor-id="where-to-look-next">Where to look next</h2>

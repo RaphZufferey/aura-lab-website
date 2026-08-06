@@ -24,6 +24,18 @@
     ]
   },
   {
+    "objectID": "sessions/12-competition.html#the-competition-rules",
+    "href": "sessions/12-competition.html#the-competition-rules",
+    "title": "Module 12 — Competition",
+    "section": "The competition rules",
+    "text": "The competition rules",
+    "crumbs": [
+      "Overview",
+      "Build modules",
+      "Module 12 --- Competition"
+    ]
+  },
+  {
     "objectID": "sessions/12-competition.html#before-you-arrive",
     "href": "sessions/12-competition.html#before-you-arrive",
     "title": "Module 12 — Competition",
@@ -40,7 +52,7 @@
     "href": "sessions/12-competition.html#feedback",
     "title": "Module 12 — Competition",
     "section": "Feedback",
-    "text": "Feedback\nThe final module is a recap and feedback round. This manual is rebuilt each year from what students report — if something in it cost you time, say so. Corrections made during this semester are listed in the Changelog.",
+    "text": "Feedback\nThe final module is a recap and feedback round. This manual is rebuilt each year from what students report -if something in it cost you time, say so. Corrections made during this semester are listed in the Changelog.",
     "crumbs": [
       "Overview",
       "Build modules",
@@ -100,7 +112,7 @@
     "href": "sessions/10-waterproofing.html#esc-waterproofing",
     "title": "Module 10 — Waterproofing",
     "section": "ESC waterproofing",
-    "text": "ESC waterproofing\nThe ESC is potted the same way as the flight controller: it sits in its own 3D-printed frame, which is then filled with Silcoset so only the wire exits remain open. Figure 1 shows the three pieces together — motor, bare ESC, and the potted frame.\n\n\n\n\n\n\nFigure 1: The motor, the ESC and the potted frame. The dark block is the frame filled with Silcoset; the ESC drops into it before the fill so the board ends up fully encapsulated with only the phase and signal wires leaving.\n\n\n\n\n\n\n\n\n\nImportantTo be completed by the instructor\n\n\n\nThe written procedure for this step, to the level of detail the flight controller has above: fill order, how the phase wires are held clear while the compound cures, cure time for this depth, and whether the ESC is potted before or after the motor wires are soldered in Module 3.",
+    "text": "ESC waterproofing\n\n\n\n\n\n\nFigure 1: The B-G431B-ESC1 assembly.\n\n\n\nThe ESC is potted the same way as the flight controller: it sits in its own 3D-printed frame, which is then filled with Silcoset so only the wire exits remain open. Figure 2 shows the three pieces together — motor, bare ESC, and the potted frame.\n\n\n\n\n\n\nFigure 2: The motor, the ESC and the potted frame. The dark block is the frame filled with Silcoset; the ESC drops into it before the fill so the board ends up fully encapsulated with only the phase and signal wires leaving.\n\n\n\n\n\n\n\n\n\nImportantTo be completed by the instructor\n\n\n\nThe written procedure for this step, to the level of detail the flight controller has above: fill order, how the phase wires are held clear while the compound cures, cure time for this depth, and whether the ESC is potted before or after the motor wires are soldered in Module 3.",
     "crumbs": [
       "Overview",
       "Build modules",
@@ -304,7 +316,7 @@
     "href": "sessions/04-control.html#reduction",
     "title": "Module 4 — Closed-loop control and tuning",
     "section": "Reduction",
-    "text": "Reduction\nThe motor is connected via a custom shaft to a gearbox with a 23.04:1 reduction by Faulhaber.1 Both parts are held in place by 3D-printed plates. The output shaft of the gearbox has its own bearing on the inside of the gearbox, and is also supported mid-way on the shaft by a 4×8 mm flanged bearing. This leaves 5 mm of shaft length free for the crank to be mounted on. A flat on the shaft helps lock the rotation of the M3 screw extending through the crank.\n\n\n\n\n\n\nMotor shaft\n\n\n\n\n\n\n\nFaulhaber gearbox\n\n\n\n\n\n\nInstalling the reduction\nOur sun gear is already pressed onto the motor shaft from Module 2. What is left is mating the gearbox to the motor and fixing the pair to the plates.\n\nSlide the gearbox onto the motor shaft so the sun gear engages the planets. It should seat with light hand pressure, if it resists, back off and check the sun gear is square on the shaft rather than forcing it.\nFix the blue part of the gearbox: the custom screws that come with the gearbox on one side, and M2.5×10 screws on the other.\nCheck the output turns freely by hand through a full revolution before applying power.\nClose the gearbox: the silver part threads onto the blue part. Don’t tighten it.\nAttach the second vertical bracket to the silver part of the gearbox with 3 × M2.5 screws.\nSecure that bracket to the bottom fuselage plate with 3 × M2 screws. The motor bracket from Module 2 is already on the same plate, so between them the two brackets set the alignment of the whole drivetrain. Check the output still turns freely once both are bolted down.",
+    "text": "Reduction\nThe motor is connected via a custom shaft to a gearbox with a 23.04:1 reduction by Faulhaber.1 Both parts are held in place by 3D-printed plates. The output shaft of the gearbox has its own bearing on the inside of the gearbox, and is also supported mid-way on the shaft by a 4×8 mm flanged bearing. This leaves 5 mm of shaft length free for the crank to be mounted on. A flat on the shaft helps lock the rotation of the M3 screw extending through the crank.\n\n\n\n\n\n\nMotor shaft\n\n\n\n\n\n\n\nFaulhaber gearbox",
     "crumbs": [
       "Overview",
       "Build modules",
@@ -312,11 +324,11 @@
     ]
   },
   {
-    "objectID": "sessions/04-control.html#onboard-microcontroller",
-    "href": "sessions/04-control.html#onboard-microcontroller",
+    "objectID": "sessions/04-control.html#commanding-and-monitoring",
+    "href": "sessions/04-control.html#commanding-and-monitoring",
     "title": "Module 4 — Closed-loop control and tuning",
-    "section": "Onboard microcontroller",
-    "text": "Onboard microcontroller\nSo far every command has come from your laptop over micro-USB. That works on the bench and nowhere else, a robot that has to move cannot stay tethered. The commander interface does not change; what changes is who talks to it. From here on the Seeeduino XIAO nRF52840 rides on the robot and sends those same commands, and your laptop talks to the Seeeduino instead of to the ESC.\n\n\n\n\n\n\nFigure 1: The Seeeduino XIAO nRF52840. TX and RX are the two pads at the bottom corners — those are the ones you solder to, and they cross over to the ESC’s RX and TX respectively. The board is 21 × 17.5 mm, which is why it can ride on the robot at all.\n\n\n\n\nSolder the Seeeduino and the ESC’s Serial1: TX, RX and GND lines. In Serial communication, TX and RX are crossed, each board’s transmit line goes to the other’s receive line, as drawn in the wiring diagram in Module 3. GND is not optional: without a shared reference the two boards have no agreed voltage for what counts as a high or low bit. To do this step, you will need to desolder the existing Serial1 TX RX lines to the daughterboard.\nInstall the Seeeduino in its 3D-printed bracket and into the robot.\nLoad the barebone Arduino sketch onto the Seeeduino — see Software for the repository.\nModify the sketch to spin the motor at 100 rad/s and confirm it on the flag you mounted on the gearbox output.\n\n\n\n\n\n\n\nImportantTo be completed by the instructor\n\n\n\nWhich repository holds the barebone Seeeduino sketch, and on which branch. The nRF52 repositories currently in Software are marked outdated, so students following this page have nothing to clone.",
+    "section": "Commanding and monitoring",
+    "text": "Commanding and monitoring\nThis is a high-level summary of the SimpleFOC communication docs. Communication with the ESC is over serial, via a separate microcontroller board.\nOnce serial communication is established, you interact with the ESC through the commander, a practical interface for setting and getting values (instructions). Ask the commander for available commands with ?. Commands available:\n\n\n\n\n\n\n\nCommand\nEffect\n\n\n\n\nM\nFull motor configuration\n\n\nF\nGet the main loop frequency\n\n\nL\nTurn the onboard LED on and off (useful as a comms check)\n\n\nT\nSet the target value — rad, rad/s or N/m depending on control mode\n\n\nW\nWatchdog on/off. If no new target arrives for 1 s, target is set to zero. On by default\n\n\nR\nR0/R1 disable/enable a linear ramp when changing setpoint. RD1000 sets ramp duration to 1000 ms (default 1000 ms). Off by default\n\n\n\n\nInstalling the reduction\nOur sun gear is already pressed onto the motor shaft from Module 2. What is left is mating the gearbox to the motor and fixing the pair to the plates.\n\nSlide the gearbox onto the motor shaft so the sun gear engages the planets. It should seat with light hand pressure, if it resists, back off and check the sun gear is square on the shaft rather than forcing it.\nFix the blue part of the gearbox: the custom screws that come with the gearbox on one side, and M2.5×10 screws on the other.\nCheck the output turns freely by hand through a full revolution before applying power.\nClose the gearbox: the silver part threads onto the blue part. Don’t tighten it.\nAttach the second vertical bracket to the silver part of the gearbox with 3 × M2.5 screws.\nSecure that bracket to the bottom fuselage plate with 3 × M2 screws. The motor bracket from Module 2 is already on the same plate, so between them the two brackets set the alignment of the whole drivetrain. Check the output still turns freely once both are bolted down.\n\n\n\n\n\n\n\nImportantTo be completed by the instructor\n\n\n\nWhich repository holds the barebone Seeeduino sketch, and on which branch. The nRF52 repositories currently in Software are marked outdated, so students following this page have nothing to clone.",
     "crumbs": [
       "Overview",
       "Build modules",
@@ -388,7 +400,7 @@
     "href": "sessions/02-motor.html#what-you-build-today",
     "title": "Module 2 — Motor and transmission shaft",
     "section": "What you build today",
-    "text": "What you build today\nA brushless motor with a custom shaft pressed into its rotor bell, with the sun gear and the sensor magnet installed, bolted to its bracket and mounted on the motor plate. The gearbox itself goes on in Module 4.",
+    "text": "What you build today\nA brushless motor with a custom shaft pressed into its rotor bell, with the sun gear and the sensor magnet installed, bolted to its bracket and mounted on the motor plate. The motor is soldered to the electronic speed controller. The gearbox itself goes on in Module 4.",
     "crumbs": [
       "Overview",
       "Build modules",
@@ -448,7 +460,19 @@
     "href": "sessions/02-motor.html#mounting-the-motor",
     "title": "Module 2 — Motor and transmission shaft",
     "section": "Mounting the motor",
-    "text": "Mounting the motor\nWith the shaft and the magnet done, the motor goes onto the robot. This happens in two stages: motor to bracket, then bracket to plate.\n\nFix the motor to the vertical 3D-printed nylon bracket using four screws through the mounting holes in the motor base. Don’t over tighten. Check that the rotor still turns freely by hand. Nylon is compliant, and overtightening can pull the bracket out of flat enough to preload the bearings. A motor that spun freely on the bench and feels stiff once bolted down is telling you to back the screws off and retighten more gently.\nMount the bracket to the bottom fuselage plate. Before tightening, check the orientation: the shaft and sun gear must point towards the front of the robot.\n\n\n\n\n\n\n\nImportantTo be completed by the instructor\n\n\n\nFastener specification for both stages — screw size and length for the motor to the bracket, and the count and size for the bracket to the bottom fuselage plate. Length matters most: screws that are too long reach the stator windings inside the motor.\n\n\n\n\n\n\n\n\nNoteCheckpoint\n\n\n\nShaft seated with the sun gear on it, the rotor spinning freely by hand with no wobble, the magnet bonded concentric to within 0.5 mm, and the motor bolted to its bracket and mounted on the plate — still turning freely once bolted down.\n\n\n\n\n\n\n\n\nImportantTo be prepared by the instructor before the session\n\n\n\nBoth the bells and the shafts must be prepared ahead of time, one set per student. Neither fits in the session: the lathe work is on thin-walled aluminium that is easy to ruin, and there is not enough machine time for the whole cohort.\nMachine the bells. Clamp the bell in the lathe using its stock shaft, then take the propeller horn off by bringing the diameter down to 6 mm and the length to 2.5 mm.\n\n\n\n\n\n\nStock bell\n\n\n\n\n\n\n\nBring diameter down to 6 mm\n\n\n\n\n\n\n\nBring the length down to 2.5 mm\n\n\n\n\n\nTurn the shafts from 4 mm steel rod to the dimensions in Figure 1 — clearance fit through the bearings, tight fit on the bell. The 21.5 mm total assumes the motor and gearbox are separated by a 5.5 mm-thick wall; for a 4 mm wall, shorten the 8.5 mm segment to 7 mm, giving 20 mm overall.\nPrepare spares of both — a deformed bell cannot be recovered.",
+    "text": "Mounting the motor\nWith the shaft and the magnet done, the motor goes onto the robot. This happens in two stages: motor to bracket, then bracket to plate.\n\nFix the motor to the vertical 3D-printed nylon bracket using four screws M2x5 mm through the mounting holes in the motor base. Don’t over tighten. Check that the rotor still turns freely by hand. Nylon is compliant, and overtightening can pull the bracket out of flat enough to preload the bearings. A motor that spun freely on the bench and feels stiff once bolted down is telling you to back the screws off and retighten more gently.\nMount the bracket to the bottom fuselage plate. Before tightening, check the orientation: the shaft and sun gear must point towards the front of the robot.",
+    "crumbs": [
+      "Overview",
+      "Build modules",
+      "Module 2 --- Motor and transmission shaft"
+    ]
+  },
+  {
+    "objectID": "sessions/02-motor.html#solder-the-motor-wires-to-the-electronic-speed-controller",
+    "href": "sessions/02-motor.html#solder-the-motor-wires-to-the-electronic-speed-controller",
+    "title": "Module 2 — Motor and transmission shaft",
+    "section": "Solder the motor wires to the Electronic Speed Controller",
+    "text": "Solder the motor wires to the Electronic Speed Controller\nSince the pads are large, make sure to use enough heat / large tip on the soldering iron. The order of the cables UVW do not matter.\n\n\n\n\n\n\nTipWatch this before you pick up the iron\n\n\n\nSoldering Crash Course: Basic Techniques, Tips and Advice\n\n\n\n\n\n\n\n\nNoteCheckpoint\n\n\n\nShaft seated with the sun gear on it, the rotor spinning freely by hand with no wobble, the magnet bonded concentric to within 0.5 mm, and the motor bolted to its bracket and mounted on the plate — still turning freely once bolted down.\n\n\n\n\n\n\n\n\nImportantTo be prepared by the instructor before the session\n\n\n\nBoth the bells and the shafts must be prepared ahead of time, one set per student. Neither fits in the session: the lathe work is on thin-walled aluminium that is easy to ruin, and there is not enough machine time for the whole cohort.\nMachine the bells. Clamp the bell in the lathe using its stock shaft, then take the propeller horn off by bringing the diameter down to 6 mm and the length to 2.5 mm.\n\n\n\n\n\n\nStock bell\n\n\n\n\n\n\n\nBring diameter down to 6 mm\n\n\n\n\n\n\n\nBring the length down to 2.5 mm\n\n\n\n\n\nTurn the shafts from 4 mm steel rod to the dimensions in Figure 1 — clearance fit through the bearings, tight fit on the bell. The 21.5 mm total assumes the motor and gearbox are separated by a 5.5 mm-thick wall; for a 4 mm wall, shorten the 8.5 mm segment to 7 mm, giving 20 mm overall.\nPrepare spares of both — a deformed bell cannot be recovered.",
     "crumbs": [
       "Overview",
       "Build modules",
@@ -516,15 +540,135 @@
     ]
   },
   {
-    "objectID": "reference/parts-list.html",
-    "href": "reference/parts-list.html",
-    "title": "Parts list",
+    "objectID": "reference/pcb.html",
+    "href": "reference/pcb.html",
+    "title": "PCB revisions",
     "section": "",
-    "text": "Table 1: List of components, after Table S1\n\n\n\n\n\n\n\n\n\n\n\n\n\nCategory\nComponent\nMaterial/Model\nNb\nMass [g]\nTotal [g]\n\n\n\n\nStructure\nFrame\nCarbon 1.5mm plate (swiss-composite)\n2\n4.7\n9.4\n\n\n\nVertical panels\nOnyx with CF (Markforged)\n2\n6.2\n12.4\n\n\n\nMotor holder\nOnyx with CF (Markforged)\n1\n4.3\n4.3\n\n\n\nBattery holder\nOnyx with CF (Markforged)\n1\n1.1\n1.1\n\n\n\nTail holder\nOnyx with CF (Markforged)\n1\n4.3\n4.3\n\n\n\nScrews\nM2 Stainless\n40\n0.13\n5.2\n\n\nTail\nTail\nCarbon 0.5 mm plate (Swiss-composite)\n1\n22.2\n22.2\n\n\nPropulsion\nCrank\nAl 7075\n1\n1.3\n1.3\n\n\n\nLinkage\nAl 7075, with bearings\n1\n4.3\n4.3\n\n\n\nReduction\nSeries 20/1R 1:23 (Faulhaber)\n1\n38\n38\n\n\n\nRight plate\nCarbon 1.5mm plate\n1\n1.5\n1.5\n\n\n\nLeft wing gear\nOnyx with CF (Markforged)\n1\n2.8\n2.8\n\n\n\nRight wing gear\nOnyx with CF (Markforged)\n1\n6.7\n6.7\n\n\nElectronics\nFlight controller\nSeeeduino NRF52840\n1\n2.4\n2.4\n\n\n\nMotor\nAS2303 1500kV (T-Motors)\n1\n17\n17\n\n\n\nHall sensor\nAS5047P (ams-OSRAM) at 10 MHz SPI\n1\n1.2\n1.2\n\n\n\nCables\n\n1\n7\n7\n\n\nWaterproof.\nSeeeduino\nSilicone + 3D print\n1\n3.7\n3.7\n\n\n\nESC\nSilicone + 3D print\n1\n5.2\n5.2\n\n\n\nConnector\nJWPF 08 (JST)\n1\n3.9\n3.9\n\n\nBattery\nBattery\n4S 350 mAh LiPo (Swaytronics)\n1\n37\n37\n\n\nWings\nWings\nCarbon structure (Swisscomposites)\n2\n14\n26\n\n\n\nMembrane\nRipstop Nylon 20D, 40 g/m2 (Extremtextil)\n2\n3\n6\n\n\n\nCoating\nUltra Ever Dry 2-component\n2\n2.1\n4.2\n\n\n\nBonding\n3M VHB tape + stitches at the ends\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nImportantTo be completed before the semester\n\n\n\nThis is the published list for the paper’s robot, not the current build. Items the modules rely on that are not in it and need adding: the AS2303 motor (the list still shows the older AT2303), the ST-Link programmer, the FAAV PCB v3.0 and its BOM, 4 mm steel rod for the motor shaft, the 6 × 2.5 mm diametric sensor magnet and its printed bracket, 5 mm PEEK stock, foam and CorrosionX.\n\n\n\n\n\n Back to top",
+    "text": "To interface the MCU to the rest of the FAAV, a custom PCB is required. As of April 2026 the latest board in the FAAV is v3.0. More information is in the FAAV-PCB-v3 repository.",
     "crumbs": [
       "Overview",
       "Reference",
-      "Parts list"
+      "PCB revisions"
+    ]
+  },
+  {
+    "objectID": "reference/pcb.html#v3.0-overview",
+    "href": "reference/pcb.html#v3.0-overview",
+    "title": "PCB revisions",
+    "section": "v3.0 overview",
+    "text": "v3.0 overview\n\n\n\n\n\n\nFigure 1: FAAV PCB v3.0 block diagram\n\n\n\nThe PCB is 4 layers, 21 × 28.5 mm, and has 34 components. The complete BOM is in the Manufacturing/Assembly folder of the repository.\nAssembly and bring-up are covered in Module 9.",
+    "crumbs": [
+      "Overview",
+      "Reference",
+      "PCB revisions"
+    ]
+  },
+  {
+    "objectID": "reference/pcb.html#v1-epfl",
+    "href": "reference/pcb.html#v1-epfl",
+    "title": "PCB revisions",
+    "section": "v1.0 — EPFL",
+    "text": "v1.0 — EPFL\nA 2-layer PCB. Its purpose is to connect the flight controller to the battery, ESC and so on, and to provide additional functionality. It was designed with the Fusion360 PCB designer. The PCB contains a current sensor, a voltage sensing circuit, a pressure sensor for measuring water depth, water sensing probes, an LED, an IMU, and several pads for soldering cables. The IMU and current sensor connect to the MCU over I²C.\n\n\n\n\n\n\nWarningKapton between flight controller and PCB\n\n\n\nTo prevent short circuits, put a layer of Kapton tape between the flight controller and the PCB when soldering the Seeeduino to the PCB.\n\n\n\n\n\n\n\n\n\n\nTop\n\n\n\n\n\n\n\nBottom\n\n\n\n\n\n\nFigure 2: PCB v1.0 assembly drawings\n\n\n\n\n\n\n\n\n\n\n\nMCU pin mapping on PCB\n\n\n\n\n\n\n\nPin map for XIAO nRF52840 (Sense) MCU\n\n\n\n\n\n\nFigure 3: Pin mapping of PCB pins and flight controller pins\n\n\n\n\nComponent list\n\n\n\nTable 1: PCB v1.0 components\n\n\n\n\n\nNames\nComponent description\nSupplier\nItem number\n\n\n\n\nIMU1:C1\nCapacitor 0.1 µF (0402)\nMouser\n581-KGM05AR51A104KH\n\n\nI_SENSE1:C1, LED1:C3, P_SENSE1:C1\nCapacitor 0.1 µF (0805)\n\n\n\n\nP_SENSE1:R1, P_SENSE1:R2\nResistor 10 k (0402)\nMouser\n71-CRCW040210K0FKEDC\n\n\nIMU1:C2\nCapacitor 10 nF (0402)\nMouser\n581-KGM05AR71C103KH\n\n\nI_SENSE1:C2\nCapacitor 10 nF (0805)\n\n\n\n\nW_SENSE1:R3\nResistor 1 M (0805)\n\n\n\n\nIMU1:C3\nCapacitor 2.2 µF (0402)\nMouser\n581-KGM05AR51A225KH\n\n\nV_SENSE1:R1\nResistor 330 k (0805)\n\n\n\n\nV_SENSE1:R2\nResistor 33 k (0805)\n\n\n\n\nLED1:LED1\nLED 4691 Adafruit\nMouser\n485-4691\n\n\nI_SENSE1:IC1\nCurrent sensor ACS723LLCTR-20AU-T, Allegro\nMouser\n250-723LLCTR20AUT\n\n\nIMU1:IC1\nIMU ICM-42688-P, TDK InvenSense\nMouser\n410-ICM-42688-P\n\n\nP_SENSE1:U1\nMS583730BA01-50, TE Connectivity\nMouser\n824-MS583730BA01-50\n\n\nI_SENSE1:BAT_GND_REG, I_SENSE1:BAT_VCC_REG\nPin header\n\n\n\n\nMCU1:U1\nXIAO nRF52840 / Sense, Seeed Studio",
+    "crumbs": [
+      "Overview",
+      "Reference",
+      "PCB revisions"
+    ]
+  },
+  {
+    "objectID": "reference/pcb.html#v2-mit",
+    "href": "reference/pcb.html#v2-mit",
+    "title": "PCB revisions",
+    "section": "v2.0 — MIT",
+    "text": "v2.0 — MIT\nThe goal of this version was to fix existing functional problems (I²C, pad spacing) and to introduce a new external I²C pad for GPS functionality. It is also designed to function by default with both the newer ESP32S3 chips and NRF52 chips. Improvements in range through WiFi connection are expected. Manufacturing steps are identical to v1.0.\n\nESP32 compatibility\nHardware and software arrangements were needed for XIAO ESP32S3 compatibility. For software see Software.\nHardware changes: a new PCB housing part allowing SD card removal and reinsertion, a WiFi antenna housing case, and a GPS housing case.\nSD card notes\n\nSD cards should be formatted to a specific format (FAT32, believed).\nUse non-sharp tweezers to gently extract the SD card from the PCB case — otherwise you risk breaking the card and making it unreadable.\nFor simultaneous servo and SD card usage, be careful not to use the same pins as on the previous chip for servos; TX and RX are used for SD card communication. You may use the secondary microSD card PCB’s two additional pins.\n\n\n\nWaterproofing\nThe method changes slightly from Module 10. Admittedly it can be vastly improved, but it works:\n\nInsert the assembled PCB, making sure the secondary SD card PCB does not come loose, and that the WiFi antenna is properly inserted.\nInsert the USB-C cable into the port, and a microSD card in the relevant slit.\nTape the bottom of the PCB so no silicone escapes when pouring. Pour silicone, using a needle to ensure there are no air bubbles between layers.\nWhen fully cured, the SD card is very hard to remove if the protective section broke off during assembly. It can be salvaged by cutting around three sides of the SD card with a knife and opening it like a trap door, freeing the stuck sections. The trap door can then be sealed with epoxy or more silicone — only on the surface, as you do not want to block the SD card again.\n\nThe WiFi antenna should also be potted. Currently the same housing case as for the ESC is used: tape the bottom of the box with Kapton tape, stick the antenna to the bottom of the casing (normally all in sticker form), then pot it with silicone. The silicone layer should be left relatively thin.\n\n\n\n\n\n\nNoteThe antenna stops working when wet\n\n\n\nIt works again once dried. This is expected behaviour, not a fault.\n\n\n\n\nPoints for a redesign\n\nIncorrect wiring for pressure sensor — SDA and SCL are swapped.\nCover the vias (currently open vias).\nVias on pads of small SMD components are not optimal for soldering, or just cover the vias.\nIncrease pad spacing for the cables.\nCurrent sensor: possibly change to a 3.3 V part. Currently a 5 V sensor is used, so current should not exceed \\((3.3\\,\\mathrm{V} - 0.5\\,\\mathrm{V}) / 0.2\\,\\mathrm{V/A} = 14\\,\\mathrm{A}\\) without risking damage to the analog ports of the Seeeduino.\nUART RX and TX are swapped (resolved)",
+    "crumbs": [
+      "Overview",
+      "Reference",
+      "PCB revisions"
+    ]
+  },
+  {
+    "objectID": "reference/g431-esc.html",
+    "href": "reference/g431-esc.html",
+    "title": "The G431 ESC board",
+    "section": "",
+    "text": "Background on the B-G431B-ESC1, the board you rework and flash in Module 3. What is on it, how it turns a DC battery into three moving phases, what it can drive, and why it arrives in two pieces.",
+    "crumbs": [
+      "Overview",
+      "Reference",
+      "The G431 ESC board"
+    ]
+  },
+  {
+    "objectID": "reference/g431-esc.html#what-it-is",
+    "href": "reference/g431-esc.html#what-it-is",
+    "title": "The G431 ESC board",
+    "section": "What it is",
+    "text": "What it is\nST sells this as a Discovery kit: a reference design showing what their STM32G431 can do in a motor-control role, in the physical form of a drone ESC. That origin explains most of its oddities. A hobby ESC exposes a signal wire and two power leads because that is all a flight controller needs; this board brings out a CAN bus, a potentiometer input, a hall-sensor connector and a debug header, because its job is to demonstrate everything the chip supports.\nFor us the consequence is good and bad in equal measure. Good: the silicon is open, we can run our own firmware (SimpleFOC) and we get real current sensing. Bad: several connectors are wired for uses we do not want, which is why Module 3 spends its time repurposing them.\n\n\n\n\n\n\nFigure 1: The power stage. The six large flat packages are the MOSFETs, in three pairs; the copper tabs on the left are the U, V and W phase outputs.",
+    "crumbs": [
+      "Overview",
+      "Reference",
+      "The G431 ESC board"
+    ]
+  },
+  {
+    "objectID": "reference/g431-esc.html#the-parts-that-matter",
+    "href": "reference/g431-esc.html#the-parts-that-matter",
+    "title": "The G431 ESC board",
+    "section": "The parts that matter",
+    "text": "The parts that matter\n\n\n\n\n\n\n\n\nBlock\nPart\nNotes\n\n\n\n\nMicrocontroller\nSTM32G431CB\n170 MHz Cortex-M4 with FPU, 128 kB flash, 32 kB RAM\n\n\nPower switches\n6 × STL180N6F7\n60 V N-channel MOSFETs, very low on-resistance\n\n\nGate drivers\nL6387\nThree half-bridge drivers, one per phase\n\n\nCurrent sensing\nThree shunts\nLow-side, amplified into the MCU’s ADCs\n\n\nProgrammer\nST-LINK/V2-1\nOn the detachable daughterboard\n\n\n\nSources: ST’s product page and data brief.\nThe MCU is the interesting choice. FOC recomputes the field orientation every control loop, and each iteration costs a handful of trigonometric evaluations (see How SimpleFOC works). At 170 MHz with hardware floating point that fits comfortably inside a 10 kHz loop. A hobby ESC’s 8-bit microcontroller could not do this arithmetic in the time available, which is precisely why hobby ESCs use the cruder back-EMF scheme instead.",
+    "crumbs": [
+      "Overview",
+      "Reference",
+      "The G431 ESC board"
+    ]
+  },
+  {
+    "objectID": "reference/g431-esc.html#how-the-three-phases-are-generated",
+    "href": "reference/g431-esc.html#how-the-three-phases-are-generated",
+    "title": "The G431 ESC board",
+    "section": "How the three phases are generated",
+    "text": "How the three phases are generated\nThe battery supplies one DC voltage. The motor needs three voltages that vary smoothly and stay 120° apart. The bridge between the two is built from three identical circuits.\nOne half-bridge per phase. Each phase output connects to two MOSFETs in series across the battery: a high-side switch to the positive rail and a low-side switch to ground. Closing the high side pulls that phase to battery voltage; closing the low side pulls it to zero. Three phases, three pairs, six transistors — the six packages in Figure 1.\nPWM makes the intermediate values. A switch is either on or off, so a half-bridge can only output the full rail or nothing. Switching between them tens of thousands of times a second and varying the fraction of time spent high produces any average voltage in between. 50% duty gives half the rail. The motor’s own winding inductance does the smoothing: it resists rapid current changes, so it responds to the average and largely ignores the switching.\nThree of them, offset, make a rotating field. Drive the three duty cycles as sinusoids 120° apart and the three phase voltages produce a magnetic field that sweeps steadily around the stator. Advance the sinusoids faster and the field rotates faster. This is what driver.setPwm(Ua, Ub, Uc) at the bottom of SimpleFOC’s inner loop is ultimately setting.\n\n\n\n\n\n\nWarningBoth switches in a pair must never be on together\n\n\n\nHigh and low side closed at once is a direct short across the battery through two transistors — called shoot-through, and it destroys the pair in microseconds. The hardware inserts a dead time: a brief interval where both are off during every transition. It is handled by the gate drivers and the MCU’s timer, so you will not code it, but it is why the two switches of a pair are never driven by a single signal.\n\n\nCurrent sensing closes the loop. A small-value shunt resistor sits in each phase’s low-side return path. The voltage across it is proportional to the current through that phase; the MCU amplifies and samples it. Three shunts mean all three phase currents are visible, which is what makes true FOC current control possible rather than voltage-mode approximation. Without this measurement you can ask for a torque; with it you can regulate one.",
+    "crumbs": [
+      "Overview",
+      "Reference",
+      "The G431 ESC board"
+    ]
+  },
+  {
+    "objectID": "reference/g431-esc.html#what-it-can-drive",
+    "href": "reference/g431-esc.html#what-it-can-drive",
+    "title": "The G431 ESC board",
+    "section": "What it can drive",
+    "text": "What it can drive\n\n\n\nInput voltage\n3S to 6S LiPo (roughly 11–25 V)\n\n\nPeak current\n40 A, with forced-air cooling\n\n\nProtection\nOvercurrent, overvoltage and thermal, on-board\n\n\n\nTwo cautions about that 40 A. It is a peak figure, and it assumes forced air — a fan, or a drone’s propwash. Our robot has neither, and it spends much of its life underwater with the board sealed inside potting compound (Module 10), so heat leaves slowly and only by conduction. Treat 40 A as a number describing the silicon, not a budget you may spend.\nIn practice this is not the binding constraint. The wing motor draws far less than the board can supply, so the limits you will actually meet are the motor’s own thermal limit and sensor lag, not the ESC’s. The relevant discussion is in Brushless motors and Module 4.",
+    "crumbs": [
+      "Overview",
+      "Reference",
+      "The G431 ESC board"
+    ]
+  },
+  {
+    "objectID": "reference/g431-esc.html#why-there-is-a-daughterboard",
+    "href": "reference/g431-esc.html#why-there-is-a-daughterboard",
+    "title": "The G431 ESC board",
+    "section": "Why there is a daughterboard",
+    "text": "Why there is a daughterboard\nThe small board at the end is a complete ST-LINK/V2-1 programmer and debug probe. It is separated from the power board by a line of perforations and is meant to be snapped off.\nThat design makes sense for ST’s intended user: develop with the programmer attached, then break it away so the flight-ready ESC is smaller and lighter, and reuse the same programmer on the next board. It carries two things:\n\nSWD — the debug and programming interface, used to flash the MCU\nA virtual COM port — a USB serial bridge onto one of the MCU’s UARTs\n\n\n\n\n\n\n\nImportantDo not snap it off\n\n\n\nOnce separated, reprogramming needs an external programmer wired to the SWD pads by hand. We keep it attached for the whole course. This is also why the board is larger than a hobby ESC of equivalent power — roughly half of what you are holding is the programmer.\n\n\nThe virtual COM port is where Module 3 runs into trouble. Out of the box it is wired to the MCU’s USART2, on pins that the board also uses for the hall-sensor connector. Those same pins are the SPI3 bus we need for the AS5047P encoder, and an encoder is not optional for FOC. So the pins go to the encoder, USART2 stops being reachable over USB, and serial has to be re-routed — either onto USART1 by rework, or off-board entirely to the Seeeduino. Flashing is unaffected throughout, because SWD runs on different pins.",
+    "crumbs": [
+      "Overview",
+      "Reference",
+      "The G431 ESC board"
+    ]
+  },
+  {
+    "objectID": "reference/g431-esc.html#what-we-do-not-use",
+    "href": "reference/g431-esc.html#what-we-do-not-use",
+    "title": "The G431 ESC board",
+    "section": "What we do not use",
+    "text": "What we do not use\n\nCAN transceiver. Present and functional; our robot uses BLE from the flight controller instead.\nPotentiometer input. An analog throttle knob for bench demonstrations.\nHall-sensor connector (J8). Intended for the three digital hall sensors built into many BLDC motors. Ours has none, and hall sensors would be too coarse anyway — six positions per electrical revolution, against the AS5047P’s continuous absolute angle. The connector gets repurposed for serial.\n\nSources: ST B-G431B-ESC1 product page, data brief.",
+    "crumbs": [
+      "Overview",
+      "Reference",
+      "The G431 ESC board"
     ]
   },
   {
@@ -790,51 +934,123 @@
     ]
   },
   {
-    "objectID": "reference/pcb.html",
-    "href": "reference/pcb.html",
-    "title": "PCB revisions",
+    "objectID": "reference/parts-list.html",
+    "href": "reference/parts-list.html",
+    "title": "Parts list",
     "section": "",
-    "text": "To interface the MCU to the rest of the FAAV, a custom PCB is required. As of April 2026 the latest board in the FAAV is v3.0. More information is in the FAAV-PCB-v3 repository.",
+    "text": "Table 1: List of components, after Table S1\n\n\n\n\n\n\n\n\n\n\n\n\n\nCategory\nComponent\nMaterial/Model\nNb\nMass [g]\nTotal [g]\n\n\n\n\nStructure\nFrame\nCarbon 1.5mm plate (swiss-composite)\n2\n4.7\n9.4\n\n\n\nVertical panels\nOnyx with CF (Markforged)\n2\n6.2\n12.4\n\n\n\nMotor holder\nOnyx with CF (Markforged)\n1\n4.3\n4.3\n\n\n\nBattery holder\nOnyx with CF (Markforged)\n1\n1.1\n1.1\n\n\n\nTail holder\nOnyx with CF (Markforged)\n1\n4.3\n4.3\n\n\n\nScrews\nM2 Stainless\n40\n0.13\n5.2\n\n\nTail\nTail\nCarbon 0.5 mm plate (Swiss-composite)\n1\n22.2\n22.2\n\n\nPropulsion\nCrank\nAl 7075\n1\n1.3\n1.3\n\n\n\nLinkage\nAl 7075, with bearings\n1\n4.3\n4.3\n\n\n\nReduction\nSeries 20/1R 1:23 (Faulhaber)\n1\n38\n38\n\n\n\nRight plate\nCarbon 1.5mm plate\n1\n1.5\n1.5\n\n\n\nLeft wing gear\nOnyx with CF (Markforged)\n1\n2.8\n2.8\n\n\n\nRight wing gear\nOnyx with CF (Markforged)\n1\n6.7\n6.7\n\n\nElectronics\nFlight controller\nSeeeduino NRF52840\n1\n2.4\n2.4\n\n\n\nMotor\nAS2303 1500kV (T-Motors)\n1\n17\n17\n\n\n\nHall sensor\nAS5047P (ams-OSRAM) at 10 MHz SPI\n1\n1.2\n1.2\n\n\n\nCables\n\n1\n7\n7\n\n\nWaterproof.\nSeeeduino\nSilicone + 3D print\n1\n3.7\n3.7\n\n\n\nESC\nSilicone + 3D print\n1\n5.2\n5.2\n\n\n\nConnector\nJWPF 08 (JST)\n1\n3.9\n3.9\n\n\nBattery\nBattery\n4S 350 mAh LiPo (Swaytronics)\n1\n37\n37\n\n\nWings\nWings\nCarbon structure (Swisscomposites)\n2\n14\n26\n\n\n\nMembrane\nRipstop Nylon 20D, 40 g/m2 (Extremtextil)\n2\n3\n6\n\n\n\nCoating\nUltra Ever Dry 2-component\n2\n2.1\n4.2\n\n\n\nBonding\n3M VHB tape + stitches at the ends\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nImportantTo be completed before the semester\n\n\n\nThis is the published list for the paper’s robot, not the current build. Items the modules rely on that are not in it and need adding: the AS2303 motor (the list still shows the older AT2303), the ST-Link programmer, the FAAV PCB v3.0 and its BOM, 4 mm steel rod for the motor shaft, the 6 × 2.5 mm diametric sensor magnet and its printed bracket, 5 mm PEEK stock, foam and CorrosionX.\n\n\n\n\n\n Back to top",
     "crumbs": [
       "Overview",
       "Reference",
-      "PCB revisions"
+      "Parts list"
     ]
   },
   {
-    "objectID": "reference/pcb.html#v3.0-overview",
-    "href": "reference/pcb.html#v3.0-overview",
-    "title": "PCB revisions",
-    "section": "v3.0 overview",
-    "text": "v3.0 overview\n\n\n\n\n\n\nFigure 1: FAAV PCB v3.0 block diagram\n\n\n\nThe PCB is 4 layers, 21 × 28.5 mm, and has 34 components. The complete BOM is in the Manufacturing/Assembly folder of the repository.\nAssembly and bring-up are covered in Module 9.",
+    "objectID": "reference/simple-foc.html",
+    "href": "reference/simple-foc.html",
+    "title": "How SimpleFOC works",
+    "section": "",
+    "text": "The firmware in FAAV-G431-ESC is a SimpleFOC application. This page is what you need to read that firmware and change it with confidence: what the library computes, in what order, and where your settings enter. It is background for Module 3 and Module 4, not a procedure.",
     "crumbs": [
       "Overview",
       "Reference",
-      "PCB revisions"
+      "How SimpleFOC works"
     ]
   },
   {
-    "objectID": "reference/pcb.html#v1-epfl",
-    "href": "reference/pcb.html#v1-epfl",
-    "title": "PCB revisions",
-    "section": "v1.0 — EPFL",
-    "text": "v1.0 — EPFL\nA 2-layer PCB. Its purpose is to connect the flight controller to the battery, ESC and so on, and to provide additional functionality. It was designed with the Fusion360 PCB designer. The PCB contains a current sensor, a voltage sensing circuit, a pressure sensor for measuring water depth, water sensing probes, an LED, an IMU, and several pads for soldering cables. The IMU and current sensor connect to the MCU over I²C.\n\n\n\n\n\n\nWarningKapton between flight controller and PCB\n\n\n\nTo prevent short circuits, put a layer of Kapton tape between the flight controller and the PCB when soldering the Seeeduino to the PCB.\n\n\n\n\n\n\n\n\n\n\nTop\n\n\n\n\n\n\n\nBottom\n\n\n\n\n\n\nFigure 2: PCB v1.0 assembly drawings\n\n\n\n\n\n\n\n\n\n\n\nMCU pin mapping on PCB\n\n\n\n\n\n\n\nPin map for XIAO nRF52840 (Sense) MCU\n\n\n\n\n\n\nFigure 3: Pin mapping of PCB pins and flight controller pins\n\n\n\n\nComponent list\n\n\n\nTable 1: PCB v1.0 components\n\n\n\n\n\nNames\nComponent description\nSupplier\nItem number\n\n\n\n\nIMU1:C1\nCapacitor 0.1 µF (0402)\nMouser\n581-KGM05AR51A104KH\n\n\nI_SENSE1:C1, LED1:C3, P_SENSE1:C1\nCapacitor 0.1 µF (0805)\n\n\n\n\nP_SENSE1:R1, P_SENSE1:R2\nResistor 10 k (0402)\nMouser\n71-CRCW040210K0FKEDC\n\n\nIMU1:C2\nCapacitor 10 nF (0402)\nMouser\n581-KGM05AR71C103KH\n\n\nI_SENSE1:C2\nCapacitor 10 nF (0805)\n\n\n\n\nW_SENSE1:R3\nResistor 1 M (0805)\n\n\n\n\nIMU1:C3\nCapacitor 2.2 µF (0402)\nMouser\n581-KGM05AR51A225KH\n\n\nV_SENSE1:R1\nResistor 330 k (0805)\n\n\n\n\nV_SENSE1:R2\nResistor 33 k (0805)\n\n\n\n\nLED1:LED1\nLED 4691 Adafruit\nMouser\n485-4691\n\n\nI_SENSE1:IC1\nCurrent sensor ACS723LLCTR-20AU-T, Allegro\nMouser\n250-723LLCTR20AUT\n\n\nIMU1:IC1\nIMU ICM-42688-P, TDK InvenSense\nMouser\n410-ICM-42688-P\n\n\nP_SENSE1:U1\nMS583730BA01-50, TE Connectivity\nMouser\n824-MS583730BA01-50\n\n\nI_SENSE1:BAT_GND_REG, I_SENSE1:BAT_VCC_REG\nPin header\n\n\n\n\nMCU1:U1\nXIAO nRF52840 / Sense, Seeed Studio",
+    "objectID": "reference/simple-foc.html#the-problem-it-solves",
+    "href": "reference/simple-foc.html#the-problem-it-solves",
+    "title": "How SimpleFOC works",
+    "section": "The problem it solves",
+    "text": "The problem it solves\nA brushless motor has three windings and no brushes, so nothing decides on its own which winding should be energised. Something has to look at where the rotor is and energise the windings to put the stator’s magnetic field about 90° ahead of the rotor’s magnets, the orientation that produces the most torque per amp. Do that continuously and the motor behaves like a brushed DC motor: torque proportional to current, no commutator to wear out. That is Field-Oriented Control, and it is why Module 2’s \\(\\tau = k_T I\\) is usable at all.\nThe awkward part is that “90° ahead” is a statement about a rotating frame, while the three phase currents live in a stationary one. FOC is mostly the bookkeeping that moves between the two.",
     "crumbs": [
       "Overview",
       "Reference",
-      "PCB revisions"
+      "How SimpleFOC works"
     ]
   },
   {
-    "objectID": "reference/pcb.html#v2-mit",
-    "href": "reference/pcb.html#v2-mit",
-    "title": "PCB revisions",
-    "section": "v2.0 — MIT",
-    "text": "v2.0 — MIT\nThe goal of this version was to fix existing functional problems (I²C, pad spacing) and to introduce a new external I²C pad for GPS functionality. It is also designed to function by default with both the newer ESP32S3 chips and NRF52 chips. Improvements in range through WiFi connection are expected. Manufacturing steps are identical to v1.0.\n\nESP32 compatibility\nHardware and software arrangements were needed for XIAO ESP32S3 compatibility. For software see Software.\nHardware changes: a new PCB housing part allowing SD card removal and reinsertion, a WiFi antenna housing case, and a GPS housing case.\nSD card notes\n\nSD cards should be formatted to a specific format (FAT32, believed).\nUse non-sharp tweezers to gently extract the SD card from the PCB case — otherwise you risk breaking the card and making it unreadable.\nFor simultaneous servo and SD card usage, be careful not to use the same pins as on the previous chip for servos; TX and RX are used for SD card communication. You may use the secondary microSD card PCB’s two additional pins.\n\n\n\nWaterproofing\nThe method changes slightly from Module 10. Admittedly it can be vastly improved, but it works:\n\nInsert the assembled PCB, making sure the secondary SD card PCB does not come loose, and that the WiFi antenna is properly inserted.\nInsert the USB-C cable into the port, and a microSD card in the relevant slit.\nTape the bottom of the PCB so no silicone escapes when pouring. Pour silicone, using a needle to ensure there are no air bubbles between layers.\nWhen fully cured, the SD card is very hard to remove if the protective section broke off during assembly. It can be salvaged by cutting around three sides of the SD card with a knife and opening it like a trap door, freeing the stuck sections. The trap door can then be sealed with epoxy or more silicone — only on the surface, as you do not want to block the SD card again.\n\nThe WiFi antenna should also be potted. Currently the same housing case as for the ESC is used: tape the bottom of the box with Kapton tape, stick the antenna to the bottom of the casing (normally all in sticker form), then pot it with silicone. The silicone layer should be left relatively thin.\n\n\n\n\n\n\nNoteThe antenna stops working when wet\n\n\n\nIt works again once dried. This is expected behaviour, not a fault.\n\n\n\n\nPoints for a redesign\n\nIncorrect wiring for pressure sensor — SDA and SCL are swapped.\nCover the vias (currently open vias).\nVias on pads of small SMD components are not optimal for soldering, or just cover the vias.\nIncrease pad spacing for the cables.\nCurrent sensor: possibly change to a 3.3 V part. Currently a 5 V sensor is used, so current should not exceed \\((3.3\\,\\mathrm{V} - 0.5\\,\\mathrm{V}) / 0.2\\,\\mathrm{V/A} = 14\\,\\mathrm{A}\\) without risking damage to the analog ports of the Seeeduino.\nUART RX and TX are swapped (resolved)",
+    "objectID": "reference/simple-foc.html#three-objects-and-what-links-them",
+    "href": "reference/simple-foc.html#three-objects-and-what-links-them",
+    "title": "How SimpleFOC works",
+    "section": "Three objects, and what links them",
+    "text": "Three objects, and what links them\nThe SimpleFOC architecture is built around three objects, each wrapping one piece of hardware:\n\n\n\nObject\nWraps\nOur hardware\n\n\n\n\nMagneticSensorSPI\nThe angle sensor\nAS5047P on SPI3\n\n\nBLDCDriver6PWM\nThe inverter\nSix MOSFETs on the G431\n\n\nBLDCMotor\nThe control maths\n—\n\n\n\nBLDCMotor owns the algorithm and is told about the other two with linkSensor() and linkDriver(). Nothing else connects them, which is why a missing link call produces a motor that initialises cleanly and then does nothing sensible.",
     "crumbs": [
       "Overview",
       "Reference",
-      "PCB revisions"
+      "How SimpleFOC works"
+    ]
+  },
+  {
+    "objectID": "reference/simple-foc.html#the-two-loops",
+    "href": "reference/simple-foc.html#the-two-loops",
+    "title": "How SimpleFOC works",
+    "section": "The two loops",
+    "text": "The two loops\nEvery iteration runs two nested controllers, and keeping them straight is most of understanding the library:\n\nmotor.loopFOC() — the inner loop. Reads the angle, works out where the field should point, and sets the PWM duty cycles. It runs as fast as you can call it (above 10 kHz), and its rate is the loop frequency you read back with the commander’s F command.\nmotor.move(target) — the outer loop. Turns your setpoint (a position, a speed, or a torque) into the q-axis demand the inner loop chases.\n\nThe inner loop is where speed matters; the outer loop is where tuning matters.\n\n\n\n\n\n\nWarningBoth must be called every iteration\n\n\n\nloopFOC() without move() holds whatever demand it last had. move() without loopFOC() updates a number nothing acts on. Anything blocking in loop() - a delay(), a slow print - drops the inner-loop rate and shows up as a motor that runs rough at speed.",
+    "crumbs": [
+      "Overview",
+      "Reference",
+      "How SimpleFOC works"
+    ]
+  },
+  {
+    "objectID": "reference/simple-foc.html#what-the-inner-loop-actually-computes",
+    "href": "reference/simple-foc.html#what-the-inner-loop-actually-computes",
+    "title": "How SimpleFOC works",
+    "section": "What the inner loop actually computes",
+    "text": "What the inner loop actually computes\nDistilled from the library, with the bookkeeping removed:\nvoid loopFOC() {\n  sensor.update();\n\n  // 1. Mechanical angle -&gt; electrical angle.\n  //    A motor with p pole pairs turns through p electrical revolutions\n  //    for every mechanical one. zero_electric_angle comes from initFOC().\n  float angle_el = normalizeAngle(sensor.getAngle() * pole_pairs\n                                  - zero_electric_angle);\n\n  switch (torque_controller) {\n\n    case TorqueControlType::voltage:\n      // No current measurement. Ask for a voltage and hope; cheap and\n      // adequate at low speed. This is where you start.\n      Uq = target_voltage_q;\n      Ud = 0;\n      break;\n\n    case TorqueControlType::foc_current:\n      // 2. Measure two phase currents; the third follows from ia+ib+ic = 0.\n      PhaseCurrent_s c = current_sense.getPhaseCurrents();\n\n      // 3. Clarke (abc -&gt; alpha/beta) then Park (alpha/beta -&gt; d/q),\n      //    using angle_el. The output is two DC values, not sinusoids.\n      DQCurrent_s i = current_sense.getFOCCurrents(angle_el);\n\n      // 4. Two independent PI controllers on those DC values.\n      //    q is torque-producing; d is pure flux and is driven to zero\n      //    because it costs current and produces nothing.\n      Uq = PID_current_q(target_current_q - i.q);\n      Ud = PID_current_d(0.0f - i.d);\n      break;\n  }\n\n  setPhaseVoltage(Uq, Ud, angle_el);\n}\nThe Park transform is the trick worth internalising. In the stationary frame the phase currents are three sinusoids and there is nothing steady to control. Rotating the frame with the rotor turns them into two constants, \\(i_d\\) and \\(i_q\\), and a constant is something an ordinary PI controller can hold. Then you rotate back:\nvoid setPhaseVoltage(float Uq, float Ud, float angle_el) {\n  // Inverse Park: back to the stationary frame\n  float Ualpha = Ud * cos(angle_el) - Uq * sin(angle_el);\n  float Ubeta  = Ud * sin(angle_el) + Uq * cos(angle_el);\n\n  // Inverse Clarke: two axes back to three phases\n  float Ua = Ualpha;\n  float Ub = -0.5f * Ualpha + _SQRT3_2 * Ubeta;\n  float Uc = -0.5f * Ualpha - _SQRT3_2 * Ubeta;\n\n  // Shift to sit around mid-rail, since the inverter cannot output\n  // a negative voltage, then hand duty cycles to the hardware.\n  driver.setPwm(Ua + Udc/2, Ub + Udc/2, Uc + Udc/2);\n}\nSetting \\(U_d = 0\\) and driving only \\(U_q\\) is exactly “put the field 90° ahead”, expressed in coordinates. Everything above is the machinery for saying it in terms the three phases understand.",
+    "crumbs": [
+      "Overview",
+      "Reference",
+      "How SimpleFOC works"
+    ]
+  },
+  {
+    "objectID": "reference/simple-foc.html#what-the-outer-loop-computes",
+    "href": "reference/simple-foc.html#what-the-outer-loop-computes",
+    "title": "How SimpleFOC works",
+    "section": "What the outer loop computes",
+    "text": "What the outer loop computes\nmove() is a cascade, and which stages run depends on motor.controller:\nvoid move(float target) {\n  switch (controller) {\n    case MotionControlType::angle:\n      // position -&gt; velocity -&gt; current, all three stages\n      shaft_velocity_sp = P_angle(target - shaft_angle);\n      target_current_q  = PID_velocity(shaft_velocity_sp - shaft_velocity);\n      break;\n\n    case MotionControlType::velocity:\n      target_current_q  = PID_velocity(target - shaft_velocity);\n      break;\n\n    case MotionControlType::torque:\n      target_current_q  = target;   // straight through\n      break;\n  }\n}\nThis is why the commander’s T means something different in each mode — it is the input to whichever stage is outermost. It is also why tuning proceeds inside-out in Module 4: the velocity PI has to be right before the position P above it can be.",
+    "crumbs": [
+      "Overview",
+      "Reference",
+      "How SimpleFOC works"
+    ]
+  },
+  {
+    "objectID": "reference/simple-foc.html#alignment-and-why-the-motor-twitches-at-power-on",
+    "href": "reference/simple-foc.html#alignment-and-why-the-motor-twitches-at-power-on",
+    "title": "How SimpleFOC works",
+    "section": "Alignment, and why the motor twitches at power-on",
+    "text": "Alignment, and why the motor twitches at power-on\nmotor.initFOC() performs the one calibration FOC cannot do without. The sensor reports some absolute angle, but nothing tells it how that number relates to the motor’s magnetic poles - that depends on how the magnet was glued on and how the phase wires happened to be soldered. So initFOC() drives a known field, watches which way the rotor moves and where it settles, and stores two things:\n\nzero_electric_angle - the offset between sensor zero and electrical zero\nsensor direction - whether the sensor counts up or down relative to the motor’s positive rotation\n\nThat is the twitch you see at every power-on. If it is skipped or wrong, the field is placed at the wrong angle and the motor draws current while producing little torque, or runs away.\n\n\n\n\n\n\nNoteWhy the UVW order does not matter\n\n\n\nModule 3 says you can solder the phase wires in any order. Swapping two phases reverses the motor’s direction, and initFOC() measures direction rather than assuming it - so the calibration simply comes out with the other sign. The cost of getting it “wrong” is a stored constant, not a rework.",
+    "crumbs": [
+      "Overview",
+      "Reference",
+      "How SimpleFOC works"
+    ]
+  },
+  {
+    "objectID": "reference/simple-foc.html#the-main-esc-code",
+    "href": "reference/simple-foc.html#the-main-esc-code",
+    "title": "How SimpleFOC works",
+    "section": "The main ESC code",
+    "text": "The main ESC code\nSetup is configuration; the loop is two calls. Trimmed to the parts that matter:\n#include &lt;SimpleFOC.h&gt;\n\nBLDCMotor motor = BLDCMotor(7);                 // pole pairs\nBLDCDriver6PWM driver = BLDCDriver6PWM(A_PHASE_UH, A_PHASE_UL,\n                                       A_PHASE_VH, A_PHASE_VL,\n                                       A_PHASE_WH, A_PHASE_WL);\nMagneticSensorSPI sensor = MagneticSensorSPI(AS5047_SPI, PA15);\n\nfloat target = 0;\n\nvoid setup() {\n  sensor.init();\n  motor.linkSensor(&sensor);\n\n  driver.voltage_power_supply = 14.8;\n  driver.init();\n  motor.linkDriver(&driver);\n\n  motor.foc_modulation = FOCModulationType::SpaceVectorPWM;\n  motor.controller     = MotionControlType::velocity;\n\n  motor.PID_velocity.P = 0.2;\n  motor.PID_velocity.I = 20;\n  motor.LPF_velocity.Tf = 0.01;   // velocity is differentiated, so filtered\n  motor.voltage_limit   = 6;      // the safety net -- set it low first\n\n  motor.init();\n  motor.initFOC();                // alignment happens here\n}\n\nvoid loop() {\n  motor.loopFOC();\n  motor.move(target);\n}\nThe pole-pair count must match the motor or every angle in the chain is wrong by a fixed ratio, and the symptom is a motor that vibrates instead of turning. voltage_limit is the one setting to get right before the first spin-up: it caps what the inner loop can ask for regardless of what the outer loop demands.",
+    "crumbs": [
+      "Overview",
+      "Reference",
+      "How SimpleFOC works"
+    ]
+  },
+  {
+    "objectID": "reference/simple-foc.html#where-to-look-next",
+    "href": "reference/simple-foc.html#where-to-look-next",
+    "title": "How SimpleFOC works",
+    "section": "Where to look next",
+    "text": "Where to look next\n\nSimpleFOC communication docs — the commander interface used all through Module 3\nCommander motor reference — every letter the commander accepts\nThe G431 ESC board — what driver.setPwm() is actually driving",
+    "crumbs": [
+      "Overview",
+      "Reference",
+      "How SimpleFOC works"
     ]
   },
   {
@@ -854,7 +1070,7 @@
     "href": "sessions/01-orientation.html#the-robot",
     "title": "Module 1 — Orientation",
     "section": "The robot",
-    "text": "The robot\n\n\n\n\n\n\nFigure 1: The FAAV3.2\n\n\n\nWe will develop, plan and optimize a vehicle with powerful custom actuation for flapping locomotion. The build divides into four subsystems, and the modules follow that order:\n\nTransmission — motor, custom shaft, gearbox, crank and linkage (Modules 2, 5)\nElectronics — ESC, angular sensor, flight controller, custom PCB (Modules 3, 4, 9)\nAero/hydro surfaces — wings, tail, foam housing (Modules 6–8)\nWaterproofing and testing — potting, immersion, tuning (Modules 10–12)",
+    "text": "The robot\n\n\n\n\n\n\nFigure 1: The FAAV3.2\n\n\n\nWe will develop, plan and optimize a vehicle with powerful custom actuation for flapping locomotion. The build divides into four subsystems, and the modules follow that order:\n\nTransmission — motor, custom shaft, gearbox, crank and linkage (Modules 2, 5)\nElectronics — ESC, angular sensor, flight controller, custom PCB (Modules 3, 4, 9)\nAero/hydro surfaces — wings, tail (Modules 6–8)\nWaterproofing and testing — potting, immersion, tuning (Modules 10–12)",
     "crumbs": [
       "Overview",
       "Build modules",
@@ -910,11 +1126,23 @@
     ]
   },
   {
+    "objectID": "sessions/03-esc.html#electrical-connections",
+    "href": "sessions/03-esc.html#electrical-connections",
+    "title": "Module 3 — Motor driver, sensor and serial",
+    "section": "Electrical connections",
+    "text": "Electrical connections\nFigure 3 is the same set of connections as Figure 1, drawn on the actual boards rather than as blocks. Use Figure 1 when you need the pin names, and this one when you need to find the pad.\n\n\n\n\n\n\nFigure 3: The complete electrical system. The 4S battery enters the ESC at J5, the three phase wires leave from the large OUT1–3 tabs to the motor, the AS5047P encoder returns angle over SPI, and the XIAO nRF52840 talks to the ESC over serial. Note that the encoder and the flight controller share the same supply. The MOSI tap on R14, marked Hardest connection!, is the one to leave until last - see Table 1.",
+    "crumbs": [
+      "Overview",
+      "Build modules",
+      "Module 3 --- Motor driver, sensor and serial"
+    ]
+  },
+  {
     "objectID": "sessions/03-esc.html#electronic-speed-controller",
     "href": "sessions/03-esc.html#electronic-speed-controller",
     "title": "Module 3 — Motor driver, sensor and serial",
     "section": "Electronic Speed Controller",
-    "text": "Electronic Speed Controller\nThe B-G431B-ESC1 is ST’s reference three-phase motor driver: a complete ESC on one small board, sold as an evaluation kit. It contains: - An STM32G431 microcontroller. A 170 MHz Cortex-M4 with hardware floating point. Motor control recomputes the field orientation every control loop. This MCU is the reason we can. - A three-phase inverter. Six power MOSFETs drive the three motor phases. - A detachable ST-Link programmer (the daughterboard). The small daughter board is how we program the MCU over USB, and it also carries a serial port back to your laptop. When snapped-off, the MCU cannot be reprogramed without physically resoldering it.\nIt also brings out many input/outputs (for exampleJ8), a CAN transceiver and a potentiometer input, none of which we use as intended. In this build J8 gets repurposed for serial, and the encoder arrives on SPI instead. Both of those reworks are below. The board is rated well above what the wing motor draws (40A), so current is not the constraint here.\nGet familiar with every component on the board, how six MOSFETs turn one DC rail into three rotating phases, what current it can actually deliver, and why the programmer is a separate snap-off board under The G431 ESC board.",
+    "text": "Electronic Speed Controller\nThe B-G431B-ESC1 is ST’s reference three-phase motor driver: a complete ESC on one small board, sold as an evaluation kit. It contains: - An STM32G431 microcontroller. A 170 MHz Cortex-M4 with hardware floating point. Motor control recomputes the field orientation every control loop. This MCU is the reason we can. - A three-phase inverter. Six power MOSFETs drive the three motor phases. - A detachable ST-Link programmer (the daughterboard). The small daughter board is how we program the MCU over USB, and it also carries a serial port back to your laptop. When snapped-off, the MCU cannot be reprogramed without physically resoldering it.\nIt also brings out many input/outputs (for exampleJ8), a CAN transceiver and a potentiometer input, none of which we use as intended. In this build J8 gets repurposed for serial, and the encoder arrives on SPI instead. Both of those reworks are below. The board is rated well above what the wing motor draws (40A), so current is not the constraint here. Get familiar with every component on the board, how six MOSFETs turn one DC rail into three rotating phases, what current it can actually deliver, and why the programmer is a separate snap-off board under The G431 ESC board.",
     "crumbs": [
       "Overview",
       "Build modules",
@@ -922,11 +1150,11 @@
     ]
   },
   {
-    "objectID": "sessions/03-esc.html#angular-sensor",
-    "href": "sessions/03-esc.html#angular-sensor",
+    "objectID": "sessions/03-esc.html#flight-controller-microcontroller",
+    "href": "sessions/03-esc.html#flight-controller-microcontroller",
     "title": "Module 3 — Motor driver, sensor and serial",
-    "section": "Angular sensor",
-    "text": "Angular sensor\n\nWhy the motor needs an encoder\nField-Oriented Control works by holding the stator’s magnetic field roughly 90° ahead of the rotor’s magnets, which is the orientation that produces the most torque per amp. To place the field there, the controller has to know where the rotor is right now.\nOrdinary drone ESCs infer this from back-EMF, i.e the voltage the spinning rotor induces in the phase that is not currently being driven (?@eq-bemf in Module 2). That voltage is proportional to speed, so as the motor slows the signal sinks into the noise and the estimate falls apart. This causes loss of synchronisation at low speed described in Design notes. The AS5047P removes the guess. It measures the field of the magnet bonded to the shaft end and reports the absolute angle — valid at standstill just as much as at 15 000 rpm, and correct immediately at power-on with no homing move.\n\n\nWhat SPI is, and why we run it at 10 MHz\nThe AS5047P reports angle over SPI, a four-wire synchronous bus: the controller drives the clock (SCLK), data goes out on MOSI and comes back on MISO, and CS selects the chip. Transfer speed is limited only by how fast the two ends can shift bits. We use SPI because it offers 10 MHz communication. The reason speed matters is that the angle has to be re-read every single control loop, and a stale angle is gad: the controller ends up placing the stator field where the rotor was, not where it is. That error shows up as wasted current and audible noise. The same 10 MHz clock is why the wiring has to stay short, see below.\n\n\nWiring it to the board\nThere is no SPI link exposed directly on the ESC board. The solution is to use the SPI3 bus, exposed through a few hardware modifications and matching software changes. Figure 1 shows the four signals in context, including the MOSI tap on R14.\n\n\n\n\n\n\nWarningYou lose the micro-USB serial link\n\n\n\nSerial2, used by the daughterboard for serial communication will not work anymore as we are using those pins for SPI3 for the encoder instead. Flashing the ESC still works (programming runs over SWD, on different pins) but every command and every value you read back now has to pass through a different serial.\n\n\n\n\n\nTable 1: SPI3 connections on the G431. * Solder onto the outward side of the resistor.\n\n\n\n\n\n\nSCLK\nMISO\nMOSI\nCS\n\n\n\n\nMCU GPIO\nPB3\nPB4\nPB5\nPA15\n\n\nG431B pin\nJ3\nJ3\nR14*\nJ3\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 3: GPIOs of the G431B-ESC1 board\n\n\n\n\n\n\n\n\n\nWarningKeep the SPI cables under 8 cm\n\n\n\nCables between encoder and ESC need to be less than 8 cm. At 10 MHz longer runs start corrupting angle readings, and the symptom is a motor that behaves erratically rather than a sensor that obviously fails.\n\n\nNext, use M2 screws to mount the encoder on the 3D printed bracket that sits around the motor. Check that the distance between sensor and magnet is 0.5 mm, and centered.",
+    "section": "Flight controller microcontroller",
+    "text": "Flight controller microcontroller\nWe will use a Seeeduino XIAO nRF52840 Sense to send commands to the ESC and record information from the ESC. Why?\n\nIt is small and light. 21 × 17.5 mm and 2.4 g. On a robot that has to move, every gram saved matters.\nIt has wireless communication out of the box. The nRF52840 is a Bluetooth Low Energy chip and a microcontroller. Once the robot is sealed in Module 10 BLE becomes the only way commands to interact with the robot during operation, which is exactly how you retrieve a run in Module 11.\nIt has somewhere to put the data. 256 kB of RAM and 1 MB of flash on the chip itself are the two logging destinations used during wet testing. No SD card, no extra memory chip, nothing else to waterproof.\nOnboard IMU to log the attitude of the robot without additional components.\nIt costs 20$. In case a failure, it can be replaced.\n\nIt programs from the Arduino IDE like any other Arduino board, but we highly recommend using Visual Studio Code + PlatformIO. The reason we use PlatformIO is that it handles multiple file projects much betters, lets you use git versioning and handles library better. You also you a more peformant editor.\n\n\n\n\n\n\nFigure 4: The Seeeduino XIAO nRF52840. TX and RX are the two pads at the bottom corners — those are the ones you solder to, and they cross over to the ESC’s RX and TX respectively. The board is 21 × 17.5 mm, which is why it can ride on the robot at all.\n\n\n\n\nSolder the Seeeduino and the ESC’s Serial1: TX, RX and GND lines. In Serial communication, TX and RX are crossed, each board’s transmit line goes to the other’s receive line, as drawn in the wiring diagram in Module 3. GND is not optional: without a shared reference the two boards have no agreed voltage for what counts as a high or low bit. To do this step, you will need to desolder the existing Serial1 TX RX lines to the daughterboard.\nInstall the Seeeduino in its 3D-printed bracket and into the robot.\nLoad the barebone Arduino sketch onto the Seeeduino, see Software for the repository. First, you need Visual Studio Code and the plugin PlatformIO installed.\nModify the sketch to turn the LED on the ESC on and off via commander instructions. This confirms three things at once:\n\nYou can flash the Seeeduino.\nYou can communicate with the Seeeduino over serial.\nThe Seeeduino can communicate both ways over serial.",
     "crumbs": [
       "Overview",
       "Build modules",
@@ -934,11 +1162,11 @@
     ]
   },
   {
-    "objectID": "sessions/03-esc.html#solder-the-motor-wires",
-    "href": "sessions/03-esc.html#solder-the-motor-wires",
+    "objectID": "sessions/03-esc.html#encoder-or-angular-sensor",
+    "href": "sessions/03-esc.html#encoder-or-angular-sensor",
     "title": "Module 3 — Motor driver, sensor and serial",
-    "section": "Solder the motor wires",
-    "text": "Solder the motor wires\nSince the pads are large, make sure to use enough heat / large tip on the soldering iron. The order of the cables UVW do not matter.",
+    "section": "Encoder (or Angular sensor)",
+    "text": "Encoder (or Angular sensor)\n\nFirst, why does the motor need an encoder?\nField-Oriented Control works by holding the stator’s magnetic field roughly 90° ahead of the rotor’s magnets, which is the orientation that produces the most torque per amp. To place the field there, the controller has to know where the rotor is right now.\nOrdinary drone ESCs infer this from back-EMF, i.e the voltage the spinning rotor induces in the phase that is not currently being driven (?@eq-bemf in Module 2). That voltage is proportional to speed, so as the motor slows the signal sinks into the noise and the estimate falls apart. This causes loss of synchronisation at low speed described in Design notes. The AS5047P removes the guess. It measures the field of the magnet bonded to the shaft end and reports the absolute angle — valid at standstill just as much as at 15 000 rpm, and correct immediately at power-on with no homing move.\n\n\nWhat SPI is, and why we run it at 10 MHz\nWe will use an AS5047P encoder. The AS5047P reports angle over SPI, a four-wire synchronous bus: the controller drives the clock (SCLK), data goes out on MOSI and comes back on MISO, and CS selects the chip. Transfer speed is limited only by how fast the two ends can shift bits. We use SPI because it offers 10 MHz communication. The reason speed matters is that the angle has to be re-read every single control loop, and a stale angle is bad: the controller ends up placing the stator field where the rotor was, not where it is. That error shows up as wasted current and audible noise. The same 10 MHz clock is why the wiring has to stay short, see below.\n\n\nWire it to the board\nThere is no SPI link exposed directly on the ESC board. The solution is to use the SPI3 bus, exposed through a few hardware modifications and matching software changes. Figure 1 shows the four signals in context, including the MOSI tap on R14.\n\n\n\n\n\n\nWarningYou lose the micro-USB serial link\n\n\n\nSerial2, used by the daughterboard for serial communication will not work anymore as we are using those pins for SPI3 for the encoder instead. Flashing the ESC still works (programming runs over SWD, on different pins) but every command and every value you read back now has to pass through serial1.\n\n\nThe encoder needs power as well as the four bus signals — six wires in total:\n\n\n\nTable 1: SPI3 connections on the G431. * This connection is on the outward side of the resistor.\n\n\n\n\n\n\nSCLK\nMISO\nMOSI\nCS\n5V\nGND\n\n\n\n\nMCU GPIO\nPB3\nPB4\nPB5\nPA15\n—\n—\n\n\nG431B pin\nJ3\nJ3\nR14*\nJ3\nJ8\nJ3\n\n\n\n\n\n\nNote that 3.3 V and GND come from different connectors. J3 carries the three bus signals and a ground, but its only supply pin is 5 V from the break-away BEC — too high for the AS5047P. The 3.3 V rail is exposed on J4, the SWD header, alongside SWDIO and SWCLK. Take power from there and ground from J3, and check both against Figure 5 before soldering.\n\n\n\n\n\n\nFigure 5: GPIOs of the G431B-ESC1 board. J3 carries SCLK, MISO, PA15 and GND; the 3.3 V rail is on the J4 SWD header.\n\n\n\n\n\n\n\n\n\nWarningKeep the SPI cables under 8 cm\n\n\n\nCables between encoder and ESC need to be less than 8 cm. At 10 MHz longer runs start corrupting angle readings, and the symptom is a motor that behaves erratically rather than a sensor that obviously fails.\n\n\nNext, use M2 screws to mount the encoder on the 3D printed bracket that sits around the motor. Check that the distance between sensor and magnet is 0.5 mm, and centered.",
     "crumbs": [
       "Overview",
       "Build modules",
@@ -963,18 +1191,6 @@
     "title": "Module 3 — Motor driver, sensor and serial",
     "section": "Firmware",
     "text": "Firmware\nThe ESC is pre-flashed for you Code for the B-G431B-ESC1 motor controller, using the SimpleFOC library, is in the lab repository: FAAV-G431-ESC. See Software for all repositories.\nBefore you change anything in there, read How SimpleFOC works. It covers the two nested loops, what the FOC maths does each iteration, why the motor twitches at power-on, and which settings in the sketch matter — enough to read the firmware rather than guess at it.\n\n\n\n\n\n\nWarningCareful when changing control mode\n\n\n\nT means something different in each mode, position, velocity, or torque. Sending a velocity setpoint while in torque mode will do something you did not intend, with the wings attached. BE VERY CAREFUL ABOUT THIS.\n\n\n\n\n\n\n\n\nNoteCheckpoint\n\n\n\nCommander responds to ? over serial at 115200 baud, L toggles the onboard LED, the sensor returns a plausible angle through a full manual rotation, and the motor spins under a T command.\n\n\n\n\n\n\n\n\nImportantTo be prepared by the instructor before the session\n\n\n\nPre-flahs Prepare a power source 15V 5A over USB-C.",
-    "crumbs": [
-      "Overview",
-      "Build modules",
-      "Module 3 --- Motor driver, sensor and serial"
-    ]
-  },
-  {
-    "objectID": "sessions/03-esc.html#commanding-and-monitoring",
-    "href": "sessions/03-esc.html#commanding-and-monitoring",
-    "title": "Module 3 — Motor driver, sensor and serial",
-    "section": "Commanding and monitoring",
-    "text": "Commanding and monitoring\nThis is a high-level summary of the SimpleFOC communication docs. Communication with the ESC is over serial, via a separate microcontroller board.\nOnce serial communication is established, you interact with the ESC through the commander, a practical interface for setting and getting values (instructions). Ask the commander for available commands with ?. Commands available:\n\n\n\n\n\n\n\nCommand\nEffect\n\n\n\n\nM\nFull motor configuration\n\n\nF\nGet the main loop frequency\n\n\nL\nTurn the onboard LED on and off (useful as a comms check)\n\n\nT\nSet the target value — rad, rad/s or N/m depending on control mode\n\n\nW\nWatchdog on/off. If no new target arrives for 1 s, target is set to zero. On by default\n\n\nR\nR0/R1 disable/enable a linear ramp when changing setpoint. RD1000 sets ramp duration to 1000 ms (default 1000 ms). Off by default\n\n\n\n\n\n\n\n\n\nWarningCareful when changing control mode\n\n\n\nT means something different in each mode, position, velocity, or torque. Sending a velocity setpoint while in torque mode will do something you did not intend, with the wings attached. BE VERY CAREFUL ABOUT THIS.\n\n\n\n\n\n\n\n\nNoteCheckpoint\n\n\n\nCommander responds to ? over serial at 115200 baud, L toggles the onboard LED, the sensor returns a plausible angle through a full manual rotation, and the motor spins under a T command.\n\n\n\n\n\n\n\n\nImportantTo be prepared by the instructor before the session\n\n\n\nPrepare a power source 15V 5A over USB-C.",
     "crumbs": [
       "Overview",
       "Build modules",
@@ -1298,7 +1514,7 @@
     "href": "sessions/11-wet-testing.html#what-to-log",
     "title": "Module 11 — Wet testing",
     "section": "What to log",
-    "text": "What to log\nEvery run should record, at minimum:\n\nPower consumption — the numerator of cost of transport\nIMU data — attitude and acceleration through the run\nFlapping frequency — the input you are varying\n\nYou have two places to put it, and the choice matters more than it looks:\n\n\n\n\nRAM\nFlash\n\n\n\n\nSurvives power loss\nNo\nYes\n\n\nSpeed\nFast, no wear\nSlower, finite write cycles\n\n\nUse it for\nThe normal case\nRuns you cannot afford to repeat\n\n\n\nThe normal workflow is log to RAM during the run, then broadcast over BLE once the robot is out of the water. Nothing has to be opened and nothing has to be plugged in, which is the whole point: the board is potted from Module 10 and there is no connector to reach.\n\n\n\n\n\n\nWarningRAM is lost the moment power goes\n\n\n\nA brownout, a watchdog reset, or an accidental disconnect takes the whole run with it. Broadcast the data before you change the battery, not after — and if a run is expensive to repeat, write it to flash instead.",
+    "text": "What to log\nEvery run should record, at minimum:\n\nPower consumption — the numerator of cost of transport\nIMU data — attitude and acceleration through the run\nFlapping frequency — the input you are varying\n\nSince underwater we lose wireless communication, the data needs to be recorded and streamed back wirelessly after the run. You have two places to record data on the flight controller, and the choice matters more than it looks:\n\n\n\n\nRAM\nFlash\n\n\n\n\nSurvives power loss\nNo\nYes\n\n\nSpeed\nFast, no wear\nSlower, finite write cycles\n\n\nUse it for\nThe normal case\nRuns you cannot afford to repeat\n\n\n\nThe normal workflow is log to RAM during the run, then broadcast over BLE once the robot is out of the water. Nothing has to be opened and nothing has to be plugged in, which is the whole point: the board is potted from Module 10 and there is no connector to reach.\n\n\n\n\n\n\nWarningRAM is lost the moment power goes\n\n\n\nA brownout, a watchdog reset, or an accidental disconnect takes the whole run with it. Broadcast the data before you change the battery, not after — and if a run is expensive to repeat, write it to flash instead.",
     "crumbs": [
       "Overview",
       "Build modules",
@@ -1327,234 +1543,6 @@
       "Overview",
       "Build modules",
       "Module 11 --- Wet testing"
-    ]
-  },
-  {
-    "objectID": "sessions/03-esc.html#onboard-microcontroller",
-    "href": "sessions/03-esc.html#onboard-microcontroller",
-    "title": "Module 3 — Motor driver, sensor and serial",
-    "section": "Onboard microcontroller",
-    "text": "Onboard microcontroller\nWe will use a Seeeduino XIAO nRF52840 Sense to send commands to the ESC and record information from the ESC. Why? - It is small and light. 21 × 17.5 mm and 2.4 g. On a robot that has to move, every gram saved matters.. - It has wireless communication out of the box. The nRF52840 is a Bluetooth Low Energy chip and a microcontroller. Once the robot is sealed in Module 10 BLE becomes the only way commands to interact with the robot during operation — which is exactly how you retrieve a run in Module 11. - It has somewhere to put the data. 256 kB of RAM and 1 MB of flash on the chip itself are the two logging destinations used during wet testing. No SD card, no extra memory chip, nothing else to waterproof. - Onboard IMU to log the attitude of the robot without additional components. - It costs 20$. In case a failure, it can be replaced.\nIt programs from the Arduino IDE like any other Arduino board, but we highly recommend using Visual Studio Code + PlatformIO.\n\n\n\n\n\n\nFigure 4: The Seeeduino XIAO nRF52840. TX and RX are the two pads at the bottom corners — those are the ones you solder to, and they cross over to the ESC’s RX and TX respectively. The board is 21 × 17.5 mm, which is why it can ride on the robot at all.\n\n\n\n\nSolder the Seeeduino and the ESC’s Serial1: TX, RX and GND lines. In Serial communication, TX and RX are crossed, each board’s transmit line goes to the other’s receive line, as drawn in the wiring diagram in Module 3. GND is not optional: without a shared reference the two boards have no agreed voltage for what counts as a high or low bit. To do this step, you will need to desolder the existing Serial1 TX RX lines to the daughterboard.\nInstall the Seeeduino in its 3D-printed bracket and into the robot.\nLoad the barebone Arduino sketch onto the Seeeduino — see Software for the repository.\nModify the sketch to spin the motor at 100 rad/s and confirm it on the flag you mounted on the gearbox output.",
-    "crumbs": [
-      "Overview",
-      "Build modules",
-      "Module 3 --- Motor driver, sensor and serial"
-    ]
-  },
-  {
-    "objectID": "reference/simple-foc.html",
-    "href": "reference/simple-foc.html",
-    "title": "How SimpleFOC works",
-    "section": "",
-    "text": "The firmware in FAAV-G431-ESC is a SimpleFOC application. This page is what you need to read that firmware and change it with confidence: what the library computes, in what order, and where your settings enter. It is background for Module 3 and Module 4, not a procedure.",
-    "crumbs": [
-      "Overview",
-      "Reference",
-      "How SimpleFOC works"
-    ]
-  },
-  {
-    "objectID": "reference/simple-foc.html#the-problem-it-solves",
-    "href": "reference/simple-foc.html#the-problem-it-solves",
-    "title": "How SimpleFOC works",
-    "section": "The problem it solves",
-    "text": "The problem it solves\nA brushless motor has three windings and no brushes, so nothing decides on its own which winding should be energised. Something has to look at where the rotor is and energise the windings to put the stator’s magnetic field about 90° ahead of the rotor’s magnets — the orientation that produces the most torque per amp. Do that continuously and the motor behaves like a brushed DC motor: torque proportional to current, no commutator to wear out. That is Field-Oriented Control, and it is why Module 2’s \\(\\tau = k_T I\\) is usable at all.\nThe awkward part is that “90° ahead” is a statement about a rotating frame, while the three phase currents live in a stationary one. FOC is mostly the bookkeeping that moves between the two.",
-    "crumbs": [
-      "Overview",
-      "Reference",
-      "How SimpleFOC works"
-    ]
-  },
-  {
-    "objectID": "reference/simple-foc.html#three-objects-and-what-links-them",
-    "href": "reference/simple-foc.html#three-objects-and-what-links-them",
-    "title": "How SimpleFOC works",
-    "section": "Three objects, and what links them",
-    "text": "Three objects, and what links them\nA SimpleFOC sketch is built from three objects, each wrapping one piece of hardware:\n\n\n\nObject\nWraps\nOur hardware\n\n\n\n\nMagneticSensorSPI\nThe angle sensor\nAS5047P on SPI3\n\n\nBLDCDriver6PWM\nThe inverter\nSix MOSFETs on the G431\n\n\nBLDCMotor\nThe control maths\n—\n\n\n\nBLDCMotor owns the algorithm and is told about the other two with linkSensor() and linkDriver(). Nothing else connects them, which is why a missing link call produces a motor that initialises cleanly and then does nothing sensible.",
-    "crumbs": [
-      "Overview",
-      "Reference",
-      "How SimpleFOC works"
-    ]
-  },
-  {
-    "objectID": "reference/simple-foc.html#the-two-loops",
-    "href": "reference/simple-foc.html#the-two-loops",
-    "title": "How SimpleFOC works",
-    "section": "The two loops",
-    "text": "The two loops\nEvery iteration runs two nested controllers, and keeping them straight is most of understanding the library:\n\nmotor.loopFOC() — the inner loop. Reads the angle, works out where the field should point, and sets the PWM duty cycles. It runs as fast as you can call it, and its rate is the loop frequency you read back with the commander’s F command.\nmotor.move(target) — the outer loop. Turns your setpoint (a position, a speed, or a torque) into the q-axis demand the inner loop chases.\n\nThe inner loop is where speed matters; the outer loop is where tuning matters.\n\n\n\n\n\n\nWarningBoth must be called every iteration\n\n\n\nloopFOC() without move() holds whatever demand it last had. move() without loopFOC() updates a number nothing acts on. Anything blocking in loop() — a delay(), a slow print — drops the inner-loop rate and shows up as a motor that runs rough at speed.",
-    "crumbs": [
-      "Overview",
-      "Reference",
-      "How SimpleFOC works"
-    ]
-  },
-  {
-    "objectID": "reference/simple-foc.html#what-the-inner-loop-actually-computes",
-    "href": "reference/simple-foc.html#what-the-inner-loop-actually-computes",
-    "title": "How SimpleFOC works",
-    "section": "What the inner loop actually computes",
-    "text": "What the inner loop actually computes\nDistilled from the library, with the bookkeeping removed:\nvoid loopFOC() {\n  sensor.update();\n\n  // 1. Mechanical angle -&gt; electrical angle.\n  //    A motor with p pole pairs turns through p electrical revolutions\n  //    for every mechanical one. zero_electric_angle comes from initFOC().\n  float angle_el = normalizeAngle(sensor.getAngle() * pole_pairs\n                                  - zero_electric_angle);\n\n  switch (torque_controller) {\n\n    case TorqueControlType::voltage:\n      // No current measurement. Ask for a voltage and hope; cheap and\n      // adequate at low speed. This is where you start.\n      Uq = target_voltage_q;\n      Ud = 0;\n      break;\n\n    case TorqueControlType::foc_current:\n      // 2. Measure two phase currents; the third follows from ia+ib+ic = 0.\n      PhaseCurrent_s c = current_sense.getPhaseCurrents();\n\n      // 3. Clarke (abc -&gt; alpha/beta) then Park (alpha/beta -&gt; d/q),\n      //    using angle_el. The output is two DC values, not sinusoids.\n      DQCurrent_s i = current_sense.getFOCCurrents(angle_el);\n\n      // 4. Two independent PI controllers on those DC values.\n      //    q is torque-producing; d is pure flux and is driven to zero\n      //    because it costs current and produces nothing.\n      Uq = PID_current_q(target_current_q - i.q);\n      Ud = PID_current_d(0.0f          - i.d);\n      break;\n  }\n\n  setPhaseVoltage(Uq, Ud, angle_el);\n}\nThe Park transform is the trick worth internalising. In the stationary frame the phase currents are three sinusoids and there is nothing steady to control. Rotating the frame with the rotor turns them into two constants, \\(i_d\\) and \\(i_q\\), and a constant is something an ordinary PI controller can hold. Then you rotate back:\nvoid setPhaseVoltage(float Uq, float Ud, float angle_el) {\n  // Inverse Park: back to the stationary frame\n  float Ualpha = Ud * cos(angle_el) - Uq * sin(angle_el);\n  float Ubeta  = Ud * sin(angle_el) + Uq * cos(angle_el);\n\n  // Inverse Clarke: two axes back to three phases\n  float Ua = Ualpha;\n  float Ub = -0.5f * Ualpha + _SQRT3_2 * Ubeta;\n  float Uc = -0.5f * Ualpha - _SQRT3_2 * Ubeta;\n\n  // Shift to sit around mid-rail, since the inverter cannot output\n  // a negative voltage, then hand duty cycles to the hardware.\n  driver.setPwm(Ua + Udc/2, Ub + Udc/2, Uc + Udc/2);\n}\nSetting \\(U_d = 0\\) and driving only \\(U_q\\) is exactly “put the field 90° ahead”, expressed in coordinates. Everything above is the machinery for saying it in terms the three phases understand.",
-    "crumbs": [
-      "Overview",
-      "Reference",
-      "How SimpleFOC works"
-    ]
-  },
-  {
-    "objectID": "reference/simple-foc.html#what-the-outer-loop-computes",
-    "href": "reference/simple-foc.html#what-the-outer-loop-computes",
-    "title": "How SimpleFOC works",
-    "section": "What the outer loop computes",
-    "text": "What the outer loop computes\nmove() is a cascade, and which stages run depends on motor.controller:\nvoid move(float target) {\n  switch (controller) {\n    case MotionControlType::angle:\n      // position -&gt; velocity -&gt; current, all three stages\n      shaft_velocity_sp = P_angle(target - shaft_angle);\n      target_current_q  = PID_velocity(shaft_velocity_sp - shaft_velocity);\n      break;\n\n    case MotionControlType::velocity:\n      target_current_q  = PID_velocity(target - shaft_velocity);\n      break;\n\n    case MotionControlType::torque:\n      target_current_q  = target;   // straight through\n      break;\n  }\n}\nThis is why the commander’s T means something different in each mode — it is the input to whichever stage is outermost. It is also why tuning proceeds inside-out in Module 4: the velocity PI has to be right before the position P above it can be.",
-    "crumbs": [
-      "Overview",
-      "Reference",
-      "How SimpleFOC works"
-    ]
-  },
-  {
-    "objectID": "reference/simple-foc.html#alignment-and-why-the-motor-twitches-at-power-on",
-    "href": "reference/simple-foc.html#alignment-and-why-the-motor-twitches-at-power-on",
-    "title": "How SimpleFOC works",
-    "section": "Alignment, and why the motor twitches at power-on",
-    "text": "Alignment, and why the motor twitches at power-on\nmotor.initFOC() performs the one calibration FOC cannot do without. The sensor reports some absolute angle, but nothing tells it how that number relates to the motor’s magnetic poles — that depends on how the magnet was glued on and how the phase wires happened to be soldered. So initFOC() drives a known field, watches which way the rotor moves and where it settles, and stores two things:\n\nzero_electric_angle — the offset between sensor zero and electrical zero\nsensor direction — whether the sensor counts up or down relative to the motor’s positive rotation\n\nThat is the twitch you see at every power-on. If it is skipped or wrong, the field is placed at the wrong angle and the motor draws current while producing little torque, or runs away.\n\n\n\n\n\n\nNoteWhy the UVW order does not matter\n\n\n\nModule 3 says you can solder the phase wires in any order. Swapping two phases reverses the motor’s direction, and initFOC() measures direction rather than assuming it — so the calibration simply comes out with the other sign. The cost of getting it “wrong” is a stored constant, not a rework.",
-    "crumbs": [
-      "Overview",
-      "Reference",
-      "How SimpleFOC works"
-    ]
-  },
-  {
-    "objectID": "reference/simple-foc.html#the-sketch-you-actually-write",
-    "href": "reference/simple-foc.html#the-sketch-you-actually-write",
-    "title": "How SimpleFOC works",
-    "section": "The sketch you actually write",
-    "text": "The sketch you actually write\nSetup is configuration; the loop is two calls. Trimmed to the parts that matter:\n#include &lt;SimpleFOC.h&gt;\n\nBLDCMotor motor = BLDCMotor(7);                 // pole pairs\nBLDCDriver6PWM driver = BLDCDriver6PWM(A_PHASE_UH, A_PHASE_UL,\n                                       A_PHASE_VH, A_PHASE_VL,\n                                       A_PHASE_WH, A_PHASE_WL);\nMagneticSensorSPI sensor = MagneticSensorSPI(AS5047_SPI, PA15);\n\nfloat target = 0;\n\nvoid setup() {\n  sensor.init();\n  motor.linkSensor(&sensor);\n\n  driver.voltage_power_supply = 14.8;\n  driver.init();\n  motor.linkDriver(&driver);\n\n  motor.foc_modulation = FOCModulationType::SpaceVectorPWM;\n  motor.controller     = MotionControlType::velocity;\n\n  motor.PID_velocity.P = 0.2;\n  motor.PID_velocity.I = 20;\n  motor.LPF_velocity.Tf = 0.01;   // velocity is differentiated, so filtered\n  motor.voltage_limit   = 6;      // the safety net -- set it low first\n\n  motor.init();\n  motor.initFOC();                // alignment happens here\n}\n\nvoid loop() {\n  motor.loopFOC();\n  motor.move(target);\n}\nThe pole-pair count must match the motor or every angle in the chain is wrong by a fixed ratio, and the symptom is a motor that vibrates instead of turning. voltage_limit is the one setting to get right before the first spin-up: it caps what the inner loop can ask for regardless of what the outer loop demands.",
-    "crumbs": [
-      "Overview",
-      "Reference",
-      "How SimpleFOC works"
-    ]
-  },
-  {
-    "objectID": "reference/simple-foc.html#where-our-build-departs-from-the-defaults",
-    "href": "reference/simple-foc.html#where-our-build-departs-from-the-defaults",
-    "title": "How SimpleFOC works",
-    "section": "Where our build departs from the defaults",
-    "text": "Where our build departs from the defaults\n\n\n\nSetting\nOurs\nWhy\n\n\n\n\nSensor\nMagneticSensorSPI at 10 MHz\nA stale angle misplaces the field — Module 3\n\n\nModulation\nSpaceVectorPWM\nTried for loop-rate gains; no improvement measured\n\n\nTorque control\nVoltage mode\nSimplest, and adequate at our speeds\n\n\nmotion_downsample\n3\nRuns move() once per three loopFOC() calls, buying inner-loop rate\n\n\nSensor offset\nHand-tuned against speed\nSensor lag — Module 4\n\n\n\nmotion_downsample is worth understanding: the outer loop does not need to run as often as the inner one, because the mechanical system it controls is far slower than the electrical one. Running it every third iteration frees time for the loop that actually needs the speed.",
-    "crumbs": [
-      "Overview",
-      "Reference",
-      "How SimpleFOC works"
-    ]
-  },
-  {
-    "objectID": "reference/simple-foc.html#where-to-look-next",
-    "href": "reference/simple-foc.html#where-to-look-next",
-    "title": "How SimpleFOC works",
-    "section": "Where to look next",
-    "text": "Where to look next\n\nSimpleFOC communication docs — the commander interface used all through Module 3\nCommander motor reference — every letter the commander accepts\nThe G431 ESC board — what driver.setPwm() is actually driving",
-    "crumbs": [
-      "Overview",
-      "Reference",
-      "How SimpleFOC works"
-    ]
-  },
-  {
-    "objectID": "reference/g431-esc.html",
-    "href": "reference/g431-esc.html",
-    "title": "The G431 ESC board",
-    "section": "",
-    "text": "Background on the B-G431B-ESC1, the board you rework and flash in Module 3. What is on it, how it turns a DC battery into three moving phases, what it can drive, and why it arrives in two pieces.",
-    "crumbs": [
-      "Overview",
-      "Reference",
-      "The G431 ESC board"
-    ]
-  },
-  {
-    "objectID": "reference/g431-esc.html#what-it-is",
-    "href": "reference/g431-esc.html#what-it-is",
-    "title": "The G431 ESC board",
-    "section": "What it is",
-    "text": "What it is\nST sells this as a Discovery kit: a reference design showing what their STM32G431 can do in a motor-control role, in the physical form of a drone ESC. That origin explains most of its oddities. A hobby ESC exposes a signal wire and two power leads because that is all a flight controller needs; this board brings out a CAN bus, a potentiometer input, a hall-sensor connector and a debug header, because its job is to demonstrate everything the chip supports.\nFor us the consequence is good and bad in equal measure. Good: the silicon is open, we can run our own firmware (SimpleFOC) and we get real current sensing. Bad: several connectors are wired for uses we do not want, which is why Module 3 spends its time repurposing them.\n\n\n\n\n\n\nFigure 1: The power stage. The six large flat packages are the MOSFETs, in three pairs; the copper tabs on the left are the U, V and W phase outputs.",
-    "crumbs": [
-      "Overview",
-      "Reference",
-      "The G431 ESC board"
-    ]
-  },
-  {
-    "objectID": "reference/g431-esc.html#the-parts-that-matter",
-    "href": "reference/g431-esc.html#the-parts-that-matter",
-    "title": "The G431 ESC board",
-    "section": "The parts that matter",
-    "text": "The parts that matter\n\n\n\n\n\n\n\n\nBlock\nPart\nNotes\n\n\n\n\nMicrocontroller\nSTM32G431CB\n170 MHz Cortex-M4 with FPU, 128 kB flash, 32 kB RAM\n\n\nPower switches\n6 × STL180N6F7\n60 V N-channel MOSFETs, very low on-resistance\n\n\nGate drivers\nL6387\nThree half-bridge drivers, one per phase\n\n\nCurrent sensing\nThree shunts\nLow-side, amplified into the MCU’s ADCs\n\n\nProgrammer\nST-LINK/V2-1\nOn the detachable daughterboard\n\n\n\nSources: ST’s product page and data brief.\nThe MCU is the interesting choice. FOC recomputes the field orientation every control loop, and each iteration costs a handful of trigonometric evaluations (see How SimpleFOC works). At 170 MHz with hardware floating point that fits comfortably inside a 13 kHz loop. A hobby ESC’s 8-bit microcontroller could not do this arithmetic in the time available, which is precisely why hobby ESCs use the cruder back-EMF scheme instead.",
-    "crumbs": [
-      "Overview",
-      "Reference",
-      "The G431 ESC board"
-    ]
-  },
-  {
-    "objectID": "reference/g431-esc.html#how-the-three-phases-are-generated",
-    "href": "reference/g431-esc.html#how-the-three-phases-are-generated",
-    "title": "The G431 ESC board",
-    "section": "How the three phases are generated",
-    "text": "How the three phases are generated\nThe battery supplies one DC voltage. The motor needs three voltages that vary smoothly and stay 120° apart. The bridge between the two is built from three identical circuits.\nOne half-bridge per phase. Each phase output connects to two MOSFETs in series across the battery: a high-side switch to the positive rail and a low-side switch to ground. Closing the high side pulls that phase to battery voltage; closing the low side pulls it to zero. Three phases, three pairs, six transistors — the six packages in Figure 1.\nPWM makes the intermediate values. A switch is either on or off, so a half-bridge can only output the full rail or nothing. Switching between them tens of thousands of times a second and varying the fraction of time spent high produces any average voltage in between. 50% duty gives half the rail. The motor’s own winding inductance does the smoothing: it resists rapid current changes, so it responds to the average and largely ignores the switching.\nThree of them, offset, make a rotating field. Drive the three duty cycles as sinusoids 120° apart and the three phase voltages produce a magnetic field that sweeps steadily around the stator. Advance the sinusoids faster and the field rotates faster. This is what driver.setPwm(Ua, Ub, Uc) at the bottom of SimpleFOC’s inner loop is ultimately setting.\n\n\n\n\n\n\nWarningBoth switches in a pair must never be on together\n\n\n\nHigh and low side closed at once is a direct short across the battery through two transistors — called shoot-through, and it destroys the pair in microseconds. The hardware inserts a dead time: a brief interval where both are off during every transition. It is handled by the gate drivers and the MCU’s timer, so you will not code it, but it is why the two switches of a pair are never driven by a single signal.\n\n\nCurrent sensing closes the loop. A small-value shunt resistor sits in each phase’s low-side return path. The voltage across it is proportional to the current through that phase; the MCU amplifies and samples it. Three shunts mean all three phase currents are visible, which is what makes true FOC current control possible rather than voltage-mode approximation. Without this measurement you can ask for a torque; with it you can regulate one.",
-    "crumbs": [
-      "Overview",
-      "Reference",
-      "The G431 ESC board"
-    ]
-  },
-  {
-    "objectID": "reference/g431-esc.html#what-it-can-drive",
-    "href": "reference/g431-esc.html#what-it-can-drive",
-    "title": "The G431 ESC board",
-    "section": "What it can drive",
-    "text": "What it can drive\n\n\n\nInput voltage\n3S to 6S LiPo (roughly 11–25 V)\n\n\nPeak current\n40 A, with forced-air cooling\n\n\nProtection\nOvercurrent, overvoltage and thermal, on-board\n\n\n\nTwo cautions about that 40 A. It is a peak figure, and it assumes forced air — a fan, or a drone’s propwash. Our robot has neither, and it spends much of its life underwater with the board sealed inside potting compound (Module 10), so heat leaves slowly and only by conduction. Treat 40 A as a number describing the silicon, not a budget you may spend.\nIn practice this is not the binding constraint. The wing motor draws far less than the board can supply, so the limits you will actually meet are the motor’s own thermal limit and sensor lag, not the ESC’s. The relevant discussion is in Brushless motors and Module 4.",
-    "crumbs": [
-      "Overview",
-      "Reference",
-      "The G431 ESC board"
-    ]
-  },
-  {
-    "objectID": "reference/g431-esc.html#why-there-is-a-daughterboard",
-    "href": "reference/g431-esc.html#why-there-is-a-daughterboard",
-    "title": "The G431 ESC board",
-    "section": "Why there is a daughterboard",
-    "text": "Why there is a daughterboard\nThe small board at the end is a complete ST-LINK/V2-1 programmer and debug probe. It is separated from the power board by a line of perforations and is meant to be snapped off.\nThat design makes sense for ST’s intended user: develop with the programmer attached, then break it away so the flight-ready ESC is smaller and lighter, and reuse the same programmer on the next board. It carries two things:\n\nSWD — the debug and programming interface, used to flash the MCU\nA virtual COM port — a USB serial bridge onto one of the MCU’s UARTs\n\n\n\n\n\n\n\nImportantDo not snap it off\n\n\n\nOnce separated, reprogramming needs an external programmer wired to the SWD pads by hand. We keep it attached for the whole course. This is also why the board is larger than a hobby ESC of equivalent power — roughly half of what you are holding is the programmer.\n\n\nThe virtual COM port is where Module 3 runs into trouble. Out of the box it is wired to the MCU’s USART2, on pins that the board also uses for the hall-sensor connector. Those same pins are the SPI3 bus we need for the AS5047P encoder, and an encoder is not optional for FOC. So the pins go to the encoder, USART2 stops being reachable over USB, and serial has to be re-routed — either onto USART1 by rework, or off-board entirely to the Seeeduino. Flashing is unaffected throughout, because SWD runs on different pins.",
-    "crumbs": [
-      "Overview",
-      "Reference",
-      "The G431 ESC board"
-    ]
-  },
-  {
-    "objectID": "reference/g431-esc.html#what-we-do-not-use",
-    "href": "reference/g431-esc.html#what-we-do-not-use",
-    "title": "The G431 ESC board",
-    "section": "What we do not use",
-    "text": "What we do not use\n\nCAN transceiver. Present and functional; our robot uses BLE from the flight controller instead.\nPotentiometer input. An analog throttle knob for bench demonstrations.\nHall-sensor connector (J8). Intended for the three digital hall sensors built into many BLDC motors. Ours has none, and hall sensors would be too coarse anyway — six positions per electrical revolution, against the AS5047P’s continuous absolute angle. The connector gets repurposed for serial.\n\nSources: ST B-G431B-ESC1 product page, data brief.",
-    "crumbs": [
-      "Overview",
-      "Reference",
-      "The G431 ESC board"
-    ]
-  },
-  {
-    "objectID": "sessions/03-esc.html#encoder-or-angular-sensor",
-    "href": "sessions/03-esc.html#encoder-or-angular-sensor",
-    "title": "Module 3 — Motor driver, sensor and serial",
-    "section": "Encoder or Angular sensor",
-    "text": "Encoder or Angular sensor\n\nWhy the motor needs an encoder\nField-Oriented Control works by holding the stator’s magnetic field roughly 90° ahead of the rotor’s magnets, which is the orientation that produces the most torque per amp. To place the field there, the controller has to know where the rotor is right now.\nOrdinary drone ESCs infer this from back-EMF, i.e the voltage the spinning rotor induces in the phase that is not currently being driven (?@eq-bemf in Module 2). That voltage is proportional to speed, so as the motor slows the signal sinks into the noise and the estimate falls apart. This causes loss of synchronisation at low speed described in Design notes. The AS5047P removes the guess. It measures the field of the magnet bonded to the shaft end and reports the absolute angle — valid at standstill just as much as at 15 000 rpm, and correct immediately at power-on with no homing move.\n\n\nWhat SPI is, and why we run it at 10 MHz\nWe will use an AS5047P encoder. The AS5047P reports angle over SPI, a four-wire synchronous bus: the controller drives the clock (SCLK), data goes out on MOSI and comes back on MISO, and CS selects the chip. Transfer speed is limited only by how fast the two ends can shift bits. We use SPI because it offers 10 MHz communication. The reason speed matters is that the angle has to be re-read every single control loop, and a stale angle is bad: the controller ends up placing the stator field where the rotor was, not where it is. That error shows up as wasted current and audible noise. The same 10 MHz clock is why the wiring has to stay short, see below.\n\n\nWire it to the board\nThere is no SPI link exposed directly on the ESC board. The solution is to use the SPI3 bus, exposed through a few hardware modifications and matching software changes. Figure 1 shows the four signals in context, including the MOSI tap on R14.\n\n\n\n\n\n\nWarningYou lose the micro-USB serial link\n\n\n\nSerial2, used by the daughterboard for serial communication will not work anymore as we are using those pins for SPI3 for the encoder instead. Flashing the ESC still works (programming runs over SWD, on different pins) but every command and every value you read back now has to pass through serial1.\n\n\nThe encoder needs power as well as the four bus signals — six wires in total:\n\n\n\nTable 1: SPI3 connections on the G431. * Solder onto the outward side of the resistor.\n\n\n\n\n\n\nSCLK\nMISO\nMOSI\nCS\n3.3V\nGND\n\n\n\n\nMCU GPIO\nPB3\nPB4\nPB5\nPA15\n—\n—\n\n\nG431B pin\nJ3\nJ3\nR14*\nJ3\nJ4\nJ3\n\n\n\n\n\n\nNote that 3.3 V and GND come from different connectors. J3 carries the three bus signals and a ground, but its only supply pin is 5 V from the break-away BEC — too high for the AS5047P. The 3.3 V rail is exposed on J4, the SWD header, alongside SWDIO and SWCLK. Take power from there and ground from J3, and check both against Figure 3 before soldering.\n\n\n\n\n\n\nFigure 3: GPIOs of the G431B-ESC1 board. J3 carries SCLK, MISO, PA15 and GND; the 3.3 V rail is on the J4 SWD header.\n\n\n\n\n\n\n\n\n\nWarningKeep the SPI cables under 8 cm\n\n\n\nCables between encoder and ESC need to be less than 8 cm. At 10 MHz longer runs start corrupting angle readings, and the symptom is a motor that behaves erratically rather than a sensor that obviously fails.\n\n\nNext, use M2 screws to mount the encoder on the 3D printed bracket that sits around the motor. Check that the distance between sensor and magnet is 0.5 mm, and centered.",
-    "crumbs": [
-      "Overview",
-      "Build modules",
-      "Module 3 --- Motor driver, sensor and serial"
     ]
   }
 ]
