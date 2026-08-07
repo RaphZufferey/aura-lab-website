@@ -573,7 +573,7 @@ ul.task-list li input[type="checkbox"] {
 </nav>
     </div>
 <!-- main -->
-<main class="content page-columns page-full" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../sessions/01-orientation.html">Build modules</a></li><li class="breadcrumb-item"><a href="../sessions/03-esc.html">Module 3 — Motor driver, sensor and serial</a></li></ol></nav>
@@ -642,13 +642,13 @@ Figure&nbsp;2: ESC running SimpleFOC and the angular sensor. The six MOSFETs are
 </figure>
 </div>
 </section>
-<section id="electrical-connections" class="level2 page-columns page-full">
+<section id="electrical-connections" class="level2">
 <h2 class="anchored" data-anchor-id="electrical-connections">Electrical connections</h2>
 <p><a href="#fig-electronics" class="quarto-xref">Figure&nbsp;3</a> is the same set of connections as <a href="#fig-wiring" class="quarto-xref">Figure&nbsp;1</a>, drawn on the actual boards rather than as blocks. Use <a href="#fig-wiring" class="quarto-xref">Figure&nbsp;1</a> when you need the pin names, and this one when you need to find the pad.</p>
-<div id="fig-electronics" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
-<figure class="quarto-float quarto-float-fig figure page-columns page-full">
-<div aria-describedby="fig-electronics-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
-<a href="../Fig/SchematicFAAVclass.jpg" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-3" title="Figure&nbsp;3: The complete electrical system. The 4S battery enters the ESC at J5, the three phase wires leave from the large OUT1–3 tabs to the motor, the AS5047P encoder returns angle over SPI, and the XIAO nRF52840 talks to the ESC over serial. Note that the encoder and the flight controller share the same supply. The MOSI tap on R14, marked Hardest connection!, is the one to leave until last - see Table&nbsp;1."><img src="../Fig/SchematicFAAVclass.jpg" class="img-fluid figure-img column-page" style="width:100.0%"></a>
+<div id="fig-electronics" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-electronics-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="../Fig/SchematicFAAVclass.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure&nbsp;3: The complete electrical system. The 4S battery enters the ESC at J5, the three phase wires leave from the large OUT1–3 tabs to the motor, the AS5047P encoder returns angle over SPI, and the XIAO nRF52840 talks to the ESC over serial. Note that the encoder and the flight controller share the same supply. The MOSI tap on R14, marked Hardest connection!, is the one to leave until last - see Table&nbsp;1."><img src="../Fig/SchematicFAAVclass.jpg" class="img-fluid figure-img" style="width:6.5in"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-electronics-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;3: The complete electrical system. The 4S battery enters the ESC at <strong>J5</strong>, the three phase wires leave from the large <strong>OUT1–3</strong> tabs to the motor, the AS5047P encoder returns angle over SPI, and the XIAO nRF52840 talks to the ESC over serial. Note that the encoder and the flight controller share the same supply. The <strong>MOSI</strong> tap on <strong>R14</strong>, marked <em>Hardest connection!</em>, is the one to leave until last - see <a href="#tbl-spi3" class="quarto-xref">Table&nbsp;1</a>.

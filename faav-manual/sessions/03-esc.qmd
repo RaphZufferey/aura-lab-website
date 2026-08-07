@@ -28,7 +28,7 @@ Work through the module with this diagram open: every step below either wires on
 
 @fig-electronics is the same set of connections as @fig-wiring, drawn on the actual boards rather than as blocks. Use @fig-wiring when you need the pin names, and this one when you need to find the pad.
 
-![The complete electrical system. The 4S battery enters the ESC at **J5**, the three phase wires leave from the large **OUT1--3** tabs to the motor, the AS5047P encoder returns angle over SPI, and the XIAO nRF52840 talks to the ESC over serial. Note that the encoder and the flight controller share the same supply. The **MOSI** tap on **R14**, marked *Hardest connection!*, is the one to leave until last - see @tbl-spi3.](/Fig/SchematicFAAVclass.jpg){#fig-electronics .column-page width="100%"}
+![The complete electrical system. The 4S battery enters the ESC at **J5**, the three phase wires leave from the large **OUT1--3** tabs to the motor, the AS5047P encoder returns angle over SPI, and the XIAO nRF52840 talks to the ESC over serial. Note that the encoder and the flight controller share the same supply. The **MOSI** tap on **R14**, marked *Hardest connection!*, is the one to leave until last - see @tbl-spi3.](/Fig/SchematicFAAVclass.jpg){#fig-electronics width="6.5in"}
 
 ## Electronic Speed Controller
 
