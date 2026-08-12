@@ -62,6 +62,23 @@ $if(margin-geometry)$
 $endif$
 )
 
+// Horizontal rules between table rows.
+//
+// Quarto's stock typst template sets `stroke: none` on every table, and Pandoc
+// drops an empty header row entirely rather than emitting `table.header`. The
+// "Before you arrive" tables are headerless two-column pipe tables, so between
+// those two rules they came out with no lines at all -- three rows of text
+// floating in the page with nothing marking the cell boundaries.
+//
+// This must come after the `#show: book.with(...)` above so it wins over the
+// template's own `#set table`. Rows get a hairline on top, skipped on the first
+// row so the block does not open with a stray rule; header tables already carry
+// Pandoc's own `table.hline()` at the same position.
+#set table(
+  inset: 6pt,
+  stroke: (_, y) => if y > 0 { (top: 0.5pt + luma(170)) },
+)
+
 $if(margin-geometry)$
 // Configure marginalia page geometry for book context
 // Geometry computed by Quarto's meta.lua filter (typstGeometryFromPaperWidth)
