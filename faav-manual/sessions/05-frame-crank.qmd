@@ -2,10 +2,6 @@
 title: "Module 5 --- Frame, crank, linkage and gears"
 ---
 
-::: {.session-meta}
-**Week of Oct 5** · Paired lecture: *Modelling of undulatory locomotion*
-:::
-
 ## What you build today
 
 We assemble the carbon frame, the CNC-cut crank and linkage, the gears, and the full

@@ -37,9 +37,7 @@ title: "Parts list"
 ## To be completed before the semester
 
 This is the published list for the paper's robot, not the current build. Items
-the modules rely on that are **not** in it and need adding: the AS2303 motor
-(the list still shows the older AT2303), the ST-Link programmer, the FAAV PCB
-v3.0 and its BOM, 4 mm steel rod for the motor shaft, the 6 × 2.5 mm diametric
-sensor magnet and its printed bracket, 5 mm PEEK stock, foam and CorrosionX.
+the modules rely on that are **not** in it and need adding:  4 mm steel rod for the motor shaft, the 6 × 2.5 mm diametric
+sensor magnet and its printed bracket, 5 mm PEEK stock.
 
 :::

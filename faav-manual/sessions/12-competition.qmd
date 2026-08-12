@@ -2,10 +2,6 @@
 title: "Module 12 --- Competition"
 ---
 
-::: {.session-meta}
-**Week of Nov 30** · Paired lecture: *Pair presentations*
-:::
-
 ## What happens today
 
 Robots are scored in two categories: **most efficient** and **fastest**.
@@ -21,7 +17,7 @@ Robots are scored in two categories: **most efficient** and **fastest**.
 | **Bring** | Robot, spare crank–linkage shaft, spare wing, charged packs, your logged cost-of-transport data |
 
 ::: {.callout-important}
-## To be written by the instructor 
+## TBC
 
 Competition format is course material, not in the manufacturing guide. Needed:
 

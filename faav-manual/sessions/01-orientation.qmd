@@ -2,9 +2,6 @@
 title: "Module 1 --- Orientation"
 ---
 
-::: {.session-meta}
-**Week of Sep 9** · Paired lecture: *Intro to robotic locomotion* · Teams formed today
-:::
 
 ## The robot
 

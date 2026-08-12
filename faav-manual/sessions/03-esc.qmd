@@ -2,10 +2,6 @@
 title: "Module 3 --- Motor driver, sensor and serial"
 ---
 
-::: session-meta
-**Week of Sep 21** · Paired lecture: *Bird-scale flapping design*
-:::
-
 ## What you build today
 
 Let's drive our motor! We aim to get a flashed G431 ESC talking to your laptop via a microcontroller, with the angular sensor wired on SPI and the motor spinning under commander control. Lots of soldering.
@@ -16,11 +12,11 @@ Work through the module with this diagram open: every step below either wires on
 
 ## Before you arrive
 
-|                  |                                                                                      |
-|------------------|--------------------------------------------------------------------------------------|
-| **Parts needed** | B-G431B-ESC1 board, AS5047P encoder, encoder mount, cables                            |
-| **Tools**        | Soldering iron, tweezers, micro-USB cable, power source                               |
-| **Read**         | This page, plus [Design notes](/reference/design-notes.qmd) on why we use an FOC ESC  |
+|  |  |
+|----------------|--------------------------------------------------------|
+| **Parts needed** | B-G431B-ESC1 board, AS5047P encoder, encoder mount, cables |
+| **Tools** | Soldering iron, tweezers, micro-USB cable, power source |
+| **Read** | This page, plus [Design notes](/reference/design-notes.qmd) on why we use an FOC ESC |
 
 ![ESC running SimpleFOC and the angular sensor. The six MOSFETs are the large flat packages, arranged as three half-bridges --- one per motor phase, each with a high-side and a low-side switch. The three copper tabs on the left are the U, V and W outputs you solder the motor to below.](/Fig/esc1.jpg){#fig-esc width="60%"}
 
@@ -91,7 +87,7 @@ The encoder needs power as well as the four bus signals --- six wires in total:
 | **MCU GPIO**  | PB3  | PB4  | PB5   | PA15 | --- | --- |
 | **G431B pin** | J3   | J3   | R14\* | J3   | J8  | J3  |
 
-: SPI3 connections on the G431. \* This connection is on the outward side of the resistor. {#tbl-spi3}
+: SPI3 connections on the G431. \* This connection is on the outward side of the resistor.
 
 Note that **3.3 V and GND come from different connectors**. J3 carries the three bus signals and a ground, but its only supply pin is **5 V** from the break-away BEC --- too high for the AS5047P. The 3.3 V rail is exposed on **J4**, the SWD header, alongside SWDIO and SWCLK. Take power from there and ground from J3, and check both against @fig-g431-gpio before soldering.
 

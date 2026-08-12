@@ -2,10 +2,6 @@
 title: "Module 9 --- Flight controller, PCB and dry testing"
 ---
 
-::: {.session-meta}
-**Week of Nov 9** · Paired lecture: *The future of actuation*
-:::
-
 ## What you build today
 
 The custom PCB assembled and validated, the flight controller flashed and
@@ -15,108 +11,21 @@ talking to the ESC, and the robot flapping in air under wireless control.
 
 | | |
 |---|---|
-| **Parts** | FAAV PCB v3.0, stencil, solder paste, XIAO ESP32S3, JST connectors, battery |
+| **Parts** | Seeeduino XIAO, connectors, battery |
 | **Tools** | Hotplate, tweezers, multimeter, bench supply with current limit |
-| **Read** | This page and [PCB revisions](/reference/pcb.qmd) |
-
-## Electronic architecture
-
-One 4S (max 16.8 V) battery is connected to a custom PCB that steps VBAT down
-to 5 V to power the flight controller. The flight controller generates a 3v3
-rail to power the sensors on the custom PCB. Battery power goes through a shunt
-for sensing on the custom PCB, then back out to power the ESC. The flight
-controller sends commands to the ESC over serial.
+| **Read** | This page |
 
 ## Flight controller
 
 ![Microcontroller in its waterproofing box](/Fig/mcu1.jpg){#fig-mcu width=50%}
 
 Firmware lives in [FAAV-Flight-Controller](https://github.com/MIT-AURA-Lab/FAAV-Flight-Controller)
-(ESP32, FreeRTOS tasks). See [Software](/reference/software.qmd) for older
-variants.
 
-## Assembling the PCB
-
-As of April 2026 the current board is **v3.0**: 4 layers, 21 × 28.5 mm, 34
-components. The complete BOM is in the Manufacturing/Assembly folder of the
-[FAAV-PCB-v3 repository](https://github.com/MIT-AURA-Lab/FAAV-PCB-v3).
-
-The simplest way to assemble a FAAV PCB is with a stencil, solder paste applied
-with a cutter blade, then reflow on the hotplate.
-
-::: {layout-ncol=2}
-![Tape blank PCBs around the PCB to assemble](/Fig/PCB_assembly1.jpeg)
-
-![Align the stencil on top and tape it, making sure it sits flat](/Fig/PCB_assembly2.jpeg)
-:::
-
-::: {layout-ncol=2}
-![Wipe down solder paste with a blade in one firm pass](/Fig/PCB_assembly3.jpeg)
-
-![Place the assembled PCB on the hot plate](/Fig/PCB_assembly4.jpeg)
-:::
-
-## Taking the PCB into operation
-
-Once assembled, solder power wires for VBAT and GND at the input side of the
-board. Follow these steps **before powering the PCB for the first time**:
-
-1. Check that there is no short circuit between GND and 5V / 3.3V / VBAT.
-2. Connect a **15 V supply with a 100 mA current limit** to the battery pads
-   and check that it does not draw excessive current.
-3. Check with a multimeter that the buck regulator outputs 5 V from the 15 V
-   input. The MCU should be on by then.
-
-With the MCU powered, flash your test firmware and check the connection to all
-sensors. @tbl-i2c gives the I²C addresses.
-
-| Component | I²C address (bin) | I²C address (hex) |
-|---|---|---|
-| Pressure sensor | `0b1110110` | `0x76` |
-| IMU | `0b1101000` | `0x68` |
-| INA228 power monitor | `0b0101000` | `0x40` |
-
-: I²C addresses {#tbl-i2c}
-
-Verify:
-
-- [ ] Voltage, current and temperature readings from the INA228
-- [ ] IMU readings
-- [ ] Pressure sensor readings
-- [ ] RGB LED control
-
-Once all the hardware on the board is validated, solder the power wires at the
-output side of the board to the ESC, and the UART wires.
-
-::: {.callout-warning}
-## TX to RX
-
-The **TX** output of the PCB has to be connected to the **RX** pin of the ESC,
-and vice versa.
-:::
-
-## Connectors
-
-The waterproof connector is the JST 8-pin
-[08R-JWPF-VSLE-D](https://ch.farnell.com/jst-japan-solderless-terminals/08r-jwpf-vsle-d/connector-housing-rcpt-8pos/dp/2399256)
-/ [08T-JWPF-VSLE-D](https://ch.farnell.com/jst-japan-solderless-terminals/08t-jwpf-vsle-d/connector-housing-tab-8pos/dp/2399257).
-All pins marked `_b` are used for balancing the battery during recharge. For
-use on the robot, connect at least **Vbat** and **GND**; to allow higher
-currents, connect **Vbat_b** and **GND_b** as well.
-
-::: {.callout-warning}
-## Seal the unused cable slots
-
-Do not forget to seal the back of the connector for the unused cable slots ---
-this is a water ingress path straight into the electronics.
-:::
-
-![Connector wiring scheme. Left: battery connector. Right: connector on the robot / for recharging the battery.](/Fig/Connector_wiring.png){#fig-connector}
 
 ## Dry testing
 
 ::: {.callout-important}
-## To be written by the instructor
+## TBC
 
 The dry-test protocol is course material, not in the guide. Needed: what the
 robot is mounted on while flapping in air, the flap frequency sweep, what is
@@ -124,8 +33,6 @@ measured, the wireless control setup students reprogram to, and abort criteria.
 :::
 
 ::: {.callout-note}
-## Checkpoint --- TA sign-off
-
-PCB validated against all four sensor checks, flight controller commanding the
-ESC over serial, and a supervised flapping run in air.
+## Checkpoint 
+Flight controller commanding the ESC over serial, and a supervised flapping run in air.
 :::

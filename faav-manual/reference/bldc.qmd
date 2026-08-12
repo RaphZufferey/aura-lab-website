@@ -2,8 +2,7 @@
 title: "Brushless motors"
 ---
 
-Background for [Module 2](/sessions/02-motor.qmd). Not needed at the bench ---
-useful for your report, and for understanding why the motor behaves the way it
+Background for [Module 2](/sessions/02-motor.qmd). For understanding why the motor behaves the way it
 does when you push it in [Module 4](/sessions/04-control.qmd).
 
 ## Start with the brushed DC motor
@@ -30,7 +29,7 @@ of the motor falls out as a **straight line**:
 
 $$\tau = k_T \frac{U}{R} - \frac{k_T}{k_V R}\,\omega$$ {#eq-torque-speed}
 
-### Reading the torque--speed line
+### Reading the torque-speed line
 
 That line is the motor's entire steady-state character, and it is fixed by the
 applied voltage. Two points define it:
@@ -38,7 +37,7 @@ applied voltage. Two points define it:
 - **Stall torque** $\tau_\text{stall} = k_T U / R$, at $\omega = 0$. The rotor
   is held still, there is no back-EMF, and the only thing limiting current is
   the winding resistance. This is the largest torque the motor can produce and
-  also the fastest way to destroy it --- see [Thermal limits](#thermal-limits).
+  also the fastest way to destroy it - see [Thermal limits](#thermal-limits).
 - **No-load speed** $\omega_0 = k_V U$, at $\tau = 0$. The rotor spins fast
   enough that the back-EMF nearly cancels the supply, so almost no current
   flows.

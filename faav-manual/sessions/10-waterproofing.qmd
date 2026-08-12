@@ -2,10 +2,6 @@
 title: "Module 10 --- Waterproofing"
 ---
 
-::: {.session-meta}
-**Week of Nov 16** · Paired lecture: *Multirotors*
-:::
-
 ## What you build today
 
 A potted PCB, a lubricated and sealed gearbox, and a robot that survives a
@@ -31,54 +27,33 @@ across two sittings.
 
 First ensure that the FC fits within the 3D box before anything else.
 
-1. Tape the bottom side of the box with Kapton.
-2. Fill the bottom of the box with silicone sealant until it reaches the USB
+1. Fill the bottom of the box with silicone sealant until it reaches the USB
    port hole.
-3. *Carefully* slide the PCB assembly in, with the Seeeduino facing the bottom
+2. *Carefully* slide the assembly in, with the Seeeduino facing the bottom
    of the box.
-4. **Very important!** Insert a USB-C cable into the port. This keeps the
+3. **Very important!** Insert a USB-C cable into the port. This keeps the
    sealant from flowing into the port, and the cable is a convenient point to
    hold the assembly by.
-5. Add sealant along the three free edges to fill any gaps, until the sealant
-   reaches the level of the top side of the PCB. **The PCB components and
-   contacts should be left exposed.**
-6. Let the silicone cure --- because of the depth this takes about 12--24 h.
-7. Solder the wires and contacts.
-8. Solder the voltage regulator.
-9. Seal the top side of the PCB. The best method here is unclear. Tested
-   solutions:
-   - Nail polish
-   - Silicone sealant
-   - [422C silicone conformal coating](https://mgchemicals.com/products/conformal-coatings/silicone-conformal-coatings/conformal-coating-waterproof/)
-     ([datasheet](https://mgchemicals.com/downloads/tds/tds-422c-l.pdf))
-
+4. Add sealant along the three free edges to fill any gaps, until the sealant
+   reaches the level of the top side of the PCB.
+5. Let the silicone cure - because of the depth this takes about 12--24 h.
 
 ## ESC waterproofing
-
 ![The B-G431B-ESC1 assembly. ](/Fig/g431-power-stage.jpg){#fig-g431-power width="50%"}
 
 The ESC is potted the same way as the flight controller: it sits in its own
 3D-printed frame, which is then filled with **Silcoset** so only the wire exits
-remain open. @fig-esc-potted shows the three pieces together --- motor, bare
+remain open. @fig-esc-potted shows the three pieces together - motor, bare
 ESC, and the potted frame.
 
 ![The motor, the ESC and the potted frame. The dark block is the frame filled with Silcoset; the ESC drops into it before the fill so the board ends up fully encapsulated with only the phase and signal wires leaving.](/Fig/esc-potted.png){#fig-esc-potted width="65%"}
 
-::: {.callout-important}
-## To be completed by the instructor
-
-The written procedure for this step, to the level of detail the flight
-controller has above: fill order, how the phase wires are held clear while the
-compound cures, cure time for this depth, and whether the ESC is potted before
-or after the motor wires are soldered in
-[Module 3](03-esc.qmd).
-:::
-
 ## Battery waterproofing
-
+TBC
 ## Battery connector waterproofing
-
-
+TBC
+## Spend time discussing COT and measurement
+TBC
 
 ## Gearbox
 By default the gearbox on the FAAV4 robot is **not waterproof at all**, and it
@@ -96,11 +71,8 @@ corroded, and it now runs smoothly.
 Parts that rust: **sun gear, planet gears, ring gear, planet shafts.**
 Parts that do not: screws, motor shaft, washers, body, circlip.
 
-
 ::: {.callout-note}
 ## Checkpoint
 
-PCB fully cured and potted with contacts exposed, gearbox lubricated and
-reassembled with the shaft bearing fitted, connector back-shell sealed, and a
-static immersion test passed with no ingress.
+Flight controller and ESC fully cured and potted, static immersion test passed with no ingress. Robot cleaned with IPA after each immersion.
 :::

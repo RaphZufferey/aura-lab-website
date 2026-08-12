@@ -2,52 +2,29 @@
 title: "Design notes"
 ---
 
-Why the robot is built the way it is. Not needed at the bench --- useful for
-your report, and for anyone changing the design.
+Why the robot is built the way it is and latest changes
 
-## Why an FOC ESC
+## Log of 2026 changes
+- Front of gears: exactly 1 mm spacing for washer. Back of gears (towards tail) has builtin 3D-printed spacers that press against inner bearing. Printing them will not use support
+- All 3D printed cross fixing is now done with M2 square half nuts (stainless). Takes less space and less work than heat inserts. 3D printed plates are all 4 mm thick.
+- Tail tube is now 5/3 round instead of square. The bracket (tail rigidifier) adapted in consequence.
+- Left gear extended and wraps around the linkage for better support. 
+- Crank-link shaft is now 10.5 mm to have enough space to fit a circlip. 
+- Linkage bearings are now 4x10x4 on input and 3x8x4 on output. MAX static loading of 130 N.
+- ESC box is now screwed against right bearing holder
+- Front dome mounts to front plate
+- Micro-controller box: to be printed transparent, no more window. Square nut assembly. USB-C port sits closer to edge of part, should give a better connection to program. 
+- Gear shafts bearings changed to 3x7x3 flanged, with the flange now inserting into part. 
+- All parts relabeled
 
-Several ESC solutions were explored for the FAAV concept:
-
-- **Regular drone ESCs.** Hobbyking 12A and EP Aer11 were tested. Both start
-  **losing synchronisation at low speed**, which is a problem for water
-  propulsion --- precisely the regime the robot spends most of its time in.
-- **FOC ESCs** tend to be more complex and larger. The **G431-ESC1** board is
-  favourable and had already been explored in the lab.
-
-That tradeoff --- accepting a larger, more complex driver to get usable
-low-speed torque control --- is the reason [Module 3](/sessions/03-esc.qmd)
-spends a whole module on the driver.
-
-## Speed ceiling and sensor lag
-
-Maximum speed went from **500 to 1700 rad/s**, enough to drive the wings at
-10 Hz, through a combination of sensor and MCU changes documented in
-[Module 4](/sessions/04-control.qmd). The remaining constraint is sensor
-lag: above 500--600 rad/s, uncompensated lag shows up as high current draw and
-noise rather than as a hard speed limit.
-
-Compensation is currently hand-tuned every 100 rad/s with a fitted function
-used on the robot. Automating this --- ramping through the speeds while
-minimising phase current --- is open work.
 
 ## Gearbox corrosion {#gearbox-corrosion}
-
 By default the gearbox on the FAAV4 is not waterproof at all, and it is normal
-for it to fill completely with water once submerged. This was considered
-acceptable: over more than a year of repeated use in water, including in Lake
-Geneva, a gearbox was opened and showed no sign of corrosion.
+for it to fill completely with water once submerged. This is considered
+acceptable: over more than a year of repeated use in water, including in lakes, a gearbox was opened and showed no sign of corrosion.
 
-Proper lubrication --- a mix of
+Proper lubrication: a mix of
 **CorrosionX and white lithium grease** - help with corrosion problems. The practical procedure is in
 [Module 10](/sessions/10-waterproofing.qmd).
 
-## Housing material tradeoff
 
-| Foam | Floatability | Absorption | Impact behaviour |
-|---|---|---|---|
-| Extruded polystyrene | Best, low density | Zero | Brittle; little help damping landings |
-| Closed-cell polyethylene | Decent, relatively low density | Light | Compliant; usable as protection |
-
-A multi-material housing has never been built but would likely be better than
-either.

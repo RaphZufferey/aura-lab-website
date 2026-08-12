@@ -93,7 +93,6 @@ jobs:
           # The PDF, at its source location and as actually published.
           check faav-manual/files/faav-build-manual.pdf
           check 2.S986-robot/files/faav-build-manual.pdf
-          check 2.S986-robot/files/CNC-Stepcraft-D600-guide.pdf
 
           # The site.
           check 2.S986-robot/index.html

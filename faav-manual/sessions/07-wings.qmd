@@ -2,10 +2,6 @@
 title: "Module 7 --- Wing fabrication"
 ---
 
-::: {.session-meta}
-**Week of Oct 26** · Paired lecture: *Swimming robots II*
-:::
-
 ## What you build today
 
 Both wings: carbon skeleton, membrane cut to the geometry you chose in

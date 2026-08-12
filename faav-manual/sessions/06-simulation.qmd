@@ -2,10 +2,6 @@
 title: "Module 6 --- Flapping simulation (Ptera)"
 ---
 
-::: {.session-meta}
-**Week of Oct 19** · Paired lecture: *Insect-scale flapping* · No module Oct 12
-:::
-
 ## What you do today
 
 Choose your wing and tail geometry. You simulate candidate geometries in Ptera

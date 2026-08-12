@@ -2,9 +2,6 @@
 title: "Module 2 --- Motor and transmission shaft"
 ---
 
-::: {.session-meta}
-**Week of Sep 14** · Paired lecture: *Reaction forces in fluids*
-:::
 
 ## What you build today
 

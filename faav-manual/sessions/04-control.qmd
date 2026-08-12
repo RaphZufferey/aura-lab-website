@@ -2,10 +2,6 @@
 title: "Module 4 --- Closed-loop control and tuning"
 ---
 
-::: session-meta
-**Week of Sep 28** · Paired lecture: *Swimming robots I*
-:::
-
 ## What you build today
 
 The gearbox installed with a marker flag on the output, the Seeeduino wired in and commanding the ESC untethered, running continuously, then holding position, then tracking a velocity setpoint with a tuned loop.
