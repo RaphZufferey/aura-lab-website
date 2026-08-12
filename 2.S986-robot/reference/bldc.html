@@ -334,7 +334,7 @@ window.Quarto = {
   </li>  
         <li>
     <a class="dropdown-item" href="../sessions/08-tail-housing.html">
- <span class="dropdown-text">Module 8 — Tail and housing</span></a>
+ <span class="dropdown-text">Module 8 — Tail</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../sessions/09-electronics-dry-test.html">
@@ -378,10 +378,6 @@ window.Quarto = {
         <li>
     <a class="dropdown-item" href="../reference/software.html">
  <span class="dropdown-text">Software</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../reference/pcb.html">
- <span class="dropdown-text">PCB revisions</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../reference/cnc.html">
@@ -481,7 +477,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../sessions/08-tail-housing.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Module 8 — Tail and housing</span></a>
+ <span class="menu-text">Module 8 — Tail</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -551,12 +547,6 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../reference/pcb.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">PCB revisions</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../reference/cnc.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">CNC — Stepcraft D660</span></a>
   </div>
@@ -587,7 +577,7 @@ window.Quarto = {
   <ul>
   <li><a href="#start-with-the-brushed-dc-motor" id="toc-start-with-the-brushed-dc-motor" class="nav-link active" data-scroll-target="#start-with-the-brushed-dc-motor">Start with the brushed DC motor</a>
   <ul class="collapse">
-  <li><a href="#reading-the-torquespeed-line" id="toc-reading-the-torquespeed-line" class="nav-link" data-scroll-target="#reading-the-torquespeed-line">Reading the torque–speed line</a></li>
+  <li><a href="#reading-the-torque-speed-line" id="toc-reading-the-torque-speed-line" class="nav-link" data-scroll-target="#reading-the-torque-speed-line">Reading the torque-speed line</a></li>
   </ul></li>
   <li><a href="#what-changes-with-a-brushless-motor" id="toc-what-changes-with-a-brushless-motor" class="nav-link" data-scroll-target="#what-changes-with-a-brushless-motor">What changes with a brushless motor</a>
   <ul class="collapse">
@@ -622,7 +612,7 @@ window.Quarto = {
 </header>
 
 
-<p>Background for <a href="../sessions/02-motor.html">Module 2</a>. Not needed at the bench — useful for your report, and for understanding why the motor behaves the way it does when you push it in <a href="../sessions/04-control.html">Module 4</a>.</p>
+<p>Background for <a href="../sessions/02-motor.html">Module 2</a>. For understanding why the motor behaves the way it does when you push it in <a href="../sessions/04-control.html">Module 4</a>.</p>
 <section id="start-with-the-brushed-dc-motor" class="level2">
 <h2 class="anchored" data-anchor-id="start-with-the-brushed-dc-motor">Start with the brushed DC motor</h2>
 <p>Every result you need for a brushless motor is easier to see in a brushed one first, because the two obey the same electrical physics. The difference is <em>how</em> the windings get switched, not what the machine does once they are.</p>
@@ -632,11 +622,11 @@ window.Quarto = {
 <p><span id="eq-voltage-balance"><span class="math display">\[U = \frac{\omega}{k_V} + R \, I \tag{2}\]</span></span></p>
 <p>Substitute <span class="math inline">\(I = \tau / k_T\)</span> and rearrange for torque, and the whole behaviour of the motor falls out as a <strong>straight line</strong>:</p>
 <p><span id="eq-torque-speed"><span class="math display">\[\tau = k_T \frac{U}{R} - \frac{k_T}{k_V R}\,\omega \tag{3}\]</span></span></p>
-<section id="reading-the-torquespeed-line" class="level3">
-<h3 class="anchored" data-anchor-id="reading-the-torquespeed-line">Reading the torque–speed line</h3>
+<section id="reading-the-torque-speed-line" class="level3">
+<h3 class="anchored" data-anchor-id="reading-the-torque-speed-line">Reading the torque-speed line</h3>
 <p>That line is the motor’s entire steady-state character, and it is fixed by the applied voltage. Two points define it:</p>
 <ul>
-<li><strong>Stall torque</strong> <span class="math inline">\(\tau_\text{stall} = k_T U / R\)</span>, at <span class="math inline">\(\omega = 0\)</span>. The rotor is held still, there is no back-EMF, and the only thing limiting current is the winding resistance. This is the largest torque the motor can produce and also the fastest way to destroy it — see <a href="#thermal-limits">Thermal limits</a>.</li>
+<li><strong>Stall torque</strong> <span class="math inline">\(\tau_\text{stall} = k_T U / R\)</span>, at <span class="math inline">\(\omega = 0\)</span>. The rotor is held still, there is no back-EMF, and the only thing limiting current is the winding resistance. This is the largest torque the motor can produce and also the fastest way to destroy it - see <a href="#thermal-limits">Thermal limits</a>.</li>
 <li><strong>No-load speed</strong> <span class="math inline">\(\omega_0 = k_V U\)</span>, at <span class="math inline">\(\tau = 0\)</span>. The rotor spins fast enough that the back-EMF nearly cancels the supply, so almost no current flows.</li>
 </ul>
 <p>Everything the motor can do at that voltage lies on the line between them. Mechanical power is <span class="math inline">\(P = \tau \omega\)</span>, the product of a falling line and a rising one, so it is a parabola peaking at <strong>half the no-load speed</strong> with half the stall torque. Efficiency peaks somewhere else entirely — much closer to <span class="math inline">\(\omega_0\)</span>, because the copper loss that dominates at low speed scales with <span class="math inline">\(I^2\)</span> while the useful output only scales with <span class="math inline">\(I\)</span>.</p>

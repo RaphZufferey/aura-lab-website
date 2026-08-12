@@ -305,7 +305,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
         <li>
     <a class="dropdown-item" href="../sessions/08-tail-housing.html">
- <span class="dropdown-text">Module 8 — Tail and housing</span></a>
+ <span class="dropdown-text">Module 8 — Tail</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../sessions/09-electronics-dry-test.html">
@@ -349,10 +349,6 @@ ul.task-list li input[type="checkbox"] {
         <li>
     <a class="dropdown-item" href="../reference/software.html">
  <span class="dropdown-text">Software</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../reference/pcb.html">
- <span class="dropdown-text">PCB revisions</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../reference/cnc.html">
@@ -452,7 +448,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../sessions/08-tail-housing.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Module 8 — Tail and housing</span></a>
+ <span class="menu-text">Module 8 — Tail</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -522,12 +518,6 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../reference/pcb.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">PCB revisions</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../reference/cnc.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">CNC — Stepcraft D660</span></a>
   </div>
@@ -558,11 +548,7 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#what-you-build-today" id="toc-what-you-build-today" class="nav-link active" data-scroll-target="#what-you-build-today">What you build today</a></li>
   <li><a href="#before-you-arrive" id="toc-before-you-arrive" class="nav-link" data-scroll-target="#before-you-arrive">Before you arrive</a></li>
-  <li><a href="#electronic-architecture" id="toc-electronic-architecture" class="nav-link" data-scroll-target="#electronic-architecture">Electronic architecture</a></li>
   <li><a href="#flight-controller" id="toc-flight-controller" class="nav-link" data-scroll-target="#flight-controller">Flight controller</a></li>
-  <li><a href="#assembling-the-pcb" id="toc-assembling-the-pcb" class="nav-link" data-scroll-target="#assembling-the-pcb">Assembling the PCB</a></li>
-  <li><a href="#taking-the-pcb-into-operation" id="toc-taking-the-pcb-into-operation" class="nav-link" data-scroll-target="#taking-the-pcb-into-operation">Taking the PCB into operation</a></li>
-  <li><a href="#connectors" id="toc-connectors" class="nav-link" data-scroll-target="#connectors">Connectors</a></li>
   <li><a href="#dry-testing" id="toc-dry-testing" class="nav-link" data-scroll-target="#dry-testing">Dry testing</a></li>
   </ul>
 </nav>
@@ -590,9 +576,6 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="session-meta">
-<p><strong>Week of Nov 9</strong> · Paired lecture: <em>The future of actuation</em></p>
-</div>
 <section id="what-you-build-today" class="level2">
 <h2 class="anchored" data-anchor-id="what-you-build-today">What you build today</h2>
 <p>The custom PCB assembled and validated, the flight controller flashed and talking to the ESC, and the robot flapping in air under wireless control.</p>
@@ -600,10 +583,14 @@ ul.task-list li input[type="checkbox"] {
 <section id="before-you-arrive" class="level2">
 <h2 class="anchored" data-anchor-id="before-you-arrive">Before you arrive</h2>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
 <tbody>
 <tr class="odd">
 <td><strong>Parts</strong></td>
-<td>FAAV PCB v3.0, stencil, solder paste, XIAO ESP32S3, JST connectors, battery</td>
+<td>Seeeduino XIAO, connectors, battery</td>
 </tr>
 <tr class="even">
 <td><strong>Tools</strong></td>
@@ -611,14 +598,10 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="odd">
 <td><strong>Read</strong></td>
-<td>This page and <a href="../reference/pcb.html">PCB revisions</a></td>
+<td>This page</td>
 </tr>
 </tbody>
 </table>
-</section>
-<section id="electronic-architecture" class="level2">
-<h2 class="anchored" data-anchor-id="electronic-architecture">Electronic architecture</h2>
-<p>One 4S (max 16.8 V) battery is connected to a custom PCB that steps VBAT down to 5 V to power the flight controller. The flight controller generates a 3v3 rail to power the sensors on the custom PCB. Battery power goes through a shunt for sensing on the custom PCB, then back out to power the ESC. The flight controller sends commands to the ESC over serial.</p>
 </section>
 <section id="flight-controller" class="level2">
 <h2 class="anchored" data-anchor-id="flight-controller">Flight controller</h2>
@@ -632,145 +615,7 @@ Figure&nbsp;1: Microcontroller in its waterproofing box
 </figcaption>
 </figure>
 </div>
-<p>Firmware lives in <a href="https://github.com/MIT-AURA-Lab/FAAV-Flight-Controller">FAAV-Flight-Controller</a> (ESP32, FreeRTOS tasks). See <a href="../reference/software.html">Software</a> for older variants.</p>
-</section>
-<section id="assembling-the-pcb" class="level2">
-<h2 class="anchored" data-anchor-id="assembling-the-pcb">Assembling the PCB</h2>
-<p>As of April 2026 the current board is <strong>v3.0</strong>: 4 layers, 21 × 28.5 mm, 34 components. The complete BOM is in the Manufacturing/Assembly folder of the <a href="https://github.com/MIT-AURA-Lab/FAAV-PCB-v3">FAAV-PCB-v3 repository</a>.</p>
-<p>The simplest way to assemble a FAAV PCB is with a stencil, solder paste applied with a cutter blade, then reflow on the hotplate.</p>
-<div class="quarto-layout-panel" data-layout-ncol="2">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="../Fig/PCB_assembly1.jpeg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Tape blank PCBs around the PCB to assemble"><img src="../Fig/PCB_assembly1.jpeg" class="img-fluid figure-img" alt="Tape blank PCBs around the PCB to assemble"></a></p>
-<figcaption>Tape blank PCBs around the PCB to assemble</figcaption>
-</figure>
-</div>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="../Fig/PCB_assembly2.jpeg" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Align the stencil on top and tape it, making sure it sits flat"><img src="../Fig/PCB_assembly2.jpeg" class="img-fluid figure-img" alt="Align the stencil on top and tape it, making sure it sits flat"></a></p>
-<figcaption>Align the stencil on top and tape it, making sure it sits flat</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</div>
-<div class="quarto-layout-panel" data-layout-ncol="2">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="../Fig/PCB_assembly3.jpeg" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Wipe down solder paste with a blade in one firm pass"><img src="../Fig/PCB_assembly3.jpeg" class="img-fluid figure-img" alt="Wipe down solder paste with a blade in one firm pass"></a></p>
-<figcaption>Wipe down solder paste with a blade in one firm pass</figcaption>
-</figure>
-</div>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="../Fig/PCB_assembly4.jpeg" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Place the assembled PCB on the hot plate"><img src="../Fig/PCB_assembly4.jpeg" class="img-fluid figure-img" alt="Place the assembled PCB on the hot plate"></a></p>
-<figcaption>Place the assembled PCB on the hot plate</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="taking-the-pcb-into-operation" class="level2">
-<h2 class="anchored" data-anchor-id="taking-the-pcb-into-operation">Taking the PCB into operation</h2>
-<p>Once assembled, solder power wires for VBAT and GND at the input side of the board. Follow these steps <strong>before powering the PCB for the first time</strong>:</p>
-<ol type="1">
-<li>Check that there is no short circuit between GND and 5V / 3.3V / VBAT.</li>
-<li>Connect a <strong>15 V supply with a 100 mA current limit</strong> to the battery pads and check that it does not draw excessive current.</li>
-<li>Check with a multimeter that the buck regulator outputs 5 V from the 15 V input. The MCU should be on by then.</li>
-</ol>
-<p>With the MCU powered, flash your test firmware and check the connection to all sensors. <a href="#tbl-i2c" class="quarto-xref">Table&nbsp;1</a> gives the I²C addresses.</p>
-<div id="tbl-i2c" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-i2c-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;1: I²C addresses
-</figcaption>
-<div aria-describedby="tbl-i2c-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Component</th>
-<th>I²C address (bin)</th>
-<th>I²C address (hex)</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Pressure sensor</td>
-<td><code>0b1110110</code></td>
-<td><code>0x76</code></td>
-</tr>
-<tr class="even">
-<td>IMU</td>
-<td><code>0b1101000</code></td>
-<td><code>0x68</code></td>
-</tr>
-<tr class="odd">
-<td>INA228 power monitor</td>
-<td><code>0b0101000</code></td>
-<td><code>0x40</code></td>
-</tr>
-</tbody>
-</table>
-</div>
-</figure>
-</div>
-<p>Verify:</p>
-<ul class="task-list">
-<li><label><input type="checkbox">Voltage, current and temperature readings from the INA228</label></li>
-<li><label><input type="checkbox">IMU readings</label></li>
-<li><label><input type="checkbox">Pressure sensor readings</label></li>
-<li><label><input type="checkbox">RGB LED control</label></li>
-</ul>
-<p>Once all the hardware on the board is validated, solder the power wires at the output side of the board to the ESC, and the UART wires.</p>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Warning</span>TX to RX
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>The <strong>TX</strong> output of the PCB has to be connected to the <strong>RX</strong> pin of the ESC, and vice versa.</p>
-</div>
-</div>
-</section>
-<section id="connectors" class="level2">
-<h2 class="anchored" data-anchor-id="connectors">Connectors</h2>
-<p>The waterproof connector is the JST 8-pin <a href="https://ch.farnell.com/jst-japan-solderless-terminals/08r-jwpf-vsle-d/connector-housing-rcpt-8pos/dp/2399256">08R-JWPF-VSLE-D</a> / <a href="https://ch.farnell.com/jst-japan-solderless-terminals/08t-jwpf-vsle-d/connector-housing-tab-8pos/dp/2399257">08T-JWPF-VSLE-D</a>. All pins marked <code>_b</code> are used for balancing the battery during recharge. For use on the robot, connect at least <strong>Vbat</strong> and <strong>GND</strong>; to allow higher currents, connect <strong>Vbat_b</strong> and <strong>GND_b</strong> as well.</p>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Warning</span>Seal the unused cable slots
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Do not forget to seal the back of the connector for the unused cable slots — this is a water ingress path straight into the electronics.</p>
-</div>
-</div>
-<div id="fig-connector" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-connector-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="../Fig/Connector_wiring.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Figure&nbsp;2: Connector wiring scheme. Left: battery connector. Right: connector on the robot / for recharging the battery."><img src="../Fig/Connector_wiring.png" class="img-fluid figure-img"></a>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-connector-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2: Connector wiring scheme. Left: battery connector. Right: connector on the robot / for recharging the battery.
-</figcaption>
-</figure>
-</div>
+<p>Firmware lives in <a href="https://github.com/MIT-AURA-Lab/FAAV-Flight-Controller">FAAV-Flight-Controller</a></p>
 </section>
 <section id="dry-testing" class="level2">
 <h2 class="anchored" data-anchor-id="dry-testing">Dry testing</h2>
@@ -780,7 +625,7 @@ Figure&nbsp;2: Connector wiring scheme. Left: battery connector. Right: connecto
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>To be written by the instructor
+<span class="screen-reader-only">Important</span>TBC
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -793,11 +638,11 @@ Figure&nbsp;2: Connector wiring scheme. Left: battery connector. Right: connecto
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Checkpoint — TA sign-off
+<span class="screen-reader-only">Note</span>Checkpoint
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>PCB validated against all four sensor checks, flight controller commanding the ESC over serial, and a supervised flapping run in air.</p>
+<p>Flight controller commanding the ESC over serial, and a supervised flapping run in air.</p>
 </div>
 </div>
 
@@ -1225,8 +1070,8 @@ Figure&nbsp;2: Connector wiring scheme. Left: battery connector. Right: connecto
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../sessions/08-tail-housing.html" class="pagination-link" aria-label="Module 8 --- Tail and housing">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Module 8 — Tail and housing</span>
+      <a href="../sessions/08-tail-housing.html" class="pagination-link" aria-label="Module 8 --- Tail">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Module 8 — Tail</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

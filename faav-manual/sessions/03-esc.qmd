@@ -87,7 +87,7 @@ The encoder needs power as well as the four bus signals --- six wires in total:
 | **MCU GPIO**  | PB3  | PB4  | PB5   | PA15 | --- | --- |
 | **G431B pin** | J3   | J3   | R14\* | J3   | J8  | J3  |
 
-: SPI3 connections on the G431. \* This connection is on the outward side of the resistor.
+: SPI3 connections on the G431. \* This connection is on the outward side of the resistor. {#tbl-spi3}
 
 Note that **3.3 V and GND come from different connectors**. J3 carries the three bus signals and a ground, but its only supply pin is **5 V** from the break-away BEC --- too high for the AS5047P. The 3.3 V rail is exposed on **J4**, the SWD header, alongside SWDIO and SWCLK. Take power from there and ground from J3, and check both against @fig-g431-gpio before soldering.
 

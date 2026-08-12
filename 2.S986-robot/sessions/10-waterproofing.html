@@ -305,7 +305,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
         <li>
     <a class="dropdown-item" href="../sessions/08-tail-housing.html">
- <span class="dropdown-text">Module 8 — Tail and housing</span></a>
+ <span class="dropdown-text">Module 8 — Tail</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../sessions/09-electronics-dry-test.html">
@@ -349,10 +349,6 @@ ul.task-list li input[type="checkbox"] {
         <li>
     <a class="dropdown-item" href="../reference/software.html">
  <span class="dropdown-text">Software</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../reference/pcb.html">
- <span class="dropdown-text">PCB revisions</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../reference/cnc.html">
@@ -452,7 +448,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../sessions/08-tail-housing.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Module 8 — Tail and housing</span></a>
+ <span class="menu-text">Module 8 — Tail</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -522,12 +518,6 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../reference/pcb.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">PCB revisions</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../reference/cnc.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">CNC — Stepcraft D660</span></a>
   </div>
@@ -561,7 +551,6 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#flight-controller-waterproofing" id="toc-flight-controller-waterproofing" class="nav-link" data-scroll-target="#flight-controller-waterproofing">Flight controller waterproofing</a></li>
   <li><a href="#esc-waterproofing" id="toc-esc-waterproofing" class="nav-link" data-scroll-target="#esc-waterproofing">ESC waterproofing</a></li>
   <li><a href="#battery-waterproofing" id="toc-battery-waterproofing" class="nav-link" data-scroll-target="#battery-waterproofing">Battery waterproofing</a></li>
-  <li><a href="#battery-connector-waterproofing" id="toc-battery-connector-waterproofing" class="nav-link" data-scroll-target="#battery-connector-waterproofing">Battery connector waterproofing</a></li>
   <li><a href="#gearbox" id="toc-gearbox" class="nav-link" data-scroll-target="#gearbox">Gearbox</a></li>
   </ul>
 </nav>
@@ -589,9 +578,6 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="session-meta">
-<p><strong>Week of Nov 16</strong> · Paired lecture: <em>Multirotors</em></p>
-</div>
 <section id="what-you-build-today" class="level2">
 <h2 class="anchored" data-anchor-id="what-you-build-today">What you build today</h2>
 <p>A potted PCB, a lubricated and sealed gearbox, and a robot that survives a static immersion test.</p>
@@ -636,20 +622,11 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="flight-controller-waterproofing">Flight controller waterproofing</h2>
 <p>First ensure that the FC fits within the 3D box before anything else.</p>
 <ol type="1">
-<li>Tape the bottom side of the box with Kapton.</li>
 <li>Fill the bottom of the box with silicone sealant until it reaches the USB port hole.</li>
-<li><em>Carefully</em> slide the PCB assembly in, with the Seeeduino facing the bottom of the box.</li>
+<li><em>Carefully</em> slide the assembly in, with the Seeeduino facing the bottom of the box.</li>
 <li><strong>Very important!</strong> Insert a USB-C cable into the port. This keeps the sealant from flowing into the port, and the cable is a convenient point to hold the assembly by.</li>
-<li>Add sealant along the three free edges to fill any gaps, until the sealant reaches the level of the top side of the PCB. <strong>The PCB components and contacts should be left exposed.</strong></li>
-<li>Let the silicone cure — because of the depth this takes about 12–24 h.</li>
-<li>Solder the wires and contacts.</li>
-<li>Solder the voltage regulator.</li>
-<li>Seal the top side of the PCB. The best method here is unclear. Tested solutions:
-<ul>
-<li>Nail polish</li>
-<li>Silicone sealant</li>
-<li><a href="https://mgchemicals.com/products/conformal-coatings/silicone-conformal-coatings/conformal-coating-waterproof/">422C silicone conformal coating</a> (<a href="https://mgchemicals.com/downloads/tds/tds-422c-l.pdf">datasheet</a>)</li>
-</ul></li>
+<li>Add sealant along the three free edges to fill any gaps, until the sealant reaches the level of the top side of the PCB.</li>
+<li>Let the silicone cure - because of the depth this takes about 12–24 h.</li>
 </ol>
 </section>
 <section id="esc-waterproofing" class="level2">
@@ -664,7 +641,7 @@ Figure&nbsp;1: The B-G431B-ESC1 assembly.
 </figcaption>
 </figure>
 </div>
-<p>The ESC is potted the same way as the flight controller: it sits in its own 3D-printed frame, which is then filled with <strong>Silcoset</strong> so only the wire exits remain open. <a href="#fig-esc-potted" class="quarto-xref">Figure&nbsp;2</a> shows the three pieces together — motor, bare ESC, and the potted frame.</p>
+<p>The ESC is potted the same way as the flight controller: it sits in its own 3D-printed frame, which is then filled with <strong>Silcoset</strong> so only the wire exits remain open. <a href="#fig-esc-potted" class="quarto-xref">Figure&nbsp;2</a> shows the three pieces together - motor, bare ESC, and the potted frame.</p>
 <div id="fig-esc-potted" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-esc-potted-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -675,25 +652,10 @@ Figure&nbsp;2: The motor, the ESC and the potted frame. The dark block is the fr
 </figcaption>
 </figure>
 </div>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>To be completed by the instructor
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>The written procedure for this step, to the level of detail the flight controller has above: fill order, how the phase wires are held clear while the compound cures, cure time for this depth, and whether the ESC is potted before or after the motor wires are soldered in <a href="../sessions/03-esc.html">Module 3</a>.</p>
-</div>
-</div>
 </section>
 <section id="battery-waterproofing" class="level2">
 <h2 class="anchored" data-anchor-id="battery-waterproofing">Battery waterproofing</h2>
-</section>
-<section id="battery-connector-waterproofing" class="level2">
-<h2 class="anchored" data-anchor-id="battery-connector-waterproofing">Battery connector waterproofing</h2>
+<p>TBC ## Battery connector waterproofing TBC ## Spend time discussing COT and measurement TBC</p>
 </section>
 <section id="gearbox" class="level2">
 <h2 class="anchored" data-anchor-id="gearbox">Gearbox</h2>
@@ -722,7 +684,7 @@ Figure&nbsp;2: The motor, the ESC and the potted frame. The dark block is the fr
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>PCB fully cured and potted with contacts exposed, gearbox lubricated and reassembled with the shaft bearing fitted, connector back-shell sealed, and a static immersion test passed with no ingress.</p>
+<p>Flight controller and ESC fully cured and potted, static immersion test passed with no ingress. Robot cleaned with IPA after each immersion.</p>
 </div>
 </div>
 

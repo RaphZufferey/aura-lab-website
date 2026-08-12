@@ -302,7 +302,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
         <li>
     <a class="dropdown-item" href="../sessions/08-tail-housing.html">
- <span class="dropdown-text">Module 8 — Tail and housing</span></a>
+ <span class="dropdown-text">Module 8 — Tail</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../sessions/09-electronics-dry-test.html">
@@ -346,10 +346,6 @@ ul.task-list li input[type="checkbox"] {
         <li>
     <a class="dropdown-item" href="../reference/software.html">
  <span class="dropdown-text">Software</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../reference/pcb.html">
- <span class="dropdown-text">PCB revisions</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../reference/cnc.html">
@@ -449,7 +445,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../sessions/08-tail-housing.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Module 8 — Tail and housing</span></a>
+ <span class="menu-text">Module 8 — Tail</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -519,12 +515,6 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../reference/pcb.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">PCB revisions</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../reference/cnc.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">CNC — Stepcraft D660</span></a>
   </div>
@@ -553,10 +543,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#why-an-foc-esc" id="toc-why-an-foc-esc" class="nav-link active" data-scroll-target="#why-an-foc-esc">Why an FOC ESC</a></li>
-  <li><a href="#speed-ceiling-and-sensor-lag" id="toc-speed-ceiling-and-sensor-lag" class="nav-link" data-scroll-target="#speed-ceiling-and-sensor-lag">Speed ceiling and sensor lag</a></li>
+  <li><a href="#log-of-2026-changes" id="toc-log-of-2026-changes" class="nav-link active" data-scroll-target="#log-of-2026-changes">Log of 2026 changes</a></li>
   <li><a href="#gearbox-corrosion" id="toc-gearbox-corrosion" class="nav-link" data-scroll-target="#gearbox-corrosion">Gearbox corrosion</a></li>
-  <li><a href="#housing-material-tradeoff" id="toc-housing-material-tradeoff" class="nav-link" data-scroll-target="#housing-material-tradeoff">Housing material tradeoff</a></li>
   </ul>
 </nav>
     </div>
@@ -583,59 +571,27 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Why the robot is built the way it is. Not needed at the bench — useful for your report, and for anyone changing the design.</p>
-<section id="why-an-foc-esc" class="level2">
-<h2 class="anchored" data-anchor-id="why-an-foc-esc">Why an FOC ESC</h2>
-<p>Several ESC solutions were explored for the FAAV concept:</p>
+<p>Why the robot is built the way it is and latest changes</p>
+<section id="log-of-2026-changes" class="level2">
+<h2 class="anchored" data-anchor-id="log-of-2026-changes">Log of 2026 changes</h2>
 <ul>
-<li><strong>Regular drone ESCs.</strong> Hobbyking 12A and EP Aer11 were tested. Both start <strong>losing synchronisation at low speed</strong>, which is a problem for water propulsion — precisely the regime the robot spends most of its time in.</li>
-<li><strong>FOC ESCs</strong> tend to be more complex and larger. The <strong>G431-ESC1</strong> board is favourable and had already been explored in the lab.</li>
+<li>Front of gears: exactly 1 mm spacing for washer. Back of gears (towards tail) has builtin 3D-printed spacers that press against inner bearing. Printing them will not use support</li>
+<li>All 3D printed cross fixing is now done with M2 square half nuts (stainless). Takes less space and less work than heat inserts. 3D printed plates are all 4 mm thick.</li>
+<li>Tail tube is now 5/3 round instead of square. The bracket (tail rigidifier) adapted in consequence.</li>
+<li>Left gear extended and wraps around the linkage for better support.</li>
+<li>Crank-link shaft is now 10.5 mm to have enough space to fit a circlip.</li>
+<li>Linkage bearings are now 4x10x4 on input and 3x8x4 on output. MAX static loading of 130 N.</li>
+<li>ESC box is now screwed against right bearing holder</li>
+<li>Front dome mounts to front plate</li>
+<li>Micro-controller box: to be printed transparent, no more window. Square nut assembly. USB-C port sits closer to edge of part, should give a better connection to program.</li>
+<li>Gear shafts bearings changed to 3x7x3 flanged, with the flange now inserting into part.</li>
+<li>All parts relabeled</li>
 </ul>
-<p>That tradeoff — accepting a larger, more complex driver to get usable low-speed torque control — is the reason <a href="../sessions/03-esc.html">Module 3</a> spends a whole module on the driver.</p>
-</section>
-<section id="speed-ceiling-and-sensor-lag" class="level2">
-<h2 class="anchored" data-anchor-id="speed-ceiling-and-sensor-lag">Speed ceiling and sensor lag</h2>
-<p>Maximum speed went from <strong>500 to 1700 rad/s</strong>, enough to drive the wings at 10 Hz, through a combination of sensor and MCU changes documented in <a href="../sessions/04-control.html">Module 4</a>. The remaining constraint is sensor lag: above 500–600 rad/s, uncompensated lag shows up as high current draw and noise rather than as a hard speed limit.</p>
-<p>Compensation is currently hand-tuned every 100 rad/s with a fitted function used on the robot. Automating this — ramping through the speeds while minimising phase current — is open work.</p>
 </section>
 <section id="gearbox-corrosion" class="level2">
 <h2 class="anchored" data-anchor-id="gearbox-corrosion">Gearbox corrosion</h2>
-<p>By default the gearbox on the FAAV4 is not waterproof at all, and it is normal for it to fill completely with water once submerged. This was considered acceptable: over more than a year of repeated use in water, including in Lake Geneva, a gearbox was opened and showed no sign of corrosion.</p>
-<p>Proper lubrication — a mix of <strong>CorrosionX and white lithium grease</strong> - help with corrosion problems. The practical procedure is in <a href="../sessions/10-waterproofing.html">Module 10</a>.</p>
-</section>
-<section id="housing-material-tradeoff" class="level2">
-<h2 class="anchored" data-anchor-id="housing-material-tradeoff">Housing material tradeoff</h2>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Foam</th>
-<th>Floatability</th>
-<th>Absorption</th>
-<th>Impact behaviour</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Extruded polystyrene</td>
-<td>Best, low density</td>
-<td>Zero</td>
-<td>Brittle; little help damping landings</td>
-</tr>
-<tr class="even">
-<td>Closed-cell polyethylene</td>
-<td>Decent, relatively low density</td>
-<td>Light</td>
-<td>Compliant; usable as protection</td>
-</tr>
-</tbody>
-</table>
-<p>A multi-material housing has never been built but would likely be better than either.</p>
+<p>By default the gearbox on the FAAV4 is not waterproof at all, and it is normal for it to fill completely with water once submerged. This is considered acceptable: over more than a year of repeated use in water, including in lakes, a gearbox was opened and showed no sign of corrosion.</p>
+<p>Proper lubrication: a mix of <strong>CorrosionX and white lithium grease</strong> - help with corrosion problems. The practical procedure is in <a href="../sessions/10-waterproofing.html">Module 10</a>.</p>
 
 
 </section>

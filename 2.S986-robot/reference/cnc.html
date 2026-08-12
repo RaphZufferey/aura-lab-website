@@ -37,7 +37,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
 <link href="../reference/design-notes.html" rel="next">
-<link href="../reference/pcb.html" rel="prev">
+<link href="../reference/software.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -52,9 +52,6 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/bootstrap/bootstrap-3bc97f2477fb7965bce9454950d60e55.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/bootstrap/bootstrap-dark-dea204dea6f735ae4ecf1dae3d686bcc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <link href="../site_libs/bootstrap/bootstrap-3bc97f2477fb7965bce9454950d60e55.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
-<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
-<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
-<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -305,7 +302,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
         <li>
     <a class="dropdown-item" href="../sessions/08-tail-housing.html">
- <span class="dropdown-text">Module 8 — Tail and housing</span></a>
+ <span class="dropdown-text">Module 8 — Tail</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../sessions/09-electronics-dry-test.html">
@@ -349,10 +346,6 @@ ul.task-list li input[type="checkbox"] {
         <li>
     <a class="dropdown-item" href="../reference/software.html">
  <span class="dropdown-text">Software</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../reference/pcb.html">
- <span class="dropdown-text">PCB revisions</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../reference/cnc.html">
@@ -452,7 +445,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../sessions/08-tail-housing.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Module 8 — Tail and housing</span></a>
+ <span class="menu-text">Module 8 — Tail</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -522,12 +515,6 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../reference/pcb.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">PCB revisions</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../reference/cnc.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">CNC — Stepcraft D660</span></a>
   </div>
@@ -556,9 +543,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#full-guide" id="toc-full-guide" class="nav-link active" data-scroll-target="#full-guide">Full guide</a></li>
-  <li><a href="#cutpath-generation" id="toc-cutpath-generation" class="nav-link" data-scroll-target="#cutpath-generation">Cutpath generation</a></li>
-  <li><a href="#material-specific-notes" id="toc-material-specific-notes" class="nav-link" data-scroll-target="#material-specific-notes">Material-specific notes</a></li>
+  <li><a href="#material-specific-notes" id="toc-material-specific-notes" class="nav-link active" data-scroll-target="#material-specific-notes">Material-specific notes</a></li>
   </ul>
 </nav>
     </div>
@@ -585,53 +570,7 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Used in <a href="../sessions/05-frame-crank.html">Module 5</a> for the carbon frame, the aluminium crank and linkage, and the PEEK gears.</p>
-<section id="full-guide" class="level2">
-<h2 class="anchored" data-anchor-id="full-guide">Full guide</h2>
-<p>The complete Stepcraft guide is available as a PDF:</p>
-<ul>
-<li><a href="../files/CNC-Stepcraft-D600-guide.pdf">CNC Stepcraft D600 LIS guide (PDF)</a></li>
-<li>Original wiki version: <a href="https://wiki.epfl.ch/lis/cnc-stepcraft">wiki.epfl.ch/lis/cnc-stepcraft</a></li>
-</ul>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Warning</span>Before every job
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Make sure the <strong>0 of the machine is at the right location in your file</strong>, and check the orientation of the axes.</p>
-</div>
-</div>
-</section>
-<section id="cutpath-generation" class="level2">
-<h2 class="anchored" data-anchor-id="cutpath-generation">Cutpath generation</h2>
-<p>Fusion360 generates cutpaths from the parts in the <em>manufacture</em> tab, and allows for <em>manufacturing models</em>, where parts can be recombined, realigned and even modified. Chamfers on the body plates were added in the manufacturing model rather than in the design.</p>
-<p>Operation order: <strong>holes → chamfers → pockets → outline.</strong></p>
-<div id="fig-cnc-model" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-cnc-model-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="../Fig/manufacturing2.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1: Manufacturing model in Fusion360"><img src="../Fig/manufacturing2.jpg" class="img-fluid figure-img"></a>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-cnc-model-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: Manufacturing model in Fusion360
-</figcaption>
-</figure>
-</div>
-<div id="fig-cnc-setup" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-cnc-setup-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="../Fig/manufacturing.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure&nbsp;2: Setting up on the machine"><img src="../Fig/manufacturing.jpg" class="img-fluid figure-img"></a>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-cnc-setup-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2: Setting up on the machine
-</figcaption>
-</figure>
-</div>
-</section>
+<p>Used in <a href="../sessions/05-frame-crank.html">Module 5</a> for the carbon frame, the aluminium crank and linkage</p>
 <section id="material-specific-notes" class="level2">
 <h2 class="anchored" data-anchor-id="material-specific-notes">Material-specific notes</h2>
 <table class="caption-top table">
@@ -658,11 +597,6 @@ Figure&nbsp;2: Setting up on the machine
 <td>5 mm</td>
 <td>Crank and linkage. Linkage faced down from 5 to 4 mm. Use a 2 mm endmill, flood the part</td>
 </tr>
-<tr class="odd">
-<td>PEEK</td>
-<td>5 mm</td>
-<td>Gears. Cutting underwater gives good results. Keep advance speed low enough to cut teeth cleanly</td>
-</tr>
 </tbody>
 </table>
 <div class="callout callout-style-default callout-important callout-titled">
@@ -671,11 +605,11 @@ Figure&nbsp;2: Setting up on the machine
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>MIT equivalent
+<span class="screen-reader-only">Important</span>MIT manufacturing
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The linked guide is for the EPFL machine. Confirm which machine the class will actually use at MIT and either re-shoot this guide or replace the link.</p>
+<p>Central shop?</p>
 </div>
 </div>
 
@@ -1103,8 +1037,8 @@ Figure&nbsp;2: Setting up on the machine
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../reference/pcb.html" class="pagination-link" aria-label="PCB revisions">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">PCB revisions</span>
+      <a href="../reference/software.html" class="pagination-link" aria-label="Software">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Software</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
@@ -1127,38 +1061,6 @@ Figure&nbsp;2: Setting up on the machine
 </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
-(function() {
-  let previousOnload = window.onload;
-  window.onload = () => {
-    if (previousOnload) {
-      previousOnload();
-    }
-    lightboxQuarto.on('slide_before_load', (data) => {
-      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-      const href = trigger.getAttribute('href');
-      if (href !== null) {
-        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
-        if (imgEl !== null) {
-          const srcAttr = imgEl.getAttribute("src");
-          if (srcAttr && srcAttr.startsWith("data:")) {
-            slideConfig.href = srcAttr;
-          }
-        }
-      } 
-    });
-  
-    lightboxQuarto.on('slide_after_load', (data) => {
-      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(slideNode);
-      }
-    });
-  
-  };
-  
-})();
-          </script>
 
 
 

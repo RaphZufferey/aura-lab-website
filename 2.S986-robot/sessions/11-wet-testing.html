@@ -334,7 +334,7 @@ window.Quarto = {
   </li>  
         <li>
     <a class="dropdown-item" href="../sessions/08-tail-housing.html">
- <span class="dropdown-text">Module 8 — Tail and housing</span></a>
+ <span class="dropdown-text">Module 8 — Tail</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../sessions/09-electronics-dry-test.html">
@@ -378,10 +378,6 @@ window.Quarto = {
         <li>
     <a class="dropdown-item" href="../reference/software.html">
  <span class="dropdown-text">Software</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../reference/pcb.html">
- <span class="dropdown-text">PCB revisions</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../reference/cnc.html">
@@ -481,7 +477,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../sessions/08-tail-housing.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Module 8 — Tail and housing</span></a>
+ <span class="menu-text">Module 8 — Tail</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -551,12 +547,6 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../reference/pcb.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">PCB revisions</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../reference/cnc.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">CNC — Stepcraft D660</span></a>
   </div>
@@ -590,6 +580,7 @@ window.Quarto = {
   <li><a href="#pre-immersion-checks" id="toc-pre-immersion-checks" class="nav-link" data-scroll-target="#pre-immersion-checks">Pre-immersion checks</a></li>
   <li><a href="#the-tank" id="toc-the-tank" class="nav-link" data-scroll-target="#the-tank">The tank</a></li>
   <li><a href="#what-to-log" id="toc-what-to-log" class="nav-link" data-scroll-target="#what-to-log">What to log</a></li>
+  <li><a href="#housing" id="toc-housing" class="nav-link" data-scroll-target="#housing">Housing</a></li>
   <li><a href="#trim" id="toc-trim" class="nav-link" data-scroll-target="#trim">Trim</a>
   <ul class="collapse">
   <li><a href="#wing-trim" id="toc-wing-trim" class="nav-link" data-scroll-target="#wing-trim">Wing trim</a></li>
@@ -622,9 +613,6 @@ window.Quarto = {
 </header>
 
 
-<div class="session-meta">
-<p><strong>Week of Nov 23</strong> · Paired lecture: <em>Fixed-wing flyers</em></p>
-</div>
 <section id="what-you-do-today" class="level2">
 <h2 class="anchored" data-anchor-id="what-you-do-today">What you do today</h2>
 <p>Immersion, underwater runs, wing and tail trim, and a logged cost-of-transport measurement.</p>
@@ -651,24 +639,11 @@ window.Quarto = {
 <section id="pre-immersion-checks" class="level2">
 <h2 class="anchored" data-anchor-id="pre-immersion-checks">Pre-immersion checks</h2>
 <ul class="task-list">
-<li><label><input type="checkbox">Static immersion test from Module 10 passed, robot opened and inspected dry</label></li>
-<li><label><input type="checkbox">Connector back-shell sealed on all unused slots</label></li>
-<li><label><input type="checkbox">Watchdog enabled on the ESC (<code>W</code>) — target drops to zero if commands stop</label></li>
-<li><label><input type="checkbox">Robot floats level</label></li>
+<li><label><input type="checkbox">Static immersion test from Module 10 passed</label></li>
+<li><label><input type="checkbox">Connector closed. USB-C port sealed</label></li>
+<li><label><input type="checkbox">Watchdog enabled on the ESC (<code>W</code>) - target drops to zero if commands stop</label></li>
+<li><label><input type="checkbox">Robot floats level. If not, add floats.</label></li>
 </ul>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Low speed is where normal ESCs fail
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Water propulsion runs the motor in exactly the regime where synchronisation is lost. If the drive stutters underwater, stop and check sensor lag compensation before increasing current — see <a href="../sessions/04-control.html">Module 4</a>.</p>
-</div>
-</div>
 </section>
 <section id="the-tank" class="level2">
 <h2 class="anchored" data-anchor-id="the-tank">The tank</h2>
@@ -744,9 +719,13 @@ Figure&nbsp;1: The AURA Lab tank. The rail and gantry run the length of the near
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>A brownout, a watchdog reset, or an accidental disconnect takes the whole run with it. Broadcast the data before you change the battery, not after — and if a run is expensive to repeat, write it to flash instead.</p>
+<p>A brownout, a watchdog reset, or an accidental disconnect takes the whole run with it. Broadcast the data before you change the battery, not after - and if a run is expensive to repeat, write it to flash instead.</p>
 </div>
 </div>
+</section>
+<section id="housing" class="level2">
+<h2 class="anchored" data-anchor-id="housing">Housing</h2>
+<p>Design and 3D-print an exterior housing to ensure neutral buoyancy as needed. Foam can also be used.</p>
 </section>
 <section id="trim" class="level2">
 <h2 class="anchored" data-anchor-id="trim">Trim</h2>
@@ -770,7 +749,7 @@ Figure&nbsp;1: The AURA Lab tank. The rail and gantry run the length of the near
 </section>
 <section id="tail-trim" class="level3">
 <h3 class="anchored" data-anchor-id="tail-trim">Tail trim</h3>
-<p>Tail trim is manual: <strong>bend and twist the tail by hand</strong>. Bending sets pitch, twisting sets roll. Work in small increments and expect to go back and forth — there is no scale and no reference mark, so your own logged runs are the only feedback you have.</p>
+<p>Tail trim is manual: <strong>bend and twist the tail by hand</strong>. Bending sets pitch, twisting sets roll. Work in small increments and expect to go back and forth - there is no scale and no reference mark, so your own logged runs are the only feedback you have.</p>
 </section>
 </section>
 <section id="cost-of-transport" class="level2">
@@ -790,7 +769,7 @@ Figure&nbsp;1: The AURA Lab tank. The rail and gantry run the length of the near
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>To be written by the instructor
+<span class="screen-reader-only">Important</span>TBC
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -808,7 +787,7 @@ Figure&nbsp;1: The AURA Lab tank. The rail and gantry run the length of the near
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Checkpoint — TA sign-off
+<span class="screen-reader-only">Note</span>Checkpoint
 </div>
 </div>
 <div class="callout-body-container callout-body">
