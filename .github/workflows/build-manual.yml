@@ -1,0 +1,174 @@
+name: Build manual
+
+# Rebuilds the printable PDF and the website whenever the manual source
+# changes, verifies both, and commits the generated output back to the branch
+# that was pushed. GitHub Pages serves the committed output directly, so the
+# generated files have to live in the repo.
+#
+# No TeX toolchain here on purpose. The PDF renders through Quarto's Typst
+# backend, which ships inside Quarto itself, so there is nothing to install
+# beyond Quarto and the step costs a few seconds rather than the several
+# minutes a TinyTeX install would add.
+
+on:
+  push:
+    paths:
+      - 'faav-manual/**'
+      - '.github/workflows/build-manual.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+# A second push while a build is in flight would race to commit output.
+concurrency:
+  group: build-manual-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out
+        uses: actions/checkout@v4
+
+      - name: Set up Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          # Pinned to the version the output was last built with locally, so
+          # CI cannot silently change the rendering.
+          version: 1.10.18
+
+      # ----------------------------------------------------------------------
+      # ORDER MATTERS: the PDF is built first and copied into
+      # faav-manual/files/ BEFORE the website renders.
+      #
+      # _quarto.yml declares `resources: [files/]`, so the website render is
+      # what copies files/ into the published output directory. If the site
+      # rendered first, the PDF would not exist yet, would not be copied, and
+      # the download link on the landing page would 404. Dropping the PDF into
+      # the output directory afterwards does not help either -- a render
+      # normally cleans its output directory first, so the next build would
+      # delete it again.
+      #
+      # PDF -> faav-manual/files/ -> website render -> published output.
+      # ----------------------------------------------------------------------
+
+      - name: Render printable PDF (Typst)
+        working-directory: faav-manual
+        run: |
+          set -euo pipefail
+          # The `pdf` profile (_quarto-pdf.yml) re-renders the same .qmd files
+          # as a Quarto book: chapters and parts come from that config, and the
+          # book type resolves the pages' .qmd cross-links into internal PDF
+          # jumps. Title, subtitle and author live in the profile, not here.
+          quarto render --profile pdf
+          cp ../manual-pdf/FAAV-Build-Manual.pdf files/faav-build-manual.pdf
+
+      - name: Render website
+        run: |
+          set -euo pipefail
+          # `output-dir` points outside the project (../2.S986-robot), and
+          # Quarto refuses to clean an output directory it does not consider
+          # its own -- it warns and leaves stale files behind. Clearing it
+          # here keeps removed pages and superseded site_libs bundles from
+          # accumulating in the repo.
+          rm -rf 2.S986-robot
+          cd faav-manual && quarto render
+
+      - name: Verify build
+        run: |
+          set -euo pipefail
+          fail=0
+          check() {
+            if [ -s "$1" ]; then
+              echo "ok      $1"
+            else
+              echo "MISSING $1"
+              fail=1
+            fi
+          }
+
+          # The PDF, at its source location and as actually published.
+          check faav-manual/files/faav-build-manual.pdf
+          check 2.S986-robot/files/faav-build-manual.pdf
+
+          # The site.
+          check 2.S986-robot/index.html
+          check 2.S986-robot/sessions/02-motor.html
+          check 2.S986-robot/reference/parts-list.html
+          check 2.S986-robot/search.json
+
+          # A truncated or failed Typst run can still leave a small file.
+          size=$(stat -c%s faav-manual/files/faav-build-manual.pdf)
+          if [ "$size" -lt 1000000 ]; then
+            echo "PDF is only ${size} bytes -- expected > 1 MB"
+            fail=1
+          else
+            echo "ok      PDF size ${size} bytes"
+          fi
+
+          # %PDF magic bytes, so a stray text file cannot pass as the manual.
+          if head -c 4 faav-manual/files/faav-build-manual.pdf | grep -q '%PDF'; then
+            echo "ok      PDF header"
+          else
+            echo "faav-build-manual.pdf is not a PDF"
+            fail=1
+          fi
+
+          # The download link on the landing page must point at a file that
+          # exists -- this is the check that catches the ordering bug.
+          if grep -q 'files/faav-build-manual.pdf' 2.S986-robot/index.html; then
+            echo "ok      download link present on landing page"
+          else
+            echo "landing page has no link to the printable manual"
+            fail=1
+          fi
+
+          # The manual is unlisted; the noindex tag must survive the render.
+          if grep -q 'noindex' 2.S986-robot/index.html; then
+            echo "ok      noindex tag"
+          else
+            echo "noindex meta tag missing"
+            fail=1
+          fi
+
+          # The PDF is built as a Quarto book, which starts each chapter on a
+          # recto page and so inserts some blank versos by design. A runaway
+          # page count means something is wrong with the page-break handling --
+          # an earlier custom template silently produced 241 pages instead of
+          # ~65, and nothing caught it.
+          pages=$(pdfinfo 2.S986-robot/files/faav-build-manual.pdf 2>/dev/null \
+                  | awk '/^Pages:/ {print $2}')
+          if [ -z "${pages:-}" ]; then
+            echo "note    pdfinfo unavailable; skipped page-count check"
+          elif [ "$pages" -gt 120 ]; then
+            echo "PDF is $pages pages -- expected well under 120; check for blank-page insertion"
+            fail=1
+          else
+            echo "ok      PDF page count $pages"
+          fi
+
+          exit $fail
+
+      - name: Commit output
+        run: |
+          set -euo pipefail
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add 2.S986-robot faav-manual/files/faav-build-manual.pdf
+
+          if git diff --cached --quiet; then
+            echo "No change in generated output; nothing to commit."
+            exit 0
+          fi
+
+          git commit -m "Rebuild manual and PDF [skip ci]" \
+                     -m "Generated from ${GITHUB_SHA} by ${GITHUB_WORKFLOW}."
+
+          # Pushing with the default GITHUB_TOKEN does not start another
+          # workflow run, so committing back into faav-manual/files/ cannot
+          # loop even though that path is in the trigger filter above.
+          git push

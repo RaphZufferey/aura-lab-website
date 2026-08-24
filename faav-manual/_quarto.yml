@@ -1,0 +1,113 @@
+project:
+  type: website
+  # Renders to a sibling `2.S986-robot/` folder, i.e. served at
+  # aura.mit.edu/2.S986-robot/
+  # See DEPLOY.md before changing this.
+  output-dir: ../2.S986-robot
+  resources:
+    - files/
+  render:
+    - "*.qmd"
+    - "sessions/*.qmd"
+    - "reference/*.qmd"
+    - "!DEPLOY.md"        # internal deployment notes, not part of the site
+
+website:
+  title: "FAAV Build Manual"
+  site-url: "https://aura.mit.edu/2.S986-robot/"
+  description: "MIT AURA Lab --- building a flapping aerial-aquatic vehicle"
+  search:
+    location: navbar
+    type: overlay
+  page-navigation: true
+  back-to-top-navigation: true
+  bread-crumbs: true
+
+  navbar:
+    # Background colour comes from $navbar-bg in aura-navbar.scss.
+    collapse-below: lg
+    left:
+      - href: index.qmd
+        text: Overview
+      - text: Build modules
+        menu:
+          - sessions/01-orientation.qmd
+          - sessions/02-motor.qmd
+          - sessions/03-esc.qmd
+          - sessions/04-control.qmd
+          - sessions/05-frame-crank.qmd
+          - sessions/06-simulation.qmd
+          - sessions/07-wings.qmd
+          - sessions/08-tail-housing.qmd
+          - sessions/09-electronics-dry-test.qmd
+          - sessions/10-waterproofing.qmd
+          - sessions/11-wet-testing.qmd
+          - sessions/12-competition.qmd
+      - text: Reference
+        menu:
+          - reference/parts-list.qmd
+          - reference/bldc.qmd
+          - reference/g431-esc.qmd
+          - reference/simple-foc.qmd
+          - reference/software.qmd
+          - reference/cnc.qmd
+          - reference/design-notes.qmd
+      - href: changelog.qmd
+        text: Changelog
+
+  sidebar:
+    style: floating
+    collapse-level: 2
+    contents:
+      - href: index.qmd
+        text: Overview
+      - section: "Build modules"
+        contents:
+          - sessions/01-orientation.qmd
+          - sessions/02-motor.qmd
+          - sessions/03-esc.qmd
+          - sessions/04-control.qmd
+          - sessions/05-frame-crank.qmd
+          - sessions/06-simulation.qmd
+          - sessions/07-wings.qmd
+          - sessions/08-tail-housing.qmd
+          - sessions/09-electronics-dry-test.qmd
+          - sessions/10-waterproofing.qmd
+          - sessions/11-wet-testing.qmd
+          - sessions/12-competition.qmd
+      - section: "Reference"
+        contents:
+          - reference/parts-list.qmd
+          - reference/bldc.qmd
+          - reference/g431-esc.qmd
+          - reference/simple-foc.qmd
+          - reference/software.qmd
+          - reference/cnc.qmd
+          - reference/design-notes.qmd
+      - href: changelog.qmd
+
+  page-footer:
+    left: "MIT AURA Lab --- FAAV Build Manual, v4.0 (fall-2026)"
+    right: "Derived from the FAAV Manufacturing Guide"
+
+format:
+  html:
+    theme:
+      light: [cosmo, aura-navbar.scss]
+      dark: [darkly, aura-navbar.scss]
+    css: styles.css
+    toc: true
+    toc-depth: 3
+    toc-title: "On this page"
+    lightbox: true
+    code-copy: true
+    fig-align: center
+    link-external-newwindow: true
+    # Unlisted, not secret: keeps the manual out of search results.
+    include-in-header:
+      text: |
+        <meta name="robots" content="noindex, nofollow">
+
+crossref:
+  fig-title: Figure
+  tbl-title: Table

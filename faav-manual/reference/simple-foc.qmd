@@ -1,0 +1,248 @@
+---
+title: "How SimpleFOC works"
+---
+
+The firmware in [FAAV-G431-ESC](https://github.com/MIT-AURA-Lab/FAAV-G431-ESC)
+is a [SimpleFOC](https://docs.simplefoc.com) application. This page is what you
+need to read that firmware and change it with confidence: what the library
+computes, in what order, and where your settings enter. It is background for
+[Module 3](/sessions/03-esc.qmd) and [Module 4](/sessions/04-control.qmd), not
+a procedure.
+
+## The problem it solves
+
+A brushless motor has three windings and no brushes, so nothing decides on its
+own which winding should be energised. Something has to look at where the rotor
+is and energise the windings to put the stator's magnetic field about **90°
+ahead** of the rotor's magnets, the orientation that produces the most
+torque per amp. Do that continuously and the motor behaves like a brushed DC
+motor: torque proportional to current, no commutator to wear out. That is
+**Field-Oriented Control**, and it is why [Module 2](/sessions/02-motor.qmd)'s
+$\tau = k_T I$ is usable at all.
+
+The awkward part is that "90° ahead" is a statement about a *rotating* frame,
+while the three phase currents live in a *stationary* one. FOC is mostly the
+bookkeeping that moves between the two.
+
+## Three objects, and what links them
+
+The SimpleFOC architecture is built around three objects, each wrapping one piece of
+hardware:
+
+| Object | Wraps | Our hardware |
+|---|---|---|
+| `MagneticSensorSPI` | The angle sensor | AS5047P on SPI3 |
+| `BLDCDriver6PWM` | The inverter | Six MOSFETs on the G431 |
+| `BLDCMotor` | The control maths | --- |
+
+`BLDCMotor` owns the algorithm and is told about the other two with
+`linkSensor()` and `linkDriver()`. Nothing else connects them, which is why a
+missing `link` call produces a motor that initialises cleanly and then does
+nothing sensible.
+
+## The two loops
+
+Every iteration runs **two nested controllers**, and keeping them straight is
+most of understanding the library:
+
+- `motor.loopFOC()` --- the **inner** loop. Reads the angle, works out where
+  the field should point, and sets the PWM duty cycles. It runs as fast as you
+  can call it (above 10 kHz), and its rate is the loop frequency you read back with the
+  commander's `F` command.
+- `motor.move(target)` --- the **outer** loop. Turns your setpoint (a position,
+  a speed, or a torque) into the q-axis demand the inner loop chases.
+
+The inner loop is where speed matters; the outer loop is where tuning matters.
+
+::: {.callout-warning}
+## Both must be called every iteration
+
+`loopFOC()` without `move()` holds whatever demand it last had. `move()`
+without `loopFOC()` updates a number nothing acts on. Anything blocking in
+`loop()` - a `delay()`, a slow `print` - drops the inner-loop rate and
+shows up as a motor that runs rough at speed.
+:::
+
+## What the inner loop actually computes
+
+Distilled from the library, with the bookkeeping removed:
+
+```cpp
+void loopFOC() {
+  sensor.update();
+
+  // 1. Mechanical angle -> electrical angle.
+  //    A motor with p pole pairs turns through p electrical revolutions
+  //    for every mechanical one. zero_electric_angle comes from initFOC().
+  float angle_el = normalizeAngle(sensor.getAngle() * pole_pairs
+                                  - zero_electric_angle);
+
+  switch (torque_controller) {
+
+    case TorqueControlType::voltage:
+      // No current measurement. Ask for a voltage and hope; cheap and
+      // adequate at low speed. This is where you start.
+      Uq = target_voltage_q;
+      Ud = 0;
+      break;
+
+    case TorqueControlType::foc_current:
+      // 2. Measure two phase currents; the third follows from ia+ib+ic = 0.
+      PhaseCurrent_s c = current_sense.getPhaseCurrents();
+
+      // 3. Clarke (abc -> alpha/beta) then Park (alpha/beta -> d/q),
+      //    using angle_el. The output is two DC values, not sinusoids.
+      DQCurrent_s i = current_sense.getFOCCurrents(angle_el);
+
+      // 4. Two independent PI controllers on those DC values.
+      //    q is torque-producing; d is pure flux and is driven to zero
+      //    because it costs current and produces nothing.
+      Uq = PID_current_q(target_current_q - i.q);
+      Ud = PID_current_d(0.0f - i.d);
+      break;
+  }
+
+  setPhaseVoltage(Uq, Ud, angle_el);
+}
+```
+
+The Park transform is the trick worth internalising. In the stationary frame
+the phase currents are three sinusoids and there is nothing steady to control.
+Rotating the frame with the rotor turns them into **two constants**, $i_d$ and
+$i_q$, and a constant is something an ordinary PI controller can hold. Then you
+rotate back:
+
+```cpp
+void setPhaseVoltage(float Uq, float Ud, float angle_el) {
+  // Inverse Park: back to the stationary frame
+  float Ualpha = Ud * cos(angle_el) - Uq * sin(angle_el);
+  float Ubeta  = Ud * sin(angle_el) + Uq * cos(angle_el);
+
+  // Inverse Clarke: two axes back to three phases
+  float Ua = Ualpha;
+  float Ub = -0.5f * Ualpha + _SQRT3_2 * Ubeta;
+  float Uc = -0.5f * Ualpha - _SQRT3_2 * Ubeta;
+
+  // Shift to sit around mid-rail, since the inverter cannot output
+  // a negative voltage, then hand duty cycles to the hardware.
+  driver.setPwm(Ua + Udc/2, Ub + Udc/2, Uc + Udc/2);
+}
+```
+
+Setting $U_d = 0$ and driving only $U_q$ is exactly "put the field 90° ahead",
+expressed in coordinates. Everything above is the machinery for saying it in
+terms the three phases understand.
+
+## What the outer loop computes
+
+`move()` is a cascade, and which stages run depends on `motor.controller`:
+
+```cpp
+void move(float target) {
+  switch (controller) {
+    case MotionControlType::angle:
+      // position -> velocity -> current, all three stages
+      shaft_velocity_sp = P_angle(target - shaft_angle);
+      target_current_q  = PID_velocity(shaft_velocity_sp - shaft_velocity);
+      break;
+
+    case MotionControlType::velocity:
+      target_current_q  = PID_velocity(target - shaft_velocity);
+      break;
+
+    case MotionControlType::torque:
+      target_current_q  = target;   // straight through
+      break;
+  }
+}
+```
+
+This is why the commander's `T` means something different in each mode --- it
+is the input to whichever stage is outermost. It is also why tuning proceeds
+inside-out in [Module 4](/sessions/04-control.qmd): the velocity PI has to be
+right before the position P above it can be.
+
+## Alignment, and why the motor twitches at power-on
+
+`motor.initFOC()` performs the one calibration FOC cannot do without. The
+sensor reports *some* absolute angle, but nothing tells it how that number
+relates to the motor's magnetic poles - that depends on how the magnet was
+glued on and how the phase wires happened to be soldered. So `initFOC()` drives
+a known field, watches which way the rotor moves and where it settles, and
+stores two things:
+
+- **`zero_electric_angle`** - the offset between sensor zero and electrical
+  zero
+- **sensor direction** - whether the sensor counts up or down relative to the
+  motor's positive rotation
+
+That is the twitch you see at every power-on. If it is skipped or wrong, the
+field is placed at the wrong angle and the motor draws current while producing
+little torque, or runs away.
+
+::: {.callout-note}
+## Why the UVW order does not matter
+
+[Module 3](/sessions/03-esc.qmd) says you can solder the phase wires in any
+order. Swapping two phases reverses the motor's direction, and `initFOC()`
+measures direction rather than assuming it - so the calibration simply comes
+out with the other sign. The cost of getting it "wrong" is a stored constant,
+not a rework.
+:::
+
+## The main ESC code
+
+Setup is configuration; the loop is two calls. Trimmed to the parts that
+matter:
+
+```cpp
+#include <SimpleFOC.h>
+
+BLDCMotor motor = BLDCMotor(7);                 // pole pairs
+BLDCDriver6PWM driver = BLDCDriver6PWM(A_PHASE_UH, A_PHASE_UL,
+                                       A_PHASE_VH, A_PHASE_VL,
+                                       A_PHASE_WH, A_PHASE_WL);
+MagneticSensorSPI sensor = MagneticSensorSPI(AS5047_SPI, PA15);
+
+float target = 0;
+
+void setup() {
+  sensor.init();
+  motor.linkSensor(&sensor);
+
+  driver.voltage_power_supply = 14.8;
+  driver.init();
+  motor.linkDriver(&driver);
+
+  motor.foc_modulation = FOCModulationType::SpaceVectorPWM;
+  motor.controller     = MotionControlType::velocity;
+
+  motor.PID_velocity.P = 0.2;
+  motor.PID_velocity.I = 20;
+  motor.LPF_velocity.Tf = 0.01;   // velocity is differentiated, so filtered
+  motor.voltage_limit   = 6;      // the safety net -- set it low first
+
+  motor.init();
+  motor.initFOC();                // alignment happens here
+}
+
+void loop() {
+  motor.loopFOC();
+  motor.move(target);
+}
+```
+
+The pole-pair count must match the motor or every angle in the chain is wrong
+by a fixed ratio, and the symptom is a motor that vibrates instead of turning.
+`voltage_limit` is the one setting to get right before the first spin-up: it
+caps what the inner loop can ask for regardless of what the outer loop demands.
+
+
+## Where to look next
+
+- [SimpleFOC communication docs](https://docs.simplefoc.com/communication) ---
+  the commander interface used all through [Module 3](/sessions/03-esc.qmd)
+- [Commander motor reference](https://docs.simplefoc.com/commander_motor) ---
+  every letter the commander accepts
+- [The G431 ESC board](/reference/g431-esc.qmd) --- what `driver.setPwm()` is
+  actually driving

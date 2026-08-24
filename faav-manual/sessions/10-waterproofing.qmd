@@ -1,0 +1,78 @@
+---
+title: "Module 10 --- Waterproofing"
+---
+
+## What you build today
+
+A potted PCB, a lubricated and sealed gearbox, and a robot that survives a
+static immersion test.
+
+::: {.callout-warning}
+## Silicone cure time gates this module
+
+The PCB potting takes **12--24 hours** to cure because of the depth. Plan the
+module so potting happens first and soldering happens after the cure, or
+across two sittings.
+:::
+
+## Before you arrive
+
+| | |
+|---|---|
+| **Parts** | Waterproofing box, Kapton tape, silicone sealant, USB-C cable, CorrosionX, white lithium grease |
+| **Tools** | Needle, soldering iron |
+| **Read** | This whole page before starting --- the ordering matters |
+
+## Flight controller waterproofing
+
+First ensure that the FC fits within the 3D box before anything else.
+
+1. Fill the bottom of the box with silicone sealant until it reaches the USB
+   port hole.
+2. *Carefully* slide the assembly in, with the Seeeduino facing the bottom
+   of the box.
+3. **Very important!** Insert a USB-C cable into the port. This keeps the
+   sealant from flowing into the port, and the cable is a convenient point to
+   hold the assembly by.
+4. Add sealant along the three free edges to fill any gaps, until the sealant
+   reaches the level of the top side of the PCB.
+5. Let the silicone cure - because of the depth this takes about 12--24 h.
+
+## ESC waterproofing
+![The B-G431B-ESC1 assembly. ](/Fig/g431-power-stage.jpg){#fig-g431-power width="50%"}
+
+The ESC is potted the same way as the flight controller: it sits in its own
+3D-printed frame, which is then filled with **Silcoset** so only the wire exits
+remain open. @fig-esc-potted shows the three pieces together - motor, bare
+ESC, and the potted frame.
+
+![The motor, the ESC and the potted frame. The dark block is the frame filled with Silcoset; the ESC drops into it before the fill so the board ends up fully encapsulated with only the phase and signal wires leaving.](/Fig/esc-potted.png){#fig-esc-potted width="65%"}
+
+## Battery waterproofing
+TBC
+## Battery connector waterproofing
+TBC
+## Spend time discussing COT and measurement
+TBC
+
+## Gearbox
+By default the gearbox on the FAAV4 robot is **not waterproof at all**, and it
+is normal for it to end up completely filled with water once submerged. Over
+years of use the gearbox proved resistant to fresh water with the factory lubricant. If that is removed/cleaned, then use the right lubricant below. The best is to avoid opening the gearbox and cleaning the gears.
+
+::: {.callout-warning}
+## Use the right lubricant
+
+A mix of **CorrosionX and white lithium grease**. 
+Several dives have since been performed with the same gearbox that previously
+corroded, and it now runs smoothly.
+:::
+
+Parts that rust: **sun gear, planet gears, ring gear, planet shafts.**
+Parts that do not: screws, motor shaft, washers, body, circlip.
+
+::: {.callout-note}
+## Checkpoint
+
+Flight controller and ESC fully cured and potted, static immersion test passed with no ingress. Robot cleaned with IPA after each immersion.
+:::

@@ -1,0 +1,1306 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Module 2 — Motor and transmission shaft – FAAV Build Manual</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../sessions/03-esc.html" rel="next">
+<link href="../sessions/01-orientation.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-3bc97f2477fb7965bce9454950d60e55.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-dea204dea6f735ae4ecf1dae3d686bcc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-3bc97f2477fb7965bce9454950d60e55.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<meta name="robots" content="noindex, nofollow">
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar floating nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">FAAV Build Manual</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="../index.html" aria-current="page"> 
+<span class="menu-text">Overview</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-build-modules" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Build modules</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-build-modules">    
+        <li>
+    <a class="dropdown-item" href="../sessions/01-orientation.html">
+ <span class="dropdown-text">Module 1 — Orientation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../sessions/02-motor.html">
+ <span class="dropdown-text">Module 2 — Motor and transmission shaft</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../sessions/03-esc.html">
+ <span class="dropdown-text">Module 3 — Motor driver, sensor and serial</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../sessions/04-control.html">
+ <span class="dropdown-text">Module 4 — Closed-loop control and tuning</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../sessions/05-frame-crank.html">
+ <span class="dropdown-text">Module 5 — Frame, crank, linkage and gears</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../sessions/06-simulation.html">
+ <span class="dropdown-text">Module 6 — Flapping simulation (Ptera)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../sessions/07-wings.html">
+ <span class="dropdown-text">Module 7 — Wing fabrication</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../sessions/08-tail-housing.html">
+ <span class="dropdown-text">Module 8 — Tail</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../sessions/09-electronics-dry-test.html">
+ <span class="dropdown-text">Module 9 — Flight controller, PCB and dry testing</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../sessions/10-waterproofing.html">
+ <span class="dropdown-text">Module 10 — Waterproofing</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../sessions/11-wet-testing.html">
+ <span class="dropdown-text">Module 11 — Wet testing</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../sessions/12-competition.html">
+ <span class="dropdown-text">Module 12 — Competition</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-reference" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Reference</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-reference">    
+        <li>
+    <a class="dropdown-item" href="../reference/parts-list.html">
+ <span class="dropdown-text">Parts list</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../reference/bldc.html">
+ <span class="dropdown-text">Brushless motors</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../reference/g431-esc.html">
+ <span class="dropdown-text">The G431 ESC board</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../reference/simple-foc.html">
+ <span class="dropdown-text">How SimpleFOC works</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../reference/software.html">
+ <span class="dropdown-text">Software</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../reference/cnc.html">
+ <span class="dropdown-text">CNC — Stepcraft D660</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../reference/design-notes.html">
+ <span class="dropdown-text">Design notes</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../changelog.html"> 
+<span class="menu-text">Changelog</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../sessions/01-orientation.html">Build modules</a></li><li class="breadcrumb-item"><a href="../sessions/02-motor.html">Module 2 — Motor and transmission shaft</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Build modules</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sessions/01-orientation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Module 1 — Orientation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sessions/02-motor.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Module 2 — Motor and transmission shaft</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sessions/03-esc.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Module 3 — Motor driver, sensor and serial</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sessions/04-control.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Module 4 — Closed-loop control and tuning</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sessions/05-frame-crank.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Module 5 — Frame, crank, linkage and gears</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sessions/06-simulation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Module 6 — Flapping simulation (Ptera)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sessions/07-wings.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Module 7 — Wing fabrication</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sessions/08-tail-housing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Module 8 — Tail</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sessions/09-electronics-dry-test.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Module 9 — Flight controller, PCB and dry testing</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sessions/10-waterproofing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Module 10 — Waterproofing</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sessions/11-wet-testing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Module 11 — Wet testing</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sessions/12-competition.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Module 12 — Competition</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Reference</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/parts-list.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Parts list</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/bldc.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Brushless motors</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/g431-esc.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The G431 ESC board</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/simple-foc.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">How SimpleFOC works</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/software.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Software</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/cnc.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">CNC — Stepcraft D660</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/design-notes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Design notes</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../changelog.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Changelog</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#what-you-build-today" id="toc-what-you-build-today" class="nav-link active" data-scroll-target="#what-you-build-today">What you build today</a></li>
+  <li><a href="#before-you-arrive" id="toc-before-you-arrive" class="nav-link" data-scroll-target="#before-you-arrive">Before you arrive</a></li>
+  <li><a href="#sec-motor-variant" id="toc-sec-motor-variant" class="nav-link" data-scroll-target="#sec-motor-variant">The motor — AS2303 KV1500</a>
+  <ul class="collapse">
+  <li><a href="#sec-kv" id="toc-sec-kv" class="nav-link" data-scroll-target="#sec-kv">What the KV rating means</a></li>
+  <li><a href="#what-this-means-for-our-robot" id="toc-what-this-means-for-our-robot" class="nav-link" data-scroll-target="#what-this-means-for-our-robot">What this means for our robot</a></li>
+  </ul></li>
+  <li><a href="#motor-shaft" id="toc-motor-shaft" class="nav-link" data-scroll-target="#motor-shaft">Motor shaft</a></li>
+  <li><a href="#sensor-magnet" id="toc-sensor-magnet" class="nav-link" data-scroll-target="#sensor-magnet">Sensor magnet</a></li>
+  <li><a href="#mounting-the-motor" id="toc-mounting-the-motor" class="nav-link" data-scroll-target="#mounting-the-motor">Mounting the motor</a></li>
+  <li><a href="#solder-the-motor-wires-to-the-electronic-speed-controller" id="toc-solder-the-motor-wires-to-the-electronic-speed-controller" class="nav-link" data-scroll-target="#solder-the-motor-wires-to-the-electronic-speed-controller">Solder the motor wires to the Electronic Speed Controller</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../sessions/01-orientation.html">Build modules</a></li><li class="breadcrumb-item"><a href="../sessions/02-motor.html">Module 2 — Motor and transmission shaft</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Module 2 — Motor and transmission shaft</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="what-you-build-today" class="level2">
+<h2 class="anchored" data-anchor-id="what-you-build-today">What you build today</h2>
+<p>A brushless motor with a custom shaft pressed into its rotor bell, with the sun gear and the sensor magnet installed, bolted to its bracket and mounted on the motor plate. The motor is soldered to the electronic speed controller. The gearbox itself goes on in <a href="../sessions/04-control.html">Module 4</a>.</p>
+</section>
+<section id="before-you-arrive" class="level2">
+<h2 class="anchored" data-anchor-id="before-you-arrive">Before you arrive</h2>
+<table class="caption-top table">
+<tbody>
+<tr class="odd">
+<td><strong>Parts</strong></td>
+<td>AS2303 KV1500 motor with pre-machined bell, custom motor shaft, sun gear from the Faulhaber 23.04:1 gearbox, 6 × 2.5 mm diametric magnet, 3D-printed magnet bracket, vertical nylon motor bracket, bottom fuselage plate, mounting screws</td>
+</tr>
+<tr class="even">
+<td><strong>Tools</strong></td>
+<td>Circlip pliers, manual arbor press, superglue, hex drivers</td>
+</tr>
+<tr class="odd">
+<td><strong>Read</strong></td>
+<td>This page, and the <em>Motor shaft</em> section below in full before touching the motor. <a href="../reference/bldc.html">Brushless motors</a> for the background</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="sec-motor-variant" class="level2">
+<h2 class="anchored" data-anchor-id="sec-motor-variant">The motor — AS2303 KV1500</h2>
+<p>The AS2303 is a <strong>brushless outrunner</strong>. Read <a href="../reference/bldc.html">Brushless motors</a> first.</p>
+<p><a href="../Fig/TMO-AS2303-1500.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="../Fig/TMO-AS2303-1500.jpg" class="img-fluid" style="width:45.0%"></a></p>
+<p>We use the AS2303 KV1500 motor throughout the course. Its propeller horn <strong>cannot</strong> be separated from the bell, it has to be machined off in a lathe. That work, and the custom shaft, are prepared for you before the session.</p>
+<section id="sec-kv" class="level3">
+<h3 class="anchored" data-anchor-id="sec-kv">What the KV rating means</h3>
+<p><strong>KV</strong> is the motor’s <em>velocity constant</em>, quoted in rpm per volt. It says how fast the rotor spins per volt applied, <strong>with no load on the shaft</strong>:</p>
+<p><span id="eq-kv"><span class="math display">\[\omega_0 = k_V \, U \tag{1}\]</span></span></p>
+<p>The constant is not a marketing number — it falls out of the motor’s physics. As the rotor turns, its magnets sweep past the windings and induce a voltage that opposes the supply (the <em>back-EMF</em>):</p>
+<p><span id="eq-bemf"><span class="math display">\[U_\text{emf} = \frac{\omega}{k_V} \tag{2}\]</span></span></p>
+<p>The supply voltage splits between this back-EMF and the ohmic drop across the winding resistance <span class="math inline">\(R\)</span>, so <span class="math inline">\(U = U_\text{emf} + R\,I\)</span> and the speed under load becomes</p>
+<p><span id="eq-loaded"><span class="math display">\[\omega = k_V \left( U - R\,I \right) \tag{3}\]</span></span></p>
+<p>which is why <a href="#eq-kv" class="quarto-xref">Equation&nbsp;1</a> only holds at <span class="math inline">\(I \approx 0\)</span>. Draw current and the motor slows down.</p>
+<p>The same constant fixes the torque. Electrical power in equals mechanical power out, <span class="math inline">\(U_\text{emf} I = \tau \omega\)</span>, and substituting <a href="#eq-bemf" class="quarto-xref">Equation&nbsp;2</a> gives <span class="math inline">\(\tau = I / k_V\)</span> in SI units. Converting <span class="math inline">\(k_V\)</span> from rpm/V to rad/s/V:</p>
+<p><span id="eq-kt"><span class="math display">\[k_T = \frac{60}{2\pi \, k_V} \approx \frac{9.55}{k_V}
+\qquad \text{with} \qquad \tau = k_T \, I \tag{4}\]</span></span></p>
+<p>with <span class="math inline">\(k_T\)</span> in N·m/A when <span class="math inline">\(k_V\)</span> is in rpm/V. <strong>Torque and speed constants are inverses of each other.</strong> A high-KV motor spins fast but gives little torque per amp; a low-KV motor of the same size and mass does the opposite. You cannot buy both — you choose where on that trade-off to sit, and then recover the missing torque with a reduction.</p>
+</section>
+<section id="what-this-means-for-our-robot" class="level3">
+<h3 class="anchored" data-anchor-id="what-this-means-for-our-robot">What this means for our robot</h3>
+<p>With <span class="math inline">\(k_V = 1500\)</span> rpm/V and a 4S LiPo at its 14.8 V nominal voltage:</p>
+<p><span class="math display">\[\omega_0 = 1500 \times 14.8 = 22\,200 \ \text{rpm}
+\qquad
+k_T = \frac{9.55}{1500} = 6.4 \ \text{mN·m/A}\]</span></p>
+<p>6.4 mN·m/A is very little torque, too little to drive the wings directly, which is exactly why the 23.04:1 Faulhaber gearbox is there. It multiplies torque by 23.04 and divides speed by the same factor. One revolution of the gearbox output is one full flapping cycle, so</p>
+<p><span id="eq-fflap"><span class="math display">\[f_\text{flap} = \frac{\omega}{60 \, r}
+= \frac{22\,200}{60 \times 23.04} = 16.1 \ \text{Hz} \tag{5}\]</span></span></p>
+<p>at no load. Under real aerodynamic and hydrodynamic loading the drive tops out near 15 200 rpm, i.e.&nbsp;about <strong>11 Hz</strong> of flapping, the figure you will see again in <a href="../sessions/04-control.html">Module 4</a>.</p>
+</section>
+</section>
+<section id="motor-shaft" class="level2">
+<h2 class="anchored" data-anchor-id="motor-shaft">Motor shaft</h2>
+<p>To pair the motor with the gearbox, the stock shaft of the brushless motor is replaced by a custom one. You will be handed a <strong>machined bell</strong> and a <strong>finished shaft</strong> — both are prepared before the session. What is left to you is the disassembly and the press fit, which is still a delicate operation: the motor’s structure is mostly aluminium and quite thin, for weight savings.</p>
+<ol type="1">
+<li><p>Remove the circlip on the shaft with the special pliers. <strong>Don’t lose it, nor the brass ring.</strong></p></li>
+<li><p>Separate the rotor from the stator delicately, by hand.</p></li>
+<li><p>Press the stock shaft out of the rotor bell.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Never load the bell radially
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Press the shaft out very carefully, making sure to never apply forces radially on the bell. Use the manual press with appropriate support below the bell to avoid deforming the dome shape. <strong>Do not squeeze the bell with a vice, or even by hand.</strong></p>
+</div>
+</div></li>
+<li><p>Press the sun gear onto the new shaft.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Sun gear first — this order cannot be undone
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The sun gear goes on <strong>while the shaft is still free</strong>. Once the shaft is pressed into the bell you can no longer support the shaft properly to press the gear on.</p>
+</div>
+</div></li>
+<li><p>Press the new shaft into the bell, making sure not to press on the dome-shaped part of the bell without appropriate support underneath. It is a <strong>tight fit</strong> on the bell and a <strong>clearance fit</strong> through the bearings.</p></li>
+</ol>
+<div id="fig-motor-shaft" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-motor-shaft-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="../Fig/shaft_drawing.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure&nbsp;1: Motor shaft dimensions"><img src="../Fig/shaft_drawing.png" class="img-fluid figure-img" style="width:70.0%"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-motor-shaft-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Motor shaft dimensions
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="sensor-magnet" class="level2">
+<h2 class="anchored" data-anchor-id="sensor-magnet">Sensor magnet</h2>
+<p>The AS5047P encoder you wire up in <a href="../sessions/03-esc.html">Module 3</a> does not touch the shaft. It reads the direction of the magnetic field from a small magnet rotating in front of it, so the magnet has to go on the motor.</p>
+<p>Use a <strong>6 × 2.5 mm diametrically magnetised disc magnet</strong>. <em>Diametrically</em> magnetised is the part that matters: the poles are across the diameter, not through the thickness, so the field seen by the sensor sweeps through a full rotation as the shaft turns. An ordinary axially magnetised disc of identical size presents the same pole to the sensor all the way round and gives no angle at all.</p>
+<ol type="1">
+<li><p>Drop the magnet into its recess in the 3D-printed bracket. It should sit flat, fully seated, with no rocking.</p></li>
+<li><p><strong>Centre it on the axis of rotation.</strong> The bracket locates it, but check. Keep the magnet concentric with the shaft to within <strong>0.5 mm</strong>.</p></li>
+<li><p>Bond it with <strong>a single drop of superglue</strong>. One drop is enough.</p></li>
+<li><p>Turn the assembly through a full revolution by hand and watch the magnet. Any visible wobble means it is off-centre or not seated.</p></li>
+</ol>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Off-centre magnets are hard to diagnose later
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>An eccentric magnet may still produces a perfectly plausible angle reading at times.</p>
+</div>
+</div>
+</section>
+<section id="mounting-the-motor" class="level2">
+<h2 class="anchored" data-anchor-id="mounting-the-motor">Mounting the motor</h2>
+<p>With the shaft and the magnet done, the motor goes onto the robot. This happens in two stages: motor to bracket, then bracket to plate.</p>
+<ol type="1">
+<li><p>Fix the motor to the vertical <strong>3D-printed nylon bracket</strong> using <strong>four screws M2x5 mm</strong> through the mounting holes in the motor base. Don’t over tighten. Check that the rotor still turns freely by hand. Nylon is compliant, and overtightening can pull the bracket out of flat enough to preload the bearings. A motor that spun freely on the bench and feels stiff once bolted down is telling you to back the screws off and retighten more gently.</p></li>
+<li><p>Mount the bracket to the <strong>bottom fuselage plate</strong>. Before tightening, check the orientation: the shaft and sun gear must point towards the front of the robot.</p></li>
+</ol>
+</section>
+<section id="solder-the-motor-wires-to-the-electronic-speed-controller" class="level2">
+<h2 class="anchored" data-anchor-id="solder-the-motor-wires-to-the-electronic-speed-controller">Solder the motor wires to the Electronic Speed Controller</h2>
+<p>Since the pads are large, make sure to use enough heat / large tip on the soldering iron. The order of the cables UVW do not matter.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Watch this before you pick up the iron
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><a href="https://youtu.be/6rmErwU5E-k">Soldering Crash Course: Basic Techniques, Tips and Advice</a></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Checkpoint
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Shaft seated with the sun gear on it, the rotor spinning freely by hand with no wobble, the magnet bonded concentric to within 0.5 mm, and the motor bolted to its bracket and mounted on the plate — still turning freely once bolted down.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>To be prepared by the instructor before the session
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Both the bells and the shafts must be prepared ahead of time, one set per student. Neither fits in the session: the lathe work is on thin-walled aluminium that is easy to ruin, and there is not enough machine time for the whole cohort.</p>
+<p><strong>Machine the bells.</strong> Clamp the bell in the lathe using its stock shaft, then take the propeller horn off by bringing the diameter down to <strong>6 mm</strong> and the length to <strong>2.5 mm</strong>.</p>
+<div class="quarto-layout-panel" data-layout-ncol="3">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../Fig/bell_machined1.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Stock bell"><img src="../Fig/bell_machined1.jpg" class="img-fluid figure-img" alt="Stock bell"></a></p>
+<figcaption>Stock bell</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../Fig/bell_machined2.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Bring diameter down to 6 mm"><img src="../Fig/bell_machined2.jpg" class="img-fluid figure-img" alt="Bring diameter down to 6 mm"></a></p>
+<figcaption>Bring diameter down to 6 mm</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../Fig/bell_machined3.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Bring the length down to 2.5 mm"><img src="../Fig/bell_machined3.jpg" class="img-fluid figure-img" alt="Bring the length down to 2.5 mm"></a></p>
+<figcaption>Bring the length down to 2.5 mm</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<p><strong>Turn the shafts</strong> from 4 mm steel rod to the dimensions in <a href="#fig-motor-shaft" class="quarto-xref">Figure&nbsp;1</a> — clearance fit through the bearings, tight fit on the bell. The 21.5 mm total assumes the motor and gearbox are separated by a <strong>5.5 mm-thick wall</strong>; for a 4 mm wall, shorten the 8.5 mm segment to 7 mm, giving 20 mm overall.</p>
+<p>Prepare spares of both — a deformed bell cannot be recovered.</p>
+</div>
+</div>
+
+
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/aura\.mit\.edu\/2\.S986-robot\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../sessions/01-orientation.html" class="pagination-link" aria-label="Module 1 --- Orientation">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Module 1 — Orientation</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../sessions/03-esc.html" class="pagination-link" aria-label="Module 3 --- Motor driver, sensor and serial">
+        <span class="nav-page-text">Module 3 — Motor driver, sensor and serial</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>MIT AURA Lab — FAAV Build Manual, v4.0 (fall-2026)</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>Derived from the FAAV Manufacturing Guide</p>
+</div>
+  </div>
+</footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+
+
+</body></html>

@@ -1,0 +1,66 @@
+# PDF profile: renders the same .qmd files as a single combined document.
+#
+#   quarto render --profile pdf
+#
+# Output: ../manual-pdf/FAAV-Build-Manual.pdf, which the build then copies to
+# files/faav-build-manual.pdf so the website render publishes it.
+#
+# The website build (`quarto render`, no profile) is unaffected and still
+# writes ../2.S986-robot.
+#
+# `project: type: book` is what produces the chapter/part layout and, notably,
+# turns the pages' .qmd cross-links into internal PDF jumps automatically.
+
+project:
+  type: book
+  output-dir: ../manual-pdf
+
+book:
+  title: "FAAV Build Manual"
+  subtitle: "MIT AURA Lab --- 2026 v4.0"
+  author: "MIT AURA Lab"
+  date: last-modified
+  chapters:
+    - index.qmd
+    - part: "Build modules"
+      chapters:
+        - sessions/01-orientation.qmd
+        - sessions/02-motor.qmd
+        - sessions/03-esc.qmd
+        - sessions/04-control.qmd
+        - sessions/05-frame-crank.qmd
+        - sessions/06-simulation.qmd
+        - sessions/07-wings.qmd
+        - sessions/08-tail-housing.qmd
+        - sessions/09-electronics-dry-test.qmd
+        - sessions/10-waterproofing.qmd
+        - sessions/11-wet-testing.qmd
+        - sessions/12-competition.qmd
+    - part: "Reference"
+      chapters:
+        - reference/parts-list.qmd
+        - reference/bldc.qmd
+        - reference/g431-esc.qmd
+        - reference/simple-foc.qmd
+        - reference/software.qmd
+        - reference/cnc.qmd
+        - reference/design-notes.qmd
+    - changelog.qmd
+
+format:
+  html: default        # suppressed below; book always needs one html format
+  typst:
+    output-file: "FAAV-Build-Manual"
+    # Local copy of the orange-book format's partial, changed in exactly one
+    # place: outline-small-depth. See the comment in the file. Without it the
+    # Part I divider page overprints its own mini-outline.
+    template-partials:
+      - typst-show.typ
+    papersize: us-letter
+    margin:
+      x: 2cm
+      y: 2.5cm
+    toc: true
+    toc-depth: 2
+    section-numbering: "1.1.a"
+    fig-width: 5

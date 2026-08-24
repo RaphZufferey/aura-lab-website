@@ -1,0 +1,38 @@
+---
+title: "Module 9 --- Flight controller, PCB and dry testing"
+---
+
+## What you build today
+
+The custom PCB assembled and validated, the flight controller flashed and
+talking to the ESC, and the robot flapping in air under wireless control.
+
+## Before you arrive
+
+| | |
+|---|---|
+| **Parts** | Seeeduino XIAO, connectors, battery |
+| **Tools** | Hotplate, tweezers, multimeter, bench supply with current limit |
+| **Read** | This page |
+
+## Flight controller
+
+![Microcontroller in its waterproofing box](/Fig/mcu1.jpg){#fig-mcu width=50%}
+
+Firmware lives in [FAAV-Flight-Controller](https://github.com/MIT-AURA-Lab/FAAV-Flight-Controller)
+
+
+## Dry testing
+
+::: {.callout-important}
+## TBC
+
+The dry-test protocol is course material, not in the guide. Needed: what the
+robot is mounted on while flapping in air, the flap frequency sweep, what is
+measured, the wireless control setup students reprogram to, and abort criteria.
+:::
+
+::: {.callout-note}
+## Checkpoint 
+Flight controller commanding the ESC over serial, and a supervised flapping run in air.
+:::

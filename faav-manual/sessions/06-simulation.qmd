@@ -1,0 +1,46 @@
+---
+title: "Module 6 --- Flapping simulation (Ptera)"
+---
+
+## What you do today
+
+Choose your wing and tail geometry. You simulate candidate geometries in Ptera
+and pick the one that gives the best thrust profile when compounded with the
+provided motor power curve. Modules 7 and 8 build whatever you decide here.
+
+## Before you arrive
+
+| | |
+|---|---|
+| **Bring** | Laptop with Ptera installed, your measured loop performance from [Module 4](04-control.qmd) |
+| **Read** | This page |
+
+## Deliverable
+
+A wing planform and a tail geometry, with the simulation output that justifies
+them, carried forward into [Module 7](07-wings.qmd) and
+[Module 8](08-tail-housing.qmd).
+
+::: {.callout-important}
+## To be written by the instructor
+
+This module has **no counterpart in the manufacturing guide** --- the guide
+documents the research robot's final geometry, not the design exercise. The
+following need to be written from course material:
+
+- Ptera installation and a worked example
+- The provided motor power curve, and its format
+- What "most efficient thrust profile" means quantitatively here, and how it is
+  scored
+- Constraints the students must respect so their geometry remains buildable
+  with the frame from [Module 5](05-frame-crank.qmd) --- span limits, root
+  fitting, mass budget
+- Whether teams may deviate from the reference wing, and by how much
+:::
+
+::: {.callout-note}
+## Checkpoint --- TA sign-off
+
+A geometry chosen, with simulation evidence, and confirmed buildable against
+the frame and wing-root hardware.
+:::

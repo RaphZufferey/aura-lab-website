@@ -1,0 +1,1867 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Brushless motors – FAAV Build Manual</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../reference/g431-esc.html" rel="next">
+<link href="../reference/parts-list.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-3bc97f2477fb7965bce9454950d60e55.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-dea204dea6f735ae4ecf1dae3d686bcc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-3bc97f2477fb7965bce9454950d60e55.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<meta name="robots" content="noindex, nofollow">
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar floating nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">FAAV Build Manual</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="../index.html" aria-current="page"> 
+<span class="menu-text">Overview</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-build-modules" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Build modules</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-build-modules">    
+        <li>
+    <a class="dropdown-item" href="../sessions/01-orientation.html">
+ <span class="dropdown-text">Module 1 — Orientation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../sessions/02-motor.html">
+ <span class="dropdown-text">Module 2 — Motor and transmission shaft</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../sessions/03-esc.html">
+ <span class="dropdown-text">Module 3 — Motor driver, sensor and serial</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../sessions/04-control.html">
+ <span class="dropdown-text">Module 4 — Closed-loop control and tuning</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../sessions/05-frame-crank.html">
+ <span class="dropdown-text">Module 5 — Frame, crank, linkage and gears</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../sessions/06-simulation.html">
+ <span class="dropdown-text">Module 6 — Flapping simulation (Ptera)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../sessions/07-wings.html">
+ <span class="dropdown-text">Module 7 — Wing fabrication</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../sessions/08-tail-housing.html">
+ <span class="dropdown-text">Module 8 — Tail</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../sessions/09-electronics-dry-test.html">
+ <span class="dropdown-text">Module 9 — Flight controller, PCB and dry testing</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../sessions/10-waterproofing.html">
+ <span class="dropdown-text">Module 10 — Waterproofing</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../sessions/11-wet-testing.html">
+ <span class="dropdown-text">Module 11 — Wet testing</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../sessions/12-competition.html">
+ <span class="dropdown-text">Module 12 — Competition</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-reference" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Reference</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-reference">    
+        <li>
+    <a class="dropdown-item" href="../reference/parts-list.html">
+ <span class="dropdown-text">Parts list</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../reference/bldc.html">
+ <span class="dropdown-text">Brushless motors</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../reference/g431-esc.html">
+ <span class="dropdown-text">The G431 ESC board</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../reference/simple-foc.html">
+ <span class="dropdown-text">How SimpleFOC works</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../reference/software.html">
+ <span class="dropdown-text">Software</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../reference/cnc.html">
+ <span class="dropdown-text">CNC — Stepcraft D660</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../reference/design-notes.html">
+ <span class="dropdown-text">Design notes</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../changelog.html"> 
+<span class="menu-text">Changelog</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../reference/parts-list.html">Reference</a></li><li class="breadcrumb-item"><a href="../reference/bldc.html">Brushless motors</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Build modules</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sessions/01-orientation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Module 1 — Orientation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sessions/02-motor.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Module 2 — Motor and transmission shaft</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sessions/03-esc.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Module 3 — Motor driver, sensor and serial</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sessions/04-control.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Module 4 — Closed-loop control and tuning</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sessions/05-frame-crank.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Module 5 — Frame, crank, linkage and gears</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sessions/06-simulation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Module 6 — Flapping simulation (Ptera)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sessions/07-wings.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Module 7 — Wing fabrication</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sessions/08-tail-housing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Module 8 — Tail</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sessions/09-electronics-dry-test.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Module 9 — Flight controller, PCB and dry testing</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sessions/10-waterproofing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Module 10 — Waterproofing</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sessions/11-wet-testing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Module 11 — Wet testing</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sessions/12-competition.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Module 12 — Competition</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Reference</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/parts-list.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Parts list</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/bldc.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Brushless motors</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/g431-esc.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The G431 ESC board</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/simple-foc.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">How SimpleFOC works</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/software.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Software</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/cnc.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">CNC — Stepcraft D660</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/design-notes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Design notes</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../changelog.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Changelog</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#start-with-the-brushed-dc-motor" id="toc-start-with-the-brushed-dc-motor" class="nav-link active" data-scroll-target="#start-with-the-brushed-dc-motor">Start with the brushed DC motor</a>
+  <ul class="collapse">
+  <li><a href="#reading-the-torque-speed-line" id="toc-reading-the-torque-speed-line" class="nav-link" data-scroll-target="#reading-the-torque-speed-line">Reading the torque-speed line</a></li>
+  </ul></li>
+  <li><a href="#what-changes-with-a-brushless-motor" id="toc-what-changes-with-a-brushless-motor" class="nav-link" data-scroll-target="#what-changes-with-a-brushless-motor">What changes with a brushless motor</a>
+  <ul class="collapse">
+  <li><a href="#the-envelope-not-the-line" id="toc-the-envelope-not-the-line" class="nav-link" data-scroll-target="#the-envelope-not-the-line">The envelope, not the line</a></li>
+  </ul></li>
+  <li><a href="#thermal-limits" id="toc-thermal-limits" class="nav-link" data-scroll-target="#thermal-limits">Thermal limits</a></li>
+  <li><a href="#sec-measured" id="toc-sec-measured" class="nav-link" data-scroll-target="#sec-measured">Measured behaviour of the AS2303</a></li>
+  <li><a href="#why-an-outrunner" id="toc-why-an-outrunner" class="nav-link" data-scroll-target="#why-an-outrunner">Why an outrunner</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../reference/parts-list.html">Reference</a></li><li class="breadcrumb-item"><a href="../reference/bldc.html">Brushless motors</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Brushless motors</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Background for <a href="../sessions/02-motor.html">Module 2</a>. For understanding why the motor behaves the way it does when you push it in <a href="../sessions/04-control.html">Module 4</a>.</p>
+<section id="start-with-the-brushed-dc-motor" class="level2">
+<h2 class="anchored" data-anchor-id="start-with-the-brushed-dc-motor">Start with the brushed DC motor</h2>
+<p>Every result you need for a brushless motor is easier to see in a brushed one first, because the two obey the same electrical physics. The difference is <em>how</em> the windings get switched, not what the machine does once they are.</p>
+<p>A DC motor is described by two constants and one resistance. Spinning the rotor induces a back-EMF proportional to speed, and passing current through the windings produces torque proportional to current:</p>
+<p><span id="eq-two-constants"><span class="math display">\[U_\text{emf} = \frac{\omega}{k_V} \qquad\qquad \tau = k_T \, I \tag{1}\]</span></span></p>
+<p>These are the same <span class="math inline">\(k_V\)</span> and <span class="math inline">\(k_T\)</span> derived in <a href="../sessions/02-motor.html">Module 2</a> — inverses of each other, not independent choices. The supply voltage splits between the back-EMF and the ohmic drop across the winding resistance <span class="math inline">\(R\)</span>:</p>
+<p><span id="eq-voltage-balance"><span class="math display">\[U = \frac{\omega}{k_V} + R \, I \tag{2}\]</span></span></p>
+<p>Substitute <span class="math inline">\(I = \tau / k_T\)</span> and rearrange for torque, and the whole behaviour of the motor falls out as a <strong>straight line</strong>:</p>
+<p><span id="eq-torque-speed"><span class="math display">\[\tau = k_T \frac{U}{R} - \frac{k_T}{k_V R}\,\omega \tag{3}\]</span></span></p>
+<section id="reading-the-torque-speed-line" class="level3">
+<h3 class="anchored" data-anchor-id="reading-the-torque-speed-line">Reading the torque-speed line</h3>
+<p>That line is the motor’s entire steady-state character, and it is fixed by the applied voltage. Two points define it:</p>
+<ul>
+<li><strong>Stall torque</strong> <span class="math inline">\(\tau_\text{stall} = k_T U / R\)</span>, at <span class="math inline">\(\omega = 0\)</span>. The rotor is held still, there is no back-EMF, and the only thing limiting current is the winding resistance. This is the largest torque the motor can produce and also the fastest way to destroy it - see <a href="#thermal-limits">Thermal limits</a>.</li>
+<li><strong>No-load speed</strong> <span class="math inline">\(\omega_0 = k_V U\)</span>, at <span class="math inline">\(\tau = 0\)</span>. The rotor spins fast enough that the back-EMF nearly cancels the supply, so almost no current flows.</li>
+</ul>
+<p>Everything the motor can do at that voltage lies on the line between them. Mechanical power is <span class="math inline">\(P = \tau \omega\)</span>, the product of a falling line and a rising one, so it is a parabola peaking at <strong>half the no-load speed</strong> with half the stall torque. Efficiency peaks somewhere else entirely — much closer to <span class="math inline">\(\omega_0\)</span>, because the copper loss that dominates at low speed scales with <span class="math inline">\(I^2\)</span> while the useful output only scales with <span class="math inline">\(I\)</span>.</p>
+<div id="viz-dc" class="viz">
+
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>The useful consequence
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Raising the voltage shifts the line outwards without changing its slope: more speed <em>and</em> more torque, same trade-off between them. That is why speed control is voltage control, and why a “faster” motor at fixed voltage is a lower-torque one.</p>
+</div>
+</div>
+<div id="viz-volt" class="viz">
+
+</div>
+</section>
+</section>
+<section id="what-changes-with-a-brushless-motor" class="level2">
+<h2 class="anchored" data-anchor-id="what-changes-with-a-brushless-motor">What changes with a brushless motor</h2>
+<p>In a brushed motor the commutator and brushes are a mechanical switch riding on the rotor: they physically reconnect the windings as it turns, so the current always flows in whichever coil is best placed to produce torque. It works without any electronics at all, and it wears out, arcs, and limits how fast the motor can safely spin.</p>
+<p>A <strong>BLDC</strong> motor deletes that switch. The permanent magnets go on the rotor, the windings stay on the stator in three phases, and an external controller decides which phases to energise based on where the rotor currently is. The motor becomes inseparable from its driver — this is why <a href="../sessions/03-esc.html">Module 3</a> exists, and why the rotor position measurement matters so much.</p>
+<p>What this does <strong>not</strong> change is <a href="#eq-torque-speed" class="quarto-xref">Equation&nbsp;3</a>. The torque and speed constants have the same meaning, the line has the same shape, and you size the motor the same way. What changes is that the line is no longer the whole story:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>Brushed</th>
+<th>Brushless</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Commutation</td>
+<td>Mechanical, self-acting</td>
+<td>Electronic, needs rotor position</td>
+</tr>
+<tr class="even">
+<td>Torque–speed line</td>
+<td>The real limit</td>
+<td>The <em>ideal</em> limit, then clipped by the driver</td>
+</tr>
+<tr class="odd">
+<td>Wear</td>
+<td>Brushes are consumable</td>
+<td>Bearings only</td>
+</tr>
+<tr class="even">
+<td>Speed ceiling</td>
+<td>Brush arcing and bounce</td>
+<td>Commutation rate and sensor lag</td>
+</tr>
+<tr class="odd">
+<td>Torque ripple</td>
+<td>Smoothed by many commutator segments</td>
+<td>Depends on drive scheme (trapezoidal vs FOC)</td>
+</tr>
+</tbody>
+</table>
+<section id="the-envelope-not-the-line" class="level3">
+<h3 class="anchored" data-anchor-id="the-envelope-not-the-line">The envelope, not the line</h3>
+<p>The straight line assumes the supply can deliver whatever current the equations ask for. It cannot. At stall, <a href="#eq-voltage-balance" class="quarto-xref">Equation&nbsp;2</a> gives <span class="math inline">\(I = U/R\)</span>, and with the sub-ohm winding resistance of a small outrunner that is a number in the hundreds of amps — far beyond both the ESC and the motor itself.</p>
+<p>So the driver enforces a <strong>current limit</strong>, and because <span class="math inline">\(\tau = k_T I\)</span> that is directly a torque limit. The usable region becomes:</p>
+<ul>
+<li>a <strong>constant-torque region</strong> at low speed, flat at whatever current limit you set, because the ESC is holding current rather than letting the line dictate it;</li>
+<li>a <strong>corner speed</strong> where the back-EMF has risen enough that the supply can no longer push that current;</li>
+<li>above it, the original <a href="#eq-torque-speed" class="quarto-xref">Equation&nbsp;3</a> line, falling to <span class="math inline">\(\omega_0\)</span>.</li>
+</ul>
+<p>The flat part is not physics, it is a decision. On our robot it is the decision that keeps the motor alive at the low speeds used for swimming, where the torque–speed line alone would happily draw enough current to cook the windings.</p>
+</section>
+</section>
+<section id="thermal-limits" class="level2">
+<h2 class="anchored" data-anchor-id="thermal-limits">Thermal limits</h2>
+<p>Nothing in <a href="#eq-torque-speed" class="quarto-xref">Equation&nbsp;3</a> knows about heat, which is why the equations cheerfully predict operating points that will destroy the motor in seconds.</p>
+<p>Almost all the loss you care about is <strong>copper loss</strong> in the windings:</p>
+<p><span id="eq-copper-loss"><span class="math display">\[P_\text{copper} = I^2 R \tag{4}\]</span></span></p>
+<p>The square is what makes this the binding constraint. Doubling the torque doubles the current and <strong>quadruples</strong> the heating. A motor comfortable at its rated current will not survive twice that for long, even though the torque equation says it is only a factor of two.</p>
+<p>Three practical consequences:</p>
+<ol type="1">
+<li><strong>Stall is the worst case, not the best.</strong> At <span class="math inline">\(\omega = 0\)</span> there is maximum current and no rotation, so no airflow and no useful output — all the input power becomes heat in the windings. A motor held at stall can burn out without the shaft moving at all.</li>
+<li><strong>Continuous and peak ratings are different numbers.</strong> A peak rating assumes seconds; a continuous rating assumes thermal equilibrium. Flapping is a <em>reciprocating</em> load, so the current is far from constant — what matters for heating is the <strong>RMS</strong> current over the cycle, not the peak you see on the bench supply.</li>
+<li><strong>Iron losses grow with speed.</strong> Hysteresis and eddy-current losses in the stator scale with electrical frequency, so at the 1700 rad/s discussed in <a href="../sessions/04-control.html">Module 4</a> the copper is no longer the only thing getting warm.</li>
+</ol>
+<div id="viz-thermal" class="viz">
+
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Heat is cumulative and invisible
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Current is the only symptom you can see, and it appears instantly, while the temperature it causes lags behind by tens of seconds. A run that looks fine on the ammeter can still be depositing heat faster than the motor sheds it. When tuning in <a href="../sessions/04-control.html">Module 4</a>, stop and touch the motor.</p>
+</div>
+</div>
+</section>
+<section id="sec-measured" class="level2">
+<h2 class="anchored" data-anchor-id="sec-measured">Measured behaviour of the AS2303</h2>
+<p>Everything above is the model. The plot below is where the <strong>test-stand measurements</strong> go, so you can see how far the straight line actually holds for the motor on your bench.</p>
+<div id="viz-as2303" class="viz">
+
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>To be completed by the instructor
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Two things, and the second depends on the first:</p>
+<ol type="1">
+<li>The measured winding resistance of the AS2303, its continuous current rating, and the current limit configured on the ESC. These turn every equation on this page into numbers students can check against — the plots above currently run on a <strong>placeholder</strong> <span class="math inline">\(R\)</span>.</li>
+<li>The test-stand data itself. Paste it into the <code>MEASURED</code> array in the script block at the bottom of <code>reference/bldc.qmd</code>; the schema and an example row are in the comment there. The plot switches from its empty state to a measured-versus-model comparison as soon as the array is non-empty.</li>
+</ol>
+</div>
+</div>
+</section>
+<section id="why-an-outrunner" class="level2">
+<h2 class="anchored" data-anchor-id="why-an-outrunner">Why an outrunner</h2>
+<p>Brushless motors come in two arrangements. An <strong>inrunner</strong> spins a magnet rotor inside a stationary stator, the familiar shape from a drill. An <strong>outrunner</strong> inverts it: the stator sits still in the middle and the magnets are carried on a bell that rotates around the outside. Ours is an outrunner — it is the bell you machine and press the shaft into in <a href="../sessions/02-motor.html">Module 2</a>.</p>
+<div id="fig-outrunner" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-outrunner-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="../Fig/motor.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1: An outrunner seen from the back. The copper windings are the stator and do not move; the dark magnet segments around the rim are carried on the rotating bell. Note how far out the magnets sit — that radius is the lever arm in Equation&nbsp;5, and it is the whole reason for this arrangement. Note also that the heat is generated in the middle, wrapped inside the part that spins."><img src="../Fig/motor.jpg" class="img-fluid figure-img" style="width:65.0%"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-outrunner-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: An outrunner seen from the back. The copper windings are the <strong>stator</strong> and do not move; the dark magnet segments around the rim are carried on the rotating bell. Note how far out the magnets sit — that radius is the lever arm in <a href="#eq-torque-radius" class="quarto-xref">Equation&nbsp;5</a>, and it is the whole reason for this arrangement. Note also that the heat is generated in the middle, wrapped inside the part that spins.
+</figcaption>
+</figure>
+</div>
+<p>The reason is torque. Torque is force times radius, and in an outrunner the magnets sit at the <em>largest</em> radius the motor’s diameter allows, rather than the smallest:</p>
+<p><span id="eq-torque-radius"><span class="math display">\[\tau = F \times r \tag{5}\]</span></span></p>
+<p>The same tangential force from the same windings acts on a longer lever arm. It also leaves room for more magnet poles around the circumference. Together these raise <span class="math inline">\(k_T\)</span> for a motor of the same mass, which by <a href="#eq-two-constants" class="quarto-xref">Equation&nbsp;1</a> means a <strong>lower KV</strong> — more torque per amp, less speed per volt.</p>
+<p>That is the right trade for us. The wings need torque at low speed, through a gearbox that is already multiplying by 23.04:1, and the alternative is either a larger reduction or more current for the same result. Two secondary properties help as well:</p>
+<ul>
+<li><strong>Rotor inertia.</strong> The rotating mass is at a large radius, so the bell has significant inertia and acts as a flywheel. Against a reciprocating flapping load that smooths the speed variation over a cycle. It also means the motor cannot change speed quickly, which is a real cost during transients.</li>
+<li><strong>Something to attach to.</strong> The bell is a large-diameter rotating surface, which is what makes the shaft press-fit in <a href="../sessions/02-motor.html">Module 2</a> mechanically sensible in the first place.</li>
+</ul>
+<p>The costs are real: outrunners spin more slowly for a given voltage, the exposed rotating bell is a hazard and an ingress path, and cooling is worse because the heat-producing stator is wrapped inside the rotor rather than mounted against the case. The last point ties directly back to <a href="#thermal-limits">Thermal limits</a> — an outrunner’s stator sheds heat mainly through its mount, which on our robot is a 3D-printed plate.</p>
+<style>
+.viz {
+  --surface-1: #fcfcfb; --text-primary: #0b0b0b; --text-secondary: #52514e;
+  --muted: #898781; --grid: #e1e0d9; --axis: #c3c2b7;
+  --s1: #2a78d6; --s2: #eb6834; --s3: #1baf7a;
+  --critical: #d03b3b; --border: rgba(11,11,11,0.10);
+  background: var(--surface-1);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 1rem 1.1rem 0.9rem;
+  margin: 1.6rem 0;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  color: var(--text-primary);
+  position: relative;
+}
+body.quarto-dark .viz {
+  --surface-1: #1a1a19; --text-primary: #ffffff; --text-secondary: #c3c2b7;
+  --muted: #898781; --grid: #2c2c2a; --axis: #383835;
+  --s1: #3987e5; --s2: #d95926; --s3: #199e70;
+  --border: rgba(255,255,255,0.10);
+}
+.viz-title { font-size: 0.95rem; font-weight: 600; margin: 0 0 0.15rem; }
+.viz-sub { font-size: 0.8rem; color: var(--text-secondary); margin: 0 0 0.8rem; line-height: 1.4; }
+.viz-controls { display: flex; flex-wrap: wrap; gap: 1.1rem; margin-bottom: 0.9rem; }
+.viz-ctl { display: flex; flex-direction: column; gap: 0.15rem; min-width: 190px; flex: 1 1 190px; }
+.viz-ctl label { font-size: 0.75rem; color: var(--text-secondary); display: flex; justify-content: space-between; gap: 0.5rem; }
+.viz-ctl label b { color: var(--text-primary); font-variant-numeric: tabular-nums; font-weight: 600; }
+.viz-ctl input[type=range] { width: 100%; accent-color: var(--s1); margin: 0; }
+.viz-stats { display: flex; flex-wrap: wrap; gap: 1.4rem; margin: 0.2rem 0 0.9rem; }
+.viz-stat { display: flex; flex-direction: column; }
+.viz-stat span { font-size: 0.72rem; color: var(--muted); }
+.viz-stat b { font-size: 1.05rem; font-weight: 600; font-variant-numeric: tabular-nums; }
+.viz-legend { display: flex; flex-wrap: wrap; gap: 1rem; margin: 0.55rem 0 0.2rem; font-size: 0.78rem; color: var(--text-secondary); }
+.viz-legend i { display: inline-block; width: 14px; height: 3px; border-radius: 2px; margin-right: 0.35rem; vertical-align: middle; }
+.viz svg { display: block; width: 100%; height: auto; overflow: visible; }
+.viz-tip {
+  position: absolute; pointer-events: none; opacity: 0;
+  background: var(--surface-1); border: 1px solid var(--border);
+  border-radius: 4px; padding: 0.4rem 0.55rem; font-size: 0.74rem;
+  line-height: 1.45; white-space: nowrap; z-index: 5;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.13); font-variant-numeric: tabular-nums;
+  transition: opacity 0.08s;
+}
+.viz-tip b { font-weight: 600; }
+.viz details { margin-top: 0.7rem; font-size: 0.8rem; color: var(--text-secondary); }
+.viz details summary { cursor: pointer; color: var(--text-secondary); }
+.viz table { width: auto; font-size: 0.75rem; margin-top: 0.5rem; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+.viz th, .viz td { padding: 0.15rem 0.7rem 0.15rem 0; text-align: right; border: 0; }
+.viz th:first-child, .viz td:first-child { text-align: left; }
+.viz th { color: var(--muted); font-weight: 600; }
+.viz-empty { font-size: 0.82rem; color: var(--text-secondary); border: 1px dashed var(--axis); border-radius: 5px; padding: 0.9rem 1rem; line-height: 1.5; }
+.viz-note { font-size: 0.75rem; color: var(--muted); margin-top: 0.6rem; line-height: 1.45; }
+</style>
+<script>
+(function () {
+  "use strict";
+
+  // ---------------------------------------------------------------
+  // TEST-STAND DATA -- paste AS2303 measurements here.
+  // One object per operating point:
+  //   w      shaft speed          [rad/s]
+  //   tau    measured torque      [mN.m]
+  //   I      measured DC current  [A]   (optional)
+  // Example:  { w: 420, tau: 38.5, I: 6.1 },
+  // The final plot stays in its empty state while this array is empty.
+  var MEASURED = [];
+
+  // Motor parameters. KV is from the datasheet; R and I0 are PLACEHOLDERS
+  // until the bench measurement lands -- see the instructor callout above.
+  var KV = 1500;        // rpm/V
+  var R_DEF = 0.06;     // ohm      PLACEHOLDER
+  var I0_DEF = 0.9;     // A        PLACEHOLDER (no-load current)
+  var U_DEF = 14.8;     // V        4S nominal
+
+  var RPM2RAD = Math.PI / 30;
+  var KT = 1 / (KV * RPM2RAD);          // N.m/A
+
+  function model(U, R) {
+    var w0 = KV * RPM2RAD * U;
+    return {
+      U: U, R: R, w0: w0,
+      iStall: U / R,
+      tStall: KT * U / R,
+      cur: function (w) { return (U - KT * w) / R; },
+      tau: function (w) { return KT * (U - KT * w) / R; },     // N.m
+      pmech: function (w) { return w * KT * (U - KT * w) / R; }
+    };
+  }
+  function effAt(m, w, i0) {
+    var I = m.cur(w);
+    if (I <= i0) return 0;
+    return (KT * (I - i0) * w) / (m.U * I);
+  }
+
+  var NS = "http://www.w3.org/2000/svg";
+  function mk(tag, attrs) {
+    var e = document.createElementNS(NS, tag);
+    for (var k in attrs) if (attrs[k] !== null) e.setAttribute(k, attrs[k]);
+    return e;
+  }
+  function fmt(v, d) {
+    return v.toLocaleString("en-US", { minimumFractionDigits: d, maximumFractionDigits: d });
+  }
+  function html(tag, cls, txt) {
+    var e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (txt !== undefined) e.innerHTML = txt;
+    return e;
+  }
+
+  // A single line panel with axes, gridlines, crosshair and tooltip.
+  function Panel(host, opt) {
+    var W = 720, H = opt.height || 210;
+    var M = { t: 14, r: 78, b: 38, l: 62 };
+    var iw = W - M.l - M.r, ih = H - M.t - M.b;
+    var svg = mk("svg", { viewBox: "0 0 " + W + " " + H, role: "img",
+                          "aria-label": opt.aria || opt.yLabel });
+    host.appendChild(svg);
+
+    var self = {
+      svg: svg, W: W, H: H, M: M, iw: iw, ih: ih,
+      xd: opt.xDomain, yd: opt.yDomain,
+      x: function (v) { return M.l + (v - self.xd[0]) / (self.xd[1] - self.xd[0]) * iw; },
+      y: function (v) { return M.t + ih - (v - self.yd[0]) / (self.yd[1] - self.yd[0]) * ih; },
+      layers: {}
+    };
+    ["grid", "area", "line", "mark", "label", "hover"].forEach(function (n) {
+      var g = mk("g", {}); svg.appendChild(g); self.layers[n] = g;
+    });
+
+    self.axes = function (xTicks, yTicks, xLabel, yLabel) {
+      var g = self.layers.grid;
+      while (g.firstChild) g.removeChild(g.firstChild);
+      yTicks.forEach(function (t) {
+        g.appendChild(mk("line", { x1: M.l, x2: M.l + iw, y1: self.y(t), y2: self.y(t),
+                                   stroke: "var(--grid)", "stroke-width": 1 }));
+        var lb = mk("text", { x: M.l - 8, y: self.y(t) + 4, "text-anchor": "end",
+                              fill: "var(--muted)", "font-size": 11 });
+        lb.textContent = opt.yFmt ? opt.yFmt(t) : t.toLocaleString("en-US");
+        g.appendChild(lb);
+      });
+      xTicks.forEach(function (t) {
+        var lb = mk("text", { x: self.x(t), y: M.t + ih + 17, "text-anchor": "middle",
+                              fill: "var(--muted)", "font-size": 11 });
+        lb.textContent = t.toLocaleString("en-US");
+        g.appendChild(lb);
+      });
+      g.appendChild(mk("line", { x1: M.l, x2: M.l + iw, y1: M.t + ih, y2: M.t + ih,
+                                 stroke: "var(--axis)", "stroke-width": 1 }));
+      if (xLabel) {
+        var xl = mk("text", { x: M.l + iw / 2, y: H - 2, "text-anchor": "middle",
+                              fill: "var(--text-secondary)", "font-size": 11.5 });
+        xl.textContent = xLabel; g.appendChild(xl);
+      }
+      if (yLabel) {
+        var yl = mk("text", { x: 0, y: 0, "text-anchor": "middle", fill: "var(--text-secondary)",
+                              "font-size": 11.5,
+                              transform: "translate(13," + (M.t + ih / 2) + ") rotate(-90)" });
+        yl.textContent = yLabel; g.appendChild(yl);
+      }
+    };
+
+    self.path = function (pts, o) {
+      o = o || {};
+      var d = pts.map(function (p, i) {
+        return (i ? "L" : "M") + self.x(p[0]).toFixed(2) + " " + self.y(p[1]).toFixed(2);
+      }).join(" ");
+      var el = mk("path", { d: d, fill: "none", stroke: o.stroke || "var(--s1)",
+                            "stroke-width": o.width || 2, "stroke-linecap": "round",
+                            "stroke-dasharray": o.dash || null, opacity: o.opacity || null });
+      (o.layer ? self.layers[o.layer] : self.layers.line).appendChild(el);
+      return el;
+    };
+    self.band = function (pts, y0, o) {
+      var d = pts.map(function (p, i) {
+        return (i ? "L" : "M") + self.x(p[0]).toFixed(2) + " " + self.y(p[1]).toFixed(2);
+      }).join(" ");
+      d += " L" + self.x(pts[pts.length - 1][0]).toFixed(2) + " " + self.y(y0).toFixed(2);
+      d += " L" + self.x(pts[0][0]).toFixed(2) + " " + self.y(y0).toFixed(2) + " Z";
+      self.layers.area.appendChild(mk("path", { d: d, fill: o.fill, opacity: o.opacity || 0.1,
+                                                stroke: "none" }));
+    };
+    self.dot = function (px, py, o) {
+      o = o || {};
+      self.layers.mark.appendChild(mk("circle", { cx: self.x(px), cy: self.y(py), r: o.r || 4.5,
+        fill: o.fill || "var(--s1)", stroke: "var(--surface-1)", "stroke-width": 2 }));
+    };
+    self.tag = function (px, py, text, color, anchor, dx, dy) {
+      var t = mk("text", { x: self.x(px) + (dx || 0), y: self.y(py) + (dy || 0),
+                           "text-anchor": anchor || "start", fill: color,
+                           "font-size": 11.5, "font-weight": 600 });
+      t.textContent = text;
+      self.layers.label.appendChild(t);
+    };
+    self.clear = function () {
+      ["area", "line", "mark", "label"].forEach(function (n) {
+        var g = self.layers[n];
+        while (g.firstChild) g.removeChild(g.firstChild);
+      });
+    };
+    return self;
+  }
+
+  // Shared crosshair + tooltip across one or more panels sharing an x scale.
+  function attachHover(container, panels, readout) {
+    var tip = html("div", "viz-tip");
+    container.appendChild(tip);
+    panels.forEach(function (p) {
+      var line = mk("line", { y1: p.M.t, y2: p.M.t + p.ih, stroke: "var(--muted)",
+                              "stroke-width": 1, "stroke-dasharray": "3 3", opacity: 0 });
+      p.layers.hover.appendChild(line);
+      p.cross = line;
+      var rect = mk("rect", { x: p.M.l, y: p.M.t, width: p.iw, height: p.ih,
+                              fill: "transparent", style: "cursor:crosshair" });
+      p.layers.hover.appendChild(rect);
+
+      function move(ev) {
+        var box = p.svg.getBoundingClientRect();
+        var sx = (ev.clientX - box.left) / box.width * p.W;
+        var xv = p.xd[0] + (sx - p.M.l) / p.iw * (p.xd[1] - p.xd[0]);
+        xv = Math.max(p.xd[0], Math.min(p.xd[1], xv));
+        panels.forEach(function (q) {
+          q.cross.setAttribute("x1", q.x(xv));
+          q.cross.setAttribute("x2", q.x(xv));
+          q.cross.setAttribute("opacity", 1);
+        });
+        tip.innerHTML = readout(xv);
+        tip.style.opacity = 1;
+        var cbox = container.getBoundingClientRect();
+        var left = ev.clientX - cbox.left + 14;
+        if (left + tip.offsetWidth > cbox.width - 4) left = ev.clientX - cbox.left - tip.offsetWidth - 14;
+        tip.style.left = Math.max(4, left) + "px";
+        tip.style.top = (ev.clientY - cbox.top + 12) + "px";
+      }
+      function leave() {
+        panels.forEach(function (q) { q.cross.setAttribute("opacity", 0); });
+        tip.style.opacity = 0;
+      }
+      rect.addEventListener("pointermove", move);
+      rect.addEventListener("pointerleave", leave);
+    });
+  }
+
+  function ticks(lo, hi, n) {
+    var out = [], step = (hi - lo) / n;
+    for (var i = 0; i <= n; i++) out.push(Math.round((lo + i * step) * 100) / 100);
+    return out;
+  }
+  // Round tick steps: 1, 2, 2.5, 3, 4, 5 or 10 times a power of ten.
+  function niceStep(range, n) {
+    var raw = range / n;
+    var mag = Math.pow(10, Math.floor(Math.log(raw) / Math.LN10));
+    var norm = raw / mag;
+    var s = norm <= 1 ? 1 : norm <= 2 ? 2 : norm <= 2.5 ? 2.5
+          : norm <= 3 ? 3 : norm <= 4 ? 4 : norm <= 5 ? 5 : 10;
+    return s * mag;
+  }
+  function niceIn(max, n) {                 // ticks inside [0, max]; domain unchanged
+    var st = niceStep(max, n), out = [];
+    for (var v = 0; v <= max + st * 1e-9; v += st) out.push(Math.round(v * 1e6) / 1e6);
+    return out;
+  }
+  function niceUp(max, n) {                 // round the domain top up to a tick
+    var st = niceStep(max, n), top = Math.ceil(max / st - 1e-9) * st, out = [];
+    for (var v = 0; v <= top + st * 1e-9; v += st) out.push(Math.round(v * 1e6) / 1e6);
+    return { top: top, ticks: out };
+  }
+  function samples(m, n, f, wEnd) {
+    var out = [], end = wEnd === undefined ? m.w0 : wEnd;
+    for (var i = 0; i <= n; i++) { var w = end * i / n; out.push([w, f(w)]); }
+    return out;
+  }
+  function legend(items) {
+    var l = html("div", "viz-legend");
+    items.forEach(function (it) {
+      l.appendChild(html("span", null,
+        '<i style="background:' + it.c + (it.dash ? ";height:0;border-top:2px dashed " + it.c : "") + '"></i>' + it.t));
+    });
+    return l;
+  }
+  function table(host, cols, rows) {
+    var d = html("details");
+    d.appendChild(html("summary", null, "Data table"));
+    var t = html("table"), thead = html("tr");
+    cols.forEach(function (c) { thead.appendChild(html("th", null, c)); });
+    t.appendChild(thead);
+    rows.forEach(function (r) {
+      var tr = html("tr");
+      r.forEach(function (c) { tr.appendChild(html("td", null, c)); });
+      t.appendChild(tr);
+    });
+    d.appendChild(t);
+    host.appendChild(d);
+  }
+
+  // ============================================================ 1. DC motor
+  (function () {
+    var host = document.getElementById("viz-dc");
+    if (!host) return;
+    var m = model(U_DEF, R_DEF), i0 = I0_DEF;
+
+    host.appendChild(html("p", "viz-title", "The three curves of a DC motor at fixed voltage"));
+    host.appendChild(html("p", "viz-sub",
+      "Same motor, same " + U_DEF + "&nbsp;V supply, read three ways against shaft speed. " +
+      "Torque falls in a straight line; power is their product, so it peaks in the middle; " +
+      "efficiency peaks close to no-load. Hover to read all three at one speed."));
+
+    var xT = niceIn(m.w0, 5);
+    var pk = m.pmech(m.w0 / 2);
+    // Efficiency is only defined while the motor still makes output torque,
+    // i.e. while the total current exceeds the no-load current.
+    var wEff = (m.U - i0 * m.R) / KT;
+    var specs = [
+      { yMax: m.tStall * 1000, lab: "Torque", unit: "mN·m", c: "var(--s1)", end: m.w0,
+        f: function (w) { return m.tau(w) * 1000; } },
+      { yMax: pk * 1.1, lab: "Power", unit: "W", c: "var(--s2)", end: m.w0,
+        f: function (w) { return m.pmech(w); } },
+      { yMax: 100, lab: "Efficiency", unit: "%", c: "var(--s3)", end: wEff,
+        f: function (w) { return effAt(m, w, i0) * 100; } }
+    ];
+    var panels = specs.map(function (s, idx) {
+      var ny = niceUp(s.yMax, 4);
+      var p = Panel(host, { height: idx === 2 ? 190 : 165, yDomain: [0, ny.top],
+                            xDomain: [0, m.w0], aria: s.lab + " against shaft speed" });
+      p.axes(xT, ny.ticks, idx === 2 ? "Shaft speed ω [rad/s]" : null,
+             s.lab + " [" + s.unit + "]");
+      p.path(samples(m, 220, s.f, s.end), { stroke: s.c });
+      return p;
+    });
+    // Direct labels on the features the text calls out.
+    panels[0].dot(0, m.tStall * 1000, { fill: "var(--s1)" });
+    panels[0].tag(0, m.tStall * 1000, "stall " + fmt(m.tStall * 1000, 0) + " mN·m",
+                  "var(--s1)", "start", 8, 4);
+    panels[1].dot(m.w0 / 2, pk, { fill: "var(--s2)" });
+    panels[1].tag(m.w0 / 2, pk, "peak " + fmt(pk, 0) + " W at ω₀/2", "var(--s2)", "middle", 0, -10);
+    var wBest = 0, eBest = 0;
+    for (var i = 1; i < 400; i++) {
+      var w = wEff * i / 400, e = effAt(m, w, i0);
+      if (e > eBest) { eBest = e; wBest = w; }
+    }
+    panels[2].dot(wBest, eBest * 100, { fill: "var(--s3)" });
+    panels[2].tag(wBest, eBest * 100, "peak " + fmt(eBest * 100, 0) + "%", "var(--s3)", "end", -9, 4);
+
+    host.appendChild(legend([
+      { c: "var(--s1)", t: "Torque" }, { c: "var(--s2)", t: "Power" }, { c: "var(--s3)", t: "Efficiency" }
+    ]));
+    attachHover(host, panels, function (w) {
+      return "<b>" + fmt(w, 0) + " rad/s</b><br>Torque " + fmt(m.tau(w) * 1000, 0) +
+             " mN·m<br>Current " + fmt(m.cur(w), 1) + " A<br>Power " + fmt(m.pmech(w), 0) +
+             " W<br>Efficiency " + fmt(effAt(m, w, i0) * 100, 0) + "%";
+    });
+    table(host, ["ω [rad/s]", "Torque [mN·m]", "Current [A]", "Power [W]", "Eff [%]"],
+      ticks(0, m.w0, 8).map(function (w) {
+        return [fmt(w, 0), fmt(m.tau(w) * 1000, 0), fmt(m.cur(w), 1), fmt(m.pmech(w), 0),
+                fmt(effAt(m, w, i0) * 100, 0)];
+      }));
+    host.appendChild(html("p", "viz-note",
+      "k<sub>V</sub> = " + KV + " rpm/V from the datasheet. R = " + R_DEF + "&nbsp;Ω and " +
+      "no-load current I₀ = " + I0_DEF + "&nbsp;A are placeholders until the bench measurement " +
+      "lands. The efficiency curve is the only one that uses I₀; without it the model would " +
+      "predict 100% efficiency at no load."));
+  })();
+
+  // ======================================================== 2. Voltage slider
+  (function () {
+    var host = document.getElementById("viz-volt");
+    if (!host) return;
+
+    host.appendChild(html("p", "viz-title", "What the supply voltage does to the line"));
+    host.appendChild(html("p", "viz-sub",
+      "Drag the voltage. The line slides outwards and keeps its slope — the trade-off " +
+      "between speed and torque never changes, only how much of both you get. " +
+      "Grey lines mark 3S, 4S and 6S nominal for comparison."));
+
+    var ctl = html("div", "viz-controls");
+    var wrap = html("div", "viz-ctl");
+    var lab = html("label", null, "Supply voltage <b>14.8 V</b>");
+    var rng = html("input");
+    rng.type = "range"; rng.min = 6; rng.max = 25.2; rng.step = 0.2; rng.value = U_DEF;
+    rng.setAttribute("aria-label", "Supply voltage in volts");
+    wrap.appendChild(lab); wrap.appendChild(rng); ctl.appendChild(wrap);
+    host.appendChild(ctl);
+
+    var stats = html("div", "viz-stats");
+    var sDef = [["No-load speed", "rad/s"], ["Stall torque", "mN·m"],
+                ["Stall current", "A"], ["Peak power", "W"]];
+    var sEls = sDef.map(function (s) {
+      var d = html("div", "viz-stat");
+      d.appendChild(html("span", null, s[0] + " [" + s[1] + "]"));
+      var b = html("b", null, "—");
+      d.appendChild(b); stats.appendChild(d); return b;
+    });
+    host.appendChild(stats);
+
+    var mMax = model(25.2, R_DEF);
+    var nyV = niceUp(mMax.tStall * 1000, 4), xtV = niceIn(mMax.w0, 5);
+    var p = Panel(host, { height: 250, xDomain: [0, mMax.w0], yDomain: [0, nyV.top],
+                          aria: "Torque against speed for the selected supply voltage" });
+    var cur = model(U_DEF, R_DEF);
+
+    function draw() {
+      var U = parseFloat(rng.value);
+      cur = model(U, R_DEF);
+      lab.innerHTML = "Supply voltage <b>" + fmt(U, 1) + " V</b>";
+      p.clear();
+      p.axes(xtV, nyV.ticks, "Shaft speed ω [rad/s]", "Torque [mN·m]");
+      [11.1, 14.8, 22.2].forEach(function (u) {
+        var r = model(u, R_DEF);
+        p.path([[0, r.tStall * 1000], [r.w0, 0]], { stroke: "var(--muted)", width: 1.5, opacity: 0.45 });
+      });
+      p.band([[0, cur.tStall * 1000], [cur.w0, 0]], 0, { fill: "var(--s1)", opacity: 0.09 });
+      p.path([[0, cur.tStall * 1000], [cur.w0, 0]], { stroke: "var(--s1)", width: 2.5 });
+      p.dot(0, cur.tStall * 1000); p.dot(cur.w0, 0);
+      p.tag(cur.w0, 0, fmt(U, 1) + " V", "var(--s1)", "start", 8, -4);
+      sEls[0].textContent = fmt(cur.w0, 0);
+      sEls[1].textContent = fmt(cur.tStall * 1000, 0);
+      sEls[2].textContent = fmt(cur.iStall, 0);
+      sEls[3].textContent = fmt(cur.pmech(cur.w0 / 2), 0);
+    }
+    rng.addEventListener("input", draw);
+    draw();
+
+    host.appendChild(legend([
+      { c: "var(--s1)", t: "Selected voltage" },
+      { c: "var(--muted)", t: "3S / 4S / 6S nominal" }
+    ]));
+    attachHover(host, [p], function (w) {
+      if (w > cur.w0) return "<b>" + fmt(w, 0) + " rad/s</b><br>beyond no-load speed";
+      return "<b>" + fmt(w, 0) + " rad/s</b><br>Torque " + fmt(cur.tau(w) * 1000, 0) +
+             " mN·m<br>Current " + fmt(cur.cur(w), 1) + " A";
+    });
+    host.appendChild(html("p", "viz-note",
+      "Every line has the same slope — k<sub>T</sub><sup>2</sup>/R, set by the winding, " +
+      "not by the supply. Raising the voltage moves both intercepts outwards together, which is " +
+      "why stall current climbs just as fast as no-load speed does."));
+  })();
+
+  // ======================================================= 3. Thermal limits
+  (function () {
+    var host = document.getElementById("viz-thermal");
+    if (!host) return;
+
+    host.appendChild(html("p", "viz-title", "Where the current limit cuts the line off"));
+    host.appendChild(html("p", "viz-sub",
+      "The straight line assumes the supply will deliver whatever current the equation asks " +
+      "for. The ESC will not. Set a limit and the usable region becomes a flat constant-torque " +
+      "shelf, a corner speed, then the original line. The red band is everything above the " +
+      "motor's continuous rating — survivable for seconds, not minutes."));
+
+    var m = model(U_DEF, R_DEF);
+    var ctl = html("div", "viz-controls");
+    function slider(text, min, max, step, val, unit) {
+      var w = html("div", "viz-ctl");
+      var l = html("label", null, text + " <b>" + val + " " + unit + "</b>");
+      var r = html("input");
+      r.type = "range"; r.min = min; r.max = max; r.step = step; r.value = val;
+      r.setAttribute("aria-label", text + " in " + unit);
+      w.appendChild(l); w.appendChild(r); ctl.appendChild(w);
+      return { r: r, l: l, text: text, unit: unit };
+    }
+    var sLim = slider("ESC current limit", 2, 60, 1, 20, "A");
+    var sCon = slider("Motor continuous rating", 1, 30, 1, 10, "A");
+    host.appendChild(ctl);
+
+    var stats = html("div", "viz-stats");
+    var sDef = [["Torque at limit", "mN·m"], ["Corner speed", "rad/s"],
+                ["Copper loss at limit", "W"], ["Loss at continuous", "W"]];
+    var sEls = sDef.map(function (s) {
+      var d = html("div", "viz-stat");
+      d.appendChild(html("span", null, s[0] + " [" + s[1] + "]"));
+      var b = html("b", null, "—"); d.appendChild(b); stats.appendChild(d); return b;
+    });
+    host.appendChild(stats);
+
+    var p = Panel(host, { height: 260, xDomain: [0, m.w0], yDomain: [0, 1],
+                          aria: "Current-limited torque envelope against speed" });
+    var state = { lim: 20, con: 10, yMax: 1 };
+
+    function draw() {
+      state.lim = parseFloat(sLim.r.value);
+      state.con = Math.min(parseFloat(sCon.r.value), state.lim);
+      sLim.l.innerHTML = sLim.text + " <b>" + state.lim + " A</b>";
+      sCon.l.innerHTML = sCon.text + " <b>" + parseFloat(sCon.r.value) + " A</b>";
+
+      var tLim = KT * state.lim * 1000, tCon = KT * state.con * 1000;
+      var nyT = niceUp(tLim * 1.55, 4);
+      state.yMax = nyT.top;
+      p.yd = [0, state.yMax];
+      p.clear();
+      p.axes(niceIn(m.w0, 5), nyT.ticks, "Shaft speed ω [rad/s]", "Torque [mN·m]");
+
+      // Above the continuous rating: heating faster than the motor sheds it.
+      p.band([[0, state.yMax], [m.w0, state.yMax]], tCon,
+             { fill: "var(--critical)", opacity: 0.09 });
+
+      // Ideal line, mostly off the top of this scale.
+      var wTop = (m.U - (state.yMax / 1000 / KT) * R_DEF) / KT;
+      p.path([[Math.max(0, wTop), Math.min(m.tau(Math.max(0, wTop)) * 1000, state.yMax)],
+              [m.w0, 0]], { stroke: "var(--s1)", width: 2, dash: "5 4" });
+
+      // Current-limited envelope.
+      var wCorner = (m.U - state.lim * R_DEF) / KT;
+      var env = [[0, tLim], [wCorner, tLim]];
+      for (var i = 1; i <= 40; i++) {
+        var w = wCorner + (m.w0 - wCorner) * i / 40;
+        env.push([w, m.tau(w) * 1000]);
+      }
+      p.band(env, 0, { fill: "var(--s2)", opacity: 0.12 });
+      p.path(env, { stroke: "var(--s2)", width: 2.5 });
+      p.dot(wCorner, tLim, { fill: "var(--s2)" });
+      p.tag(wCorner, tLim, "corner " + fmt(wCorner, 0) + " rad/s", "var(--s2)", "start", 9, -8);
+      p.tag(Math.max(0, wTop), state.yMax, "ideal line: " + fmt(m.tStall * 1000, 0) +
+            " mN·m at stall", "var(--s1)", "end", -9, 15);
+      p.tag(0, tCon, "continuous " + state.con + " A", "var(--critical)", "start", 6, -6);
+
+      sEls[0].textContent = fmt(tLim, 0);
+      sEls[1].textContent = fmt(wCorner, 0);
+      sEls[2].textContent = fmt(state.lim * state.lim * R_DEF, 1);
+      sEls[3].textContent = fmt(state.con * state.con * R_DEF, 1);
+    }
+    sLim.r.addEventListener("input", draw);
+    sCon.r.addEventListener("input", draw);
+    draw();
+
+    host.appendChild(legend([
+      { c: "var(--s2)", t: "Usable envelope" },
+      { c: "var(--s1)", t: "Ideal line (unlimited current)", dash: true },
+      { c: "var(--critical)", t: "Above continuous rating" }
+    ]));
+    attachHover(host, [p], function (w) {
+      var tIdeal = m.tau(w) * 1000, tLim = KT * state.lim * 1000;
+      var t = Math.min(tIdeal, tLim);
+      if (t < 0) return "<b>" + fmt(w, 0) + " rad/s</b><br>beyond no-load speed";
+      var I = t / 1000 / KT;
+      return "<b>" + fmt(w, 0) + " rad/s</b><br>Torque " + fmt(t, 0) + " mN·m<br>Current " +
+             fmt(I, 1) + " A<br>Copper loss " + fmt(I * I * R_DEF, 1) + " W" +
+             (I > state.con ? "<br><b>above continuous</b>" : "");
+    });
+    host.appendChild(html("p", "viz-note",
+      "Copper loss is I<sup>2</sup>R, so the two loss readouts move apart much faster than the " +
+      "two currents do. That is the whole argument of this section in one pair of numbers: " +
+      "double the current and you quadruple the heat."));
+  })();
+
+  // ==================================================== 4. AS2303 measured
+  (function () {
+    var host = document.getElementById("viz-as2303");
+    if (!host) return;
+
+    host.appendChild(html("p", "viz-title", "AS2303 — measured against model"));
+
+    if (!MEASURED.length) {
+      host.appendChild(html("p", "viz-sub",
+        "Placeholder. The model line below is drawn from the datasheet k<sub>V</sub> and a " +
+        "placeholder winding resistance; no bench data has been loaded yet."));
+      var m0 = model(U_DEF, R_DEF), ny0 = niceUp(m0.tStall * 1000, 4);
+      var p0 = Panel(host, { height: 230, xDomain: [0, m0.w0], yDomain: [0, ny0.top],
+                             aria: "Model torque-speed line, awaiting measured data" });
+      p0.axes(niceIn(m0.w0, 5), ny0.ticks, "Shaft speed ω [rad/s]", "Torque [mN·m]");
+      p0.path([[0, m0.tStall * 1000], [m0.w0, 0]],
+              { stroke: "var(--muted)", width: 2, dash: "6 5" });
+      host.appendChild(html("div", "viz-empty",
+        "<b>No test-stand data loaded.</b><br>Paste the measured operating points into the " +
+        "<code>MEASURED</code> array at the top of the script block in " +
+        "<code>reference/bldc.qmd</code>. Each row is <code>{ w, tau, I }</code> — speed in " +
+        "rad/s, torque in mN·m, DC current in amps. The plot switches to a " +
+        "measured-versus-model comparison automatically, and the fitted resistance appears " +
+        "below it."));
+      return;
+    }
+
+    host.appendChild(html("p", "viz-sub",
+      "Points are test-stand measurements; the dashed line is the ideal model. Divergence at " +
+      "the low-speed end is where the straight-line assumption gives out."));
+    var wMax = Math.max.apply(null, MEASURED.map(function (d) { return d.w; }));
+    var tMax = Math.max.apply(null, MEASURED.map(function (d) { return d.tau; }));
+    var m = model(U_DEF, R_DEF);
+    var xMax = Math.max(wMax * 1.05, m.w0);
+    var nyM = niceUp(Math.max(tMax * 1.15, KT * 30 * 1000), 4);
+    var p = Panel(host, { height: 250, xDomain: [0, xMax], yDomain: [0, nyM.top],
+                          aria: "Measured torque against speed compared with the model" });
+    p.axes(niceIn(xMax, 5), nyM.ticks, "Shaft speed ω [rad/s]", "Torque [mN·m]");
+    p.path([[0, m.tStall * 1000], [m.w0, 0]], { stroke: "var(--s1)", width: 2, dash: "5 4" });
+    MEASURED.forEach(function (d) { p.dot(d.w, d.tau, { fill: "var(--s2)", r: 4.5 }); });
+    host.appendChild(legend([
+      { c: "var(--s2)", t: "Measured" },
+      { c: "var(--s1)", t: "Model", dash: true }
+    ]));
+    table(host, ["ω [rad/s]", "Torque [mN·m]", "Current [A]"],
+      MEASURED.map(function (d) {
+        return [fmt(d.w, 0), fmt(d.tau, 1), d.I === undefined ? "—" : fmt(d.I, 1)];
+      }));
+  })();
+})();
+</script>
+
+
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/aura\.mit\.edu\/2\.S986-robot\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../reference/parts-list.html" class="pagination-link" aria-label="Parts list">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Parts list</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../reference/g431-esc.html" class="pagination-link" aria-label="The G431 ESC board">
+        <span class="nav-page-text">The G431 ESC board</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>MIT AURA Lab — FAAV Build Manual, v4.0 (fall-2026)</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>Derived from the FAAV Manufacturing Guide</p>
+</div>
+  </div>
+</footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+
+
+</body></html>

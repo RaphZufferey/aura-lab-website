@@ -1,0 +1,39 @@
+---
+title: "Module 1 --- Orientation"
+---
+
+
+## The robot
+
+![The FAAV3.2](/Fig/Water-Air-Slider-V3-Carbon-v63.jpg){#fig-faav-overview}
+
+We will develop, plan and optimize a vehicle with powerful custom actuation for flapping locomotion. The build divides into four subsystems, and the modules follow
+that order:
+
+1. **Transmission** --- motor, custom shaft, gearbox, crank and linkage
+   (Modules 2, 5)
+2. **Electronics** --- ESC, angular sensor, flight controller, custom PCB
+   (Modules 3, 4, 9)
+3. **Aero/hydro surfaces** --- wings, tail (Modules 6--8)
+4. **Waterproofing and testing** --- potting, immersion, tuning (Modules 10--12)
+
+## Electronic architecture
+
+One 4S battery (max 16.8 V) powers the motor electronic speed controller (ESC). The motor controller generates a 3.3V rail
+for the encoder and a 5V rail for the flight controller. The flight
+controller sends commands to the ESC over serial.
+
+
+::: {.callout-important}
+## To be completed by the instructor
+
+Shop safety requirements, machine access and booking procedure, team size and
+formation rules, and where the parts crib is. These are institution-specific
+and are not carried over from the manufacturing guide.
+:::
+
+::: {.callout-note}
+## Checkpoint
+Kit checked against the parts list, and every member has
+completed the required training.
+:::

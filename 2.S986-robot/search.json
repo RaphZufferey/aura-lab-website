@@ -1,0 +1,1380 @@
+[
+  {
+    "objectID": "sessions/12-competition.html",
+    "href": "sessions/12-competition.html",
+    "title": "Module 12 — Competition",
+    "section": "",
+    "text": "Robots are scored in two categories: most efficient and fastest.",
+    "crumbs": [
+      "Overview",
+      "Build modules",
+      "Module 12 --- Competition"
+    ]
+  },
+  {
+    "objectID": "sessions/12-competition.html#what-happens-today",
+    "href": "sessions/12-competition.html#what-happens-today",
+    "title": "Module 12 — Competition",
+    "section": "",
+    "text": "Robots are scored in two categories: most efficient and fastest.",
+    "crumbs": [
+      "Overview",
+      "Build modules",
+      "Module 12 --- Competition"
+    ]
+  },
+  {
+    "objectID": "sessions/12-competition.html#the-competition-rules",
+    "href": "sessions/12-competition.html#the-competition-rules",
+    "title": "Module 12 — Competition",
+    "section": "The competition rules",
+    "text": "The competition rules",
+    "crumbs": [
+      "Overview",
+      "Build modules",
+      "Module 12 --- Competition"
+    ]
+  },
+  {
+    "objectID": "sessions/12-competition.html#before-you-arrive",
+    "href": "sessions/12-competition.html#before-you-arrive",
+    "title": "Module 12 — Competition",
+    "section": "Before you arrive",
+    "text": "Before you arrive\n\n\n\n\n\n\n\nBring\nRobot, spare crank–linkage shaft, spare wing, charged packs, your logged cost-of-transport data\n\n\n\n\n\n\n\n\n\nImportantTBC\n\n\n\nCompetition format is course material, not in the manufacturing guide. Needed:\n\nCourse layout and run rules for each category\nHow cost of transport is computed and normalised across teams with different masses\nNumber of attempts, and repair rules between attempts\nHow the competition contributes to the grade\nWhat happens to robots afterwards",
+    "crumbs": [
+      "Overview",
+      "Build modules",
+      "Module 12 --- Competition"
+    ]
+  },
+  {
+    "objectID": "sessions/12-competition.html#feedback",
+    "href": "sessions/12-competition.html#feedback",
+    "title": "Module 12 — Competition",
+    "section": "Feedback",
+    "text": "Feedback\nThe final module is a recap and feedback round. This manual is rebuilt each year from what students report -if something in it cost you time, say so. Corrections made during this semester are listed in the Changelog.",
+    "crumbs": [
+      "Overview",
+      "Build modules",
+      "Module 12 --- Competition"
+    ]
+  },
+  {
+    "objectID": "sessions/10-waterproofing.html",
+    "href": "sessions/10-waterproofing.html",
+    "title": "Module 10 — Waterproofing",
+    "section": "",
+    "text": "A potted PCB, a lubricated and sealed gearbox, and a robot that survives a static immersion test.\n\n\n\n\n\n\nWarningSilicone cure time gates this module\n\n\n\nThe PCB potting takes 12–24 hours to cure because of the depth. Plan the module so potting happens first and soldering happens after the cure, or across two sittings.",
+    "crumbs": [
+      "Overview",
+      "Build modules",
+      "Module 10 --- Waterproofing"
+    ]
+  },
+  {
+    "objectID": "sessions/10-waterproofing.html#what-you-build-today",
+    "href": "sessions/10-waterproofing.html#what-you-build-today",
+    "title": "Module 10 — Waterproofing",
+    "section": "",
+    "text": "A potted PCB, a lubricated and sealed gearbox, and a robot that survives a static immersion test.\n\n\n\n\n\n\nWarningSilicone cure time gates this module\n\n\n\nThe PCB potting takes 12–24 hours to cure because of the depth. Plan the module so potting happens first and soldering happens after the cure, or across two sittings.",
+    "crumbs": [
+      "Overview",
+      "Build modules",
+      "Module 10 --- Waterproofing"
+    ]
+  },
+  {
+    "objectID": "sessions/10-waterproofing.html#before-you-arrive",
+    "href": "sessions/10-waterproofing.html#before-you-arrive",
+    "title": "Module 10 — Waterproofing",
+    "section": "Before you arrive",
+    "text": "Before you arrive\n\n\n\n\n\n\n\nParts\nWaterproofing box, Kapton tape, silicone sealant, USB-C cable, CorrosionX, white lithium grease\n\n\nTools\nNeedle, soldering iron\n\n\nRead\nThis whole page before starting — the ordering matters",
+    "crumbs": [
+      "Overview",
+      "Build modules",
+      "Module 10 --- Waterproofing"
+    ]
+  },
+  {
+    "objectID": "sessions/10-waterproofing.html#flight-controller-waterproofing",
+    "href": "sessions/10-waterproofing.html#flight-controller-waterproofing",
+    "title": "Module 10 — Waterproofing",
+    "section": "Flight controller waterproofing",
+    "text": "Flight controller waterproofing\nFirst ensure that the FC fits within the 3D box before anything else.\n\nFill the bottom of the box with silicone sealant until it reaches the USB port hole.\nCarefully slide the assembly in, with the Seeeduino facing the bottom of the box.\nVery important! Insert a USB-C cable into the port. This keeps the sealant from flowing into the port, and the cable is a convenient point to hold the assembly by.\nAdd sealant along the three free edges to fill any gaps, until the sealant reaches the level of the top side of the PCB.\nLet the silicone cure - because of the depth this takes about 12–24 h.",
+    "crumbs": [
+      "Overview",
+      "Build modules",
+      "Module 10 --- Waterproofing"
+    ]
+  },
+  {
+    "objectID": "sessions/10-waterproofing.html#esc-waterproofing",
+    "href": "sessions/10-waterproofing.html#esc-waterproofing",
+    "title": "Module 10 — Waterproofing",
+    "section": "ESC waterproofing",
+    "text": "ESC waterproofing\n\n\n\n\n\n\nFigure 1: The B-G431B-ESC1 assembly.\n\n\n\nThe ESC is potted the same way as the flight controller: it sits in its own 3D-printed frame, which is then filled with Silcoset so only the wire exits remain open. Figure 2 shows the three pieces together - motor, bare ESC, and the potted frame.\n\n\n\n\n\n\nFigure 2: The motor, the ESC and the potted frame. The dark block is the frame filled with Silcoset; the ESC drops into it before the fill so the board ends up fully encapsulated with only the phase and signal wires leaving.",
+    "crumbs": [
+      "Overview",
+      "Build modules",
+      "Module 10 --- Waterproofing"
+    ]
+  },
+  {
+    "objectID": "sessions/10-waterproofing.html#battery-waterproofing",
+    "href": "sessions/10-waterproofing.html#battery-waterproofing",
+    "title": "Module 10 — Waterproofing",
+    "section": "Battery waterproofing",
+    "text": "Battery waterproofing\nTBC ## Battery connector waterproofing TBC ## Spend time discussing COT and measurement TBC",
+    "crumbs": [
+      "Overview",
+      "Build modules",
+      "Module 10 --- Waterproofing"
+    ]
+  },
+  {
+    "objectID": "sessions/10-waterproofing.html#gearbox",
+    "href": "sessions/10-waterproofing.html#gearbox",
+    "title": "Module 10 — Waterproofing",
+    "section": "Gearbox",
+    "text": "Gearbox\nBy default the gearbox on the FAAV4 robot is not waterproof at all, and it is normal for it to end up completely filled with water once submerged. Over years of use the gearbox proved resistant to fresh water with the factory lubricant. If that is removed/cleaned, then use the right lubricant below. The best is to avoid opening the gearbox and cleaning the gears.\n\n\n\n\n\n\nWarningUse the right lubricant\n\n\n\nA mix of CorrosionX and white lithium grease. Several dives have since been performed with the same gearbox that previously corroded, and it now runs smoothly.\n\n\nParts that rust: sun gear, planet gears, ring gear, planet shafts. Parts that do not: screws, motor shaft, washers, body, circlip.\n\n\n\n\n\n\nNoteCheckpoint\n\n\n\nFlight controller and ESC fully cured and potted, static immersion test passed with no ingress. Robot cleaned with IPA after each immersion.",
+    "crumbs": [
+      "Overview",
+      "Build modules",
+      "Module 10 --- Waterproofing"
+    ]
+  },
+  {
+    "objectID": "sessions/08-tail-housing.html",
+    "href": "sessions/08-tail-housing.html",
+    "title": "Module 8 — Tail",
+    "section": "",
+    "text": "The passive tail, cut to the shape your simulation produced and mounted on its rod and the trailing edge mount ## Before you arrive\n\n\n\n\n\n\n\nParts\nCarbon sheet and tail rod, foam stock (XPS or closed-cell PE), epoxy\n\n\nTools\nFoam cutter, scalpel\n\n\nBring\nYour Module 6 tail geometry, printed 1:1",
+    "crumbs": [
+      "Overview",
+      "Build modules",
+      "Module 8 --- Tail"
+    ]
+  },
+  {
+    "objectID": "sessions/08-tail-housing.html#what-you-build-today",
+    "href": "sessions/08-tail-housing.html#what-you-build-today",
+    "title": "Module 8 — Tail",
+    "section": "",
+    "text": "The passive tail, cut to the shape your simulation produced and mounted on its rod and the trailing edge mount ## Before you arrive\n\n\n\n\n\n\n\nParts\nCarbon sheet and tail rod, foam stock (XPS or closed-cell PE), epoxy\n\n\nTools\nFoam cutter, scalpel\n\n\nBring\nYour Module 6 tail geometry, printed 1:1",
+    "crumbs": [
+      "Overview",
+      "Build modules",
+      "Module 8 --- Tail"
+    ]
+  },
+  {
+    "objectID": "sessions/08-tail-housing.html#tail",
+    "href": "sessions/08-tail-housing.html#tail",
+    "title": "Module 8 — Tail",
+    "section": "Tail",
+    "text": "Tail\n\n\n\n\n\n\nFigure 1: Tail assembly\n\n\n\n\n\n\n\n\n\nImportantTBC\n\n\n\nAs with the wings, the guide contains only the photograph above for the tail. Still needed: sheet material and thickness, rod diameter, how the tail mounts to the boom, and the incidence setting. The project plan also notes tail actuation is optional if time permits — decide before the semester whether that is in scope.",
+    "crumbs": [
+      "Overview",
+      "Build modules",
+      "Module 8 --- Tail"
+    ]
+  },
+  {
+    "objectID": "sessions/08-tail-housing.html#trailing-edge-holder",
+    "href": "sessions/08-tail-housing.html#trailing-edge-holder",
+    "title": "Module 8 — Tail",
+    "section": "Trailing edge holder",
+    "text": "Trailing edge holder\nThe wing root is driven by the gears and sweeps through the full 60° set in Module 5. The trailing edge is not driven. It is anchored to the tail tube, and that anchor is what makes the membrane twist as the wing sweeps. It sets the angle of attack the wing sees through the stroke. Move it and the wing behaves differently. So this part is a trim adjustment as much as it is a mount, which is why both its positions have to stay changeable after the robot is built.\nThis one is yours to design. The requirements are fixed; the mechanism is not.\n\n\n\nTable 1: What the trailing edge holder has to do\n\n\n\n\n\nRequirement\nWhy\n\n\n\n\nRotates with the wing through the whole stroke\nThe root swings 34° up and 26° down. An anchor that cannot follow loads the membrane in the one direction it cannot take.\n\n\nAdjustable longitudinally, along the tube\nFore/aft position sets wing twist. This is the trim you will actually reach for in Module 11.\n\n\nEach Wing mounts can change laterally and longitudinally\nSets how far the anchor stands off the boom, and is how you match left to right.\n\n\nWing comes off without dismantling anything\nWings get swapped, damaged and rebuilt. Nothing about this joint may be permanent.\n\n\nSurvives repeated wet cycling\nTo not fail at competition\n\n\n\n\n\n\n\nFind a solution\nBoth flexible and rigid solutions are possible. For a rigid solution, the mount half is straightforward: a split collar that slides along the 5 mm tube and clamps with an M2 screw into a square half nut, per the house convention in Design notes. Sliding it gives the longitudinal adjustment, rotating it about the tube gives some of the lateral, and a slotted arm gives the rest.\nJustify your design against Table 1, and be ready to defend the choices.\n\n\nPrint it\n\n3D-print your part with the material required.\n\n\n\nInsert it on the tube\nSlide the collar onto the tail tube and set it to your starting station. Measure from a fixed datum, write the number down, and set the second one to the same number.\n\n\nAttach the wing\nConnect each wing’s trailing edge to its holder.\n\n\n\n\n\n\nWarningBoth sides must be set identically\n\n\n\nDifferent longitudinal stations left and right means different twist left and right, which is a roll bias -the same failure mode as mismatched wings in Module 7, arriving by a different route and just as hard to trim out in Module 11.\n\n\n\n\n\n\n\n\nNoteCheckpoint\n\n\n\nTail mounted, wings attached to tail.",
+    "crumbs": [
+      "Overview",
+      "Build modules",
+      "Module 8 --- Tail"
+    ]
+  },
+  {
+    "objectID": "sessions/06-simulation.html",
+    "href": "sessions/06-simulation.html",
+    "title": "Module 6 — Flapping simulation (Ptera)",
+    "section": "",
+    "text": "Choose your wing and tail geometry. You simulate candidate geometries in Ptera and pick the one that gives the best thrust profile when compounded with the provided motor power curve. Modules 7 and 8 build whatever you decide here.",
+    "crumbs": [
+      "Overview",
+      "Build modules",
+      "Module 6 --- Flapping simulation (Ptera)"
+    ]
+  },
+  {
+    "objectID": "sessions/06-simulation.html#what-you-do-today",
+    "href": "sessions/06-simulation.html#what-you-do-today",
+    "title": "Module 6 — Flapping simulation (Ptera)",
+    "section": "",
+    "text": "Choose your wing and tail geometry. You simulate candidate geometries in Ptera and pick the one that gives the best thrust profile when compounded with the provided motor power curve. Modules 7 and 8 build whatever you decide here.",
+    "crumbs": [
+      "Overview",
+      "Build modules",
+      "Module 6 --- Flapping simulation (Ptera)"
+    ]
+  },
+  {
+    "objectID": "sessions/06-simulation.html#before-you-arrive",
+    "href": "sessions/06-simulation.html#before-you-arrive",
+    "title": "Module 6 — Flapping simulation (Ptera)",
+    "section": "Before you arrive",
+    "text": "Before you arrive\n\n\n\nBring\nLaptop with Ptera installed, your measured loop performance from Module 4\n\n\nRead\nThis page",
+    "crumbs": [
+      "Overview",
+      "Build modules",
+      "Module 6 --- Flapping simulation (Ptera)"
+    ]
+  },
+  {
+    "objectID": "sessions/06-simulation.html#deliverable",
+    "href": "sessions/06-simulation.html#deliverable",
+    "title": "Module 6 — Flapping simulation (Ptera)",
+    "section": "Deliverable",
+    "text": "Deliverable\nA wing planform and a tail geometry, with the simulation output that justifies them, carried forward into Module 7 and Module 8.\n\n\n\n\n\n\nImportantTo be written by the instructor\n\n\n\nThis module has no counterpart in the manufacturing guide — the guide documents the research robot’s final geometry, not the design exercise. The following need to be written from course material:\n\nPtera installation and a worked example\nThe provided motor power curve, and its format\nWhat “most efficient thrust profile” means quantitatively here, and how it is scored\nConstraints the students must respect so their geometry remains buildable with the frame from Module 5 — span limits, root fitting, mass budget\nWhether teams may deviate from the reference wing, and by how much\n\n\n\n\n\n\n\n\n\nNoteCheckpoint — TA sign-off\n\n\n\nA geometry chosen, with simulation evidence, and confirmed buildable against the frame and wing-root hardware.",
+    "crumbs": [
+      "Overview",
+      "Build modules",
+      "Module 6 --- Flapping simulation (Ptera)"
+    ]
+  },
+  {
+    "objectID": "sessions/04-control.html",
+    "href": "sessions/04-control.html",
+    "title": "Module 4 — Closed-loop control and tuning",
+    "section": "",
+    "text": "The gearbox installed with a marker flag on the output, the Seeeduino wired in and commanding the ESC untethered, running continuously, then holding position, then tracking a velocity setpoint with a tuned loop.",
+    "crumbs": [
+      "Overview",
+      "Build modules",
+      "Module 4 --- Closed-loop control and tuning"
+    ]
+  },
+  {
+    "objectID": "sessions/04-control.html#what-you-build-today",
+    "href": "sessions/04-control.html#what-you-build-today",
+    "title": "Module 4 — Closed-loop control and tuning",
+    "section": "",
+    "text": "The gearbox installed with a marker flag on the output, the Seeeduino wired in and commanding the ESC untethered, running continuously, then holding position, then tracking a velocity setpoint with a tuned loop.",
+    "crumbs": [
+      "Overview",
+      "Build modules",
+      "Module 4 --- Closed-loop control and tuning"
+    ]
+  },
+  {
+    "objectID": "sessions/04-control.html#before-you-arrive",
+    "href": "sessions/04-control.html#before-you-arrive",
+    "title": "Module 4 — Closed-loop control and tuning",
+    "section": "Before you arrive",
+    "text": "Before you arrive\n\n\n\nParts\nMotor with shaft and sun gear from Module 2, Faulhaber 23.04:1 gearbox, M2.5×10 screws, 3D-printed plates, second vertical bracket, 3× M2.5 and 3× M2 screws, ESC from Module 3, 4x8 mm flanged bearing, Seeeduino XIAO nRF52840, its 3D-printed bracket, 3 wires\n\n\nTools\nBench supply with current limit, tachometer or camera, soldering iron\n\n\nRead\nThis page in full - the speed limits below explain most of what you will hit",
+    "crumbs": [
+      "Overview",
+      "Build modules",
+      "Module 4 --- Closed-loop control and tuning"
+    ]
+  },
+  {
+    "objectID": "sessions/04-control.html#reduction",
+    "href": "sessions/04-control.html#reduction",
+    "title": "Module 4 — Closed-loop control and tuning",
+    "section": "Reduction",
+    "text": "Reduction\nThe motor is connected via a custom shaft to a gearbox with a 23.04:1 reduction by Faulhaber.1 Both parts are held in place by 3D-printed plates. The output shaft of the gearbox has its own bearing on the inside of the gearbox, and is also supported mid-way on the shaft by a 4×8 mm flanged bearing. This leaves 5 mm of shaft length free for the crank to be mounted on. A flat on the shaft helps lock the rotation of the M3 screw extending through the crank.\n\n\n\n\n\n\nMotor shaft\n\n\n\n\n\n\n\nFaulhaber gearbox",
+    "crumbs": [
+      "Overview",
+      "Build modules",
+      "Module 4 --- Closed-loop control and tuning"
+    ]
+  },
+  {
+    "objectID": "sessions/04-control.html#commanding-and-monitoring",
+    "href": "sessions/04-control.html#commanding-and-monitoring",
+    "title": "Module 4 — Closed-loop control and tuning",
+    "section": "Commanding and monitoring",
+    "text": "Commanding and monitoring\nThis is a high-level summary of the SimpleFOC communication docs. Communication with the ESC is over serial, via a separate microcontroller board.\nOnce serial communication is established, you interact with the ESC through the commander, a practical interface for setting and getting values (instructions). Ask the commander for available commands with ?. Commands available:\n\n\n\n\n\n\n\nCommand\nEffect\n\n\n\n\nM\nFull motor configuration\n\n\nF\nGet the main loop frequency\n\n\nL\nTurn the onboard LED on and off (useful as a comms check)\n\n\nT\nSet the target value — rad, rad/s or N/m depending on control mode\n\n\nW\nWatchdog on/off. If no new target arrives for 1 s, target is set to zero. On by default\n\n\nR\nR0/R1 disable/enable a linear ramp when changing setpoint. RD1000 sets ramp duration to 1000 ms (default 1000 ms). Off by default\n\n\n\n\nInstalling the reduction\nOur sun gear is already pressed onto the motor shaft from Module 2. What is left is mating the gearbox to the motor and fixing the pair to the plates.\n\nSlide the gearbox onto the motor shaft so the sun gear engages the planets. It should seat with light hand pressure, if it resists, back off and check the sun gear is square on the shaft rather than forcing it.\nFix the blue part of the gearbox: the custom screws that come with the gearbox on one side, and M2.5×10 screws on the other.\nCheck the output turns freely by hand through a full revolution before applying power.\nClose the gearbox: the silver part threads onto the blue part. Don’t tighten it.\nAttach the second vertical bracket to the silver part of the gearbox with 3 × M2.5 screws.\nSecure that bracket to the bottom fuselage plate with 3 × M2 screws. The motor bracket from Module 2 is already on the same plate, so between them the two brackets set the alignment of the whole drivetrain. Check the output still turns freely once both are bolted down.\n\n\n\n\n\n\n\nImportantTo be completed by the instructor\n\n\n\nWhich repository holds the barebone Seeeduino sketch, and on which branch. The nRF52 repositories currently in Software are marked outdated, so students following this page have nothing to clone.",
+    "crumbs": [
+      "Overview",
+      "Build modules",
+      "Module 4 --- Closed-loop control and tuning"
+    ]
+  },
+  {
+    "objectID": "sessions/04-control.html#task-sequence",
+    "href": "sessions/04-control.html#task-sequence",
+    "title": "Module 4 — Closed-loop control and tuning",
+    "section": "Task sequence",
+    "text": "Task sequence\n\nMount a small flag on the gearbox output so rotation is visible and countable.\nAchieve continuous spinning at low speed.\nAchieve position control - the output holds against a hand disturbance.\nTune the loop and characterise your maximum usable speed.\n\n\n\n\n\n\n\nImportantTo be completed by the instructor\n\n\n\nThe specific PID tuning exercise, the target performance, and the sign-off criteria are course material and are not in the manufacturing guide.",
+    "crumbs": [
+      "Overview",
+      "Build modules",
+      "Module 4 --- Closed-loop control and tuning"
+    ]
+  },
+  {
+    "objectID": "sessions/04-control.html#why-low-speed-is-the-hard-part",
+    "href": "sessions/04-control.html#why-low-speed-is-the-hard-part",
+    "title": "Module 4 — Closed-loop control and tuning",
+    "section": "Why low speed is the hard part",
+    "text": "Why low speed is the hard part\nRegular drone ESCs start losing synchronisation at low speed, which is exactly the regime used for water propulsion. That is the reason this course uses an FOC ESC rather than a hobby unit — see Design notes.",
+    "crumbs": [
+      "Overview",
+      "Build modules",
+      "Module 4 --- Closed-loop control and tuning"
+    ]
+  },
+  {
+    "objectID": "sessions/04-control.html#going-beyond-600-rads",
+    "href": "sessions/04-control.html#going-beyond-600-rads",
+    "title": "Module 4 — Closed-loop control and tuning",
+    "section": "Going beyond 600 rad/s",
+    "text": "Going beyond 600 rad/s\nTwo issues limit speed: the micro-controller loop rate, and delays from the rotation sensor. Using SPI at 10 MHz and an AS5047P sensor rated for 28kRPM speeds are the required hardware changes that improves on delay. But at very high speeds, sensor lag still becomes the binding constraint, and shows up as high current draw and noise. We need to update the sensor electrical angle offset as a function of speed.\n\nSensor lag\nCompensating sensor lag as speed increases is necessary to go above 600 rad/s without wasting current. It is currently hand-tuned every 100 rad/s, and a fitted function is used on the robot. This could be automated by ramping through the speeds and minimising phase current — future work. This SimpleFOC forum thread is useful on the topic.\n\n\n\n\n\n\nNoteCheckpoint\n\n\n\nContinuous rotation resulting in frequencies of 1 Hz all the way to 8 Hz without loss of synchronisation, position hold against a hand disturbance, and a recorded loop frequency from F. Do not exceed 8 Hz.\n\n\n\n\nMCU speed\nThe goal is to maximise main loop frequency, which reached 13 kHz. Read the current loop frequency with the commander’s F command.\n\n\n\n\n\n\n\nChange\nEffect\n\n\n\n\nmotor.motion_downsample = 3\n+0.8 kHz loop frequency\n\n\nDisable monitoring\n+0.2 kHz\n\n\nSwitch to SVPWM\nNo improvement observed. May help, unconfirmed\n\n\nL = 0.0001\nTuning the inductance value helped — made voltage mode work much better",
+    "crumbs": [
+      "Overview",
+      "Build modules",
+      "Module 4 --- Closed-loop control and tuning"
+    ]
+  },
+  {
+    "objectID": "sessions/04-control.html#footnotes",
+    "href": "sessions/04-control.html#footnotes",
+    "title": "Module 4 — Closed-loop control and tuning",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nFaulhaber gearhead reduction ratios (accessed 20.02.2024).↩︎",
+    "crumbs": [
+      "Overview",
+      "Build modules",
+      "Module 4 --- Closed-loop control and tuning"
+    ]
+  },
+  {
+    "objectID": "sessions/02-motor.html",
+    "href": "sessions/02-motor.html",
+    "title": "Module 2 — Motor and transmission shaft",
+    "section": "",
+    "text": "A brushless motor with a custom shaft pressed into its rotor bell, with the sun gear and the sensor magnet installed, bolted to its bracket and mounted on the motor plate. The motor is soldered to the electronic speed controller. The gearbox itself goes on in Module 4.",
+    "crumbs": [
+      "Overview",
+      "Build modules",
+      "Module 2 --- Motor and transmission shaft"
+    ]
+  },
+  {
+    "objectID": "sessions/02-motor.html#what-you-build-today",
+    "href": "sessions/02-motor.html#what-you-build-today",
+    "title": "Module 2 — Motor and transmission shaft",
+    "section": "",
+    "text": "A brushless motor with a custom shaft pressed into its rotor bell, with the sun gear and the sensor magnet installed, bolted to its bracket and mounted on the motor plate. The motor is soldered to the electronic speed controller. The gearbox itself goes on in Module 4.",
+    "crumbs": [
+      "Overview",
+      "Build modules",
+      "Module 2 --- Motor and transmission shaft"
+    ]
+  },
+  {
+    "objectID": "sessions/02-motor.html#before-you-arrive",
+    "href": "sessions/02-motor.html#before-you-arrive",
+    "title": "Module 2 — Motor and transmission shaft",
+    "section": "Before you arrive",
+    "text": "Before you arrive\n\n\n\nParts\nAS2303 KV1500 motor with pre-machined bell, custom motor shaft, sun gear from the Faulhaber 23.04:1 gearbox, 6 × 2.5 mm diametric magnet, 3D-printed magnet bracket, vertical nylon motor bracket, bottom fuselage plate, mounting screws\n\n\nTools\nCirclip pliers, manual arbor press, superglue, hex drivers\n\n\nRead\nThis page, and the Motor shaft section below in full before touching the motor. Brushless motors for the background",
+    "crumbs": [
+      "Overview",
+      "Build modules",
+      "Module 2 --- Motor and transmission shaft"
+    ]
+  },
+  {
+    "objectID": "sessions/02-motor.html#sec-motor-variant",
+    "href": "sessions/02-motor.html#sec-motor-variant",
+    "title": "Module 2 — Motor and transmission shaft",
+    "section": "The motor — AS2303 KV1500",
+    "text": "The motor — AS2303 KV1500\nThe AS2303 is a brushless outrunner. Read Brushless motors first.\n\nWe use the AS2303 KV1500 motor throughout the course. Its propeller horn cannot be separated from the bell, it has to be machined off in a lathe. That work, and the custom shaft, are prepared for you before the session.\n\nWhat the KV rating means\nKV is the motor’s velocity constant, quoted in rpm per volt. It says how fast the rotor spins per volt applied, with no load on the shaft:\n\\[\\omega_0 = k_V \\, U \\tag{1}\\]\nThe constant is not a marketing number — it falls out of the motor’s physics. As the rotor turns, its magnets sweep past the windings and induce a voltage that opposes the supply (the back-EMF):\n\\[U_\\text{emf} = \\frac{\\omega}{k_V} \\tag{2}\\]\nThe supply voltage splits between this back-EMF and the ohmic drop across the winding resistance \\(R\\), so \\(U = U_\\text{emf} + R\\,I\\) and the speed under load becomes\n\\[\\omega = k_V \\left( U - R\\,I \\right) \\tag{3}\\]\nwhich is why Equation 1 only holds at \\(I \\approx 0\\). Draw current and the motor slows down.\nThe same constant fixes the torque. Electrical power in equals mechanical power out, \\(U_\\text{emf} I = \\tau \\omega\\), and substituting Equation 2 gives \\(\\tau = I / k_V\\) in SI units. Converting \\(k_V\\) from rpm/V to rad/s/V:\n\\[k_T = \\frac{60}{2\\pi \\, k_V} \\approx \\frac{9.55}{k_V}\n\\qquad \\text{with} \\qquad \\tau = k_T \\, I \\tag{4}\\]\nwith \\(k_T\\) in N·m/A when \\(k_V\\) is in rpm/V. Torque and speed constants are inverses of each other. A high-KV motor spins fast but gives little torque per amp; a low-KV motor of the same size and mass does the opposite. You cannot buy both — you choose where on that trade-off to sit, and then recover the missing torque with a reduction.\n\n\nWhat this means for our robot\nWith \\(k_V = 1500\\) rpm/V and a 4S LiPo at its 14.8 V nominal voltage:\n\\[\\omega_0 = 1500 \\times 14.8 = 22\\,200 \\ \\text{rpm}\n\\qquad\nk_T = \\frac{9.55}{1500} = 6.4 \\ \\text{mN·m/A}\\]\n6.4 mN·m/A is very little torque, too little to drive the wings directly, which is exactly why the 23.04:1 Faulhaber gearbox is there. It multiplies torque by 23.04 and divides speed by the same factor. One revolution of the gearbox output is one full flapping cycle, so\n\\[f_\\text{flap} = \\frac{\\omega}{60 \\, r}\n= \\frac{22\\,200}{60 \\times 23.04} = 16.1 \\ \\text{Hz} \\tag{5}\\]\nat no load. Under real aerodynamic and hydrodynamic loading the drive tops out near 15 200 rpm, i.e. about 11 Hz of flapping, the figure you will see again in Module 4.",
+    "crumbs": [
+      "Overview",
+      "Build modules",
+      "Module 2 --- Motor and transmission shaft"
+    ]
+  },
+  {
+    "objectID": "sessions/02-motor.html#motor-shaft",
+    "href": "sessions/02-motor.html#motor-shaft",
+    "title": "Module 2 — Motor and transmission shaft",
+    "section": "Motor shaft",
+    "text": "Motor shaft\nTo pair the motor with the gearbox, the stock shaft of the brushless motor is replaced by a custom one. You will be handed a machined bell and a finished shaft — both are prepared before the session. What is left to you is the disassembly and the press fit, which is still a delicate operation: the motor’s structure is mostly aluminium and quite thin, for weight savings.\n\nRemove the circlip on the shaft with the special pliers. Don’t lose it, nor the brass ring.\nSeparate the rotor from the stator delicately, by hand.\nPress the stock shaft out of the rotor bell.\n\n\n\n\n\n\nWarningNever load the bell radially\n\n\n\nPress the shaft out very carefully, making sure to never apply forces radially on the bell. Use the manual press with appropriate support below the bell to avoid deforming the dome shape. Do not squeeze the bell with a vice, or even by hand.\n\n\nPress the sun gear onto the new shaft.\n\n\n\n\n\n\nWarningSun gear first — this order cannot be undone\n\n\n\nThe sun gear goes on while the shaft is still free. Once the shaft is pressed into the bell you can no longer support the shaft properly to press the gear on.\n\n\nPress the new shaft into the bell, making sure not to press on the dome-shaped part of the bell without appropriate support underneath. It is a tight fit on the bell and a clearance fit through the bearings.\n\n\n\n\n\n\n\nFigure 1: Motor shaft dimensions",
+    "crumbs": [
+      "Overview",
+      "Build modules",
+      "Module 2 --- Motor and transmission shaft"
+    ]
+  },
+  {
+    "objectID": "sessions/02-motor.html#sensor-magnet",
+    "href": "sessions/02-motor.html#sensor-magnet",
+    "title": "Module 2 — Motor and transmission shaft",
+    "section": "Sensor magnet",
+    "text": "Sensor magnet\nThe AS5047P encoder you wire up in Module 3 does not touch the shaft. It reads the direction of the magnetic field from a small magnet rotating in front of it, so the magnet has to go on the motor.\nUse a 6 × 2.5 mm diametrically magnetised disc magnet. Diametrically magnetised is the part that matters: the poles are across the diameter, not through the thickness, so the field seen by the sensor sweeps through a full rotation as the shaft turns. An ordinary axially magnetised disc of identical size presents the same pole to the sensor all the way round and gives no angle at all.\n\nDrop the magnet into its recess in the 3D-printed bracket. It should sit flat, fully seated, with no rocking.\nCentre it on the axis of rotation. The bracket locates it, but check. Keep the magnet concentric with the shaft to within 0.5 mm.\nBond it with a single drop of superglue. One drop is enough.\nTurn the assembly through a full revolution by hand and watch the magnet. Any visible wobble means it is off-centre or not seated.\n\n\n\n\n\n\n\nWarningOff-centre magnets are hard to diagnose later\n\n\n\nAn eccentric magnet may still produces a perfectly plausible angle reading at times.",
+    "crumbs": [
+      "Overview",
+      "Build modules",
+      "Module 2 --- Motor and transmission shaft"
+    ]
+  },
+  {
+    "objectID": "sessions/02-motor.html#mounting-the-motor",
+    "href": "sessions/02-motor.html#mounting-the-motor",
+    "title": "Module 2 — Motor and transmission shaft",
+    "section": "Mounting the motor",
+    "text": "Mounting the motor\nWith the shaft and the magnet done, the motor goes onto the robot. This happens in two stages: motor to bracket, then bracket to plate.\n\nFix the motor to the vertical 3D-printed nylon bracket using four screws M2x5 mm through the mounting holes in the motor base. Don’t over tighten. Check that the rotor still turns freely by hand. Nylon is compliant, and overtightening can pull the bracket out of flat enough to preload the bearings. A motor that spun freely on the bench and feels stiff once bolted down is telling you to back the screws off and retighten more gently.\nMount the bracket to the bottom fuselage plate. Before tightening, check the orientation: the shaft and sun gear must point towards the front of the robot.",
+    "crumbs": [
+      "Overview",
+      "Build modules",
+      "Module 2 --- Motor and transmission shaft"
+    ]
+  },
+  {
+    "objectID": "sessions/02-motor.html#solder-the-motor-wires-to-the-electronic-speed-controller",
+    "href": "sessions/02-motor.html#solder-the-motor-wires-to-the-electronic-speed-controller",
+    "title": "Module 2 — Motor and transmission shaft",
+    "section": "Solder the motor wires to the Electronic Speed Controller",
+    "text": "Solder the motor wires to the Electronic Speed Controller\nSince the pads are large, make sure to use enough heat / large tip on the soldering iron. The order of the cables UVW do not matter.\n\n\n\n\n\n\nTipWatch this before you pick up the iron\n\n\n\nSoldering Crash Course: Basic Techniques, Tips and Advice\n\n\n\n\n\n\n\n\nNoteCheckpoint\n\n\n\nShaft seated with the sun gear on it, the rotor spinning freely by hand with no wobble, the magnet bonded concentric to within 0.5 mm, and the motor bolted to its bracket and mounted on the plate — still turning freely once bolted down.\n\n\n\n\n\n\n\n\nImportantTo be prepared by the instructor before the session\n\n\n\nBoth the bells and the shafts must be prepared ahead of time, one set per student. Neither fits in the session: the lathe work is on thin-walled aluminium that is easy to ruin, and there is not enough machine time for the whole cohort.\nMachine the bells. Clamp the bell in the lathe using its stock shaft, then take the propeller horn off by bringing the diameter down to 6 mm and the length to 2.5 mm.\n\n\n\n\n\n\nStock bell\n\n\n\n\n\n\n\nBring diameter down to 6 mm\n\n\n\n\n\n\n\nBring the length down to 2.5 mm\n\n\n\n\n\nTurn the shafts from 4 mm steel rod to the dimensions in Figure 1 — clearance fit through the bearings, tight fit on the bell. The 21.5 mm total assumes the motor and gearbox are separated by a 5.5 mm-thick wall; for a 4 mm wall, shorten the 8.5 mm segment to 7 mm, giving 20 mm overall.\nPrepare spares of both — a deformed bell cannot be recovered.",
+    "crumbs": [
+      "Overview",
+      "Build modules",
+      "Module 2 --- Motor and transmission shaft"
+    ]
+  },
+  {
+    "objectID": "reference/software.html",
+    "href": "reference/software.html",
+    "title": "Software",
+    "section": "",
+    "text": "Code for the B-G431B-ESC1 motor controller using the SimpleFOC library: FAAV-G431-ESC.\nUsed in Module 3 and Module 4.",
+    "crumbs": [
+      "Overview",
+      "Reference",
+      "Software"
+    ]
+  },
+  {
+    "objectID": "reference/software.html#esc",
+    "href": "reference/software.html#esc",
+    "title": "Software",
+    "section": "",
+    "text": "Code for the B-G431B-ESC1 motor controller using the SimpleFOC library: FAAV-G431-ESC.\nUsed in Module 3 and Module 4.",
+    "crumbs": [
+      "Overview",
+      "Reference",
+      "Software"
+    ]
+  },
+  {
+    "objectID": "reference/software.html#flight-controller",
+    "href": "reference/software.html#flight-controller",
+    "title": "Software",
+    "section": "Flight controller",
+    "text": "Flight controller\n\nCurrent — ESP32, based on FreeRTOS tasks: FAAV-Flight-Controller\n\nOutdated versions, kept for reference:\n\nOld EPFL code for NRF52: FAAV-Seeeduino\nOld MIT code for NRF52/ESP32: FAAV-AUK",
+    "crumbs": [
+      "Overview",
+      "Reference",
+      "Software"
+    ]
+  },
+  {
+    "objectID": "reference/software.html#pcb",
+    "href": "reference/software.html#pcb",
+    "title": "Software",
+    "section": "PCB",
+    "text": "PCB\n\nFAAV-PCB-v3 — current board, including the BOM in the Manufacturing/Assembly folder",
+    "crumbs": [
+      "Overview",
+      "Reference",
+      "Software"
+    ]
+  },
+  {
+    "objectID": "reference/software.html#external-documentation",
+    "href": "reference/software.html#external-documentation",
+    "title": "Software",
+    "section": "External documentation",
+    "text": "External documentation\n\nSimpleFOC communication\nSimpleFOC commander\nXIAO ESP32S3 getting started\n\n\n\n\n\n\n\nImportantAccess\n\n\n\nConfirm before the semester that students have read access to these repositories, and pin the branch or tag each module expects. “Latest main” changing under a cohort mid-semester is the most likely way this manual goes stale without anyone noticing.",
+    "crumbs": [
+      "Overview",
+      "Reference",
+      "Software"
+    ]
+  },
+  {
+    "objectID": "reference/parts-list.html",
+    "href": "reference/parts-list.html",
+    "title": "Parts list",
+    "section": "",
+    "text": "Table 1: List of components, after Table S1\n\n\n\n\n\n\n\n\n\n\n\n\n\nCategory\nComponent\nMaterial/Model\nNb\nMass [g]\nTotal [g]\n\n\n\n\nStructure\nFrame\nCarbon 1.5mm plate (swiss-composite)\n2\n4.7\n9.4\n\n\n\nVertical panels\nOnyx with CF (Markforged)\n2\n6.2\n12.4\n\n\n\nMotor holder\nOnyx with CF (Markforged)\n1\n4.3\n4.3\n\n\n\nBattery holder\nOnyx with CF (Markforged)\n1\n1.1\n1.1\n\n\n\nTail holder\nOnyx with CF (Markforged)\n1\n4.3\n4.3\n\n\n\nScrews\nM2 Stainless\n40\n0.13\n5.2\n\n\nTail\nTail\nCarbon 0.5 mm plate (Swiss-composite)\n1\n22.2\n22.2\n\n\nPropulsion\nCrank\nAl 7075\n1\n1.3\n1.3\n\n\n\nLinkage\nAl 7075, with bearings\n1\n4.3\n4.3\n\n\n\nReduction\nSeries 20/1R 1:23 (Faulhaber)\n1\n38\n38\n\n\n\nRight plate\nCarbon 1.5mm plate\n1\n1.5\n1.5\n\n\n\nLeft wing gear\nOnyx with CF (Markforged)\n1\n2.8\n2.8\n\n\n\nRight wing gear\nOnyx with CF (Markforged)\n1\n6.7\n6.7\n\n\nElectronics\nFlight controller\nSeeeduino NRF52840\n1\n2.4\n2.4\n\n\n\nMotor\nAS2303 1500kV (T-Motors)\n1\n17\n17\n\n\n\nHall sensor\nAS5047P (ams-OSRAM) at 10 MHz SPI\n1\n1.2\n1.2\n\n\n\nCables\n\n1\n7\n7\n\n\nWaterproof.\nSeeeduino\nSilicone + 3D print\n1\n3.7\n3.7\n\n\n\nESC\nSilicone + 3D print\n1\n5.2\n5.2\n\n\n\nConnector\nJWPF 08 (JST)\n1\n3.9\n3.9\n\n\nBattery\nBattery\n4S 350 mAh LiPo (Swaytronics)\n1\n37\n37\n\n\nWings\nWings\nCarbon structure (Swisscomposites)\n2\n14\n26\n\n\n\nMembrane\nRipstop Nylon 20D, 40 g/m2 (Extremtextil)\n2\n3\n6\n\n\n\nCoating\nUltra Ever Dry 2-component\n2\n2.1\n4.2\n\n\n\nBonding\n3M VHB tape + stitches at the ends\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nImportantTo be completed before the semester\n\n\n\nThis is the published list for the paper’s robot, not the current build. Items the modules rely on that are not in it and need adding: 4 mm steel rod for the motor shaft, the 6 × 2.5 mm diametric sensor magnet and its printed bracket, 5 mm PEEK stock.\n\n\n\n\n\n Back to top",
+    "crumbs": [
+      "Overview",
+      "Reference",
+      "Parts list"
+    ]
+  },
+  {
+    "objectID": "reference/design-notes.html",
+    "href": "reference/design-notes.html",
+    "title": "Design notes",
+    "section": "",
+    "text": "Why the robot is built the way it is and latest changes",
+    "crumbs": [
+      "Overview",
+      "Reference",
+      "Design notes"
+    ]
+  },
+  {
+    "objectID": "reference/design-notes.html#log-of-2026-changes",
+    "href": "reference/design-notes.html#log-of-2026-changes",
+    "title": "Design notes",
+    "section": "Log of 2026 changes",
+    "text": "Log of 2026 changes\n\nFront of gears: exactly 1 mm spacing for washer. Back of gears (towards tail) has builtin 3D-printed spacers that press against inner bearing. Printing them will not use support\nAll 3D printed cross fixing is now done with M2 square half nuts (stainless). Takes less space and less work than heat inserts. 3D printed plates are all 4 mm thick.\nTail tube is now 5/3 round instead of square. The bracket (tail rigidifier) adapted in consequence.\nLeft gear extended and wraps around the linkage for better support.\nCrank-link shaft is now 10.5 mm to have enough space to fit a circlip.\nLinkage bearings are now 4x10x4 on input and 3x8x4 on output. MAX static loading of 130 N.\nESC box is now screwed against right bearing holder\nFront dome mounts to front plate\nMicro-controller box: to be printed transparent, no more window. Square nut assembly. USB-C port sits closer to edge of part, should give a better connection to program.\nGear shafts bearings changed to 3x7x3 flanged, with the flange now inserting into part.\nAll parts relabeled",
+    "crumbs": [
+      "Overview",
+      "Reference",
+      "Design notes"
+    ]
+  },
+  {
+    "objectID": "reference/design-notes.html#gearbox-corrosion",
+    "href": "reference/design-notes.html#gearbox-corrosion",
+    "title": "Design notes",
+    "section": "Gearbox corrosion",
+    "text": "Gearbox corrosion\nBy default the gearbox on the FAAV4 is not waterproof at all, and it is normal for it to fill completely with water once submerged. This is considered acceptable: over more than a year of repeated use in water, including in lakes, a gearbox was opened and showed no sign of corrosion.\nProper lubrication: a mix of CorrosionX and white lithium grease - help with corrosion problems. The practical procedure is in Module 10.",
+    "crumbs": [
+      "Overview",
+      "Reference",
+      "Design notes"
+    ]
+  },
+  {
+    "objectID": "reference/bldc.html",
+    "href": "reference/bldc.html",
+    "title": "Brushless motors",
+    "section": "",
+    "text": "Background for Module 2. For understanding why the motor behaves the way it does when you push it in Module 4.",
+    "crumbs": [
+      "Overview",
+      "Reference",
+      "Brushless motors"
+    ]
+  },
+  {
+    "objectID": "reference/bldc.html#start-with-the-brushed-dc-motor",
+    "href": "reference/bldc.html#start-with-the-brushed-dc-motor",
+    "title": "Brushless motors",
+    "section": "Start with the brushed DC motor",
+    "text": "Start with the brushed DC motor\nEvery result you need for a brushless motor is easier to see in a brushed one first, because the two obey the same electrical physics. The difference is how the windings get switched, not what the machine does once they are.\nA DC motor is described by two constants and one resistance. Spinning the rotor induces a back-EMF proportional to speed, and passing current through the windings produces torque proportional to current:\n\\[U_\\text{emf} = \\frac{\\omega}{k_V} \\qquad\\qquad \\tau = k_T \\, I \\tag{1}\\]\nThese are the same \\(k_V\\) and \\(k_T\\) derived in Module 2 — inverses of each other, not independent choices. The supply voltage splits between the back-EMF and the ohmic drop across the winding resistance \\(R\\):\n\\[U = \\frac{\\omega}{k_V} + R \\, I \\tag{2}\\]\nSubstitute \\(I = \\tau / k_T\\) and rearrange for torque, and the whole behaviour of the motor falls out as a straight line:\n\\[\\tau = k_T \\frac{U}{R} - \\frac{k_T}{k_V R}\\,\\omega \\tag{3}\\]\n\nReading the torque-speed line\nThat line is the motor’s entire steady-state character, and it is fixed by the applied voltage. Two points define it:\n\nStall torque \\(\\tau_\\text{stall} = k_T U / R\\), at \\(\\omega = 0\\). The rotor is held still, there is no back-EMF, and the only thing limiting current is the winding resistance. This is the largest torque the motor can produce and also the fastest way to destroy it - see Thermal limits.\nNo-load speed \\(\\omega_0 = k_V U\\), at \\(\\tau = 0\\). The rotor spins fast enough that the back-EMF nearly cancels the supply, so almost no current flows.\n\nEverything the motor can do at that voltage lies on the line between them. Mechanical power is \\(P = \\tau \\omega\\), the product of a falling line and a rising one, so it is a parabola peaking at half the no-load speed with half the stall torque. Efficiency peaks somewhere else entirely — much closer to \\(\\omega_0\\), because the copper loss that dominates at low speed scales with \\(I^2\\) while the useful output only scales with \\(I\\).\n\n\n\n\n\n\n\n\n\nNoteThe useful consequence\n\n\n\nRaising the voltage shifts the line outwards without changing its slope: more speed and more torque, same trade-off between them. That is why speed control is voltage control, and why a “faster” motor at fixed voltage is a lower-torque one.",
+    "crumbs": [
+      "Overview",
+      "Reference",
+      "Brushless motors"
+    ]
+  },
+  {
+    "objectID": "reference/bldc.html#what-changes-with-a-brushless-motor",
+    "href": "reference/bldc.html#what-changes-with-a-brushless-motor",
+    "title": "Brushless motors",
+    "section": "What changes with a brushless motor",
+    "text": "What changes with a brushless motor\nIn a brushed motor the commutator and brushes are a mechanical switch riding on the rotor: they physically reconnect the windings as it turns, so the current always flows in whichever coil is best placed to produce torque. It works without any electronics at all, and it wears out, arcs, and limits how fast the motor can safely spin.\nA BLDC motor deletes that switch. The permanent magnets go on the rotor, the windings stay on the stator in three phases, and an external controller decides which phases to energise based on where the rotor currently is. The motor becomes inseparable from its driver — this is why Module 3 exists, and why the rotor position measurement matters so much.\nWhat this does not change is Equation 3. The torque and speed constants have the same meaning, the line has the same shape, and you size the motor the same way. What changes is that the line is no longer the whole story:\n\n\n\n\n\n\n\n\n\nBrushed\nBrushless\n\n\n\n\nCommutation\nMechanical, self-acting\nElectronic, needs rotor position\n\n\nTorque–speed line\nThe real limit\nThe ideal limit, then clipped by the driver\n\n\nWear\nBrushes are consumable\nBearings only\n\n\nSpeed ceiling\nBrush arcing and bounce\nCommutation rate and sensor lag\n\n\nTorque ripple\nSmoothed by many commutator segments\nDepends on drive scheme (trapezoidal vs FOC)\n\n\n\n\nThe envelope, not the line\nThe straight line assumes the supply can deliver whatever current the equations ask for. It cannot. At stall, Equation 2 gives \\(I = U/R\\), and with the sub-ohm winding resistance of a small outrunner that is a number in the hundreds of amps — far beyond both the ESC and the motor itself.\nSo the driver enforces a current limit, and because \\(\\tau = k_T I\\) that is directly a torque limit. The usable region becomes:\n\na constant-torque region at low speed, flat at whatever current limit you set, because the ESC is holding current rather than letting the line dictate it;\na corner speed where the back-EMF has risen enough that the supply can no longer push that current;\nabove it, the original Equation 3 line, falling to \\(\\omega_0\\).\n\nThe flat part is not physics, it is a decision. On our robot it is the decision that keeps the motor alive at the low speeds used for swimming, where the torque–speed line alone would happily draw enough current to cook the windings.",
+    "crumbs": [
+      "Overview",
+      "Reference",
+      "Brushless motors"
+    ]
+  },
+  {
+    "objectID": "reference/bldc.html#thermal-limits",
+    "href": "reference/bldc.html#thermal-limits",
+    "title": "Brushless motors",
+    "section": "Thermal limits",
+    "text": "Thermal limits\nNothing in Equation 3 knows about heat, which is why the equations cheerfully predict operating points that will destroy the motor in seconds.\nAlmost all the loss you care about is copper loss in the windings:\n\\[P_\\text{copper} = I^2 R \\tag{4}\\]\nThe square is what makes this the binding constraint. Doubling the torque doubles the current and quadruples the heating. A motor comfortable at its rated current will not survive twice that for long, even though the torque equation says it is only a factor of two.\nThree practical consequences:\n\nStall is the worst case, not the best. At \\(\\omega = 0\\) there is maximum current and no rotation, so no airflow and no useful output — all the input power becomes heat in the windings. A motor held at stall can burn out without the shaft moving at all.\nContinuous and peak ratings are different numbers. A peak rating assumes seconds; a continuous rating assumes thermal equilibrium. Flapping is a reciprocating load, so the current is far from constant — what matters for heating is the RMS current over the cycle, not the peak you see on the bench supply.\nIron losses grow with speed. Hysteresis and eddy-current losses in the stator scale with electrical frequency, so at the 1700 rad/s discussed in Module 4 the copper is no longer the only thing getting warm.\n\n\n\n\n\n\n\n\n\n\nWarningHeat is cumulative and invisible\n\n\n\nCurrent is the only symptom you can see, and it appears instantly, while the temperature it causes lags behind by tens of seconds. A run that looks fine on the ammeter can still be depositing heat faster than the motor sheds it. When tuning in Module 4, stop and touch the motor.",
+    "crumbs": [
+      "Overview",
+      "Reference",
+      "Brushless motors"
+    ]
+  },
+  {
+    "objectID": "reference/bldc.html#sec-measured",
+    "href": "reference/bldc.html#sec-measured",
+    "title": "Brushless motors",
+    "section": "Measured behaviour of the AS2303",
+    "text": "Measured behaviour of the AS2303\nEverything above is the model. The plot below is where the test-stand measurements go, so you can see how far the straight line actually holds for the motor on your bench.\n\n\n\n\n\n\n\n\n\nImportantTo be completed by the instructor\n\n\n\nTwo things, and the second depends on the first:\n\nThe measured winding resistance of the AS2303, its continuous current rating, and the current limit configured on the ESC. These turn every equation on this page into numbers students can check against — the plots above currently run on a placeholder \\(R\\).\nThe test-stand data itself. Paste it into the MEASURED array in the script block at the bottom of reference/bldc.qmd; the schema and an example row are in the comment there. The plot switches from its empty state to a measured-versus-model comparison as soon as the array is non-empty.",
+    "crumbs": [
+      "Overview",
+      "Reference",
+      "Brushless motors"
+    ]
+  },
+  {
+    "objectID": "reference/bldc.html#why-an-outrunner",
+    "href": "reference/bldc.html#why-an-outrunner",
+    "title": "Brushless motors",
+    "section": "Why an outrunner",
+    "text": "Why an outrunner\nBrushless motors come in two arrangements. An inrunner spins a magnet rotor inside a stationary stator, the familiar shape from a drill. An outrunner inverts it: the stator sits still in the middle and the magnets are carried on a bell that rotates around the outside. Ours is an outrunner — it is the bell you machine and press the shaft into in Module 2.\n\n\n\n\n\n\nFigure 1: An outrunner seen from the back. The copper windings are the stator and do not move; the dark magnet segments around the rim are carried on the rotating bell. Note how far out the magnets sit — that radius is the lever arm in Equation 5, and it is the whole reason for this arrangement. Note also that the heat is generated in the middle, wrapped inside the part that spins.\n\n\n\nThe reason is torque. Torque is force times radius, and in an outrunner the magnets sit at the largest radius the motor’s diameter allows, rather than the smallest:\n\\[\\tau = F \\times r \\tag{5}\\]\nThe same tangential force from the same windings acts on a longer lever arm. It also leaves room for more magnet poles around the circumference. Together these raise \\(k_T\\) for a motor of the same mass, which by Equation 1 means a lower KV — more torque per amp, less speed per volt.\nThat is the right trade for us. The wings need torque at low speed, through a gearbox that is already multiplying by 23.04:1, and the alternative is either a larger reduction or more current for the same result. Two secondary properties help as well:\n\nRotor inertia. The rotating mass is at a large radius, so the bell has significant inertia and acts as a flywheel. Against a reciprocating flapping load that smooths the speed variation over a cycle. It also means the motor cannot change speed quickly, which is a real cost during transients.\nSomething to attach to. The bell is a large-diameter rotating surface, which is what makes the shaft press-fit in Module 2 mechanically sensible in the first place.\n\nThe costs are real: outrunners spin more slowly for a given voltage, the exposed rotating bell is a hazard and an ingress path, and cooling is worse because the heat-producing stator is wrapped inside the rotor rather than mounted against the case. The last point ties directly back to Thermal limits — an outrunner’s stator sheds heat mainly through its mount, which on our robot is a 3D-printed plate.",
+    "crumbs": [
+      "Overview",
+      "Reference",
+      "Brushless motors"
+    ]
+  },
+  {
+    "objectID": "changelog.html",
+    "href": "changelog.html",
+    "title": "Changelog",
+    "section": "",
+    "text": "Corrections and additions published during the semester, newest first.\nIf you are working from a printed copy, check this page before each module. Changes that affect a step you may already have completed are marked in bold.",
+    "crumbs": [
+      "Overview",
+      "Changelog"
+    ]
+  },
+  {
+    "objectID": "changelog.html#fall-2026",
+    "href": "changelog.html#fall-2026",
+    "title": "Changelog",
+    "section": "fall-2026",
+    "text": "fall-2026\n\n\n\n\n\n\n\n\n\nDate\nPage\nChange\nAction needed\n\n\n\n\n—\n—\nManual published for the Fall 2026 cohort, derived from FAAV Manufacturing Guide v4.0\n—",
+    "crumbs": [
+      "Overview",
+      "Changelog"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "FAAV Build Manual",
+    "section": "",
+    "text": "Figure 1: The FAAV3.2\nOver the semester you build a flapping aerial-aquatic vehicle: a robot that with the right design can fly, land on water, swim by flapping the same wings, and takes off again. The aim of this project is to demonstrate swimming behavior. This manual is the build side of the course. It is sequenced to the weekly modules, and each page covers exactly what you do in that module.",
+    "crumbs": [
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "index.html#how-this-manual-is-organised",
+    "href": "index.html#how-this-manual-is-organised",
+    "title": "FAAV Build Manual",
+    "section": "How this manual is organised",
+    "text": "How this manual is organised\nBuild modules are cumulative and in order. Each one opens with what you are building that day.\nReference holds the material you consult rather than follow: the parts list, the firmware repositories, the PCB revisions, the CNC guide, and the design notes explaining why the robot is the way it is.",
+    "crumbs": [
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "index.html#semester-map",
+    "href": "index.html#semester-map",
+    "title": "FAAV Build Manual",
+    "section": "Semester map",
+    "text": "Semester map\n\n\n\nModule\nWeek\nBuild\nPaired lecture\n\n\n\n\n1\nSep 9\nOrientation, teams, the robot\nIntro to robotic locomotion\n\n\n2\nSep 14\nMotor and transmission shaft\nReaction forces in fluids\n\n\n3\nSep 21\nMotor driver, sensor, serial\nBird-scale flapping design\n\n\n4\nSep 28\nClosed-loop control and tuning\nSwimming robots I\n\n\n5\nOct 5\nFrame, crank, linkage, gears\nUndulatory locomotion\n\n\n—\nOct 12\nNo module\n—\n\n\n6\nOct 19\nFlapping simulation (Ptera)\nInsect-scale flapping\n\n\n7\nOct 26\nWing fabrication\nSwimming robots II\n\n\n8\nNov 2\nTail and housing\nMulti-modal locomotion\n\n\n9\nNov 9\nFlight controller, PCB, dry testing\nThe future of actuation\n\n\n10\nNov 16\nWaterproofing\nMultirotors\n\n\n11\nNov 23\nWet testing\nFixed-wing flyers\n\n\n12\nNov 30\nCompetition\nPair presentations",
+    "crumbs": [
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "index.html#conventions",
+    "href": "index.html#conventions",
+    "title": "FAAV Build Manual",
+    "section": "Conventions",
+    "text": "Conventions\n\n\n\n\n\n\nWarningWarning\n\n\n\nAn operation whose likely failure mode destroys a part or injures you. Read it twice before acting.\n\n\n\n\n\n\n\n\nNoteCheckpoint\n\n\n\nDo not proceed past this without having completed all the tasks listed.\n\n\n\n\n\n\n\n\nTipWhy\n\n\n\nDesign rationale.",
+    "crumbs": [
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "index.html#robot-architecture-in-one-paragraph",
+    "href": "index.html#robot-architecture-in-one-paragraph",
+    "title": "FAAV Build Manual",
+    "section": "Robot architecture in one paragraph",
+    "text": "Robot architecture in one paragraph\nOne 4S battery (16.8 V max) feeds a custom PCB that steps VBAT down to 5 V to power the flight controller, which in turn generates a 3v3 rail for the sensors on that PCB. Battery power passes through a shunt for current sensing, then out to the ESC. The flight controller commands the ESC over serial. The ESC drives a brushless motor through a 23.04:1 gearbox, and a crank–linkage converts that rotation into wing flapping.",
+    "crumbs": [
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "index.html#versioning",
+    "href": "index.html#versioning",
+    "title": "FAAV Build Manual",
+    "section": "Versioning",
+    "text": "Versioning\nThis is version fall-2026. Corrections published during the semester are dated in the Changelog. If a step here contradicts what a TA tells you at the bench, the TA is right and this page is stale — report it so the next team does not lose time to it.",
+    "crumbs": [
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "reference/cnc.html",
+    "href": "reference/cnc.html",
+    "title": "CNC — Stepcraft D660",
+    "section": "",
+    "text": "Used in Module 5 for the carbon frame, the aluminium crank and linkage",
+    "crumbs": [
+      "Overview",
+      "Reference",
+      "CNC --- Stepcraft D660"
+    ]
+  },
+  {
+    "objectID": "reference/cnc.html#material-specific-notes",
+    "href": "reference/cnc.html#material-specific-notes",
+    "title": "CNC — Stepcraft D660",
+    "section": "Material-specific notes",
+    "text": "Material-specific notes\n\n\n\n\n\n\n\n\nMaterial\nThickness\nNotes\n\n\n\n\nWoven carbon\n1.5 mm (varies 1.5–1.6)\nBody plates, top and bottom identical except chamfers\n\n\nAluminium\n5 mm\nCrank and linkage. Linkage faced down from 5 to 4 mm. Use a 2 mm endmill, flood the part\n\n\n\n\n\n\n\n\n\nImportantMIT manufacturing\n\n\n\nCentral shop?",
+    "crumbs": [
+      "Overview",
+      "Reference",
+      "CNC --- Stepcraft D660"
+    ]
+  },
+  {
+    "objectID": "reference/g431-esc.html",
+    "href": "reference/g431-esc.html",
+    "title": "The G431 ESC board",
+    "section": "",
+    "text": "Background on the B-G431B-ESC1, the board you rework and flash in Module 3. What is on it, how it turns a DC battery into three moving phases, what it can drive, and why it arrives in two pieces.",
+    "crumbs": [
+      "Overview",
+      "Reference",
+      "The G431 ESC board"
+    ]
+  },
+  {
+    "objectID": "reference/g431-esc.html#what-it-is",
+    "href": "reference/g431-esc.html#what-it-is",
+    "title": "The G431 ESC board",
+    "section": "What it is",
+    "text": "What it is\nST sells this as a Discovery kit: a reference design showing what their STM32G431 can do in a motor-control role, in the physical form of a drone ESC. That origin explains most of its oddities. A hobby ESC exposes a signal wire and two power leads because that is all a flight controller needs; this board brings out a CAN bus, a potentiometer input, a hall-sensor connector and a debug header, because its job is to demonstrate everything the chip supports.\nFor us the consequence is good and bad in equal measure. Good: the silicon is open, we can run our own firmware (SimpleFOC) and we get real current sensing. Bad: several connectors are wired for uses we do not want, which is why Module 3 spends its time repurposing them.\n\n\n\n\n\n\nFigure 1: The power stage. The six large flat packages are the MOSFETs, in three pairs; the copper tabs on the left are the U, V and W phase outputs.",
+    "crumbs": [
+      "Overview",
+      "Reference",
+      "The G431 ESC board"
+    ]
+  },
+  {
+    "objectID": "reference/g431-esc.html#the-parts-that-matter",
+    "href": "reference/g431-esc.html#the-parts-that-matter",
+    "title": "The G431 ESC board",
+    "section": "The parts that matter",
+    "text": "The parts that matter\n\n\n\n\n\n\n\n\nBlock\nPart\nNotes\n\n\n\n\nMicrocontroller\nSTM32G431CB\n170 MHz Cortex-M4 with FPU, 128 kB flash, 32 kB RAM\n\n\nPower switches\n6 × STL180N6F7\n60 V N-channel MOSFETs, very low on-resistance\n\n\nGate drivers\nL6387\nThree half-bridge drivers, one per phase\n\n\nCurrent sensing\nThree shunts\nLow-side, amplified into the MCU’s ADCs\n\n\nProgrammer\nST-LINK/V2-1\nOn the detachable daughterboard\n\n\n\nSources: ST’s product page and data brief.\nThe MCU is the interesting choice. FOC recomputes the field orientation every control loop, and each iteration costs a handful of trigonometric evaluations (see How SimpleFOC works). At 170 MHz with hardware floating point that fits comfortably inside a 10 kHz loop. A hobby ESC’s 8-bit microcontroller could not do this arithmetic in the time available, which is precisely why hobby ESCs use the cruder back-EMF scheme instead.",
+    "crumbs": [
+      "Overview",
+      "Reference",
+      "The G431 ESC board"
+    ]
+  },
+  {
+    "objectID": "reference/g431-esc.html#how-the-three-phases-are-generated",
+    "href": "reference/g431-esc.html#how-the-three-phases-are-generated",
+    "title": "The G431 ESC board",
+    "section": "How the three phases are generated",
+    "text": "How the three phases are generated\nThe battery supplies one DC voltage. The motor needs three voltages that vary smoothly and stay 120° apart. The bridge between the two is built from three identical circuits.\nOne half-bridge per phase. Each phase output connects to two MOSFETs in series across the battery: a high-side switch to the positive rail and a low-side switch to ground. Closing the high side pulls that phase to battery voltage; closing the low side pulls it to zero. Three phases, three pairs, six transistors — the six packages in Figure 1.\nPWM makes the intermediate values. A switch is either on or off, so a half-bridge can only output the full rail or nothing. Switching between them tens of thousands of times a second and varying the fraction of time spent high produces any average voltage in between. 50% duty gives half the rail. The motor’s own winding inductance does the smoothing: it resists rapid current changes, so it responds to the average and largely ignores the switching.\nThree of them, offset, make a rotating field. Drive the three duty cycles as sinusoids 120° apart and the three phase voltages produce a magnetic field that sweeps steadily around the stator. Advance the sinusoids faster and the field rotates faster. This is what driver.setPwm(Ua, Ub, Uc) at the bottom of SimpleFOC’s inner loop is ultimately setting.\n\n\n\n\n\n\nWarningBoth switches in a pair must never be on together\n\n\n\nHigh and low side closed at once is a direct short across the battery through two transistors — called shoot-through, and it destroys the pair in microseconds. The hardware inserts a dead time: a brief interval where both are off during every transition. It is handled by the gate drivers and the MCU’s timer, so you will not code it, but it is why the two switches of a pair are never driven by a single signal.\n\n\nCurrent sensing closes the loop. A small-value shunt resistor sits in each phase’s low-side return path. The voltage across it is proportional to the current through that phase; the MCU amplifies and samples it. Three shunts mean all three phase currents are visible, which is what makes true FOC current control possible rather than voltage-mode approximation. Without this measurement you can ask for a torque; with it you can regulate one.",
+    "crumbs": [
+      "Overview",
+      "Reference",
+      "The G431 ESC board"
+    ]
+  },
+  {
+    "objectID": "reference/g431-esc.html#what-it-can-drive",
+    "href": "reference/g431-esc.html#what-it-can-drive",
+    "title": "The G431 ESC board",
+    "section": "What it can drive",
+    "text": "What it can drive\n\n\n\nInput voltage\n3S to 6S LiPo (roughly 11–25 V)\n\n\nPeak current\n40 A, with forced-air cooling\n\n\nProtection\nOvercurrent, overvoltage and thermal, on-board\n\n\n\nTwo cautions about that 40 A. It is a peak figure, and it assumes forced air — a fan, or a drone’s propwash. Our robot has neither, and it spends much of its life underwater with the board sealed inside potting compound (Module 10), so heat leaves slowly and only by conduction. Treat 40 A as a number describing the silicon, not a budget you may spend.\nIn practice this is not the binding constraint. The wing motor draws far less than the board can supply, so the limits you will actually meet are the motor’s own thermal limit and sensor lag, not the ESC’s. The relevant discussion is in Brushless motors and Module 4.",
+    "crumbs": [
+      "Overview",
+      "Reference",
+      "The G431 ESC board"
+    ]
+  },
+  {
+    "objectID": "reference/g431-esc.html#why-there-is-a-daughterboard",
+    "href": "reference/g431-esc.html#why-there-is-a-daughterboard",
+    "title": "The G431 ESC board",
+    "section": "Why there is a daughterboard",
+    "text": "Why there is a daughterboard\nThe small board at the end is a complete ST-LINK/V2-1 programmer and debug probe. It is separated from the power board by a line of perforations and is meant to be snapped off.\nThat design makes sense for ST’s intended user: develop with the programmer attached, then break it away so the flight-ready ESC is smaller and lighter, and reuse the same programmer on the next board. It carries two things:\n\nSWD — the debug and programming interface, used to flash the MCU\nA virtual COM port — a USB serial bridge onto one of the MCU’s UARTs\n\n\n\n\n\n\n\nImportantDo not snap it off\n\n\n\nOnce separated, reprogramming needs an external programmer wired to the SWD pads by hand. We keep it attached for the whole course. This is also why the board is larger than a hobby ESC of equivalent power — roughly half of what you are holding is the programmer.\n\n\nThe virtual COM port is where Module 3 runs into trouble. Out of the box it is wired to the MCU’s USART2, on pins that the board also uses for the hall-sensor connector. Those same pins are the SPI3 bus we need for the AS5047P encoder, and an encoder is not optional for FOC. So the pins go to the encoder, USART2 stops being reachable over USB, and serial has to be re-routed — either onto USART1 by rework, or off-board entirely to the Seeeduino. Flashing is unaffected throughout, because SWD runs on different pins.",
+    "crumbs": [
+      "Overview",
+      "Reference",
+      "The G431 ESC board"
+    ]
+  },
+  {
+    "objectID": "reference/g431-esc.html#what-we-do-not-use",
+    "href": "reference/g431-esc.html#what-we-do-not-use",
+    "title": "The G431 ESC board",
+    "section": "What we do not use",
+    "text": "What we do not use\n\nCAN transceiver. Present and functional; our robot uses BLE from the flight controller instead.\nPotentiometer input. An analog throttle knob for bench demonstrations.\nHall-sensor connector (J8). Intended for the three digital hall sensors built into many BLDC motors. Ours has none, and hall sensors would be too coarse anyway — six positions per electrical revolution, against the AS5047P’s continuous absolute angle. The connector gets repurposed for serial.\n\nSources: ST B-G431B-ESC1 product page, data brief.",
+    "crumbs": [
+      "Overview",
+      "Reference",
+      "The G431 ESC board"
+    ]
+  },
+  {
+    "objectID": "reference/simple-foc.html",
+    "href": "reference/simple-foc.html",
+    "title": "How SimpleFOC works",
+    "section": "",
+    "text": "The firmware in FAAV-G431-ESC is a SimpleFOC application. This page is what you need to read that firmware and change it with confidence: what the library computes, in what order, and where your settings enter. It is background for Module 3 and Module 4, not a procedure.",
+    "crumbs": [
+      "Overview",
+      "Reference",
+      "How SimpleFOC works"
+    ]
+  },
+  {
+    "objectID": "reference/simple-foc.html#the-problem-it-solves",
+    "href": "reference/simple-foc.html#the-problem-it-solves",
+    "title": "How SimpleFOC works",
+    "section": "The problem it solves",
+    "text": "The problem it solves\nA brushless motor has three windings and no brushes, so nothing decides on its own which winding should be energised. Something has to look at where the rotor is and energise the windings to put the stator’s magnetic field about 90° ahead of the rotor’s magnets, the orientation that produces the most torque per amp. Do that continuously and the motor behaves like a brushed DC motor: torque proportional to current, no commutator to wear out. That is Field-Oriented Control, and it is why Module 2’s \\(\\tau = k_T I\\) is usable at all.\nThe awkward part is that “90° ahead” is a statement about a rotating frame, while the three phase currents live in a stationary one. FOC is mostly the bookkeeping that moves between the two.",
+    "crumbs": [
+      "Overview",
+      "Reference",
+      "How SimpleFOC works"
+    ]
+  },
+  {
+    "objectID": "reference/simple-foc.html#three-objects-and-what-links-them",
+    "href": "reference/simple-foc.html#three-objects-and-what-links-them",
+    "title": "How SimpleFOC works",
+    "section": "Three objects, and what links them",
+    "text": "Three objects, and what links them\nThe SimpleFOC architecture is built around three objects, each wrapping one piece of hardware:\n\n\n\nObject\nWraps\nOur hardware\n\n\n\n\nMagneticSensorSPI\nThe angle sensor\nAS5047P on SPI3\n\n\nBLDCDriver6PWM\nThe inverter\nSix MOSFETs on the G431\n\n\nBLDCMotor\nThe control maths\n—\n\n\n\nBLDCMotor owns the algorithm and is told about the other two with linkSensor() and linkDriver(). Nothing else connects them, which is why a missing link call produces a motor that initialises cleanly and then does nothing sensible.",
+    "crumbs": [
+      "Overview",
+      "Reference",
+      "How SimpleFOC works"
+    ]
+  },
+  {
+    "objectID": "reference/simple-foc.html#the-two-loops",
+    "href": "reference/simple-foc.html#the-two-loops",
+    "title": "How SimpleFOC works",
+    "section": "The two loops",
+    "text": "The two loops\nEvery iteration runs two nested controllers, and keeping them straight is most of understanding the library:\n\nmotor.loopFOC() — the inner loop. Reads the angle, works out where the field should point, and sets the PWM duty cycles. It runs as fast as you can call it (above 10 kHz), and its rate is the loop frequency you read back with the commander’s F command.\nmotor.move(target) — the outer loop. Turns your setpoint (a position, a speed, or a torque) into the q-axis demand the inner loop chases.\n\nThe inner loop is where speed matters; the outer loop is where tuning matters.\n\n\n\n\n\n\nWarningBoth must be called every iteration\n\n\n\nloopFOC() without move() holds whatever demand it last had. move() without loopFOC() updates a number nothing acts on. Anything blocking in loop() - a delay(), a slow print - drops the inner-loop rate and shows up as a motor that runs rough at speed.",
+    "crumbs": [
+      "Overview",
+      "Reference",
+      "How SimpleFOC works"
+    ]
+  },
+  {
+    "objectID": "reference/simple-foc.html#what-the-inner-loop-actually-computes",
+    "href": "reference/simple-foc.html#what-the-inner-loop-actually-computes",
+    "title": "How SimpleFOC works",
+    "section": "What the inner loop actually computes",
+    "text": "What the inner loop actually computes\nDistilled from the library, with the bookkeeping removed:\nvoid loopFOC() {\n  sensor.update();\n\n  // 1. Mechanical angle -&gt; electrical angle.\n  //    A motor with p pole pairs turns through p electrical revolutions\n  //    for every mechanical one. zero_electric_angle comes from initFOC().\n  float angle_el = normalizeAngle(sensor.getAngle() * pole_pairs\n                                  - zero_electric_angle);\n\n  switch (torque_controller) {\n\n    case TorqueControlType::voltage:\n      // No current measurement. Ask for a voltage and hope; cheap and\n      // adequate at low speed. This is where you start.\n      Uq = target_voltage_q;\n      Ud = 0;\n      break;\n\n    case TorqueControlType::foc_current:\n      // 2. Measure two phase currents; the third follows from ia+ib+ic = 0.\n      PhaseCurrent_s c = current_sense.getPhaseCurrents();\n\n      // 3. Clarke (abc -&gt; alpha/beta) then Park (alpha/beta -&gt; d/q),\n      //    using angle_el. The output is two DC values, not sinusoids.\n      DQCurrent_s i = current_sense.getFOCCurrents(angle_el);\n\n      // 4. Two independent PI controllers on those DC values.\n      //    q is torque-producing; d is pure flux and is driven to zero\n      //    because it costs current and produces nothing.\n      Uq = PID_current_q(target_current_q - i.q);\n      Ud = PID_current_d(0.0f - i.d);\n      break;\n  }\n\n  setPhaseVoltage(Uq, Ud, angle_el);\n}\nThe Park transform is the trick worth internalising. In the stationary frame the phase currents are three sinusoids and there is nothing steady to control. Rotating the frame with the rotor turns them into two constants, \\(i_d\\) and \\(i_q\\), and a constant is something an ordinary PI controller can hold. Then you rotate back:\nvoid setPhaseVoltage(float Uq, float Ud, float angle_el) {\n  // Inverse Park: back to the stationary frame\n  float Ualpha = Ud * cos(angle_el) - Uq * sin(angle_el);\n  float Ubeta  = Ud * sin(angle_el) + Uq * cos(angle_el);\n\n  // Inverse Clarke: two axes back to three phases\n  float Ua = Ualpha;\n  float Ub = -0.5f * Ualpha + _SQRT3_2 * Ubeta;\n  float Uc = -0.5f * Ualpha - _SQRT3_2 * Ubeta;\n\n  // Shift to sit around mid-rail, since the inverter cannot output\n  // a negative voltage, then hand duty cycles to the hardware.\n  driver.setPwm(Ua + Udc/2, Ub + Udc/2, Uc + Udc/2);\n}\nSetting \\(U_d = 0\\) and driving only \\(U_q\\) is exactly “put the field 90° ahead”, expressed in coordinates. Everything above is the machinery for saying it in terms the three phases understand.",
+    "crumbs": [
+      "Overview",
+      "Reference",
+      "How SimpleFOC works"
+    ]
+  },
+  {
+    "objectID": "reference/simple-foc.html#what-the-outer-loop-computes",
+    "href": "reference/simple-foc.html#what-the-outer-loop-computes",
+    "title": "How SimpleFOC works",
+    "section": "What the outer loop computes",
+    "text": "What the outer loop computes\nmove() is a cascade, and which stages run depends on motor.controller:\nvoid move(float target) {\n  switch (controller) {\n    case MotionControlType::angle:\n      // position -&gt; velocity -&gt; current, all three stages\n      shaft_velocity_sp = P_angle(target - shaft_angle);\n      target_current_q  = PID_velocity(shaft_velocity_sp - shaft_velocity);\n      break;\n\n    case MotionControlType::velocity:\n      target_current_q  = PID_velocity(target - shaft_velocity);\n      break;\n\n    case MotionControlType::torque:\n      target_current_q  = target;   // straight through\n      break;\n  }\n}\nThis is why the commander’s T means something different in each mode — it is the input to whichever stage is outermost. It is also why tuning proceeds inside-out in Module 4: the velocity PI has to be right before the position P above it can be.",
+    "crumbs": [
+      "Overview",
+      "Reference",
+      "How SimpleFOC works"
+    ]
+  },
+  {
+    "objectID": "reference/simple-foc.html#alignment-and-why-the-motor-twitches-at-power-on",
+    "href": "reference/simple-foc.html#alignment-and-why-the-motor-twitches-at-power-on",
+    "title": "How SimpleFOC works",
+    "section": "Alignment, and why the motor twitches at power-on",
+    "text": "Alignment, and why the motor twitches at power-on\nmotor.initFOC() performs the one calibration FOC cannot do without. The sensor reports some absolute angle, but nothing tells it how that number relates to the motor’s magnetic poles - that depends on how the magnet was glued on and how the phase wires happened to be soldered. So initFOC() drives a known field, watches which way the rotor moves and where it settles, and stores two things:\n\nzero_electric_angle - the offset between sensor zero and electrical zero\nsensor direction - whether the sensor counts up or down relative to the motor’s positive rotation\n\nThat is the twitch you see at every power-on. If it is skipped or wrong, the field is placed at the wrong angle and the motor draws current while producing little torque, or runs away.\n\n\n\n\n\n\nNoteWhy the UVW order does not matter\n\n\n\nModule 3 says you can solder the phase wires in any order. Swapping two phases reverses the motor’s direction, and initFOC() measures direction rather than assuming it - so the calibration simply comes out with the other sign. The cost of getting it “wrong” is a stored constant, not a rework.",
+    "crumbs": [
+      "Overview",
+      "Reference",
+      "How SimpleFOC works"
+    ]
+  },
+  {
+    "objectID": "reference/simple-foc.html#the-main-esc-code",
+    "href": "reference/simple-foc.html#the-main-esc-code",
+    "title": "How SimpleFOC works",
+    "section": "The main ESC code",
+    "text": "The main ESC code\nSetup is configuration; the loop is two calls. Trimmed to the parts that matter:\n#include &lt;SimpleFOC.h&gt;\n\nBLDCMotor motor = BLDCMotor(7);                 // pole pairs\nBLDCDriver6PWM driver = BLDCDriver6PWM(A_PHASE_UH, A_PHASE_UL,\n                                       A_PHASE_VH, A_PHASE_VL,\n                                       A_PHASE_WH, A_PHASE_WL);\nMagneticSensorSPI sensor = MagneticSensorSPI(AS5047_SPI, PA15);\n\nfloat target = 0;\n\nvoid setup() {\n  sensor.init();\n  motor.linkSensor(&sensor);\n\n  driver.voltage_power_supply = 14.8;\n  driver.init();\n  motor.linkDriver(&driver);\n\n  motor.foc_modulation = FOCModulationType::SpaceVectorPWM;\n  motor.controller     = MotionControlType::velocity;\n\n  motor.PID_velocity.P = 0.2;\n  motor.PID_velocity.I = 20;\n  motor.LPF_velocity.Tf = 0.01;   // velocity is differentiated, so filtered\n  motor.voltage_limit   = 6;      // the safety net -- set it low first\n\n  motor.init();\n  motor.initFOC();                // alignment happens here\n}\n\nvoid loop() {\n  motor.loopFOC();\n  motor.move(target);\n}\nThe pole-pair count must match the motor or every angle in the chain is wrong by a fixed ratio, and the symptom is a motor that vibrates instead of turning. voltage_limit is the one setting to get right before the first spin-up: it caps what the inner loop can ask for regardless of what the outer loop demands.",
+    "crumbs": [
+      "Overview",
+      "Reference",
+      "How SimpleFOC works"
+    ]
+  },
+  {
+    "objectID": "reference/simple-foc.html#where-to-look-next",
+    "href": "reference/simple-foc.html#where-to-look-next",
+    "title": "How SimpleFOC works",
+    "section": "Where to look next",
+    "text": "Where to look next\n\nSimpleFOC communication docs — the commander interface used all through Module 3\nCommander motor reference — every letter the commander accepts\nThe G431 ESC board — what driver.setPwm() is actually driving",
+    "crumbs": [
+      "Overview",
+      "Reference",
+      "How SimpleFOC works"
+    ]
+  },
+  {
+    "objectID": "sessions/01-orientation.html",
+    "href": "sessions/01-orientation.html",
+    "title": "Module 1 — Orientation",
+    "section": "",
+    "text": "Figure 1: The FAAV3.2\n\n\n\nWe will develop, plan and optimize a vehicle with powerful custom actuation for flapping locomotion. The build divides into four subsystems, and the modules follow that order:\n\nTransmission — motor, custom shaft, gearbox, crank and linkage (Modules 2, 5)\nElectronics — ESC, angular sensor, flight controller, custom PCB (Modules 3, 4, 9)\nAero/hydro surfaces — wings, tail (Modules 6–8)\nWaterproofing and testing — potting, immersion, tuning (Modules 10–12)",
+    "crumbs": [
+      "Overview",
+      "Build modules",
+      "Module 1 --- Orientation"
+    ]
+  },
+  {
+    "objectID": "sessions/01-orientation.html#the-robot",
+    "href": "sessions/01-orientation.html#the-robot",
+    "title": "Module 1 — Orientation",
+    "section": "",
+    "text": "Figure 1: The FAAV3.2\n\n\n\nWe will develop, plan and optimize a vehicle with powerful custom actuation for flapping locomotion. The build divides into four subsystems, and the modules follow that order:\n\nTransmission — motor, custom shaft, gearbox, crank and linkage (Modules 2, 5)\nElectronics — ESC, angular sensor, flight controller, custom PCB (Modules 3, 4, 9)\nAero/hydro surfaces — wings, tail (Modules 6–8)\nWaterproofing and testing — potting, immersion, tuning (Modules 10–12)",
+    "crumbs": [
+      "Overview",
+      "Build modules",
+      "Module 1 --- Orientation"
+    ]
+  },
+  {
+    "objectID": "sessions/01-orientation.html#electronic-architecture",
+    "href": "sessions/01-orientation.html#electronic-architecture",
+    "title": "Module 1 — Orientation",
+    "section": "Electronic architecture",
+    "text": "Electronic architecture\nOne 4S battery (max 16.8 V) powers the motor electronic speed controller (ESC). The motor controller generates a 3.3V rail for the encoder and a 5V rail for the flight controller. The flight controller sends commands to the ESC over serial.\n\n\n\n\n\n\nImportantTo be completed by the instructor\n\n\n\nShop safety requirements, machine access and booking procedure, team size and formation rules, and where the parts crib is. These are institution-specific and are not carried over from the manufacturing guide.\n\n\n\n\n\n\n\n\nNoteCheckpoint\n\n\n\nKit checked against the parts list, and every member has completed the required training.",
+    "crumbs": [
+      "Overview",
+      "Build modules",
+      "Module 1 --- Orientation"
+    ]
+  },
+  {
+    "objectID": "sessions/03-esc.html",
+    "href": "sessions/03-esc.html",
+    "title": "Module 3 — Motor driver, sensor and serial",
+    "section": "",
+    "text": "Let’s drive our motor! We aim to get a flashed G431 ESC talking to your laptop via a microcontroller, with the angular sensor wired on SPI and the motor spinning under commander control. Lots of soldering.\n\n\n\n\n\n\nFigure 1: How the battery, ESC, encoder, motor and microcontroller connect. The XIAO nRF52840 shown here is the separate-microcontroller option for serial described below — note that TX and RX are crossed. SPI3 and UART pin assignments match the rework in Table 1 and ST-Link serial.\n\n\n\nWork through the module with this diagram open: every step below either wires one of these links or configures it in firmware.",
+    "crumbs": [
+      "Overview",
+      "Build modules",
+      "Module 3 --- Motor driver, sensor and serial"
+    ]
+  },
+  {
+    "objectID": "sessions/03-esc.html#what-you-build-today",
+    "href": "sessions/03-esc.html#what-you-build-today",
+    "title": "Module 3 — Motor driver, sensor and serial",
+    "section": "",
+    "text": "Let’s drive our motor! We aim to get a flashed G431 ESC talking to your laptop via a microcontroller, with the angular sensor wired on SPI and the motor spinning under commander control. Lots of soldering.\n\n\n\n\n\n\nFigure 1: How the battery, ESC, encoder, motor and microcontroller connect. The XIAO nRF52840 shown here is the separate-microcontroller option for serial described below — note that TX and RX are crossed. SPI3 and UART pin assignments match the rework in Table 1 and ST-Link serial.\n\n\n\nWork through the module with this diagram open: every step below either wires one of these links or configures it in firmware.",
+    "crumbs": [
+      "Overview",
+      "Build modules",
+      "Module 3 --- Motor driver, sensor and serial"
+    ]
+  },
+  {
+    "objectID": "sessions/03-esc.html#before-you-arrive",
+    "href": "sessions/03-esc.html#before-you-arrive",
+    "title": "Module 3 — Motor driver, sensor and serial",
+    "section": "Before you arrive",
+    "text": "Before you arrive\n\n\n\nParts needed\nB-G431B-ESC1 board, AS5047P encoder, encoder mount, cables\n\n\nTools\nSoldering iron, tweezers, micro-USB cable, power source\n\n\nRead\nThis page, plus Design notes on why we use an FOC ESC\n\n\n\n\n\n\n\n\n\nFigure 2: ESC running SimpleFOC and the angular sensor. The six MOSFETs are the large flat packages, arranged as three half-bridges — one per motor phase, each with a high-side and a low-side switch. The three copper tabs on the left are the U, V and W outputs you solder the motor to below.",
+    "crumbs": [
+      "Overview",
+      "Build modules",
+      "Module 3 --- Motor driver, sensor and serial"
+    ]
+  },
+  {
+    "objectID": "sessions/03-esc.html#electrical-connections",
+    "href": "sessions/03-esc.html#electrical-connections",
+    "title": "Module 3 — Motor driver, sensor and serial",
+    "section": "Electrical connections",
+    "text": "Electrical connections\nFigure 3 is the same set of connections as Figure 1, drawn on the actual boards rather than as blocks. Use Figure 1 when you need the pin names, and this one when you need to find the pad.\n\n\n\n\n\n\nFigure 3: The complete electrical system. The 4S battery enters the ESC at J5, the three phase wires leave from the large OUT1–3 tabs to the motor, the AS5047P encoder returns angle over SPI, and the XIAO nRF52840 talks to the ESC over serial. Note that the encoder and the flight controller share the same supply. The MOSI tap on R14, marked Hardest connection!, is the one to leave until last - see Table 1.",
+    "crumbs": [
+      "Overview",
+      "Build modules",
+      "Module 3 --- Motor driver, sensor and serial"
+    ]
+  },
+  {
+    "objectID": "sessions/03-esc.html#electronic-speed-controller",
+    "href": "sessions/03-esc.html#electronic-speed-controller",
+    "title": "Module 3 — Motor driver, sensor and serial",
+    "section": "Electronic Speed Controller",
+    "text": "Electronic Speed Controller\nThe B-G431B-ESC1 is ST’s reference three-phase motor driver: a complete ESC on one small board, sold as an evaluation kit. It contains: - An STM32G431 microcontroller. A 170 MHz Cortex-M4 with hardware floating point. Motor control recomputes the field orientation every control loop. This MCU is the reason we can. - A three-phase inverter. Six power MOSFETs drive the three motor phases. - A detachable ST-Link programmer (the daughterboard). The small daughter board is how we program the MCU over USB, and it also carries a serial port back to your laptop. When snapped-off, the MCU cannot be reprogramed without physically resoldering it.\nIt also brings out many input/outputs (for exampleJ8), a CAN transceiver and a potentiometer input, none of which we use as intended. In this build J8 gets repurposed for serial, and the encoder arrives on SPI instead. Both of those reworks are below. The board is rated well above what the wing motor draws (40A), so current is not the constraint here. Get familiar with every component on the board, how six MOSFETs turn one DC rail into three rotating phases, what current it can actually deliver, and why the programmer is a separate snap-off board under The G431 ESC board.",
+    "crumbs": [
+      "Overview",
+      "Build modules",
+      "Module 3 --- Motor driver, sensor and serial"
+    ]
+  },
+  {
+    "objectID": "sessions/03-esc.html#flight-controller-microcontroller",
+    "href": "sessions/03-esc.html#flight-controller-microcontroller",
+    "title": "Module 3 — Motor driver, sensor and serial",
+    "section": "Flight controller microcontroller",
+    "text": "Flight controller microcontroller\nWe will use a Seeeduino XIAO nRF52840 Sense to send commands to the ESC and record information from the ESC. Why?\n\nIt is small and light. 21 × 17.5 mm and 2.4 g. On a robot that has to move, every gram saved matters.\nIt has wireless communication out of the box. The nRF52840 is a Bluetooth Low Energy chip and a microcontroller. Once the robot is sealed in Module 10 BLE becomes the only way commands to interact with the robot during operation, which is exactly how you retrieve a run in Module 11.\nIt has somewhere to put the data. 256 kB of RAM and 1 MB of flash on the chip itself are the two logging destinations used during wet testing. No SD card, no extra memory chip, nothing else to waterproof.\nOnboard IMU to log the attitude of the robot without additional components.\nIt costs 20$. In case a failure, it can be replaced.\n\nIt programs from the Arduino IDE like any other Arduino board, but we highly recommend using Visual Studio Code + PlatformIO. The reason we use PlatformIO is that it handles multiple file projects much betters, lets you use git versioning and handles library better. You also you a more peformant editor.\n\n\n\n\n\n\nFigure 4: The Seeeduino XIAO nRF52840. TX and RX are the two pads at the bottom corners — those are the ones you solder to, and they cross over to the ESC’s RX and TX respectively. The board is 21 × 17.5 mm, which is why it can ride on the robot at all.\n\n\n\n\nSolder the Seeeduino and the ESC’s Serial1: TX, RX and GND lines. In Serial communication, TX and RX are crossed, each board’s transmit line goes to the other’s receive line, as drawn in the wiring diagram in Module 3. GND is not optional: without a shared reference the two boards have no agreed voltage for what counts as a high or low bit. To do this step, you will need to desolder the existing Serial1 TX RX lines to the daughterboard.\nInstall the Seeeduino in its 3D-printed bracket and into the robot.\nLoad the barebone Arduino sketch onto the Seeeduino, see Software for the repository. First, you need Visual Studio Code and the plugin PlatformIO installed.\nModify the sketch to turn the LED on the ESC on and off via commander instructions. This confirms three things at once:\n\nYou can flash the Seeeduino.\nYou can communicate with the Seeeduino over serial.\nThe Seeeduino can communicate both ways over serial.",
+    "crumbs": [
+      "Overview",
+      "Build modules",
+      "Module 3 --- Motor driver, sensor and serial"
+    ]
+  },
+  {
+    "objectID": "sessions/03-esc.html#encoder-or-angular-sensor",
+    "href": "sessions/03-esc.html#encoder-or-angular-sensor",
+    "title": "Module 3 — Motor driver, sensor and serial",
+    "section": "Encoder (or Angular sensor)",
+    "text": "Encoder (or Angular sensor)\n\nFirst, why does the motor need an encoder?\nField-Oriented Control works by holding the stator’s magnetic field roughly 90° ahead of the rotor’s magnets, which is the orientation that produces the most torque per amp. To place the field there, the controller has to know where the rotor is right now.\nOrdinary drone ESCs infer this from back-EMF, i.e the voltage the spinning rotor induces in the phase that is not currently being driven (?@eq-bemf in Module 2). That voltage is proportional to speed, so as the motor slows the signal sinks into the noise and the estimate falls apart. This causes loss of synchronisation at low speed described in Design notes. The AS5047P removes the guess. It measures the field of the magnet bonded to the shaft end and reports the absolute angle — valid at standstill just as much as at 15 000 rpm, and correct immediately at power-on with no homing move.\n\n\nWhat SPI is, and why we run it at 10 MHz\nWe will use an AS5047P encoder. The AS5047P reports angle over SPI, a four-wire synchronous bus: the controller drives the clock (SCLK), data goes out on MOSI and comes back on MISO, and CS selects the chip. Transfer speed is limited only by how fast the two ends can shift bits. We use SPI because it offers 10 MHz communication. The reason speed matters is that the angle has to be re-read every single control loop, and a stale angle is bad: the controller ends up placing the stator field where the rotor was, not where it is. That error shows up as wasted current and audible noise. The same 10 MHz clock is why the wiring has to stay short, see below.\n\n\nWire it to the board\nThere is no SPI link exposed directly on the ESC board. The solution is to use the SPI3 bus, exposed through a few hardware modifications and matching software changes. Figure 1 shows the four signals in context, including the MOSI tap on R14.\n\n\n\n\n\n\nWarningYou lose the micro-USB serial link\n\n\n\nSerial2, used by the daughterboard for serial communication will not work anymore as we are using those pins for SPI3 for the encoder instead. Flashing the ESC still works (programming runs over SWD, on different pins) but every command and every value you read back now has to pass through serial1.\n\n\nThe encoder needs power as well as the four bus signals — six wires in total:\n\n\n\nTable 1: SPI3 connections on the G431. * This connection is on the outward side of the resistor.\n\n\n\n\n\n\nSCLK\nMISO\nMOSI\nCS\n5V\nGND\n\n\n\n\nMCU GPIO\nPB3\nPB4\nPB5\nPA15\n—\n—\n\n\nG431B pin\nJ3\nJ3\nR14*\nJ3\nJ8\nJ3\n\n\n\n\n\n\nNote that 3.3 V and GND come from different connectors. J3 carries the three bus signals and a ground, but its only supply pin is 5 V from the break-away BEC — too high for the AS5047P. The 3.3 V rail is exposed on J4, the SWD header, alongside SWDIO and SWCLK. Take power from there and ground from J3, and check both against Figure 5 before soldering.\n\n\n\n\n\n\nFigure 5: GPIOs of the G431B-ESC1 board. J3 carries SCLK, MISO, PA15 and GND; the 3.3 V rail is on the J4 SWD header.\n\n\n\n\n\n\n\n\n\nWarningKeep the SPI cables under 8 cm\n\n\n\nCables between encoder and ESC need to be less than 8 cm. At 10 MHz longer runs start corrupting angle readings, and the symptom is a motor that behaves erratically rather than a sensor that obviously fails.\n\n\nNext, use M2 screws to mount the encoder on the 3D printed bracket that sits around the motor. Check that the distance between sensor and magnet is 0.5 mm, and centered.",
+    "crumbs": [
+      "Overview",
+      "Build modules",
+      "Module 3 --- Motor driver, sensor and serial"
+    ]
+  },
+  {
+    "objectID": "sessions/03-esc.html#how-to-program-the-esc",
+    "href": "sessions/03-esc.html#how-to-program-the-esc",
+    "title": "Module 3 — Motor driver, sensor and serial",
+    "section": "How to program the ESC",
+    "text": "How to program the ESC\nWith the encoder and motor connected to the ESC, we can start programing the ESC! Remap the pins in software for SPI use: in platformio.ini via build_flags, and by overwriting the WEAK PinMaps in pinmap_custom.h. See commit 18520ac on GitHub for details.",
+    "crumbs": [
+      "Overview",
+      "Build modules",
+      "Module 3 --- Motor driver, sensor and serial"
+    ]
+  },
+  {
+    "objectID": "sessions/03-esc.html#firmware",
+    "href": "sessions/03-esc.html#firmware",
+    "title": "Module 3 — Motor driver, sensor and serial",
+    "section": "Firmware",
+    "text": "Firmware\nThe ESC is pre-flashed for you Code for the B-G431B-ESC1 motor controller, using the SimpleFOC library, is in the lab repository: FAAV-G431-ESC. See Software for all repositories.\nBefore you change anything in there, read How SimpleFOC works. It covers the two nested loops, what the FOC maths does each iteration, why the motor twitches at power-on, and which settings in the sketch matter — enough to read the firmware rather than guess at it.\n\n\n\n\n\n\nWarningCareful when changing control mode\n\n\n\nT means something different in each mode, position, velocity, or torque. Sending a velocity setpoint while in torque mode will do something you did not intend, with the wings attached. BE VERY CAREFUL ABOUT THIS.\n\n\n\n\n\n\n\n\nNoteCheckpoint\n\n\n\nCommander responds to ? over serial at 115200 baud, L toggles the onboard LED, the sensor returns a plausible angle through a full manual rotation, and the motor spins under a T command.\n\n\n\n\n\n\n\n\nImportantTo be prepared by the instructor before the session\n\n\n\nPre-flahs Prepare a power source 15V 5A over USB-C.",
+    "crumbs": [
+      "Overview",
+      "Build modules",
+      "Module 3 --- Motor driver, sensor and serial"
+    ]
+  },
+  {
+    "objectID": "sessions/05-frame-crank.html",
+    "href": "sessions/05-frame-crank.html",
+    "title": "Module 5 — Frame, crank, linkage and gears",
+    "section": "",
+    "text": "We assemble the carbon frame, the CNC-cut crank and linkage, the gears, and the full mechanical integration that turns motor rotation into flapping. Flapping amplitude is fixed by this design to 60 degrees 1 — 34° up and 26° down, as laid out in Figure 2.",
+    "crumbs": [
+      "Overview",
+      "Build modules",
+      "Module 5 --- Frame, crank, linkage and gears"
+    ]
+  },
+  {
+    "objectID": "sessions/05-frame-crank.html#what-you-build-today",
+    "href": "sessions/05-frame-crank.html#what-you-build-today",
+    "title": "Module 5 — Frame, crank, linkage and gears",
+    "section": "",
+    "text": "We assemble the carbon frame, the CNC-cut crank and linkage, the gears, and the full mechanical integration that turns motor rotation into flapping. Flapping amplitude is fixed by this design to 60 degrees 1 — 34° up and 26° down, as laid out in Figure 2.",
+    "crumbs": [
+      "Overview",
+      "Build modules",
+      "Module 5 --- Frame, crank, linkage and gears"
+    ]
+  },
+  {
+    "objectID": "sessions/05-frame-crank.html#before-you-arrive",
+    "href": "sessions/05-frame-crank.html#before-you-arrive",
+    "title": "Module 5 — Frame, crank, linkage and gears",
+    "section": "Before you arrive",
+    "text": "Before you arrive\n\n\n\n\n\n\n\nParts\n5 mm aluminium link and crank, 2 gears, bearings, M2×4 screws\n\n\nTools\ndrill press, metal glue\n\n\nRead\nThis page",
+    "crumbs": [
+      "Overview",
+      "Build modules",
+      "Module 5 --- Frame, crank, linkage and gears"
+    ]
+  },
+  {
+    "objectID": "sessions/05-frame-crank.html#main-body",
+    "href": "sessions/05-frame-crank.html#main-body",
+    "title": "Module 5 — Frame, crank, linkage and gears",
+    "section": "Main body",
+    "text": "Main body\nThe main body is a carbon sandwich, spaced 24 mm apart. The plates are CNC-cut from woven 1.5 mm plates. The top and bottom plates are identical, except for the chamfers needed for the M2 screws. The screws holding plate to plate are M2×4, screwing into brass inserts.\n\n\n\n\n\n\nFigure 1: Main carbon frame",
+    "crumbs": [
+      "Overview",
+      "Build modules",
+      "Module 5 --- Frame, crank, linkage and gears"
+    ]
+  },
+  {
+    "objectID": "sessions/05-frame-crank.html#crank-and-linkage",
+    "href": "sessions/05-frame-crank.html#crank-and-linkage",
+    "title": "Module 5 — Frame, crank, linkage and gears",
+    "section": "Crank and linkage",
+    "text": "Crank and linkage\n\n\n\n\n\n\nFigure 2: The transmission, exploded, with the length that matters and the material for each part. Follow it left to right: the gearbox output turns the crank, the crank drives the linkage, and the linkage swings the inter-wing gear. The 34° up and −26° down at the right are where the 60° flapping amplitude comes from — it is set here, by these lengths, and cannot be changed in software.\n\n\n\nThe dimensions called out in Figure 2 are the ones you cut to:\n\n\n\nTable 1: Crank–linkage dimensions\n\n\n\n\n\n\nCrank-linkage dimensions\n\n\n\n\nCrank radius\n4.5 mm\n\n\nLinkage length\n24 mm\n\n\nCrank–linkage shaft diameter\n4 mm\n\n\nBearing, crank side\n10×4×4\n\n\nBearing, wing side\n8×3×4 flanged\n\n\n\n\n\n\nBoth the crank and linkage are CNC-cut in a 5 mm aluminium plate.\nOnce cut:\n\nCarefully tap an M3 thread. Use cutting oil and make sure to break off the chips.\n\n\n\n\n\n\nWarningThis thread carries high forces\n\n\n\nIt must be done carefully, keeping the alignment between hole and tap.\n\n\nPress the bearings into the linkage. They may need to be bonded with metal glue if the press fit is not good enough.\nJoin the crank and linkage with a short 4 mm shaft, cut to 9.5 mm. The bearing is kept from coming out with a pointy indent on the shaft end. (To be improved.)\n\n\n\n\n\n\n\nWarningAlignment of the linkage, perpendicular to the shafts, is extremely important\n\n\n\nAn offset of 1 mm is sufficient to destroy the crank-link in a few strokes.\n\n\nFigure 3 shows how the four shafts for the FAAV3.2 should be manufactured. Nothing exotic, but they need to be accurate.\n\n\n\n\n\n\n\n\nTransmission, top view\n\n\n\n\n\n\n\nShaft dimensions\n\n\n\n\n\n\nFigure 3\n\n\n\nThe 3 mm shafts are pressed through the two gears’ centre holes. Should be a mildly tight fit at minimum, otherwise glue the shaft. Same for the linkage shaft (also 3 mm).\nBetween the gears, a clearance of 0.4 mm (inter-axis spacing of 25.4 mm) ensures proper operation without too much backlash.\n\n\n\n\n\n\nTransmission assembled\n\n\n\n\n\n\n\nTransmission, second view\n\n\n\n\n\n\n\n\n\n\n\nNoteCheckpoint\n\n\n\nFrame assembled, crank–linkage rotating freely through a full cycle with no binding, linkage visibly perpendicular to the shafts, and gear backlash checked. Flapping shown at 1-5 Hz.",
+    "crumbs": [
+      "Overview",
+      "Build modules",
+      "Module 5 --- Frame, crank, linkage and gears"
+    ]
+  },
+  {
+    "objectID": "sessions/05-frame-crank.html#footnotes",
+    "href": "sessions/05-frame-crank.html#footnotes",
+    "title": "Module 5 — Frame, crank, linkage and gears",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nLapsansky AB, Zatz D, Tobalske BW (2020). Alcids ‘fly’ at efficient Strouhal numbers in both air and water but vary stroke velocity and angle. eLife 9:e55774.↩︎",
+    "crumbs": [
+      "Overview",
+      "Build modules",
+      "Module 5 --- Frame, crank, linkage and gears"
+    ]
+  },
+  {
+    "objectID": "sessions/07-wings.html",
+    "href": "sessions/07-wings.html",
+    "title": "Module 7 — Wing fabrication",
+    "section": "",
+    "text": "Both wings: carbon skeleton, membrane cut to the geometry you chose in Module 6, bonded and stitched at the load-bearing points.",
+    "crumbs": [
+      "Overview",
+      "Build modules",
+      "Module 7 --- Wing fabrication"
+    ]
+  },
+  {
+    "objectID": "sessions/07-wings.html#what-you-build-today",
+    "href": "sessions/07-wings.html#what-you-build-today",
+    "title": "Module 7 — Wing fabrication",
+    "section": "",
+    "text": "Both wings: carbon skeleton, membrane cut to the geometry you chose in Module 6, bonded and stitched at the load-bearing points.",
+    "crumbs": [
+      "Overview",
+      "Build modules",
+      "Module 7 --- Wing fabrication"
+    ]
+  },
+  {
+    "objectID": "sessions/07-wings.html#before-you-arrive",
+    "href": "sessions/07-wings.html#before-you-arrive",
+    "title": "Module 7 — Wing fabrication",
+    "section": "Before you arrive",
+    "text": "Before you arrive\n\n\n\n\n\n\n\nParts\nCarbon rods and strips, wing roots, 2× nylon adapters per wing, ripstop nylon membrane, 3M tape, superglue, thread\n\n\nTools\nCutting mat, steel rule, scalpel, needle, printed full-size template of your geometry\n\n\nBring\nYour Module 6 geometry, printed 1:1",
+    "crumbs": [
+      "Overview",
+      "Build modules",
+      "Module 7 --- Wing fabrication"
+    ]
+  },
+  {
+    "objectID": "sessions/07-wings.html#wing-roots",
+    "href": "sessions/07-wings.html#wing-roots",
+    "title": "Module 7 — Wing fabrication",
+    "section": "Wing roots",
+    "text": "Wing roots\nThe wing roots are carbon, drilled to mate with the gears from Module 5.\n\n\n\n\n\n\nFigure 1: Wing root parts and spar stock",
+    "crumbs": [
+      "Overview",
+      "Build modules",
+      "Module 7 --- Wing fabrication"
+    ]
+  },
+  {
+    "objectID": "sessions/07-wings.html#building-the-wing",
+    "href": "sessions/07-wings.html#building-the-wing",
+    "title": "Module 7 — Wing fabrication",
+    "section": "Building the wing",
+    "text": "Building the wing\nThe whole wing is built over the printed pattern, working from the leading edge outwards. Everything is cut oversize and trimmed to the outline at the very end — margin is easy to remove and impossible to add back.\n\nDecide on the shape and print the pattern on paper. Print it 1:1 — check the scale before you cut anything, by measuring a known dimension on the printout against a rule. Printer drivers scale to fit by default, and a pattern that came out at 97% quietly discards the geometry you chose in Module 6.\nCut two membranes with a 3 cm margin all round the pattern. Use the ripstop nylon listed in Parts.\nBond the leading edge. Lay a strip of 3M tape along the leading-edge region of the membrane, press the leading-edge rod down onto the tape, and wrap the membrane around the rod. This joint carries the highest load of any on the wing — everything downstream pulls against it.\nLay out the carbon strips. Cut each to approximate length plus 3 cm, position them on the membrane over the pattern, and bond them with superglue.\nStitch the strips down, at minimum at every intersection point and at the extremities. Superglue alone will peel off the membrane under repeated flapping; the stitches are what keep the skeleton attached once the glue starts to fail.\nTrim the excess beyond the outline with a blade, cutting on the mat.\n\n\n\n\n\n\n\nStrips laid out and bonded over the template\n\n\n\n\n\n\n\nTrimming the membrane to the outline\n\n\n\n\n\nRepeat for the second wing, and remember that it is flipped.\n\n\n\n\n\n\nFigure 2: Completed wing pair",
+    "crumbs": [
+      "Overview",
+      "Build modules",
+      "Module 7 --- Wing fabrication"
+    ]
+  },
+  {
+    "objectID": "sessions/07-wings.html#assembly",
+    "href": "sessions/07-wings.html#assembly",
+    "title": "Module 7 — Wing fabrication",
+    "section": "Assembly",
+    "text": "Assembly\n\nMount each wing in its wing root using the two nylon adapters.\nMount the wing roots in the robot, onto the gears from Module 5.\nCheck that it flaps. Run it slowly first and watch both wings through a full cycle before going any faster.\n\n\n\n\n\n\n\nWarningBoth wings must match\n\n\n\nAsymmetry between left and right shows up as a roll bias that may not be possible to correct later. See Module 11 for trimming out. Weigh both wings and compare spar positions against the template before bonding.\n\n\n\n\n\n\n\n\nImportantTo be completed by the instructor\n\n\n\nStill missing from the procedure above:\n\nWhich 3M tape — the parts list says VHB, the width and where exactly it lands on the leading edge are not recorded\nSpar layup: rod and strip diameters, and where the diagonals attach\nWhat to stitch with — thread type and stitch spacing\nNumerical tolerance between left and right wing, for the check below\n\n\n\n\n\n\n\n\n\nNoteCheckpoint\n\n\n\nBoth wings complete, matched in mass and geometry, mounted in their roots and fitted to the robot, and flapping through a full cycle without binding.",
+    "crumbs": [
+      "Overview",
+      "Build modules",
+      "Module 7 --- Wing fabrication"
+    ]
+  },
+  {
+    "objectID": "sessions/09-electronics-dry-test.html",
+    "href": "sessions/09-electronics-dry-test.html",
+    "title": "Module 9 — Flight controller, PCB and dry testing",
+    "section": "",
+    "text": "The custom PCB assembled and validated, the flight controller flashed and talking to the ESC, and the robot flapping in air under wireless control.",
+    "crumbs": [
+      "Overview",
+      "Build modules",
+      "Module 9 --- Flight controller, PCB and dry testing"
+    ]
+  },
+  {
+    "objectID": "sessions/09-electronics-dry-test.html#what-you-build-today",
+    "href": "sessions/09-electronics-dry-test.html#what-you-build-today",
+    "title": "Module 9 — Flight controller, PCB and dry testing",
+    "section": "",
+    "text": "The custom PCB assembled and validated, the flight controller flashed and talking to the ESC, and the robot flapping in air under wireless control.",
+    "crumbs": [
+      "Overview",
+      "Build modules",
+      "Module 9 --- Flight controller, PCB and dry testing"
+    ]
+  },
+  {
+    "objectID": "sessions/09-electronics-dry-test.html#before-you-arrive",
+    "href": "sessions/09-electronics-dry-test.html#before-you-arrive",
+    "title": "Module 9 — Flight controller, PCB and dry testing",
+    "section": "Before you arrive",
+    "text": "Before you arrive\n\n\n\n\n\n\n\nParts\nSeeeduino XIAO, connectors, battery\n\n\nTools\nHotplate, tweezers, multimeter, bench supply with current limit\n\n\nRead\nThis page",
+    "crumbs": [
+      "Overview",
+      "Build modules",
+      "Module 9 --- Flight controller, PCB and dry testing"
+    ]
+  },
+  {
+    "objectID": "sessions/09-electronics-dry-test.html#flight-controller",
+    "href": "sessions/09-electronics-dry-test.html#flight-controller",
+    "title": "Module 9 — Flight controller, PCB and dry testing",
+    "section": "Flight controller",
+    "text": "Flight controller\n\n\n\n\n\n\nFigure 1: Microcontroller in its waterproofing box\n\n\n\nFirmware lives in FAAV-Flight-Controller",
+    "crumbs": [
+      "Overview",
+      "Build modules",
+      "Module 9 --- Flight controller, PCB and dry testing"
+    ]
+  },
+  {
+    "objectID": "sessions/09-electronics-dry-test.html#dry-testing",
+    "href": "sessions/09-electronics-dry-test.html#dry-testing",
+    "title": "Module 9 — Flight controller, PCB and dry testing",
+    "section": "Dry testing",
+    "text": "Dry testing\n\n\n\n\n\n\nImportantTBC\n\n\n\nThe dry-test protocol is course material, not in the guide. Needed: what the robot is mounted on while flapping in air, the flap frequency sweep, what is measured, the wireless control setup students reprogram to, and abort criteria.\n\n\n\n\n\n\n\n\nNoteCheckpoint\n\n\n\nFlight controller commanding the ESC over serial, and a supervised flapping run in air.",
+    "crumbs": [
+      "Overview",
+      "Build modules",
+      "Module 9 --- Flight controller, PCB and dry testing"
+    ]
+  },
+  {
+    "objectID": "sessions/11-wet-testing.html",
+    "href": "sessions/11-wet-testing.html",
+    "title": "Module 11 — Wet testing",
+    "section": "",
+    "text": "Immersion, underwater runs, wing and tail trim, and a logged cost-of-transport measurement.",
+    "crumbs": [
+      "Overview",
+      "Build modules",
+      "Module 11 --- Wet testing"
+    ]
+  },
+  {
+    "objectID": "sessions/11-wet-testing.html#what-you-do-today",
+    "href": "sessions/11-wet-testing.html#what-you-do-today",
+    "title": "Module 11 — Wet testing",
+    "section": "",
+    "text": "Immersion, underwater runs, wing and tail trim, and a logged cost-of-transport measurement.",
+    "crumbs": [
+      "Overview",
+      "Build modules",
+      "Module 11 --- Wet testing"
+    ]
+  },
+  {
+    "objectID": "sessions/11-wet-testing.html#before-you-arrive",
+    "href": "sessions/11-wet-testing.html#before-you-arrive",
+    "title": "Module 11 — Wet testing",
+    "section": "Before you arrive",
+    "text": "Before you arrive\n\n\n\nBring\nFully waterproofed robot from Module 10, charged 4S pack, spare crank–linkage shaft\n\n\nTools\nRetrieval poles and towels are at the tank — see Tank rules\n\n\nRead\nThis page, and your notes from Module 4",
+    "crumbs": [
+      "Overview",
+      "Build modules",
+      "Module 11 --- Wet testing"
+    ]
+  },
+  {
+    "objectID": "sessions/11-wet-testing.html#pre-immersion-checks",
+    "href": "sessions/11-wet-testing.html#pre-immersion-checks",
+    "title": "Module 11 — Wet testing",
+    "section": "Pre-immersion checks",
+    "text": "Pre-immersion checks\n\nStatic immersion test from Module 10 passed\nConnector closed. USB-C port sealed\nWatchdog enabled on the ESC (W) - target drops to zero if commands stop\nRobot floats level. If not, add floats.",
+    "crumbs": [
+      "Overview",
+      "Build modules",
+      "Module 11 --- Wet testing"
+    ]
+  },
+  {
+    "objectID": "sessions/11-wet-testing.html#the-tank",
+    "href": "sessions/11-wet-testing.html#the-tank",
+    "title": "Module 11 — Wet testing",
+    "section": "The tank",
+    "text": "The tank\nTesting happens in the AURA Lab tank. The gantry along the near rail and the cameras overhead are part of the measurement setup, not scenery — the ceiling cameras are what track your robot for the cost-of-transport number below.\n\n\n\n\n\n\nFigure 1: The AURA Lab tank. The rail and gantry run the length of the near side; the tracking cameras are mounted overhead.\n\n\n\n\n\n\n\n\n\nWarningTank rules\n\n\n\nNobody gets in the tank. Not to retrieve a robot, not to reposition it, not for a moment. Use the poles to fish the robot back to the edge.\nKeep water off the floor. Water on the floor sets off an alarm, which ends the session for everyone. Lift the robot out over the tank and let it drain there rather than carrying it dripping, and keep towels to hand for what gets past you. Dry the floor immediately if it happens.",
+    "crumbs": [
+      "Overview",
+      "Build modules",
+      "Module 11 --- Wet testing"
+    ]
+  },
+  {
+    "objectID": "sessions/11-wet-testing.html#what-to-log",
+    "href": "sessions/11-wet-testing.html#what-to-log",
+    "title": "Module 11 — Wet testing",
+    "section": "What to log",
+    "text": "What to log\nEvery run should record, at minimum:\n\nPower consumption — the numerator of cost of transport\nIMU data — attitude and acceleration through the run\nFlapping frequency — the input you are varying\n\nSince underwater we lose wireless communication, the data needs to be recorded and streamed back wirelessly after the run. You have two places to record data on the flight controller, and the choice matters more than it looks:\n\n\n\n\nRAM\nFlash\n\n\n\n\nSurvives power loss\nNo\nYes\n\n\nSpeed\nFast, no wear\nSlower, finite write cycles\n\n\nUse it for\nThe normal case\nRuns you cannot afford to repeat\n\n\n\nThe normal workflow is log to RAM during the run, then broadcast over BLE once the robot is out of the water. Nothing has to be opened and nothing has to be plugged in, which is the whole point: the board is potted from Module 10 and there is no connector to reach.\n\n\n\n\n\n\nWarningRAM is lost the moment power goes\n\n\n\nA brownout, a watchdog reset, or an accidental disconnect takes the whole run with it. Broadcast the data before you change the battery, not after - and if a run is expensive to repeat, write it to flash instead.",
+    "crumbs": [
+      "Overview",
+      "Build modules",
+      "Module 11 --- Wet testing"
+    ]
+  },
+  {
+    "objectID": "sessions/11-wet-testing.html#housing",
+    "href": "sessions/11-wet-testing.html#housing",
+    "title": "Module 11 — Wet testing",
+    "section": "Housing",
+    "text": "Housing\nDesign and 3D-print an exterior housing to ensure neutral buoyancy as needed. Foam can also be used.",
+    "crumbs": [
+      "Overview",
+      "Build modules",
+      "Module 11 --- Wet testing"
+    ]
+  },
+  {
+    "objectID": "sessions/11-wet-testing.html#trim",
+    "href": "sessions/11-wet-testing.html#trim",
+    "title": "Module 11 — Wet testing",
+    "section": "Trim",
+    "text": "Trim\nTwo independent adjustments, both mechanical. Change one at a time and do a run between them, or you will not know which one did what.\n\nWing trim\nWing trim is adjusted at the trailing edge.\n\n\n\n\n\n\nImportantTo be completed by the instructor\n\n\n\nThe trailing-edge trim part itself is not designed yet — decide what it is, how it mounts, and what range of adjustment it gives. Until then this step cannot be written as a procedure, and students have nothing to adjust against.\n\n\n\n\nTail trim\nTail trim is manual: bend and twist the tail by hand. Bending sets pitch, twisting sets roll. Work in small increments and expect to go back and forth - there is no scale and no reference mark, so your own logged runs are the only feedback you have.",
+    "crumbs": [
+      "Overview",
+      "Build modules",
+      "Module 11 --- Wet testing"
+    ]
+  },
+  {
+    "objectID": "sessions/11-wet-testing.html#cost-of-transport",
+    "href": "sessions/11-wet-testing.html#cost-of-transport",
+    "title": "Module 11 — Wet testing",
+    "section": "Cost of transport",
+    "text": "Cost of transport\nCost of transport is the score in Module 12, so measure it the same way every time:\n\\[\\mathrm{COT} = \\frac{P}{m \\, g \\, v} \\tag{1}\\]\nwith \\(P\\) the average electrical power over the run, \\(m\\) the robot’s mass, and \\(v\\) its average forward speed. It is dimensionless, and lower is better.\nYou get the two halves from two different places:\n\nPower, onboard. From the logged consumption above, averaged over the steady part of the run — not the acceleration at the start.\nSpeed, from the ceiling cameras. The overhead tracking in Figure 1 gives position against time, which is the honest way to get \\(v\\); timing it by eye across the tank is not good enough for a scored number.\n\nTake both from the same window of the same run. Averaging power over one interval and speed over another is the most common way this number comes out wrong.\n\n\n\n\n\n\nImportantTBC\n\n\n\nStill missing from the protocol:\n\nRun profile — depth, duration, and the flap-frequency sweep to cover\nAbort procedure — what conditions end a run early, and what the student does at the tank edge when they do\nCamera tracking, practically — how a team starts a capture, and in what form the position data comes back\n\n\n\n\n\n\n\n\n\nNoteCheckpoint\n\n\n\nA completed underwater run with power, IMU and flapping frequency logged and successfully retrieved over BLE, no water ingress on inspection afterwards, and a cost-of-transport figure computed from Equation 1 with the camera-derived speed.",
+    "crumbs": [
+      "Overview",
+      "Build modules",
+      "Module 11 --- Wet testing"
+    ]
+  }
+]

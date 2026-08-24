@@ -1,0 +1,99 @@
+---
+title: "Module 5 --- Frame, crank, linkage and gears"
+---
+
+## What you build today
+
+We assemble the carbon frame, the CNC-cut crank and linkage, the gears, and the full
+mechanical integration that turns motor rotation into flapping. Flapping
+amplitude is fixed by this design to **60 degrees** [^lapsansky] --- 34° up and
+26° down, as laid out in @fig-transmission-exploded.
+
+[^lapsansky]: Lapsansky AB, Zatz D, Tobalske BW (2020). [Alcids 'fly' at efficient Strouhal numbers in both air and water but vary stroke velocity and angle](https://doi.org/10.7554/eLife.55774). *eLife* **9**:e55774.
+
+## Before you arrive
+
+| | |
+|---|---|
+| **Parts** | 5 mm aluminium link and crank, 2 gears, bearings, M2×4 screws |
+| **Tools** | drill press, metal glue |
+| **Read** | This page |
+
+## Main body
+
+The main body is a carbon sandwich, spaced **24 mm** apart. The plates are
+CNC-cut from woven 1.5 mm plates. The top and bottom plates are
+identical, except for the chamfers needed for the M2 screws. The screws holding
+plate to plate are **M2×4**, screwing into brass inserts.
+
+![Main carbon frame](/Fig/body1.jpg){#fig-frame width=55%}
+
+## Crank and linkage
+
+![The transmission, exploded, with the length that matters and the material for each part. Follow it left to right: the gearbox output turns the crank, the crank drives the linkage, and the linkage swings the inter-wing gear. The **34°** up and **−26°** down at the right are where the 60° flapping amplitude comes from --- it is set here, by these lengths, and cannot be changed in software.](/Fig/transmission-exploded.png){#fig-transmission-exploded width="100%"}
+
+The dimensions called out in @fig-transmission-exploded are the ones you cut to:
+
+| | Crank-linkage dimensions |
+|---|---|
+| Crank radius | 4.5 mm |
+| Linkage length | 24 mm |
+| Crank–linkage shaft diameter | 4 mm |
+| Bearing, crank side | 10×4×4 |
+| Bearing, wing side | 8×3×4 flanged |
+
+: Crank–linkage dimensions {#tbl-crank}
+
+Both the crank and linkage are CNC-cut in a 5 mm aluminium plate. 
+
+Once cut:
+
+1. Carefully tap an **M3** thread. Use cutting oil and make sure to break off
+   the chips.
+
+   ::: {.callout-warning}
+   ## This thread carries high forces
+
+   It **must** be done carefully, keeping the alignment between hole and tap.
+   :::
+
+2. Press the bearings into the linkage. They may need to be bonded with metal
+   glue if the press fit is not good enough.
+3. Join the crank and linkage with a short 4 mm shaft, cut to **9.5 mm**.
+   The bearing is kept from coming out with a pointy indent on the shaft end.
+   *(To be improved.)*
+
+::: {.callout-warning}
+### Alignment of the linkage, perpendicular to the shafts, is extremely important
+
+An offset of **1 mm** is sufficient to destroy the crank-link in a few strokes.
+:::
+
+@fig-shafts shows how the four shafts for the FAAV3.2 should be manufactured.
+Nothing exotic, but they need to be accurate.
+
+::: {#fig-shafts layout-ncol=2}
+![Transmission, top view](/Fig/transmissiontopview.jpg)
+
+![Shaft dimensions](/Fig/shafts.jpg)
+
+## Gears
+:::
+The 3 mm shafts are pressed through the two gears' centre holes. Should be a mildly
+tight fit at minimum, otherwise glue the shaft. Same for the linkage shaft
+(also 3 mm).
+
+Between the gears, a clearance of **0.4 mm** (inter-axis spacing of 25.4 mm)
+ensures proper operation without too much backlash.
+
+::: {layout-ncol=2}
+![Transmission assembled](/Fig/transmission.jpg)
+
+![Transmission, second view](/Fig/transmission2.jpg)
+:::
+
+::: {.callout-note}
+## Checkpoint
+Frame assembled, crank–linkage rotating freely through a full cycle with no
+binding, linkage visibly perpendicular to the shafts, and gear backlash checked. Flapping shown at 1-5 Hz.
+:::

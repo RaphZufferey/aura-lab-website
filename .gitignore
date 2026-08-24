@@ -1,0 +1,8 @@
+# Build directory for the manual's `pdf` profile (faav-manual/_quarto-pdf.yml).
+# Intermediate only: the artefact that ships is
+# faav-manual/files/faav-build-manual.pdf, copied out of here before the website
+# render so the site publishes it as a resource.
+/manual-pdf/
+
+/.quarto/
+**/*.quarto_ipynb

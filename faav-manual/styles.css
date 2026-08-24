@@ -1,0 +1,22 @@
+/* Deliberately minimal --- this is the stock Quarto docs look. */
+
+/* Shop photos carry most of the information; keep them large but bounded. */
+.quarto-figure img {
+  max-height: 34rem;
+  border-radius: 4px;
+}
+
+/* Dimension and parts tables read better with aligned digits. */
+table {
+  font-variant-numeric: tabular-nums;
+}
+
+/* The header block at the top of each build module. The class name keeps its
+   original spelling so the folder, URLs and this hook stay in step. */
+.session-meta {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  border-left: 3px solid var(--bs-primary, #2780e3);
+  padding-left: 0.75rem;
+  margin-bottom: 1.5rem;
+}

@@ -1,0 +1,151 @@
+---
+title: "The G431 ESC board"
+---
+
+Background on the **B-G431B-ESC1**, the board you rework and flash in
+[Module 3](/sessions/03-esc.qmd). What is on it, how it turns a DC battery into
+three moving phases, what it can drive, and why it arrives in two pieces.
+
+## What it is
+
+ST sells this as a *Discovery kit*: a reference design showing what their
+STM32G431 can do in a motor-control role, in the physical form of a drone ESC.
+That origin explains most of its oddities. A hobby ESC exposes a signal wire and
+two power leads because that is all a flight controller needs; this board brings
+out a CAN bus, a potentiometer input, a hall-sensor connector and a debug
+header, because its job is to demonstrate everything the chip supports.
+
+For us the consequence is good and bad in equal measure. Good: the silicon is
+open, we can run our own firmware ([SimpleFOC](/reference/simple-foc.qmd)) and
+we get real current sensing. Bad: several connectors are wired for uses we do
+not want, which is why [Module 3](/sessions/03-esc.qmd) spends its time
+repurposing them.
+
+![The power stage. The six large flat packages are the MOSFETs, in three pairs; the copper tabs on the left are the U, V and W phase outputs.](/Fig/g431-power-stage.jpg){#fig-power-stage width="75%"}
+
+## The parts that matter
+
+| Block | Part | Notes |
+|---|---|---|
+| Microcontroller | **STM32G431CB** | 170 MHz Cortex-M4 with FPU, 128 kB flash, 32 kB RAM |
+| Power switches | **6 × STL180N6F7** | 60 V N-channel MOSFETs, very low on-resistance |
+| Gate drivers | **L6387** | Three half-bridge drivers, one per phase |
+| Current sensing | **Three shunts** | Low-side, amplified into the MCU's ADCs |
+| Programmer | **ST-LINK/V2-1** | On the detachable daughterboard |
+
+Sources: ST's [product page](https://www.st.com/en/evaluation-tools/b-g431b-esc1.html)
+and data brief.
+
+The MCU is the interesting choice. FOC recomputes the field orientation every
+control loop, and each iteration costs a handful of trigonometric evaluations
+(see [How SimpleFOC works](/reference/simple-foc.qmd)). At 170 MHz with hardware
+floating point that fits comfortably inside a 10 kHz loop. A hobby ESC's 8-bit
+microcontroller could not do this arithmetic in the time available, which is
+precisely why hobby ESCs use the cruder back-EMF scheme instead.
+
+## How the three phases are generated
+The battery supplies one DC voltage. The motor needs three voltages that vary
+smoothly and stay 120° apart. The bridge between the two is built from three
+identical circuits.
+
+**One half-bridge per phase.** Each phase output connects to two MOSFETs in
+series across the battery: a **high-side** switch to the positive rail and a
+**low-side** switch to ground. Closing the high side pulls that phase to battery
+voltage; closing the low side pulls it to zero. Three phases, three pairs, six
+transistors --- the six packages in @fig-power-stage.
+
+**PWM makes the intermediate values.** A switch is either on or off, so a
+half-bridge can only output the full rail or nothing. Switching between them
+tens of thousands of times a second and varying the *fraction* of time spent
+high produces any average voltage in between. 50% duty gives half the rail. The
+motor's own winding inductance does the smoothing: it resists rapid current
+changes, so it responds to the average and largely ignores the switching.
+
+**Three of them, offset, make a rotating field.** Drive the three duty cycles as
+sinusoids 120° apart and the three phase voltages produce a magnetic field that
+sweeps steadily around the stator. Advance the sinusoids faster and the field
+rotates faster. This is what `driver.setPwm(Ua, Ub, Uc)` at the bottom of
+[SimpleFOC's inner loop](/reference/simple-foc.qmd) is ultimately setting.
+
+::: {.callout-warning}
+## Both switches in a pair must never be on together
+
+High and low side closed at once is a direct short across the battery through
+two transistors --- called **shoot-through**, and it destroys the pair in
+microseconds. The hardware inserts a **dead time**: a brief interval where both
+are off during every transition. It is handled by the gate drivers and the
+MCU's timer, so you will not code it, but it is why the two switches of a pair
+are never driven by a single signal.
+:::
+
+**Current sensing closes the loop.** A small-value **shunt resistor** sits in
+each phase's low-side return path. The voltage across it is proportional to the
+current through that phase; the MCU amplifies and samples it. Three shunts mean
+all three phase currents are visible, which is what makes true FOC current
+control possible rather than voltage-mode approximation. Without this
+measurement you can ask for a torque; with it you can *regulate* one.
+
+## What it can drive
+
+| | |
+|---|---|
+| Input voltage | **3S to 6S** LiPo (roughly 11--25 V) |
+| Peak current | **40 A**, with forced-air cooling |
+| Protection | Overcurrent, overvoltage and thermal, on-board |
+
+Two cautions about that 40 A. It is a **peak** figure, and it assumes **forced
+air** --- a fan, or a drone's propwash. Our robot has neither, and it spends
+much of its life underwater with the board sealed inside potting compound
+([Module 10](/sessions/10-waterproofing.qmd)), so heat leaves slowly and only by
+conduction. Treat 40 A as a number describing the silicon, not a budget you may
+spend.
+
+In practice this is not the binding constraint. The wing motor draws far less
+than the board can supply, so the limits you will actually meet are the motor's
+own thermal limit and sensor lag, not the ESC's. The relevant discussion is in
+[Brushless motors](/reference/bldc.qmd) and
+[Module 4](/sessions/04-control.qmd).
+
+## Why there is a daughterboard
+
+The small board at the end is a complete **ST-LINK/V2-1** programmer and debug
+probe. It is separated from the power board by a line of perforations and is
+meant to be snapped off.
+
+That design makes sense for ST's intended user: develop with the programmer
+attached, then break it away so the flight-ready ESC is smaller and lighter, and
+reuse the same programmer on the next board. It carries two things:
+
+- **SWD** --- the debug and programming interface, used to flash the MCU
+- **A virtual COM port** --- a USB serial bridge onto one of the MCU's UARTs
+
+::: {.callout-important}
+## Do not snap it off
+
+Once separated, reprogramming needs an external programmer wired to the SWD
+pads by hand. We keep it attached for the whole course. This is also why the
+board is larger than a hobby ESC of equivalent power --- roughly half of what
+you are holding is the programmer.
+:::
+
+The virtual COM port is where [Module 3](/sessions/03-esc.qmd) runs into
+trouble. Out of the box it is wired to the MCU's **USART2**, on pins that the
+board also uses for the hall-sensor connector. Those same pins are the SPI3 bus
+we need for the AS5047P encoder, and an encoder is not optional for FOC. So the
+pins go to the encoder, USART2 stops being reachable over USB, and serial has to
+be re-routed --- either onto USART1 by rework, or off-board entirely to the
+Seeeduino. Flashing is unaffected throughout, because SWD runs on different
+pins.
+
+## What we do not use
+
+- **CAN transceiver.** Present and functional; our robot uses BLE from the
+  flight controller instead.
+- **Potentiometer input.** An analog throttle knob for bench demonstrations.
+- **Hall-sensor connector (J8).** Intended for the three digital hall sensors
+  built into many BLDC motors. Ours has none, and hall sensors would be too
+  coarse anyway --- six positions per electrical revolution, against the
+  AS5047P's continuous absolute angle. The connector gets repurposed for serial.
+
+Sources: [ST B-G431B-ESC1 product page](https://www.st.com/en/evaluation-tools/b-g431b-esc1.html),
+[data brief](https://www.st.com/resource/en/data_brief/b-g431b-esc1.pdf).

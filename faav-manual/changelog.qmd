@@ -1,0 +1,23 @@
+---
+title: "Changelog"
+---
+
+Corrections and additions published during the semester, newest first.
+
+If you are working from a printed copy, check this page before each module.
+Changes that affect a step you may already have completed are marked in
+**bold**.
+
+::: {.callout-tip}
+## For maintainers
+
+One row per change: date, page, what changed, and whether teams need to redo
+anything. Do not edit a step silently --- a dated entry is what lets a student
+at the bench trust the rest of the page.
+:::
+
+## fall-2026
+
+| Date | Page | Change | Action needed |
+|---|---|---|---|
+| — | — | Manual published for the Fall 2026 cohort, derived from *FAAV Manufacturing Guide* v4.0 | — |

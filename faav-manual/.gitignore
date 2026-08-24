@@ -1,0 +1,5 @@
+/.quarto/
+**/*.quarto_ipynb
+
+# The `pdf` profile builds into ../manual-pdf, which is outside this directory
+# and so is ignored from the repo-root .gitignore instead.
