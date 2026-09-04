@@ -2,7 +2,7 @@
 title: "Module 5 --- Frame, crank, linkage and gears"
 ---
 
-## What you build today
+## Summary
 
 We assemble the carbon frame, the CNC-cut crank and linkage, the gears, and the full
 mechanical integration that turns motor rotation into flapping. Flapping
@@ -11,7 +11,7 @@ amplitude is fixed by this design to **60 degrees** [^lapsansky] --- 34° up and
 
 [^lapsansky]: Lapsansky AB, Zatz D, Tobalske BW (2020). [Alcids 'fly' at efficient Strouhal numbers in both air and water but vary stroke velocity and angle](https://doi.org/10.7554/eLife.55774). *eLife* **9**:e55774.
 
-## Before you arrive
+## Requirements
 
 | | |
 |---|---|
@@ -28,11 +28,36 @@ plate to plate are **M2×4**, screwing into brass inserts.
 
 ![Main carbon frame](/Fig/body1.jpg){#fig-frame width=55%}
 
+## Reduction
+Our sun gear is already pressed onto the motor shaft from
+[Module 2](02-motor.qmd). What is left is mating the gearbox to the motor and
+fixing the pair to the plates.
+
+1.  Slide the gearbox onto the motor shaft so the sun gear engages the planets.
+    It should seat with light hand pressure, if it resists, back off and
+    check the sun gear is square on the shaft rather than forcing it.
+
+2.  Fix the blue part of the gearbox: the custom screws that come with the
+    gearbox on one side, and **M2.5×10** screws on the other.
+
+3.  Check the output turns freely by hand through a full revolution before
+    applying power.
+
+4.  Close the gearbox: the **silver part threads onto the blue part**. Don't tighten it.
+
+5.  Attach the **second vertical bracket** to the silver part of the gearbox
+    with **3 × M2.5** screws.
+
+6.  Secure that bracket to the **bottom fuselage plate** with **3 × M2** screws.
+    The motor bracket from [Module 2](02-motor.qmd) is already on the same
+    plate, so between them the two brackets set the alignment of the whole
+    drivetrain. Check the output still turns freely once both are bolted down.
+
 ## Crank and linkage
 
 ![The transmission, exploded, with the length that matters and the material for each part. Follow it left to right: the gearbox output turns the crank, the crank drives the linkage, and the linkage swings the inter-wing gear. The **34°** up and **−26°** down at the right are where the 60° flapping amplitude comes from --- it is set here, by these lengths, and cannot be changed in software.](/Fig/transmission-exploded.png){#fig-transmission-exploded width="100%"}
 
-The dimensions called out in @fig-transmission-exploded are the ones you cut to:
+The dimensions called out in @fig-transmission-exploded are the ones to cut to:
 
 | | Crank-linkage dimensions |
 |---|---|
@@ -46,22 +71,10 @@ The dimensions called out in @fig-transmission-exploded are the ones you cut to:
 
 Both the crank and linkage are CNC-cut in a 5 mm aluminium plate. 
 
-Once cut:
-
-1. Carefully tap an **M3** thread. Use cutting oil and make sure to break off
-   the chips.
-
-   ::: {.callout-warning}
-   ## This thread carries high forces
-
-   It **must** be done carefully, keeping the alignment between hole and tap.
-   :::
-
-2. Press the bearings into the linkage. They may need to be bonded with metal
+1. Press the bearings into the linkage. They may need to be bonded with metal
    glue if the press fit is not good enough.
-3. Join the crank and linkage with a short 4 mm shaft, cut to **9.5 mm**.
-   The bearing is kept from coming out with a pointy indent on the shaft end.
-   *(To be improved.)*
+2. Join the crank and linkage with a short 4 mm shaft, cut to **10.5 mm**.
+   The bearing is kept from coming out with a circlip.
 
 ::: {.callout-warning}
 ### Alignment of the linkage, perpendicular to the shafts, is extremely important
@@ -97,3 +110,5 @@ ensures proper operation without too much backlash.
 Frame assembled, crank–linkage rotating freely through a full cycle with no
 binding, linkage visibly perpendicular to the shafts, and gear backlash checked. Flapping shown at 1-5 Hz.
 :::
+
+TODO: buy circlip 4mm

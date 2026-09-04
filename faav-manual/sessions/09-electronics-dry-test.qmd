@@ -2,12 +2,12 @@
 title: "Module 9 --- Flight controller, PCB and dry testing"
 ---
 
-## What you build today
+## Summary
 
 The custom PCB assembled and validated, the flight controller flashed and
 talking to the ESC, and the robot flapping in air under wireless control.
 
-## Before you arrive
+## Requirements
 
 | | |
 |---|---|

@@ -2,7 +2,7 @@
 title: "Module 10 --- Waterproofing"
 ---
 
-## What you build today
+## Summary
 
 A potted PCB, a lubricated and sealed gearbox, and a robot that survives a
 static immersion test.
@@ -15,7 +15,7 @@ module so potting happens first and soldering happens after the cure, or
 across two sittings.
 :::
 
-## Before you arrive
+## Requirements
 
 | | |
 |---|---|

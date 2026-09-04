@@ -2,18 +2,18 @@
 title: "Module 11 --- Wet testing"
 ---
 
-## What you do today
+## Summary
 
 Immersion, underwater runs, wing and tail trim, and a logged cost-of-transport
 measurement.
 
-## Before you arrive
+## Requirements
 
 | | |
 |---|---|
 | **Bring** | Fully waterproofed robot from [Module 10](10-waterproofing.qmd), charged 4S pack, spare crank–linkage shaft |
 | **Tools** | Retrieval poles and towels are at the tank --- see [Tank rules](#the-tank) |
-| **Read** | This page, and your notes from [Module 4](04-control.qmd) |
+| **Read** | This page, and the notes from [Module 4](04-control.qmd) |
 
 ## Pre-immersion checks
 
@@ -26,7 +26,7 @@ measurement.
 
 Testing happens in the AURA Lab tank. The gantry along the near rail and the
 cameras overhead are part of the measurement setup, not scenery --- the ceiling
-cameras are what track your robot for the cost-of-transport number below.
+cameras are what track the robot for the cost-of-transport number below.
 
 ![The AURA Lab tank. The rail and gantry run the length of the near side; the tracking cameras are mounted overhead.](/Fig/AURALabTank.jpg){#fig-tank width="100%"}
 
@@ -39,7 +39,7 @@ for a moment. Use the **poles** to fish the robot back to the edge.
 **Keep water off the floor.** Water on the floor sets off an alarm, which ends
 the session for everyone. Lift the robot out over the tank and let it drain
 there rather than carrying it dripping, and keep **towels** to hand for what
-gets past you. Dry the floor immediately if it happens.
+gets past. Dry the floor immediately if it happens.
 :::
 
 ## What to log
@@ -47,16 +47,16 @@ Every run should record, at minimum:
 
 - **Power consumption** --- the numerator of cost of transport
 - **IMU data** --- attitude and acceleration through the run
-- **Flapping frequency** --- the input you are varying
+- **Flapping frequency** --- the input being varied
 
 Since underwater we lose wireless communication, the data needs to be recorded and streamed back wirelessly after the run. 
-You have two places to record data on the flight controller, and the choice matters more than it looks:
+There are two places to record data on the flight controller, and the choice matters more than it looks:
 
 | | **RAM** | **Flash** |
 |---|---|---|
 | Survives power loss | No | Yes |
 | Speed | Fast, no wear | Slower, finite write cycles |
-| Use it for | The normal case | Runs you cannot afford to repeat |
+| Use it for | The normal case | Runs that cannot afford to be repeated |
 
 The normal workflow is **log to RAM during the run, then broadcast over BLE
 once the robot is out of the water**. Nothing has to be opened and nothing has
@@ -66,7 +66,7 @@ to be plugged in, which is the whole point: the board is potted from
 ::: {.callout-warning}
 ## RAM is lost the moment power goes
 A brownout, a watchdog reset, or an accidental disconnect takes the whole run
-with it. Broadcast the data before you change the battery, not after - and if
+with it. Broadcast the data before changing the battery, not after - and if
 a run is expensive to repeat, write it to flash instead.
 :::
 
@@ -75,8 +75,8 @@ Design and 3D-print an exterior housing to ensure neutral buoyancy as needed. Fo
 
 ## Trim
 
-Two independent adjustments, both mechanical. Change **one at a time** and do a
-run between them, or you will not know which one did what.
+Two independent adjustments, both mechanical. Change **one at a time** with a
+run between them, otherwise there is no telling which one did what.
 
 ### Wing trim
 
@@ -94,8 +94,8 @@ cannot be written as a procedure, and students have nothing to adjust against.
 
 Tail trim is manual: **bend and twist the tail by hand**. Bending sets pitch,
 twisting sets roll. Work in small increments and expect to go back and forth
-- there is no scale and no reference mark, so your own logged runs are the
-only feedback you have.
+- there is no scale and no reference mark, so the logged runs are the only
+feedback available.
 
 ## Cost of transport
 
@@ -107,7 +107,7 @@ $$\mathrm{COT} = \frac{P}{m \, g \, v}$$ {#eq-cot}
 with $P$ the average electrical power over the run, $m$ the robot's mass, and
 $v$ its average forward speed. It is dimensionless, and lower is better.
 
-You get the two halves from two different places:
+The two halves come from two different places:
 
 - **Power, onboard.** From the logged consumption above, averaged over the
   steady part of the run --- not the acceleration at the start.

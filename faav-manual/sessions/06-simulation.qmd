@@ -2,17 +2,18 @@
 title: "Module 6 --- Flapping simulation (Ptera)"
 ---
 
-## What you do today
+## Summary
 
-Choose your wing and tail geometry. You simulate candidate geometries in Ptera
-and pick the one that gives the best thrust profile when compounded with the
-provided motor power curve. Modules 7 and 8 build whatever you decide here.
+The wing and tail geometry are chosen here. Candidate geometries are simulated
+in Ptera, and the one giving the best thrust profile when compounded with the
+provided motor power curve is selected. Modules 7 and 8 build whatever is
+decided here.
 
-## Before you arrive
+## Requirements
 
 | | |
 |---|---|
-| **Bring** | Laptop with Ptera installed, your measured loop performance from [Module 4](04-control.qmd) |
+| **Bring** | Laptop with Ptera installed, the measured loop performance from [Module 4](04-control.qmd) |
 | **Read** | This page |
 
 ## Deliverable

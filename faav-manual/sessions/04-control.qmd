@@ -2,17 +2,17 @@
 title: "Module 4 --- Closed-loop control and tuning"
 ---
 
-## What you build today
+## Summary
 
 The gearbox installed with a marker flag on the output, the Seeeduino wired in and commanding the ESC untethered, running continuously, then holding position, then tracking a velocity setpoint with a tuned loop.
 
-## Before you arrive
+## Requirements
 
 |  |  |
 |------------------------------------|------------------------------------|
 | **Parts** | Motor with shaft and sun gear from [Module 2](02-motor.qmd), Faulhaber 23.04:1 gearbox, M2.5×10 screws, 3D-printed plates, second vertical bracket, 3× M2.5 and 3× M2 screws, ESC from [Module 3](03-esc.qmd), 4x8 mm flanged bearing, Seeeduino XIAO nRF52840, its 3D-printed bracket, 3 wires |
 | **Tools** | Bench supply with current limit, tachometer or camera, soldering iron |
-| **Read** | This page in full - the speed limits below explain most of what you will hit |
+| **Read** | This page in full - the speed limits below explain most of what comes up |
 
 ## Reduction
 The motor is connected via a custom shaft to a gearbox with a **23.04:1**
@@ -31,10 +31,28 @@ through the crank.
 ![Faulhaber gearbox](/Fig/fhaber.jpg)
 :::
 
+
+## How to program the ESC
+
+With the encoder and motor connected to the ESC, we can start programing the ESC! Remap the pins in software for SPI use: in `platformio.ini` via `build_flags`, and by overwriting the `WEAK PinMap`s in `pinmap_custom.h`. See commit `18520ac` on GitHub for details.
+
+## Firmware
+
+The ESC is pre-flashed. Code for the B-G431B-ESC1 motor controller, using the SimpleFOC library, is in the lab repository: [FAAV-G431-ESC](https://github.com/MIT-AURA-Lab/FAAV-G431-ESC). See [Software](/reference/software.qmd) for all repositories.
+
+Before changing anything in there, read [How SimpleFOC works](/reference/simple-foc.qmd). It covers the two nested loops, what the FOC maths does each iteration, why the motor twitches at power-on, and which settings in the sketch matter --- enough to read the firmware rather than guess at it.
+
+## Calibration
+
+
+
+
+
+
 ## Commanding and monitoring
 This is a high-level summary of [the SimpleFOC communication docs](https://docs.simplefoc.com/communication). Communication with the ESC is over **serial**, via a separate microcontroller board.
 
-Once serial communication is established, you interact with the ESC through the **commander**, a practical interface for setting and getting values ([instructions](https://docs.simplefoc.com/commander_motor)). Ask the commander for available commands with `?`. Commands available:
+Once serial communication is established, the ESC is driven through the **commander**, a practical interface for setting and getting values ([instructions](https://docs.simplefoc.com/commander_motor)). Ask the commander for available commands with `?`. Commands available:
 
 | Command | Effect |
 |------------------------------------|------------------------------------|
@@ -45,31 +63,19 @@ Once serial communication is established, you interact with the ESC through the 
 | `W` | Watchdog on/off. If no new target arrives for 1 s, target is set to zero. **On by default** |
 | `R` | `R0`/`R1` disable/enable a linear ramp when changing setpoint. `RD1000` sets ramp duration to 1000 ms (default 1000 ms). Off by default |
 
+::: callout-warning
+## Careful when changing control mode
 
-### Installing the reduction
-Our sun gear is already pressed onto the motor shaft from
-[Module 2](02-motor.qmd). What is left is mating the gearbox to the motor and
-fixing the pair to the plates.
+`T` means something different in each mode, position, velocity, or torque. Sending a velocity setpoint while in torque mode will do something unintended, with the wings attached. BE VERY CAREFUL ABOUT THIS.
+:::
 
-1.  Slide the gearbox onto the motor shaft so the sun gear engages the planets.
-    It should seat with light hand pressure, if it resists, back off and
-    check the sun gear is square on the shaft rather than forcing it.
+::: callout-note
+## Checkpoint
 
-2.  Fix the blue part of the gearbox: the custom screws that come with the
-    gearbox on one side, and **M2.5×10** screws on the other.
+Commander responds to `?` over serial at 115200 baud, `L` toggles the onboard LED, the sensor returns a plausible angle through a full manual rotation, and the motor spins under a `T` command.
+:::
 
-3.  Check the output turns freely by hand through a full revolution before
-    applying power.
 
-4.  Close the gearbox: the **silver part threads onto the blue part**. Don't tighten it.
-
-5.  Attach the **second vertical bracket** to the silver part of the gearbox
-    with **3 × M2.5** screws.
-
-6.  Secure that bracket to the **bottom fuselage plate** with **3 × M2** screws.
-    The motor bracket from [Module 2](02-motor.qmd) is already on the same
-    plate, so between them the two brackets set the alignment of the whole
-    drivetrain. Check the output still turns freely once both are bolted down.
 
 
 
@@ -87,7 +93,7 @@ outdated, so students following this page have nothing to clone.
 1.  Mount a small flag on the gearbox output so rotation is visible and countable.
 2.  Achieve continuous spinning at low speed.
 3.  Achieve position control - the output holds against a hand disturbance.
-4.  Tune the loop and characterise your maximum usable speed.
+4.  Tune the loop and characterise the maximum usable speed.
 
 ::: callout-important
 ## To be completed by the instructor
@@ -96,15 +102,10 @@ The specific PID tuning exercise, the target performance, and the sign-off crite
 :::
 
 ## Why low speed is the hard part
+Regular drone ESCs start **losing synchronisation at low speed**, which is exactly the regime used for water propulsion. That is the reason this course uses an FOC ESC rather than a hobby unit - see [Design notes](/reference/design-notes.qmd).
 
-Regular drone ESCs start **losing synchronisation at low speed**, which is exactly the regime used for water propulsion. That is the reason this course uses an FOC ESC rather than a hobby unit --- see [Design notes](/reference/design-notes.qmd).
-
-## Going beyond 600 rad/s
-Two issues limit speed: the micro-controller loop rate, and delays from the rotation sensor. Using SPI at 10 MHz and an AS5047P sensor rated for 28kRPM speeds are the required hardware changes that improves on delay. But at very high speeds, sensor lag still becomes the binding constraint, and shows up as high current draw and noise. We need to update the sensor electrical angle offset as a function of speed.
-
-
-### Sensor lag
-Compensating sensor lag as speed increases is necessary to go above 600 rad/s without wasting current. It is currently hand-tuned every 100 rad/s, and a fitted function is used on the robot. This could be automated by ramping through the speeds and minimising phase current --- future work. This [SimpleFOC forum thread](https://community.simplefoc.com/t/challenges-going-faster-than-certain-rpm/1688/39) is useful on the topic.
+### Going beyond 600 rad/s
+Two issues limit speed: the micro-controller loop rate, and delays from the rotation sensor. Using SPI at 10 MHz and an AS5047P sensor rated for 28kRPM speeds are the required hardware changes that improves on delay. But at very high speeds, sensor lag still becomes the binding constraint, and shows up as high current draw and noise. We need to update the sensor electrical angle offset as a function of speed. Compensating sensor lag as speed increases is necessary to go above 600 rad/s without wasting current. This is automated by ramping through the speeds and minimising phase current. This [SimpleFOC forum thread](https://community.simplefoc.com/t/challenges-going-faster-than-certain-rpm/1688/39) is useful on the topic.
 
 ::: callout-note
 ## Checkpoint
@@ -112,13 +113,3 @@ Compensating sensor lag as speed increases is necessary to go above 600 rad/s wi
 Continuous rotation resulting in frequencies of 1 Hz all the way to 8 Hz without loss of synchronisation, position hold against a hand disturbance, and a recorded loop frequency from `F`. Do not exceed 8 Hz.
 :::
 
-### MCU speed
-
-The goal is to maximise main loop frequency, which reached **13 kHz**. Read the current loop frequency with the commander's `F` command.
-
-| Change | Effect |
-|------------------------------------|------------------------------------|
-| `motor.motion_downsample = 3` | +0.8 kHz loop frequency |
-| Disable monitoring | +0.2 kHz |
-| Switch to SVPWM | No improvement observed. May help, unconfirmed |
-| `L = 0.0001` | Tuning the inductance value helped --- made voltage mode work much better |
