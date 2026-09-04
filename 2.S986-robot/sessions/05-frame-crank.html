@@ -285,7 +285,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
         <li>
     <a class="dropdown-item" href="../sessions/03-esc.html">
- <span class="dropdown-text">Module 3 — Motor driver, sensor and serial</span></a>
+ <span class="dropdown-text">Module 3 — Motor driver, sensor and serial connection</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../sessions/04-control.html">
@@ -418,7 +418,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../sessions/03-esc.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Module 3 — Motor driver, sensor and serial</span></a>
+ <span class="menu-text">Module 3 — Motor driver, sensor and serial connection</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -546,9 +546,10 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#what-you-build-today" id="toc-what-you-build-today" class="nav-link active" data-scroll-target="#what-you-build-today">What you build today</a></li>
-  <li><a href="#before-you-arrive" id="toc-before-you-arrive" class="nav-link" data-scroll-target="#before-you-arrive">Before you arrive</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link active" data-scroll-target="#summary">Summary</a></li>
+  <li><a href="#requirements" id="toc-requirements" class="nav-link" data-scroll-target="#requirements">Requirements</a></li>
   <li><a href="#main-body" id="toc-main-body" class="nav-link" data-scroll-target="#main-body">Main body</a></li>
+  <li><a href="#reduction" id="toc-reduction" class="nav-link" data-scroll-target="#reduction">Reduction</a></li>
   <li><a href="#crank-and-linkage" id="toc-crank-and-linkage" class="nav-link" data-scroll-target="#crank-and-linkage">Crank and linkage</a></li>
   </ul>
 </nav>
@@ -576,12 +577,12 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="what-you-build-today" class="level2">
-<h2 class="anchored" data-anchor-id="what-you-build-today">What you build today</h2>
+<section id="summary" class="level2">
+<h2 class="anchored" data-anchor-id="summary">Summary</h2>
 <p>We assemble the carbon frame, the CNC-cut crank and linkage, the gears, and the full mechanical integration that turns motor rotation into flapping. Flapping amplitude is fixed by this design to <strong>60 degrees</strong> <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> — 34° up and 26° down, as laid out in <a href="#fig-transmission-exploded" class="quarto-xref">Figure&nbsp;2</a>.</p>
 </section>
-<section id="before-you-arrive" class="level2">
-<h2 class="anchored" data-anchor-id="before-you-arrive">Before you arrive</h2>
+<section id="requirements" class="level2">
+<h2 class="anchored" data-anchor-id="requirements">Requirements</h2>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 50%">
@@ -617,6 +618,18 @@ Figure&nbsp;1: Main carbon frame
 </figure>
 </div>
 </section>
+<section id="reduction" class="level2">
+<h2 class="anchored" data-anchor-id="reduction">Reduction</h2>
+<p>Our sun gear is already pressed onto the motor shaft from <a href="../sessions/02-motor.html">Module 2</a>. What is left is mating the gearbox to the motor and fixing the pair to the plates.</p>
+<ol type="1">
+<li><p>Slide the gearbox onto the motor shaft so the sun gear engages the planets. It should seat with light hand pressure, if it resists, back off and check the sun gear is square on the shaft rather than forcing it.</p></li>
+<li><p>Fix the blue part of the gearbox: the custom screws that come with the gearbox on one side, and <strong>M2.5×10</strong> screws on the other.</p></li>
+<li><p>Check the output turns freely by hand through a full revolution before applying power.</p></li>
+<li><p>Close the gearbox: the <strong>silver part threads onto the blue part</strong>. Don’t tighten it.</p></li>
+<li><p>Attach the <strong>second vertical bracket</strong> to the silver part of the gearbox with <strong>3 × M2.5</strong> screws.</p></li>
+<li><p>Secure that bracket to the <strong>bottom fuselage plate</strong> with <strong>3 × M2</strong> screws. The motor bracket from <a href="../sessions/02-motor.html">Module 2</a> is already on the same plate, so between them the two brackets set the alignment of the whole drivetrain. Check the output still turns freely once both are bolted down.</p></li>
+</ol>
+</section>
 <section id="crank-and-linkage" class="level2">
 <h2 class="anchored" data-anchor-id="crank-and-linkage">Crank and linkage</h2>
 <div id="fig-transmission-exploded" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -629,7 +642,7 @@ Figure&nbsp;2: The transmission, exploded, with the length that matters and the 
 </figcaption>
 </figure>
 </div>
-<p>The dimensions called out in <a href="#fig-transmission-exploded" class="quarto-xref">Figure&nbsp;2</a> are the ones you cut to:</p>
+<p>The dimensions called out in <a href="#fig-transmission-exploded" class="quarto-xref">Figure&nbsp;2</a> are the ones to cut to:</p>
 <div id="tbl-crank" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-crank-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -670,24 +683,9 @@ Table&nbsp;1: Crank–linkage dimensions
 </figure>
 </div>
 <p>Both the crank and linkage are CNC-cut in a 5 mm aluminium plate.</p>
-<p>Once cut:</p>
 <ol type="1">
-<li><p>Carefully tap an <strong>M3</strong> thread. Use cutting oil and make sure to break off the chips.</p>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Warning</span>This thread carries high forces
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>It <strong>must</strong> be done carefully, keeping the alignment between hole and tap.</p>
-</div>
-</div></li>
-<li><p>Press the bearings into the linkage. They may need to be bonded with metal glue if the press fit is not good enough.</p></li>
-<li><p>Join the crank and linkage with a short 4 mm shaft, cut to <strong>9.5 mm</strong>. The bearing is kept from coming out with a pointy indent on the shaft end. <em>(To be improved.)</em></p></li>
+<li>Press the bearings into the linkage. They may need to be bonded with metal glue if the press fit is not good enough.</li>
+<li>Join the crank and linkage with a short 4 mm shaft, cut to <strong>10.5 mm</strong>. The bearing is kept from coming out with a circlip.</li>
 </ol>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -765,6 +763,7 @@ Figure&nbsp;3
 <p>Frame assembled, crank–linkage rotating freely through a full cycle with no binding, linkage visibly perpendicular to the shafts, and gear backlash checked. Flapping shown at 1-5 Hz.</p>
 </div>
 </div>
+<p>TODO: buy circlip 4mm</p>
 
 
 </section>

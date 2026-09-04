@@ -314,7 +314,7 @@ window.Quarto = {
   </li>  
         <li>
     <a class="dropdown-item" href="../sessions/03-esc.html">
- <span class="dropdown-text">Module 3 — Motor driver, sensor and serial</span></a>
+ <span class="dropdown-text">Module 3 — Motor driver, sensor and serial connection</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../sessions/04-control.html">
@@ -447,7 +447,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../sessions/03-esc.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Module 3 — Motor driver, sensor and serial</span></a>
+ <span class="menu-text">Module 3 — Motor driver, sensor and serial connection</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -575,8 +575,8 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#what-you-do-today" id="toc-what-you-do-today" class="nav-link active" data-scroll-target="#what-you-do-today">What you do today</a></li>
-  <li><a href="#before-you-arrive" id="toc-before-you-arrive" class="nav-link" data-scroll-target="#before-you-arrive">Before you arrive</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link active" data-scroll-target="#summary">Summary</a></li>
+  <li><a href="#requirements" id="toc-requirements" class="nav-link" data-scroll-target="#requirements">Requirements</a></li>
   <li><a href="#pre-immersion-checks" id="toc-pre-immersion-checks" class="nav-link" data-scroll-target="#pre-immersion-checks">Pre-immersion checks</a></li>
   <li><a href="#the-tank" id="toc-the-tank" class="nav-link" data-scroll-target="#the-tank">The tank</a></li>
   <li><a href="#what-to-log" id="toc-what-to-log" class="nav-link" data-scroll-target="#what-to-log">What to log</a></li>
@@ -613,12 +613,12 @@ window.Quarto = {
 </header>
 
 
-<section id="what-you-do-today" class="level2">
-<h2 class="anchored" data-anchor-id="what-you-do-today">What you do today</h2>
+<section id="summary" class="level2">
+<h2 class="anchored" data-anchor-id="summary">Summary</h2>
 <p>Immersion, underwater runs, wing and tail trim, and a logged cost-of-transport measurement.</p>
 </section>
-<section id="before-you-arrive" class="level2">
-<h2 class="anchored" data-anchor-id="before-you-arrive">Before you arrive</h2>
+<section id="requirements" class="level2">
+<h2 class="anchored" data-anchor-id="requirements">Requirements</h2>
 <table class="caption-top table">
 <tbody>
 <tr class="odd">
@@ -631,7 +631,7 @@ window.Quarto = {
 </tr>
 <tr class="odd">
 <td><strong>Read</strong></td>
-<td>This page, and your notes from <a href="../sessions/04-control.html">Module 4</a></td>
+<td>This page, and the notes from <a href="../sessions/04-control.html">Module 4</a></td>
 </tr>
 </tbody>
 </table>
@@ -647,7 +647,7 @@ window.Quarto = {
 </section>
 <section id="the-tank" class="level2">
 <h2 class="anchored" data-anchor-id="the-tank">The tank</h2>
-<p>Testing happens in the AURA Lab tank. The gantry along the near rail and the cameras overhead are part of the measurement setup, not scenery — the ceiling cameras are what track your robot for the cost-of-transport number below.</p>
+<p>Testing happens in the AURA Lab tank. The gantry along the near rail and the cameras overhead are part of the measurement setup, not scenery — the ceiling cameras are what track the robot for the cost-of-transport number below.</p>
 <div id="fig-tank" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-tank-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -669,7 +669,7 @@ Figure&nbsp;1: The AURA Lab tank. The rail and gantry run the length of the near
 </div>
 <div class="callout-body-container callout-body">
 <p><strong>Nobody gets in the tank.</strong> Not to retrieve a robot, not to reposition it, not for a moment. Use the <strong>poles</strong> to fish the robot back to the edge.</p>
-<p><strong>Keep water off the floor.</strong> Water on the floor sets off an alarm, which ends the session for everyone. Lift the robot out over the tank and let it drain there rather than carrying it dripping, and keep <strong>towels</strong> to hand for what gets past you. Dry the floor immediately if it happens.</p>
+<p><strong>Keep water off the floor.</strong> Water on the floor sets off an alarm, which ends the session for everyone. Lift the robot out over the tank and let it drain there rather than carrying it dripping, and keep <strong>towels</strong> to hand for what gets past. Dry the floor immediately if it happens.</p>
 </div>
 </div>
 </section>
@@ -679,10 +679,15 @@ Figure&nbsp;1: The AURA Lab tank. The rail and gantry run the length of the near
 <ul>
 <li><strong>Power consumption</strong> — the numerator of cost of transport</li>
 <li><strong>IMU data</strong> — attitude and acceleration through the run</li>
-<li><strong>Flapping frequency</strong> — the input you are varying</li>
+<li><strong>Flapping frequency</strong> — the input being varied</li>
 </ul>
-<p>Since underwater we lose wireless communication, the data needs to be recorded and streamed back wirelessly after the run. You have two places to record data on the flight controller, and the choice matters more than it looks:</p>
+<p>Since underwater we lose wireless communication, the data needs to be recorded and streamed back wirelessly after the run. There are two places to record data on the flight controller, and the choice matters more than it looks:</p>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
 <thead>
 <tr class="header">
 <th></th>
@@ -704,7 +709,7 @@ Figure&nbsp;1: The AURA Lab tank. The rail and gantry run the length of the near
 <tr class="odd">
 <td>Use it for</td>
 <td>The normal case</td>
-<td>Runs you cannot afford to repeat</td>
+<td>Runs that cannot afford to be repeated</td>
 </tr>
 </tbody>
 </table>
@@ -719,7 +724,7 @@ Figure&nbsp;1: The AURA Lab tank. The rail and gantry run the length of the near
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>A brownout, a watchdog reset, or an accidental disconnect takes the whole run with it. Broadcast the data before you change the battery, not after - and if a run is expensive to repeat, write it to flash instead.</p>
+<p>A brownout, a watchdog reset, or an accidental disconnect takes the whole run with it. Broadcast the data before changing the battery, not after - and if a run is expensive to repeat, write it to flash instead.</p>
 </div>
 </div>
 </section>
@@ -729,7 +734,7 @@ Figure&nbsp;1: The AURA Lab tank. The rail and gantry run the length of the near
 </section>
 <section id="trim" class="level2">
 <h2 class="anchored" data-anchor-id="trim">Trim</h2>
-<p>Two independent adjustments, both mechanical. Change <strong>one at a time</strong> and do a run between them, or you will not know which one did what.</p>
+<p>Two independent adjustments, both mechanical. Change <strong>one at a time</strong> with a run between them, otherwise there is no telling which one did what.</p>
 <section id="wing-trim" class="level3">
 <h3 class="anchored" data-anchor-id="wing-trim">Wing trim</h3>
 <p>Wing trim is adjusted at the <strong>trailing edge</strong>.</p>
@@ -749,7 +754,7 @@ Figure&nbsp;1: The AURA Lab tank. The rail and gantry run the length of the near
 </section>
 <section id="tail-trim" class="level3">
 <h3 class="anchored" data-anchor-id="tail-trim">Tail trim</h3>
-<p>Tail trim is manual: <strong>bend and twist the tail by hand</strong>. Bending sets pitch, twisting sets roll. Work in small increments and expect to go back and forth - there is no scale and no reference mark, so your own logged runs are the only feedback you have.</p>
+<p>Tail trim is manual: <strong>bend and twist the tail by hand</strong>. Bending sets pitch, twisting sets roll. Work in small increments and expect to go back and forth - there is no scale and no reference mark, so the logged runs are the only feedback available.</p>
 </section>
 </section>
 <section id="cost-of-transport" class="level2">
@@ -757,7 +762,7 @@ Figure&nbsp;1: The AURA Lab tank. The rail and gantry run the length of the near
 <p>Cost of transport is the score in <a href="../sessions/12-competition.html">Module 12</a>, so measure it the same way every time:</p>
 <p><span id="eq-cot"><span class="math display">\[\mathrm{COT} = \frac{P}{m \, g \, v} \tag{1}\]</span></span></p>
 <p>with <span class="math inline">\(P\)</span> the average electrical power over the run, <span class="math inline">\(m\)</span> the robot’s mass, and <span class="math inline">\(v\)</span> its average forward speed. It is dimensionless, and lower is better.</p>
-<p>You get the two halves from two different places:</p>
+<p>The two halves come from two different places:</p>
 <ul>
 <li><strong>Power, onboard.</strong> From the logged consumption above, averaged over the steady part of the run — not the acceleration at the start.</li>
 <li><strong>Speed, from the ceiling cameras.</strong> The overhead tracking in <a href="#fig-tank" class="quarto-xref">Figure&nbsp;1</a> gives position against time, which is the honest way to get <span class="math inline">\(v\)</span>; timing it by eye across the tank is not good enough for a scored number.</li>

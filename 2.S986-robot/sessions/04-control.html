@@ -285,7 +285,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
         <li>
     <a class="dropdown-item" href="../sessions/03-esc.html">
- <span class="dropdown-text">Module 3 — Motor driver, sensor and serial</span></a>
+ <span class="dropdown-text">Module 3 — Motor driver, sensor and serial connection</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../sessions/04-control.html">
@@ -418,7 +418,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../sessions/03-esc.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Module 3 — Motor driver, sensor and serial</span></a>
+ <span class="menu-text">Module 3 — Motor driver, sensor and serial connection</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -546,19 +546,17 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#what-you-build-today" id="toc-what-you-build-today" class="nav-link active" data-scroll-target="#what-you-build-today">What you build today</a></li>
-  <li><a href="#before-you-arrive" id="toc-before-you-arrive" class="nav-link" data-scroll-target="#before-you-arrive">Before you arrive</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link active" data-scroll-target="#summary">Summary</a></li>
+  <li><a href="#requirements" id="toc-requirements" class="nav-link" data-scroll-target="#requirements">Requirements</a></li>
   <li><a href="#reduction" id="toc-reduction" class="nav-link" data-scroll-target="#reduction">Reduction</a></li>
-  <li><a href="#commanding-and-monitoring" id="toc-commanding-and-monitoring" class="nav-link" data-scroll-target="#commanding-and-monitoring">Commanding and monitoring</a>
-  <ul class="collapse">
-  <li><a href="#installing-the-reduction" id="toc-installing-the-reduction" class="nav-link" data-scroll-target="#installing-the-reduction">Installing the reduction</a></li>
-  </ul></li>
+  <li><a href="#how-to-program-the-esc" id="toc-how-to-program-the-esc" class="nav-link" data-scroll-target="#how-to-program-the-esc">How to program the ESC</a></li>
+  <li><a href="#firmware" id="toc-firmware" class="nav-link" data-scroll-target="#firmware">Firmware</a></li>
+  <li><a href="#calibration" id="toc-calibration" class="nav-link" data-scroll-target="#calibration">Calibration</a></li>
+  <li><a href="#commanding-and-monitoring" id="toc-commanding-and-monitoring" class="nav-link" data-scroll-target="#commanding-and-monitoring">Commanding and monitoring</a></li>
   <li><a href="#task-sequence" id="toc-task-sequence" class="nav-link" data-scroll-target="#task-sequence">Task sequence</a></li>
-  <li><a href="#why-low-speed-is-the-hard-part" id="toc-why-low-speed-is-the-hard-part" class="nav-link" data-scroll-target="#why-low-speed-is-the-hard-part">Why low speed is the hard part</a></li>
-  <li><a href="#going-beyond-600-rads" id="toc-going-beyond-600-rads" class="nav-link" data-scroll-target="#going-beyond-600-rads">Going beyond 600 rad/s</a>
+  <li><a href="#why-low-speed-is-the-hard-part" id="toc-why-low-speed-is-the-hard-part" class="nav-link" data-scroll-target="#why-low-speed-is-the-hard-part">Why low speed is the hard part</a>
   <ul class="collapse">
-  <li><a href="#sensor-lag" id="toc-sensor-lag" class="nav-link" data-scroll-target="#sensor-lag">Sensor lag</a></li>
-  <li><a href="#mcu-speed" id="toc-mcu-speed" class="nav-link" data-scroll-target="#mcu-speed">MCU speed</a></li>
+  <li><a href="#going-beyond-600-rads" id="toc-going-beyond-600-rads" class="nav-link" data-scroll-target="#going-beyond-600-rads">Going beyond 600 rad/s</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -586,12 +584,12 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="what-you-build-today" class="level2">
-<h2 class="anchored" data-anchor-id="what-you-build-today">What you build today</h2>
+<section id="summary" class="level2">
+<h2 class="anchored" data-anchor-id="summary">Summary</h2>
 <p>The gearbox installed with a marker flag on the output, the Seeeduino wired in and commanding the ESC untethered, running continuously, then holding position, then tracking a velocity setpoint with a tuned loop.</p>
 </section>
-<section id="before-you-arrive" class="level2">
-<h2 class="anchored" data-anchor-id="before-you-arrive">Before you arrive</h2>
+<section id="requirements" class="level2">
+<h2 class="anchored" data-anchor-id="requirements">Requirements</h2>
 <table class="caption-top table">
 <tbody>
 <tr class="odd">
@@ -604,7 +602,7 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="odd">
 <td><strong>Read</strong></td>
-<td>This page in full - the speed limits below explain most of what you will hit</td>
+<td>This page in full - the speed limits below explain most of what comes up</td>
 </tr>
 </tbody>
 </table>
@@ -633,10 +631,22 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </section>
+<section id="how-to-program-the-esc" class="level2">
+<h2 class="anchored" data-anchor-id="how-to-program-the-esc">How to program the ESC</h2>
+<p>With the encoder and motor connected to the ESC, we can start programing the ESC! Remap the pins in software for SPI use: in <code>platformio.ini</code> via <code>build_flags</code>, and by overwriting the <code>WEAK PinMap</code>s in <code>pinmap_custom.h</code>. See commit <code>18520ac</code> on GitHub for details.</p>
+</section>
+<section id="firmware" class="level2">
+<h2 class="anchored" data-anchor-id="firmware">Firmware</h2>
+<p>The ESC is pre-flashed. Code for the B-G431B-ESC1 motor controller, using the SimpleFOC library, is in the lab repository: <a href="https://github.com/MIT-AURA-Lab/FAAV-G431-ESC">FAAV-G431-ESC</a>. See <a href="../reference/software.html">Software</a> for all repositories.</p>
+<p>Before changing anything in there, read <a href="../reference/simple-foc.html">How SimpleFOC works</a>. It covers the two nested loops, what the FOC maths does each iteration, why the motor twitches at power-on, and which settings in the sketch matter — enough to read the firmware rather than guess at it.</p>
+</section>
+<section id="calibration" class="level2">
+<h2 class="anchored" data-anchor-id="calibration">Calibration</h2>
+</section>
 <section id="commanding-and-monitoring" class="level2">
 <h2 class="anchored" data-anchor-id="commanding-and-monitoring">Commanding and monitoring</h2>
 <p>This is a high-level summary of <a href="https://docs.simplefoc.com/communication">the SimpleFOC communication docs</a>. Communication with the ESC is over <strong>serial</strong>, via a separate microcontroller board.</p>
-<p>Once serial communication is established, you interact with the ESC through the <strong>commander</strong>, a practical interface for setting and getting values (<a href="https://docs.simplefoc.com/commander_motor">instructions</a>). Ask the commander for available commands with <code>?</code>. Commands available:</p>
+<p>Once serial communication is established, the ESC is driven through the <strong>commander</strong>, a practical interface for setting and getting values (<a href="https://docs.simplefoc.com/commander_motor">instructions</a>). Ask the commander for available commands with <code>?</code>. Commands available:</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 50%">
@@ -675,17 +685,32 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
-<section id="installing-the-reduction" class="level3">
-<h3 class="anchored" data-anchor-id="installing-the-reduction">Installing the reduction</h3>
-<p>Our sun gear is already pressed onto the motor shaft from <a href="../sessions/02-motor.html">Module 2</a>. What is left is mating the gearbox to the motor and fixing the pair to the plates.</p>
-<ol type="1">
-<li><p>Slide the gearbox onto the motor shaft so the sun gear engages the planets. It should seat with light hand pressure, if it resists, back off and check the sun gear is square on the shaft rather than forcing it.</p></li>
-<li><p>Fix the blue part of the gearbox: the custom screws that come with the gearbox on one side, and <strong>M2.5×10</strong> screws on the other.</p></li>
-<li><p>Check the output turns freely by hand through a full revolution before applying power.</p></li>
-<li><p>Close the gearbox: the <strong>silver part threads onto the blue part</strong>. Don’t tighten it.</p></li>
-<li><p>Attach the <strong>second vertical bracket</strong> to the silver part of the gearbox with <strong>3 × M2.5</strong> screws.</p></li>
-<li><p>Secure that bracket to the <strong>bottom fuselage plate</strong> with <strong>3 × M2</strong> screws. The motor bracket from <a href="../sessions/02-motor.html">Module 2</a> is already on the same plate, so between them the two brackets set the alignment of the whole drivetrain. Check the output still turns freely once both are bolted down.</p></li>
-</ol>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Careful when changing control mode
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>T</code> means something different in each mode, position, velocity, or torque. Sending a velocity setpoint while in torque mode will do something unintended, with the wings attached. BE VERY CAREFUL ABOUT THIS.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Checkpoint
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Commander responds to <code>?</code> over serial at 115200 baud, <code>L</code> toggles the onboard LED, the sensor returns a plausible angle through a full manual rotation, and the motor spins under a <code>T</code> command.</p>
+</div>
+</div>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -700,14 +725,13 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </section>
-</section>
 <section id="task-sequence" class="level2">
 <h2 class="anchored" data-anchor-id="task-sequence">Task sequence</h2>
 <ol type="1">
 <li>Mount a small flag on the gearbox output so rotation is visible and countable.</li>
 <li>Achieve continuous spinning at low speed.</li>
 <li>Achieve position control - the output holds against a hand disturbance.</li>
-<li>Tune the loop and characterise your maximum usable speed.</li>
+<li>Tune the loop and characterise the maximum usable speed.</li>
 </ol>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -725,14 +749,10 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="why-low-speed-is-the-hard-part" class="level2">
 <h2 class="anchored" data-anchor-id="why-low-speed-is-the-hard-part">Why low speed is the hard part</h2>
-<p>Regular drone ESCs start <strong>losing synchronisation at low speed</strong>, which is exactly the regime used for water propulsion. That is the reason this course uses an FOC ESC rather than a hobby unit — see <a href="../reference/design-notes.html">Design notes</a>.</p>
-</section>
-<section id="going-beyond-600-rads" class="level2">
-<h2 class="anchored" data-anchor-id="going-beyond-600-rads">Going beyond 600 rad/s</h2>
-<p>Two issues limit speed: the micro-controller loop rate, and delays from the rotation sensor. Using SPI at 10 MHz and an AS5047P sensor rated for 28kRPM speeds are the required hardware changes that improves on delay. But at very high speeds, sensor lag still becomes the binding constraint, and shows up as high current draw and noise. We need to update the sensor electrical angle offset as a function of speed.</p>
-<section id="sensor-lag" class="level3">
-<h3 class="anchored" data-anchor-id="sensor-lag">Sensor lag</h3>
-<p>Compensating sensor lag as speed increases is necessary to go above 600 rad/s without wasting current. It is currently hand-tuned every 100 rad/s, and a fitted function is used on the robot. This could be automated by ramping through the speeds and minimising phase current — future work. This <a href="https://community.simplefoc.com/t/challenges-going-faster-than-certain-rpm/1688/39">SimpleFOC forum thread</a> is useful on the topic.</p>
+<p>Regular drone ESCs start <strong>losing synchronisation at low speed</strong>, which is exactly the regime used for water propulsion. That is the reason this course uses an FOC ESC rather than a hobby unit - see <a href="../reference/design-notes.html">Design notes</a>.</p>
+<section id="going-beyond-600-rads" class="level3">
+<h3 class="anchored" data-anchor-id="going-beyond-600-rads">Going beyond 600 rad/s</h3>
+<p>Two issues limit speed: the micro-controller loop rate, and delays from the rotation sensor. Using SPI at 10 MHz and an AS5047P sensor rated for 28kRPM speeds are the required hardware changes that improves on delay. But at very high speeds, sensor lag still becomes the binding constraint, and shows up as high current draw and noise. We need to update the sensor electrical angle offset as a function of speed. Compensating sensor lag as speed increases is necessary to go above 600 rad/s without wasting current. This is automated by ramping through the speeds and minimising phase current. This <a href="https://community.simplefoc.com/t/challenges-going-faster-than-certain-rpm/1688/39">SimpleFOC forum thread</a> is useful on the topic.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -746,40 +766,6 @@ ul.task-list li input[type="checkbox"] {
 <p>Continuous rotation resulting in frequencies of 1 Hz all the way to 8 Hz without loss of synchronisation, position hold against a hand disturbance, and a recorded loop frequency from <code>F</code>. Do not exceed 8 Hz.</p>
 </div>
 </div>
-</section>
-<section id="mcu-speed" class="level3">
-<h3 class="anchored" data-anchor-id="mcu-speed">MCU speed</h3>
-<p>The goal is to maximise main loop frequency, which reached <strong>13 kHz</strong>. Read the current loop frequency with the commander’s <code>F</code> command.</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Change</th>
-<th>Effect</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>motor.motion_downsample = 3</code></td>
-<td>+0.8 kHz loop frequency</td>
-</tr>
-<tr class="even">
-<td>Disable monitoring</td>
-<td>+0.2 kHz</td>
-</tr>
-<tr class="odd">
-<td>Switch to SVPWM</td>
-<td>No improvement observed. May help, unconfirmed</td>
-</tr>
-<tr class="even">
-<td><code>L = 0.0001</code></td>
-<td>Tuning the inductance value helped — made voltage mode work much better</td>
-</tr>
-</tbody>
-</table>
 
 
 </section>
@@ -1212,8 +1198,8 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../sessions/03-esc.html" class="pagination-link" aria-label="Module 3 --- Motor driver, sensor and serial">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Module 3 — Motor driver, sensor and serial</span>
+      <a href="../sessions/03-esc.html" class="pagination-link" aria-label="Module 3 --- Motor driver, sensor and serial connection">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Module 3 — Motor driver, sensor and serial connection</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
