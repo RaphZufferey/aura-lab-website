@@ -1,5 +1,5 @@
 ---
-title: "Module 3 --- Motor driver, sensor and serial"
+title: "Module 3 --- Motor driver, sensor and serial connection"
 ---
 
 ## Summary
@@ -13,7 +13,7 @@ Work through the module with this diagram open: every step below either wires on
 ## Requirements
 
 |  |  |
-|----------------|--------------------------------------------------------|
+|------------------|------------------------------------------------------|
 | **Parts needed** | B-G431B-ESC1 board, AS5047P encoder, encoder mount, cables |
 | **Tools** | Soldering iron, tweezers, micro-USB cable, power source |
 | **Read** | This page, plus [Design notes](/reference/design-notes.qmd) on why we use an FOC ESC |
@@ -50,7 +50,7 @@ It programs from the Arduino IDE like any other Arduino board, but we highly rec
 
 2.  Load the barebone Arduino sketch onto the Seeeduino, see [Software](/reference/software.qmd) for the repository. This requires Visual Studio Code and the PlatformIO plugin installed.
 
-3.  Solder the power connection to the ESC and connect 15V from a power source. 
+3.  Solder the power connection to the ESC and connect 15V from a power source.
 
 4.  Modify the sketch to turn the LED on the **ESC** on and off via commander instructions. This confirms three things at once:
 
@@ -102,29 +102,16 @@ Cables between encoder and ESC need to be **less than 8 cm**. At 10 MHz longer r
 Next, use M2 screws to mount the encoder on the 3D printed bracket that sits around the motor. Check that the distance between sensor and magnet is 0.5 mm, and centered.
 
 ## Mounting
+
 1.  Install the Seeeduino in its 3D-printed bracket and into the robot
 2.  Install the encoder in its 3D-printed bracket
 3.  Install the ESC in its 3D-printed bracket
 4.  All mounted to the bottom fuselage plate
 
-## How to program the ESC
-
-With the encoder and motor connected to the ESC, we can start programing the ESC! Remap the pins in software for SPI use: in `platformio.ini` via `build_flags`, and by overwriting the `WEAK PinMap`s in `pinmap_custom.h`. See commit `18520ac` on GitHub for details.
-
-## Firmware
-
-The ESC is pre-flashed. Code for the B-G431B-ESC1 motor controller, using the SimpleFOC library, is in the lab repository: [FAAV-G431-ESC](https://github.com/MIT-AURA-Lab/FAAV-G431-ESC). See [Software](/reference/software.qmd) for all repositories.
-
-Before changing anything in there, read [How SimpleFOC works](/reference/simple-foc.qmd). It covers the two nested loops, what the FOC maths does each iteration, why the motor twitches at power-on, and which settings in the sketch matter --- enough to read the firmware rather than guess at it.
-
-## Calibration
-
-
-
-
+![Assembled motor-esc](/Fig/ESC_assembly.jpg)
 
 ::: callout-important
 ## To be prepared by the instructor before the session
-Prepare a power source 15V 5A over USB-C.
-Calibration stand / code
+
+Prepare a power source 15V 5A over USB-C. Calibration stand / code
 :::
