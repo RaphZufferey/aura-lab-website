@@ -15,6 +15,241 @@
 	<noscript>
 		<link rel="stylesheet" href="assets/css/noscript.css" />
 	</noscript>
+	<style>
+		/* ── "In the media" press-card carousel (#news2) ──────────────────
+		   Bootstrap-style cards on a horizontal scroll-snap track: native
+		   touch swipe comes for free, the arrows page by one card.
+
+		   Kept inline (like research/faav.html does for its page-specific
+		   CSS) so a cached assets/css/main.css can never leave these cards
+		   unstyled — without the width rules below an unstyled .press-card-img
+		   renders at its natural 1600px and blows past the viewport.
+
+		   The site's base font is 14pt (~18.7px), which would inflate
+		   Bootstrap's rem-based proportions. Pinning .press-card to a fixed
+		   px base lets every inner size be written in em and stay put; 14px
+		   keeps three compact cards across the page at desktop widths.
+		   ─────────────────────────────────────────────────────────────── */
+
+		.press-carousel {
+			margin: 0 0 3em 0;
+			min-width: 0;
+			max-width: 100%;
+		}
+
+		.press-carousel-head {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			gap: 1em;
+			margin-bottom: 1.25em;
+		}
+
+		.press-carousel-label {
+			margin: 0;
+			font-size: 0.9em;
+			letter-spacing: 0.25em;
+			text-transform: uppercase;
+			opacity: 0.75;
+		}
+
+		.press-carousel-nav {
+			display: flex;
+			gap: 0.5em;
+			flex-shrink: 0;
+		}
+
+		.press-carousel-nav button {
+			width: 2.25em;
+			height: 2.25em;
+			padding: 0;
+			line-height: 1;
+			font-size: 0.9em;
+			color: #ffffff;
+			background: rgba(255, 255, 255, 0.12);
+			border: 1px solid rgba(255, 255, 255, 0.35);
+			border-radius: 50%;
+			cursor: pointer;
+			transition: background 0.2s ease, opacity 0.2s ease;
+		}
+
+		.press-carousel-nav button:hover:not(:disabled) {
+			background: rgba(255, 255, 255, 0.28);
+		}
+
+		.press-carousel-nav button:disabled {
+			opacity: 0.3;
+			cursor: default;
+		}
+
+		/* Track ------------------------------------------------------- */
+
+		.press-track {
+			display: flex;
+			align-items: stretch;
+			gap: 1.25rem;
+			margin: 0;
+			padding: 0 0 0.5em 0;
+			list-style: none;
+			min-width: 0;
+			max-width: 100%;
+			overflow-x: auto;
+			scroll-snap-type: x mandatory;
+			scroll-behavior: smooth;
+			-webkit-overflow-scrolling: touch;
+			scrollbar-width: none;
+		}
+
+		.press-track::-webkit-scrollbar {
+			display: none;
+		}
+
+		/* Card — mirrors Bootstrap's .card ----------------------------- */
+
+		.press-track > .press-card {
+			flex: 0 0 calc((100% - 2.5rem) / 3);
+			max-width: calc((100% - 2.5rem) / 3);
+			scroll-snap-align: start;
+			margin: 0;
+			padding: 0;
+			font-size: 14px;
+		}
+
+		.press-card-inner {
+			position: relative;
+			display: flex;
+			flex-direction: column;
+			height: 100%;
+			min-width: 0;
+			overflow: hidden;
+			word-wrap: break-word;
+			background-color: rgba(157, 186, 207, 0.549);
+			background-clip: border-box;
+			border: 1px solid rgba(0, 0, 0, 0.175);
+			border-radius: 0.375em;
+			transition: box-shadow 0.15s ease-in-out, transform 0.15s ease-in-out;
+		}
+
+		.press-card-inner:hover {
+			transform: translateY(-2px);
+			box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+		}
+
+		/* .card-img-top */
+		.press-card-img {
+			display: block;
+			width: 100%;
+			max-width: 100%;
+			height: 8em;
+			object-fit: cover;
+			border-top-left-radius: calc(0.375em - 1px);
+			border-top-right-radius: calc(0.375em - 1px);
+		}
+
+		/* .card-body */
+		.press-card-body {
+			flex: 1 1 auto;
+			display: flex;
+			flex-direction: column;
+			min-width: 0;
+			padding: 0.85em;
+			color: #212529;
+		}
+
+		/* .card-subtitle.text-muted */
+		.press-card-subtitle {
+			margin: 0 0 0.3em 0;
+			font-size: 0.7em;
+			font-weight: 700;
+			letter-spacing: 0.06em;
+			text-transform: uppercase;
+			color: #495057;
+		}
+
+		/* .card-title (h5) */
+		.press-card-title {
+			margin: 0 0 0.4em 0;
+			font-size: 1.05em;
+			font-weight: 600;
+			line-height: 1.3;
+			color: #212529;
+			letter-spacing: normal;
+			text-transform: none;
+		}
+
+		/* .card-text, clamped so every card's body block is the same height */
+		.press-card-text {
+			margin: 0 0 0.85em 0;
+			font-size: 0.85em;
+			line-height: 1.5;
+			color: #495057;
+			display: -webkit-box;
+			-webkit-line-clamp: 3;
+			line-clamp: 3;
+			-webkit-box-orient: vertical;
+			overflow: hidden;
+		}
+
+		/* .btn.btn-primary, in the site's blue */
+		.press-btn {
+			align-self: flex-start;
+			margin-top: auto;
+			padding: 0.35em 0.7em;
+			border: 1px solid #2c80ca;
+			border-radius: 0.375em;
+			background-color: #2c80ca;
+			color: #ffffff;
+			font-size: 0.8em;
+			font-weight: 400;
+			line-height: 1.5;
+			text-align: center;
+			text-decoration: none;
+			white-space: nowrap;
+			transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+		}
+
+		.press-btn:hover,
+		.press-btn:focus {
+			background-color: #24699f;
+			border-color: #24699f;
+			color: #ffffff;
+			text-decoration: none;
+		}
+
+		/* Bootstrap's .stretched-link: the button's hit area covers the card. */
+		.press-card-inner .stretched-link::after {
+			content: "";
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			z-index: 1;
+			border-radius: inherit;
+		}
+
+		@media screen and (max-width: 980px) {
+
+			.press-track > .press-card {
+				flex-basis: calc((100% - 1.25rem) / 2);
+				max-width: calc((100% - 1.25rem) / 2);
+			}
+
+		}
+
+		@media screen and (max-width: 736px) {
+
+			.press-track {
+				gap: 1rem;
+			}
+
+			.press-track > .press-card {
+				flex-basis: 85%;
+				max-width: 85%;
+			}
+
+		}
+	</style>
 </head>
 
 <body class="is-preload">
@@ -27,9 +262,9 @@
 					<li><a href="#intro">Welcome</a></li>
 					<li><a href="#news">News</a></li>
 					<li><a href="#research">Research</a></li>
-					<li><a href="#people">Group</a></li>
-					<li><a href="#teaching">Teaching</a></li>
 					<li><a href="#labspace">Labspace</a></li>
+					<li><a href="#teaching">Teaching</a></li>
+					<li><a href="#people">Group</a></li>
 				</ul>
 			</nav>
 		</div>
@@ -97,7 +332,72 @@
 		<section id="news2" class="wrapper style2 fullscreen fade-up">
 			<div class="inner">
 			  <h1>News</h1>
+
+			  <!-- ── In the media: press-coverage card carousel ─────────────────
+			       Bootstrap-style cards on a horizontal scroll-snap track (so touch
+			       swipe works natively); the arrows page by one card. ──────────── -->
+			  <div class="press-carousel" id="press-carousel">
+				<div class="press-carousel-head">
+				  <h2 class="press-carousel-label">In the media</h2>
+				  <div class="press-carousel-nav">
+					<button type="button" class="press-prev" aria-label="Previous stories">&#10094;</button>
+					<button type="button" class="press-next" aria-label="Next stories">&#10095;</button>
+				  </div>
+				</div>
+
+				<ul class="press-track">
+				  <li class="press-card">
+					<div class="press-card-inner">
+					  <img class="press-card-img" src="images/research/faav_windshape_2.jpg" alt="The FAAV under test in the WindShape wind tunnel" />
+					  <div class="press-card-body">
+						<div class="press-card-subtitle">Smithsonian Magazine &middot; July 24, 2026</div>
+						<h3 class="press-card-title">This Robot Can Flap Its Wings to Both Fly and Swim</h3>
+						<p class="press-card-text">&ldquo;Many birds can traverse both air and water, transitioning between the different elements according to their needs. Gulls, puffins, loons and petrels are all such boundary crossers.&rdquo;</p>
+						<a class="press-btn stretched-link" href="https://www.smithsonianmag.com/smart-news/this-robot-can-flap-its-wings-to-both-fly-and-swim-it-might-one-day-help-scientists-study-diving-birds-and-survey-ocean-habitats-180989172/" target="_blank" rel="noopener">Read the story</a>
+					  </div>
+					</div>
+				  </li>
+
+				  <li class="press-card">
+					<div class="press-card-inner">
+					  <img class="press-card-img" src="images/research/faav_transition_merge.jpg" alt="The FAAV bursting from the water into flight" />
+					  <div class="press-card-body">
+						<div class="press-card-subtitle">The New York Times &middot; July 14, 2026</div>
+						<h3 class="press-card-title">New Winged Robot Can Fly and Swim Like a Puffin</h3>
+						<p class="press-card-text">The Times covers the lab&rsquo;s flapping-wing aerial-aquatic vehicle, a 250-gram robot that uses one set of wings to both fly through the air and swim underwater.</p>
+						<a class="press-btn stretched-link" href="https://www.nytimes.com/2026/07/14/science/new-winged-robot-can-fly-and-swim-like-a-puffin.html" target="_blank" rel="noopener">Read the story</a>
+					  </div>
+					</div>
+				  </li>
+
+				  <li class="press-card">
+					<div class="press-card-inner">
+					  <img class="press-card-img" src="images/research/faav_swim_2.jpg" alt="The FAAV swimming underwater" />
+					  <div class="press-card-body">
+						<div class="press-card-subtitle">NPR &middot; July 9, 2026</div>
+						<h3 class="press-card-title">A new kind of robot swims the seas and soars the skies</h3>
+						<p class="press-card-text">&ldquo;Mechanical engineer Raphael Zufferey&rsquo;s lab at MIT contains a giant tank filled with bright turquoise water, an array of fans that can whip up a powerful wind, and small flying robots perched everywhere you look.&rdquo;</p>
+						<a class="press-btn stretched-link" href="https://www.npr.org/2026/07/09/nx-s1-5885040/robot-flying-aerial-aquatic-mit-birds" target="_blank" rel="noopener">Read the story</a>
+					  </div>
+					</div>
+				  </li>
+
+				  <li class="press-card">
+					<div class="press-card-inner">
+					  <img class="press-card-img" src="images/research/faav_transition_1.jpg" alt="The FAAV in flight just after leaving the water" />
+					  <div class="press-card-body">
+						<div class="press-card-subtitle">MIT News &middot; July 9, 2026</div>
+						<h3 class="press-card-title">New flapping robot swims and flies like a diving bird</h3>
+						<p class="press-card-text">&ldquo;Loons, gulls, puffins, and petrels are some of the 100 species of birds that can both fly and swim. These diving birds can plunge in water to swim after prey, and leap back into the air to fly away.&rdquo;</p>
+						<a class="press-btn stretched-link" href="https://news.mit.edu/2026/new-flapping-robot-swims-and-flies-like-diving-bird-0709" target="_blank" rel="noopener">Read the story</a>
+					  </div>
+					</div>
+				  </li>
+				</ul>
+			  </div>
+
 			  <ul id="news-list" class="alt">
+				<li>Sept 2026, start of Matthew Fernandez and Cassie Freedlander as graduate students!</li>
 				<li>July 2026, We made the cover of Science!! <a href="research/faav.html">See more</a></li>
 				<li>June 2026, Ethan Fulcher was awarded a Mathworks Fellowship.</li>
 				<li>June 2026, Will Doster is awarded a SuperUROP position with 1 year of funding.</li>
@@ -305,8 +605,46 @@
 
 
 		
+		<section id="labspace" class="wrapper style5 photoalbum">
+			<div class="inner">
+				<h1>Labspace</h1>
+				<div class="image fit overlay">
+					<a href="research/equipment.html"><img src="images/equipment/pool.jpg" alt="Research Tank" /></a>
+					<div class="text"><h2>Research Tank</h2><p>Our 12m x 5m x 1.5m research tank for aquatic testing.</p></div>
+				</div>
+				<ul class="actions">
+					<li><a href="research/equipment.html" class="button">Learn more</a></li>
+				</ul>
+			</div>
+		</section>
+
+		<!-- Teaching -->
+		<section id="teaching" class="wrapper style2 fade-up">
+			<div class="inner">
+				<h1>Teaching</h1>
+
+				<h3>2.S986 - Robot Locomotion Across Fluids: Flying and Swimming Machines</h3>
+				<p>A new graduate class, offered for the first time in Fall 2026, that treats flight and swimming as
+					two sides of the same fluid dynamics problem. Students work through the full robot development
+					stack end to end - motor control, wing design, fabrication and waterproofing - and the
+					semester closes with a competition on swimmer speed and efficiency.<br />
+					<a href="https://meche.mit.edu/featured-classes/robot-locomotion-across-fluids-flying-and-swimming-machines">More
+						on the MechE class page</a>
+				</p>
+
+				<h3>2.007 - Design and Manufacturing I</h3>
+				<p>The cornerstone undergraduate design class, taught in the spring, where students build competence
+					and confidence as design engineers through a major design-and-build project. Topics span idea
+					generation, estimation, concept selection, CAD, mechanism design, machine elements and basic
+					electronics, and the term ends with the traditional 2.007 robot competition.<br />
+					<a href="https://meche.mit.edu/featured-classes/design-and-manufacturing-i">More on the MechE class
+						page</a>
+				</p>
+			</div>
+		</section>
+
 		<!-- Photo -->
-		<section id="people" class="wrapper style5 photoalbum">
+		<section id="people" class="wrapper style3 photoalbum">
 			
 			<div class="inner">
 				<h1>Group</h1>
@@ -350,43 +688,23 @@
 						</div>
 						<div class="col-3">
 							<div class="image fit overlay">
-								<a href="#people"><img src="images/people/erikmortensen.jpg" alt="Erik Mortensen" /></a>
-								<div class="text"><h2>Erik Mortensen</h2><p>Research Engineer</p></div>
-							</div>
-						</div>
-						<!-- <div class="col-3">
-							<div class="image fit overlay">
-								<a href="#people"><img src="images/people/henri.jpg" alt="Henri Desjonqueres" /></a>
-								<div class="text"><h2>Henri Desjonqueres</h2><p>Visiting MSc</p></div>
-							</div>
-						</div> -->
-						<div class="col-3">
-							<div class="image fit overlay">
-								<a href="#people"><img src="images/people/brooklynvarela.jpg" alt="Brooklyn Varela" /></a>
+								<a href="https://www.linkedin.com/in/fernandez-matt/"><img src="images/people/mattfernandez.jpg" alt="Matthew Fernandez" /></a>
 								<div class="text">
-									<h2>Brooklyn Varela</h2>
-									<p>Visiting MSc</p>
+									<h2>Matthew Fernandez</h2>
+									<p>PhD student</p>
 								</div>
 							</div>
 						</div>
 						<div class="col-3">
 							<div class="image fit overlay">
-								<a href="https://www.linkedin.com/in/theo-heng/"><img src="images/people/theoheng.jpg" alt="Theo Heng" /></a>
+								<a href="https://www.linkedin.com/in/cassie-freedlander/"><img src="images/people/cassiefreedlander.jpg" alt="Cassie Freedlander" /></a>
 								<div class="text">
-									<h2>Theo Héng</h2>
-									<p>Visiting MSc</p>
+									<h2>Cassie Freedlander</h2>
+									<p>PhD student</p>
 								</div>
 							</div>
 						</div>
-						<div class="col-3">
-							<div class="image fit overlay">
-								<a href="#people"><img src="images/people/enricobregni.jpg" alt="Enrico Bregni" /></a>
-								<div class="text">
-									<h2>Enrico Bregni</h2>
-									<p>Visiting MSc</p>
-								</div>
-							</div>
-						</div>
+			
 						<div class="col-3">
 							<div class="image fit overlay">
 								<a href="#people"><img src="images/people/willdoster.jpg" alt="Will Doster" /></a>
@@ -471,13 +789,33 @@
 				<h3>Alumni</h3>
 				<p>
 					<h4> Graduate Students	</h4>
+					<div class="box alt">
 					<div class="row gtr-uniform">
 						<div class="col-3">
 							<div class="image fit overlay">
-								<a href="#people"><img src="images/people/victorpennacino.jpg" alt="Victor Pennacino" /></a>
+								<a href="https://www.linkedin.com/in/theo-heng/"><img src="images/people/theoheng.jpg" alt="Theo Heng" /></a>
 								<div class="text">
-									<h2>Victor Pennacino</h2>
-									<p>Visiting MSc (2025)</p>
+									<h2>Theo Héng</h2>
+									<p>Visiting MSc (2026)</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-3">
+							<div class="image fit overlay">
+								<a href="#people"><img src="images/people/enricobregni.jpg" alt="Enrico Bregni" /></a>
+								<div class="text">
+									<h2>Enrico Bregni</h2>
+									<p>Visiting MSc (2026)</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-3">
+							<div class="image fit overlay">
+								<a href="#people"><img src="images/people/erikmortensen.jpg" alt="Erik Mortensen" /></a>
+								<div class="text">
+									<h2>Erik Mortensen</h2>
+									<p>Visiting MSc (2025)<br>
+										Research Engineer (2026)</p>
 								</div>
 							</div>
 						</div>
@@ -489,9 +827,18 @@
 									<p>Visiting MSc (2025-2026)</p>
 								</div>
 							</div>
+						</div>				
+						<div class="col-3">
+							<div class="image fit overlay">
+								<a href="#people"><img src="images/people/victorpennacino.jpg" alt="Victor Pennacino" /></a>
+								<div class="text">
+									<h2>Victor Pennacino</h2>
+									<p>Visiting MSc (2025)</p>
+								</div>
+							</div>
 						</div>
 					</div>
-					
+					</div>
 
 					<h4> Undergraduate Students </h4>
 					Adowyn Bryne (UROP, 2025) </br>
@@ -502,6 +849,7 @@
 					Julianne Hannon (UROP, 2025) </br>
 					Chloe Hung (UROP, 2026) </br>
 					Erika Kwee (UROP, 2026) </br>
+					Brooklyn Varela (Visiting MSc, 2026) </br>
 					
 					
 				</p>
@@ -513,52 +861,12 @@
 
 				<ul class="actions">
 					<li><a href="join.html" class="button">Join the lab</a></li>
-					<li><a href="mailto:raphz@mit.edu" class="button">Email us</a></li>
 					<li><a href="research/urop.html" class="button">UROP</a></li>
-
 					<li>
 						<a href="https://wikis.mit.edu/confluence/display/AURALAB/" class="button"> Internal access</a>
 					</li>
 				</ul>
 
-			</div>
-		</section>
-
-		<!-- Teaching -->
-		<section id="teaching" class="wrapper style2 fade-up">
-			<div class="inner">
-				<h1>Teaching</h1>
-
-				<h3>2.S986 - Robot Locomotion Across Fluids: Flying and Swimming Machines</h3>
-				<p>A new graduate class, offered for the first time in Fall 2026, that treats flight and swimming as
-					two sides of the same fluid dynamics problem. Students work through the full robot development
-					stack end to end - motor control, wing design, fabrication and waterproofing - and the
-					semester closes with a competition on swimmer speed and efficiency.<br />
-					<a href="https://meche.mit.edu/featured-classes/robot-locomotion-across-fluids-flying-and-swimming-machines">More
-						on the MechE class page</a>
-				</p>
-
-				<h3>2.007 - Design and Manufacturing I</h3>
-				<p>The cornerstone undergraduate design class, taught in the spring, where students build competence
-					and confidence as design engineers through a major design-and-build project. Topics span idea
-					generation, estimation, concept selection, CAD, mechanism design, machine elements and basic
-					electronics, and the term ends with the traditional 2.007 robot competition.<br />
-					<a href="https://meche.mit.edu/featured-classes/design-and-manufacturing-i">More on the MechE class
-						page</a>
-				</p>
-			</div>
-		</section>
-
-		<section id="labspace" class="wrapper style3 photoalbum">
-			<div class="inner">
-				<h1>Labspace</h1>
-				<div class="image fit overlay">
-					<a href="research/equipment.html"><img src="images/equipment/pool.jpg" alt="Research Tank" /></a>
-					<div class="text"><h2>Research Tank</h2><p>Our 12m x 5m x 1.5m research tank for aquatic testing.</p></div>
-				</div>
-				<ul class="actions">
-					<li><a href="research/equipment.html" class="button">Learn more</a></li>
-				</ul>
 			</div>
 		</section>
 
@@ -645,6 +953,56 @@
 	<script src="assets/js/breakpoints.min.js"></script>
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
+
+	<script>
+		// "In the media" press-card carousel: page the scroll-snap track by one
+		// card and grey out the arrows at either end. Inline for the same reason
+		// as the styles above — a cached assets/js/main.js must not break it.
+		(function () {
+
+			function initPressCarousel(id) {
+
+				var root = document.getElementById(id);
+				if (!root) return;
+
+				var track = root.querySelector(".press-track");
+				var prev = root.querySelector(".press-prev");
+				var next = root.querySelector(".press-next");
+				var card = track && track.querySelector(".press-card");
+				if (!track || !card) return;
+
+				function step() {
+					var gap = parseFloat(getComputedStyle(track).columnGap) || 0;
+					return card.getBoundingClientRect().width + gap;
+				}
+
+				function syncArrows() {
+					// 1px of slack absorbs sub-pixel scroll positions.
+					var max = track.scrollWidth - track.clientWidth;
+					if (prev) prev.disabled = track.scrollLeft <= 1;
+					if (next) next.disabled = track.scrollLeft >= max - 1;
+				}
+
+				if (next) next.addEventListener("click", function () {
+					track.scrollBy({ left: step(), behavior: "smooth" });
+				});
+
+				if (prev) prev.addEventListener("click", function () {
+					track.scrollBy({ left: -step(), behavior: "smooth" });
+				});
+
+				track.addEventListener("scroll", syncArrows, { passive: true });
+				window.addEventListener("resize", syncArrows);
+				syncArrows();
+			}
+
+			if (document.readyState === "loading") {
+				document.addEventListener("DOMContentLoaded", function () { initPressCarousel("press-carousel"); });
+			} else {
+				initPressCarousel("press-carousel");
+			}
+		})();
+	</script>
 
 </body>
 

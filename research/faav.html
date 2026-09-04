@@ -87,6 +87,71 @@
 			border-radius: 2px;
 			transition: background 0.4s;
 		}
+		/* ── Aerial / Underwater split: keep the two columns' media aligned ──
+		   The outer grid owns the row track sizes; each column is a subgrid, so
+		   corresponding blocks (heading / intro / specs / media 1-3) always share
+		   a row and therefore always start at the same y, no matter how the
+		   paragraphs rewrap at a given window width. ─────────────────────────── */
+		.split-2col {
+			display: grid;
+			grid-template-columns: 1fr 1px 1fr;
+			grid-template-rows: repeat(6, auto);
+			column-gap: 2em;
+			row-gap: 0;
+		}
+		.split-2col > .split-col {
+			display: grid;
+			grid-row: 1 / -1;
+			grid-template-rows: subgrid;
+			align-items: start;
+		}
+		.split-2col > .split-divider {
+			grid-row: 1 / -1;
+			background: rgba(255, 255, 255, 0.15);
+			align-self: stretch;
+		}
+		/* Uniform media wrappers so paired items are exactly the same height. */
+		.split-media {
+			overflow: hidden;
+			border-radius: 0.25em;
+			margin-bottom: 1em;
+		}
+		.split-media:last-child {
+			margin-bottom: 0;
+		}
+		.split-media > img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			display: block;
+		}
+		.split-media.split-video {
+			position: relative;
+			padding-bottom: 56.25%;
+			height: 0;
+		}
+		.split-media.split-video > iframe {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			border: 0;
+		}
+		@media screen and (max-width: 736px) {
+			.split-2col,
+			.split-2col > .split-col {
+				display: block;
+			}
+			.split-2col > .split-divider {
+				display: none;
+			}
+			.split-2col > .split-col + .split-col {
+				border-top: 1px solid rgba(255, 255, 255, 0.15);
+				margin-top: 3em;
+				padding-top: 3em;
+			}
+		}
 	</style>
 </head>
 
@@ -213,12 +278,17 @@
 				<!-- Horizontal divider -->
 				<hr style="border:none;border-top:1px solid rgba(255,255,255,0.15);margin:3em 0;" />
 
-				<!-- Aerial + Underwater split ────────────────────────── -->
-				<div style="display:flex;flex-wrap:nowrap;align-items:flex-start;gap:0;">
+				<!-- Aerial + Underwater split ──────────────────────────
+				     Both columns are subgrids of .split-2col, so each pair of blocks
+				     shares a row track: the media always line up even when the intro
+				     paragraphs wrap to a different number of lines. Paired media use
+				     matching aspect ratios (1600/843, then 16/9, then 16/9). ────── -->
+				<div class="split-2col">
 
 					<!-- Aerial -->
-					<div style="flex:0 0 calc(50% - 1px);padding-right:2em;">
+					<div class="split-col">
 						<h2 class="major">Aerial</h2>
+
 						<p>In flight the FAAV uses biologically-inspired flapping wings to generate lift and thrust
 						simultaneously &mdash; no propellers, no exposed blades. The wings are flexible membranes
 						that bend passively in dense water and snap back to full span in air, adapting to both
@@ -233,27 +303,33 @@
 							<li><strong>Wingspan:</strong> 88&thinsp;cm tip-to-tip</li>
 						</ul>
 
-						<span class="image fit" style="margin-bottom:1em;"><img src="images/research/faav_windshape_2.jpg" alt="FAAV in WindShape wind tunnel" /></span>
-						<span class="image fit" style="margin-bottom:1em;"><img src="images/research/faav_flight_merge.jpg" alt="FAAV flight merge" /></span>
+						<div class="split-media" style="aspect-ratio:1600/843;">
+							<img src="images/research/faav_windshape_2.jpg" alt="FAAV in WindShape wind tunnel" style="object-position:center;" />
+						</div>
 
-						<div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:0.25em;">
+						<div class="split-media" style="aspect-ratio:16/9;">
+							<img src="images/research/faav_flight_merge.jpg" alt="FAAV flight merge" style="object-position:center;" />
+						</div>
+
+						<div class="split-media split-video">
 							<iframe src="https://www.youtube.com/embed/RGgTO-WEZMI?rel=0" title="FAAV Aerial"
 								allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture"
-								allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"></iframe>
+								allowfullscreen></iframe>
 						</div>
 					</div>
 
 					<!-- Vertical divider -->
-					<div style="flex:0 0 1px;background:rgba(255,255,255,0.15);align-self:stretch;"></div>
+					<div class="split-divider"></div>
 
 					<!-- Underwater -->
-					<div style="flex:0 0 calc(50% - 1px);padding-left:2em;">
+					<div class="split-col">
 						<h2 class="major">Underwater</h2>
+
 						<p>The FAAV uses the same flapping wings to propel the robot underwater as in air. Water's high density causes
 						the flexible wings to bend up to 90%, passively reducing the effective stroke and
 						protecting the motor from burning out. Unlike propellors, flexible
 						flapping wings shrug off bumps and don't foul on weeds or debris the way a rigid propeller does
-						- useful in cluttered places like coral reefs, riverbeds and kelp forests. 
+						- useful in cluttered places like coral reefs, riverbeds and kelp forests.</p>
 
 						<!-- Underwater specs -->
 						<ul style="margin-bottom:1.5em;">
@@ -264,20 +340,20 @@
 						</ul>
 
 						<!-- swim_2 cropped top/bottom to match windshape_2's aspect ratio -->
-						<div style="aspect-ratio:5820/3066;overflow:hidden;border-radius:0.25em;margin-bottom:1em;">
-							<img src="images/research/faav_swim_2.jpg" alt="FAAV swimming" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;" />
+						<div class="split-media" style="aspect-ratio:1600/843;">
+							<img src="images/research/faav_swim_2.jpg" alt="FAAV swimming" style="object-position:center;" />
 						</div>
 
-						<div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:0.25em;margin-bottom:1em;">
+						<div class="split-media split-video">
 							<iframe src="https://www.youtube.com/embed/JT5y4dZFXo4?rel=0" title="FAAV Swimming 1"
 								allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture"
-								allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"></iframe>
+								allowfullscreen></iframe>
 						</div>
 
-						<div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:0.25em;">
+						<div class="split-media split-video">
 							<iframe src="https://www.youtube.com/embed/_hlQH3HHMgQ?rel=0" title="FAAV Swimming 2"
 								allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture"
-								allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"></iframe>
+								allowfullscreen></iframe>
 						</div>
 					</div>
 
