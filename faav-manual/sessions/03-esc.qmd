@@ -13,9 +13,9 @@ Work through the module with this diagram open: every step below either wires on
 ## Requirements
 
 |  |  |
-|------------------|------------------------------------------------------|
-| **Parts needed** | B-G431B-ESC1 board, AS5047P encoder, encoder mount, cables |
-| **Tools** | Soldering iron, tweezers, micro-USB cable, power source |
+|--------------------|----------------------------------------------------|
+| **Parts needed** | Module 2 sub-assembly, AS5047P encoder, encoder mount, 6x30AWG wire ribbon |
+| **Tools** | Soldering iron, , torx drivers, tweezers, micro-USB cable, power source |
 | **Read** | This page, plus [Design notes](/reference/design-notes.qmd) on why we use an FOC ESC |
 
 ![ESC running SimpleFOC and the angular sensor. The six MOSFETs are the large flat packages, arranged as three half-bridges --- one per motor phase, each with a high-side and a low-side switch. The three copper tabs on the left are the U, V and W outputs the motor is soldered to below.](/Fig/esc1.jpg){#fig-esc width="60%"}
@@ -24,7 +24,7 @@ Work through the module with this diagram open: every step below either wires on
 
 @fig-electronics is the same set of connections as @fig-wiring, drawn on the actual boards rather than as blocks. Use @fig-wiring for the pin names, and this one for locating the pad.
 
-![The complete electrical system. The 4S battery enters the ESC at **J5**, the three phase wires leave from the large **OUT1--3** tabs to the motor, the AS5047P encoder returns angle over SPI, and the XIAO nRF52840 talks to the ESC over serial. Note that the encoder and the flight controller share the same supply. The **MOSI** tap on **R14**, marked *Hardest connection!*, is the one to leave until last - see @tbl-spi3.](/Fig/SchematicFAAVclass.jpg){#fig-electronics width="6.5in"}
+![The complete electrical system. The 4S battery enters the ESC at **J5**, the three phase wires leave from the large **OUT1--3** tabs to the motor, the AS5047P encoder returns angle over SPI, and the XIAO nRF52840 talks to the ESC over serial. Note that the encoder and the flight controller share the same supply. The **MOSI** tap on **R14**, marked *Hardest connection!*, is the one to leave until last - see @tbl-spi3.](/Fig/SchematicFAAVclass.jpg){#fig-electronics width="100%"}
 
 ## Electronic Speed Controller
 
@@ -46,7 +46,7 @@ It programs from the Arduino IDE like any other Arduino board, but we highly rec
 
 ![The Seeeduino XIAO nRF52840. **TX** and **RX** are the two pads at the bottom corners --- those are the ones to solder to, and they cross over to the ESC's RX and TX respectively. The board is 21 × 17.5 mm, which is why it can ride on the robot at all.](/Fig/xiao-nrf52840.jpg){#fig-xiao fig-align="center" width="55%"}
 
-1.  Solder the Seeeduino and the ESC's **Serial1**: TX, RX and **GND** lines. In Serial communication, TX and RX are **crossed**, each board's transmit line goes to the other's receive line, as drawn in the [wiring diagram](03-esc.qmd#fig-wiring) in Module 3. GND is not optional: without a shared reference the two boards have no agreed voltage for what counts as a high or low bit.
+1.  Solder the Seeeduino and the ESC's **Serial1**: TX, RX and **GND** lines. For that, use the 6x30AWG wire ribbon, spliced in half (only need 3 lines). In Serial communication, TX and RX are **crossed**, each board's transmit line goes to the other's receive line, as drawn in the [wiring diagram](03-esc.qmd#fig-wiring) in Module 3. GND is not optional: without a shared reference the two boards have no agreed voltage for what counts as a high or low bit.
 
 2.  Load the barebone Arduino sketch onto the Seeeduino, see [Software](/reference/software.qmd) for the repository. This requires Visual Studio Code and the PlatformIO plugin installed.
 
@@ -80,7 +80,7 @@ There is no SPI link exposed directly on the ESC board. The solution is to use t
 Serial2, used by the daughterboard for serial communication will not work anymore as we are using those pins for SPI3 for the encoder instead. Flashing the ESC still works (programming runs over SWD, on different pins) but every command and every value read back now has to pass through serial1.
 :::
 
-The encoder needs power as well as the four bus signals --- six wires in total:
+The encoder needs power as well as the four bus signals - six wires in total. Replace the default cable and use the 6x30AWG wire ribbon instead.
 
 |               | SCLK | MISO | MOSI  | CS   | 5V  | GND |
 |---------------|------|------|-------|------|-----|-----|
@@ -89,17 +89,11 @@ The encoder needs power as well as the four bus signals --- six wires in total:
 
 : SPI3 connections on the G431. \* This connection is on the outward side of the resistor. {#tbl-spi3}
 
-Note that **3.3 V and GND come from different connectors**. J3 carries the three bus signals and a ground, but its only supply pin is **5 V** from the break-away BEC --- too high for the AS5047P. The 3.3 V rail is exposed on **J4**, the SWD header, alongside SWDIO and SWCLK. Take power from there and ground from J3, and check both against @fig-g431-gpio before soldering.
-
-![GPIOs of the G431B-ESC1 board. J3 carries SCLK, MISO, PA15 and GND; the 3.3 V rail is on the J4 SWD header.](/Fig/b431g.jpg){#fig-g431-gpio}
-
 ::: callout-warning
 ## Keep the SPI cables under 8 cm
 
 Cables between encoder and ESC need to be **less than 8 cm**. At 10 MHz longer runs start corrupting angle readings, and the symptom is a motor that behaves erratically rather than a sensor that obviously fails. Check the length that is needed.
 :::
-
-Next, use M2 screws to mount the encoder on the 3D printed bracket that sits around the motor. Check that the distance between sensor and magnet is 0.5 mm, and centered.
 
 ## Mounting
 

@@ -351,10 +351,6 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">Software</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../reference/cnc.html">
- <span class="dropdown-text">CNC — Stepcraft D660</span></a>
-  </li>  
-        <li>
     <a class="dropdown-item" href="../reference/design-notes.html">
  <span class="dropdown-text">Design notes</span></a>
   </li>  
@@ -518,12 +514,6 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../reference/cnc.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">CNC — Stepcraft D660</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../reference/design-notes.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Design notes</span></a>
   </div>
@@ -605,11 +595,11 @@ Figure&nbsp;1: How the battery, ESC, encoder, motor and microcontroller connect.
 <tbody>
 <tr class="odd">
 <td><strong>Parts needed</strong></td>
-<td>B-G431B-ESC1 board, AS5047P encoder, encoder mount, cables</td>
+<td>Module 2 sub-assembly, AS5047P encoder, encoder mount, 6x30AWG wire ribbon</td>
 </tr>
 <tr class="even">
 <td><strong>Tools</strong></td>
-<td>Soldering iron, tweezers, micro-USB cable, power source</td>
+<td>Soldering iron, , torx drivers, tweezers, micro-USB cable, power source</td>
 </tr>
 <tr class="odd">
 <td><strong>Read</strong></td>
@@ -634,7 +624,7 @@ Figure&nbsp;2: ESC running SimpleFOC and the angular sensor. The six MOSFETs are
 <div id="fig-electronics" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-electronics-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="../Fig/SchematicFAAVclass.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure&nbsp;3: The complete electrical system. The 4S battery enters the ESC at J5, the three phase wires leave from the large OUT1–3 tabs to the motor, the AS5047P encoder returns angle over SPI, and the XIAO nRF52840 talks to the ESC over serial. Note that the encoder and the flight controller share the same supply. The MOSI tap on R14, marked Hardest connection!, is the one to leave until last - see Table&nbsp;1."><img src="../Fig/SchematicFAAVclass.jpg" class="img-fluid figure-img" style="width:6.5in"></a>
+<a href="../Fig/SchematicFAAVclass.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure&nbsp;3: The complete electrical system. The 4S battery enters the ESC at J5, the three phase wires leave from the large OUT1–3 tabs to the motor, the AS5047P encoder returns angle over SPI, and the XIAO nRF52840 talks to the ESC over serial. Note that the encoder and the flight controller share the same supply. The MOSI tap on R14, marked Hardest connection!, is the one to leave until last - see Table&nbsp;1."><img src="../Fig/SchematicFAAVclass.jpg" class="img-fluid figure-img" style="width:100.0%"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-electronics-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;3: The complete electrical system. The 4S battery enters the ESC at <strong>J5</strong>, the three phase wires leave from the large <strong>OUT1–3</strong> tabs to the motor, the AS5047P encoder returns angle over SPI, and the XIAO nRF52840 talks to the ESC over serial. Note that the encoder and the flight controller share the same supply. The <strong>MOSI</strong> tap on <strong>R14</strong>, marked <em>Hardest connection!</em>, is the one to leave until last - see <a href="#tbl-spi3" class="quarto-xref">Table&nbsp;1</a>.
@@ -669,7 +659,7 @@ Figure&nbsp;4: The Seeeduino XIAO nRF52840. <strong>TX</strong> and <strong>RX</
 </figure>
 </div>
 <ol type="1">
-<li><p>Solder the Seeeduino and the ESC’s <strong>Serial1</strong>: TX, RX and <strong>GND</strong> lines. In Serial communication, TX and RX are <strong>crossed</strong>, each board’s transmit line goes to the other’s receive line, as drawn in the <a href="../sessions/03-esc.html#fig-wiring">wiring diagram</a> in Module 3. GND is not optional: without a shared reference the two boards have no agreed voltage for what counts as a high or low bit.</p></li>
+<li><p>Solder the Seeeduino and the ESC’s <strong>Serial1</strong>: TX, RX and <strong>GND</strong> lines. For that, use the 6x30AWG wire ribbon, spliced in half (only need 3 lines). In Serial communication, TX and RX are <strong>crossed</strong>, each board’s transmit line goes to the other’s receive line, as drawn in the <a href="../sessions/03-esc.html#fig-wiring">wiring diagram</a> in Module 3. GND is not optional: without a shared reference the two boards have no agreed voltage for what counts as a high or low bit.</p></li>
 <li><p>Load the barebone Arduino sketch onto the Seeeduino, see <a href="../reference/software.html">Software</a> for the repository. This requires Visual Studio Code and the PlatformIO plugin installed.</p></li>
 <li><p>Solder the power connection to the ESC and connect 15V from a power source.</p></li>
 <li><p>Modify the sketch to turn the LED on the <strong>ESC</strong> on and off via commander instructions. This confirms three things at once:</p>
@@ -707,7 +697,7 @@ Figure&nbsp;4: The Seeeduino XIAO nRF52840. <strong>TX</strong> and <strong>RX</
 <p>Serial2, used by the daughterboard for serial communication will not work anymore as we are using those pins for SPI3 for the encoder instead. Flashing the ESC still works (programming runs over SWD, on different pins) but every command and every value read back now has to pass through serial1.</p>
 </div>
 </div>
-<p>The encoder needs power as well as the four bus signals — six wires in total:</p>
+<p>The encoder needs power as well as the four bus signals - six wires in total. Replace the default cable and use the 6x30AWG wire ribbon instead.</p>
 <div id="tbl-spi3" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-spi3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -750,17 +740,6 @@ Table&nbsp;1: SPI3 connections on the G431. * This connection is on the outward 
 </div>
 </figure>
 </div>
-<p>Note that <strong>3.3 V and GND come from different connectors</strong>. J3 carries the three bus signals and a ground, but its only supply pin is <strong>5 V</strong> from the break-away BEC — too high for the AS5047P. The 3.3 V rail is exposed on <strong>J4</strong>, the SWD header, alongside SWDIO and SWCLK. Take power from there and ground from J3, and check both against <a href="#fig-g431-gpio" class="quarto-xref">Figure&nbsp;5</a> before soldering.</p>
-<div id="fig-g431-gpio" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-g431-gpio-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="../Fig/b431g.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Figure&nbsp;5: GPIOs of the G431B-ESC1 board. J3 carries SCLK, MISO, PA15 and GND; the 3.3 V rail is on the J4 SWD header."><img src="../Fig/b431g.jpg" class="img-fluid figure-img"></a>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-g431-gpio-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;5: GPIOs of the G431B-ESC1 board. J3 carries SCLK, MISO, PA15 and GND; the 3.3 V rail is on the J4 SWD header.
-</figcaption>
-</figure>
-</div>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -774,7 +753,6 @@ Figure&nbsp;5: GPIOs of the G431B-ESC1 board. J3 carries SCLK, MISO, PA15 and GN
 <p>Cables between encoder and ESC need to be <strong>less than 8 cm</strong>. At 10 MHz longer runs start corrupting angle readings, and the symptom is a motor that behaves erratically rather than a sensor that obviously fails. Check the length that is needed.</p>
 </div>
 </div>
-<p>Next, use M2 screws to mount the encoder on the 3D printed bracket that sits around the motor. Check that the distance between sensor and magnet is 0.5 mm, and centered.</p>
 </section>
 </section>
 <section id="mounting" class="level2">
@@ -787,7 +765,7 @@ Figure&nbsp;5: GPIOs of the G431B-ESC1 board. J3 carries SCLK, MISO, PA15 and GN
 </ol>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../Fig/ESC_assembly.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Assembled motor-esc"><img src="../Fig/ESC_assembly.jpg" class="img-fluid figure-img" alt="Assembled motor-esc"></a></p>
+<p><a href="../Fig/ESC_assembly.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Assembled motor-esc"><img src="../Fig/ESC_assembly.jpg" class="img-fluid figure-img" alt="Assembled motor-esc"></a></p>
 <figcaption>Assembled motor-esc</figcaption>
 </figure>
 </div>

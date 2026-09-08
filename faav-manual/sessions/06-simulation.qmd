@@ -5,15 +5,14 @@ title: "Module 6 --- Flapping simulation (Ptera)"
 ## Summary
 
 The wing and tail geometry are chosen here. Candidate geometries are simulated
-in Ptera, and the one giving the best thrust profile when compounded with the
-provided motor power curve is selected. Modules 7 and 8 build whatever is
+in Ptera. Modules 7 and 8 build whatever is
 decided here.
 
 ## Requirements
 
 | | |
 |---|---|
-| **Bring** | Laptop with Ptera installed, the measured loop performance from [Module 4](04-control.qmd) |
+| **Bring** | Laptop with Ptera installed |
 | **Read** | This page |
 
 ## Deliverable
@@ -40,8 +39,7 @@ following need to be written from course material:
 :::
 
 ::: {.callout-note}
-## Checkpoint --- TA sign-off
-
+## Checkpoint
 A geometry chosen, with simulation evidence, and confirmed buildable against
 the frame and wing-root hardware.
 :::

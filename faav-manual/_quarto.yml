@@ -50,7 +50,6 @@ website:
           - reference/g431-esc.qmd
           - reference/simple-foc.qmd
           - reference/software.qmd
-          - reference/cnc.qmd
           - reference/design-notes.qmd
       - href: changelog.qmd
         text: Changelog
@@ -82,7 +81,6 @@ website:
           - reference/g431-esc.qmd
           - reference/simple-foc.qmd
           - reference/software.qmd
-          - reference/cnc.qmd
           - reference/design-notes.qmd
       - href: changelog.qmd
 

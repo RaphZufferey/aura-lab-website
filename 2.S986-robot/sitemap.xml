@@ -6,7 +6,7 @@
   </url>
   <url>
     <loc>https://aura.mit.edu/2.S986-robot/sessions/10-waterproofing.html</loc>
-    <lastmod>2026-09-04T02:24:36.248Z</lastmod>
+    <lastmod>2026-09-07T19:52:53.895Z</lastmod>
   </url>
   <url>
     <loc>https://aura.mit.edu/2.S986-robot/sessions/08-tail-housing.html</loc>
@@ -14,7 +14,7 @@
   </url>
   <url>
     <loc>https://aura.mit.edu/2.S986-robot/sessions/06-simulation.html</loc>
-    <lastmod>2026-09-04T02:33:14.239Z</lastmod>
+    <lastmod>2026-09-05T19:31:26.904Z</lastmod>
   </url>
   <url>
     <loc>https://aura.mit.edu/2.S986-robot/sessions/04-control.html</loc>
@@ -22,7 +22,7 @@
   </url>
   <url>
     <loc>https://aura.mit.edu/2.S986-robot/sessions/02-motor.html</loc>
-    <lastmod>2026-09-04T02:35:06.447Z</lastmod>
+    <lastmod>2026-09-07T20:17:10.068Z</lastmod>
   </url>
   <url>
     <loc>https://aura.mit.edu/2.S986-robot/reference/software.html</loc>
@@ -30,27 +30,23 @@
   </url>
   <url>
     <loc>https://aura.mit.edu/2.S986-robot/reference/parts-list.html</loc>
-    <lastmod>2026-08-10T00:49:21.018Z</lastmod>
+    <lastmod>2026-09-05T03:28:25.499Z</lastmod>
   </url>
   <url>
     <loc>https://aura.mit.edu/2.S986-robot/reference/design-notes.html</loc>
     <lastmod>2026-08-10T01:15:30.059Z</lastmod>
   </url>
   <url>
-    <loc>https://aura.mit.edu/2.S986-robot/reference/bldc.html</loc>
-    <lastmod>2026-08-10T01:17:38.097Z</lastmod>
+    <loc>https://aura.mit.edu/2.S986-robot/index.html</loc>
+    <lastmod>2026-09-08T14:43:41.761Z</lastmod>
   </url>
   <url>
     <loc>https://aura.mit.edu/2.S986-robot/changelog.html</loc>
     <lastmod>2026-08-04T03:04:40.471Z</lastmod>
   </url>
   <url>
-    <loc>https://aura.mit.edu/2.S986-robot/index.html</loc>
-    <lastmod>2026-08-04T17:59:33.472Z</lastmod>
-  </url>
-  <url>
-    <loc>https://aura.mit.edu/2.S986-robot/reference/cnc.html</loc>
-    <lastmod>2026-08-10T01:17:13.388Z</lastmod>
+    <loc>https://aura.mit.edu/2.S986-robot/reference/bldc.html</loc>
+    <lastmod>2026-08-10T01:17:38.097Z</lastmod>
   </url>
   <url>
     <loc>https://aura.mit.edu/2.S986-robot/reference/g431-esc.html</loc>
@@ -62,15 +58,15 @@
   </url>
   <url>
     <loc>https://aura.mit.edu/2.S986-robot/sessions/01-orientation.html</loc>
-    <lastmod>2026-09-04T02:24:36.175Z</lastmod>
+    <lastmod>2026-09-07T20:13:26.228Z</lastmod>
   </url>
   <url>
     <loc>https://aura.mit.edu/2.S986-robot/sessions/03-esc.html</loc>
-    <lastmod>2026-09-04T03:04:09.048Z</lastmod>
+    <lastmod>2026-09-08T14:44:05.347Z</lastmod>
   </url>
   <url>
     <loc>https://aura.mit.edu/2.S986-robot/sessions/05-frame-crank.html</loc>
-    <lastmod>2026-09-04T02:55:21.640Z</lastmod>
+    <lastmod>2026-09-08T14:44:05.256Z</lastmod>
   </url>
   <url>
     <loc>https://aura.mit.edu/2.S986-robot/sessions/07-wings.html</loc>
@@ -78,10 +74,10 @@
   </url>
   <url>
     <loc>https://aura.mit.edu/2.S986-robot/sessions/09-electronics-dry-test.html</loc>
-    <lastmod>2026-09-04T02:24:36.242Z</lastmod>
+    <lastmod>2026-09-07T19:52:37.495Z</lastmod>
   </url>
   <url>
     <loc>https://aura.mit.edu/2.S986-robot/sessions/11-wet-testing.html</loc>
-    <lastmod>2026-09-04T02:33:14.241Z</lastmod>
+    <lastmod>2026-09-07T19:53:21.353Z</lastmod>
   </url>
 </urlset>

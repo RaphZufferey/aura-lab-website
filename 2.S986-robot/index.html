@@ -350,10 +350,6 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">Software</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./reference/cnc.html">
- <span class="dropdown-text">CNC — Stepcraft D660</span></a>
-  </li>  
-        <li>
     <a class="dropdown-item" href="./reference/design-notes.html">
  <span class="dropdown-text">Design notes</span></a>
   </li>  
@@ -517,12 +513,6 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./reference/cnc.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">CNC — Stepcraft D660</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./reference/design-notes.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Design notes</span></a>
   </div>
@@ -548,7 +538,6 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#how-this-manual-is-organised" id="toc-how-this-manual-is-organised" class="nav-link active" data-scroll-target="#how-this-manual-is-organised">How this manual is organised</a></li>
   <li><a href="#semester-map" id="toc-semester-map" class="nav-link" data-scroll-target="#semester-map">Semester map</a></li>
   <li><a href="#conventions" id="toc-conventions" class="nav-link" data-scroll-target="#conventions">Conventions</a></li>
-  <li><a href="#robot-architecture-in-one-paragraph" id="toc-robot-architecture-in-one-paragraph" class="nav-link" data-scroll-target="#robot-architecture-in-one-paragraph">Robot architecture in one paragraph</a></li>
   <li><a href="#versioning" id="toc-versioning" class="nav-link" data-scroll-target="#versioning">Versioning</a></li>
   </ul>
 </nav>
@@ -560,7 +549,7 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">FAAV Build Manual</h1>
-<p class="subtitle lead">MIT AURA Lab — 2026 v4.0</p>
+<p class="subtitle lead">MIT AURA Lab — Fall 2026</p>
 </div>
 
 
@@ -580,10 +569,10 @@ ul.task-list li input[type="checkbox"] {
 <div id="fig-faav" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-faav-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./Fig/Water-Air-Slider-V3-Carbon-v63.5.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1: The FAAV3.2"><img src="./Fig/Water-Air-Slider-V3-Carbon-v63.5.jpg" class="img-fluid figure-img"></a>
+<a href="Fig/TransitionAura_vid3.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1: The flapping-wing aerial-aquatic robot (FAAV)"><img src="Fig/TransitionAura_vid3.jpg" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-faav-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: The FAAV3.2
+Figure&nbsp;1: The flapping-wing aerial-aquatic robot (FAAV)
 </figcaption>
 </figure>
 </div>
@@ -597,14 +586,15 @@ Figure&nbsp;1: The FAAV3.2
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><strong><a href="./files/faav-build-manual.pdf">Download the printable manual (PDF)</a></strong> — every module and reference page in a single file, for the bench or for printing. Rebuilt automatically whenever the manual changes.</p>
+<p>Last modified: 2026-09-08</p>
+<p><a href="./files/faav-build-manual.pdf"><strong>Download the printable manual (PDF)</strong></a> — every module and reference page in a single file, for the bench or for printing. Rebuilt automatically whenever the manual changes.</p>
 </div>
 </div>
-<p>Over the semester you build a <strong>flapping aerial-aquatic vehicle</strong>: a robot that with the right design can fly, land on water, swim by flapping the same wings, and takes off again. The aim of this project is to demonstrate swimming behavior. This manual is the build side of the course. It is sequenced to the weekly modules, and each page covers exactly what you do in that module.</p>
+<p>Over the semester you build a <strong>flapping vehicle</strong>: a robot that with the right design can fly and swim by flapping the same wings. The aim of this project is to demonstrate swimming behavior. This manual is the build side of the course. It is sequenced to the weekly modules, and each page covers exactly what you do in that module.</p>
 <section id="how-this-manual-is-organised" class="level2">
 <h2 class="anchored" data-anchor-id="how-this-manual-is-organised">How this manual is organised</h2>
-<p><strong>Build modules</strong> are cumulative and in order. Each one opens with what you are building that day.</p>
-<p><strong>Reference</strong> holds the material you consult rather than follow: the parts list, the firmware repositories, the PCB revisions, the CNC guide, and the design notes explaining why the robot is the way it is.</p>
+<p><strong>Build modules</strong> are cumulative and in order.</p>
+<p><strong>Reference</strong> holds the material you consult rather than follow: the parts list, the firmware repositories, and the design notes explaining why the robot is the way it is.</p>
 </section>
 <section id="semester-map" class="level2">
 <h2 class="anchored" data-anchor-id="semester-map">Semester map</h2>
@@ -741,13 +731,9 @@ Figure&nbsp;1: The FAAV3.2
 </div>
 </div>
 </section>
-<section id="robot-architecture-in-one-paragraph" class="level2">
-<h2 class="anchored" data-anchor-id="robot-architecture-in-one-paragraph">Robot architecture in one paragraph</h2>
-<p>One 4S battery (16.8 V max) feeds a custom PCB that steps VBAT down to 5 V to power the flight controller, which in turn generates a 3v3 rail for the sensors on that PCB. Battery power passes through a shunt for current sensing, then out to the ESC. The flight controller commands the ESC over serial. The ESC drives a brushless motor through a 23.04:1 gearbox, and a crank–linkage converts that rotation into wing flapping.</p>
-</section>
 <section id="versioning" class="level2">
 <h2 class="anchored" data-anchor-id="versioning">Versioning</h2>
-<p>This is version <strong>fall-2026</strong>. Corrections published during the semester are dated in the <a href="./changelog.html">Changelog</a>. If a step here contradicts what a TA tells you at the bench, the TA is right and this page is stale — report it so the next team does not lose time to it.</p>
+<p>This is version <strong>fall-2026</strong>. Corrections published during the semester are dated in the <a href="./changelog.html">Changelog</a>. If a step here contradicts what we discuss, report it to Raph on slack so the next student does not lose time to it.</p>
 
 
 </section>

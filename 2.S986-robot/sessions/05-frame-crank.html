@@ -351,10 +351,6 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">Software</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../reference/cnc.html">
- <span class="dropdown-text">CNC — Stepcraft D660</span></a>
-  </li>  
-        <li>
     <a class="dropdown-item" href="../reference/design-notes.html">
  <span class="dropdown-text">Design notes</span></a>
   </li>  
@@ -518,12 +514,6 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../reference/cnc.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">CNC — Stepcraft D660</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../reference/design-notes.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Design notes</span></a>
   </div>
@@ -549,8 +539,10 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#summary" id="toc-summary" class="nav-link active" data-scroll-target="#summary">Summary</a></li>
   <li><a href="#requirements" id="toc-requirements" class="nav-link" data-scroll-target="#requirements">Requirements</a></li>
   <li><a href="#main-body" id="toc-main-body" class="nav-link" data-scroll-target="#main-body">Main body</a></li>
+  <li><a href="#sun-gear" id="toc-sun-gear" class="nav-link" data-scroll-target="#sun-gear">Sun gear</a></li>
   <li><a href="#reduction" id="toc-reduction" class="nav-link" data-scroll-target="#reduction">Reduction</a></li>
   <li><a href="#crank-and-linkage" id="toc-crank-and-linkage" class="nav-link" data-scroll-target="#crank-and-linkage">Crank and linkage</a></li>
+  <li><a href="#gears" id="toc-gears" class="nav-link" data-scroll-target="#gears">Gears</a></li>
   </ul>
 </nav>
     </div>
@@ -591,11 +583,11 @@ ul.task-list li input[type="checkbox"] {
 <tbody>
 <tr class="odd">
 <td><strong>Parts</strong></td>
-<td>5 mm aluminium link and crank, 2 gears, bearings, M2×4 screws</td>
+<td>sun gear and Faulhaber 23.04:1 gearbox, 5 mm aluminium link and crank, 2 gears, bearings, M2×5 screws</td>
 </tr>
 <tr class="even">
 <td><strong>Tools</strong></td>
-<td>drill press, metal glue</td>
+<td>drill press, metal glue, caliper</td>
 </tr>
 <tr class="odd">
 <td><strong>Read</strong></td>
@@ -610,13 +602,17 @@ ul.task-list li input[type="checkbox"] {
 <div id="fig-frame" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-frame-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="../Fig/body1.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1: Main carbon frame"><img src="../Fig/body1.jpg" class="img-fluid figure-img" style="width:55.0%"></a>
+<a href="../Fig/Sideview-CAD.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1: Carbon/Aluminum frame structure"><img src="../Fig/Sideview-CAD.jpg" class="img-fluid figure-img" style="width:100.0%"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-frame-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: Main carbon frame
+Figure&nbsp;1: Carbon/Aluminum frame structure
 </figcaption>
 </figure>
 </div>
+</section>
+<section id="sun-gear" class="level2">
+<h2 class="anchored" data-anchor-id="sun-gear">Sun gear</h2>
+<p>The sun gear from the Faulhaber 23.04:1 gearbox. Glue and press onto shaft. Check that it fits into the reduction, without touching the first stage. Use a caliper for this.</p>
 </section>
 <section id="reduction" class="level2">
 <h2 class="anchored" data-anchor-id="reduction">Reduction</h2>
@@ -643,13 +639,12 @@ Figure&nbsp;2: The transmission, exploded, with the length that matters and the 
 </figure>
 </div>
 <p>The dimensions called out in <a href="#fig-transmission-exploded" class="quarto-xref">Figure&nbsp;2</a> are the ones to cut to:</p>
-<div id="tbl-crank" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-crank-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;1: Crank–linkage dimensions
-</figcaption>
-<div aria-describedby="tbl-crank-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
+<caption>Crank–linkage dimensions</caption>
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
 <thead>
 <tr class="header">
 <th></th>
@@ -671,18 +666,23 @@ Table&nbsp;1: Crank–linkage dimensions
 </tr>
 <tr class="even">
 <td>Bearing, crank side</td>
-<td>10×4×4</td>
+<td>10×4×4 mm</td>
 </tr>
 <tr class="odd">
 <td>Bearing, wing side</td>
-<td>8×3×4 flanged</td>
+<td>8×3×4 mm</td>
+</tr>
+<tr class="even">
+<td>Bearing, in the middle plate, around Faulhaber reduction</td>
+<td>8×4×4 mm flanged</td>
+</tr>
+<tr class="odd">
+<td>Bearings, around wing pivot shafts (4x)</td>
+<td>7×3×3 mm flanged</td>
 </tr>
 </tbody>
 </table>
-</div>
-</figure>
-</div>
-<p>Both the crank and linkage are CNC-cut in a 5 mm aluminium plate.</p>
+<p>Both the crank and linkage are CNC-cut in AL7075.</p>
 <ol type="1">
 <li>Press the bearings into the linkage. They may need to be bonded with metal glue if the press fit is not good enough.</li>
 <li>Join the crank and linkage with a short 4 mm shaft, cut to <strong>10.5 mm</strong>. The bearing is kept from coming out with a circlip.</li>
@@ -698,44 +698,29 @@ Table&nbsp;1: Crank–linkage dimensions
 </div>
 <div class="callout-body-container callout-body">
 <p>An offset of <strong>1 mm</strong> is sufficient to destroy the crank-link in a few strokes.</p>
-</div>
-</div>
-<p><a href="#fig-shafts" class="quarto-xref">Figure&nbsp;3</a> shows how the four shafts for the FAAV3.2 should be manufactured. Nothing exotic, but they need to be accurate.</p>
-<div id="fig-shafts" class="quarto-layout-panel">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-shafts-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../Fig/transmissiontopview.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Transmission, top view"><img src="../Fig/transmissiontopview.jpg" class="img-fluid figure-img"></a></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../Fig/transmissiontopview.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Transmission, top view"><img src="../Fig/transmissiontopview.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:40.0%" alt="Transmission, top view"></a></p>
+</figure>
+</div>
 <figcaption>Transmission, top view</figcaption>
 </figure>
 </div>
 </div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="../Fig/shafts.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Shaft dimensions"><img src="../Fig/shafts.jpg" class="img-fluid figure-img"></a></p>
-<figcaption>Shaft dimensions</figcaption>
-</figure>
 </div>
-</div>
-</div>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-shafts-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3
-</figcaption>
-</figure>
-</div>
-<p>The 3 mm shafts are pressed through the two gears’ centre holes. Should be a mildly tight fit at minimum, otherwise glue the shaft. Same for the linkage shaft (also 3 mm).</p>
+</section>
+<section id="gears" class="level2">
+<h2 class="anchored" data-anchor-id="gears">Gears</h2>
+<p>The 3 mm shafts are pressed through the two gears’ centre holes. Should be a mildly tight fit at minimum, otherwise glue the shaft. Same for the linkage shaft.</p>
 <p>Between the gears, a clearance of <strong>0.4 mm</strong> (inter-axis spacing of 25.4 mm) ensures proper operation without too much backlash.</p>
 <div class="quarto-layout-panel" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../Fig/transmission.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Transmission assembled"><img src="../Fig/transmission.jpg" class="img-fluid figure-img" alt="Transmission assembled"></a></p>
+<p><a href="../Fig/transmission.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Transmission assembled"><img src="../Fig/transmission.jpg" class="img-fluid figure-img" style="width:45.0%" alt="Transmission assembled"></a></p>
 <figcaption>Transmission assembled</figcaption>
 </figure>
 </div>
@@ -743,7 +728,7 @@ Figure&nbsp;3
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../Fig/transmission2.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Transmission, second view"><img src="../Fig/transmission2.jpg" class="img-fluid figure-img" alt="Transmission, second view"></a></p>
+<p><a href="../Fig/transmission2.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Transmission, second view"><img src="../Fig/transmission2.jpg" class="img-fluid figure-img" style="width:45.0%" alt="Transmission, second view"></a></p>
 <figcaption>Transmission, second view</figcaption>
 </figure>
 </div>

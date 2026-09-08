@@ -4,54 +4,43 @@ title: "Module 5 --- Frame, crank, linkage and gears"
 
 ## Summary
 
-We assemble the carbon frame, the CNC-cut crank and linkage, the gears, and the full
-mechanical integration that turns motor rotation into flapping. Flapping
-amplitude is fixed by this design to **60 degrees** [^lapsansky] --- 34° up and
-26° down, as laid out in @fig-transmission-exploded.
+We assemble the carbon frame, the CNC-cut crank and linkage, the gears, and the full mechanical integration that turns motor rotation into flapping. Flapping amplitude is fixed by this design to **60 degrees** [^1] --- 34° up and 26° down, as laid out in @fig-transmission-exploded.
 
-[^lapsansky]: Lapsansky AB, Zatz D, Tobalske BW (2020). [Alcids 'fly' at efficient Strouhal numbers in both air and water but vary stroke velocity and angle](https://doi.org/10.7554/eLife.55774). *eLife* **9**:e55774.
+[^1]: Lapsansky AB, Zatz D, Tobalske BW (2020). [Alcids 'fly' at efficient Strouhal numbers in both air and water but vary stroke velocity and angle](https://doi.org/10.7554/eLife.55774). *eLife* **9**:e55774.
 
 ## Requirements
 
-| | |
-|---|---|
-| **Parts** | 5 mm aluminium link and crank, 2 gears, bearings, M2×4 screws |
-| **Tools** | drill press, metal glue |
+|  |  |
+|------------------------------------|------------------------------------|
+| **Parts** | sun gear and Faulhaber 23.04:1 gearbox, 5 mm aluminium link and crank, 2 gears, bearings, M2×5 screws |
+| **Tools** | drill press, metal glue, caliper |
 | **Read** | This page |
 
 ## Main body
 
-The main body is a carbon sandwich, spaced **24 mm** apart. The plates are
-CNC-cut from woven 1.5 mm plates. The top and bottom plates are
-identical, except for the chamfers needed for the M2 screws. The screws holding
-plate to plate are **M2×4**, screwing into brass inserts.
+The main body is a carbon sandwich, spaced **24 mm** apart. The plates are CNC-cut from woven 1.5 mm plates. The top and bottom plates are identical, except for the chamfers needed for the M2 screws. The screws holding plate to plate are **M2×4**, screwing into brass inserts.
 
-![Main carbon frame](/Fig/body1.jpg){#fig-frame width=55%}
+![Carbon/Aluminum frame structure](/Fig/Sideview-CAD.jpg){#fig-frame width="100%"}
+
+## Sun gear
+
+The sun gear from the Faulhaber 23.04:1 gearbox. Glue and press onto shaft. Check that it fits into the reduction, without touching the first stage. Use a caliper for this.
 
 ## Reduction
-Our sun gear is already pressed onto the motor shaft from
-[Module 2](02-motor.qmd). What is left is mating the gearbox to the motor and
-fixing the pair to the plates.
 
-1.  Slide the gearbox onto the motor shaft so the sun gear engages the planets.
-    It should seat with light hand pressure, if it resists, back off and
-    check the sun gear is square on the shaft rather than forcing it.
+Our sun gear is already pressed onto the motor shaft from [Module 2](02-motor.qmd). What is left is mating the gearbox to the motor and fixing the pair to the plates.
 
-2.  Fix the blue part of the gearbox: the custom screws that come with the
-    gearbox on one side, and **M2.5×10** screws on the other.
+1.  Slide the gearbox onto the motor shaft so the sun gear engages the planets. It should seat with light hand pressure, if it resists, back off and check the sun gear is square on the shaft rather than forcing it.
 
-3.  Check the output turns freely by hand through a full revolution before
-    applying power.
+2.  Fix the blue part of the gearbox: the custom screws that come with the gearbox on one side, and **M2.5×10** screws on the other.
+
+3.  Check the output turns freely by hand through a full revolution before applying power.
 
 4.  Close the gearbox: the **silver part threads onto the blue part**. Don't tighten it.
 
-5.  Attach the **second vertical bracket** to the silver part of the gearbox
-    with **3 × M2.5** screws.
+5.  Attach the **second vertical bracket** to the silver part of the gearbox with **3 × M2.5** screws.
 
-6.  Secure that bracket to the **bottom fuselage plate** with **3 × M2** screws.
-    The motor bracket from [Module 2](02-motor.qmd) is already on the same
-    plate, so between them the two brackets set the alignment of the whole
-    drivetrain. Check the output still turns freely once both are bolted down.
+6.  Secure that bracket to the **bottom fuselage plate** with **3 × M2** screws. The motor bracket from [Module 2](02-motor.qmd) is already on the same plate, so between them the two brackets set the alignment of the whole drivetrain. Check the output still turns freely once both are bolted down.
 
 ## Crank and linkage
 
@@ -59,56 +48,47 @@ fixing the pair to the plates.
 
 The dimensions called out in @fig-transmission-exploded are the ones to cut to:
 
-| | Crank-linkage dimensions |
-|---|---|
+|   | Crank-linkage dimensions |
+|------------------------------------|------------------------------------|
 | Crank radius | 4.5 mm |
 | Linkage length | 24 mm |
 | Crank–linkage shaft diameter | 4 mm |
-| Bearing, crank side | 10×4×4 |
-| Bearing, wing side | 8×3×4 flanged |
+| Bearing, crank side | 10×4×4 mm |
+| Bearing, wing side | 8×3×4 mm |
+| Bearing, in the middle plate, around Faulhaber reduction | 8×4×4 mm flanged |
+| Bearings, around wing pivot shafts (4x) | 7×3×3 mm flanged |
 
-: Crank–linkage dimensions {#tbl-crank}
+: Crank–linkage dimensions
 
-Both the crank and linkage are CNC-cut in a 5 mm aluminium plate. 
+Both the crank and linkage are CNC-cut in AL7075.
 
-1. Press the bearings into the linkage. They may need to be bonded with metal
-   glue if the press fit is not good enough.
-2. Join the crank and linkage with a short 4 mm shaft, cut to **10.5 mm**.
-   The bearing is kept from coming out with a circlip.
+1.  Press the bearings into the linkage. They may need to be bonded with metal glue if the press fit is not good enough.
+2.  Join the crank and linkage with a short 4 mm shaft, cut to **10.5 mm**. The bearing is kept from coming out with a circlip.
 
-::: {.callout-warning}
+::: callout-warning
 ### Alignment of the linkage, perpendicular to the shafts, is extremely important
 
 An offset of **1 mm** is sufficient to destroy the crank-link in a few strokes.
+
+![Transmission, top view](/Fig/transmissiontopview.jpg){fig-align="center" width="40%"}
 :::
-
-@fig-shafts shows how the four shafts for the FAAV3.2 should be manufactured.
-Nothing exotic, but they need to be accurate.
-
-::: {#fig-shafts layout-ncol=2}
-![Transmission, top view](/Fig/transmissiontopview.jpg)
-
-![Shaft dimensions](/Fig/shafts.jpg)
 
 ## Gears
-:::
-The 3 mm shafts are pressed through the two gears' centre holes. Should be a mildly
-tight fit at minimum, otherwise glue the shaft. Same for the linkage shaft
-(also 3 mm).
 
-Between the gears, a clearance of **0.4 mm** (inter-axis spacing of 25.4 mm)
-ensures proper operation without too much backlash.
+The 3 mm shafts are pressed through the two gears' centre holes. Should be a mildly tight fit at minimum, otherwise glue the shaft. Same for the linkage shaft.
 
-::: {layout-ncol=2}
-![Transmission assembled](/Fig/transmission.jpg)
+Between the gears, a clearance of **0.4 mm** (inter-axis spacing of 25.4 mm) ensures proper operation without too much backlash.
 
-![Transmission, second view](/Fig/transmission2.jpg)
+::: {layout-ncol="2"}
+![Transmission assembled](/Fig/transmission.jpg){width="45%"}
+
+![Transmission, second view](/Fig/transmission2.jpg){width="45%"}
 :::
 
-::: {.callout-note}
+::: callout-note
 ## Checkpoint
-Frame assembled, crank–linkage rotating freely through a full cycle with no
-binding, linkage visibly perpendicular to the shafts, and gear backlash checked. Flapping shown at 1-5 Hz.
+
+Frame assembled, crank–linkage rotating freely through a full cycle with no binding, linkage visibly perpendicular to the shafts, and gear backlash checked. Flapping shown at 1-5 Hz.
 :::
 
 TODO: buy circlip 4mm

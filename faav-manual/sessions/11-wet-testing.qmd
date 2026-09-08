@@ -31,7 +31,7 @@ cameras are what track the robot for the cost-of-transport number below.
 ![The AURA Lab tank. The rail and gantry run the length of the near side; the tracking cameras are mounted overhead.](/Fig/AURALabTank.jpg){#fig-tank width="100%"}
 
 ::: {.callout-warning}
-## Tank rules
+## Tank rules (repeat)
 
 **Nobody gets in the tank.** Not to retrieve a robot, not to reposition it, not
 for a moment. Use the **poles** to fish the robot back to the edge.

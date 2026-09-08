@@ -21,6 +21,8 @@ talking to the ESC, and the robot flapping in air under wireless control.
 
 Firmware lives in [FAAV-Flight-Controller](https://github.com/MIT-AURA-Lab/FAAV-Flight-Controller)
 
+## Connect battery
+Add instructions
 
 ## Dry testing
 

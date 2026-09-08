@@ -3,7 +3,6 @@ title: "Module 10 --- Waterproofing"
 ---
 
 ## Summary
-
 A potted PCB, a lubricated and sealed gearbox, and a robot that survives a
 static immersion test.
 
@@ -50,8 +49,10 @@ ESC, and the potted frame.
 
 ## Battery waterproofing
 TBC
+
 ## Battery connector waterproofing
 TBC
+
 ## Spend time discussing COT and measurement
 TBC
 
