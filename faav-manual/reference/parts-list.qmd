@@ -3,25 +3,25 @@ title: "Parts list"
 ---
 
 | Category | Component | Material/Model | Per robot | Stock |
-|-------------|-------------|-------------|------------:|---------------------|
-| Structure | Frame | Water-jet cut AL6061 1.5 mm | 2 | ORD |
+|--------------|--------------|--------------|-------------:|-----------------|
+| Structure | Frame | Water-jet cut AL6061 1.5 mm | 2 | 9 usable |
 |  | Vertical panels | Onyx with CF (Markforged) | 2 |  |
-|  | Motor holder | Onyx with CF (Markforged) | 1 |  |
+|  | Motor holder | Onyx with CF (Markforged) | 1 | 12 |
 |  | Battery holder | Onyx with CF (Markforged) | 1 |  |
 |  | Tail holder | Onyx with CF (Markforged) | 1 |  |
 |  | Screws | M2 Stainless | 25 | 300 |
 |  | Square nuts | M2 stainless | 25 | 300 |
 | Propulsion | Crank | Al 7075 | 1 | 12 |
 |  | Linkage | Al 7075 | 1 | 12 |
-|  | Reduction | Series 20/1R 1:23 (Faulhaber) | 1 | ORD |
+|  | Reduction | Series 20/1R 1:23 (Faulhaber) | 1 | PROD |
 |  | Right plate | Carbon 1.5mm plate | 1 |  |
 |  | Left wing gear | Onyx with CF (Markforged) | 1 |  |
 |  | Right wing gear | Onyx with CF (Markforged) | 1 |  |
 |  | 3x1 mm washer | AL | 2 | ?? |
-|  | Bearing (Link out) | 3x8x4 | 1 | ORD 14 |
-|  | Bearing (Red out) | 4x8x3 Flanged | 1 | ORD 14 |
-|  | Bearing (Gears) | 3x7x3 Flanged | 4 | ORD 52 |
-|  | Bearing (Crank out) | 4x10x4 | 1 | ORD 14 |
+|  | Bearing (Link out) | 3x8x4 | 1 | 14 |
+|  | Bearing (Red out) | 4x8x3 Flanged | 1 | 14 |
+|  | Bearing (Gears) | 3x7x3 Flanged | 4 | 52 |
+|  | Bearing (Crank out) | 4x10x4 | 1 | 14 |
 | Electronics | Flight controller | Seeeduino NRF52840 | 1 | 12 |
 |  | Motor | AS2303 1500kV (T-Motors) | 1 | 8 |
 |  | Hall sensor | AS5047P | 1 | 12 |
@@ -30,10 +30,10 @@ title: "Parts list"
 |  | Cable power | 24 AWG, 1m | 0.2 |  |
 | Waterproof. | Seeeduino | Silicone + 3D print | 1 | Dow734 |
 |  | ESC | Silicone + 3D print | 1 | Dow734 |
-|  | Connector | SlimSeal TE | 2 | ORD 15 |
+|  | Connector | SlimSeal TE | 2 | 15 |
 | Battery | Battery | 4S 380 mAh LiPo (Swaytronics) | 1 | ?? |
 | Wings | Carbon rods |  | 2 |  |
-|  | Membrane | Ripstop Nylon 40D, 48 g/m2, m2 | 1 | ORD |
+|  | Membrane | Ripstop Nylon 40D, 48 g/m2, m2 | 1 | 15 |
 |  | Carbon strips |  | 2 |  |
 |  | Bonding | 3M VHB tape + stitches at the ends | 1 | 1 |
 
