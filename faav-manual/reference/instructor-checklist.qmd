@@ -1,0 +1,256 @@
+---
+title: "Instructor checklist"
+---
+
+Stock levels and order status are in the [Parts list](parts-list.qmd).
+
+## Module 1 --- Orientation
+
+[Module page](/sessions/01-orientation.qmd)
+
+- [ ] Class cabinet labelled
+- [ ] Safety goggles in the "safety" drawer
+- [ ] Prepare safety briefing with the safety officer (Ethan Fulcher)
+
+## Module 2 --- Motor and transmission shaft
+
+[Module page](/sessions/02-motor.qmd)
+
+- [ ] 3D prints
+- [ ] Clean CAD
+- [ ] Prepare solder kits
+
+## Module 3 --- Motor driver, sensor and serial connection
+
+[Module page](/sessions/03-esc.qmd)
+
+**Stage** (per team)
+
+- [ ] AS5047P encoder and its 3D-printed mount
+- [ ] 6×30AWG wire ribbon
+- [ ] Seeeduino XIAO nRF52840 Sense and its 3D-printed bracket
+- [ ] 3D-printed ESC bracket
+- [ ] Soldering iron, torx drivers, tweezers, micro-USB cable
+- [ ] **Power source, 15 V 5 A, over USB-C**
+
+**Prepare in advance**
+
+- [ ] Print the encoder, Seeeduino and ESC brackets
+- [ ] Calibration stand and calibration code
+- [ ] Barebone Seeeduino sketch ready to clone
+- [ ] Students told to install VS Code + PlatformIO before the session
+
+## Module 4 --- Closed-loop control and tuning
+
+[Module page](/sessions/04-control.qmd)
+
+**Stage** (per team)
+
+- [ ] Faulhaber 23.04:1 gearbox
+- [ ] 3D-printed plates and the second vertical bracket
+- [ ] M2.5×10 screws, 3 × M2.5 and 3 × M2 screws
+- [ ] 4×8 mm flanged bearing
+- [ ] 3 wires for the Seeeduino link
+- [ ] Bench supply with current limit
+- [ ] Tachometer or camera
+- [ ] Soldering iron
+- [ ] Material for a small flag on the gearbox output
+
+**Prepare in advance**
+
+- [ ] **Pre-flash every ESC** with [FAAV-G431-ESC](https://github.com/MIT-AURA-Lab/FAAV-G431-ESC), including the SPI3 pin remap
+
+**Open items**
+
+- [ ] Say which repository and branch hold the barebone Seeeduino sketch. The nRF52 repositories in [Software](software.qmd) are marked outdated
+- [ ] Write the Calibration section, which is currently empty
+- [ ] Write the PID tuning exercise, the target performance and the sign-off criteria
+
+## Module 5 --- Frame, crank, linkage and gears
+
+[Module page](/sessions/05-frame-crank.qmd)
+
+**Stage** (per team)
+
+- [ ] Carbon frame plates (1.5 mm, top and bottom), M2×4 screws and brass inserts
+- [ ] AL7075 crank and linkage
+- [ ] 4 mm crank--linkage shaft cut to **10.5 mm**, and a 4 mm circlip
+- [ ] 3 mm gear shafts
+- [ ] Left and right wing gears
+- [ ] Bearings: 10×4×4 (crank side), 8×3×4 (wing side), 8×4×4 flanged (middle plate), 4 × 7×3×3 flanged (wing pivots)
+- [ ] M2×5 screws
+- [ ] Drill press, metal glue, caliper
+
+**Prepare in advance**
+
+- [ ] CNC-cut the carbon plates
+- [ ] CNC-cut the crank and linkage in AL7075
+- [ ] Cut the 4 mm shafts to 10.5 mm
+- [ ] Print the gears
+- [ ] **Buy 4 mm circlips** (still a TODO on the module page)
+
+## Module 6 --- Flapping simulation (Ptera)
+
+[Module page](/sessions/06-simulation.qmd)
+
+**Stage**
+
+- [ ] Students bring laptops with Ptera installed
+
+**Open items**
+
+This module has no counterpart in the manufacturing guide, so most of it still needs writing:
+
+- [ ] Ptera installation instructions and a worked example
+- [ ] The motor power curve students are given, and its file format
+- [ ] How "most efficient thrust profile" is defined and scored
+- [ ] Buildability constraints: span limits, root fitting, mass budget
+- [ ] How far teams may deviate from the reference wing
+
+## Module 7 --- Wing fabrication
+
+[Module page](/sessions/07-wings.qmd)
+
+**Stage** (per team)
+
+- [ ] Carbon rods and strips
+- [ ] Carbon wing roots, drilled to mate with the gears
+- [ ] 2 × nylon adapters per wing (4 per robot)
+- [ ] Ripstop nylon 40D membrane
+- [ ] 3M VHB tape
+- [ ] Superglue
+- [ ] Thread and needles
+- [ ] Cutting mats, steel rules, scalpels
+- [ ] Scale, for matching the mass of the two wings
+- [ ] A printer that can print the team's Module 6 geometry at 1:1
+
+**Prepare in advance**
+
+- [ ] Drill the wing roots
+- [ ] Print the nylon adapters
+
+**Open items**
+
+- [ ] 3M tape: which VHB product, what width, and where it goes on the leading edge
+- [ ] Spar layup: rod and strip diameters, and where the diagonals attach
+- [ ] Thread type and stitch spacing
+- [ ] The allowed mass and geometry difference between left and right wings
+
+## Module 8 --- Tail
+
+[Module page](/sessions/08-tail-housing.qmd)
+
+**Stage** (per team)
+
+- [ ] Carbon sheet and tail rod
+- [ ] 5 mm tail tube
+- [ ] Foam stock (XPS or closed-cell PE)
+- [ ] Epoxy
+- [ ] M2 screws and square half nuts, for the trailing-edge holder collar
+- [ ] Foam cutter, scalpel
+- [ ] 3D printer access for the students' trailing-edge holder designs
+
+**Open items**
+
+- [ ] Tail sheet material and thickness, rod diameter, boom mount, and incidence setting
+- [ ] Decide whether tail actuation is in scope (if time permits)
+- [ ] Say which print material the trailing-edge holder should use
+
+## Module 9 --- Flight controller, PCB and dry testing
+
+[Module page](/sessions/09-electronics-dry-test.qmd)
+
+**Stage** (per team)
+
+- [ ] Seeeduino XIAO, connectors, battery
+- [ ] Hotplate, tweezers, multimeter
+- [ ] Bench supply with current limit
+
+**Prepare in advance**
+
+- [ ] Custom PCBs from [FAAV-PCB-v3](https://github.com/MIT-AURA-Lab/FAAV-PCB-v3) and their BOM components
+- [ ] [FAAV-Flight-Controller](https://github.com/MIT-AURA-Lab/FAAV-Flight-Controller) firmware checked against the hardware in use. [Software](software.qmd) lists it as ESP32, while Modules 3 and 9 use the XIAO nRF52840
+- [ ] Charged batteries
+
+**Open items**
+
+- [ ] Write the "Connect battery" instructions
+- [ ] Dry-test protocol: the mount used while flapping in air, the frequency sweep, what gets measured, the wireless control setup, and abort criteria
+
+## Module 10 --- Waterproofing
+
+[Module page](/sessions/10-waterproofing.qmd)
+
+::: callout-warning
+## Schedule for the cure
+
+Potting takes 12--24 h to cure. Plan the session so potting happens first, or split it across two sittings.
+:::
+
+**Stage** (per team)
+
+- [ ] 3D-printed flight controller waterproofing box (printed transparent)
+- [ ] 3D-printed ESC potting frame
+- [ ] Silicone sealant (Dow 734) for the flight controller
+- [ ] Silcoset for the ESC
+- [ ] Kapton tape
+- [ ] USB-C cable, to plug the port during potting
+- [ ] CorrosionX and white lithium grease
+- [ ] SlimSeal TE connectors (2 per robot)
+- [ ] IPA for cleaning after immersion
+- [ ] Needle, soldering iron
+- [ ] Setup for the static immersion test
+
+**Prepare in advance**
+
+- [ ] Print the waterproofing boxes and ESC frames
+- [ ] Somewhere the potted parts can cure undisturbed overnight
+
+**Open items**
+
+- [ ] Battery waterproofing procedure
+- [ ] Battery connector waterproofing procedure
+- [ ] The discussion of cost of transport and how it is measured
+
+## Module 11 --- Wet testing
+
+[Module page](/sessions/11-wet-testing.qmd)
+
+**Stage**
+
+- [ ] Tank ready, with retrieval poles and towels
+- [ ] Overhead tracking cameras working
+- [ ] Charged 4S packs
+- [ ] Spare crank--linkage shafts
+- [ ] Floats or foam for trimming buoyancy
+- [ ] Scale, for the robot mass used in cost of transport
+
+**Prepare in advance**
+
+- [ ] A way for teams to print housings for neutral buoyancy
+- [ ] BLE retrieval of logged runs tested end to end
+
+**Open items**
+
+- [ ] Design the trailing-edge trim part: what it is, how it mounts, and its range of adjustment
+- [ ] Run profile: depth, duration, and the flap-frequency sweep
+- [ ] Abort procedure: what ends a run, and what students do at the tank edge
+- [ ] Camera tracking: how a team starts a capture, and the format the position data comes back in
+
+## Module 12 --- Competition
+
+[Module page](/sessions/12-competition.qmd)
+
+**Stage**
+
+- [ ] Tank and tracking cameras, set up as in Module 11
+- [ ] Spare crank--linkage shafts, spare wing material, charged packs
+
+**Open items**
+
+- [ ] Write the competition rules section, which is currently empty
+- [ ] Course layout and run rules for each category (most efficient, fastest)
+- [ ] How cost of transport is computed and normalised across robot masses
+- [ ] Number of attempts, and repair rules between attempts
+- [ ] How the competition counts towards the grade
+- [ ] What happens to the robots afterwards

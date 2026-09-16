@@ -51,6 +51,7 @@ website:
           - reference/simple-foc.qmd
           - reference/software.qmd
           - reference/design-notes.qmd
+          - reference/instructor-checklist.qmd
       - href: changelog.qmd
         text: Changelog
 
@@ -82,6 +83,7 @@ website:
           - reference/simple-foc.qmd
           - reference/software.qmd
           - reference/design-notes.qmd
+          - reference/instructor-checklist.qmd
       - href: changelog.qmd
 
   page-footer:

@@ -383,6 +383,10 @@ window.Quarto = {
     <a class="dropdown-item" href="../reference/design-notes.html">
  <span class="dropdown-text">Design notes</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../reference/instructor-checklist.html">
+ <span class="dropdown-text">Instructor checklist</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item">
@@ -547,6 +551,12 @@ window.Quarto = {
  <span class="menu-text">Design notes</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/instructor-checklist.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Instructor checklist</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item">
@@ -574,6 +584,7 @@ window.Quarto = {
   </ul></li>
   <li><a href="#motor-shaft" id="toc-motor-shaft" class="nav-link" data-scroll-target="#motor-shaft">Motor shaft</a></li>
   <li><a href="#sensor-magnet" id="toc-sensor-magnet" class="nav-link" data-scroll-target="#sensor-magnet">Sensor magnet</a></li>
+  <li><a href="#preparing-the-robot-bottom-plate" id="toc-preparing-the-robot-bottom-plate" class="nav-link" data-scroll-target="#preparing-the-robot-bottom-plate">Preparing the robot bottom plate</a></li>
   <li><a href="#mounting-the-motor" id="toc-mounting-the-motor" class="nav-link" data-scroll-target="#mounting-the-motor">Mounting the motor</a></li>
   <li><a href="#solder-the-motor-wires-to-the-electronic-speed-controller" id="toc-solder-the-motor-wires-to-the-electronic-speed-controller" class="nav-link" data-scroll-target="#solder-the-motor-wires-to-the-electronic-speed-controller">Solder the motor wires to the Electronic Speed Controller</a></li>
   </ul>
@@ -612,7 +623,7 @@ window.Quarto = {
 <tbody>
 <tr class="odd">
 <td><strong>Parts</strong></td>
-<td>AS2303 KV1500 motor with pre-machined bell, custom motor shaft, B-G431B-ESC1 board, 6 × 2.5 mm diametric magnet, 3D-printed magnet bracket, vertical nylon motor bracket, bottom fuselage plate, mounting screws</td>
+<td>AS2303 KV1500 motor, custom motor shaft, B-G431B-ESC1 board, 6 × 2.5 mm diametric magnet, 3D-printed parts: 1) magnet bracket, 2) vertical motor bracket, 3) ESC box. Bottom fuselage plate, mounting screws</td>
 </tr>
 <tr class="even">
 <td><strong>Tools</strong></td>
@@ -710,12 +721,17 @@ Figure&nbsp;1: Motor shaft dimensions
 </div>
 </div>
 </section>
+<section id="preparing-the-robot-bottom-plate" class="level2">
+<h2 class="anchored" data-anchor-id="preparing-the-robot-bottom-plate">Preparing the robot bottom plate</h2>
+<p>Cut a chamfer for every 2mm hole in the bottom plate.</p>
+<p>Since we will be using an aluminum fuselage, we will add a paint layer to avoid accidental shorts</p>
+</section>
 <section id="mounting-the-motor" class="level2">
 <h2 class="anchored" data-anchor-id="mounting-the-motor">Mounting the motor</h2>
 <p>With the shaft and the magnet done, the motor goes onto the robot plate. This happens in two stages: motor to bracket, then bracket to plate.</p>
 <ol type="1">
 <li><p>Fix the motor to the vertical <strong>3D-printed nylon bracket</strong> using <strong>four screws M2x5 mm</strong> through the mounting holes in the motor base. Don’t over tighten. Check that the rotor still turns freely by hand. Nylon is compliant, and overtightening can pull the bracket out of flat enough to preload the bearings. A motor that spun freely on the bench and feels stiff once bolted down needs the screws backed off and retightened more gently.</p></li>
-<li><p>Mount the bracket to the <strong>bottom fuselage plate</strong>. Before tightening, check the orientation: the shaft and sun gear must point towards the front of the robot.</p></li>
+<li><p>Insert square half-nuts in the slots in the motor bracket. Mount the bracket to the <strong>bottom fuselage plate</strong>. Before tightening, check the orientation: the shaft and sun gear must point towards the front of the robot.</p></li>
 </ol>
 <div id="fig-motor-with-shaft" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -754,7 +770,7 @@ Figure&nbsp;2: Motor and ESC sub-assembly
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Shaft seated with the sun gear on it, the rotor spinning freely by hand with no wobble, the magnet bonded concentric to within 0.5 mm, and the motor bolted to its bracket and mounted on the plate - still turning freely once bolted down. ESC soldered on the motor side.</p>
+<p>Shaft seated in motor, the rotor spinning freely by hand with no wobble, the magnet bonded concentric to within 0.5 mm, and the motor bolted to its bracket and mounted on the plate - still turning freely once bolted down. ESC soldered on the motor side.</p>
 </div>
 </div>
 

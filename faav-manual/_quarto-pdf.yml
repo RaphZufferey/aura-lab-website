@@ -44,6 +44,7 @@ book:
         - reference/simple-foc.qmd
         - reference/software.qmd
         - reference/design-notes.qmd
+        - reference/instructor-checklist.qmd
     - changelog.qmd
 
 format:

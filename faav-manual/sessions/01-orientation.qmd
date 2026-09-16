@@ -35,3 +35,9 @@ Our safety officer is Ethan Fulcher.
 - **Soldering**. On the fume extraction bench only.
 - **Tank**. Absolutely no swimming or going into the tank. Use the poles/grippers to recover robots and parts.
 - **Keep water off the floor.** Water on the floor sets off an alarm, which ends the session for everyone.
+
+## Lab use
+
+- This is a research lab, many other projects are happening at the same time. Please be respectful.
+
+- Wednesday only

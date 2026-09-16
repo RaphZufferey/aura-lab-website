@@ -10,7 +10,7 @@ A brushless motor with a custom shaft pressed into its rotor bell, with the sun 
 
 |  |  |
 |------------------------------------|------------------------------------|
-| **Parts** | AS2303 KV1500 motor with pre-machined bell, custom motor shaft, B-G431B-ESC1 board, 6 × 2.5 mm diametric magnet, 3D-printed magnet bracket, vertical nylon motor bracket, bottom fuselage plate, mounting screws |
+| **Parts** | AS2303 KV1500 motor, custom motor shaft, B-G431B-ESC1 board, 6 × 2.5 mm diametric magnet, 3D-printed parts: 1) magnet bracket, 2) vertical motor bracket, 3) ESC box. Bottom fuselage plate, mounting screws |
 | **Tools** | Circlip pliers, manual arbor press, superglue, torx drivers |
 | **Read** | This page, and the *Motor shaft* section below in full before touching the motor. [Brushless motors](/reference/bldc.qmd) for the background |
 
@@ -95,13 +95,19 @@ Use a **6 × 2.5 mm diametrically magnetised disc magnet**. *Diametrically* magn
 An eccentric magnet may still produces a perfectly plausible angle reading at times.
 :::
 
+## Preparing the robot bottom plate
+
+Cut a chamfer for every 2mm hole in the bottom plate.
+
+Since we will be using an aluminum fuselage, we will add a paint layer to avoid accidental shorts
+
 ## Mounting the motor
 
 With the shaft and the magnet done, the motor goes onto the robot plate. This happens in two stages: motor to bracket, then bracket to plate.
 
 1.  Fix the motor to the vertical **3D-printed nylon bracket** using **four screws M2x5 mm** through the mounting holes in the motor base. Don't over tighten. Check that the rotor still turns freely by hand. Nylon is compliant, and overtightening can pull the bracket out of flat enough to preload the bearings. A motor that spun freely on the bench and feels stiff once bolted down needs the screws backed off and retightened more gently.
 
-2.  Mount the bracket to the **bottom fuselage plate**. Before tightening, check the orientation: the shaft and sun gear must point towards the front of the robot.
+2.  Insert square half-nuts in the slots in the motor bracket. Mount the bracket to the **bottom fuselage plate**. Before tightening, check the orientation: the shaft and sun gear must point towards the front of the robot.
 
 ![Motor and ESC sub-assembly](/Fig/motor_with_esc.jpg){#fig-motor-with-shaft width="70%"}
 
@@ -118,5 +124,5 @@ Since the pads are large, make sure to use enough heat / large tip on the solder
 ::: callout-note
 ## Checkpoint
 
-Shaft seated with the sun gear on it, the rotor spinning freely by hand with no wobble, the magnet bonded concentric to within 0.5 mm, and the motor bolted to its bracket and mounted on the plate - still turning freely once bolted down. ESC soldered on the motor side.
+Shaft seated in motor, the rotor spinning freely by hand with no wobble, the magnet bonded concentric to within 0.5 mm, and the motor bolted to its bracket and mounted on the plate - still turning freely once bolted down. ESC soldered on the motor side.
 :::

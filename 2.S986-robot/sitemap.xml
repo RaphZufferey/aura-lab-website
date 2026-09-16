@@ -22,7 +22,7 @@
   </url>
   <url>
     <loc>https://aura.mit.edu/2.S986-robot/sessions/02-motor.html</loc>
-    <lastmod>2026-09-07T20:17:10.068Z</lastmod>
+    <lastmod>2026-09-16T02:01:55.809Z</lastmod>
   </url>
   <url>
     <loc>https://aura.mit.edu/2.S986-robot/reference/software.html</loc>
@@ -30,27 +30,31 @@
   </url>
   <url>
     <loc>https://aura.mit.edu/2.S986-robot/reference/parts-list.html</loc>
-    <lastmod>2026-09-05T03:28:25.499Z</lastmod>
+    <lastmod>2026-09-14T17:57:19.089Z</lastmod>
   </url>
   <url>
-    <loc>https://aura.mit.edu/2.S986-robot/reference/design-notes.html</loc>
-    <lastmod>2026-08-10T01:15:30.059Z</lastmod>
-  </url>
-  <url>
-    <loc>https://aura.mit.edu/2.S986-robot/index.html</loc>
-    <lastmod>2026-09-08T14:43:41.761Z</lastmod>
-  </url>
-  <url>
-    <loc>https://aura.mit.edu/2.S986-robot/changelog.html</loc>
-    <lastmod>2026-08-04T03:04:40.471Z</lastmod>
+    <loc>https://aura.mit.edu/2.S986-robot/reference/g431-esc.html</loc>
+    <lastmod>2026-08-05T21:47:11.183Z</lastmod>
   </url>
   <url>
     <loc>https://aura.mit.edu/2.S986-robot/reference/bldc.html</loc>
     <lastmod>2026-08-10T01:17:38.097Z</lastmod>
   </url>
   <url>
-    <loc>https://aura.mit.edu/2.S986-robot/reference/g431-esc.html</loc>
-    <lastmod>2026-08-05T21:47:11.183Z</lastmod>
+    <loc>https://aura.mit.edu/2.S986-robot/changelog.html</loc>
+    <lastmod>2026-08-04T03:04:40.471Z</lastmod>
+  </url>
+  <url>
+    <loc>https://aura.mit.edu/2.S986-robot/index.html</loc>
+    <lastmod>2026-09-16T02:02:46.001Z</lastmod>
+  </url>
+  <url>
+    <loc>https://aura.mit.edu/2.S986-robot/reference/design-notes.html</loc>
+    <lastmod>2026-08-10T01:15:30.059Z</lastmod>
+  </url>
+  <url>
+    <loc>https://aura.mit.edu/2.S986-robot/reference/instructor-checklist.html</loc>
+    <lastmod>2026-09-14T18:50:41.515Z</lastmod>
   </url>
   <url>
     <loc>https://aura.mit.edu/2.S986-robot/reference/simple-foc.html</loc>
@@ -58,7 +62,7 @@
   </url>
   <url>
     <loc>https://aura.mit.edu/2.S986-robot/sessions/01-orientation.html</loc>
-    <lastmod>2026-09-07T20:13:26.228Z</lastmod>
+    <lastmod>2026-09-15T21:13:35.159Z</lastmod>
   </url>
   <url>
     <loc>https://aura.mit.edu/2.S986-robot/sessions/03-esc.html</loc>
