@@ -547,7 +547,8 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#the-robot" id="toc-the-robot" class="nav-link active" data-scroll-target="#the-robot">The robot</a></li>
-  <li><a href="#robot-architecture-in-one-paragraph" id="toc-robot-architecture-in-one-paragraph" class="nav-link" data-scroll-target="#robot-architecture-in-one-paragraph">Robot architecture in one paragraph</a></li>
+  <li><a href="#mechanical-design" id="toc-mechanical-design" class="nav-link" data-scroll-target="#mechanical-design">Mechanical design</a></li>
+  <li><a href="#robot-operation-in-one-paragraph" id="toc-robot-operation-in-one-paragraph" class="nav-link" data-scroll-target="#robot-operation-in-one-paragraph">Robot operation in one paragraph</a></li>
   <li><a href="#lab-rules" id="toc-lab-rules" class="nav-link" data-scroll-target="#lab-rules">1-225 Lab rules</a>
   <ul class="collapse">
   <li><a href="#safety" id="toc-safety" class="nav-link" data-scroll-target="#safety">Safety</a></li>
@@ -594,13 +595,17 @@ Figure&nbsp;1: The flapping robot
 <p>We will develop, plan and optimize a vehicle with powerful custom actuation for flapping locomotion. The build divides into four subsystems:</p>
 <ol type="1">
 <li><strong>Transmission</strong> - motor, custom shaft, gearbox, crank and linkage (Modules 2, 5)</li>
-<li><strong>Electronics</strong> - ESC, angular sensor, flight controller (Modules 3, 4)</li>
+<li><strong>Electronics</strong> - ESC, angular sensor, flight controller (Modules 2, 3, 4)</li>
 <li><strong>Aero/hydro surfaces</strong> - wings, tail (Modules 6-8)</li>
-<li><strong>Waterproofing and testing</strong> - potting, immersion, tuning (Modules 10–12)</li>
+<li><strong>Waterproofing and testing</strong> - potting, immersion, tuning (Modules 10–12).</li>
 </ol>
 </section>
-<section id="robot-architecture-in-one-paragraph" class="level2">
-<h2 class="anchored" data-anchor-id="robot-architecture-in-one-paragraph">Robot architecture in one paragraph</h2>
+<section id="mechanical-design" class="level2">
+<h2 class="anchored" data-anchor-id="mechanical-design">Mechanical design</h2>
+<p>The 3D design (CAD) of the core of the robot is available here: <a href="https://a360.co/3UVNc2T" class="uri">https://a360.co/3UVNc2T</a></p>
+</section>
+<section id="robot-operation-in-one-paragraph" class="level2">
+<h2 class="anchored" data-anchor-id="robot-operation-in-one-paragraph">Robot operation in one paragraph</h2>
 <p>One 4S battery (16.8 V max) feeds an custom ESC that steps VBAT down to 5 V to power the flight controller and the encoder. The flight controller commands the ESC over serial. The ESC drives a brushless motor through a 23.04:1 gearbox, and a crank–linkage converts that rotation into undulation motion.</p>
 </section>
 <section id="lab-rules" class="level2">

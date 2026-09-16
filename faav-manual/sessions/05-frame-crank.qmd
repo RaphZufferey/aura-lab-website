@@ -28,7 +28,19 @@ The sun gear from the Faulhaber 23.04:1 gearbox. Glue and press onto shaft. Chec
 
 ## Reduction
 
-Our sun gear is already pressed onto the motor shaft from [Module 2](02-motor.qmd). What is left is mating the gearbox to the motor and fixing the pair to the plates.
+The motor is connected via a custom shaft to a gearbox with a **23.04:1** reduction by Faulhaber.[^2] Both parts are held in place by 3D-printed plates. The output shaft of the gearbox has its own bearing on the inside of the gearbox, and is also supported mid-way on the shaft by a 4×8 mm flanged bearing. This leaves **5 mm of shaft length free** for the crank to be mounted on. A flat on the shaft helps lock the rotation of the M3 screw extending through the crank.
+
+[^2]: [Faulhaber gearhead reduction ratios](https://www.faulhaber.com/fileadmin/Import/Media/DE_GEARHEADS_REDUCTION_RATIOS.pdf) (accessed 20.02.2024).
+
+::: {layout-ncol="2"}
+![Motor shaft](/Fig/shaft_motor.jpg){alt="Motor shaft"}
+
+![Faulhaber gearbox](/Fig/fhaber.jpg){alt="Faulhaber gearbox"}
+:::
+
+First, we need to press + glue our sun gear is already pressed onto the motor shaft from [Module 2](02-motor.qmd).
+
+Next, we need to install the gearbox to the motor and fixing the pair to the plates.
 
 1.  Slide the gearbox onto the motor shaft so the sun gear engages the planets. It should seat with light hand pressure, if it resists, back off and check the sun gear is square on the shaft rather than forcing it.
 

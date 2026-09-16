@@ -9,11 +9,15 @@ title: "Module 1 --- Orientation"
 We will develop, plan and optimize a vehicle with powerful custom actuation for flapping locomotion. The build divides into four subsystems:
 
 1.  **Transmission** - motor, custom shaft, gearbox, crank and linkage (Modules 2, 5)
-2.  **Electronics** - ESC, angular sensor, flight controller (Modules 3, 4)
+2.  **Electronics** - ESC, angular sensor, flight controller (Modules 2, 3, 4)
 3.  **Aero/hydro surfaces** - wings, tail (Modules 6-8)
-4.  **Waterproofing and testing** - potting, immersion, tuning (Modules 10--12)
+4.  **Waterproofing and testing** - potting, immersion, tuning (Modules 10--12).
 
-## Robot architecture in one paragraph
+## Mechanical design
+
+The 3D design (CAD) of the core of the robot is available here: <https://a360.co/3UVNc2T>
+
+## Robot operation in one paragraph
 
 One 4S battery (16.8 V max) feeds an custom ESC that steps VBAT down to 5 V to power the flight controller and the encoder. The flight controller commands the ESC over serial. The ESC drives a brushless motor through a 23.04:1 gearbox, and a crank–linkage converts that rotation into undulation motion.
 

@@ -52,9 +52,6 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/bootstrap/bootstrap-3bc97f2477fb7965bce9454950d60e55.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/bootstrap/bootstrap-dark-dea204dea6f735ae4ecf1dae3d686bcc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <link href="../site_libs/bootstrap/bootstrap-3bc97f2477fb7965bce9454950d60e55.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
-<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
-<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
-<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -548,16 +545,12 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#summary" id="toc-summary" class="nav-link active" data-scroll-target="#summary">Summary</a></li>
   <li><a href="#requirements" id="toc-requirements" class="nav-link" data-scroll-target="#requirements">Requirements</a></li>
-  <li><a href="#reduction" id="toc-reduction" class="nav-link" data-scroll-target="#reduction">Reduction</a></li>
-  <li><a href="#how-to-program-the-esc" id="toc-how-to-program-the-esc" class="nav-link" data-scroll-target="#how-to-program-the-esc">How to program the ESC</a></li>
   <li><a href="#firmware" id="toc-firmware" class="nav-link" data-scroll-target="#firmware">Firmware</a></li>
   <li><a href="#calibration" id="toc-calibration" class="nav-link" data-scroll-target="#calibration">Calibration</a></li>
   <li><a href="#commanding-and-monitoring" id="toc-commanding-and-monitoring" class="nav-link" data-scroll-target="#commanding-and-monitoring">Commanding and monitoring</a></li>
   <li><a href="#task-sequence" id="toc-task-sequence" class="nav-link" data-scroll-target="#task-sequence">Task sequence</a></li>
-  <li><a href="#why-low-speed-is-the-hard-part" id="toc-why-low-speed-is-the-hard-part" class="nav-link" data-scroll-target="#why-low-speed-is-the-hard-part">Why low speed is the hard part</a>
-  <ul class="collapse">
-  <li><a href="#going-beyond-600-rads" id="toc-going-beyond-600-rads" class="nav-link" data-scroll-target="#going-beyond-600-rads">Going beyond 600 rad/s</a></li>
-  </ul></li>
+  <li><a href="#why-low-speed-is-the-hard-part" id="toc-why-low-speed-is-the-hard-part" class="nav-link" data-scroll-target="#why-low-speed-is-the-hard-part">Why low speed is the hard part</a></li>
+  <li><a href="#why-high-speed-is-the-hard-part-going-beyond-600-rads" id="toc-why-high-speed-is-the-hard-part-going-beyond-600-rads" class="nav-link" data-scroll-target="#why-high-speed-is-the-hard-part-going-beyond-600-rads">Why high speed is the hard part (going beyond 600 rad/s)</a></li>
   </ul>
 </nav>
     </div>
@@ -607,34 +600,6 @@ ul.task-list li input[type="checkbox"] {
 </tbody>
 </table>
 </section>
-<section id="reduction" class="level2">
-<h2 class="anchored" data-anchor-id="reduction">Reduction</h2>
-<p>The motor is connected via a custom shaft to a gearbox with a <strong>23.04:1</strong> reduction by Faulhaber.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> Both parts are held in place by 3D-printed plates. The output shaft of the gearbox has its own bearing on the inside of the gearbox, and is also supported mid-way on the shaft by a 4×8 mm flanged bearing. This leaves <strong>5 mm of shaft length free</strong> for the crank to be mounted on. A flat on the shaft helps lock the rotation of the M3 screw extending through the crank.</p>
-<div class="quarto-layout-panel" data-layout-ncol="2">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="../Fig/shaft_motor.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Motor shaft"><img src="../Fig/shaft_motor.jpg" class="img-fluid figure-img" alt="Motor shaft"></a></p>
-<figcaption>Motor shaft</figcaption>
-</figure>
-</div>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="../Fig/fhaber.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Faulhaber gearbox"><img src="../Fig/fhaber.jpg" class="img-fluid figure-img" alt="Faulhaber gearbox"></a></p>
-<figcaption>Faulhaber gearbox</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="how-to-program-the-esc" class="level2">
-<h2 class="anchored" data-anchor-id="how-to-program-the-esc">How to program the ESC</h2>
-<p>With the encoder and motor connected to the ESC, we can start programing the ESC! Remap the pins in software for SPI use: in <code>platformio.ini</code> via <code>build_flags</code>, and by overwriting the <code>WEAK PinMap</code>s in <code>pinmap_custom.h</code>. See commit <code>18520ac</code> on GitHub for details.</p>
-</section>
 <section id="firmware" class="level2">
 <h2 class="anchored" data-anchor-id="firmware">Firmware</h2>
 <p>The ESC is pre-flashed. Code for the B-G431B-ESC1 motor controller, using the SimpleFOC library, is in the lab repository: <a href="https://github.com/MIT-AURA-Lab/FAAV-G431-ESC">FAAV-G431-ESC</a>. See <a href="../reference/software.html">Software</a> for all repositories.</p>
@@ -642,6 +607,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="calibration" class="level2">
 <h2 class="anchored" data-anchor-id="calibration">Calibration</h2>
+<p>We need to calibrate the ESC with our test stand. This allows us to…</p>
 </section>
 <section id="commanding-and-monitoring" class="level2">
 <h2 class="anchored" data-anchor-id="commanding-and-monitoring">Commanding and monitoring</h2>
@@ -728,7 +694,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="task-sequence" class="level2">
 <h2 class="anchored" data-anchor-id="task-sequence">Task sequence</h2>
 <ol type="1">
-<li>Mount a small flag on the gearbox output so rotation is visible and countable.</li>
+<li>Mount a small flag on the output so rotation is visible and countable.</li>
 <li>Achieve continuous spinning at low speed.</li>
 <li>Achieve position control - the output holds against a hand disturbance.</li>
 <li>Tune the loop and characterise the maximum usable speed.</li>
@@ -743,15 +709,17 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The specific PID tuning exercise, the target performance, and the sign-off criteria are course material and are not in the manufacturing guide.</p>
+<p>The specific PID tuning exercise, the target performance.</p>
+<p>Calibration stand / code</p>
 </div>
 </div>
 </section>
 <section id="why-low-speed-is-the-hard-part" class="level2">
 <h2 class="anchored" data-anchor-id="why-low-speed-is-the-hard-part">Why low speed is the hard part</h2>
 <p>Regular drone ESCs start <strong>losing synchronisation at low speed</strong>, which is exactly the regime used for water propulsion. That is the reason this course uses an FOC ESC rather than a hobby unit - see <a href="../reference/design-notes.html">Design notes</a>.</p>
-<section id="going-beyond-600-rads" class="level3">
-<h3 class="anchored" data-anchor-id="going-beyond-600-rads">Going beyond 600 rad/s</h3>
+</section>
+<section id="why-high-speed-is-the-hard-part-going-beyond-600-rads" class="level2">
+<h2 class="anchored" data-anchor-id="why-high-speed-is-the-hard-part-going-beyond-600-rads">Why high speed is the hard part (going beyond 600 rad/s)</h2>
 <p>Two issues limit speed: the micro-controller loop rate, and delays from the rotation sensor. Using SPI at 10 MHz and an AS5047P sensor rated for 28kRPM speeds are the required hardware changes that improves on delay. But at very high speeds, sensor lag still becomes the binding constraint, and shows up as high current draw and noise. We need to update the sensor electrical angle offset as a function of speed. Compensating sensor lag as speed increases is necessary to go above 600 rad/s without wasting current. This is automated by ramping through the speeds and minimising phase current. This <a href="https://community.simplefoc.com/t/challenges-going-faster-than-certain-rpm/1688/39">SimpleFOC forum thread</a> is useful on the topic.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -769,15 +737,8 @@ ul.task-list li input[type="checkbox"] {
 
 
 </section>
-</section>
 
-
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
-
-<ol>
-<li id="fn1"><p><a href="https://www.faulhaber.com/fileadmin/Import/Media/DE_GEARHEADS_REDUCTION_RATIOS.pdf">Faulhaber gearhead reduction ratios</a> (accessed 20.02.2024).<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
-</section></div></main> <!-- /main -->
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
@@ -1222,38 +1183,6 @@ ul.task-list li input[type="checkbox"] {
 </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
-(function() {
-  let previousOnload = window.onload;
-  window.onload = () => {
-    if (previousOnload) {
-      previousOnload();
-    }
-    lightboxQuarto.on('slide_before_load', (data) => {
-      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-      const href = trigger.getAttribute('href');
-      if (href !== null) {
-        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
-        if (imgEl !== null) {
-          const srcAttr = imgEl.getAttribute("src");
-          if (srcAttr && srcAttr.startsWith("data:")) {
-            slideConfig.href = srcAttr;
-          }
-        }
-      } 
-    });
-  
-    lightboxQuarto.on('slide_after_load', (data) => {
-      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(slideNode);
-      }
-    });
-  
-  };
-  
-})();
-          </script>
 
 
 

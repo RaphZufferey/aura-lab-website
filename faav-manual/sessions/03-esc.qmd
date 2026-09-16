@@ -4,7 +4,7 @@ title: "Module 3 --- Motor driver, sensor and serial connection"
 
 ## Summary
 
-Let's drive our motor! We aim to get a flashed G431 ESC talking to a laptop via a microcontroller, with the angular sensor wired on SPI and the motor spinning under commander control. Lots of soldering.
+We aim to get your laptop talking to a flashed G431 ESC via the flight controller, with the angular sensor wired on SPI. Lots of soldering.
 
 ![How the battery, ESC, encoder, motor and microcontroller connect. The XIAO nRF52840 shown here is the separate-microcontroller option for serial described below --- note that TX and RX are crossed. SPI3 and UART pin assignments match the rework in @tbl-spi3 and *ST-Link serial*.](/Fig/xiao-esc-wiring-diagram.png){#fig-wiring width="6.5in"}
 
@@ -13,7 +13,7 @@ Work through the module with this diagram open: every step below either wires on
 ## Requirements
 
 |  |  |
-|--------------------|----------------------------------------------------|
+|---------------------|---------------------------------------------------|
 | **Parts needed** | Module 2 sub-assembly, AS5047P encoder, encoder mount, 6x30AWG wire ribbon |
 | **Tools** | Soldering iron, , torx drivers, tweezers, micro-USB cable, power source |
 | **Read** | This page, plus [Design notes](/reference/design-notes.qmd) on why we use an FOC ESC |
@@ -107,5 +107,7 @@ Cables between encoder and ESC need to be **less than 8 cm**. At 10 MHz longer r
 ::: callout-important
 ## To be prepared by the instructor before the session
 
-Prepare a power source 15V 5A over USB-C. Calibration stand / code
+Prepare a power source 15V 5A over USB-C.
+
+Power cable to ESC (order?)
 :::

@@ -4,55 +4,39 @@ title: "Module 7 --- Wing fabrication"
 
 ## Summary
 
-Both wings: carbon skeleton, membrane cut to the geometry chosen in
-[Module 6](06-simulation.qmd), bonded and stitched at the load-bearing points.
+Both wings: carbon skeleton, membrane cut to the geometry chosen in [Module 6](06-simulation.qmd), bonded and stitched at the load-bearing points.
 
 ## Requirements
 
-| | |
-|---|---|
+|  |  |
+|------------------------------------|------------------------------------|
 | **Parts** | Carbon rods and strips, wing roots, 2× nylon adapters per wing, ripstop nylon membrane, 3M tape, superglue, thread |
 | **Tools** | Cutting mat, steel rule, scalpel, needle, printed full-size template of the chosen geometry |
 | **Bring** | The Module 6 geometry, printed 1:1 |
 
 ## Wing roots
-The wing roots are carbon, drilled to mate with the gears from
-[Module 5](05-frame-crank.qmd). 
 
-![Wing root parts and spar stock](/Fig/Wing_roots.jpg){#fig-wing-roots width=70%}
+The wing roots are carbon, drilled to mate with the gears from [Module 5](05-frame-crank.qmd).
 
-## Building the wing
+![Wing root parts and spar stock](/Fig/Wing_roots.jpg){#fig-wing-roots width="70%"}
 
-The whole wing is built **over the printed pattern**, working from the leading
-edge outwards. Everything is cut oversize and trimmed to the outline at the
-very end --- margin is easy to remove and impossible to add back.
+## Example and tips for building the wing
 
-1.  **Decide on the shape** and print the pattern on paper. Print it **1:1**
-    --- check the scale before cutting anything, by measuring a known dimension
-    on the printout against a rule. Printer drivers scale to fit by default, and
-    a pattern that came out at 97% quietly discards the geometry chosen in
-    [Module 6](06-simulation.qmd).
+The whole wing is built **over the printed pattern**, working from the leading edge outwards. Everything is cut oversize and trimmed to the outline at the very end - margin is easy to remove and impossible to add back.
 
-2.  **Cut two membranes** with a **3 cm margin** all round the pattern. Use the
-    ripstop nylon listed in [Parts](/reference/parts-list.qmd).
+1.  **Decide on the shape** and print the pattern on paper. Print it **1:1** - check the scale before cutting anything, by measuring a known dimension on the printout against a rule. Printer drivers scale to fit by default, and a pattern that came out at 97% quietly discards the geometry chosen in [Module 6](06-simulation.qmd).
 
-3.  **Bond the leading edge.** Lay a strip of **3M tape** along the
-    leading-edge region of the membrane, press the leading-edge rod down onto
-    the tape, and wrap the membrane around the rod. This joint carries the
-    highest load of any on the wing --- everything downstream pulls against it.
+2.  **Cut two membranes** with a **3 cm margin** all round the pattern. Use the ripstop nylon listed in [Parts](/reference/parts-list.qmd).
 
-4.  **Lay out the carbon strips.** Cut each to approximate length **plus 3 cm**,
-    position them on the membrane over the pattern, and bond them with
-    **superglue**.
+3.  **Bond the leading edge.** Lay a strip of **3M tape** along the leading-edge region of the membrane, press the leading-edge rod down onto the tape, and wrap the membrane around the rod. This joint carries the highest load of any on the wing --- everything downstream pulls against it.
 
-5.  **Stitch the strips down**, at minimum at every **intersection point** and
-    at the **extremities**. Superglue alone will peel off the membrane under
-    repeated flapping; the stitches are what keep the skeleton attached once
-    the glue starts to fail.
+4.  **Lay out the carbon strips.** Cut each to approximate length **plus 3 cm**, position them on the membrane over the pattern, and bond them with **superglue**.
+
+5.  **Stitch the strips down**, at minimum at every **intersection point** and at the **extremities**. Superglue alone will peel off the membrane under repeated flapping; the stitches are what keep the skeleton attached once the glue starts to fail.
 
 6.  **Trim the excess** beyond the outline with a blade, cutting on the mat.
 
-::: {layout-ncol=2}
+::: {layout-ncol="2"}
 ![Strips laid out and bonded over the template](/Fig/Wings_glue.jpg)
 
 ![Trimming the membrane to the outline](/Fig/Wings_cutting.jpg)
@@ -65,34 +49,25 @@ Repeat for the second wing, and remember that it is flipped.
 ## Assembly
 
 1.  Mount each wing in its **wing root** using the **two nylon adapters**.
-2.  Mount the wing roots in the robot, onto the gears from
-    [Module 5](05-frame-crank.qmd).
-3.  **Check that it flaps.** Run it slowly first and watch both wings through a
-    full cycle before going any faster.
+2.  Mount the wing roots in the robot, onto the gears from [Module 5](05-frame-crank.qmd).
 
-::: {.callout-warning}
+::: callout-warning
 ## Both wings must match
 
-Asymmetry between left and right shows up as a roll bias that may not be possible to correct later. See
-[Module 11](11-wet-testing.qmd) for trimming out. Weigh both wings and compare
-spar positions against the template before bonding.
+Asymmetry between left and right shows up as a roll bias that may not be possible to correct later. See [Module 11](11-wet-testing.qmd) for trimming out. Weigh both wings and compare spar positions against the template before bonding.
 :::
 
-::: {.callout-important}
+::: callout-important
 ## To be completed by the instructor
 
 Still missing from the procedure above:
 
-- Which 3M tape --- the [parts list](/reference/parts-list.qmd) says VHB, the
-  width and where exactly it lands on the leading edge are not recorded
 - Spar layup: rod and strip diameters, and where the diagonals attach
 - What to stitch with --- thread type and stitch spacing
-- Numerical tolerance between left and right wing, for the check below
 :::
 
-::: {.callout-note}
+::: callout-note
 ## Checkpoint
 
-Both wings complete, matched in mass and geometry, mounted in their roots and
-fitted to the robot, and flapping through a full cycle without binding.
+Both wings complete, matched in mass and geometry, mounted in their roots and fitted to the robot
 :::

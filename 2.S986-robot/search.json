@@ -300,30 +300,6 @@
     ]
   },
   {
-    "objectID": "sessions/04-control.html#reduction",
-    "href": "sessions/04-control.html#reduction",
-    "title": "Module 4 — Closed-loop control and tuning",
-    "section": "Reduction",
-    "text": "Reduction\nThe motor is connected via a custom shaft to a gearbox with a 23.04:1 reduction by Faulhaber.1 Both parts are held in place by 3D-printed plates. The output shaft of the gearbox has its own bearing on the inside of the gearbox, and is also supported mid-way on the shaft by a 4×8 mm flanged bearing. This leaves 5 mm of shaft length free for the crank to be mounted on. A flat on the shaft helps lock the rotation of the M3 screw extending through the crank.\n\n\n\n\n\n\nMotor shaft\n\n\n\n\n\n\n\nFaulhaber gearbox",
-    "crumbs": [
-      "Overview",
-      "Build modules",
-      "Module 4 --- Closed-loop control and tuning"
-    ]
-  },
-  {
-    "objectID": "sessions/04-control.html#how-to-program-the-esc",
-    "href": "sessions/04-control.html#how-to-program-the-esc",
-    "title": "Module 4 — Closed-loop control and tuning",
-    "section": "How to program the ESC",
-    "text": "How to program the ESC\nWith the encoder and motor connected to the ESC, we can start programing the ESC! Remap the pins in software for SPI use: in platformio.ini via build_flags, and by overwriting the WEAK PinMaps in pinmap_custom.h. See commit 18520ac on GitHub for details.",
-    "crumbs": [
-      "Overview",
-      "Build modules",
-      "Module 4 --- Closed-loop control and tuning"
-    ]
-  },
-  {
     "objectID": "sessions/04-control.html#firmware",
     "href": "sessions/04-control.html#firmware",
     "title": "Module 4 — Closed-loop control and tuning",
@@ -340,7 +316,7 @@
     "href": "sessions/04-control.html#calibration",
     "title": "Module 4 — Closed-loop control and tuning",
     "section": "Calibration",
-    "text": "Calibration",
+    "text": "Calibration\nWe need to calibrate the ESC with our test stand. This allows us to…",
     "crumbs": [
       "Overview",
       "Build modules",
@@ -364,7 +340,7 @@
     "href": "sessions/04-control.html#task-sequence",
     "title": "Module 4 — Closed-loop control and tuning",
     "section": "Task sequence",
-    "text": "Task sequence\n\nMount a small flag on the gearbox output so rotation is visible and countable.\nAchieve continuous spinning at low speed.\nAchieve position control - the output holds against a hand disturbance.\nTune the loop and characterise the maximum usable speed.\n\n\n\n\n\n\n\nImportantTo be completed by the instructor\n\n\n\nThe specific PID tuning exercise, the target performance, and the sign-off criteria are course material and are not in the manufacturing guide.",
+    "text": "Task sequence\n\nMount a small flag on the output so rotation is visible and countable.\nAchieve continuous spinning at low speed.\nAchieve position control - the output holds against a hand disturbance.\nTune the loop and characterise the maximum usable speed.\n\n\n\n\n\n\n\nImportantTo be completed by the instructor\n\n\n\nThe specific PID tuning exercise, the target performance.\nCalibration stand / code",
     "crumbs": [
       "Overview",
       "Build modules",
@@ -376,7 +352,7 @@
     "href": "sessions/04-control.html#why-low-speed-is-the-hard-part",
     "title": "Module 4 — Closed-loop control and tuning",
     "section": "Why low speed is the hard part",
-    "text": "Why low speed is the hard part\nRegular drone ESCs start losing synchronisation at low speed, which is exactly the regime used for water propulsion. That is the reason this course uses an FOC ESC rather than a hobby unit - see Design notes.\n\nGoing beyond 600 rad/s\nTwo issues limit speed: the micro-controller loop rate, and delays from the rotation sensor. Using SPI at 10 MHz and an AS5047P sensor rated for 28kRPM speeds are the required hardware changes that improves on delay. But at very high speeds, sensor lag still becomes the binding constraint, and shows up as high current draw and noise. We need to update the sensor electrical angle offset as a function of speed. Compensating sensor lag as speed increases is necessary to go above 600 rad/s without wasting current. This is automated by ramping through the speeds and minimising phase current. This SimpleFOC forum thread is useful on the topic.\n\n\n\n\n\n\nNoteCheckpoint\n\n\n\nContinuous rotation resulting in frequencies of 1 Hz all the way to 8 Hz without loss of synchronisation, position hold against a hand disturbance, and a recorded loop frequency from F. Do not exceed 8 Hz.",
+    "text": "Why low speed is the hard part\nRegular drone ESCs start losing synchronisation at low speed, which is exactly the regime used for water propulsion. That is the reason this course uses an FOC ESC rather than a hobby unit - see Design notes.",
     "crumbs": [
       "Overview",
       "Build modules",
@@ -384,11 +360,11 @@
     ]
   },
   {
-    "objectID": "sessions/04-control.html#footnotes",
-    "href": "sessions/04-control.html#footnotes",
+    "objectID": "sessions/04-control.html#why-high-speed-is-the-hard-part-going-beyond-600-rads",
+    "href": "sessions/04-control.html#why-high-speed-is-the-hard-part-going-beyond-600-rads",
     "title": "Module 4 — Closed-loop control and tuning",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\nFaulhaber gearhead reduction ratios (accessed 20.02.2024).↩︎",
+    "section": "Why high speed is the hard part (going beyond 600 rad/s)",
+    "text": "Why high speed is the hard part (going beyond 600 rad/s)\nTwo issues limit speed: the micro-controller loop rate, and delays from the rotation sensor. Using SPI at 10 MHz and an AS5047P sensor rated for 28kRPM speeds are the required hardware changes that improves on delay. But at very high speeds, sensor lag still becomes the binding constraint, and shows up as high current draw and noise. We need to update the sensor electrical angle offset as a function of speed. Compensating sensor lag as speed increases is necessary to go above 600 rad/s without wasting current. This is automated by ramping through the speeds and minimising phase current. This SimpleFOC forum thread is useful on the topic.\n\n\n\n\n\n\nNoteCheckpoint\n\n\n\nContinuous rotation resulting in frequencies of 1 Hz all the way to 8 Hz without loss of synchronisation, position hold against a hand disturbance, and a recorded loop frequency from F. Do not exceed 8 Hz.",
     "crumbs": [
       "Overview",
       "Build modules",
@@ -1108,7 +1084,7 @@
     "href": "sessions/01-orientation.html",
     "title": "Module 1 — Orientation",
     "section": "",
-    "text": "Figure 1: The flapping robot\n\n\n\nWe will develop, plan and optimize a vehicle with powerful custom actuation for flapping locomotion. The build divides into four subsystems:\n\nTransmission - motor, custom shaft, gearbox, crank and linkage (Modules 2, 5)\nElectronics - ESC, angular sensor, flight controller (Modules 3, 4)\nAero/hydro surfaces - wings, tail (Modules 6-8)\nWaterproofing and testing - potting, immersion, tuning (Modules 10–12)",
+    "text": "Figure 1: The flapping robot\n\n\n\nWe will develop, plan and optimize a vehicle with powerful custom actuation for flapping locomotion. The build divides into four subsystems:\n\nTransmission - motor, custom shaft, gearbox, crank and linkage (Modules 2, 5)\nElectronics - ESC, angular sensor, flight controller (Modules 2, 3, 4)\nAero/hydro surfaces - wings, tail (Modules 6-8)\nWaterproofing and testing - potting, immersion, tuning (Modules 10–12).",
     "crumbs": [
       "Overview",
       "Build modules",
@@ -1120,7 +1096,7 @@
     "href": "sessions/01-orientation.html#the-robot",
     "title": "Module 1 — Orientation",
     "section": "",
-    "text": "Figure 1: The flapping robot\n\n\n\nWe will develop, plan and optimize a vehicle with powerful custom actuation for flapping locomotion. The build divides into four subsystems:\n\nTransmission - motor, custom shaft, gearbox, crank and linkage (Modules 2, 5)\nElectronics - ESC, angular sensor, flight controller (Modules 3, 4)\nAero/hydro surfaces - wings, tail (Modules 6-8)\nWaterproofing and testing - potting, immersion, tuning (Modules 10–12)",
+    "text": "Figure 1: The flapping robot\n\n\n\nWe will develop, plan and optimize a vehicle with powerful custom actuation for flapping locomotion. The build divides into four subsystems:\n\nTransmission - motor, custom shaft, gearbox, crank and linkage (Modules 2, 5)\nElectronics - ESC, angular sensor, flight controller (Modules 2, 3, 4)\nAero/hydro surfaces - wings, tail (Modules 6-8)\nWaterproofing and testing - potting, immersion, tuning (Modules 10–12).",
     "crumbs": [
       "Overview",
       "Build modules",
@@ -1128,11 +1104,23 @@
     ]
   },
   {
-    "objectID": "sessions/01-orientation.html#robot-architecture-in-one-paragraph",
-    "href": "sessions/01-orientation.html#robot-architecture-in-one-paragraph",
+    "objectID": "sessions/01-orientation.html#mechanical-design",
+    "href": "sessions/01-orientation.html#mechanical-design",
     "title": "Module 1 — Orientation",
-    "section": "Robot architecture in one paragraph",
-    "text": "Robot architecture in one paragraph\nOne 4S battery (16.8 V max) feeds an custom ESC that steps VBAT down to 5 V to power the flight controller and the encoder. The flight controller commands the ESC over serial. The ESC drives a brushless motor through a 23.04:1 gearbox, and a crank–linkage converts that rotation into undulation motion.",
+    "section": "Mechanical design",
+    "text": "Mechanical design\nThe 3D design (CAD) of the core of the robot is available here: https://a360.co/3UVNc2T",
+    "crumbs": [
+      "Overview",
+      "Build modules",
+      "Module 1 --- Orientation"
+    ]
+  },
+  {
+    "objectID": "sessions/01-orientation.html#robot-operation-in-one-paragraph",
+    "href": "sessions/01-orientation.html#robot-operation-in-one-paragraph",
+    "title": "Module 1 — Orientation",
+    "section": "Robot operation in one paragraph",
+    "text": "Robot operation in one paragraph\nOne 4S battery (16.8 V max) feeds an custom ESC that steps VBAT down to 5 V to power the flight controller and the encoder. The flight controller commands the ESC over serial. The ESC drives a brushless motor through a 23.04:1 gearbox, and a crank–linkage converts that rotation into undulation motion.",
     "crumbs": [
       "Overview",
       "Build modules",
@@ -1168,7 +1156,7 @@
     "href": "sessions/03-esc.html",
     "title": "Module 3 — Motor driver, sensor and serial connection",
     "section": "",
-    "text": "Let’s drive our motor! We aim to get a flashed G431 ESC talking to a laptop via a microcontroller, with the angular sensor wired on SPI and the motor spinning under commander control. Lots of soldering.\n\n\n\n\n\n\nFigure 1: How the battery, ESC, encoder, motor and microcontroller connect. The XIAO nRF52840 shown here is the separate-microcontroller option for serial described below — note that TX and RX are crossed. SPI3 and UART pin assignments match the rework in Table 1 and ST-Link serial.\n\n\n\nWork through the module with this diagram open: every step below either wires one of these links or configures it in firmware.",
+    "text": "We aim to get your laptop talking to a flashed G431 ESC via the flight controller, with the angular sensor wired on SPI. Lots of soldering.\n\n\n\n\n\n\nFigure 1: How the battery, ESC, encoder, motor and microcontroller connect. The XIAO nRF52840 shown here is the separate-microcontroller option for serial described below — note that TX and RX are crossed. SPI3 and UART pin assignments match the rework in Table 1 and ST-Link serial.\n\n\n\nWork through the module with this diagram open: every step below either wires one of these links or configures it in firmware.",
     "crumbs": [
       "Overview",
       "Build modules",
@@ -1180,7 +1168,7 @@
     "href": "sessions/03-esc.html#summary",
     "title": "Module 3 — Motor driver, sensor and serial connection",
     "section": "",
-    "text": "Let’s drive our motor! We aim to get a flashed G431 ESC talking to a laptop via a microcontroller, with the angular sensor wired on SPI and the motor spinning under commander control. Lots of soldering.\n\n\n\n\n\n\nFigure 1: How the battery, ESC, encoder, motor and microcontroller connect. The XIAO nRF52840 shown here is the separate-microcontroller option for serial described below — note that TX and RX are crossed. SPI3 and UART pin assignments match the rework in Table 1 and ST-Link serial.\n\n\n\nWork through the module with this diagram open: every step below either wires one of these links or configures it in firmware.",
+    "text": "We aim to get your laptop talking to a flashed G431 ESC via the flight controller, with the angular sensor wired on SPI. Lots of soldering.\n\n\n\n\n\n\nFigure 1: How the battery, ESC, encoder, motor and microcontroller connect. The XIAO nRF52840 shown here is the separate-microcontroller option for serial described below — note that TX and RX are crossed. SPI3 and UART pin assignments match the rework in Table 1 and ST-Link serial.\n\n\n\nWork through the module with this diagram open: every step below either wires one of these links or configures it in firmware.",
     "crumbs": [
       "Overview",
       "Build modules",
@@ -1252,7 +1240,7 @@
     "href": "sessions/03-esc.html#mounting",
     "title": "Module 3 — Motor driver, sensor and serial connection",
     "section": "Mounting",
-    "text": "Mounting\n\nInstall the Seeeduino in its 3D-printed bracket and into the robot\nInstall the encoder in its 3D-printed bracket\nInstall the ESC in its 3D-printed bracket\nAll mounted to the bottom fuselage plate\n\n\n\n\nAssembled motor-esc\n\n\n\n\n\n\n\n\nImportantTo be prepared by the instructor before the session\n\n\n\nPrepare a power source 15V 5A over USB-C. Calibration stand / code",
+    "text": "Mounting\n\nInstall the Seeeduino in its 3D-printed bracket and into the robot\nInstall the encoder in its 3D-printed bracket\nInstall the ESC in its 3D-printed bracket\nAll mounted to the bottom fuselage plate\n\n\n\n\nAssembled motor-esc\n\n\n\n\n\n\n\n\nImportantTo be prepared by the instructor before the session\n\n\n\nPrepare a power source 15V 5A over USB-C.\nPower cable to ESC (order?)",
     "crumbs": [
       "Overview",
       "Build modules",
@@ -1324,7 +1312,7 @@
     "href": "sessions/05-frame-crank.html#reduction",
     "title": "Module 5 — Frame, crank, linkage and gears",
     "section": "Reduction",
-    "text": "Reduction\nOur sun gear is already pressed onto the motor shaft from Module 2. What is left is mating the gearbox to the motor and fixing the pair to the plates.\n\nSlide the gearbox onto the motor shaft so the sun gear engages the planets. It should seat with light hand pressure, if it resists, back off and check the sun gear is square on the shaft rather than forcing it.\nFix the blue part of the gearbox: the custom screws that come with the gearbox on one side, and M2.5×10 screws on the other.\nCheck the output turns freely by hand through a full revolution before applying power.\nClose the gearbox: the silver part threads onto the blue part. Don’t tighten it.\nAttach the second vertical bracket to the silver part of the gearbox with 3 × M2.5 screws.\nSecure that bracket to the bottom fuselage plate with 3 × M2 screws. The motor bracket from Module 2 is already on the same plate, so between them the two brackets set the alignment of the whole drivetrain. Check the output still turns freely once both are bolted down.",
+    "text": "Reduction\nThe motor is connected via a custom shaft to a gearbox with a 23.04:1 reduction by Faulhaber.2 Both parts are held in place by 3D-printed plates. The output shaft of the gearbox has its own bearing on the inside of the gearbox, and is also supported mid-way on the shaft by a 4×8 mm flanged bearing. This leaves 5 mm of shaft length free for the crank to be mounted on. A flat on the shaft helps lock the rotation of the M3 screw extending through the crank.\n\n\n\n\n\n\nMotor shaft\n\n\n\n\n\n\n\nFaulhaber gearbox\n\n\n\n\n\nFirst, we need to press + glue our sun gear is already pressed onto the motor shaft from Module 2.\nNext, we need to install the gearbox to the motor and fixing the pair to the plates.\n\nSlide the gearbox onto the motor shaft so the sun gear engages the planets. It should seat with light hand pressure, if it resists, back off and check the sun gear is square on the shaft rather than forcing it.\nFix the blue part of the gearbox: the custom screws that come with the gearbox on one side, and M2.5×10 screws on the other.\nCheck the output turns freely by hand through a full revolution before applying power.\nClose the gearbox: the silver part threads onto the blue part. Don’t tighten it.\nAttach the second vertical bracket to the silver part of the gearbox with 3 × M2.5 screws.\nSecure that bracket to the bottom fuselage plate with 3 × M2 screws. The motor bracket from Module 2 is already on the same plate, so between them the two brackets set the alignment of the whole drivetrain. Check the output still turns freely once both are bolted down.",
     "crumbs": [
       "Overview",
       "Build modules",
@@ -1360,7 +1348,7 @@
     "href": "sessions/05-frame-crank.html#footnotes",
     "title": "Module 5 — Frame, crank, linkage and gears",
     "section": "Footnotes",
-    "text": "Footnotes\n\n\nLapsansky AB, Zatz D, Tobalske BW (2020). Alcids ‘fly’ at efficient Strouhal numbers in both air and water but vary stroke velocity and angle. eLife 9:e55774.↩︎",
+    "text": "Footnotes\n\n\nLapsansky AB, Zatz D, Tobalske BW (2020). Alcids ‘fly’ at efficient Strouhal numbers in both air and water but vary stroke velocity and angle. eLife 9:e55774.↩︎\nFaulhaber gearhead reduction ratios (accessed 20.02.2024).↩︎",
     "crumbs": [
       "Overview",
       "Build modules",
@@ -1416,11 +1404,11 @@
     ]
   },
   {
-    "objectID": "sessions/07-wings.html#building-the-wing",
-    "href": "sessions/07-wings.html#building-the-wing",
+    "objectID": "sessions/07-wings.html#example-and-tips-for-building-the-wing",
+    "href": "sessions/07-wings.html#example-and-tips-for-building-the-wing",
     "title": "Module 7 — Wing fabrication",
-    "section": "Building the wing",
-    "text": "Building the wing\nThe whole wing is built over the printed pattern, working from the leading edge outwards. Everything is cut oversize and trimmed to the outline at the very end — margin is easy to remove and impossible to add back.\n\nDecide on the shape and print the pattern on paper. Print it 1:1 — check the scale before cutting anything, by measuring a known dimension on the printout against a rule. Printer drivers scale to fit by default, and a pattern that came out at 97% quietly discards the geometry chosen in Module 6.\nCut two membranes with a 3 cm margin all round the pattern. Use the ripstop nylon listed in Parts.\nBond the leading edge. Lay a strip of 3M tape along the leading-edge region of the membrane, press the leading-edge rod down onto the tape, and wrap the membrane around the rod. This joint carries the highest load of any on the wing — everything downstream pulls against it.\nLay out the carbon strips. Cut each to approximate length plus 3 cm, position them on the membrane over the pattern, and bond them with superglue.\nStitch the strips down, at minimum at every intersection point and at the extremities. Superglue alone will peel off the membrane under repeated flapping; the stitches are what keep the skeleton attached once the glue starts to fail.\nTrim the excess beyond the outline with a blade, cutting on the mat.\n\n\n\n\n\n\n\nStrips laid out and bonded over the template\n\n\n\n\n\n\n\nTrimming the membrane to the outline\n\n\n\n\n\nRepeat for the second wing, and remember that it is flipped.\n\n\n\n\n\n\nFigure 2: Completed wing pair",
+    "section": "Example and tips for building the wing",
+    "text": "Example and tips for building the wing\nThe whole wing is built over the printed pattern, working from the leading edge outwards. Everything is cut oversize and trimmed to the outline at the very end - margin is easy to remove and impossible to add back.\n\nDecide on the shape and print the pattern on paper. Print it 1:1 - check the scale before cutting anything, by measuring a known dimension on the printout against a rule. Printer drivers scale to fit by default, and a pattern that came out at 97% quietly discards the geometry chosen in Module 6.\nCut two membranes with a 3 cm margin all round the pattern. Use the ripstop nylon listed in Parts.\nBond the leading edge. Lay a strip of 3M tape along the leading-edge region of the membrane, press the leading-edge rod down onto the tape, and wrap the membrane around the rod. This joint carries the highest load of any on the wing — everything downstream pulls against it.\nLay out the carbon strips. Cut each to approximate length plus 3 cm, position them on the membrane over the pattern, and bond them with superglue.\nStitch the strips down, at minimum at every intersection point and at the extremities. Superglue alone will peel off the membrane under repeated flapping; the stitches are what keep the skeleton attached once the glue starts to fail.\nTrim the excess beyond the outline with a blade, cutting on the mat.\n\n\n\n\n\n\n\nStrips laid out and bonded over the template\n\n\n\n\n\n\n\nTrimming the membrane to the outline\n\n\n\n\n\nRepeat for the second wing, and remember that it is flipped.\n\n\n\n\n\n\nFigure 2: Completed wing pair",
     "crumbs": [
       "Overview",
       "Build modules",
@@ -1432,7 +1420,7 @@
     "href": "sessions/07-wings.html#assembly",
     "title": "Module 7 — Wing fabrication",
     "section": "Assembly",
-    "text": "Assembly\n\nMount each wing in its wing root using the two nylon adapters.\nMount the wing roots in the robot, onto the gears from Module 5.\nCheck that it flaps. Run it slowly first and watch both wings through a full cycle before going any faster.\n\n\n\n\n\n\n\nWarningBoth wings must match\n\n\n\nAsymmetry between left and right shows up as a roll bias that may not be possible to correct later. See Module 11 for trimming out. Weigh both wings and compare spar positions against the template before bonding.\n\n\n\n\n\n\n\n\nImportantTo be completed by the instructor\n\n\n\nStill missing from the procedure above:\n\nWhich 3M tape — the parts list says VHB, the width and where exactly it lands on the leading edge are not recorded\nSpar layup: rod and strip diameters, and where the diagonals attach\nWhat to stitch with — thread type and stitch spacing\nNumerical tolerance between left and right wing, for the check below\n\n\n\n\n\n\n\n\n\nNoteCheckpoint\n\n\n\nBoth wings complete, matched in mass and geometry, mounted in their roots and fitted to the robot, and flapping through a full cycle without binding.",
+    "text": "Assembly\n\nMount each wing in its wing root using the two nylon adapters.\nMount the wing roots in the robot, onto the gears from Module 5.\n\n\n\n\n\n\n\nWarningBoth wings must match\n\n\n\nAsymmetry between left and right shows up as a roll bias that may not be possible to correct later. See Module 11 for trimming out. Weigh both wings and compare spar positions against the template before bonding.\n\n\n\n\n\n\n\n\nImportantTo be completed by the instructor\n\n\n\nStill missing from the procedure above:\n\nSpar layup: rod and strip diameters, and where the diagonals attach\nWhat to stitch with — thread type and stitch spacing\n\n\n\n\n\n\n\n\n\nNoteCheckpoint\n\n\n\nBoth wings complete, matched in mass and geometry, mounted in their roots and fitted to the robot",
     "crumbs": [
       "Overview",
       "Build modules",
