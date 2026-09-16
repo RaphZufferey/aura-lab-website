@@ -640,7 +640,7 @@
     "href": "reference/bldc.html",
     "title": "Brushless motors",
     "section": "",
-    "text": "Background for Module 2. For understanding why the motor behaves the way it does when you push it in Module 4.",
+    "text": "Background for Module 2.",
     "crumbs": [
       "Overview",
       "Reference",
@@ -677,18 +677,6 @@
     "title": "Brushless motors",
     "section": "Thermal limits",
     "text": "Thermal limits\nNothing in Equation 3 knows about heat, which is why the equations cheerfully predict operating points that will destroy the motor in seconds.\nAlmost all the loss you care about is copper loss in the windings:\n\\[P_\\text{copper} = I^2 R \\tag{4}\\]\nThe square is what makes this the binding constraint. Doubling the torque doubles the current and quadruples the heating. A motor comfortable at its rated current will not survive twice that for long, even though the torque equation says it is only a factor of two.\nThree practical consequences:\n\nStall is the worst case, not the best. At \\(\\omega = 0\\) there is maximum current and no rotation, so no airflow and no useful output — all the input power becomes heat in the windings. A motor held at stall can burn out without the shaft moving at all.\nContinuous and peak ratings are different numbers. A peak rating assumes seconds; a continuous rating assumes thermal equilibrium. Flapping is a reciprocating load, so the current is far from constant — what matters for heating is the RMS current over the cycle, not the peak you see on the bench supply.\nIron losses grow with speed. Hysteresis and eddy-current losses in the stator scale with electrical frequency, so at the 1700 rad/s discussed in Module 4 the copper is no longer the only thing getting warm.\n\n\n\n\n\n\n\n\n\n\nWarningHeat is cumulative and invisible\n\n\n\nCurrent is the only symptom you can see, and it appears instantly, while the temperature it causes lags behind by tens of seconds. A run that looks fine on the ammeter can still be depositing heat faster than the motor sheds it. When tuning in Module 4, stop and touch the motor.",
-    "crumbs": [
-      "Overview",
-      "Reference",
-      "Brushless motors"
-    ]
-  },
-  {
-    "objectID": "reference/bldc.html#sec-measured",
-    "href": "reference/bldc.html#sec-measured",
-    "title": "Brushless motors",
-    "section": "Measured behaviour of the AS2303",
-    "text": "Measured behaviour of the AS2303\nEverything above is the model. The plot below is where the test-stand measurements go, so you can see how far the straight line actually holds for the motor on your bench.\n\n\n\n\n\n\n\n\n\nImportantTo be completed by the instructor\n\n\n\nTwo things, and the second depends on the first:\n\nThe measured winding resistance of the AS2303, its continuous current rating, and the current limit configured on the ESC. These turn every equation on this page into numbers students can check against — the plots above currently run on a placeholder \\(R\\).\nThe test-stand data itself. Paste it into the MEASURED array in the script block at the bottom of reference/bldc.qmd; the schema and an example row are in the comment there. The plot switches from its empty state to a measured-versus-model comparison as soon as the array is non-empty.",
     "crumbs": [
       "Overview",
       "Reference",

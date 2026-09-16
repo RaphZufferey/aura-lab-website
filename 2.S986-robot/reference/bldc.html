@@ -584,7 +584,6 @@ window.Quarto = {
   <li><a href="#the-envelope-not-the-line" id="toc-the-envelope-not-the-line" class="nav-link" data-scroll-target="#the-envelope-not-the-line">The envelope, not the line</a></li>
   </ul></li>
   <li><a href="#thermal-limits" id="toc-thermal-limits" class="nav-link" data-scroll-target="#thermal-limits">Thermal limits</a></li>
-  <li><a href="#sec-measured" id="toc-sec-measured" class="nav-link" data-scroll-target="#sec-measured">Measured behaviour of the AS2303</a></li>
   <li><a href="#why-an-outrunner" id="toc-why-an-outrunner" class="nav-link" data-scroll-target="#why-an-outrunner">Why an outrunner</a></li>
   </ul>
 </nav>
@@ -612,7 +611,7 @@ window.Quarto = {
 </header>
 
 
-<p>Background for <a href="../sessions/02-motor.html">Module 2</a>. For understanding why the motor behaves the way it does when you push it in <a href="../sessions/04-control.html">Module 4</a>.</p>
+<p>Background for <a href="../sessions/02-motor.html">Module 2</a>.</p>
 <section id="start-with-the-brushed-dc-motor" class="level2">
 <h2 class="anchored" data-anchor-id="start-with-the-brushed-dc-motor">Start with the brushed DC motor</h2>
 <p>Every result you need for a brushless motor is easier to see in a brushed one first, because the two obey the same electrical physics. The difference is <em>how</em> the windings get switched, not what the machine does once they are.</p>
@@ -735,30 +734,6 @@ window.Quarto = {
 </div>
 <div class="callout-body-container callout-body">
 <p>Current is the only symptom you can see, and it appears instantly, while the temperature it causes lags behind by tens of seconds. A run that looks fine on the ammeter can still be depositing heat faster than the motor sheds it. When tuning in <a href="../sessions/04-control.html">Module 4</a>, stop and touch the motor.</p>
-</div>
-</div>
-</section>
-<section id="sec-measured" class="level2">
-<h2 class="anchored" data-anchor-id="sec-measured">Measured behaviour of the AS2303</h2>
-<p>Everything above is the model. The plot below is where the <strong>test-stand measurements</strong> go, so you can see how far the straight line actually holds for the motor on your bench.</p>
-<div id="viz-as2303" class="viz">
-
-</div>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>To be completed by the instructor
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Two things, and the second depends on the first:</p>
-<ol type="1">
-<li>The measured winding resistance of the AS2303, its continuous current rating, and the current limit configured on the ESC. These turn every equation on this page into numbers students can check against — the plots above currently run on a <strong>placeholder</strong> <span class="math inline">\(R\)</span>.</li>
-<li>The test-stand data itself. Paste it into the <code>MEASURED</code> array in the script block at the bottom of <code>reference/bldc.qmd</code>; the schema and an example row are in the comment there. The plot switches from its empty state to a measured-versus-model comparison as soon as the array is non-empty.</li>
-</ol>
 </div>
 </div>
 </section>
