@@ -4,42 +4,33 @@ title: "Module 6 --- Flapping simulation (Ptera)"
 
 ## Summary
 
-The wing and tail geometry are chosen here. Candidate geometries are simulated
-in Ptera. Modules 7 and 8 build whatever is
-decided here.
+The wing and tail geometry are chosen here. Candidate geometries are simulated in Ptera. Modules 7 and 8 build whatever is decided here.
 
 ## Requirements
 
-| | |
-|---|---|
+|           |                             |
+|-----------|-----------------------------|
 | **Bring** | Laptop with Ptera installed |
-| **Read** | This page |
+| **Read**  | This page                   |
 
 ## Deliverable
 
-A wing planform and a tail geometry, with the simulation output that justifies
-them, carried forward into [Module 7](07-wings.qmd) and
-[Module 8](08-tail-housing.qmd).
+A wing planform and a tail geometry, with the simulation output that justifies them, carried forward into [Module 7](07-wings.qmd) and [Module 8](08-tail-housing.qmd).
 
-::: {.callout-important}
+::: callout-important
 ## To be written by the instructor
 
-This module has **no counterpart in the manufacturing guide** --- the guide
-documents the research robot's final geometry, not the design exercise. The
-following need to be written from course material:
+This module has **no counterpart in the manufacturing guide** --- the guide documents the research robot's final geometry, not the design exercise. The following need to be written from course material:
 
 - Ptera installation and a worked example
 - The provided motor power curve, and its format
-- What "most efficient thrust profile" means quantitatively here, and how it is
-  scored
-- Constraints the students must respect so their geometry remains buildable
-  with the frame from [Module 5](05-frame-crank.qmd) --- span limits, root
-  fitting, mass budget
+- What "most efficient thrust profile" means quantitatively here, and how it is scored
+- Constraints the students must respect so their geometry remains buildable with the frame from [Module 5](05-frame-crank.qmd) --- span limits, root fitting, mass budget
 - Whether teams may deviate from the reference wing, and by how much
 :::
 
-::: {.callout-note}
+::: callout-note
 ## Checkpoint
-A geometry chosen, with simulation evidence, and confirmed buildable against
-the frame and wing-root hardware.
+
+A geometry chosen, with simulation evidence, and confirmed buildable against the frame and wing-root hardware.
 :::

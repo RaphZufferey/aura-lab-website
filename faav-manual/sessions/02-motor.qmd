@@ -1,4 +1,5 @@
 ---
+udent---
 title: "Module 2 --- Motor and transmission shaft"
 ---
 
@@ -99,7 +100,7 @@ An eccentric magnet may still produces a perfectly plausible angle reading at ti
 
 Cut a chamfer for every 2mm hole in the bottom plate.
 
-Since we will be using an aluminum fuselage, we will add a paint layer to avoid accidental shorts
+Since we will be using an aluminum fuselage, we will add a paint layer to avoid accidental shorts.
 
 ## Mounting the motor
 

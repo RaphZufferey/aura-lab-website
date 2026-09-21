@@ -33,9 +33,9 @@ The motor is connected via a custom shaft to a gearbox with a **23.04:1** reduct
 [^2]: [Faulhaber gearhead reduction ratios](https://www.faulhaber.com/fileadmin/Import/Media/DE_GEARHEADS_REDUCTION_RATIOS.pdf) (accessed 20.02.2024).
 
 ::: {layout-ncol="2"}
-![Motor shaft](/Fig/shaft_motor.jpg){alt="Motor shaft"}
+![Motor shaft](/Fig/shaft_motor.jpg)
 
-![Faulhaber gearbox](/Fig/fhaber.jpg){alt="Faulhaber gearbox"}
+![Faulhaber gearbox](/Fig/fhaber.jpg)
 :::
 
 First, we need to press + glue our sun gear is already pressed onto the motor shaft from [Module 2](02-motor.qmd).

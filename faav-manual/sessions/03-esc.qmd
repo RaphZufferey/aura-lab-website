@@ -13,7 +13,7 @@ Work through the module with this diagram open: every step below either wires on
 ## Requirements
 
 |  |  |
-|---------------------|---------------------------------------------------|
+|----------------------|--------------------------------------------------|
 | **Parts needed** | Module 2 sub-assembly, AS5047P encoder, encoder mount, 6x30AWG wire ribbon |
 | **Tools** | Soldering iron, , torx drivers, tweezers, micro-USB cable, power source |
 | **Read** | This page, plus [Design notes](/reference/design-notes.qmd) on why we use an FOC ESC |
@@ -87,7 +87,7 @@ The encoder needs power as well as the four bus signals - six wires in total. Re
 | **MCU GPIO**  | PB3  | PB4  | PB5   | PA15 | --- | --- |
 | **G431B pin** | J3   | J3   | R14\* | J3   | J8  | J3  |
 
-: SPI3 connections on the G431. \* This connection is on the outward side of the resistor. {#tbl-spi3}
+: SPI3 connections on the G431. \* This connection is on the outward side of the resistor.
 
 ::: callout-warning
 ## Keep the SPI cables under 8 cm

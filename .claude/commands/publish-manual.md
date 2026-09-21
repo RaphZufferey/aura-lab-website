@@ -24,6 +24,8 @@ output cannot diverge:
 quarto --version    # expect 1.10.18
 ```
 
+## 0. Update the last modified date field right at the beginning of index.qmd 
+
 ## 1. Preflight — catch source errors before rendering
 
 Both of these have shipped broken to the live site before. Run them and fix
