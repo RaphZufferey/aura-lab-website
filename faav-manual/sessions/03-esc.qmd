@@ -13,7 +13,7 @@ Work through the module with this diagram open: every step below either wires on
 ## Requirements
 
 |  |  |
-|------------------------|-----------------------------------------------|
+|--------------------------|----------------------------------------------|
 | **Parts needed** | Module 2 sub-assembly, AS5047P encoder, encoder mount, 6x30AWG wire ribbon, power cable. |
 | **Tools** | Soldering iron, torx drivers, tweezers |
 | **Read** | This page, plus [Design notes](/reference/design-notes.qmd) on why we use an FOC ESC |
@@ -54,9 +54,21 @@ It programs from the Arduino IDE like any other Arduino board, but we highly rec
 
 4.  Load the default ESC code onto the ESC via its daughterboard (via micro-usb).
 
-5.  Solder the power connection to the ESC and connect 15V from a power source.
+5.  Prepare the USB-C 15V power source. We are using a USB-C power delivery cable to power the robot on the bench. A PD supply does not simply hand over whatever voltage you want. It advertises a fixed menu, and the sink has to negotiate for one of them, which is why we use a PD trigger cable or board is needed to pin it at 15 V. @tbl-pd is the power available.
 
-6.  Modify the sketch to turn the LED on the **ESC** on and off via commander instructions. We now have confirmed three things:
+    | Voltage | Max current | Power | Notes                                      |
+    |--------:|------------:|------:|:-------------------------------------------|
+    |     5 V |         3 A |  15 W | Default on plug-in, before any negotiation |
+    |     9 V |         3 A |  27 W |                                            |
+    |    15 V |         3 A |  45 W | **What we use now**                        |
+    |    20 V |         3 A |  60 W |                                            |
+    |    20 V |         5 A | 100 W |                                            |
+
+    : USB-C Power Delivery fixed-voltage supplies up to 100 W. A source only has to offer the voltages at or below its rating, so a 45 W charger gives 5/9/15 V but not 20 V. {#tbl-pd}
+
+6.  Solder the 2 power connection to the ESC using 40 cm of 0.5 mm2 silicone cables and connect 15V from a power source. Do not try to run motor for now.
+
+7.  Modify the sketch to turn the LED on the **ESC** on and off via commander instructions. We now have confirmed three things:
 
     a.  The Seeeduino can be flashed.
     b.  The Seeeduino can be reached over serial.
@@ -85,7 +97,11 @@ There is no SPI link exposed directly on the ESC board. The solution is to use t
 Serial2, used by the daughterboard for serial communication will not work anymore as we are using those pins for SPI3 for the encoder instead. Flashing the ESC still works (programming runs over SWD, on different pins) but every command and every value read back now **has to** pass through serial1 (external TX/RX).
 :::
 
-The encoder needs power as well as the four bus signals - six wires in total. Replace the default cable and use the 6x30AWG wire ribbon instead.
+The encoder needs power as well as the four bus signals - six wires in total. Replace the default cable and use the 6x30AWG wire ribbon instead. This is small work! Sit down, use a clean soldering iron, take your time and make sure you have lots of light.
+
+Check the R14 connection under the microscope. Use a drop of glue to fix the cable onto the board
+
+![The MOSI tap on **R14** under the microscope. The wire lands on the outward side of the resistor, and the bead of clear glue over the joint is to help with accidental pulls on the cable.](/Fig/R14connection.jpeg){#fig-r14 fig-align="center" width="25%"}
 
 |               | SCLK | MISO | MOSI  | CS   | 5V  | GND |
 |---------------|------|------|-------|------|-----|-----|
@@ -103,14 +119,13 @@ Cables between encoder and ESC need to be **less than 8 cm**. At 10 MHz longer r
 ## Mounting
 
 1.  Install the Seeeduino in its 3D-printed bracket and into the robot
-2.  Install the encoder in its 3D-printed bracket
-3.  Install the ESC in its 3D-printed bracket
-4.  All mounted to the bottom fuselage plate
+2.  Install the encoder in its 3D-printed bracket (the tail stiffener)
+3.  All mounted to the bottom fuselage plate
 
 ![Assembled motor-esc](/Fig/ESC_assembly.jpg)
 
 ::: callout-warning
 ## Warning
 
-The first times that you start spinning the motor, it is critical to do that on a **current-limited** power source (**max 1A**). Things can go wrong very quickly and if the motor is shorted you only have a few seconds to unplug it.
+The first times that you start spinning the motor, it is critical to do that on a **current-limited** power source (**max 1A**), so NOT the USB-C one. Things can go wrong very quickly and if the motor is shorted you only have a few seconds to unplug it.
 :::

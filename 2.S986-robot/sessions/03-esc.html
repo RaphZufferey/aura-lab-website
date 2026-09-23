@@ -590,10 +590,10 @@ ul.task-list li input[type="checkbox"] {
 <div id="fig-wiring" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-wiring-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="../Fig/xiao-esc-wiring-diagram.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1: How the battery, ESC, encoder, motor and microcontroller connect. The XIAO nRF52840 shown here is the separate-microcontroller option for serial described below - note that TX and RX are crossed. SPI3 and UART pin assignments match the rework in Table&nbsp;1 and ST-Link serial."><img src="../Fig/xiao-esc-wiring-diagram.png" class="img-fluid figure-img" style="width:6.5in"></a>
+<a href="../Fig/xiao-esc-wiring-diagram.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1: How the battery, ESC, encoder, motor and microcontroller connect. The XIAO nRF52840 shown here is the separate-microcontroller option for serial described below - note that TX and RX are crossed. SPI3 and UART pin assignments match the rework in Table&nbsp;2 and ST-Link serial."><img src="../Fig/xiao-esc-wiring-diagram.png" class="img-fluid figure-img" style="width:6.5in"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-wiring-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: How the battery, ESC, encoder, motor and microcontroller connect. The XIAO nRF52840 shown here is the separate-microcontroller option for serial described below - note that TX and RX are crossed. SPI3 and UART pin assignments match the rework in <a href="#tbl-spi3" class="quarto-xref">Table&nbsp;1</a> and <em>ST-Link serial</em>.
+Figure&nbsp;1: How the battery, ESC, encoder, motor and microcontroller connect. The XIAO nRF52840 shown here is the separate-microcontroller option for serial described below - note that TX and RX are crossed. SPI3 and UART pin assignments match the rework in <a href="#tbl-spi3" class="quarto-xref">Table&nbsp;2</a> and <em>ST-Link serial</em>.
 </figcaption>
 </figure>
 </div>
@@ -634,10 +634,10 @@ Figure&nbsp;2: ESC running SimpleFOC and the angular sensor. The six MOSFETs are
 <div id="fig-electronics" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-electronics-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="../Fig/SchematicFAAVclass.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure&nbsp;3: The complete electrical system. The 4S battery enters the ESC at J5, the three phase wires leave from the large OUT1–3 tabs to the motor, the AS5047P encoder returns angle over SPI, and the XIAO nRF52840 talks to the ESC over serial. Note that the encoder and the flight controller share the same supply. The MOSI tap on R14, marked Hardest connection!, is the one to leave until last - see Table&nbsp;1."><img src="../Fig/SchematicFAAVclass.jpg" class="img-fluid figure-img" style="width:100.0%"></a>
+<a href="../Fig/SchematicFAAVclass.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure&nbsp;3: The complete electrical system. The 4S battery enters the ESC at J5, the three phase wires leave from the large OUT1–3 tabs to the motor, the AS5047P encoder returns angle over SPI, and the XIAO nRF52840 talks to the ESC over serial. Note that the encoder and the flight controller share the same supply. The MOSI tap on R14, marked Hardest connection!, is the one to leave until last - see Table&nbsp;2."><img src="../Fig/SchematicFAAVclass.jpg" class="img-fluid figure-img" style="width:100.0%"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-electronics-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3: The complete electrical system. The 4S battery enters the ESC at <strong>J5</strong>, the three phase wires leave from the large <strong>OUT1–3</strong> tabs to the motor, the AS5047P encoder returns angle over SPI, and the XIAO nRF52840 talks to the ESC over serial. Note that the encoder and the flight controller share the same supply. The <strong>MOSI</strong> tap on <strong>R14</strong>, marked <em>Hardest connection!</em>, is the one to leave until last - see <a href="#tbl-spi3" class="quarto-xref">Table&nbsp;1</a>.
+Figure&nbsp;3: The complete electrical system. The 4S battery enters the ESC at <strong>J5</strong>, the three phase wires leave from the large <strong>OUT1–3</strong> tabs to the motor, the AS5047P encoder returns angle over SPI, and the XIAO nRF52840 talks to the ESC over serial. Note that the encoder and the flight controller share the same supply. The <strong>MOSI</strong> tap on <strong>R14</strong>, marked <em>Hardest connection!</em>, is the one to leave until last - see <a href="#tbl-spi3" class="quarto-xref">Table&nbsp;2</a>.
 </figcaption>
 </figure>
 </div>
@@ -673,7 +673,65 @@ Figure&nbsp;4: The Seeeduino XIAO nRF52840. <strong>TX</strong> and <strong>RX</
 <li><p>Verify that you can command the LED of the seeeduino on and off first. This requires Visual Studio Code and the PlatformIO plugin installed. Leave the ESC unpowered for now.</p></li>
 <li><p>Load the barebone Arduino sketch onto the Seeeduino, modify it if needed, see <a href="../reference/software.html">Software</a> for the repository.</p></li>
 <li><p>Load the default ESC code onto the ESC via its daughterboard (via micro-usb).</p></li>
-<li><p>Solder the power connection to the ESC and connect 15V from a power source.</p></li>
+<li><p>Prepare the USB-C 15V power source. We are using a USB-C power delivery cable to power the robot on the bench. A PD supply does not simply hand over whatever voltage you want. It advertises a fixed menu, and the sink has to negotiate for one of them, which is why we use a PD trigger cable or board is needed to pin it at 15 V. <a href="#tbl-pd" class="quarto-xref">Table&nbsp;1</a> is the power available.</p>
+<div id="tbl-pd" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-pd-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: USB-C Power Delivery fixed-voltage supplies up to 100 W. A source only has to offer the voltages at or below its rating, so a 45 W charger gives 5/9/15 V but not 20 V.
+</figcaption>
+<div aria-describedby="tbl-pd-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 12%">
+<col style="width: 17%">
+<col style="width: 9%">
+<col style="width: 60%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;">Voltage</th>
+<th style="text-align: right;">Max current</th>
+<th style="text-align: right;">Power</th>
+<th style="text-align: left;">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">5 V</td>
+<td style="text-align: right;">3 A</td>
+<td style="text-align: right;">15 W</td>
+<td style="text-align: left;">Default on plug-in, before any negotiation</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">9 V</td>
+<td style="text-align: right;">3 A</td>
+<td style="text-align: right;">27 W</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">15 V</td>
+<td style="text-align: right;">3 A</td>
+<td style="text-align: right;">45 W</td>
+<td style="text-align: left;"><strong>What we use now</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">20 V</td>
+<td style="text-align: right;">3 A</td>
+<td style="text-align: right;">60 W</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">20 V</td>
+<td style="text-align: right;">5 A</td>
+<td style="text-align: right;">100 W</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div></li>
+<li><p>Solder the 2 power connection to the ESC using 40 cm of 0.5 mm2 silicone cables and connect 15V from a power source. Do not try to run motor for now.</p></li>
 <li><p>Modify the sketch to turn the LED on the <strong>ESC</strong> on and off via commander instructions. We now have confirmed three things:</p>
 <ol type="a">
 <li>The Seeeduino can be flashed.</li>
@@ -710,11 +768,22 @@ Figure&nbsp;4: The Seeeduino XIAO nRF52840. <strong>TX</strong> and <strong>RX</
 <p>Serial2, used by the daughterboard for serial communication will not work anymore as we are using those pins for SPI3 for the encoder instead. Flashing the ESC still works (programming runs over SWD, on different pins) but every command and every value read back now <strong>has to</strong> pass through serial1 (external TX/RX).</p>
 </div>
 </div>
-<p>The encoder needs power as well as the four bus signals - six wires in total. Replace the default cable and use the 6x30AWG wire ribbon instead.</p>
+<p>The encoder needs power as well as the four bus signals - six wires in total. Replace the default cable and use the 6x30AWG wire ribbon instead. This is small work! Sit down, use a clean soldering iron, take your time and make sure you have lots of light.</p>
+<p>Check the R14 connection under the microscope. Use a drop of glue to fix the cable onto the board</p>
+<div id="fig-r14" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-r14-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="../Fig/R14connection.jpeg" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Figure&nbsp;5: The MOSI tap on R14 under the microscope. The wire lands on the outward side of the resistor, and the bead of clear glue over the joint is to help with accidental pulls on the cable."><img src="../Fig/R14connection.jpeg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:25.0%"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-r14-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5: The MOSI tap on <strong>R14</strong> under the microscope. The wire lands on the outward side of the resistor, and the bead of clear glue over the joint is to help with accidental pulls on the cable.
+</figcaption>
+</figure>
+</div>
 <div id="tbl-spi3" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-spi3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;1: SPI3 connections on the G431. * This connection is on the outward side of the resistor.
+Table&nbsp;2: SPI3 connections on the G431. * This connection is on the outward side of the resistor.
 </figcaption>
 <div aria-describedby="tbl-spi3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
@@ -772,13 +841,12 @@ Table&nbsp;1: SPI3 connections on the G431. * This connection is on the outward 
 <h2 class="anchored" data-anchor-id="mounting">Mounting</h2>
 <ol type="1">
 <li>Install the Seeeduino in its 3D-printed bracket and into the robot</li>
-<li>Install the encoder in its 3D-printed bracket</li>
-<li>Install the ESC in its 3D-printed bracket</li>
+<li>Install the encoder in its 3D-printed bracket (the tail stiffener)</li>
 <li>All mounted to the bottom fuselage plate</li>
 </ol>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../Fig/ESC_assembly.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Assembled motor-esc"><img src="../Fig/ESC_assembly.jpg" class="img-fluid figure-img" alt="Assembled motor-esc"></a></p>
+<p><a href="../Fig/ESC_assembly.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Assembled motor-esc"><img src="../Fig/ESC_assembly.jpg" class="img-fluid figure-img" alt="Assembled motor-esc"></a></p>
 <figcaption>Assembled motor-esc</figcaption>
 </figure>
 </div>
@@ -792,7 +860,7 @@ Table&nbsp;1: SPI3 connections on the G431. * This connection is on the outward 
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The first times that you start spinning the motor, it is critical to do that on a <strong>current-limited</strong> power source (<strong>max 1A</strong>). Things can go wrong very quickly and if the motor is shorted you only have a few seconds to unplug it.</p>
+<p>The first times that you start spinning the motor, it is critical to do that on a <strong>current-limited</strong> power source (<strong>max 1A</strong>), so NOT the USB-C one. Things can go wrong very quickly and if the motor is shorted you only have a few seconds to unplug it.</p>
 </div>
 </div>
 
