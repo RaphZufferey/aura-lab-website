@@ -9,7 +9,7 @@ subtitle: "MIT AURA Lab --- Fall 2026"
 ::: {.callout-note appearance="simple"}
 ## Printable manual
 
-Last modified: 2026-09-16
+Last modified: 2026-09-22
 
 [**Download the printable manual (PDF)**](/files/faav-build-manual.pdf) --- every module and reference page in a single file, for the bench or for printing. Rebuilt automatically whenever the manual changes.
 :::
@@ -26,7 +26,7 @@ Over the semester you build a **flapping vehicle**: a robot that with the right 
 ## Semester map
 
 | Module | Week | Build | Paired lecture |
-|-------------------:|------------------|------------------|------------------|
+|------------------:|------------------|------------------|------------------|
 | [1](/sessions/01-orientation.qmd) | Sep 9 |  | Intro to robotic locomotion |
 | [2](/sessions/02-motor.qmd) | Sep 14 | Orientation, teams, the robot. Motor and transmission shaft | Reaction forces in fluids |
 | [3](/sessions/03-esc.qmd) | Sep 21 | Motor driver, sensor, serial | Bird-scale flapping design |

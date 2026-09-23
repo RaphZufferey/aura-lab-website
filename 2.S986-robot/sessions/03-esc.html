@@ -586,14 +586,14 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="summary" class="level2">
 <h2 class="anchored" data-anchor-id="summary">Summary</h2>
-<p>We aim to get your laptop talking to a flashed G431 ESC via the flight controller, with the angular sensor wired on SPI. Lots of soldering.</p>
+<p>We aim to get your laptop talking to a flashed G431 ESC via the flight controller, with the angular sensor wired on SPI. Lots of soldering. We will not use a battery for now, but a cable to a power source instead.</p>
 <div id="fig-wiring" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-wiring-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="../Fig/xiao-esc-wiring-diagram.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1: How the battery, ESC, encoder, motor and microcontroller connect. The XIAO nRF52840 shown here is the separate-microcontroller option for serial described below — note that TX and RX are crossed. SPI3 and UART pin assignments match the rework in Table&nbsp;1 and ST-Link serial."><img src="../Fig/xiao-esc-wiring-diagram.png" class="img-fluid figure-img" style="width:6.5in"></a>
+<a href="../Fig/xiao-esc-wiring-diagram.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1: How the battery, ESC, encoder, motor and microcontroller connect. The XIAO nRF52840 shown here is the separate-microcontroller option for serial described below - note that TX and RX are crossed. SPI3 and UART pin assignments match the rework in Table&nbsp;1 and ST-Link serial."><img src="../Fig/xiao-esc-wiring-diagram.png" class="img-fluid figure-img" style="width:6.5in"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-wiring-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: How the battery, ESC, encoder, motor and microcontroller connect. The XIAO nRF52840 shown here is the separate-microcontroller option for serial described below — note that TX and RX are crossed. SPI3 and UART pin assignments match the rework in <a href="#tbl-spi3" class="quarto-xref">Table&nbsp;1</a> and <em>ST-Link serial</em>.
+Figure&nbsp;1: How the battery, ESC, encoder, motor and microcontroller connect. The XIAO nRF52840 shown here is the separate-microcontroller option for serial described below - note that TX and RX are crossed. SPI3 and UART pin assignments match the rework in <a href="#tbl-spi3" class="quarto-xref">Table&nbsp;1</a> and <em>ST-Link serial</em>.
 </figcaption>
 </figure>
 </div>
@@ -605,11 +605,11 @@ Figure&nbsp;1: How the battery, ESC, encoder, motor and microcontroller connect.
 <tbody>
 <tr class="odd">
 <td><strong>Parts needed</strong></td>
-<td>Module 2 sub-assembly, AS5047P encoder, encoder mount, 6x30AWG wire ribbon</td>
+<td>Module 2 sub-assembly, AS5047P encoder, encoder mount, 6x30AWG wire ribbon, power cable.</td>
 </tr>
 <tr class="even">
 <td><strong>Tools</strong></td>
-<td>Soldering iron, , torx drivers, tweezers, micro-USB cable, power source</td>
+<td>Soldering iron, torx drivers, tweezers</td>
 </tr>
 <tr class="odd">
 <td><strong>Read</strong></td>
@@ -669,14 +669,17 @@ Figure&nbsp;4: The Seeeduino XIAO nRF52840. <strong>TX</strong> and <strong>RX</
 </figure>
 </div>
 <ol type="1">
-<li><p>Solder the Seeeduino and the ESC’s <strong>Serial1</strong>: TX, RX and <strong>GND</strong> lines. For that, use the 6x30AWG wire ribbon, spliced in half (only need 3 lines). In Serial communication, TX and RX are <strong>crossed</strong>, each board’s transmit line goes to the other’s receive line, as drawn in the <a href="../sessions/03-esc.html#fig-wiring">wiring diagram</a> in Module 3. GND is not optional: without a shared reference the two boards have no agreed voltage for what counts as a high or low bit.</p></li>
-<li><p>Load the barebone Arduino sketch onto the Seeeduino, see <a href="../reference/software.html">Software</a> for the repository. This requires Visual Studio Code and the PlatformIO plugin installed.</p></li>
+<li><p>Solder the Seeeduino and the ESC’s <strong>Serial1</strong>: TX, RX and <strong>GND</strong> lines. For that, use the 6x30AWG wire ribbon, spliced (only need 4 lines). In Serial communication, TX and RX are <strong>crossed</strong>, each board’s transmit line goes to the other’s receive line, as drawn in the <a href="../sessions/03-esc.html#fig-wiring">wiring diagram</a> in Module 3. GND is not optional: without a shared reference the two boards have no agreed voltage for what counts as a high or low bit.</p></li>
+<li><p>Verify that you can command the LED of the seeeduino on and off first. This requires Visual Studio Code and the PlatformIO plugin installed. Leave the ESC unpowered for now.</p></li>
+<li><p>Load the barebone Arduino sketch onto the Seeeduino, modify it if needed, see <a href="../reference/software.html">Software</a> for the repository.</p></li>
+<li><p>Load the default ESC code onto the ESC via its daughterboard (via micro-usb).</p></li>
 <li><p>Solder the power connection to the ESC and connect 15V from a power source.</p></li>
-<li><p>Modify the sketch to turn the LED on the <strong>ESC</strong> on and off via commander instructions. This confirms three things at once:</p>
+<li><p>Modify the sketch to turn the LED on the <strong>ESC</strong> on and off via commander instructions. We now have confirmed three things:</p>
 <ol type="a">
 <li>The Seeeduino can be flashed.</li>
 <li>The Seeeduino can be reached over serial.</li>
-<li>The Seeeduino can communicate both ways over serial.</li>
+<li>The ESC is flashed.</li>
+<li>The Seeeduino talks with the ESC.</li>
 </ol></li>
 </ol>
 </section>
@@ -685,7 +688,7 @@ Figure&nbsp;4: The Seeeduino XIAO nRF52840. <strong>TX</strong> and <strong>RX</
 <section id="first-why-does-the-motor-need-an-encoder" class="level3">
 <h3 class="anchored" data-anchor-id="first-why-does-the-motor-need-an-encoder">First, why does the motor need an encoder?</h3>
 <p>Field-Oriented Control works by holding the stator’s magnetic field roughly 90° ahead of the rotor’s magnets, which is the orientation that produces the most torque per amp. To place the field there, the controller has to know where the rotor is <strong>right now</strong>.</p>
-<p>Ordinary drone ESCs infer this from back-EMF, i.e the voltage the spinning rotor induces in the phase that is not currently being driven (<strong>?@eq-bemf</strong> in <a href="../sessions/02-motor.html">Module 2</a>). That voltage is proportional to speed, so as the motor slows the signal sinks into the noise and the estimate falls apart. This causes <em>loss of synchronisation at low speed</em> described in <a href="../reference/design-notes.html">Design notes</a>. The AS5047P removes the guess. It measures the field of the magnet bonded to the shaft end and reports the <strong>absolute</strong> angle — valid at standstill just as much as at 15 000 rpm, and correct immediately at power-on with no homing move.</p>
+<p>Ordinary drone ESCs infer this from back-EMF, i.e the voltage the spinning rotor induces in the phase that is not currently being driven (<strong>?@eq-bemf</strong> in <a href="../sessions/02-motor.html">Module 2</a>). That voltage is proportional to speed, so as the motor slows the signal sinks into the noise and the estimate falls apart. This causes <em>loss of synchronisation at low speed</em> described in <a href="../reference/design-notes.html">Design notes</a>. The AS5047P removes the guess. It measures the field of the magnet bonded to the shaft end and reports the <strong>absolute</strong> angle - valid at standstill just as much as at 15 000 rpm, and correct immediately at power-on with no homing move.</p>
 </section>
 <section id="what-spi-is-and-why-we-run-it-at-10-mhz" class="level3">
 <h3 class="anchored" data-anchor-id="what-spi-is-and-why-we-run-it-at-10-mhz">What SPI is, and why we run it at 10 MHz</h3>
@@ -704,7 +707,7 @@ Figure&nbsp;4: The Seeeduino XIAO nRF52840. <strong>TX</strong> and <strong>RX</
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Serial2, used by the daughterboard for serial communication will not work anymore as we are using those pins for SPI3 for the encoder instead. Flashing the ESC still works (programming runs over SWD, on different pins) but every command and every value read back now has to pass through serial1.</p>
+<p>Serial2, used by the daughterboard for serial communication will not work anymore as we are using those pins for SPI3 for the encoder instead. Flashing the ESC still works (programming runs over SWD, on different pins) but every command and every value read back now <strong>has to</strong> pass through serial1 (external TX/RX).</p>
 </div>
 </div>
 <p>The encoder needs power as well as the four bus signals - six wires in total. Replace the default cable and use the 6x30AWG wire ribbon instead.</p>
@@ -750,17 +753,17 @@ Table&nbsp;1: SPI3 connections on the G431. * This connection is on the outward 
 </div>
 </figure>
 </div>
-<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Warning</span>Keep the SPI cables under 8 cm
+<span class="screen-reader-only">Tip</span>Keep the SPI cables under 8 cm
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Cables between encoder and ESC need to be <strong>less than 8 cm</strong>. At 10 MHz longer runs start corrupting angle readings, and the symptom is a motor that behaves erratically rather than a sensor that obviously fails. Check the length that is needed.</p>
+<p>Cables between encoder and ESC need to be <strong>less than 8 cm</strong>. At 10 MHz longer runs start corrupting angle readings, and the symptom is a motor that behaves erratically rather than a sensor that obviously fails. Check the length that is needed. The cables also need to be the same length.</p>
 </div>
 </div>
 </section>
@@ -779,18 +782,17 @@ Table&nbsp;1: SPI3 connections on the G431. * This connection is on the outward 
 <figcaption>Assembled motor-esc</figcaption>
 </figure>
 </div>
-<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>To be prepared by the instructor before the session
+<span class="screen-reader-only">Warning</span>Warning
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Prepare a power source 15V 5A over USB-C.</p>
-<p>Power cable to ESC (order?)</p>
+<p>The first times that you start spinning the motor, it is critical to do that on a <strong>current-limited</strong> power source (<strong>max 1A</strong>). Things can go wrong very quickly and if the motor is shorted you only have a few seconds to unplug it.</p>
 </div>
 </div>
 

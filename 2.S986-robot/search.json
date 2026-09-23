@@ -448,7 +448,7 @@
     "href": "sessions/02-motor.html#preparing-the-robot-bottom-plate",
     "title": "Module 2 — Motor and transmission shaft",
     "section": "Preparing the robot bottom plate",
-    "text": "Preparing the robot bottom plate\nCut a chamfer for every 2mm hole in the bottom plate.\nSince we will be using an aluminum fuselage, we will add a paint layer to avoid accidental shorts",
+    "text": "Preparing the robot bottom plate\nCut a chamfer for every 2mm hole in the bottom plate.\nSince we will be using an aluminum fuselage, we will add a paint layer to avoid accidental shorts.",
     "crumbs": [
       "Overview",
       "Build modules",
@@ -484,7 +484,7 @@
     "href": "reference/software.html",
     "title": "Software",
     "section": "",
-    "text": "Code for the B-G431B-ESC1 motor controller using the SimpleFOC library: FAAV-G431-ESC.\nUsed in Module 3 and Module 4.",
+    "text": "Code for the B-G431B-ESC1 motor controller using the SimpleFOC library: FAAV-G431-ESC. You need access to the github folder.\nOutdated versions, kept for reference:\n\nOld EPFL code for NRF52: FAAV-Seeeduino\nOld MIT code for NRF52/ESP32: FAAV-AUK",
     "crumbs": [
       "Overview",
       "Reference",
@@ -496,31 +496,7 @@
     "href": "reference/software.html#esc",
     "title": "Software",
     "section": "",
-    "text": "Code for the B-G431B-ESC1 motor controller using the SimpleFOC library: FAAV-G431-ESC.\nUsed in Module 3 and Module 4.",
-    "crumbs": [
-      "Overview",
-      "Reference",
-      "Software"
-    ]
-  },
-  {
-    "objectID": "reference/software.html#flight-controller",
-    "href": "reference/software.html#flight-controller",
-    "title": "Software",
-    "section": "Flight controller",
-    "text": "Flight controller\n\nCurrent — ESP32, based on FreeRTOS tasks: FAAV-Flight-Controller\n\nOutdated versions, kept for reference:\n\nOld EPFL code for NRF52: FAAV-Seeeduino\nOld MIT code for NRF52/ESP32: FAAV-AUK",
-    "crumbs": [
-      "Overview",
-      "Reference",
-      "Software"
-    ]
-  },
-  {
-    "objectID": "reference/software.html#pcb",
-    "href": "reference/software.html#pcb",
-    "title": "Software",
-    "section": "PCB",
-    "text": "PCB\n\nFAAV-PCB-v3 — current board, including the BOM in the Manufacturing/Assembly folder",
+    "text": "Code for the B-G431B-ESC1 motor controller using the SimpleFOC library: FAAV-G431-ESC. You need access to the github folder.\nOutdated versions, kept for reference:\n\nOld EPFL code for NRF52: FAAV-Seeeduino\nOld MIT code for NRF52/ESP32: FAAV-AUK",
     "crumbs": [
       "Overview",
       "Reference",
@@ -532,7 +508,7 @@
     "href": "reference/software.html#external-documentation",
     "title": "Software",
     "section": "External documentation",
-    "text": "External documentation\n\nSimpleFOC communication\nSimpleFOC commander\nXIAO ESP32S3 getting started\n\n\n\n\n\n\n\nImportantAccess\n\n\n\nConfirm before the semester that students have read access to these repositories, and pin the branch or tag each module expects. “Latest main” changing under a cohort mid-semester is the most likely way this manual goes stale without anyone noticing.",
+    "text": "External documentation\n\nSimpleFOC communication\nSimpleFOC commander\nXIAO ESP32S3 getting started",
     "crumbs": [
       "Overview",
       "Reference",
@@ -1144,7 +1120,7 @@
     "href": "sessions/03-esc.html",
     "title": "Module 3 — Motor driver, sensor and serial connection",
     "section": "",
-    "text": "We aim to get your laptop talking to a flashed G431 ESC via the flight controller, with the angular sensor wired on SPI. Lots of soldering.\n\n\n\n\n\n\nFigure 1: How the battery, ESC, encoder, motor and microcontroller connect. The XIAO nRF52840 shown here is the separate-microcontroller option for serial described below — note that TX and RX are crossed. SPI3 and UART pin assignments match the rework in Table 1 and ST-Link serial.\n\n\n\nWork through the module with this diagram open: every step below either wires one of these links or configures it in firmware.",
+    "text": "We aim to get your laptop talking to a flashed G431 ESC via the flight controller, with the angular sensor wired on SPI. Lots of soldering. We will not use a battery for now, but a cable to a power source instead.\n\n\n\n\n\n\nFigure 1: How the battery, ESC, encoder, motor and microcontroller connect. The XIAO nRF52840 shown here is the separate-microcontroller option for serial described below - note that TX and RX are crossed. SPI3 and UART pin assignments match the rework in Table 1 and ST-Link serial.\n\n\n\nWork through the module with this diagram open: every step below either wires one of these links or configures it in firmware.",
     "crumbs": [
       "Overview",
       "Build modules",
@@ -1156,7 +1132,7 @@
     "href": "sessions/03-esc.html#summary",
     "title": "Module 3 — Motor driver, sensor and serial connection",
     "section": "",
-    "text": "We aim to get your laptop talking to a flashed G431 ESC via the flight controller, with the angular sensor wired on SPI. Lots of soldering.\n\n\n\n\n\n\nFigure 1: How the battery, ESC, encoder, motor and microcontroller connect. The XIAO nRF52840 shown here is the separate-microcontroller option for serial described below — note that TX and RX are crossed. SPI3 and UART pin assignments match the rework in Table 1 and ST-Link serial.\n\n\n\nWork through the module with this diagram open: every step below either wires one of these links or configures it in firmware.",
+    "text": "We aim to get your laptop talking to a flashed G431 ESC via the flight controller, with the angular sensor wired on SPI. Lots of soldering. We will not use a battery for now, but a cable to a power source instead.\n\n\n\n\n\n\nFigure 1: How the battery, ESC, encoder, motor and microcontroller connect. The XIAO nRF52840 shown here is the separate-microcontroller option for serial described below - note that TX and RX are crossed. SPI3 and UART pin assignments match the rework in Table 1 and ST-Link serial.\n\n\n\nWork through the module with this diagram open: every step below either wires one of these links or configures it in firmware.",
     "crumbs": [
       "Overview",
       "Build modules",
@@ -1168,7 +1144,7 @@
     "href": "sessions/03-esc.html#requirements",
     "title": "Module 3 — Motor driver, sensor and serial connection",
     "section": "Requirements",
-    "text": "Requirements\n\n\n\nParts needed\nModule 2 sub-assembly, AS5047P encoder, encoder mount, 6x30AWG wire ribbon\n\n\nTools\nSoldering iron, , torx drivers, tweezers, micro-USB cable, power source\n\n\nRead\nThis page, plus Design notes on why we use an FOC ESC\n\n\n\n\n\n\n\n\n\nFigure 2: ESC running SimpleFOC and the angular sensor. The six MOSFETs are the large flat packages, arranged as three half-bridges — one per motor phase, each with a high-side and a low-side switch. The three copper tabs on the left are the U, V and W outputs the motor is soldered to below.",
+    "text": "Requirements\n\n\n\nParts needed\nModule 2 sub-assembly, AS5047P encoder, encoder mount, 6x30AWG wire ribbon, power cable.\n\n\nTools\nSoldering iron, torx drivers, tweezers\n\n\nRead\nThis page, plus Design notes on why we use an FOC ESC\n\n\n\n\n\n\n\n\n\nFigure 2: ESC running SimpleFOC and the angular sensor. The six MOSFETs are the large flat packages, arranged as three half-bridges — one per motor phase, each with a high-side and a low-side switch. The three copper tabs on the left are the U, V and W outputs the motor is soldered to below.",
     "crumbs": [
       "Overview",
       "Build modules",
@@ -1204,7 +1180,7 @@
     "href": "sessions/03-esc.html#flight-controller-microcontroller",
     "title": "Module 3 — Motor driver, sensor and serial connection",
     "section": "Flight controller microcontroller",
-    "text": "Flight controller microcontroller\nWe will use a Seeeduino XIAO nRF52840 Sense to send commands to the ESC and record information from the ESC. Why?\n\nIt is small and light. 21 × 17.5 mm and 2.4 g. On a robot that has to move, every gram saved matters.\nIt has wireless communication out of the box. The nRF52840 is a Bluetooth Low Energy chip and a microcontroller. Once the robot is sealed in Module 10 BLE becomes the only way commands to interact with the robot during operation, which is exactly how a run is retrieved in Module 11.\nIt has somewhere to put the data. 256 kB of RAM and 1 MB of flash on the chip itself are the two logging destinations used during wet testing. No SD card, no extra memory chip, nothing else to waterproof.\nOnboard IMU to log the attitude of the robot without additional components.\nIt costs 20$. In case a failure, it can be replaced.\n\nIt programs from the Arduino IDE like any other Arduino board, but we highly recommend using Visual Studio Code + PlatformIO. The reason for PlatformIO is that it handles multiple-file projects much better, allows git versioning and handles libraries better. It also provides a more performant editor.\n\n\n\n\n\n\nFigure 4: The Seeeduino XIAO nRF52840. TX and RX are the two pads at the bottom corners — those are the ones to solder to, and they cross over to the ESC’s RX and TX respectively. The board is 21 × 17.5 mm, which is why it can ride on the robot at all.\n\n\n\n\nSolder the Seeeduino and the ESC’s Serial1: TX, RX and GND lines. For that, use the 6x30AWG wire ribbon, spliced in half (only need 3 lines). In Serial communication, TX and RX are crossed, each board’s transmit line goes to the other’s receive line, as drawn in the wiring diagram in Module 3. GND is not optional: without a shared reference the two boards have no agreed voltage for what counts as a high or low bit.\nLoad the barebone Arduino sketch onto the Seeeduino, see Software for the repository. This requires Visual Studio Code and the PlatformIO plugin installed.\nSolder the power connection to the ESC and connect 15V from a power source.\nModify the sketch to turn the LED on the ESC on and off via commander instructions. This confirms three things at once:\n\nThe Seeeduino can be flashed.\nThe Seeeduino can be reached over serial.\nThe Seeeduino can communicate both ways over serial.",
+    "text": "Flight controller microcontroller\nWe will use a Seeeduino XIAO nRF52840 Sense to send commands to the ESC and record information from the ESC. Why?\n\nIt is small and light. 21 × 17.5 mm and 2.4 g. On a robot that has to move, every gram saved matters.\nIt has wireless communication out of the box. The nRF52840 is a Bluetooth Low Energy chip and a microcontroller. Once the robot is sealed in Module 10 BLE becomes the only way commands to interact with the robot during operation, which is exactly how a run is retrieved in Module 11.\nIt has somewhere to put the data. 256 kB of RAM and 1 MB of flash on the chip itself are the two logging destinations used during wet testing. No SD card, no extra memory chip, nothing else to waterproof.\nOnboard IMU to log the attitude of the robot without additional components.\nIt costs 20$. In case a failure, it can be replaced.\n\nIt programs from the Arduino IDE like any other Arduino board, but we highly recommend using Visual Studio Code + PlatformIO. The reason for PlatformIO is that it handles multiple-file projects much better, allows git versioning and handles libraries better. It also provides a more performant editor.\n\n\n\n\n\n\nFigure 4: The Seeeduino XIAO nRF52840. TX and RX are the two pads at the bottom corners — those are the ones to solder to, and they cross over to the ESC’s RX and TX respectively. The board is 21 × 17.5 mm, which is why it can ride on the robot at all.\n\n\n\n\nSolder the Seeeduino and the ESC’s Serial1: TX, RX and GND lines. For that, use the 6x30AWG wire ribbon, spliced (only need 4 lines). In Serial communication, TX and RX are crossed, each board’s transmit line goes to the other’s receive line, as drawn in the wiring diagram in Module 3. GND is not optional: without a shared reference the two boards have no agreed voltage for what counts as a high or low bit.\nVerify that you can command the LED of the seeeduino on and off first. This requires Visual Studio Code and the PlatformIO plugin installed. Leave the ESC unpowered for now.\nLoad the barebone Arduino sketch onto the Seeeduino, modify it if needed, see Software for the repository.\nLoad the default ESC code onto the ESC via its daughterboard (via micro-usb).\nSolder the power connection to the ESC and connect 15V from a power source.\nModify the sketch to turn the LED on the ESC on and off via commander instructions. We now have confirmed three things:\n\nThe Seeeduino can be flashed.\nThe Seeeduino can be reached over serial.\nThe ESC is flashed.\nThe Seeeduino talks with the ESC.",
     "crumbs": [
       "Overview",
       "Build modules",
@@ -1216,7 +1192,7 @@
     "href": "sessions/03-esc.html#encoder-or-angular-sensor",
     "title": "Module 3 — Motor driver, sensor and serial connection",
     "section": "Encoder (or Angular sensor)",
-    "text": "Encoder (or Angular sensor)\n\nFirst, why does the motor need an encoder?\nField-Oriented Control works by holding the stator’s magnetic field roughly 90° ahead of the rotor’s magnets, which is the orientation that produces the most torque per amp. To place the field there, the controller has to know where the rotor is right now.\nOrdinary drone ESCs infer this from back-EMF, i.e the voltage the spinning rotor induces in the phase that is not currently being driven (?@eq-bemf in Module 2). That voltage is proportional to speed, so as the motor slows the signal sinks into the noise and the estimate falls apart. This causes loss of synchronisation at low speed described in Design notes. The AS5047P removes the guess. It measures the field of the magnet bonded to the shaft end and reports the absolute angle — valid at standstill just as much as at 15 000 rpm, and correct immediately at power-on with no homing move.\n\n\nWhat SPI is, and why we run it at 10 MHz\nWe will use an AS5047P encoder. The AS5047P reports angle over SPI, a four-wire synchronous bus: the controller drives the clock (SCLK), data goes out on MOSI and comes back on MISO, and CS selects the chip. Transfer speed is limited only by how fast the two ends can shift bits. We use SPI because it offers 10 MHz communication. The reason speed matters is that the angle has to be re-read every single control loop, and a stale angle is bad: the controller ends up placing the stator field where the rotor was, not where it is. That error shows up as wasted current and audible noise. The same 10 MHz clock is why the wiring has to stay short, see below.\n\n\nWire it to the board\nThere is no SPI link exposed directly on the ESC board. The solution is to use the SPI3 bus, exposed through a few hardware modifications and matching software changes. Figure 1 shows the four signals in context, including the MOSI tap on R14.\n\n\n\n\n\n\nWarningThe micro-USB serial link is lost\n\n\n\nSerial2, used by the daughterboard for serial communication will not work anymore as we are using those pins for SPI3 for the encoder instead. Flashing the ESC still works (programming runs over SWD, on different pins) but every command and every value read back now has to pass through serial1.\n\n\nThe encoder needs power as well as the four bus signals - six wires in total. Replace the default cable and use the 6x30AWG wire ribbon instead.\n\n\n\nTable 1: SPI3 connections on the G431. * This connection is on the outward side of the resistor.\n\n\n\n\n\n\nSCLK\nMISO\nMOSI\nCS\n5V\nGND\n\n\n\n\nMCU GPIO\nPB3\nPB4\nPB5\nPA15\n—\n—\n\n\nG431B pin\nJ3\nJ3\nR14*\nJ3\nJ8\nJ3\n\n\n\n\n\n\n\n\n\n\n\n\nWarningKeep the SPI cables under 8 cm\n\n\n\nCables between encoder and ESC need to be less than 8 cm. At 10 MHz longer runs start corrupting angle readings, and the symptom is a motor that behaves erratically rather than a sensor that obviously fails. Check the length that is needed.",
+    "text": "Encoder (or Angular sensor)\n\nFirst, why does the motor need an encoder?\nField-Oriented Control works by holding the stator’s magnetic field roughly 90° ahead of the rotor’s magnets, which is the orientation that produces the most torque per amp. To place the field there, the controller has to know where the rotor is right now.\nOrdinary drone ESCs infer this from back-EMF, i.e the voltage the spinning rotor induces in the phase that is not currently being driven (?@eq-bemf in Module 2). That voltage is proportional to speed, so as the motor slows the signal sinks into the noise and the estimate falls apart. This causes loss of synchronisation at low speed described in Design notes. The AS5047P removes the guess. It measures the field of the magnet bonded to the shaft end and reports the absolute angle - valid at standstill just as much as at 15 000 rpm, and correct immediately at power-on with no homing move.\n\n\nWhat SPI is, and why we run it at 10 MHz\nWe will use an AS5047P encoder. The AS5047P reports angle over SPI, a four-wire synchronous bus: the controller drives the clock (SCLK), data goes out on MOSI and comes back on MISO, and CS selects the chip. Transfer speed is limited only by how fast the two ends can shift bits. We use SPI because it offers 10 MHz communication. The reason speed matters is that the angle has to be re-read every single control loop, and a stale angle is bad: the controller ends up placing the stator field where the rotor was, not where it is. That error shows up as wasted current and audible noise. The same 10 MHz clock is why the wiring has to stay short, see below.\n\n\nWire it to the board\nThere is no SPI link exposed directly on the ESC board. The solution is to use the SPI3 bus, exposed through a few hardware modifications and matching software changes. Figure 1 shows the four signals in context, including the MOSI tap on R14.\n\n\n\n\n\n\nWarningThe micro-USB serial link is lost\n\n\n\nSerial2, used by the daughterboard for serial communication will not work anymore as we are using those pins for SPI3 for the encoder instead. Flashing the ESC still works (programming runs over SWD, on different pins) but every command and every value read back now has to pass through serial1 (external TX/RX).\n\n\nThe encoder needs power as well as the four bus signals - six wires in total. Replace the default cable and use the 6x30AWG wire ribbon instead.\n\n\n\nTable 1: SPI3 connections on the G431. * This connection is on the outward side of the resistor.\n\n\n\n\n\n\nSCLK\nMISO\nMOSI\nCS\n5V\nGND\n\n\n\n\nMCU GPIO\nPB3\nPB4\nPB5\nPA15\n—\n—\n\n\nG431B pin\nJ3\nJ3\nR14*\nJ3\nJ8\nJ3\n\n\n\n\n\n\n\n\n\n\n\n\nTipKeep the SPI cables under 8 cm\n\n\n\nCables between encoder and ESC need to be less than 8 cm. At 10 MHz longer runs start corrupting angle readings, and the symptom is a motor that behaves erratically rather than a sensor that obviously fails. Check the length that is needed. The cables also need to be the same length.",
     "crumbs": [
       "Overview",
       "Build modules",
@@ -1228,7 +1204,7 @@
     "href": "sessions/03-esc.html#mounting",
     "title": "Module 3 — Motor driver, sensor and serial connection",
     "section": "Mounting",
-    "text": "Mounting\n\nInstall the Seeeduino in its 3D-printed bracket and into the robot\nInstall the encoder in its 3D-printed bracket\nInstall the ESC in its 3D-printed bracket\nAll mounted to the bottom fuselage plate\n\n\n\n\nAssembled motor-esc\n\n\n\n\n\n\n\n\nImportantTo be prepared by the instructor before the session\n\n\n\nPrepare a power source 15V 5A over USB-C.\nPower cable to ESC (order?)",
+    "text": "Mounting\n\nInstall the Seeeduino in its 3D-printed bracket and into the robot\nInstall the encoder in its 3D-printed bracket\nInstall the ESC in its 3D-printed bracket\nAll mounted to the bottom fuselage plate\n\n\n\n\nAssembled motor-esc\n\n\n\n\n\n\n\n\nWarningWarning\n\n\n\nThe first times that you start spinning the motor, it is critical to do that on a current-limited power source (max 1A). Things can go wrong very quickly and if the motor is shorted you only have a few seconds to unplug it.",
     "crumbs": [
       "Overview",
       "Build modules",

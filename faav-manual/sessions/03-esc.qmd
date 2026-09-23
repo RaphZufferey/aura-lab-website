@@ -4,18 +4,18 @@ title: "Module 3 --- Motor driver, sensor and serial connection"
 
 ## Summary
 
-We aim to get your laptop talking to a flashed G431 ESC via the flight controller, with the angular sensor wired on SPI. Lots of soldering.
+We aim to get your laptop talking to a flashed G431 ESC via the flight controller, with the angular sensor wired on SPI. Lots of soldering. We will not use a battery for now, but a cable to a power source instead.
 
-![How the battery, ESC, encoder, motor and microcontroller connect. The XIAO nRF52840 shown here is the separate-microcontroller option for serial described below --- note that TX and RX are crossed. SPI3 and UART pin assignments match the rework in @tbl-spi3 and *ST-Link serial*.](/Fig/xiao-esc-wiring-diagram.png){#fig-wiring width="6.5in"}
+![How the battery, ESC, encoder, motor and microcontroller connect. The XIAO nRF52840 shown here is the separate-microcontroller option for serial described below - note that TX and RX are crossed. SPI3 and UART pin assignments match the rework in @tbl-spi3 and *ST-Link serial*.](/Fig/xiao-esc-wiring-diagram.png){#fig-wiring width="6.5in"}
 
 Work through the module with this diagram open: every step below either wires one of these links or configures it in firmware.
 
 ## Requirements
 
 |  |  |
-|----------------------|--------------------------------------------------|
-| **Parts needed** | Module 2 sub-assembly, AS5047P encoder, encoder mount, 6x30AWG wire ribbon |
-| **Tools** | Soldering iron, , torx drivers, tweezers, micro-USB cable, power source |
+|------------------------|-----------------------------------------------|
+| **Parts needed** | Module 2 sub-assembly, AS5047P encoder, encoder mount, 6x30AWG wire ribbon, power cable. |
+| **Tools** | Soldering iron, torx drivers, tweezers |
 | **Read** | This page, plus [Design notes](/reference/design-notes.qmd) on why we use an FOC ESC |
 
 ![ESC running SimpleFOC and the angular sensor. The six MOSFETs are the large flat packages, arranged as three half-bridges --- one per motor phase, each with a high-side and a low-side switch. The three copper tabs on the left are the U, V and W outputs the motor is soldered to below.](/Fig/esc1.jpg){#fig-esc width="60%"}
@@ -46,17 +46,22 @@ It programs from the Arduino IDE like any other Arduino board, but we highly rec
 
 ![The Seeeduino XIAO nRF52840. **TX** and **RX** are the two pads at the bottom corners --- those are the ones to solder to, and they cross over to the ESC's RX and TX respectively. The board is 21 × 17.5 mm, which is why it can ride on the robot at all.](/Fig/xiao-nrf52840.jpg){#fig-xiao fig-align="center" width="55%"}
 
-1.  Solder the Seeeduino and the ESC's **Serial1**: TX, RX and **GND** lines. For that, use the 6x30AWG wire ribbon, spliced in half (only need 3 lines). In Serial communication, TX and RX are **crossed**, each board's transmit line goes to the other's receive line, as drawn in the [wiring diagram](03-esc.qmd#fig-wiring) in Module 3. GND is not optional: without a shared reference the two boards have no agreed voltage for what counts as a high or low bit.
+1.  Solder the Seeeduino and the ESC's **Serial1**: TX, RX and **GND** lines. For that, use the 6x30AWG wire ribbon, spliced (only need 4 lines). In Serial communication, TX and RX are **crossed**, each board's transmit line goes to the other's receive line, as drawn in the [wiring diagram](03-esc.qmd#fig-wiring) in Module 3. GND is not optional: without a shared reference the two boards have no agreed voltage for what counts as a high or low bit.
 
-2.  Load the barebone Arduino sketch onto the Seeeduino, see [Software](/reference/software.qmd) for the repository. This requires Visual Studio Code and the PlatformIO plugin installed.
+2.  Verify that you can command the LED of the seeeduino on and off first. This requires Visual Studio Code and the PlatformIO plugin installed. Leave the ESC unpowered for now.
 
-3.  Solder the power connection to the ESC and connect 15V from a power source.
+3.  Load the barebone Arduino sketch onto the Seeeduino, modify it if needed, see [Software](/reference/software.qmd) for the repository.
 
-4.  Modify the sketch to turn the LED on the **ESC** on and off via commander instructions. This confirms three things at once:
+4.  Load the default ESC code onto the ESC via its daughterboard (via micro-usb).
+
+5.  Solder the power connection to the ESC and connect 15V from a power source.
+
+6.  Modify the sketch to turn the LED on the **ESC** on and off via commander instructions. We now have confirmed three things:
 
     a.  The Seeeduino can be flashed.
     b.  The Seeeduino can be reached over serial.
-    c.  The Seeeduino can communicate both ways over serial.
+    c.  The ESC is flashed.
+    d.  The Seeeduino talks with the ESC.
 
 ## Encoder (or Angular sensor)
 
@@ -64,7 +69,7 @@ It programs from the Arduino IDE like any other Arduino board, but we highly rec
 
 Field-Oriented Control works by holding the stator's magnetic field roughly 90° ahead of the rotor's magnets, which is the orientation that produces the most torque per amp. To place the field there, the controller has to know where the rotor is **right now**.
 
-Ordinary drone ESCs infer this from back-EMF, i.e the voltage the spinning rotor induces in the phase that is not currently being driven (@eq-bemf in [Module 2](02-motor.qmd)). That voltage is proportional to speed, so as the motor slows the signal sinks into the noise and the estimate falls apart. This causes *loss of synchronisation at low speed* described in [Design notes](/reference/design-notes.qmd). The AS5047P removes the guess. It measures the field of the magnet bonded to the shaft end and reports the **absolute** angle --- valid at standstill just as much as at 15 000 rpm, and correct immediately at power-on with no homing move.
+Ordinary drone ESCs infer this from back-EMF, i.e the voltage the spinning rotor induces in the phase that is not currently being driven (@eq-bemf in [Module 2](02-motor.qmd)). That voltage is proportional to speed, so as the motor slows the signal sinks into the noise and the estimate falls apart. This causes *loss of synchronisation at low speed* described in [Design notes](/reference/design-notes.qmd). The AS5047P removes the guess. It measures the field of the magnet bonded to the shaft end and reports the **absolute** angle - valid at standstill just as much as at 15 000 rpm, and correct immediately at power-on with no homing move.
 
 ### What SPI is, and why we run it at 10 MHz
 
@@ -77,7 +82,7 @@ There is no SPI link exposed directly on the ESC board. The solution is to use t
 ::: callout-warning
 #### The micro-USB serial link is lost
 
-Serial2, used by the daughterboard for serial communication will not work anymore as we are using those pins for SPI3 for the encoder instead. Flashing the ESC still works (programming runs over SWD, on different pins) but every command and every value read back now has to pass through serial1.
+Serial2, used by the daughterboard for serial communication will not work anymore as we are using those pins for SPI3 for the encoder instead. Flashing the ESC still works (programming runs over SWD, on different pins) but every command and every value read back now **has to** pass through serial1 (external TX/RX).
 :::
 
 The encoder needs power as well as the four bus signals - six wires in total. Replace the default cable and use the 6x30AWG wire ribbon instead.
@@ -87,12 +92,12 @@ The encoder needs power as well as the four bus signals - six wires in total. Re
 | **MCU GPIO**  | PB3  | PB4  | PB5   | PA15 | --- | --- |
 | **G431B pin** | J3   | J3   | R14\* | J3   | J8  | J3  |
 
-: SPI3 connections on the G431. \* This connection is on the outward side of the resistor.
+: SPI3 connections on the G431. \* This connection is on the outward side of the resistor. {#tbl-spi3}
 
-::: callout-warning
+::: callout-tip
 ## Keep the SPI cables under 8 cm
 
-Cables between encoder and ESC need to be **less than 8 cm**. At 10 MHz longer runs start corrupting angle readings, and the symptom is a motor that behaves erratically rather than a sensor that obviously fails. Check the length that is needed.
+Cables between encoder and ESC need to be **less than 8 cm**. At 10 MHz longer runs start corrupting angle readings, and the symptom is a motor that behaves erratically rather than a sensor that obviously fails. Check the length that is needed. The cables also need to be the same length.
 :::
 
 ## Mounting
@@ -104,10 +109,8 @@ Cables between encoder and ESC need to be **less than 8 cm**. At 10 MHz longer r
 
 ![Assembled motor-esc](/Fig/ESC_assembly.jpg)
 
-::: callout-important
-## To be prepared by the instructor before the session
+::: callout-warning
+## Warning
 
-Prepare a power source 15V 5A over USB-C.
-
-Power cable to ESC (order?)
+The first times that you start spinning the motor, it is critical to do that on a **current-limited** power source (**max 1A**). Things can go wrong very quickly and if the motor is shorted you only have a few seconds to unplug it.
 :::

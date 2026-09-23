@@ -544,8 +544,6 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#esc" id="toc-esc" class="nav-link active" data-scroll-target="#esc">ESC</a></li>
-  <li><a href="#flight-controller" id="toc-flight-controller" class="nav-link" data-scroll-target="#flight-controller">Flight controller</a></li>
-  <li><a href="#pcb" id="toc-pcb" class="nav-link" data-scroll-target="#pcb">PCB</a></li>
   <li><a href="#external-documentation" id="toc-external-documentation" class="nav-link" data-scroll-target="#external-documentation">External documentation</a></li>
   </ul>
 </nav>
@@ -575,24 +573,11 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="esc" class="level2">
 <h2 class="anchored" data-anchor-id="esc">ESC</h2>
-<p>Code for the B-G431B-ESC1 motor controller using the SimpleFOC library: <a href="https://github.com/MIT-AURA-Lab/FAAV-G431-ESC">FAAV-G431-ESC</a>.</p>
-<p>Used in <a href="../sessions/03-esc.html">Module 3</a> and <a href="../sessions/04-control.html">Module 4</a>.</p>
-</section>
-<section id="flight-controller" class="level2">
-<h2 class="anchored" data-anchor-id="flight-controller">Flight controller</h2>
-<ul>
-<li><strong>Current</strong> — ESP32, based on FreeRTOS tasks: <a href="https://github.com/MIT-AURA-Lab/FAAV-Flight-Controller">FAAV-Flight-Controller</a></li>
-</ul>
+<p>Code for the B-G431B-ESC1 motor controller using the SimpleFOC library: <a href="https://github.com/MIT-AURA-Lab/FAAV-G431-ESC">FAAV-G431-ESC</a>. You need access to the github folder.</p>
 <p>Outdated versions, kept for reference:</p>
 <ul>
 <li>Old EPFL code for NRF52: <a href="https://github.com/MIT-AURA-Lab/FAAV-Seeeduino">FAAV-Seeeduino</a></li>
 <li>Old MIT code for NRF52/ESP32: <a href="https://github.com/MIT-AURA-Lab/FAAV-AUK">FAAV-AUK</a></li>
-</ul>
-</section>
-<section id="pcb" class="level2">
-<h2 class="anchored" data-anchor-id="pcb">PCB</h2>
-<ul>
-<li><a href="https://github.com/MIT-AURA-Lab/FAAV-PCB-v3">FAAV-PCB-v3</a> — current board, including the BOM in the Manufacturing/Assembly folder</li>
 </ul>
 </section>
 <section id="external-documentation" class="level2">
@@ -602,19 +587,6 @@ ul.task-list li input[type="checkbox"] {
 <li><a href="https://docs.simplefoc.com/commander_motor">SimpleFOC commander</a></li>
 <li><a href="https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/">XIAO ESP32S3 getting started</a></li>
 </ul>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Access
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Confirm before the semester that students have read access to these repositories, and pin the branch or tag each module expects. “Latest main” changing under a cohort mid-semester is the most likely way this manual goes stale without anyone noticing.</p>
-</div>
-</div>
 
 
 </section>

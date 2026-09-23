@@ -1,5 +1,4 @@
 ---
-udent---
 title: "Module 2 --- Motor and transmission shaft"
 ---
 
