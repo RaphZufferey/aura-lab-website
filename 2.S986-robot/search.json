@@ -268,7 +268,7 @@
     "href": "sessions/04-control.html",
     "title": "Module 4 — Closed-loop control and tuning",
     "section": "",
-    "text": "The gearbox installed with a marker flag on the output, the Seeeduino wired in and commanding the ESC untethered, running continuously, then holding position, then tracking a velocity setpoint with a tuned loop.",
+    "text": "The objective of this module is to spin the motor for the first time, understand the parameters at play and optimize gains. The Seeeduino, ESC and encoder are wired already and we will seek to command the ESC via the Seeeduino, running continuously, then holding position, then tracking a velocity setpoint with a tuned loop.",
     "crumbs": [
       "Overview",
       "Build modules",
@@ -280,7 +280,7 @@
     "href": "sessions/04-control.html#summary",
     "title": "Module 4 — Closed-loop control and tuning",
     "section": "",
-    "text": "The gearbox installed with a marker flag on the output, the Seeeduino wired in and commanding the ESC untethered, running continuously, then holding position, then tracking a velocity setpoint with a tuned loop.",
+    "text": "The objective of this module is to spin the motor for the first time, understand the parameters at play and optimize gains. The Seeeduino, ESC and encoder are wired already and we will seek to command the ESC via the Seeeduino, running continuously, then holding position, then tracking a velocity setpoint with a tuned loop.",
     "crumbs": [
       "Overview",
       "Build modules",
@@ -292,7 +292,7 @@
     "href": "sessions/04-control.html#requirements",
     "title": "Module 4 — Closed-loop control and tuning",
     "section": "Requirements",
-    "text": "Requirements\n\n\n\nParts\nMotor with shaft and sun gear from Module 2, Faulhaber 23.04:1 gearbox, M2.5×10 screws, 3D-printed plates, second vertical bracket, 3× M2.5 and 3× M2 screws, ESC from Module 3, 4x8 mm flanged bearing, Seeeduino XIAO nRF52840, its 3D-printed bracket, 3 wires\n\n\nTools\nBench supply with current limit, tachometer or camera, soldering iron\n\n\nRead\nThis page in full - the speed limits below explain most of what comes up",
+    "text": "Requirements\n\n\n\nParts\nMotor with new shaft from Module 2, ESC from Module 3, 4x8 mm flanged bearing, Seeeduino XIAO nRF52840\n\n\nTools\nBench supply with current limit, tachometer or camera, soldering iron\n\n\nRead\nThis page in full - the speed limits below explain most of what comes up",
     "crumbs": [
       "Overview",
       "Build modules",
@@ -304,7 +304,7 @@
     "href": "sessions/04-control.html#firmware",
     "title": "Module 4 — Closed-loop control and tuning",
     "section": "Firmware",
-    "text": "Firmware\nThe ESC is pre-flashed. Code for the B-G431B-ESC1 motor controller, using the SimpleFOC library, is in the lab repository: FAAV-G431-ESC. See Software for all repositories.\nBefore changing anything in there, read How SimpleFOC works. It covers the two nested loops, what the FOC maths does each iteration, why the motor twitches at power-on, and which settings in the sketch matter — enough to read the firmware rather than guess at it.",
+    "text": "Firmware\nThe ESC needs to be flashed with SimpleFOC. A custom version of the code for the B-G431B-ESC1 motor controller, using the SimpleFOC library, is to be found here: FAAV-G431-ESC. See Software for all repositories.\nBefore changing anything in there, read How SimpleFOC works. It covers the two nested loops, what the FOC maths does each iteration, why the motor twitches at power-on, and which settings in the sketch matter - enough to read the firmware rather than guess at it.",
     "crumbs": [
       "Overview",
       "Build modules",
@@ -316,7 +316,19 @@
     "href": "sessions/04-control.html#calibration",
     "title": "Module 4 — Closed-loop control and tuning",
     "section": "Calibration",
-    "text": "Calibration\nWe need to calibrate the ESC with our test stand. This allows us to…",
+    "text": "Calibration\nBefore anything else, we’d like to make sure that we have the right motor parameters. To this, we will follow the “commissioning” instrutions in the firmware above.\n\nRun autocal until 1000 rad/s.\nWHAT STEPS ARE NEEDED?",
+    "crumbs": [
+      "Overview",
+      "Build modules",
+      "Module 4 --- Closed-loop control and tuning"
+    ]
+  },
+  {
+    "objectID": "sessions/04-control.html#controlling-the-motor-from-a-laptop",
+    "href": "sessions/04-control.html#controlling-the-motor-from-a-laptop",
+    "title": "Module 4 — Closed-loop control and tuning",
+    "section": "Controlling the motor from a laptop",
+    "text": "Controlling the motor from a laptop\nNext, install SimpleFOC Studio: SimpleFOCStudio. It is a desktop GUI that drives the same commander interface described below, so instead of typing commands into a serial monitor you get a form for every motor parameter, live plots of the monitored variables, and a button that dumps the tuned values back out as Arduino code.\nFigure 1 shows the parts you will actually use: the parameter tree on the left, the live plot of target, velocity and angle in the middle, and a command line at the bottom for anything the form does not expose.\n\n\n\n\n\n\nFigure 1: SimpleFOC Studio driving a motor. The tree on the left exposes every commander parameter as a form - motion control type, the four PID blocks, limits and sensor config - while the plot plays back target, velocity and angle as they change. Screen capture from the SimpleFOCStudio project.\n\n\n\n\n\n\n\n\n\nNoteWhat the ESC code has to provide\n\n\n\nStudio does not work against arbitrary firmware. The ESC code must register the motor with the commander (command.add('M', doMotor, \"motor\")), enable monitoring with motor.useMonitoring(Serial), and call both motor.monitor() and command.run() every loop. The command letter set in Studio’s device settings has to match the one in the sketch - M in our case.\nStudio talks to one serial port. On this robot the ESC’s own micro-USB serial is gone - those pins were repurposed for the encoder’s SPI3 bus in Module 3 - so the port Studio opens is the Seeeduino’s USB serial, and the Seeeduino has to pass what it receives through to the ESC on Serial1 (essentially it needs to act as a relay). Studio cannot reach the ESC on its own.",
     "crumbs": [
       "Overview",
       "Build modules",
@@ -328,7 +340,7 @@
     "href": "sessions/04-control.html#commanding-and-monitoring",
     "title": "Module 4 — Closed-loop control and tuning",
     "section": "Commanding and monitoring",
-    "text": "Commanding and monitoring\nThis is a high-level summary of the SimpleFOC communication docs. Communication with the ESC is over serial, via a separate microcontroller board.\nOnce serial communication is established, the ESC is driven through the commander, a practical interface for setting and getting values (instructions). Ask the commander for available commands with ?. Commands available:\n\n\n\n\n\n\n\nCommand\nEffect\n\n\n\n\nM\nFull motor configuration\n\n\nF\nGet the main loop frequency\n\n\nL\nTurn the onboard LED on and off (useful as a comms check)\n\n\nT\nSet the target value — rad, rad/s or N/m depending on control mode\n\n\nW\nWatchdog on/off. If no new target arrives for 1 s, target is set to zero. On by default\n\n\nR\nR0/R1 disable/enable a linear ramp when changing setpoint. RD1000 sets ramp duration to 1000 ms (default 1000 ms). Off by default\n\n\n\n\n\n\n\n\n\nWarningCareful when changing control mode\n\n\n\nT means something different in each mode, position, velocity, or torque. Sending a velocity setpoint while in torque mode will do something unintended, with the wings attached. BE VERY CAREFUL ABOUT THIS.\n\n\n\n\n\n\n\n\nNoteCheckpoint\n\n\n\nCommander responds to ? over serial at 115200 baud, L toggles the onboard LED, the sensor returns a plausible angle through a full manual rotation, and the motor spins under a T command.\n\n\n\n\n\n\n\n\nImportantTo be completed by the instructor\n\n\n\nWhich repository holds the barebone Seeeduino sketch, and on which branch. The nRF52 repositories currently in Software are marked outdated, so students following this page have nothing to clone.",
+    "text": "Commanding and monitoring\nThis is a high-level summary of the SimpleFOC communication docs. The ESC is driven through the commander, a practical interface for setting and getting values (instructions). Ask the commander for available commands with ?. Commands available:\n\n\n\n\n\n\n\nCommand\nEffect\n\n\n\n\nM\nFull motor configuration\n\n\nF\nGet the main loop frequency\n\n\nL\nTurn the onboard LED on and off (useful as a comms check)\n\n\nT\nSet the target value - rad, rad/s or N/m depending on control mode\n\n\nW\nWatchdog on/off. If no new target arrives for 1 s, target is set to zero. On by default\n\n\nME\nEnable the driver. ME1 energises the phases, ME0 switches them off and the motor coasts\n\n\nMC\nMotion control type. MC0 torque, MC1 velocity, MC2 angle\n\n\nMLC\nCurrent limit, in amps\n\n\n\nThe M prefix is the motor command, and the letters after it walk down into its settings - MC is the motor’s control type, MLC the motor’s limit on current. That is why full configuration is just M on its own.\nWhen it comes to commanding from the flight controlling direction, your code shouldn’t write these directly. Instead, you should create wrapper functions such as “current_limit(value)” etc…\n\n\n\n\n\n\nWarningCareful when changing control mode\n\n\n\nT means something different in each mode, position, velocity, or torque. Sending a velocity setpoint while in torque mode will do something unintended. BE VERY CAREFUL ABOUT THIS.",
     "crumbs": [
       "Overview",
       "Build modules",
@@ -336,11 +348,11 @@
     ]
   },
   {
-    "objectID": "sessions/04-control.html#task-sequence",
-    "href": "sessions/04-control.html#task-sequence",
+    "objectID": "sessions/04-control.html#tasks",
+    "href": "sessions/04-control.html#tasks",
     "title": "Module 4 — Closed-loop control and tuning",
-    "section": "Task sequence",
-    "text": "Task sequence\n\nMount a small flag on the output so rotation is visible and countable.\nAchieve continuous spinning at low speed.\nAchieve position control - the output holds against a hand disturbance.\nTune the loop and characterise the maximum usable speed.\n\n\n\n\n\n\n\nImportantTo be completed by the instructor\n\n\n\nThe specific PID tuning exercise, the target performance.\nCalibration stand / code",
+    "section": "Tasks",
+    "text": "Tasks\n\nCommander responds to ? over serial from a laptop, L toggles the onboard LED.\nThe sensor returns a plausible angle through a full manual rotation, and the motor spins under a T command. Mount a small flag (piece of tape) on the output so rotation is visible and countable.\nAchieve continuous spinning at low speed.\nAchieve position control - the output holds against a hand disturbance.\nTune the loops and characterise the maximum usable speed.\nCreate a “sequence” that when triggered over serial waits for 5 seconds, then spins the motor for 5 seconds in velocity mode, then deactivates the motor.",
     "crumbs": [
       "Overview",
       "Build modules",
@@ -348,23 +360,11 @@
     ]
   },
   {
-    "objectID": "sessions/04-control.html#why-low-speed-is-the-hard-part",
-    "href": "sessions/04-control.html#why-low-speed-is-the-hard-part",
+    "objectID": "sessions/04-control.html#why-we-use-an-esc-that-we-reprogram",
+    "href": "sessions/04-control.html#why-we-use-an-esc-that-we-reprogram",
     "title": "Module 4 — Closed-loop control and tuning",
-    "section": "Why low speed is the hard part",
-    "text": "Why low speed is the hard part\nRegular drone ESCs start losing synchronisation at low speed, which is exactly the regime used for water propulsion. That is the reason this course uses an FOC ESC rather than a hobby unit - see Design notes.",
-    "crumbs": [
-      "Overview",
-      "Build modules",
-      "Module 4 --- Closed-loop control and tuning"
-    ]
-  },
-  {
-    "objectID": "sessions/04-control.html#why-high-speed-is-the-hard-part-going-beyond-600-rads",
-    "href": "sessions/04-control.html#why-high-speed-is-the-hard-part-going-beyond-600-rads",
-    "title": "Module 4 — Closed-loop control and tuning",
-    "section": "Why high speed is the hard part (going beyond 600 rad/s)",
-    "text": "Why high speed is the hard part (going beyond 600 rad/s)\nTwo issues limit speed: the micro-controller loop rate, and delays from the rotation sensor. Using SPI at 10 MHz and an AS5047P sensor rated for 28kRPM speeds are the required hardware changes that improves on delay. But at very high speeds, sensor lag still becomes the binding constraint, and shows up as high current draw and noise. We need to update the sensor electrical angle offset as a function of speed. Compensating sensor lag as speed increases is necessary to go above 600 rad/s without wasting current. This is automated by ramping through the speeds and minimising phase current. This SimpleFOC forum thread is useful on the topic.\n\n\n\n\n\n\nNoteCheckpoint\n\n\n\nContinuous rotation resulting in frequencies of 1 Hz all the way to 8 Hz without loss of synchronisation, position hold against a hand disturbance, and a recorded loop frequency from F. Do not exceed 8 Hz.",
+    "section": "Why we use an ESC that we reprogram",
+    "text": "Why we use an ESC that we reprogram\n\nWhy low speed is the hard part\nRegular drone ESCs start losing synchronisation at low speed, which is exactly the regime used for water propulsion. That is the reason this course uses an FOC ESC rather than a hobby unit - see Design notes.\n\n\nWhy high speed is the hard part (going beyond 600 rad/s)\nTwo issues limit speed: the micro-controller loop rate, and delays from the rotation sensor. Using SPI at 10 MHz and an AS5047P sensor rated for 28kRPM speeds are the required hardware changes that improves on delay. But at very high speeds, sensor lag still becomes the binding constraint, and shows up as high current draw and noise. We need to update the sensor electrical angle offset as a function of speed. Compensating sensor lag as speed increases is necessary to go above 600 rad/s without wasting current. This is automated by ramping through the speeds and minimising phase current. This SimpleFOC forum thread is useful on the topic.\n\n\n\n\n\n\nNoteCheckpoint\n\n\n\nContinuous rotation at 1 Hz, position hold against a hand disturbance, and a recorded loop frequency from F. The robot should be tuned, operating in various modes and can be commanded from the flight controller",
     "crumbs": [
       "Overview",
       "Build modules",
