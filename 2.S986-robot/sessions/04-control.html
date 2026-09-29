@@ -548,11 +548,18 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#summary" id="toc-summary" class="nav-link active" data-scroll-target="#summary">Summary</a></li>
   <li><a href="#requirements" id="toc-requirements" class="nav-link" data-scroll-target="#requirements">Requirements</a></li>
+  <li><a href="#electronics-check" id="toc-electronics-check" class="nav-link" data-scroll-target="#electronics-check">Electronics check</a></li>
   <li><a href="#firmware" id="toc-firmware" class="nav-link" data-scroll-target="#firmware">Firmware</a></li>
-  <li><a href="#calibration" id="toc-calibration" class="nav-link" data-scroll-target="#calibration">Calibration</a></li>
   <li><a href="#controlling-the-motor-from-a-laptop" id="toc-controlling-the-motor-from-a-laptop" class="nav-link" data-scroll-target="#controlling-the-motor-from-a-laptop">Controlling the motor from a laptop</a></li>
-  <li><a href="#commanding-and-monitoring" id="toc-commanding-and-monitoring" class="nav-link" data-scroll-target="#commanding-and-monitoring">Commanding and monitoring</a></li>
-  <li><a href="#tasks" id="toc-tasks" class="nav-link" data-scroll-target="#tasks">Tasks</a></li>
+  <li><a href="#commanding-and-monitoring-the-esc" id="toc-commanding-and-monitoring-the-esc" class="nav-link" data-scroll-target="#commanding-and-monitoring-the-esc">Commanding and monitoring the ESC</a>
+  <ul class="collapse">
+  <li><a href="#tasks-to-do" id="toc-tasks-to-do" class="nav-link" data-scroll-target="#tasks-to-do">Tasks to do:</a></li>
+  </ul></li>
+  <li><a href="#tuning-the-cascaded-controller" id="toc-tuning-the-cascaded-controller" class="nav-link" data-scroll-target="#tuning-the-cascaded-controller">Tuning the cascaded controller</a>
+  <ul class="collapse">
+  <li><a href="#record-how-it-responds-to-a-step-change" id="toc-record-how-it-responds-to-a-step-change" class="nav-link" data-scroll-target="#record-how-it-responds-to-a-step-change">Record how it responds to a step change:</a></li>
+  </ul></li>
+  <li><a href="#calibration" id="toc-calibration" class="nav-link" data-scroll-target="#calibration">Calibration</a></li>
   <li><a href="#why-we-use-an-esc-that-we-reprogram" id="toc-why-we-use-an-esc-that-we-reprogram" class="nav-link" data-scroll-target="#why-we-use-an-esc-that-we-reprogram">Why we use an ESC that we reprogram</a>
   <ul class="collapse">
   <li><a href="#why-low-speed-is-the-hard-part" id="toc-why-low-speed-is-the-hard-part" class="nav-link" data-scroll-target="#why-low-speed-is-the-hard-part">Why low speed is the hard part</a></li>
@@ -594,11 +601,11 @@ ul.task-list li input[type="checkbox"] {
 <tbody>
 <tr class="odd">
 <td><strong>Parts</strong></td>
-<td>Motor with new shaft from <a href="../sessions/02-motor.html">Module 2</a>, ESC from <a href="../sessions/03-esc.html">Module 3</a>, 4x8 mm flanged bearing, Seeeduino XIAO nRF52840</td>
+<td>Motor with new shaft from <a href="../sessions/02-motor.html">Module 2</a>, ESC from <a href="../sessions/03-esc.html">Module 3</a>, Seeeduino XIAO nRF52840</td>
 </tr>
 <tr class="even">
 <td><strong>Tools</strong></td>
-<td>Bench supply with current limit, tachometer or camera, soldering iron</td>
+<td>Bench supply with current limit, camera, soldering iron</td>
 </tr>
 <tr class="odd">
 <td><strong>Read</strong></td>
@@ -607,18 +614,14 @@ ul.task-list li input[type="checkbox"] {
 </tbody>
 </table>
 </section>
+<section id="electronics-check" class="level2">
+<h2 class="anchored" data-anchor-id="electronics-check">Electronics check</h2>
+<p>Check the state of the electrical connections to the encoder and to the flight controller. Have someone else verify the connections. Watch out for swapped wires, weak/cold solder connections and check the R14 connection point.</p>
+</section>
 <section id="firmware" class="level2">
 <h2 class="anchored" data-anchor-id="firmware">Firmware</h2>
 <p>The ESC needs to be flashed with SimpleFOC. A custom version of the code for the B-G431B-ESC1 motor controller, using the SimpleFOC library, is to be found here: <a href="https://github.com/MIT-AURA-Lab/FAAV-G431-ESC">FAAV-G431-ESC</a>. See <a href="../reference/software.html">Software</a> for all repositories.</p>
 <p>Before changing anything in there, read <a href="../reference/simple-foc.html">How SimpleFOC works</a>. It covers the two nested loops, what the FOC maths does each iteration, why the motor twitches at power-on, and which settings in the sketch matter - enough to read the firmware rather than guess at it.</p>
-</section>
-<section id="calibration" class="level2">
-<h2 class="anchored" data-anchor-id="calibration">Calibration</h2>
-<p>Before anything else, we’d like to make sure that we have the right <strong>motor parameters</strong>. To this, we will follow the “commissioning” instrutions in the firmware above.</p>
-<ol type="1">
-<li>Run autocal until 1000 rad/s.</li>
-<li>WHAT STEPS ARE NEEDED?</li>
-</ol>
 </section>
 <section id="controlling-the-motor-from-a-laptop" class="level2">
 <h2 class="anchored" data-anchor-id="controlling-the-motor-from-a-laptop">Controlling the motor from a laptop</h2>
@@ -644,13 +647,13 @@ Figure&nbsp;1: SimpleFOC Studio driving a motor. The tree on the left exposes ev
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Studio does not work against arbitrary firmware. The ESC code must register the motor with the commander (<code>command.add('M', doMotor, "motor")</code>), enable monitoring with <code>motor.useMonitoring(Serial)</code>, and call both <code>motor.monitor()</code> and <code>command.run()</code> every loop. The command letter set in Studio’s device settings has to match the one in the sketch - <code>M</code> in our case.</p>
-<p>Studio talks to one serial port. On this robot the ESC’s own micro-USB serial is gone - those pins were repurposed for the encoder’s SPI3 bus in <a href="../sessions/03-esc.html">Module 3</a> - so the port Studio opens is the <strong>Seeeduino’s</strong> USB serial, and the Seeeduino has to pass what it receives through to the ESC on Serial1 (essentially it needs to act as a relay). Studio cannot reach the ESC on its own.</p>
+<p>Studio does not work against arbitrary firmware. The ESC code must register the motor with the commander (<code>command.add('M', doMotor, "motor")</code>), enable monitoring with <code>motor.useMonitoring(Serial)</code>, and call both <code>motor.monitor()</code> and <code>command.run()</code> every loop. The command letter set in Studio’s device settings has to match the one in the sketch - <code>M</code> in our case.<br>
+On this robot the ESC’s own micro-USB serial is gone - those pins were repurposed for the encoder’s SPI3 bus in <a href="../sessions/03-esc.html">Module 3</a> - so the port Studio opens is the <strong>Seeeduino’s</strong> USB serial, and the Seeeduino has to pass what it receives through to the ESC on Serial1 (essentially it needs to act as a relay). Studio cannot reach the ESC on its own.</p>
 </div>
 </div>
 </section>
-<section id="commanding-and-monitoring" class="level2">
-<h2 class="anchored" data-anchor-id="commanding-and-monitoring">Commanding and monitoring</h2>
+<section id="commanding-and-monitoring-the-esc" class="level2">
+<h2 class="anchored" data-anchor-id="commanding-and-monitoring-the-esc">Commanding and monitoring the ESC</h2>
 <p>This is a high-level summary of <a href="https://docs.simplefoc.com/communication">the SimpleFOC communication docs</a>. The ESC is driven through the <strong>commander</strong>, a practical interface for setting and getting values (<a href="https://docs.simplefoc.com/commander_motor">instructions</a>). Ask the commander for available commands with <code>?</code>. Commands available:</p>
 <table class="caption-top table">
 <colgroup>
@@ -713,17 +716,69 @@ Figure&nbsp;1: SimpleFOC Studio driving a motor. The tree on the left exposes ev
 <p><code>T</code> means something different in each mode, position, velocity, or torque. Sending a velocity setpoint while in torque mode will do something unintended. BE VERY CAREFUL ABOUT THIS.</p>
 </div>
 </div>
-</section>
-<section id="tasks" class="level2">
-<h2 class="anchored" data-anchor-id="tasks">Tasks</h2>
+<section id="tasks-to-do" class="level3">
+<h3 class="anchored" data-anchor-id="tasks-to-do">Tasks to do:</h3>
 <ol type="1">
 <li>Commander responds to <code>?</code> over serial from a laptop, <code>L</code> toggles the onboard LED.</li>
-<li>The sensor returns a plausible angle through a full manual rotation, and the motor spins under a <code>T</code> command. Mount a small flag (piece of tape) on the output so rotation is visible and countable.</li>
-<li>Achieve continuous spinning at low speed.</li>
-<li>Achieve position control - the output holds against a hand disturbance.</li>
-<li>Tune the loops and characterise the maximum usable speed.</li>
-<li>Create a “sequence” that when triggered over serial waits for 5 seconds, then spins the motor for 5 seconds in velocity mode, then deactivates the motor.</li>
+<li>The sensor returns a plausible angle through a full manual rotation.</li>
 </ol>
+</section>
+</section>
+<section id="tuning-the-cascaded-controller" class="level2">
+<h2 class="anchored" data-anchor-id="tuning-the-cascaded-controller">Tuning the cascaded controller</h2>
+<p><a href="#fig-cascade" class="quarto-xref">Figure&nbsp;2</a> is the structure SimpleFOC implements. We need to tune it.</p>
+<div id="fig-cascade" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-cascade-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="../Fig/a_b_i.drawio.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure&nbsp;2: The cascaded controller. Desired angle enters on the left. The angle PID does not drive the motor - it produces a velocity target, which the velocity limit clamps. The velocity PID turns the velocity error into a target current, which the current limit clamps. Only the innermost torque/FOC stage touches the phases. Feedback runs the other way: the sensor returns angle, the derivative gives velocity, and both are low-pass filtered before use. Note the two rates — loopFOC() runs the torque stage, move() runs the two outer loops, and they are not the same frequency."><img src="../Fig/a_b_i.drawio.png" class="img-fluid figure-img" style="width:100.0%"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-cascade-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: The cascaded controller. Desired angle enters on the left. The angle PID does not drive the motor - it produces a <em>velocity</em> target, which the velocity limit clamps. The velocity PID turns the velocity error into a <em>target current</em>, which the current limit clamps. Only the innermost torque/FOC stage touches the phases. Feedback runs the other way: the sensor returns angle, the derivative gives velocity, and both are low-pass filtered before use. Note the two rates — <code>loopFOC()</code> runs the torque stage, <code>move()</code> runs the two outer loops, and they are not the same frequency.
+</figcaption>
+</figure>
+</div>
+<p>Each stage turns its own error into a <strong>setpoint for the stage inside it</strong>. That is the whole idea, and it is why the two clamps in the middle are not decoration: the velocity limit caps what the angle loop is allowed to ask for, and the current limit caps what the velocity loop is allowed to ask for.</p>
+<p><strong>Tune from the inside out.</strong> Work in this order, and do not move outwards until the loop you are on behaves:</p>
+<ol start="3" type="1">
+<li><strong>Torque first</strong>, in torque mode (<code>MC0</code>). Command a current and check the motor takes it smoothly, without whine or oscillation.</li>
+<li><strong>Velocity next</strong> (<code>MC1</code>), once torque is solid. Proportional gain first, then integral. Watch the low-pass filter on the velocity feedback while you do: heavy filtering looks like it is cleaning up noise, but the lag it adds is what makes the loop hunt.</li>
+<li><strong>Angle last</strong> (<code>MC2</code>). Usually proportional gain alone is enough, because the velocity loop underneath is already doing the work.</li>
+</ol>
+<p>The order is not a convention, it is a dependency. An outer loop tuned against a sloppy inner loop is partly compensating for the inner loop’s error, so its gains encode that error - and they stop being valid the moment you go back and fix the inner loop.</p>
+<p>These four PID blocks are exactly what SimpleFOC Studio exposes in its parameter tree (<a href="#fig-studio" class="quarto-xref">Figure&nbsp;1</a>). That is the practical argument for having installed it: you can change a gain and watch the step response without reflashing between attempts.</p>
+<p>SimpleFOC documents each stage separately: <a href="https://docs.simplefoc.com/torque_loop">torque control</a>, <a href="https://docs.simplefoc.com/velocity_loop">the velocity loop</a>, <a href="https://docs.simplefoc.com/angle_loop">the angle loop</a>, and <a href="https://docs.simplefoc.com/angle_cascade_control">cascaded position control</a> for the structure in <a href="#fig-cascade" class="quarto-xref">Figure&nbsp;2</a> as a whole. The exact forms being tuned are in <a href="https://docs.simplefoc.com/pid_implementation">the PID implementation</a> and <a href="https://docs.simplefoc.com/lpf_implementation">the low-pass filter</a>.</p>
+<section id="record-how-it-responds-to-a-step-change" class="level3">
+<h3 class="anchored" data-anchor-id="record-how-it-responds-to-a-step-change">Record how it responds to a step change:</h3>
+<p>Do these in Studio. For each one, capture the step response <strong>and write down the gains that produced it</strong>. A screenshot without its gains is not a result: nobody can reproduce it.</p>
+<p>Two things to set before the first capture.</p>
+<ul>
+<li><strong>Turn the watchdog off</strong> for the duration (<code>W0</code>). It is on by default and zeroes the target after 1 s without a new one, so it will pull your step back down in the middle of the capture and look like a controller fault.</li>
+<li><strong>Plot the variable the loop actually controls</strong> - current in torque mode, velocity in velocity mode, angle in position mode - and leave <code>Target</code> enabled in all three so the step is visible.</li>
+</ul>
+<ol start="6" type="1">
+<li><p><strong>Torque mode</strong> (<code>MC0</code>). Set the velocity limit to 200 rad/s, then <strong>block the output with your hand or a piece of tape before commanding any current</strong> - in torque mode nothing limits speed, so an unblocked motor just accelerates until friction stops it. Set the current limit with <code>MLC</code>, starting around 1 A, and step the target.</p></li>
+<li><p><strong>Velocity mode</strong> (<code>MC1</code>). Step from standstill to 400 rad/s and capture the response. Note that this is motor speed, not the flapping frequency of the final system. Mount a small flag (piece of tape) on the output so rotation is visible and countable.</p></li>
+<li><p><strong>Position mode</strong> (<code>MC2</code>). Step from 0 to 144 rad and back to 0 - about a full flap cycle after reduction - and capture the response.</p></li>
+</ol>
+<p>Report rise time, overshoot and any steady-state error read off the plot.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>A blocked motor turns every amp into heat
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>With the output held there is no back-EMF and no mechanical work, so all the electrical power goes into the windings. Apply the torque step in bursts of a few seconds and let the motor cool between attempts if needed.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="calibration" class="level2">
+<h2 class="anchored" data-anchor-id="calibration">Calibration</h2>
+<p>We’d like to also make sure that we have the right <strong>motor parameters</strong> for running at high speeds (above 400 rad/s). To this, we will follow the commissioning instrutions in the firmware above. To this with your TA. Run autocal until 1000 rad/s.</p>
 </section>
 <section id="why-we-use-an-esc-that-we-reprogram" class="level2">
 <h2 class="anchored" data-anchor-id="why-we-use-an-esc-that-we-reprogram">Why we use an ESC that we reprogram</h2>

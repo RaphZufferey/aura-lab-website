@@ -292,7 +292,19 @@
     "href": "sessions/04-control.html#requirements",
     "title": "Module 4 — Closed-loop control and tuning",
     "section": "Requirements",
-    "text": "Requirements\n\n\n\nParts\nMotor with new shaft from Module 2, ESC from Module 3, 4x8 mm flanged bearing, Seeeduino XIAO nRF52840\n\n\nTools\nBench supply with current limit, tachometer or camera, soldering iron\n\n\nRead\nThis page in full - the speed limits below explain most of what comes up",
+    "text": "Requirements\n\n\n\nParts\nMotor with new shaft from Module 2, ESC from Module 3, Seeeduino XIAO nRF52840\n\n\nTools\nBench supply with current limit, camera, soldering iron\n\n\nRead\nThis page in full - the speed limits below explain most of what comes up",
+    "crumbs": [
+      "Overview",
+      "Build modules",
+      "Module 4 --- Closed-loop control and tuning"
+    ]
+  },
+  {
+    "objectID": "sessions/04-control.html#electronics-check",
+    "href": "sessions/04-control.html#electronics-check",
+    "title": "Module 4 — Closed-loop control and tuning",
+    "section": "Electronics check",
+    "text": "Electronics check\nCheck the state of the electrical connections to the encoder and to the flight controller. Have someone else verify the connections. Watch out for swapped wires, weak/cold solder connections and check the R14 connection point.",
     "crumbs": [
       "Overview",
       "Build modules",
@@ -312,23 +324,11 @@
     ]
   },
   {
-    "objectID": "sessions/04-control.html#calibration",
-    "href": "sessions/04-control.html#calibration",
-    "title": "Module 4 — Closed-loop control and tuning",
-    "section": "Calibration",
-    "text": "Calibration\nBefore anything else, we’d like to make sure that we have the right motor parameters. To this, we will follow the “commissioning” instrutions in the firmware above.\n\nRun autocal until 1000 rad/s.\nWHAT STEPS ARE NEEDED?",
-    "crumbs": [
-      "Overview",
-      "Build modules",
-      "Module 4 --- Closed-loop control and tuning"
-    ]
-  },
-  {
     "objectID": "sessions/04-control.html#controlling-the-motor-from-a-laptop",
     "href": "sessions/04-control.html#controlling-the-motor-from-a-laptop",
     "title": "Module 4 — Closed-loop control and tuning",
     "section": "Controlling the motor from a laptop",
-    "text": "Controlling the motor from a laptop\nNext, install SimpleFOC Studio: SimpleFOCStudio. It is a desktop GUI that drives the same commander interface described below, so instead of typing commands into a serial monitor you get a form for every motor parameter, live plots of the monitored variables, and a button that dumps the tuned values back out as Arduino code.\nFigure 1 shows the parts you will actually use: the parameter tree on the left, the live plot of target, velocity and angle in the middle, and a command line at the bottom for anything the form does not expose.\n\n\n\n\n\n\nFigure 1: SimpleFOC Studio driving a motor. The tree on the left exposes every commander parameter as a form - motion control type, the four PID blocks, limits and sensor config - while the plot plays back target, velocity and angle as they change. Screen capture from the SimpleFOCStudio project.\n\n\n\n\n\n\n\n\n\nNoteWhat the ESC code has to provide\n\n\n\nStudio does not work against arbitrary firmware. The ESC code must register the motor with the commander (command.add('M', doMotor, \"motor\")), enable monitoring with motor.useMonitoring(Serial), and call both motor.monitor() and command.run() every loop. The command letter set in Studio’s device settings has to match the one in the sketch - M in our case.\nStudio talks to one serial port. On this robot the ESC’s own micro-USB serial is gone - those pins were repurposed for the encoder’s SPI3 bus in Module 3 - so the port Studio opens is the Seeeduino’s USB serial, and the Seeeduino has to pass what it receives through to the ESC on Serial1 (essentially it needs to act as a relay). Studio cannot reach the ESC on its own.",
+    "text": "Controlling the motor from a laptop\nNext, install SimpleFOC Studio: SimpleFOCStudio. It is a desktop GUI that drives the same commander interface described below, so instead of typing commands into a serial monitor you get a form for every motor parameter, live plots of the monitored variables, and a button that dumps the tuned values back out as Arduino code.\nFigure 1 shows the parts you will actually use: the parameter tree on the left, the live plot of target, velocity and angle in the middle, and a command line at the bottom for anything the form does not expose.\n\n\n\n\n\n\nFigure 1: SimpleFOC Studio driving a motor. The tree on the left exposes every commander parameter as a form - motion control type, the four PID blocks, limits and sensor config - while the plot plays back target, velocity and angle as they change. Screen capture from the SimpleFOCStudio project.\n\n\n\n\n\n\n\n\n\nNoteWhat the ESC code has to provide\n\n\n\nStudio does not work against arbitrary firmware. The ESC code must register the motor with the commander (command.add('M', doMotor, \"motor\")), enable monitoring with motor.useMonitoring(Serial), and call both motor.monitor() and command.run() every loop. The command letter set in Studio’s device settings has to match the one in the sketch - M in our case.\nOn this robot the ESC’s own micro-USB serial is gone - those pins were repurposed for the encoder’s SPI3 bus in Module 3 - so the port Studio opens is the Seeeduino’s USB serial, and the Seeeduino has to pass what it receives through to the ESC on Serial1 (essentially it needs to act as a relay). Studio cannot reach the ESC on its own.",
     "crumbs": [
       "Overview",
       "Build modules",
@@ -336,11 +336,11 @@
     ]
   },
   {
-    "objectID": "sessions/04-control.html#commanding-and-monitoring",
-    "href": "sessions/04-control.html#commanding-and-monitoring",
+    "objectID": "sessions/04-control.html#commanding-and-monitoring-the-esc",
+    "href": "sessions/04-control.html#commanding-and-monitoring-the-esc",
     "title": "Module 4 — Closed-loop control and tuning",
-    "section": "Commanding and monitoring",
-    "text": "Commanding and monitoring\nThis is a high-level summary of the SimpleFOC communication docs. The ESC is driven through the commander, a practical interface for setting and getting values (instructions). Ask the commander for available commands with ?. Commands available:\n\n\n\n\n\n\n\nCommand\nEffect\n\n\n\n\nM\nFull motor configuration\n\n\nF\nGet the main loop frequency\n\n\nL\nTurn the onboard LED on and off (useful as a comms check)\n\n\nT\nSet the target value - rad, rad/s or N/m depending on control mode\n\n\nW\nWatchdog on/off. If no new target arrives for 1 s, target is set to zero. On by default\n\n\nME\nEnable the driver. ME1 energises the phases, ME0 switches them off and the motor coasts\n\n\nMC\nMotion control type. MC0 torque, MC1 velocity, MC2 angle\n\n\nMLC\nCurrent limit, in amps\n\n\n\nThe M prefix is the motor command, and the letters after it walk down into its settings - MC is the motor’s control type, MLC the motor’s limit on current. That is why full configuration is just M on its own.\nWhen it comes to commanding from the flight controlling direction, your code shouldn’t write these directly. Instead, you should create wrapper functions such as “current_limit(value)” etc…\n\n\n\n\n\n\nWarningCareful when changing control mode\n\n\n\nT means something different in each mode, position, velocity, or torque. Sending a velocity setpoint while in torque mode will do something unintended. BE VERY CAREFUL ABOUT THIS.",
+    "section": "Commanding and monitoring the ESC",
+    "text": "Commanding and monitoring the ESC\nThis is a high-level summary of the SimpleFOC communication docs. The ESC is driven through the commander, a practical interface for setting and getting values (instructions). Ask the commander for available commands with ?. Commands available:\n\n\n\n\n\n\n\nCommand\nEffect\n\n\n\n\nM\nFull motor configuration\n\n\nF\nGet the main loop frequency\n\n\nL\nTurn the onboard LED on and off (useful as a comms check)\n\n\nT\nSet the target value - rad, rad/s or N/m depending on control mode\n\n\nW\nWatchdog on/off. If no new target arrives for 1 s, target is set to zero. On by default\n\n\nME\nEnable the driver. ME1 energises the phases, ME0 switches them off and the motor coasts\n\n\nMC\nMotion control type. MC0 torque, MC1 velocity, MC2 angle\n\n\nMLC\nCurrent limit, in amps\n\n\n\nThe M prefix is the motor command, and the letters after it walk down into its settings - MC is the motor’s control type, MLC the motor’s limit on current. That is why full configuration is just M on its own.\nWhen it comes to commanding from the flight controlling direction, your code shouldn’t write these directly. Instead, you should create wrapper functions such as “current_limit(value)” etc…\n\n\n\n\n\n\nWarningCareful when changing control mode\n\n\n\nT means something different in each mode, position, velocity, or torque. Sending a velocity setpoint while in torque mode will do something unintended. BE VERY CAREFUL ABOUT THIS.\n\n\n\nTasks to do:\n\nCommander responds to ? over serial from a laptop, L toggles the onboard LED.\nThe sensor returns a plausible angle through a full manual rotation.",
     "crumbs": [
       "Overview",
       "Build modules",
@@ -348,11 +348,23 @@
     ]
   },
   {
-    "objectID": "sessions/04-control.html#tasks",
-    "href": "sessions/04-control.html#tasks",
+    "objectID": "sessions/04-control.html#tuning-the-cascaded-controller",
+    "href": "sessions/04-control.html#tuning-the-cascaded-controller",
     "title": "Module 4 — Closed-loop control and tuning",
-    "section": "Tasks",
-    "text": "Tasks\n\nCommander responds to ? over serial from a laptop, L toggles the onboard LED.\nThe sensor returns a plausible angle through a full manual rotation, and the motor spins under a T command. Mount a small flag (piece of tape) on the output so rotation is visible and countable.\nAchieve continuous spinning at low speed.\nAchieve position control - the output holds against a hand disturbance.\nTune the loops and characterise the maximum usable speed.\nCreate a “sequence” that when triggered over serial waits for 5 seconds, then spins the motor for 5 seconds in velocity mode, then deactivates the motor.",
+    "section": "Tuning the cascaded controller",
+    "text": "Tuning the cascaded controller\nFigure 2 is the structure SimpleFOC implements. We need to tune it.\n\n\n\n\n\n\nFigure 2: The cascaded controller. Desired angle enters on the left. The angle PID does not drive the motor - it produces a velocity target, which the velocity limit clamps. The velocity PID turns the velocity error into a target current, which the current limit clamps. Only the innermost torque/FOC stage touches the phases. Feedback runs the other way: the sensor returns angle, the derivative gives velocity, and both are low-pass filtered before use. Note the two rates — loopFOC() runs the torque stage, move() runs the two outer loops, and they are not the same frequency.\n\n\n\nEach stage turns its own error into a setpoint for the stage inside it. That is the whole idea, and it is why the two clamps in the middle are not decoration: the velocity limit caps what the angle loop is allowed to ask for, and the current limit caps what the velocity loop is allowed to ask for.\nTune from the inside out. Work in this order, and do not move outwards until the loop you are on behaves:\n\nTorque first, in torque mode (MC0). Command a current and check the motor takes it smoothly, without whine or oscillation.\nVelocity next (MC1), once torque is solid. Proportional gain first, then integral. Watch the low-pass filter on the velocity feedback while you do: heavy filtering looks like it is cleaning up noise, but the lag it adds is what makes the loop hunt.\nAngle last (MC2). Usually proportional gain alone is enough, because the velocity loop underneath is already doing the work.\n\nThe order is not a convention, it is a dependency. An outer loop tuned against a sloppy inner loop is partly compensating for the inner loop’s error, so its gains encode that error - and they stop being valid the moment you go back and fix the inner loop.\nThese four PID blocks are exactly what SimpleFOC Studio exposes in its parameter tree (Figure 1). That is the practical argument for having installed it: you can change a gain and watch the step response without reflashing between attempts.\nSimpleFOC documents each stage separately: torque control, the velocity loop, the angle loop, and cascaded position control for the structure in Figure 2 as a whole. The exact forms being tuned are in the PID implementation and the low-pass filter.\n\nRecord how it responds to a step change:\nDo these in Studio. For each one, capture the step response and write down the gains that produced it. A screenshot without its gains is not a result: nobody can reproduce it.\nTwo things to set before the first capture.\n\nTurn the watchdog off for the duration (W0). It is on by default and zeroes the target after 1 s without a new one, so it will pull your step back down in the middle of the capture and look like a controller fault.\nPlot the variable the loop actually controls - current in torque mode, velocity in velocity mode, angle in position mode - and leave Target enabled in all three so the step is visible.\n\n\nTorque mode (MC0). Set the velocity limit to 200 rad/s, then block the output with your hand or a piece of tape before commanding any current - in torque mode nothing limits speed, so an unblocked motor just accelerates until friction stops it. Set the current limit with MLC, starting around 1 A, and step the target.\nVelocity mode (MC1). Step from standstill to 400 rad/s and capture the response. Note that this is motor speed, not the flapping frequency of the final system. Mount a small flag (piece of tape) on the output so rotation is visible and countable.\nPosition mode (MC2). Step from 0 to 144 rad and back to 0 - about a full flap cycle after reduction - and capture the response.\n\nReport rise time, overshoot and any steady-state error read off the plot.\n\n\n\n\n\n\nWarningA blocked motor turns every amp into heat\n\n\n\nWith the output held there is no back-EMF and no mechanical work, so all the electrical power goes into the windings. Apply the torque step in bursts of a few seconds and let the motor cool between attempts if needed.",
+    "crumbs": [
+      "Overview",
+      "Build modules",
+      "Module 4 --- Closed-loop control and tuning"
+    ]
+  },
+  {
+    "objectID": "sessions/04-control.html#calibration",
+    "href": "sessions/04-control.html#calibration",
+    "title": "Module 4 — Closed-loop control and tuning",
+    "section": "Calibration",
+    "text": "Calibration\nWe’d like to also make sure that we have the right motor parameters for running at high speeds (above 400 rad/s). To this, we will follow the commissioning instrutions in the firmware above. To this with your TA. Run autocal until 1000 rad/s.",
     "crumbs": [
       "Overview",
       "Build modules",

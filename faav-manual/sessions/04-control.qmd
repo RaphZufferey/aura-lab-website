@@ -10,23 +10,18 @@ The objective of this module is to spin the motor for the first time, understand
 
 |  |  |
 |------------------------------------|------------------------------------|
-| **Parts** | Motor with new shaft from [Module 2](02-motor.qmd), ESC from [Module 3](03-esc.qmd), 4x8 mm flanged bearing, Seeeduino XIAO nRF52840 |
-| **Tools** | Bench supply with current limit, tachometer or camera, soldering iron |
+| **Parts** | Motor with new shaft from [Module 2](02-motor.qmd), ESC from [Module 3](03-esc.qmd), Seeeduino XIAO nRF52840 |
+| **Tools** | Bench supply with current limit, camera, soldering iron |
 | **Read** | This page in full - the speed limits below explain most of what comes up |
 
-## Firmware
+## Electronics check
+Check the state of the electrical connections to the encoder and to the flight controller. Have someone else verify the connections. Watch out for swapped wires, weak/cold solder connections and check the R14 connection point. 
 
+
+## Firmware
 The ESC needs to be flashed with SimpleFOC. A custom version of the code for the B-G431B-ESC1 motor controller, using the SimpleFOC library, is to be found here: [FAAV-G431-ESC](https://github.com/MIT-AURA-Lab/FAAV-G431-ESC). See [Software](/reference/software.qmd) for all repositories.
 
 Before changing anything in there, read [How SimpleFOC works](/reference/simple-foc.qmd). It covers the two nested loops, what the FOC maths does each iteration, why the motor twitches at power-on, and which settings in the sketch matter - enough to read the firmware rather than guess at it.
-
-## Calibration
-
-Before anything else, we'd like to make sure that we have the right **motor parameters**. To this, we will follow the "commissioning" instrutions in the firmware above. 
-
-1. Run autocal until 1000 rad/s. 
-2. WHAT STEPS ARE NEEDED?
-
 
 ## Controlling the motor from a laptop
 Next, install **SimpleFOC Studio**: [SimpleFOCStudio](https://github.com/JorgeMaker/SimpleFOCStudio). It is a desktop GUI that drives the same commander interface described below, so instead of typing commands into a serial monitor you get a form for every motor parameter, live plots of the monitored variables, and a button that dumps the tuned values back out as Arduino code. 
@@ -43,15 +38,11 @@ Next, install **SimpleFOC Studio**: [SimpleFOCStudio](https://github.com/JorgeMa
 
 ::: callout-note
 ## What the ESC code has to provide
-
-Studio does not work against arbitrary firmware. The ESC code must register the motor with the commander (`command.add('M', doMotor, "motor")`), enable monitoring with `motor.useMonitoring(Serial)`, and call both `motor.monitor()` and `command.run()` every loop. The command letter set in Studio's device settings has to match the one in the sketch - `M` in our case. 
-
-Studio talks to one serial port. On this robot the ESC's own micro-USB serial is gone - those pins were repurposed for the encoder's SPI3 bus in [Module 3](03-esc.qmd) - so the port Studio opens is the **Seeeduino's** USB serial, and the Seeeduino has to pass what it receives through to the ESC on Serial1 (essentially it needs to act as a relay). Studio cannot reach the ESC on its own.
+Studio does not work against arbitrary firmware. The ESC code must register the motor with the commander (`command.add('M', doMotor, "motor")`), enable monitoring with `motor.useMonitoring(Serial)`, and call both `motor.monitor()` and `command.run()` every loop. The command letter set in Studio's device settings has to match the one in the sketch - `M` in our case.  
+On this robot the ESC's own micro-USB serial is gone - those pins were repurposed for the encoder's SPI3 bus in [Module 3](03-esc.qmd) - so the port Studio opens is the **Seeeduino's** USB serial, and the Seeeduino has to pass what it receives through to the ESC on Serial1 (essentially it needs to act as a relay). Studio cannot reach the ESC on its own.
 :::
 
-
-
-## Commanding and monitoring
+## Commanding and monitoring the ESC
 
 This is a high-level summary of [the SimpleFOC communication docs](https://docs.simplefoc.com/communication). The ESC is driven through the **commander**, a practical interface for setting and getting values ([instructions](https://docs.simplefoc.com/commander_motor)). Ask the commander for available commands with `?`. Commands available:
 
@@ -70,20 +61,60 @@ The `M` prefix is the motor command, and the letters after it walk down into its
 
 When it comes to commanding from the flight controlling direction, your code shouldn't write these directly. Instead, you should create wrapper functions such as "`current_limit(value)`" etc...
 
+
 ::: callout-warning
 ## Careful when changing control mode
-
 `T` means something different in each mode, position, velocity, or torque. Sending a velocity setpoint while in torque mode will do something unintended. BE VERY CAREFUL ABOUT THIS.
 :::
 
-
-## Tasks
+### Tasks to do:
 1.  Commander responds to `?` over serial from a laptop, `L` toggles the onboard LED. 
-2. The sensor returns a plausible angle through a full manual rotation, and the motor spins under a `T` command. Mount a small flag (piece of tape) on the output so rotation is visible and countable.
-2.  Achieve continuous spinning at low speed.
-3.  Achieve position control - the output holds against a hand disturbance.
-4.  Tune the loops and characterise the maximum usable speed.
-5.  Create a "sequence" that when triggered over serial waits for 5 seconds, then spins the motor for 5 seconds in velocity mode, then deactivates the motor.
+2. The sensor returns a plausible angle through a full manual rotation. 
+
+## Tuning the cascaded controller
+@fig-cascade is the structure SimpleFOC implements. We need to tune it.
+
+![The cascaded controller. Desired angle enters on the left. The angle PID does not drive the motor - it produces a *velocity* target, which the velocity limit clamps. The velocity PID turns the velocity error into a *target current*, which the current limit clamps. Only the innermost torque/FOC stage touches the phases. Feedback runs the other way: the sensor returns angle, the derivative gives velocity, and both are low-pass filtered before use. Note the two rates --- `loopFOC()` runs the torque stage, `move()` runs the two outer loops, and they are not the same frequency.](/Fig/a_b_i.drawio.png){#fig-cascade width="100%"}
+
+Each stage turns its own error into a **setpoint for the stage inside it**. That is the whole idea, and it is why the two clamps in the middle are not decoration: the velocity limit caps what the angle loop is allowed to ask for, and the current limit caps what the velocity loop is allowed to ask for.
+
+**Tune from the inside out.** Work in this order, and do not move outwards until the loop you are on behaves:
+
+3.  **Torque first**, in torque mode (`MC0`). Command a current and check the motor takes it smoothly, without whine or oscillation.
+4.  **Velocity next** (`MC1`), once torque is solid. Proportional gain first, then integral. Watch the low-pass filter on the velocity feedback while you do: heavy filtering looks like it is cleaning up noise, but the lag it adds is what makes the loop hunt.
+5.  **Angle last** (`MC2`). Usually proportional gain alone is enough, because the velocity loop underneath is already doing the work.
+
+The order is not a convention, it is a dependency. An outer loop tuned against a sloppy inner loop is partly compensating for the inner loop's error, so its gains encode that error - and they stop being valid the moment you go back and fix the inner loop.
+
+These four PID blocks are exactly what SimpleFOC Studio exposes in its parameter tree (@fig-studio). That is the practical argument for having installed it: you can change a gain and watch the step response without reflashing between attempts.
+
+SimpleFOC documents each stage separately: [torque control](https://docs.simplefoc.com/torque_loop), [the velocity loop](https://docs.simplefoc.com/velocity_loop), [the angle loop](https://docs.simplefoc.com/angle_loop), and [cascaded position control](https://docs.simplefoc.com/angle_cascade_control) for the structure in @fig-cascade as a whole. The exact forms being tuned are in [the PID implementation](https://docs.simplefoc.com/pid_implementation) and [the low-pass filter](https://docs.simplefoc.com/lpf_implementation).
+
+
+### Record how it responds to a step change:
+Do these in Studio. For each one, capture the step response **and write down the gains that produced it**. A screenshot without its gains is not a result: nobody can reproduce it.
+
+Two things to set before the first capture.
+
+-   **Turn the watchdog off** for the duration (`W0`). It is on by default and zeroes the target after 1 s without a new one, so it will pull your step back down in the middle of the capture and look like a controller fault.
+-   **Plot the variable the loop actually controls** - current in torque mode, velocity in velocity mode, angle in position mode - and leave `Target` enabled in all three so the step is visible.
+
+6.  **Torque mode** (`MC0`). Set the velocity limit to 200 rad/s, then **block the output with your hand or a piece of tape before commanding any current** - in torque mode nothing limits speed, so an unblocked motor just accelerates until friction stops it. Set the current limit with `MLC`, starting around 1 A, and step the target. 
+
+7.  **Velocity mode** (`MC1`). Step from standstill to 400 rad/s and capture the response. Note that this is motor speed, not the flapping frequency of the final system. Mount a small flag (piece of tape) on the output so rotation is visible and countable.
+
+8.  **Position mode** (`MC2`). Step from 0 to 144 rad and back to 0 - about a full flap cycle after reduction - and capture the response.
+
+Report rise time, overshoot and any steady-state error read off the plot.
+
+::: callout-warning
+## A blocked motor turns every amp into heat
+With the output held there is no back-EMF and no mechanical work, so all the electrical power goes into the windings. Apply the torque step in bursts of a few seconds and let the motor cool between attempts if needed.
+:::
+
+## Calibration
+
+We'd like to also make sure that we have the right **motor parameters** for running at high speeds (above 400 rad/s). To this, we will follow the commissioning instrutions in the firmware above. To this with your TA. Run autocal until 1000 rad/s. 
 
 
 ## Why we use an ESC that we reprogram
@@ -94,6 +125,7 @@ Regular drone ESCs start **losing synchronisation at low speed**, which is exact
 ### Why high speed is the hard part (going beyond 600 rad/s)
 
 Two issues limit speed: the micro-controller loop rate, and delays from the rotation sensor. Using SPI at 10 MHz and an AS5047P sensor rated for 28kRPM speeds are the required hardware changes that improves on delay. But at very high speeds, sensor lag still becomes the binding constraint, and shows up as high current draw and noise. We need to update the sensor electrical angle offset as a function of speed. Compensating sensor lag as speed increases is necessary to go above 600 rad/s without wasting current. This is automated by ramping through the speeds and minimising phase current. This [SimpleFOC forum thread](https://community.simplefoc.com/t/challenges-going-faster-than-certain-rpm/1688/39) is useful on the topic.
+
 
 ::: callout-note
 ## Checkpoint
