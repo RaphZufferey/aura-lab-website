@@ -13,7 +13,7 @@ Work through the module with this diagram open: every step below either wires on
 ## Requirements
 
 |  |  |
-|--------------------------|---------------------------------------------|
+|---------------------------|---------------------------------------------|
 | **Parts needed** | Module 2 sub-assembly, AS5047P encoder, encoder mount, 6x30AWG wire ribbon, power cable. |
 | **Tools** | Soldering iron, torx drivers, tweezers |
 | **Read** | This page, plus [Design notes](/reference/design-notes.qmd) on why we use an FOC ESC |
