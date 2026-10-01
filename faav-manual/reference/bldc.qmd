@@ -2,101 +2,67 @@
 title: "Brushless motors"
 ---
 
-Background for [Module 2](/sessions/02-motor.qmd). For understanding why the motor behaves the way it
-does when you push it in [Module 4](/sessions/04-control.qmd).
+Background for [Module 2](/sessions/02-motor.qmd).
 
 ## Start with the brushed DC motor
 
-Every result you need for a brushless motor is easier to see in a brushed one
-first, because the two obey the same electrical physics. The difference is
-*how* the windings get switched, not what the machine does once they are.
+Every result you need for a brushless motor is easier to see in a brushed one first, because the two obey the same electrical physics. The difference is *how* the windings get switched, not what the machine does once they are.
 
-A DC motor is described by two constants and one resistance. Spinning the rotor
-induces a back-EMF proportional to speed, and passing current through the
-windings produces torque proportional to current:
+A DC motor is described by two constants and one resistance. Spinning the rotor induces a back-EMF proportional to speed, and passing current through the windings produces torque proportional to current:
 
 $$U_\text{emf} = \frac{\omega}{k_V} \qquad\qquad \tau = k_T \, I$$ {#eq-two-constants}
 
-These are the same $k_V$ and $k_T$ derived in
-[Module 2](/sessions/02-motor.qmd) --- inverses of each other, not independent
-choices. The supply voltage splits between the back-EMF and the ohmic drop
-across the winding resistance $R$:
+These are the same $k_V$ and $k_T$ derived in [Module 2](/sessions/02-motor.qmd) --- inverses of each other, not independent choices. The supply voltage splits between the back-EMF and the ohmic drop across the winding resistance $R$:
 
 $$U = \frac{\omega}{k_V} + R \, I$$ {#eq-voltage-balance}
 
-Substitute $I = \tau / k_T$ and rearrange for torque, and the whole behaviour
-of the motor falls out as a **straight line**:
+Substitute $I = \tau / k_T$ and rearrange for torque, and the whole behaviour of the motor falls out as a **straight line**:
 
 $$\tau = k_T \frac{U}{R} - \frac{k_T}{k_V R}\,\omega$$ {#eq-torque-speed}
 
 ### Reading the torque-speed line
 
-That line is the motor's entire steady-state character, and it is fixed by the
-applied voltage. Two points define it:
+That line is the motor's entire steady-state character, and it is fixed by the applied voltage. Two points define it:
 
-- **Stall torque** $\tau_\text{stall} = k_T U / R$, at $\omega = 0$. The rotor
-  is held still, there is no back-EMF, and the only thing limiting current is
-  the winding resistance. This is the largest torque the motor can produce and
-  also the fastest way to destroy it - see [Thermal limits](#thermal-limits).
-- **No-load speed** $\omega_0 = k_V U$, at $\tau = 0$. The rotor spins fast
-  enough that the back-EMF nearly cancels the supply, so almost no current
-  flows.
+- **Stall torque** $\tau_\text{stall} = k_T U / R$, at $\omega = 0$. The rotor is held still, there is no back-EMF, and the only thing limiting current is the winding resistance. This is the largest torque the motor can produce and also the fastest way to destroy it - see [Thermal limits](#thermal-limits).
+- **No-load speed** $\omega_0 = k_V U$, at $\tau = 0$. The rotor spins fast enough that the back-EMF nearly cancels the supply, so almost no current flows.
 
-Everything the motor can do at that voltage lies on the line between them.
-Mechanical power is $P = \tau \omega$, the product of a falling line and a
-rising one, so it is a parabola peaking at **half the no-load speed** with half
-the stall torque. Efficiency peaks somewhere else entirely --- much closer to
-$\omega_0$, because the copper loss that dominates at low speed scales with
-$I^2$ while the useful output only scales with $I$.
+Everything the motor can do at that voltage lies on the line between them. Mechanical power is $P = \tau \omega$, the product of a falling line and a rising one, so it is a parabola peaking at **half the no-load speed** with half the stall torque. Efficiency peaks somewhere else entirely --- much closer to $\omega_0$, because the copper loss that dominates at low speed scales with $I^2$ while the useful output only scales with $I$.
 
-::: {.content-visible when-format="html"}
-<div class="viz" id="viz-dc"></div>
+:::: {.content-visible when-format="html"}
+::: {#viz-dc .viz}
 :::
+::::
 
 ::: {.content-visible unless-format="html"}
-*(The web version of this page carries an interactive plot of these three
-curves. See [the manual online](https://aura.mit.edu/2.S986-robot/reference/bldc.html).)*
+*(The web version of this page carries an interactive plot of these three curves. See [the manual online](https://aura.mit.edu/2.S986-robot/reference/bldc.html).)*
 :::
 
-::: {.callout-note}
+::: callout-note
 ## The useful consequence
 
-Raising the voltage shifts the line outwards without changing its slope: more
-speed *and* more torque, same trade-off between them. That is why speed control
-is voltage control, and why a "faster" motor at fixed voltage is a lower-torque
-one.
+Raising the voltage shifts the line outwards without changing its slope: more speed *and* more torque, same trade-off between them. That is why speed control is voltage control, and why a "faster" motor at fixed voltage is a lower-torque one.
 :::
 
-::: {.content-visible when-format="html"}
-<div class="viz" id="viz-volt"></div>
+:::: {.content-visible when-format="html"}
+::: {#viz-volt .viz}
 :::
+::::
 
 ::: {.content-visible unless-format="html"}
-*(Online, this section carries a voltage slider showing the line sweeping
-outwards.)*
+*(Online, this section carries a voltage slider showing the line sweeping outwards.)*
 :::
 
 ## What changes with a brushless motor
 
-In a brushed motor the commutator and brushes are a mechanical switch riding on
-the rotor: they physically reconnect the windings as it turns, so the current
-always flows in whichever coil is best placed to produce torque. It works
-without any electronics at all, and it wears out, arcs, and limits how fast the
-motor can safely spin.
+In a brushed motor the commutator and brushes are a mechanical switch riding on the rotor: they physically reconnect the windings as it turns, so the current always flows in whichever coil is best placed to produce torque. It works without any electronics at all, and it wears out, arcs, and limits how fast the motor can safely spin.
 
-A **BLDC** motor deletes that switch. The permanent magnets go on the rotor,
-the windings stay on the stator in three phases, and an external controller
-decides which phases to energise based on where the rotor currently is. The
-motor becomes inseparable from its driver --- this is why
-[Module 3](/sessions/03-esc.qmd) exists, and why the rotor position measurement
-matters so much.
+A **BLDC** motor deletes that switch. The permanent magnets go on the rotor, the windings stay on the stator in three phases, and an external controller decides which phases to energise based on where the rotor currently is. The motor becomes inseparable from its driver --- this is why [Module 3](/sessions/03-esc.qmd) exists, and why the rotor position measurement matters so much.
 
-What this does **not** change is @eq-torque-speed. The torque and speed
-constants have the same meaning, the line has the same shape, and you size the
-motor the same way. What changes is that the line is no longer the whole story:
+What this does **not** change is @eq-torque-speed. The torque and speed constants have the same meaning, the line has the same shape, and you size the motor the same way. What changes is that the line is no longer the whole story:
 
-| | Brushed | Brushless |
-|---|---|---|
+|   | Brushed | Brushless |
+|------------------------|------------------------|------------------------|
 | Commutation | Mechanical, self-acting | Electronic, needs rotor position |
 | Torque--speed line | The real limit | The *ideal* limit, then clipped by the driver |
 | Wear | Brushes are consumable | Bearings only |
@@ -105,143 +71,68 @@ motor the same way. What changes is that the line is no longer the whole story:
 
 ### The envelope, not the line
 
-The straight line assumes the supply can deliver whatever current the equations
-ask for. It cannot. At stall, @eq-voltage-balance gives $I = U/R$, and with the
-sub-ohm winding resistance of a small outrunner that is a number in the
-hundreds of amps --- far beyond both the ESC and the motor itself.
+The straight line assumes the supply can deliver whatever current the equations ask for. It cannot. At stall, @eq-voltage-balance gives $I = U/R$, and with the sub-ohm winding resistance of a small outrunner that is a number in the hundreds of amps --- far beyond both the ESC and the motor itself.
 
-So the driver enforces a **current limit**, and because $\tau = k_T I$ that is
-directly a torque limit. The usable region becomes:
+So the driver enforces a **current limit**, and because $\tau = k_T I$ that is directly a torque limit. The usable region becomes:
 
-- a **constant-torque region** at low speed, flat at whatever current limit you
-  set, because the ESC is holding current rather than letting the line dictate
-  it;
-- a **corner speed** where the back-EMF has risen enough that the supply can no
-  longer push that current;
+- a **constant-torque region** at low speed, flat at whatever current limit you set, because the ESC is holding current rather than letting the line dictate it;
+- a **corner speed** where the back-EMF has risen enough that the supply can no longer push that current;
 - above it, the original @eq-torque-speed line, falling to $\omega_0$.
 
-The flat part is not physics, it is a decision. On our robot it is the decision
-that keeps the motor alive at the low speeds used for swimming, where the
-torque--speed line alone would happily draw enough current to cook the
-windings.
+The flat part is not physics, it is a decision. On our robot it is the decision that keeps the motor alive at the low speeds used for swimming, where the torque--speed line alone would happily draw enough current to cook the windings.
 
 ## Thermal limits {#thermal-limits}
 
-Nothing in @eq-torque-speed knows about heat, which is why the equations
-cheerfully predict operating points that will destroy the motor in seconds.
+Nothing in @eq-torque-speed knows about heat, which is why the equations cheerfully predict operating points that will destroy the motor in seconds.
 
 Almost all the loss you care about is **copper loss** in the windings:
 
 $$P_\text{copper} = I^2 R$$ {#eq-copper-loss}
 
-The square is what makes this the binding constraint. Doubling the torque
-doubles the current and **quadruples** the heating. A motor comfortable at
-its rated current will not survive twice that for long, even though the torque
-equation says it is only a factor of two.
+The square is what makes this the binding constraint. Doubling the torque doubles the current and **quadruples** the heating. A motor comfortable at its rated current will not survive twice that for long, even though the torque equation says it is only a factor of two.
 
 Three practical consequences:
 
-1. **Stall is the worst case, not the best.** At $\omega = 0$ there is maximum
-   current and no rotation, so no airflow and no useful output --- all the
-   input power becomes heat in the windings. A motor held at stall can burn out
-   without the shaft moving at all.
-2. **Continuous and peak ratings are different numbers.** A peak rating assumes
-   seconds; a continuous rating assumes thermal equilibrium. Flapping is a
-   *reciprocating* load, so the current is far from constant --- what matters
-   for heating is the **RMS** current over the cycle, not the peak you see on
-   the bench supply.
-3. **Iron losses grow with speed.** Hysteresis and eddy-current losses in the
-   stator scale with electrical frequency, so at the 1700 rad/s discussed in
-   [Module 4](/sessions/04-control.qmd) the copper is no longer the only thing
-   getting warm.
+1.  **Stall is the worst case, not the best.** At $\omega = 0$ there is maximum current and no rotation, so no airflow and no useful output --- all the input power becomes heat in the windings. A motor held at stall can burn out without the shaft moving at all.
+2.  **Continuous and peak ratings are different numbers.** A peak rating assumes seconds; a continuous rating assumes thermal equilibrium. Flapping is a *reciprocating* load, so the current is far from constant --- what matters for heating is the **RMS** current over the cycle, not the peak you see on the bench supply.
+3.  **Iron losses grow with speed.** Hysteresis and eddy-current losses in the stator scale with electrical frequency, so at the 1700 rad/s discussed in [Module 4](/sessions/04-control.qmd) the copper is no longer the only thing getting warm.
 
-::: {.content-visible when-format="html"}
-<div class="viz" id="viz-thermal"></div>
+:::: {.content-visible when-format="html"}
+::: {#viz-thermal .viz}
 :::
+::::
 
 ::: {.content-visible unless-format="html"}
-*(Online, this section carries sliders for the ESC current limit and the motor's
-continuous rating, showing how the two clip the torque--speed line.)*
+*(Online, this section carries sliders for the ESC current limit and the motor's continuous rating, showing how the two clip the torque--speed line.)*
 :::
 
-::: {.callout-warning}
+::: callout-warning
 ## Heat is cumulative and invisible
 
-Current is the only symptom you can see, and it appears instantly, while the
-temperature it causes lags behind by tens of seconds. A run that looks fine on
-the ammeter can still be depositing heat faster than the motor sheds it. When
-tuning in [Module 4](/sessions/04-control.qmd), stop and touch the motor.
-:::
-
-## Measured behaviour of the AS2303 {#sec-measured}
-
-Everything above is the model. The plot below is where the **test-stand
-measurements** go, so you can see how far the straight line actually holds for
-the motor on your bench.
-
-::: {.content-visible when-format="html"}
-<div class="viz" id="viz-as2303"></div>
-:::
-
-::: {.callout-important}
-## To be completed by the instructor
-
-Two things, and the second depends on the first:
-
-1. The measured winding resistance of the AS2303, its continuous current
-   rating, and the current limit configured on the ESC. These turn every
-   equation on this page into numbers students can check against --- the plots
-   above currently run on a **placeholder** $R$.
-2. The test-stand data itself. Paste it into the `MEASURED` array in the script
-   block at the bottom of `reference/bldc.qmd`; the schema and an example row
-   are in the comment there. The plot switches from its empty state to a
-   measured-versus-model comparison as soon as the array is non-empty.
+Current is the only symptom you can see, and it appears instantly, while the temperature it causes lags behind by tens of seconds. A run that looks fine on the ammeter can still be depositing heat faster than the motor sheds it. When tuning in [Module 4](/sessions/04-control.qmd), stop and touch the motor.
 :::
 
 ## Why an outrunner
 
-Brushless motors come in two arrangements. An **inrunner** spins a magnet rotor
-inside a stationary stator, the familiar shape from a drill. An **outrunner**
-inverts it: the stator sits still in the middle and the magnets are carried on
-a bell that rotates around the outside. Ours is an outrunner --- it is the bell
-you machine and press the shaft into in
-[Module 2](/sessions/02-motor.qmd).
+Brushless motors come in two arrangements. An **inrunner** spins a magnet rotor inside a stationary stator, the familiar shape from a drill. An **outrunner** inverts it: the stator sits still in the middle and the magnets are carried on a bell that rotates around the outside. Ours is an outrunner --- it is the bell you machine and press the shaft into in [Module 2](/sessions/02-motor.qmd).
 
 ![An outrunner seen from the back. The copper windings are the **stator** and do not move; the dark magnet segments around the rim are carried on the rotating bell. Note how far out the magnets sit — that radius is the lever arm in @eq-torque-radius, and it is the whole reason for this arrangement. Note also that the heat is generated in the middle, wrapped inside the part that spins.](/Fig/motor.jpg){#fig-outrunner width="65%"}
 
-The reason is torque. Torque is force times radius, and in an outrunner the
-magnets sit at the *largest* radius the motor's diameter allows, rather than
-the smallest:
+The reason is torque. Torque is force times radius, and in an outrunner the magnets sit at the *largest* radius the motor's diameter allows, rather than the smallest:
 
 $$\tau = F \times r$$ {#eq-torque-radius}
 
-The same tangential force from the same windings acts on a longer lever arm. It
-also leaves room for more magnet poles around the circumference. Together these
-raise $k_T$ for a motor of the same mass, which by @eq-two-constants means a
-**lower KV** --- more torque per amp, less speed per volt.
+The same tangential force from the same windings acts on a longer lever arm. It also leaves room for more magnet poles around the circumference. Together these raise $k_T$ for a motor of the same mass, which by @eq-two-constants means a **lower KV** --- more torque per amp, less speed per volt.
 
-That is the right trade for us. The wings need torque at low speed, through a
-gearbox that is already multiplying by 23.04:1, and the alternative is either a
-larger reduction or more current for the same result. Two secondary properties
-help as well:
+That is the right trade for us. The wings need torque at low speed, through a gearbox that is already multiplying by 23.04:1, and the alternative is either a larger reduction or more current for the same result. Two secondary properties help as well:
 
-- **Rotor inertia.** The rotating mass is at a large radius, so the bell has
-  significant inertia and acts as a flywheel. Against a reciprocating flapping
-  load that smooths the speed variation over a cycle. It also means the motor
-  cannot change speed quickly, which is a real cost during transients.
-- **Something to attach to.** The bell is a large-diameter rotating surface,
-  which is what makes the shaft press-fit in
-  [Module 2](/sessions/02-motor.qmd) mechanically sensible in the first place.
+- **Rotor inertia.** The rotating mass is at a large radius, so the bell has significant inertia and acts as a flywheel. Against a reciprocating flapping load that smooths the speed variation over a cycle. It also means the motor cannot change speed quickly, which is a real cost during transients.
+- **Something to attach to.** The bell is a large-diameter rotating surface, which is what makes the shaft press-fit in [Module 2](/sessions/02-motor.qmd) mechanically sensible in the first place.
 
-The costs are real: outrunners spin more slowly for a given voltage, the
-exposed rotating bell is a hazard and an ingress path, and cooling is worse
-because the heat-producing stator is wrapped inside the rotor rather than
-mounted against the case. The last point ties directly back to
-[Thermal limits](#thermal-limits) --- an outrunner's stator sheds heat mainly
-through its mount, which on our robot is a 3D-printed plate.
+The costs are real: outrunners spin more slowly for a given voltage, the exposed rotating bell is a hazard and an ingress path, and cooling is worse because the heat-producing stator is wrapped inside the rotor rather than mounted against the case. The last point ties directly back to [Thermal limits](#thermal-limits) --- an outrunner's stator sheds heat mainly through its mount, which on our robot is a 3D-printed plate.
 
 ::: {.content-visible when-format="html"}
-
+```{=html}
 <style>
 .viz {
   --surface-1: #fcfcfb; --text-primary: #0b0b0b; --text-secondary: #52514e;
@@ -295,7 +186,9 @@ body.quarto-dark .viz {
 .viz-empty { font-size: 0.82rem; color: var(--text-secondary); border: 1px dashed var(--axis); border-radius: 5px; padding: 0.9rem 1rem; line-height: 1.5; }
 .viz-note { font-size: 0.75rem; color: var(--muted); margin-top: 0.6rem; line-height: 1.45; }
 </style>
+```
 
+```{=html}
 <script>
 (function () {
   "use strict";
@@ -838,5 +731,5 @@ body.quarto-dark .viz {
   })();
 })();
 </script>
-
+```
 :::

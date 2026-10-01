@@ -282,7 +282,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
         <li>
     <a class="dropdown-item" href="../sessions/03-esc.html">
- <span class="dropdown-text">Module 3 — Motor driver, sensor and serial</span></a>
+ <span class="dropdown-text">Module 3 — Motor driver, sensor and serial connection</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../sessions/04-control.html">
@@ -348,12 +348,12 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">Software</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../reference/cnc.html">
- <span class="dropdown-text">CNC — Stepcraft D660</span></a>
-  </li>  
-        <li>
     <a class="dropdown-item" href="../reference/design-notes.html">
  <span class="dropdown-text">Design notes</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../reference/instructor-checklist.html">
+ <span class="dropdown-text">Instructor checklist</span></a>
   </li>  
     </ul>
   </li>
@@ -415,7 +415,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../sessions/03-esc.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Module 3 — Motor driver, sensor and serial</span></a>
+ <span class="menu-text">Module 3 — Motor driver, sensor and serial connection</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -515,14 +515,14 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../reference/cnc.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">CNC — Stepcraft D660</span></a>
+  <a href="../reference/design-notes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Design notes</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../reference/design-notes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Design notes</span></a>
+  <a href="../reference/instructor-checklist.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Instructor checklist</span></a>
   </div>
 </li>
       </ul>
@@ -538,8 +538,14 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#section" id="toc-section" class="nav-link active" data-scroll-target="#section"></a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -564,252 +570,256 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div id="tbl-parts" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-parts-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;1: List of components, after Table S1
-</figcaption>
-<div aria-describedby="tbl-parts-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
+<caption>List of components and inventory</caption>
 <colgroup>
-<col style="width: 14%">
-<col style="width: 14%">
-<col style="width: 14%">
 <col style="width: 19%">
 <col style="width: 19%">
 <col style="width: 19%">
+<col style="width: 19%">
+<col style="width: 23%">
 </colgroup>
 <thead>
 <tr class="header">
 <th>Category</th>
 <th>Component</th>
 <th>Material/Model</th>
-<th style="text-align: right;">Nb</th>
-<th style="text-align: right;">Mass [g]</th>
-<th style="text-align: right;">Total [g]</th>
+<th style="text-align: right;">Per robot</th>
+<th>Stock</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>Structure</td>
 <td>Frame</td>
-<td>Carbon 1.5mm plate (swiss-composite)</td>
+<td>Water-jet cut AL6061 1.5 mm</td>
 <td style="text-align: right;">2</td>
-<td style="text-align: right;">4.7</td>
-<td style="text-align: right;">9.4</td>
+<td>9 usable</td>
 </tr>
 <tr class="even">
 <td></td>
 <td>Vertical panels</td>
 <td>Onyx with CF (Markforged)</td>
 <td style="text-align: right;">2</td>
-<td style="text-align: right;">6.2</td>
-<td style="text-align: right;">12.4</td>
+<td></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td>Motor holder</td>
 <td>Onyx with CF (Markforged)</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">4.3</td>
-<td style="text-align: right;">4.3</td>
+<td>12</td>
 </tr>
 <tr class="even">
 <td></td>
 <td>Battery holder</td>
 <td>Onyx with CF (Markforged)</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">1.1</td>
-<td style="text-align: right;">1.1</td>
+<td></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td>Tail holder</td>
 <td>Onyx with CF (Markforged)</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">4.3</td>
-<td style="text-align: right;">4.3</td>
+<td></td>
 </tr>
 <tr class="even">
 <td></td>
 <td>Screws</td>
 <td>M2 Stainless</td>
-<td style="text-align: right;">40</td>
-<td style="text-align: right;">0.13</td>
-<td style="text-align: right;">5.2</td>
+<td style="text-align: right;">25</td>
+<td>300</td>
 </tr>
 <tr class="odd">
-<td>Tail</td>
-<td>Tail</td>
-<td>Carbon 0.5 mm plate (Swiss-composite)</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">22.2</td>
-<td style="text-align: right;">22.2</td>
+<td></td>
+<td>Square nuts</td>
+<td>M2 stainless</td>
+<td style="text-align: right;">25</td>
+<td>300</td>
 </tr>
 <tr class="even">
 <td>Propulsion</td>
 <td>Crank</td>
 <td>Al 7075</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">1.3</td>
-<td style="text-align: right;">1.3</td>
+<td>12</td>
 </tr>
 <tr class="odd">
 <td></td>
 <td>Linkage</td>
-<td>Al 7075, with bearings</td>
+<td>Al 7075</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">4.3</td>
-<td style="text-align: right;">4.3</td>
+<td>12</td>
 </tr>
 <tr class="even">
 <td></td>
 <td>Reduction</td>
 <td>Series 20/1R 1:23 (Faulhaber)</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">38</td>
-<td style="text-align: right;">38</td>
+<td>PROD</td>
 </tr>
 <tr class="odd">
 <td></td>
 <td>Right plate</td>
 <td>Carbon 1.5mm plate</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">1.5</td>
-<td style="text-align: right;">1.5</td>
+<td></td>
 </tr>
 <tr class="even">
 <td></td>
 <td>Left wing gear</td>
 <td>Onyx with CF (Markforged)</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">2.8</td>
-<td style="text-align: right;">2.8</td>
+<td></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td>Right wing gear</td>
 <td>Onyx with CF (Markforged)</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">6.7</td>
-<td style="text-align: right;">6.7</td>
+<td></td>
 </tr>
 <tr class="even">
+<td></td>
+<td>3x1 mm washer</td>
+<td>AL</td>
+<td style="text-align: right;">2</td>
+<td>??</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>Bearing (Link out)</td>
+<td>3x8x4</td>
+<td style="text-align: right;">1</td>
+<td>14</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>Bearing (Red out)</td>
+<td>4x8x3 Flanged</td>
+<td style="text-align: right;">1</td>
+<td>14</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>Bearing (Gears)</td>
+<td>3x7x3 Flanged</td>
+<td style="text-align: right;">4</td>
+<td>52</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>Bearing (Crank out)</td>
+<td>4x10x4</td>
+<td style="text-align: right;">1</td>
+<td>14</td>
+</tr>
+<tr class="odd">
 <td>Electronics</td>
 <td>Flight controller</td>
 <td>Seeeduino NRF52840</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">2.4</td>
-<td style="text-align: right;">2.4</td>
+<td>12</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td>Motor</td>
 <td>AS2303 1500kV (T-Motors)</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">17</td>
-<td style="text-align: right;">17</td>
-</tr>
-<tr class="even">
-<td></td>
-<td>Hall sensor</td>
-<td>AS5047P (ams-OSRAM) at 10 MHz SPI</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1.2</td>
-<td style="text-align: right;">1.2</td>
+<td>8</td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>Cables</td>
-<td></td>
+<td>Hall sensor</td>
+<td>AS5047P</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">7</td>
-<td style="text-align: right;">7</td>
+<td>12</td>
 </tr>
 <tr class="even">
+<td></td>
+<td>Hall sensor magnet</td>
+<td>2.5mm diametric</td>
+<td style="text-align: right;">1</td>
+<td>40</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>Cables signal</td>
+<td>6x 30AWG, 1m</td>
+<td style="text-align: right;">0.2</td>
+<td>10</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>Cable power</td>
+<td>24 AWG, 1m</td>
+<td style="text-align: right;">0.2</td>
+<td></td>
+</tr>
+<tr class="odd">
 <td>Waterproof.</td>
 <td>Seeeduino</td>
 <td>Silicone + 3D print</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">3.7</td>
-<td style="text-align: right;">3.7</td>
+<td>Dow734</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td>ESC</td>
 <td>Silicone + 3D print</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">5.2</td>
-<td style="text-align: right;">5.2</td>
+<td>Dow734</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td>Connector</td>
-<td>JWPF 08 (JST)</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">3.9</td>
-<td style="text-align: right;">3.9</td>
-</tr>
-<tr class="odd">
-<td>Battery</td>
-<td>Battery</td>
-<td>4S 350 mAh LiPo (Swaytronics)</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">37</td>
-<td style="text-align: right;">37</td>
+<td>SlimSeal TE</td>
+<td style="text-align: right;">2</td>
+<td>15</td>
 </tr>
 <tr class="even">
-<td>Wings</td>
-<td>Wings</td>
-<td>Carbon structure (Swisscomposites)</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">14</td>
-<td style="text-align: right;">26</td>
+<td>Battery</td>
+<td>Battery</td>
+<td>4S 380 mAh LiPo (Swaytronics)</td>
+<td style="text-align: right;">1</td>
+<td>??</td>
 </tr>
 <tr class="odd">
+<td>Wings</td>
+<td>Carbon rods</td>
+<td></td>
+<td style="text-align: right;">2</td>
+<td></td>
+</tr>
+<tr class="even">
 <td></td>
 <td>Membrane</td>
-<td>Ripstop Nylon 20D, 40 g/m2 (Extremtextil)</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">6</td>
-</tr>
-<tr class="even">
-<td></td>
-<td>Coating</td>
-<td>Ultra Ever Dry 2-component</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">2.1</td>
-<td style="text-align: right;">4.2</td>
+<td>Ripstop Nylon 40D, 48 g/m2, m2</td>
+<td style="text-align: right;">1</td>
+<td>15</td>
 </tr>
 <tr class="odd">
+<td></td>
+<td>Carbon strips</td>
+<td></td>
+<td style="text-align: right;">2</td>
+<td></td>
+</tr>
+<tr class="even">
 <td></td>
 <td>Bonding</td>
 <td>3M VHB tape + stitches at the ends</td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
+<td style="text-align: right;">1</td>
+<td>1</td>
 </tr>
 </tbody>
 </table>
-</div>
-</figure>
-</div>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>To be completed before the semester
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>This is the published list for the paper’s robot, not the current build. Items the modules rely on that are <strong>not</strong> in it and need adding: 4 mm steel rod for the motor shaft, the 6 × 2.5 mm diametric sensor magnet and its printed bracket, 5 mm PEEK stock.</p>
-</div>
-</div>
+<section id="section" class="level2">
+<h2 class="anchored" data-anchor-id="section"></h2>
 
 
+</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

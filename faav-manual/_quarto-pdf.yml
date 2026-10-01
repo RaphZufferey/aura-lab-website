@@ -43,8 +43,8 @@ book:
         - reference/g431-esc.qmd
         - reference/simple-foc.qmd
         - reference/software.qmd
-        - reference/cnc.qmd
         - reference/design-notes.qmd
+        - reference/instructor-checklist.qmd
     - changelog.qmd
 
 format:

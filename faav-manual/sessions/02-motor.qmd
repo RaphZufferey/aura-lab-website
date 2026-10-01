@@ -2,66 +2,43 @@
 title: "Module 2 --- Motor and transmission shaft"
 ---
 
+## Summary
 
-## What you build today
+A brushless motor with a custom shaft pressed into its rotor bell, with the sun gear and the sensor magnet installed, bolted to its bracket and mounted on the motor plate. The motor is soldered to the electronic speed controller. The gearbox itself goes on in [Module 4](04-control.qmd).
 
-A brushless motor with a custom shaft pressed into its rotor bell, with the sun
-gear and the sensor magnet installed, bolted to its bracket and mounted on the
-motor plate. The motor is soldered to the electronic speed controller. The gearbox itself goes on in [Module 4](04-control.qmd).
+## Requirements
 
-## Before you arrive
-
-| | |
-|---|---|
-| **Parts** | AS2303 KV1500 motor with pre-machined bell, custom motor shaft, sun gear from the Faulhaber 23.04:1 gearbox, 6 × 2.5 mm diametric magnet, 3D-printed magnet bracket, vertical nylon motor bracket, bottom fuselage plate, mounting screws |
-| **Tools** | Circlip pliers, manual arbor press, superglue, hex drivers |
+|  |  |
+|------------------------------------|------------------------------------|
+| **Parts** | AS2303 KV1500 motor, custom motor shaft, B-G431B-ESC1 board, 6 × 2.5 mm diametric magnet, 3D-printed parts: 1) magnet bracket, 2) vertical motor bracket, 3) ESC box. Bottom fuselage plate, mounting screws |
+| **Tools** | Circlip pliers, manual arbor press, superglue, torx drivers |
 | **Read** | This page, and the *Motor shaft* section below in full before touching the motor. [Brushless motors](/reference/bldc.qmd) for the background |
 
+## The motor - AS2303 KV1500 {#sec-motor-variant}
 
-## The motor --- AS2303 KV1500 {#sec-motor-variant}
-The AS2303 is a **brushless outrunner**. Read
-[Brushless motors](/reference/bldc.qmd) first.
+The AS2303 is a **brushless outrunner**. Read [Brushless motors](/reference/bldc.qmd) first.
 
-![](/Fig/TMO-AS2303-1500.jpg){width=45%}
+![](/Fig/TMO-AS2303-1500.jpg){width="45%"}
 
-We use the AS2303 KV1500 motor throughout the course. Its propeller horn
-**cannot** be separated from the bell, it has to be machined off in a lathe.
-That work, and the custom shaft, are prepared for you before the session.
+We use the AS2303 KV1500 motor throughout the course. Its propeller horn **cannot** be separated from the bell.
 
 ### What the KV rating means {#sec-kv}
 
-**KV** is the motor's *velocity constant*, quoted in rpm per volt. It says how
-fast the rotor spins per volt applied, **with no load on the shaft**:
+**KV** is the motor's *velocity constant*, quoted in rpm per volt. It says how fast the rotor spins per volt applied, **with no load on the shaft**:
 
 $$\omega_0 = k_V \, U$$ {#eq-kv}
 
-The constant is not a marketing number --- it falls out of the motor's
-physics. As the rotor turns, its magnets sweep past the windings and induce a
-voltage that opposes the supply (the *back-EMF*):
+The constant is not a marketing number - it falls out of the motor's physics. As the rotor turns, its magnets sweep past the windings and induce a voltage that opposes the supply (the *back-EMF*):
 
 $$U_\text{emf} = \frac{\omega}{k_V}$$ {#eq-bemf}
 
-The supply voltage splits between this back-EMF and the ohmic drop across the
-winding resistance $R$, so $U = U_\text{emf} + R\,I$ and the speed under load
-becomes
+The supply voltage splits between this back-EMF and the ohmic drop across the winding resistance $R$, so $U = U_\text{emf} + R\,I$ and the speed under load becomes
 
 $$\omega = k_V \left( U - R\,I \right)$$ {#eq-loaded}
 
-which is why @eq-kv only holds at $I \approx 0$. Draw current and the motor
-slows down.
+which is why @eq-kv only holds at $I \approx 0$. Draw current and the motor slows down.
 
-The same constant fixes the torque. Electrical power in equals mechanical power
-out, $U_\text{emf} I = \tau \omega$, and substituting @eq-bemf gives
-$\tau = I / k_V$ in SI units. Converting $k_V$ from rpm/V to rad/s/V:
-
-$$k_T = \frac{60}{2\pi \, k_V} \approx \frac{9.55}{k_V}
-\qquad \text{with} \qquad \tau = k_T \, I$$ {#eq-kt}
-
-with $k_T$ in N·m/A when $k_V$ is in rpm/V. **Torque and speed constants are
-inverses of each other.** A high-KV motor spins fast but gives little torque
-per amp; a low-KV motor of the same size and mass does the opposite. You cannot
-buy both --- you choose where on that trade-off to sit, and then recover the
-missing torque with a reduction.
+A high-KV motor spins fast but gives little torque per amp; a low-KV motor of the same size and mass does the opposite. Both cannot be had at once - the choice is where to sit on that trade-off, and then to recover the missing torque with a reduction.
 
 ### What this means for our robot
 
@@ -71,142 +48,81 @@ $$\omega_0 = 1500 \times 14.8 = 22\,200 \ \text{rpm}
 \qquad
 k_T = \frac{9.55}{1500} = 6.4 \ \text{mN·m/A}$$
 
-6.4 mN·m/A is very little torque, too little to drive the wings
-directly, which is exactly why the 23.04:1 Faulhaber gearbox is there. It
-multiplies torque by 23.04 and divides speed by the same factor. One revolution
-of the gearbox output is one full flapping cycle, so
+6.4 mN·m/A is very little torque, too little to drive the wings directly, which is exactly why the 23.04:1 Faulhaber gearbox is there. It multiplies torque by 23.04 and divides speed by the same factor. One revolution of the gearbox output is one full flapping cycle, so
 
 $$f_\text{flap} = \frac{\omega}{60 \, r}
 = \frac{22\,200}{60 \times 23.04} = 16.1 \ \text{Hz}$$ {#eq-fflap}
 
-at no load. Under real aerodynamic and hydrodynamic loading the drive tops out
-near 15 200 rpm, i.e. about **11 Hz** of flapping, the figure you will see
-again in [Module 4](04-control.qmd).
+at no load. Under real aerodynamic and hydrodynamic loading the drive tops out near 15 200 rpm, i.e. about **11 Hz** of flapping, the figure that reappears in [Module 4](04-control.qmd).
 
 ## Motor shaft
 
-To pair the motor with the gearbox, the stock shaft of the brushless motor is
-replaced by a custom one. You will be handed a **machined bell** and a
-**finished shaft** --- both are prepared before the session. What is left to
-you is the disassembly and the press fit, which is still a delicate operation:
-the motor's structure is mostly aluminium and quite thin, for weight savings.
+To pair the motor with the gearbox, the stock shaft of the brushless motor is replaced by a custom one. What is left to do is the disassembly and the press fit, which is still a delicate operation: the motor's structure is mostly aluminium and quite thin, for weight savings.
 
-1. Remove the circlip on the shaft with the special pliers. **Don't lose it,
-   nor the brass ring.**
+1.  Remove the circlip on the shaft with the special pliers. **Don't lose it, nor the brass ring.**
 
-2. Separate the rotor from the stator delicately, by hand.
+2.  Separate the rotor from the stator delicately, by hand.
 
-3. Press the stock shaft out of the rotor bell.
+3.  Press the stock shaft out of the rotor bell.
 
-   ::: {.callout-warning}
-   ## Never load the bell radially
+    ::: callout-warning
+    ## Never load the bell radially
 
-   Press the shaft out very carefully, making sure to never apply forces
-   radially on the bell. Use the manual press with appropriate support below
-   the bell to avoid deforming the dome shape. **Do not squeeze the bell with a
-   vice, or even by hand.**
-   :::
+    Press the shaft out very carefully, making sure to never apply forces radially on the bell. Use the manual press with appropriate support below the bell to avoid deforming the dome shape. **Do not squeeze the bell with a vice, or even by hand.**
+    :::
 
-4. Press the sun gear onto the new shaft.
+4.  Press the new shaft into the bell, making sure not to press on the dome-shaped part of the bell without appropriate support underneath. It is a **tight fit** on the bell and a **clearance fit** through the bearings.
 
-   ::: {.callout-warning}
-   ## Sun gear first --- this order cannot be undone
-
-   The sun gear goes on **while the shaft is still free**. Once the shaft is
-   pressed into the bell you can no longer support the shaft properly to press
-   the gear on.
-   :::
-
-5. Press the new shaft into the bell, making sure not to press on the
-   dome-shaped part of the bell without appropriate support underneath. It is a
-   **tight fit** on the bell and a **clearance fit** through the bearings.
-
-![Motor shaft dimensions](/Fig/shaft_drawing.png){#fig-motor-shaft width=70%}
+![Motor shaft dimensions](/Fig/shaft_drawing.png){#fig-motor-shaft width="70%"}
 
 ## Sensor magnet
 
-The AS5047P encoder you wire up in [Module 3](03-esc.qmd) does not touch the
-shaft. It reads the direction of the magnetic field from a small magnet
-rotating in front of it, so the magnet has to go on the motor.
+The AS5047P encoder wired up in [Module 3](03-esc.qmd) does not touch the shaft. It reads the direction of the magnetic field from a small magnet rotating in front of it, so the magnet has to go on the motor.
 
-Use a **6 × 2.5 mm diametrically magnetised disc magnet**. *Diametrically* magnetised is the part that matters:
-the poles are across the diameter, not through the thickness, so the field seen
-by the sensor sweeps through a full rotation as the shaft turns. An ordinary
-axially magnetised disc of identical size presents the same pole to the sensor
-all the way round and gives no angle at all.
+Use a **6 × 2.5 mm diametrically magnetised disc magnet**. *Diametrically* magnetised is the part that matters: the poles are across the diameter, not through the thickness, so the field seen by the sensor sweeps through a full rotation as the shaft turns. An ordinary axially magnetised disc of identical size presents the same pole to the sensor all the way round and gives no angle at all.
 
-1. Drop the magnet into its recess in the 3D-printed bracket. It should sit
-   flat, fully seated, with no rocking.
+1.  Drop the magnet into its recess in the 3D-printed bracket. It should sit flat, fully seated, with no rocking.
 
-2. **Centre it on the axis of rotation.** The bracket locates it, but check. Keep the magnet concentric with the
-   shaft to within **0.5 mm**.
+2.  **Centre it on the axis of rotation.** The bracket locates it, but check. Keep the magnet concentric with the shaft to within **0.5 mm**.
 
-3. Bond it with **a single drop of superglue**. One drop is enough.
+3.  Bond it with **a single drop of superglue**. One drop is enough.
 
-4. Turn the assembly through a full revolution by hand and watch the magnet.
-   Any visible wobble means it is off-centre or not seated.
+4.  Turn the assembly through a full revolution by hand and watch the magnet. Any visible wobble means it is off-centre or not seated.
 
-::: {.callout-warning}
+::: callout-warning
 ## Off-centre magnets are hard to diagnose later
 
 An eccentric magnet may still produces a perfectly plausible angle reading at times.
 :::
 
+## Preparing the robot bottom plate
+
+Cut a chamfer for every 2mm hole in the bottom plate.
+
+Since we will be using an aluminum fuselage, we will add a paint layer to avoid accidental shorts.
+
 ## Mounting the motor
 
-With the shaft and the magnet done, the motor goes onto the robot. This happens
-in two stages: motor to bracket, then bracket to plate.
+With the shaft and the magnet done, the motor goes onto the robot plate. This happens in two stages: motor to bracket, then bracket to plate.
 
-1. Fix the motor to the vertical **3D-printed nylon bracket** using **four
-   screws M2x5 mm** through the mounting holes in the motor base. Don't over tighten. Check that the rotor still turns freely by hand. Nylon is compliant, and
-   overtightening can pull the bracket out of flat enough to preload the
-   bearings. A motor that spun freely on the bench and feels stiff once bolted
-   down is telling you to back the screws off and retighten more gently.
+1.  Fix the motor to the vertical **3D-printed nylon bracket** using **four screws M2x5 mm** through the mounting holes in the motor base. Don't over tighten. Check that the rotor still turns freely by hand. Nylon is compliant, and overtightening can pull the bracket out of flat enough to preload the bearings. A motor that spun freely on the bench and feels stiff once bolted down needs the screws backed off and retightened more gently.
 
-3. Mount the bracket to the **bottom fuselage plate**. Before tightening,
-   check the orientation: the shaft and sun gear must point towards the front of the robot.
+2.  Insert square half-nuts in the slots in the motor bracket. Mount the bracket to the **bottom fuselage plate**. Before tightening, check the orientation: the shaft and sun gear must point towards the front of the robot.
 
+![Motor and ESC sub-assembly](/Fig/motor_with_esc.jpg){#fig-motor-with-shaft width="70%"}
 
 ## Solder the motor wires to the Electronic Speed Controller
+
 Since the pads are large, make sure to use enough heat / large tip on the soldering iron. The order of the cables UVW do not matter.
 
-::: {.callout-tip}
-## Watch this before you pick up the iron
+::: callout-tip
+## Watch this before picking up the iron
+
 [Soldering Crash Course: Basic Techniques, Tips and Advice](https://youtu.be/6rmErwU5E-k)
 :::
 
-::: {.callout-note}
+::: callout-note
 ## Checkpoint
 
-Shaft seated with the sun gear on it, the rotor spinning freely by hand with no
-wobble, the magnet bonded concentric to within 0.5 mm, and the motor bolted to
-its bracket and mounted on the plate --- still turning freely once bolted down.
-:::
-
-::: {.callout-important}
-## To be prepared by the instructor before the session
-
-Both the bells and the shafts must be prepared ahead of time, one set per
-student. Neither fits in the session: the lathe work is on thin-walled
-aluminium that is easy to ruin, and there is not enough machine time for the
-whole cohort.
-
-**Machine the bells.** Clamp the bell in the lathe using its stock shaft, then
-take the propeller horn off by bringing the diameter down to **6 mm** and the
-length to **2.5 mm**.
-
-::: {layout-ncol=3}
-![Stock bell](/Fig/bell_machined1.jpg)
-
-![Bring diameter down to 6 mm](/Fig/bell_machined2.jpg)
-
-![Bring the length down to 2.5 mm](/Fig/bell_machined3.jpg)
-:::
-
-**Turn the shafts** from 4 mm steel rod to the dimensions in @fig-motor-shaft
---- clearance fit through the bearings, tight fit on the bell. The 21.5 mm
-total assumes the motor and gearbox are separated by a **5.5 mm-thick wall**;
-for a 4 mm wall, shorten the 8.5 mm segment to 7 mm, giving 20 mm overall.
-
-Prepare spares of both --- a deformed bell cannot be recovered.
+Shaft seated in motor, the rotor spinning freely by hand with no wobble, the magnet bonded concentric to within 0.5 mm, and the motor bolted to its bracket and mounted on the plate - still turning freely once bolted down. ESC soldered on the motor side.
 :::

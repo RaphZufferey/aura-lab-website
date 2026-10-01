@@ -2,12 +2,12 @@
 title: "Module 9 --- Flight controller, PCB and dry testing"
 ---
 
-## What you build today
+## Summary
 
 The custom PCB assembled and validated, the flight controller flashed and
 talking to the ESC, and the robot flapping in air under wireless control.
 
-## Before you arrive
+## Requirements
 
 | | |
 |---|---|
@@ -21,6 +21,8 @@ talking to the ESC, and the robot flapping in air under wireless control.
 
 Firmware lives in [FAAV-Flight-Controller](https://github.com/MIT-AURA-Lab/FAAV-Flight-Controller)
 
+## Connect battery
+Add instructions
 
 ## Dry testing
 

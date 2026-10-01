@@ -2,43 +2,43 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://aura.mit.edu/2.S986-robot/sessions/12-competition.html</loc>
-    <lastmod>2026-08-12T00:47:34.029Z</lastmod>
+    <lastmod>2026-09-04T02:33:14.242Z</lastmod>
   </url>
   <url>
     <loc>https://aura.mit.edu/2.S986-robot/sessions/10-waterproofing.html</loc>
-    <lastmod>2026-08-10T02:20:49.419Z</lastmod>
+    <lastmod>2026-09-07T19:52:53.895Z</lastmod>
   </url>
   <url>
     <loc>https://aura.mit.edu/2.S986-robot/sessions/08-tail-housing.html</loc>
-    <lastmod>2026-08-10T02:29:16.557Z</lastmod>
+    <lastmod>2026-09-04T02:33:14.240Z</lastmod>
   </url>
   <url>
     <loc>https://aura.mit.edu/2.S986-robot/sessions/06-simulation.html</loc>
-    <lastmod>2026-08-10T02:16:32.423Z</lastmod>
+    <lastmod>2026-09-21T17:08:18.543Z</lastmod>
   </url>
   <url>
     <loc>https://aura.mit.edu/2.S986-robot/sessions/04-control.html</loc>
-    <lastmod>2026-08-12T00:47:33.170Z</lastmod>
+    <lastmod>2026-09-30T14:19:13.579Z</lastmod>
   </url>
   <url>
     <loc>https://aura.mit.edu/2.S986-robot/sessions/02-motor.html</loc>
-    <lastmod>2026-08-12T00:47:46.869Z</lastmod>
+    <lastmod>2026-09-23T03:06:29.475Z</lastmod>
   </url>
   <url>
     <loc>https://aura.mit.edu/2.S986-robot/reference/software.html</loc>
-    <lastmod>2026-08-04T03:04:40.555Z</lastmod>
+    <lastmod>2026-09-23T01:59:21.333Z</lastmod>
   </url>
   <url>
     <loc>https://aura.mit.edu/2.S986-robot/reference/parts-list.html</loc>
-    <lastmod>2026-08-10T00:49:21.018Z</lastmod>
+    <lastmod>2026-09-16T02:48:09.339Z</lastmod>
   </url>
   <url>
-    <loc>https://aura.mit.edu/2.S986-robot/reference/design-notes.html</loc>
-    <lastmod>2026-08-10T01:15:30.059Z</lastmod>
+    <loc>https://aura.mit.edu/2.S986-robot/reference/g431-esc.html</loc>
+    <lastmod>2026-08-05T21:47:11.183Z</lastmod>
   </url>
   <url>
     <loc>https://aura.mit.edu/2.S986-robot/reference/bldc.html</loc>
-    <lastmod>2026-08-10T01:17:38.097Z</lastmod>
+    <lastmod>2026-09-16T13:45:56.002Z</lastmod>
   </url>
   <url>
     <loc>https://aura.mit.edu/2.S986-robot/changelog.html</loc>
@@ -46,15 +46,15 @@
   </url>
   <url>
     <loc>https://aura.mit.edu/2.S986-robot/index.html</loc>
-    <lastmod>2026-08-04T17:59:33.472Z</lastmod>
+    <lastmod>2026-09-30T14:17:31.336Z</lastmod>
   </url>
   <url>
-    <loc>https://aura.mit.edu/2.S986-robot/reference/cnc.html</loc>
-    <lastmod>2026-08-10T01:17:13.388Z</lastmod>
+    <loc>https://aura.mit.edu/2.S986-robot/reference/design-notes.html</loc>
+    <lastmod>2026-08-10T01:15:30.059Z</lastmod>
   </url>
   <url>
-    <loc>https://aura.mit.edu/2.S986-robot/reference/g431-esc.html</loc>
-    <lastmod>2026-08-05T21:47:11.183Z</lastmod>
+    <loc>https://aura.mit.edu/2.S986-robot/reference/instructor-checklist.html</loc>
+    <lastmod>2026-09-14T18:50:41.515Z</lastmod>
   </url>
   <url>
     <loc>https://aura.mit.edu/2.S986-robot/reference/simple-foc.html</loc>
@@ -62,26 +62,26 @@
   </url>
   <url>
     <loc>https://aura.mit.edu/2.S986-robot/sessions/01-orientation.html</loc>
-    <lastmod>2026-08-12T02:12:03.059Z</lastmod>
+    <lastmod>2026-09-16T02:31:14.290Z</lastmod>
   </url>
   <url>
     <loc>https://aura.mit.edu/2.S986-robot/sessions/03-esc.html</loc>
-    <lastmod>2026-08-12T03:30:43.807Z</lastmod>
+    <lastmod>2026-09-30T14:17:52.432Z</lastmod>
   </url>
   <url>
     <loc>https://aura.mit.edu/2.S986-robot/sessions/05-frame-crank.html</loc>
-    <lastmod>2026-08-10T02:16:29.599Z</lastmod>
+    <lastmod>2026-09-21T17:08:18.543Z</lastmod>
   </url>
   <url>
     <loc>https://aura.mit.edu/2.S986-robot/sessions/07-wings.html</loc>
-    <lastmod>2026-08-10T02:16:27.912Z</lastmod>
+    <lastmod>2026-09-16T02:42:04.988Z</lastmod>
   </url>
   <url>
     <loc>https://aura.mit.edu/2.S986-robot/sessions/09-electronics-dry-test.html</loc>
-    <lastmod>2026-08-12T03:23:35.760Z</lastmod>
+    <lastmod>2026-09-07T19:52:37.495Z</lastmod>
   </url>
   <url>
     <loc>https://aura.mit.edu/2.S986-robot/sessions/11-wet-testing.html</loc>
-    <lastmod>2026-08-10T02:20:58.627Z</lastmod>
+    <lastmod>2026-09-07T19:53:21.353Z</lastmod>
   </url>
 </urlset>

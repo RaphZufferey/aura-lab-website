@@ -36,7 +36,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../reference/cnc.html" rel="next">
+<link href="../reference/design-notes.html" rel="next">
 <link href="../reference/simple-foc.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -282,7 +282,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
         <li>
     <a class="dropdown-item" href="../sessions/03-esc.html">
- <span class="dropdown-text">Module 3 — Motor driver, sensor and serial</span></a>
+ <span class="dropdown-text">Module 3 — Motor driver, sensor and serial connection</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../sessions/04-control.html">
@@ -348,12 +348,12 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">Software</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../reference/cnc.html">
- <span class="dropdown-text">CNC — Stepcraft D660</span></a>
-  </li>  
-        <li>
     <a class="dropdown-item" href="../reference/design-notes.html">
  <span class="dropdown-text">Design notes</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../reference/instructor-checklist.html">
+ <span class="dropdown-text">Instructor checklist</span></a>
   </li>  
     </ul>
   </li>
@@ -415,7 +415,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../sessions/03-esc.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Module 3 — Motor driver, sensor and serial</span></a>
+ <span class="menu-text">Module 3 — Motor driver, sensor and serial connection</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -515,14 +515,14 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../reference/cnc.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">CNC — Stepcraft D660</span></a>
+  <a href="../reference/design-notes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Design notes</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../reference/design-notes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Design notes</span></a>
+  <a href="../reference/instructor-checklist.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Instructor checklist</span></a>
   </div>
 </li>
       </ul>
@@ -544,8 +544,6 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#esc" id="toc-esc" class="nav-link active" data-scroll-target="#esc">ESC</a></li>
-  <li><a href="#flight-controller" id="toc-flight-controller" class="nav-link" data-scroll-target="#flight-controller">Flight controller</a></li>
-  <li><a href="#pcb" id="toc-pcb" class="nav-link" data-scroll-target="#pcb">PCB</a></li>
   <li><a href="#external-documentation" id="toc-external-documentation" class="nav-link" data-scroll-target="#external-documentation">External documentation</a></li>
   </ul>
 </nav>
@@ -575,24 +573,11 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="esc" class="level2">
 <h2 class="anchored" data-anchor-id="esc">ESC</h2>
-<p>Code for the B-G431B-ESC1 motor controller using the SimpleFOC library: <a href="https://github.com/MIT-AURA-Lab/FAAV-G431-ESC">FAAV-G431-ESC</a>.</p>
-<p>Used in <a href="../sessions/03-esc.html">Module 3</a> and <a href="../sessions/04-control.html">Module 4</a>.</p>
-</section>
-<section id="flight-controller" class="level2">
-<h2 class="anchored" data-anchor-id="flight-controller">Flight controller</h2>
-<ul>
-<li><strong>Current</strong> — ESP32, based on FreeRTOS tasks: <a href="https://github.com/MIT-AURA-Lab/FAAV-Flight-Controller">FAAV-Flight-Controller</a></li>
-</ul>
+<p>Code for the B-G431B-ESC1 motor controller using the SimpleFOC library: <a href="https://github.com/MIT-AURA-Lab/FAAV-G431-ESC">FAAV-G431-ESC</a>. You need access to the github folder.</p>
 <p>Outdated versions, kept for reference:</p>
 <ul>
 <li>Old EPFL code for NRF52: <a href="https://github.com/MIT-AURA-Lab/FAAV-Seeeduino">FAAV-Seeeduino</a></li>
 <li>Old MIT code for NRF52/ESP32: <a href="https://github.com/MIT-AURA-Lab/FAAV-AUK">FAAV-AUK</a></li>
-</ul>
-</section>
-<section id="pcb" class="level2">
-<h2 class="anchored" data-anchor-id="pcb">PCB</h2>
-<ul>
-<li><a href="https://github.com/MIT-AURA-Lab/FAAV-PCB-v3">FAAV-PCB-v3</a> — current board, including the BOM in the Manufacturing/Assembly folder</li>
 </ul>
 </section>
 <section id="external-documentation" class="level2">
@@ -602,19 +587,6 @@ ul.task-list li input[type="checkbox"] {
 <li><a href="https://docs.simplefoc.com/commander_motor">SimpleFOC commander</a></li>
 <li><a href="https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/">XIAO ESP32S3 getting started</a></li>
 </ul>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Access
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Confirm before the semester that students have read access to these repositories, and pin the branch or tag each module expects. “Latest main” changing under a cohort mid-semester is the most likely way this manual goes stale without anyone noticing.</p>
-</div>
-</div>
 
 
 </section>
@@ -1045,8 +1017,8 @@ ul.task-list li input[type="checkbox"] {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../reference/cnc.html" class="pagination-link" aria-label="CNC --- Stepcraft D660">
-        <span class="nav-page-text">CNC — Stepcraft D660</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../reference/design-notes.html" class="pagination-link" aria-label="Design notes">
+        <span class="nav-page-text">Design notes</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

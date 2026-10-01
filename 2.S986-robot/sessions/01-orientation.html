@@ -285,7 +285,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
         <li>
     <a class="dropdown-item" href="../sessions/03-esc.html">
- <span class="dropdown-text">Module 3 — Motor driver, sensor and serial</span></a>
+ <span class="dropdown-text">Module 3 — Motor driver, sensor and serial connection</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../sessions/04-control.html">
@@ -351,12 +351,12 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">Software</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../reference/cnc.html">
- <span class="dropdown-text">CNC — Stepcraft D660</span></a>
-  </li>  
-        <li>
     <a class="dropdown-item" href="../reference/design-notes.html">
  <span class="dropdown-text">Design notes</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../reference/instructor-checklist.html">
+ <span class="dropdown-text">Instructor checklist</span></a>
   </li>  
     </ul>
   </li>
@@ -418,7 +418,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../sessions/03-esc.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Module 3 — Motor driver, sensor and serial</span></a>
+ <span class="menu-text">Module 3 — Motor driver, sensor and serial connection</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -518,14 +518,14 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../reference/cnc.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">CNC — Stepcraft D660</span></a>
+  <a href="../reference/design-notes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Design notes</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../reference/design-notes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Design notes</span></a>
+  <a href="../reference/instructor-checklist.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Instructor checklist</span></a>
   </div>
 </li>
       </ul>
@@ -547,7 +547,13 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#the-robot" id="toc-the-robot" class="nav-link active" data-scroll-target="#the-robot">The robot</a></li>
-  <li><a href="#electronic-architecture" id="toc-electronic-architecture" class="nav-link" data-scroll-target="#electronic-architecture">Electronic architecture</a></li>
+  <li><a href="#mechanical-design" id="toc-mechanical-design" class="nav-link" data-scroll-target="#mechanical-design">Mechanical design</a></li>
+  <li><a href="#robot-operation-in-one-paragraph" id="toc-robot-operation-in-one-paragraph" class="nav-link" data-scroll-target="#robot-operation-in-one-paragraph">Robot operation in one paragraph</a></li>
+  <li><a href="#lab-rules" id="toc-lab-rules" class="nav-link" data-scroll-target="#lab-rules">1-225 Lab rules</a>
+  <ul class="collapse">
+  <li><a href="#safety" id="toc-safety" class="nav-link" data-scroll-target="#safety">Safety</a></li>
+  </ul></li>
+  <li><a href="#lab-use" id="toc-lab-use" class="nav-link" data-scroll-target="#lab-use">Lab use</a></li>
   </ul>
 </nav>
     </div>
@@ -579,50 +585,62 @@ ul.task-list li input[type="checkbox"] {
 <div id="fig-faav-overview" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-faav-overview-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="../Fig/Water-Air-Slider-V3-Carbon-v63.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1: The FAAV3.2"><img src="../Fig/Water-Air-Slider-V3-Carbon-v63.jpg" class="img-fluid figure-img"></a>
+<a href="../Fig/Wind9.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1: The flapping robot"><img src="../Fig/Wind9.jpg" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-faav-overview-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: The FAAV3.2
+Figure&nbsp;1: The flapping robot
 </figcaption>
 </figure>
 </div>
-<p>We will develop, plan and optimize a vehicle with powerful custom actuation for flapping locomotion. The build divides into four subsystems, and the modules follow that order:</p>
+<p>We will develop, plan and optimize a vehicle with powerful custom actuation for flapping locomotion. The build divides into four subsystems:</p>
 <ol type="1">
-<li><strong>Transmission</strong> — motor, custom shaft, gearbox, crank and linkage (Modules 2, 5)</li>
-<li><strong>Electronics</strong> — ESC, angular sensor, flight controller, custom PCB (Modules 3, 4, 9)</li>
-<li><strong>Aero/hydro surfaces</strong> — wings, tail (Modules 6–8)</li>
-<li><strong>Waterproofing and testing</strong> — potting, immersion, tuning (Modules 10–12)</li>
+<li><strong>Transmission</strong> - motor, custom shaft, gearbox, crank and linkage (Modules 2, 5)</li>
+<li><strong>Electronics</strong> - ESC, angular sensor, flight controller (Modules 2, 3, 4)</li>
+<li><strong>Aero/hydro surfaces</strong> - wings, tail (Modules 6-8)</li>
+<li><strong>Waterproofing and testing</strong> - potting, immersion, tuning (Modules 10–12).</li>
 </ol>
 </section>
-<section id="electronic-architecture" class="level2">
-<h2 class="anchored" data-anchor-id="electronic-architecture">Electronic architecture</h2>
-<p>One 4S battery (max 16.8 V) powers the motor electronic speed controller (ESC). The motor controller generates a 3.3V rail for the encoder and a 5V rail for the flight controller. The flight controller sends commands to the ESC over serial.</p>
+<section id="mechanical-design" class="level2">
+<h2 class="anchored" data-anchor-id="mechanical-design">Mechanical design</h2>
+<p>The 3D design (CAD) of the core of the robot is available here: <a href="https://a360.co/3UVNc2T" class="uri">https://a360.co/3UVNc2T</a></p>
+</section>
+<section id="robot-operation-in-one-paragraph" class="level2">
+<h2 class="anchored" data-anchor-id="robot-operation-in-one-paragraph">Robot operation in one paragraph</h2>
+<p>One 4S battery (16.8 V max) feeds an custom ESC that steps VBAT down to 5 V to power the flight controller and the encoder. The flight controller commands the ESC over serial. The ESC drives a brushless motor through a 23.04:1 gearbox, and a crank–linkage converts that rotation into undulation motion.</p>
+</section>
+<section id="lab-rules" class="level2">
+<h2 class="anchored" data-anchor-id="lab-rules">1-225 Lab rules</h2>
+<p>Every component, robot and tool that is required is in the cabinet marked “S.2986 Class”.</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>To be completed by the instructor
+<span class="screen-reader-only">Important</span>All parts, components, tools belong to the MIT AURA Lab
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Shop safety requirements, machine access and booking procedure, team size and formation rules, and where the parts crib is. These are institution-specific and are not carried over from the manufacturing guide.</p>
+<p>If you would like to use anything outside of what is marked as class materials, please ask.</p>
 </div>
 </div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Checkpoint
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Kit checked against the parts list, and every member has completed the required training.</p>
-</div>
-</div>
+<section id="safety" class="level3">
+<h3 class="anchored" data-anchor-id="safety">Safety</h3>
+<p>Our safety officer is Ethan Fulcher.</p>
+<ul>
+<li><strong>Assembly</strong>. Wear goggles for mechanical assembly, particularly important as we are handling small parts. Find them in the “safety” drawer</li>
+<li><strong>Soldering</strong>. On the fume extraction bench only.</li>
+<li><strong>Tank</strong>. Absolutely no swimming or going into the tank. Use the poles/grippers to recover robots and parts.</li>
+<li><strong>Keep water off the floor.</strong> Water on the floor sets off an alarm, which ends the session for everyone.</li>
+</ul>
+</section>
+</section>
+<section id="lab-use" class="level2">
+<h2 class="anchored" data-anchor-id="lab-use">Lab use</h2>
+<ul>
+<li><p>This is a research lab, many other projects are happening at the same time. Please be respectful.</p></li>
+<li><p>Wednesday only</p></li>
+</ul>
 
 
 </section>

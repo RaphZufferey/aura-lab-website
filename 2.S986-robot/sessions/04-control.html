@@ -285,7 +285,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
         <li>
     <a class="dropdown-item" href="../sessions/03-esc.html">
- <span class="dropdown-text">Module 3 — Motor driver, sensor and serial</span></a>
+ <span class="dropdown-text">Module 3 — Motor driver, sensor and serial connection</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../sessions/04-control.html">
@@ -351,12 +351,12 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">Software</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../reference/cnc.html">
- <span class="dropdown-text">CNC — Stepcraft D660</span></a>
-  </li>  
-        <li>
     <a class="dropdown-item" href="../reference/design-notes.html">
  <span class="dropdown-text">Design notes</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../reference/instructor-checklist.html">
+ <span class="dropdown-text">Instructor checklist</span></a>
   </li>  
     </ul>
   </li>
@@ -418,7 +418,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../sessions/03-esc.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Module 3 — Motor driver, sensor and serial</span></a>
+ <span class="menu-text">Module 3 — Motor driver, sensor and serial connection</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -518,14 +518,14 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../reference/cnc.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">CNC — Stepcraft D660</span></a>
+  <a href="../reference/design-notes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Design notes</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../reference/design-notes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Design notes</span></a>
+  <a href="../reference/instructor-checklist.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Instructor checklist</span></a>
   </div>
 </li>
       </ul>
@@ -546,19 +546,24 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#what-you-build-today" id="toc-what-you-build-today" class="nav-link active" data-scroll-target="#what-you-build-today">What you build today</a></li>
-  <li><a href="#before-you-arrive" id="toc-before-you-arrive" class="nav-link" data-scroll-target="#before-you-arrive">Before you arrive</a></li>
-  <li><a href="#reduction" id="toc-reduction" class="nav-link" data-scroll-target="#reduction">Reduction</a></li>
-  <li><a href="#commanding-and-monitoring" id="toc-commanding-and-monitoring" class="nav-link" data-scroll-target="#commanding-and-monitoring">Commanding and monitoring</a>
+  <li><a href="#summary" id="toc-summary" class="nav-link active" data-scroll-target="#summary">Summary</a></li>
+  <li><a href="#requirements" id="toc-requirements" class="nav-link" data-scroll-target="#requirements">Requirements</a></li>
+  <li><a href="#electronics-check" id="toc-electronics-check" class="nav-link" data-scroll-target="#electronics-check">Electronics check</a></li>
+  <li><a href="#firmware" id="toc-firmware" class="nav-link" data-scroll-target="#firmware">Firmware</a></li>
+  <li><a href="#controlling-the-motor-from-a-laptop" id="toc-controlling-the-motor-from-a-laptop" class="nav-link" data-scroll-target="#controlling-the-motor-from-a-laptop">Controlling the motor from a laptop</a></li>
+  <li><a href="#commanding-and-monitoring-the-esc" id="toc-commanding-and-monitoring-the-esc" class="nav-link" data-scroll-target="#commanding-and-monitoring-the-esc">Commanding and monitoring the ESC</a>
   <ul class="collapse">
-  <li><a href="#installing-the-reduction" id="toc-installing-the-reduction" class="nav-link" data-scroll-target="#installing-the-reduction">Installing the reduction</a></li>
+  <li><a href="#tasks-to-do" id="toc-tasks-to-do" class="nav-link" data-scroll-target="#tasks-to-do">Tasks to do:</a></li>
   </ul></li>
-  <li><a href="#task-sequence" id="toc-task-sequence" class="nav-link" data-scroll-target="#task-sequence">Task sequence</a></li>
-  <li><a href="#why-low-speed-is-the-hard-part" id="toc-why-low-speed-is-the-hard-part" class="nav-link" data-scroll-target="#why-low-speed-is-the-hard-part">Why low speed is the hard part</a></li>
-  <li><a href="#going-beyond-600-rads" id="toc-going-beyond-600-rads" class="nav-link" data-scroll-target="#going-beyond-600-rads">Going beyond 600 rad/s</a>
+  <li><a href="#tuning-the-cascaded-controller" id="toc-tuning-the-cascaded-controller" class="nav-link" data-scroll-target="#tuning-the-cascaded-controller">Tuning the cascaded controller</a>
   <ul class="collapse">
-  <li><a href="#sensor-lag" id="toc-sensor-lag" class="nav-link" data-scroll-target="#sensor-lag">Sensor lag</a></li>
-  <li><a href="#mcu-speed" id="toc-mcu-speed" class="nav-link" data-scroll-target="#mcu-speed">MCU speed</a></li>
+  <li><a href="#record-how-it-responds-to-a-step-change" id="toc-record-how-it-responds-to-a-step-change" class="nav-link" data-scroll-target="#record-how-it-responds-to-a-step-change">Record how it responds to a step change:</a></li>
+  </ul></li>
+  <li><a href="#calibration" id="toc-calibration" class="nav-link" data-scroll-target="#calibration">Calibration</a></li>
+  <li><a href="#why-we-use-an-esc-that-we-reprogram" id="toc-why-we-use-an-esc-that-we-reprogram" class="nav-link" data-scroll-target="#why-we-use-an-esc-that-we-reprogram">Why we use an ESC that we reprogram</a>
+  <ul class="collapse">
+  <li><a href="#why-low-speed-is-the-hard-part" id="toc-why-low-speed-is-the-hard-part" class="nav-link" data-scroll-target="#why-low-speed-is-the-hard-part">Why low speed is the hard part</a></li>
+  <li><a href="#why-high-speed-is-the-hard-part-going-beyond-600-rads" id="toc-why-high-speed-is-the-hard-part-going-beyond-600-rads" class="nav-link" data-scroll-target="#why-high-speed-is-the-hard-part-going-beyond-600-rads">Why high speed is the hard part (going beyond 600 rad/s)</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -586,57 +591,97 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="what-you-build-today" class="level2">
-<h2 class="anchored" data-anchor-id="what-you-build-today">What you build today</h2>
-<p>The gearbox installed with a marker flag on the output, the Seeeduino wired in and commanding the ESC untethered, running continuously, then holding position, then tracking a velocity setpoint with a tuned loop.</p>
+<section id="summary" class="level2">
+<h2 class="anchored" data-anchor-id="summary">Summary</h2>
+<p>The objective of this module is to spin the motor for the first time, understand the parameters at play and optimize gains. The Seeeduino, ESC and encoder are wired already and we will seek to command the ESC via the Seeeduino, running continuously, then holding position, then tracking a velocity setpoint with a tuned loop.</p>
 </section>
-<section id="before-you-arrive" class="level2">
-<h2 class="anchored" data-anchor-id="before-you-arrive">Before you arrive</h2>
+<section id="requirements" class="level2">
+<h2 class="anchored" data-anchor-id="requirements">Requirements</h2>
 <table class="caption-top table">
 <tbody>
 <tr class="odd">
 <td><strong>Parts</strong></td>
-<td>Motor with shaft and sun gear from <a href="../sessions/02-motor.html">Module 2</a>, Faulhaber 23.04:1 gearbox, M2.5×10 screws, 3D-printed plates, second vertical bracket, 3× M2.5 and 3× M2 screws, ESC from <a href="../sessions/03-esc.html">Module 3</a>, 4x8 mm flanged bearing, Seeeduino XIAO nRF52840, its 3D-printed bracket, 3 wires</td>
+<td>Motor with new shaft from <a href="../sessions/02-motor.html">Module 2</a>, ESC from <a href="../sessions/03-esc.html">Module 3</a>, Seeeduino XIAO nRF52840</td>
 </tr>
 <tr class="even">
 <td><strong>Tools</strong></td>
-<td>Bench supply with current limit, tachometer or camera, soldering iron</td>
+<td>Bench supply with current limit, camera, soldering iron</td>
 </tr>
 <tr class="odd">
 <td><strong>Read</strong></td>
-<td>This page in full - the speed limits below explain most of what you will hit</td>
+<td>This page in full - the speed limits below explain most of what comes up</td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="reduction" class="level2">
-<h2 class="anchored" data-anchor-id="reduction">Reduction</h2>
-<p>The motor is connected via a custom shaft to a gearbox with a <strong>23.04:1</strong> reduction by Faulhaber.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> Both parts are held in place by 3D-printed plates. The output shaft of the gearbox has its own bearing on the inside of the gearbox, and is also supported mid-way on the shaft by a 4×8 mm flanged bearing. This leaves <strong>5 mm of shaft length free</strong> for the crank to be mounted on. A flat on the shaft helps lock the rotation of the M3 screw extending through the crank.</p>
-<div class="quarto-layout-panel" data-layout-ncol="2">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="../Fig/shaft_motor.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Motor shaft"><img src="../Fig/shaft_motor.jpg" class="img-fluid figure-img" alt="Motor shaft"></a></p>
-<figcaption>Motor shaft</figcaption>
-</figure>
+<section id="electronics-check" class="level2">
+<h2 class="anchored" data-anchor-id="electronics-check">Electronics check</h2>
+<p>Check the state of the electrical connections to the encoder and to the flight controller. Have someone else verify the connections. Watch out for swapped wires, weak/cold solder connections and check the R14 connection point.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Problems
 </div>
 </div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="../Fig/fhaber.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Faulhaber gearbox"><img src="../Fig/fhaber.jpg" class="img-fluid figure-img" alt="Faulhaber gearbox"></a></p>
-<figcaption>Faulhaber gearbox</figcaption>
-</figure>
-</div>
-</div>
+<div class="callout-body-container callout-body">
+<p>Most problems with SimpleFOC come from badly soldered cables and miswiring.</p>
 </div>
 </div>
 </section>
-<section id="commanding-and-monitoring" class="level2">
-<h2 class="anchored" data-anchor-id="commanding-and-monitoring">Commanding and monitoring</h2>
-<p>This is a high-level summary of <a href="https://docs.simplefoc.com/communication">the SimpleFOC communication docs</a>. Communication with the ESC is over <strong>serial</strong>, via a separate microcontroller board.</p>
-<p>Once serial communication is established, you interact with the ESC through the <strong>commander</strong>, a practical interface for setting and getting values (<a href="https://docs.simplefoc.com/commander_motor">instructions</a>). Ask the commander for available commands with <code>?</code>. Commands available:</p>
+<section id="firmware" class="level2">
+<h2 class="anchored" data-anchor-id="firmware">Firmware</h2>
+<p>The ESC needs to be flashed with SimpleFOC. A custom version of the code for the B-G431B-ESC1 motor controller, using the SimpleFOC library, is to be found here: <a href="https://github.com/MIT-AURA-Lab/FAAV-G431-ESC">FAAV-G431-ESC</a>. See <a href="../reference/software.html">Software</a> for all repositories.</p>
+<p>Before changing anything in there, read <a href="../reference/simple-foc.html">How SimpleFOC works</a>. It covers the two nested loops, what the FOC maths does each iteration, why the motor twitches at power-on, and which settings in the sketch matter - enough to read the firmware rather than guess at it.</p>
+</section>
+<section id="controlling-the-motor-from-a-laptop" class="level2">
+<h2 class="anchored" data-anchor-id="controlling-the-motor-from-a-laptop">Controlling the motor from a laptop</h2>
+<p>Next, install <strong>SimpleFOC Studio</strong>: <a href="https://github.com/JorgeMaker/SimpleFOCStudio">SimpleFOCStudio</a>. It is a desktop GUI that drives the same commander interface described below, so instead of typing commands into a serial monitor you get a form for every motor parameter, live plots of the monitored variables, and a button that dumps the tuned values back out as Arduino code.</p>
+<p>Laptops can block the connection to the Seeeduino (over USB-C) if the Seeeduino is powered over 5V through the pin. If that happens, power needs to be disconnected. Two options are possible: either a UBS-C power isolation module or disconnecting the 5V line between ESC and Seeeduino.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Torque control mode
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Do not change the torque control mode in the GUI. It will display <code>voltage mode</code> but the ESC actually runs a newer <code>estimated control</code> mode.</p>
+</div>
+</div>
+<p><a href="#fig-studio" class="quarto-xref">Figure&nbsp;1</a> shows the parts you will actually use: the parameter tree on the left, the live plot of target, velocity and angle in the middle, and a command line at the bottom for anything the form does not expose.</p>
+<div id="fig-studio" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-studio-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="../Fig/simplefoc-studio.gif" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1: SimpleFOC Studio driving a motor. The tree on the left exposes every commander parameter as a form - motion control type, the four PID blocks, limits and sensor config - while the plot plays back target, velocity and angle as they change. Screen capture from the SimpleFOCStudio project."><img src="../Fig/simplefoc-studio.gif" class="img-fluid figure-img" style="width:100.0%"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-studio-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: SimpleFOC Studio driving a motor. The tree on the left exposes every commander parameter as a form - motion control type, the four PID blocks, limits and sensor config - while the plot plays back target, velocity and angle as they change. Screen capture from the <a href="https://github.com/JorgeMaker/SimpleFOCStudio">SimpleFOCStudio</a> project.
+</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>What the ESC code has to provide
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Studio does not work against arbitrary firmware. The ESC code must register the motor with the commander (<code>command.add('M', doMotor, "motor")</code>), enable monitoring with <code>motor.useMonitoring(Serial)</code>, and call both <code>motor.monitor()</code> and <code>command.run()</code> every loop. The command letter set in Studio’s device settings has to match the one in the sketch - <code>M</code> in our case.<br>
+On this robot the ESC’s own micro-USB serial is gone - those pins were repurposed for the encoder’s SPI3 bus in <a href="../sessions/03-esc.html">Module 3</a> - so the port Studio opens is the <strong>Seeeduino’s</strong> USB serial, and the Seeeduino has to pass what it receives through to the ESC on Serial1 (essentially it needs to act as a relay). Studio cannot reach the ESC on its own.</p>
+</div>
+</div>
+</section>
+<section id="commanding-and-monitoring-the-esc" class="level2">
+<h2 class="anchored" data-anchor-id="commanding-and-monitoring-the-esc">Commanding and monitoring the ESC</h2>
+<p>This is a high-level summary of <a href="https://docs.simplefoc.com/communication">the SimpleFOC communication docs</a>. The ESC is driven through the <strong>commander</strong>, a practical interface for setting and getting values (<a href="https://docs.simplefoc.com/commander_motor">instructions</a>). Ask the commander for available commands with <code>?</code>. Commands available:</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 50%">
@@ -663,76 +708,119 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="even">
 <td><code>T</code></td>
-<td>Set the target value — rad, rad/s or N/m depending on control mode</td>
+<td>Set the target value - rad, rad/s or N/m depending on control mode</td>
 </tr>
 <tr class="odd">
+<td><code>S</code></td>
+<td>Get current angle and velocity</td>
+</tr>
+<tr class="even">
 <td><code>W</code></td>
 <td>Watchdog on/off. If no new target arrives for 1 s, target is set to zero. <strong>On by default</strong></td>
 </tr>
+<tr class="odd">
+<td><code>ME</code></td>
+<td>Enable the driver. <code>ME1</code> energises the phases, <code>ME0</code> switches them off and the motor coasts</td>
+</tr>
 <tr class="even">
-<td><code>R</code></td>
-<td><code>R0</code>/<code>R1</code> disable/enable a linear ramp when changing setpoint. <code>RD1000</code> sets ramp duration to 1000 ms (default 1000 ms). Off by default</td>
+<td><code>MC</code></td>
+<td>Motion control type. <code>MC0</code> torque, <code>MC1</code> velocity, <code>MC2</code> angle</td>
+</tr>
+<tr class="odd">
+<td><code>MLC</code></td>
+<td>Current limit, in amps</td>
 </tr>
 </tbody>
 </table>
-<section id="installing-the-reduction" class="level3">
-<h3 class="anchored" data-anchor-id="installing-the-reduction">Installing the reduction</h3>
-<p>Our sun gear is already pressed onto the motor shaft from <a href="../sessions/02-motor.html">Module 2</a>. What is left is mating the gearbox to the motor and fixing the pair to the plates.</p>
-<ol type="1">
-<li><p>Slide the gearbox onto the motor shaft so the sun gear engages the planets. It should seat with light hand pressure, if it resists, back off and check the sun gear is square on the shaft rather than forcing it.</p></li>
-<li><p>Fix the blue part of the gearbox: the custom screws that come with the gearbox on one side, and <strong>M2.5×10</strong> screws on the other.</p></li>
-<li><p>Check the output turns freely by hand through a full revolution before applying power.</p></li>
-<li><p>Close the gearbox: the <strong>silver part threads onto the blue part</strong>. Don’t tighten it.</p></li>
-<li><p>Attach the <strong>second vertical bracket</strong> to the silver part of the gearbox with <strong>3 × M2.5</strong> screws.</p></li>
-<li><p>Secure that bracket to the <strong>bottom fuselage plate</strong> with <strong>3 × M2</strong> screws. The motor bracket from <a href="../sessions/02-motor.html">Module 2</a> is already on the same plate, so between them the two brackets set the alignment of the whole drivetrain. Check the output still turns freely once both are bolted down.</p></li>
-</ol>
-<div class="callout callout-style-default callout-important callout-titled">
+<p>The <code>M</code> prefix is the motor command, and the letters after it walk down into its settings - <code>MC</code> is the motor’s <em>control</em> type, <code>MLC</code> the motor’s <em>limit</em> on <em>current</em>. That is why full configuration is just <code>M</code> on its own.</p>
+<p>When it comes to commanding from the flight controlling direction, your code shouldn’t write these directly. Instead, you should create wrapper functions such as “<code>current_limit(value)</code>” etc…</p>
+<div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>To be completed by the instructor
+<span class="screen-reader-only">Warning</span>Careful when changing control mode
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Which repository holds the barebone Seeeduino sketch, and on which branch. The nRF52 repositories currently in <a href="../reference/software.html">Software</a> are marked outdated, so students following this page have nothing to clone.</p>
+<p><code>T</code> means something different in each mode, position, velocity, or torque. Sending a velocity setpoint while in torque mode will do something unintended. BE VERY CAREFUL ABOUT THIS.</p>
 </div>
 </div>
-</section>
-</section>
-<section id="task-sequence" class="level2">
-<h2 class="anchored" data-anchor-id="task-sequence">Task sequence</h2>
-<ol type="1">
-<li>Mount a small flag on the gearbox output so rotation is visible and countable.</li>
-<li>Achieve continuous spinning at low speed.</li>
-<li>Achieve position control - the output holds against a hand disturbance.</li>
-<li>Tune the loop and characterise your maximum usable speed.</li>
+<section id="tasks-to-do" class="level3">
+<h3 class="anchored" data-anchor-id="tasks-to-do">Tasks to do:</h3>
+<ol start="0" type="1">
+<li>Change the motor command letter (towards the bottom in the interface) to <code>M</code>.</li>
+<li>Commander responds to <code>?</code> over serial from a laptop, <code>L</code> toggles the onboard LED.</li>
+<li>The sensor returns a plausible angle through a full manual rotation.</li>
 </ol>
-<div class="callout callout-style-default callout-important callout-titled">
+</section>
+</section>
+<section id="tuning-the-cascaded-controller" class="level2">
+<h2 class="anchored" data-anchor-id="tuning-the-cascaded-controller">Tuning the cascaded controller</h2>
+<p><a href="#fig-cascade" class="quarto-xref">Figure&nbsp;2</a> is the structure SimpleFOC implements. We need to tune it.</p>
+<div id="fig-cascade" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-cascade-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="../Fig/a_b_i.drawio.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure&nbsp;2: The cascaded controller. Desired angle enters on the left. The angle PID does not drive the motor - it produces a velocity target, which the velocity limit clamps. The velocity PID turns the velocity error into a target current, which the current limit clamps. Only the innermost torque/FOC stage touches the phases. Feedback runs the other way: the sensor returns angle, the derivative gives velocity, and both are low-pass filtered before use. Note the two rates — loopFOC() runs the torque stage, move() runs the two outer loops, and they are not the same frequency."><img src="../Fig/a_b_i.drawio.png" class="img-fluid figure-img" style="width:100.0%"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-cascade-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: The cascaded controller. Desired angle enters on the left. The angle PID does not drive the motor - it produces a <em>velocity</em> target, which the velocity limit clamps. The velocity PID turns the velocity error into a <em>target current</em>, which the current limit clamps. Only the innermost torque/FOC stage touches the phases. Feedback runs the other way: the sensor returns angle, the derivative gives velocity, and both are low-pass filtered before use. Note the two rates — <code>loopFOC()</code> runs the torque stage, <code>move()</code> runs the two outer loops, and they are not the same frequency.
+</figcaption>
+</figure>
+</div>
+<p>Each stage turns its own error into a <strong>setpoint for the stage inside it</strong>. That is the whole idea, and it is why the two clamps in the middle are not decoration: the velocity limit caps what the angle loop is allowed to ask for, and the current limit caps what the velocity loop is allowed to ask for.</p>
+<p><strong>Tune from the inside out.</strong> Work in this order, and do not move outwards until the loop you are on behaves:</p>
+<ol start="3" type="1">
+<li><strong>Torque first</strong>, in torque mode (<code>MC0</code>). Command a current and check the motor takes it smoothly, without whine or oscillation.</li>
+<li><strong>Velocity next</strong> (<code>MC1</code>), once torque is solid. Proportional gain first, then integral. Watch the low-pass filter on the velocity feedback while you do: heavy filtering looks like it is cleaning up noise, but the lag it adds is what makes the loop hunt.</li>
+<li><strong>Angle last</strong> (<code>MC2</code>). Usually proportional gain alone is enough, because the velocity loop underneath is already doing the work.</li>
+</ol>
+<p>The order is not a convention, it is a dependency. An outer loop tuned against a sloppy inner loop is partly compensating for the inner loop’s error, so its gains encode that error - and they stop being valid the moment you go back and fix the inner loop.</p>
+<p>These four PID blocks are exactly what SimpleFOC Studio exposes in its parameter tree (<a href="#fig-studio" class="quarto-xref">Figure&nbsp;1</a>). That is the practical argument for having installed it: you can change a gain and watch the step response without reflashing between attempts.</p>
+<p>SimpleFOC documents each stage separately: <a href="https://docs.simplefoc.com/torque_loop">torque control</a>, <a href="https://docs.simplefoc.com/velocity_loop">the velocity loop</a>, <a href="https://docs.simplefoc.com/angle_loop">the angle loop</a>, and <a href="https://docs.simplefoc.com/angle_cascade_control">cascaded position control</a> for the structure in <a href="#fig-cascade" class="quarto-xref">Figure&nbsp;2</a> as a whole. The exact forms being tuned are in <a href="https://docs.simplefoc.com/pid_implementation">the PID implementation</a> and <a href="https://docs.simplefoc.com/lpf_implementation">the low-pass filter</a>.</p>
+<section id="record-how-it-responds-to-a-step-change" class="level3">
+<h3 class="anchored" data-anchor-id="record-how-it-responds-to-a-step-change">Record how it responds to a step change:</h3>
+<p>Do these in Studio. For each one, capture the step response <strong>and write down the gains that produced it</strong>. A screenshot without its gains is not a result: nobody can reproduce it.</p>
+<p>Two things to set before the first capture.</p>
+<ul>
+<li><strong>Turn the watchdog off</strong> for the duration (<code>W0</code>). It is on by default and zeroes the target after 1 s without a new one, so it will pull your step back down in the middle of the capture and look like a controller fault.</li>
+<li><strong>Plot the variable the loop actually controls</strong> - current in torque mode, velocity in velocity mode, angle in position mode - and leave <code>Target</code> enabled in all three so the step is visible.</li>
+</ul>
+<ol start="6" type="1">
+<li><p><strong>Torque mode</strong> (<code>MC0</code>). Set the velocity limit to 200 rad/s, then <strong>block the output with your hand or a piece of tape before commanding any current</strong> - in torque mode nothing limits speed, so an unblocked motor just accelerates until friction stops it. Set the current limit with <code>MLC</code>, starting around 1 A, and step the target.</p></li>
+<li><p><strong>Velocity mode</strong> (<code>MC1</code>). Step from standstill to 400 rad/s and capture the response. Note that this is motor speed, not the flapping frequency of the final system. Mount a small flag (piece of tape) on the output so rotation is visible and countable.</p></li>
+<li><p><strong>Position mode</strong> (<code>MC2</code>). Step from 0 to 144 rad and back to 0 - about a full flap cycle after reduction - and capture the response.</p></li>
+</ol>
+<p>Report rise time, overshoot and any steady-state error read off the plot.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>To be completed by the instructor
+<span class="screen-reader-only">Warning</span>A blocked motor turns every amp into heat
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The specific PID tuning exercise, the target performance, and the sign-off criteria are course material and are not in the manufacturing guide.</p>
+<p>With the output held there is no back-EMF and no mechanical work, so all the electrical power goes into the windings. Apply the torque step in bursts of a few seconds and let the motor cool between attempts if needed.</p>
 </div>
 </div>
 </section>
-<section id="why-low-speed-is-the-hard-part" class="level2">
-<h2 class="anchored" data-anchor-id="why-low-speed-is-the-hard-part">Why low speed is the hard part</h2>
-<p>Regular drone ESCs start <strong>losing synchronisation at low speed</strong>, which is exactly the regime used for water propulsion. That is the reason this course uses an FOC ESC rather than a hobby unit — see <a href="../reference/design-notes.html">Design notes</a>.</p>
 </section>
-<section id="going-beyond-600-rads" class="level2">
-<h2 class="anchored" data-anchor-id="going-beyond-600-rads">Going beyond 600 rad/s</h2>
-<p>Two issues limit speed: the micro-controller loop rate, and delays from the rotation sensor. Using SPI at 10 MHz and an AS5047P sensor rated for 28kRPM speeds are the required hardware changes that improves on delay. But at very high speeds, sensor lag still becomes the binding constraint, and shows up as high current draw and noise. We need to update the sensor electrical angle offset as a function of speed.</p>
-<section id="sensor-lag" class="level3">
-<h3 class="anchored" data-anchor-id="sensor-lag">Sensor lag</h3>
-<p>Compensating sensor lag as speed increases is necessary to go above 600 rad/s without wasting current. It is currently hand-tuned every 100 rad/s, and a fitted function is used on the robot. This could be automated by ramping through the speeds and minimising phase current — future work. This <a href="https://community.simplefoc.com/t/challenges-going-faster-than-certain-rpm/1688/39">SimpleFOC forum thread</a> is useful on the topic.</p>
+<section id="calibration" class="level2">
+<h2 class="anchored" data-anchor-id="calibration">Calibration</h2>
+<p>We’d like to also make sure that we have the right <strong>motor parameters</strong> for running at high speeds (above 400 rad/s). To this, we will follow the commissioning instrutions in the firmware above. To this with your TA. Run autocal until 1000 rad/s.</p>
+</section>
+<section id="why-we-use-an-esc-that-we-reprogram" class="level2">
+<h2 class="anchored" data-anchor-id="why-we-use-an-esc-that-we-reprogram">Why we use an ESC that we reprogram</h2>
+<section id="why-low-speed-is-the-hard-part" class="level3">
+<h3 class="anchored" data-anchor-id="why-low-speed-is-the-hard-part">Why low speed is the hard part</h3>
+<p>Regular drone ESCs start <strong>losing synchronisation at low speed</strong>, which is exactly the regime used for water propulsion. That is the reason this course uses an FOC ESC rather than a hobby unit - see <a href="../reference/design-notes.html">Design notes</a>.</p>
+</section>
+<section id="why-high-speed-is-the-hard-part-going-beyond-600-rads" class="level3">
+<h3 class="anchored" data-anchor-id="why-high-speed-is-the-hard-part-going-beyond-600-rads">Why high speed is the hard part (going beyond 600 rad/s)</h3>
+<p>Two issues limit speed: the micro-controller loop rate, and delays from the rotation sensor. Using SPI at 10 MHz and an AS5047P sensor rated for 28kRPM speeds are the required hardware changes that improves on delay. But at very high speeds, sensor lag still becomes the binding constraint, and shows up as high current draw and noise. We need to update the sensor electrical angle offset as a function of speed. Compensating sensor lag as speed increases is necessary to go above 600 rad/s without wasting current. This is automated by ramping through the speeds and minimising phase current. This <a href="https://community.simplefoc.com/t/challenges-going-faster-than-certain-rpm/1688/39">SimpleFOC forum thread</a> is useful on the topic.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -743,55 +831,15 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Continuous rotation resulting in frequencies of 1 Hz all the way to 8 Hz without loss of synchronisation, position hold against a hand disturbance, and a recorded loop frequency from <code>F</code>. Do not exceed 8 Hz.</p>
+<p>Continuous rotation at 1 Hz, position hold against a hand disturbance, and a recorded loop frequency from <code>F</code>. The robot should be tuned, operating in various modes and can be commanded from the flight controller</p>
 </div>
 </div>
-</section>
-<section id="mcu-speed" class="level3">
-<h3 class="anchored" data-anchor-id="mcu-speed">MCU speed</h3>
-<p>The goal is to maximise main loop frequency, which reached <strong>13 kHz</strong>. Read the current loop frequency with the commander’s <code>F</code> command.</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Change</th>
-<th>Effect</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>motor.motion_downsample = 3</code></td>
-<td>+0.8 kHz loop frequency</td>
-</tr>
-<tr class="even">
-<td>Disable monitoring</td>
-<td>+0.2 kHz</td>
-</tr>
-<tr class="odd">
-<td>Switch to SVPWM</td>
-<td>No improvement observed. May help, unconfirmed</td>
-</tr>
-<tr class="even">
-<td><code>L = 0.0001</code></td>
-<td>Tuning the inductance value helped — made voltage mode work much better</td>
-</tr>
-</tbody>
-</table>
 
 
 </section>
 </section>
 
-
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
-
-<ol>
-<li id="fn1"><p><a href="https://www.faulhaber.com/fileadmin/Import/Media/DE_GEARHEADS_REDUCTION_RATIOS.pdf">Faulhaber gearhead reduction ratios</a> (accessed 20.02.2024).<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
-</section></div></main> <!-- /main -->
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
@@ -1212,8 +1260,8 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../sessions/03-esc.html" class="pagination-link" aria-label="Module 3 --- Motor driver, sensor and serial">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Module 3 — Motor driver, sensor and serial</span>
+      <a href="../sessions/03-esc.html" class="pagination-link" aria-label="Module 3 --- Motor driver, sensor and serial connection">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Module 3 — Motor driver, sensor and serial connection</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

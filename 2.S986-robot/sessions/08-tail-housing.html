@@ -285,7 +285,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
         <li>
     <a class="dropdown-item" href="../sessions/03-esc.html">
- <span class="dropdown-text">Module 3 — Motor driver, sensor and serial</span></a>
+ <span class="dropdown-text">Module 3 — Motor driver, sensor and serial connection</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../sessions/04-control.html">
@@ -351,12 +351,12 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">Software</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../reference/cnc.html">
- <span class="dropdown-text">CNC — Stepcraft D660</span></a>
-  </li>  
-        <li>
     <a class="dropdown-item" href="../reference/design-notes.html">
  <span class="dropdown-text">Design notes</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../reference/instructor-checklist.html">
+ <span class="dropdown-text">Instructor checklist</span></a>
   </li>  
     </ul>
   </li>
@@ -418,7 +418,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../sessions/03-esc.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Module 3 — Motor driver, sensor and serial</span></a>
+ <span class="menu-text">Module 3 — Motor driver, sensor and serial connection</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -518,14 +518,14 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../reference/cnc.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">CNC — Stepcraft D660</span></a>
+  <a href="../reference/design-notes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Design notes</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../reference/design-notes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Design notes</span></a>
+  <a href="../reference/instructor-checklist.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Instructor checklist</span></a>
   </div>
 </li>
       </ul>
@@ -546,7 +546,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#what-you-build-today" id="toc-what-you-build-today" class="nav-link active" data-scroll-target="#what-you-build-today">What you build today</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link active" data-scroll-target="#summary">Summary</a></li>
   <li><a href="#tail" id="toc-tail" class="nav-link" data-scroll-target="#tail">Tail</a></li>
   <li><a href="#trailing-edge-holder" id="toc-trailing-edge-holder" class="nav-link" data-scroll-target="#trailing-edge-holder">Trailing edge holder</a>
   <ul class="collapse">
@@ -581,9 +581,9 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="what-you-build-today" class="level2">
-<h2 class="anchored" data-anchor-id="what-you-build-today">What you build today</h2>
-<p>The passive tail, cut to the shape your simulation produced and mounted on its rod and the trailing edge mount ## Before you arrive</p>
+<section id="summary" class="level2">
+<h2 class="anchored" data-anchor-id="summary">Summary</h2>
+<p>The passive tail, cut to the shape the simulation produced and mounted on its rod and the trailing edge mount ## Requirements</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 50%">
@@ -600,7 +600,7 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="odd">
 <td><strong>Bring</strong></td>
-<td>Your Module 6 tail geometry, printed 1:1</td>
+<td>The Module 6 tail geometry, printed 1:1</td>
 </tr>
 </tbody>
 </table>
@@ -634,7 +634,7 @@ Figure&nbsp;1: Tail assembly
 <section id="trailing-edge-holder" class="level2">
 <h2 class="anchored" data-anchor-id="trailing-edge-holder">Trailing edge holder</h2>
 <p>The wing root is driven by the gears and sweeps through the full <strong>60°</strong> set in <a href="../sessions/05-frame-crank.html">Module 5</a>. The trailing edge is not driven. It is anchored to the <strong>tail tube</strong>, and that anchor is what makes the membrane twist as the wing sweeps. It sets the angle of attack the wing sees through the stroke. Move it and the wing behaves differently. So this part is a trim adjustment as much as it is a mount, which is why both its positions have to stay changeable after the robot is built.</p>
-<p>This one is yours to design. The requirements are fixed; the mechanism is not.</p>
+<p>This part is a design exercise. The requirements are fixed; the mechanism is not.</p>
 <div id="tbl-te-requirements" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-te-requirements-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -655,11 +655,11 @@ Table&nbsp;1: What the trailing edge holder has to do
 </tr>
 <tr class="even">
 <td>Adjustable <strong>longitudinally</strong>, along the tube</td>
-<td>Fore/aft position sets wing twist. This is the trim you will actually reach for in <a href="../sessions/11-wet-testing.html">Module 11</a>.</td>
+<td>Fore/aft position sets wing twist. This is the trim actually reached for in <a href="../sessions/11-wet-testing.html">Module 11</a>.</td>
 </tr>
 <tr class="odd">
 <td>Each Wing mounts can change <strong>laterally and longitudinally</strong></td>
-<td>Sets how far the anchor stands off the boom, and is how you match left to right.</td>
+<td>Sets how far the anchor stands off the boom, and is how left and right are matched.</td>
 </tr>
 <tr class="even">
 <td>Wing comes off without dismantling anything</td>
@@ -677,17 +677,17 @@ Table&nbsp;1: What the trailing edge holder has to do
 <section id="find-a-solution" class="level3">
 <h3 class="anchored" data-anchor-id="find-a-solution">Find a solution</h3>
 <p>Both flexible and rigid solutions are possible. For a rigid solution, the mount half is straightforward: a <strong>split collar</strong> that slides along the 5 mm tube and clamps with an M2 screw into a square half nut, per the house convention in <a href="../reference/design-notes.html">Design notes</a>. Sliding it gives the longitudinal adjustment, rotating it about the tube gives some of the lateral, and a slotted arm gives the rest.</p>
-<p>Justify your design against <a href="#tbl-te-requirements" class="quarto-xref">Table&nbsp;1</a>, and be ready to defend the choices.</p>
+<p>The design must be justified against <a href="#tbl-te-requirements" class="quarto-xref">Table&nbsp;1</a>, and the choices defended.</p>
 </section>
 <section id="print-it" class="level3">
 <h3 class="anchored" data-anchor-id="print-it">Print it</h3>
 <ol type="1">
-<li>3D-print your part with the material required.</li>
+<li>3D-print the part with the material required.</li>
 </ol>
 </section>
 <section id="insert-it-on-the-tube" class="level3">
 <h3 class="anchored" data-anchor-id="insert-it-on-the-tube">Insert it on the tube</h3>
-<p>Slide the collar onto the tail tube and set it to your starting station. Measure from a fixed datum, write the number down, and set the second one to the same number.</p>
+<p>Slide the collar onto the tail tube and set it to the starting station. Measure from a fixed datum, write the number down, and set the second one to the same number.</p>
 </section>
 <section id="attach-the-wing" class="level3">
 <h3 class="anchored" data-anchor-id="attach-the-wing">Attach the wing</h3>

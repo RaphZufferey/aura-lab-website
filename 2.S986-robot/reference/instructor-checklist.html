@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>CNC — Stepcraft D660 – FAAV Build Manual</title>
+<title>Instructor checklist – FAAV Build Manual</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -36,8 +36,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../reference/design-notes.html" rel="next">
-<link href="../reference/software.html" rel="prev">
+<link href="../changelog.html" rel="next">
+<link href="../reference/design-notes.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -282,7 +282,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
         <li>
     <a class="dropdown-item" href="../sessions/03-esc.html">
- <span class="dropdown-text">Module 3 — Motor driver, sensor and serial</span></a>
+ <span class="dropdown-text">Module 3 — Motor driver, sensor and serial connection</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../sessions/04-control.html">
@@ -348,12 +348,12 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">Software</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../reference/cnc.html">
- <span class="dropdown-text">CNC — Stepcraft D660</span></a>
-  </li>  
-        <li>
     <a class="dropdown-item" href="../reference/design-notes.html">
  <span class="dropdown-text">Design notes</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../reference/instructor-checklist.html">
+ <span class="dropdown-text">Instructor checklist</span></a>
   </li>  
     </ul>
   </li>
@@ -373,7 +373,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../reference/parts-list.html">Reference</a></li><li class="breadcrumb-item"><a href="../reference/cnc.html">CNC — Stepcraft D660</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../reference/parts-list.html">Reference</a></li><li class="breadcrumb-item"><a href="../reference/instructor-checklist.html">Instructor checklist</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -415,7 +415,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../sessions/03-esc.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Module 3 — Motor driver, sensor and serial</span></a>
+ <span class="menu-text">Module 3 — Motor driver, sensor and serial connection</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -515,14 +515,14 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../reference/cnc.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">CNC — Stepcraft D660</span></a>
+  <a href="../reference/design-notes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Design notes</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../reference/design-notes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Design notes</span></a>
+  <a href="../reference/instructor-checklist.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Instructor checklist</span></a>
   </div>
 </li>
       </ul>
@@ -543,7 +543,18 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#material-specific-notes" id="toc-material-specific-notes" class="nav-link active" data-scroll-target="#material-specific-notes">Material-specific notes</a></li>
+  <li><a href="#module-1-orientation" id="toc-module-1-orientation" class="nav-link active" data-scroll-target="#module-1-orientation">Module 1 — Orientation</a></li>
+  <li><a href="#module-2-motor-and-transmission-shaft" id="toc-module-2-motor-and-transmission-shaft" class="nav-link" data-scroll-target="#module-2-motor-and-transmission-shaft">Module 2 — Motor and transmission shaft</a></li>
+  <li><a href="#module-3-motor-driver-sensor-and-serial-connection" id="toc-module-3-motor-driver-sensor-and-serial-connection" class="nav-link" data-scroll-target="#module-3-motor-driver-sensor-and-serial-connection">Module 3 — Motor driver, sensor and serial connection</a></li>
+  <li><a href="#module-4-closed-loop-control-and-tuning" id="toc-module-4-closed-loop-control-and-tuning" class="nav-link" data-scroll-target="#module-4-closed-loop-control-and-tuning">Module 4 — Closed-loop control and tuning</a></li>
+  <li><a href="#module-5-frame-crank-linkage-and-gears" id="toc-module-5-frame-crank-linkage-and-gears" class="nav-link" data-scroll-target="#module-5-frame-crank-linkage-and-gears">Module 5 — Frame, crank, linkage and gears</a></li>
+  <li><a href="#module-6-flapping-simulation-ptera" id="toc-module-6-flapping-simulation-ptera" class="nav-link" data-scroll-target="#module-6-flapping-simulation-ptera">Module 6 — Flapping simulation (Ptera)</a></li>
+  <li><a href="#module-7-wing-fabrication" id="toc-module-7-wing-fabrication" class="nav-link" data-scroll-target="#module-7-wing-fabrication">Module 7 — Wing fabrication</a></li>
+  <li><a href="#module-8-tail" id="toc-module-8-tail" class="nav-link" data-scroll-target="#module-8-tail">Module 8 — Tail</a></li>
+  <li><a href="#module-9-flight-controller-pcb-and-dry-testing" id="toc-module-9-flight-controller-pcb-and-dry-testing" class="nav-link" data-scroll-target="#module-9-flight-controller-pcb-and-dry-testing">Module 9 — Flight controller, PCB and dry testing</a></li>
+  <li><a href="#module-10-waterproofing" id="toc-module-10-waterproofing" class="nav-link" data-scroll-target="#module-10-waterproofing">Module 10 — Waterproofing</a></li>
+  <li><a href="#module-11-wet-testing" id="toc-module-11-wet-testing" class="nav-link" data-scroll-target="#module-11-wet-testing">Module 11 — Wet testing</a></li>
+  <li><a href="#module-12-competition" id="toc-module-12-competition" class="nav-link" data-scroll-target="#module-12-competition">Module 12 — Competition</a></li>
   </ul>
 </nav>
     </div>
@@ -551,9 +562,9 @@ ul.task-list li input[type="checkbox"] {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../reference/parts-list.html">Reference</a></li><li class="breadcrumb-item"><a href="../reference/cnc.html">CNC — Stepcraft D660</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../reference/parts-list.html">Reference</a></li><li class="breadcrumb-item"><a href="../reference/instructor-checklist.html">Instructor checklist</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">CNC — Stepcraft D660</h1>
+<h1 class="title">Instructor checklist</h1>
 </div>
 
 
@@ -570,48 +581,265 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Used in <a href="../sessions/05-frame-crank.html">Module 5</a> for the carbon frame, the aluminium crank and linkage</p>
-<section id="material-specific-notes" class="level2">
-<h2 class="anchored" data-anchor-id="material-specific-notes">Material-specific notes</h2>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Material</th>
-<th>Thickness</th>
-<th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Woven carbon</td>
-<td>1.5 mm (varies 1.5–1.6)</td>
-<td>Body plates, top and bottom identical except chamfers</td>
-</tr>
-<tr class="even">
-<td>Aluminium</td>
-<td>5 mm</td>
-<td>Crank and linkage. Linkage faced down from 5 to 4 mm. Use a 2 mm endmill, flood the part</td>
-</tr>
-</tbody>
-</table>
-<div class="callout callout-style-default callout-important callout-titled">
+<p>Stock levels and order status are in the <a href="../reference/parts-list.html">Parts list</a>.</p>
+<section id="module-1-orientation" class="level2">
+<h2 class="anchored" data-anchor-id="module-1-orientation">Module 1 — Orientation</h2>
+<p><a href="../sessions/01-orientation.html">Module page</a></p>
+<ul class="task-list">
+<li><label><input type="checkbox">Class cabinet labelled</label></li>
+<li><label><input type="checkbox">Safety goggles in the “safety” drawer</label></li>
+<li><label><input type="checkbox">Prepare safety briefing with the safety officer (Ethan Fulcher)</label></li>
+</ul>
+</section>
+<section id="module-2-motor-and-transmission-shaft" class="level2">
+<h2 class="anchored" data-anchor-id="module-2-motor-and-transmission-shaft">Module 2 — Motor and transmission shaft</h2>
+<p><a href="../sessions/02-motor.html">Module page</a></p>
+<ul class="task-list">
+<li><label><input type="checkbox">3D prints</label></li>
+<li><label><input type="checkbox">Clean CAD</label></li>
+<li><label><input type="checkbox">Prepare solder kits</label></li>
+</ul>
+</section>
+<section id="module-3-motor-driver-sensor-and-serial-connection" class="level2">
+<h2 class="anchored" data-anchor-id="module-3-motor-driver-sensor-and-serial-connection">Module 3 — Motor driver, sensor and serial connection</h2>
+<p><a href="../sessions/03-esc.html">Module page</a></p>
+<p><strong>Stage</strong> (per team)</p>
+<ul class="task-list">
+<li><label><input type="checkbox">AS5047P encoder and its 3D-printed mount</label></li>
+<li><label><input type="checkbox">6×30AWG wire ribbon</label></li>
+<li><label><input type="checkbox">Seeeduino XIAO nRF52840 Sense and its 3D-printed bracket</label></li>
+<li><label><input type="checkbox">3D-printed ESC bracket</label></li>
+<li><label><input type="checkbox">Soldering iron, torx drivers, tweezers, micro-USB cable</label></li>
+<li><label><input type="checkbox"><strong>Power source, 15 V 5 A, over USB-C</strong></label></li>
+</ul>
+<p><strong>Prepare in advance</strong></p>
+<ul class="task-list">
+<li><label><input type="checkbox">Print the encoder, Seeeduino and ESC brackets</label></li>
+<li><label><input type="checkbox">Calibration stand and calibration code</label></li>
+<li><label><input type="checkbox">Barebone Seeeduino sketch ready to clone</label></li>
+<li><label><input type="checkbox">Students told to install VS Code + PlatformIO before the session</label></li>
+</ul>
+</section>
+<section id="module-4-closed-loop-control-and-tuning" class="level2">
+<h2 class="anchored" data-anchor-id="module-4-closed-loop-control-and-tuning">Module 4 — Closed-loop control and tuning</h2>
+<p><a href="../sessions/04-control.html">Module page</a></p>
+<p><strong>Stage</strong> (per team)</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Faulhaber 23.04:1 gearbox</label></li>
+<li><label><input type="checkbox">3D-printed plates and the second vertical bracket</label></li>
+<li><label><input type="checkbox">M2.5×10 screws, 3 × M2.5 and 3 × M2 screws</label></li>
+<li><label><input type="checkbox">4×8 mm flanged bearing</label></li>
+<li><label><input type="checkbox">3 wires for the Seeeduino link</label></li>
+<li><label><input type="checkbox">Bench supply with current limit</label></li>
+<li><label><input type="checkbox">Tachometer or camera</label></li>
+<li><label><input type="checkbox">Soldering iron</label></li>
+<li><label><input type="checkbox">Material for a small flag on the gearbox output</label></li>
+</ul>
+<p><strong>Prepare in advance</strong></p>
+<ul class="task-list">
+<li><label><input type="checkbox"><strong>Pre-flash every ESC</strong> with <a href="https://github.com/MIT-AURA-Lab/FAAV-G431-ESC">FAAV-G431-ESC</a>, including the SPI3 pin remap</label></li>
+</ul>
+<p><strong>Open items</strong></p>
+<ul class="task-list">
+<li><label><input type="checkbox">Say which repository and branch hold the barebone Seeeduino sketch. The nRF52 repositories in <a href="../reference/software.html">Software</a> are marked outdated</label></li>
+<li><label><input type="checkbox">Write the Calibration section, which is currently empty</label></li>
+<li><label><input type="checkbox">Write the PID tuning exercise, the target performance and the sign-off criteria</label></li>
+</ul>
+</section>
+<section id="module-5-frame-crank-linkage-and-gears" class="level2">
+<h2 class="anchored" data-anchor-id="module-5-frame-crank-linkage-and-gears">Module 5 — Frame, crank, linkage and gears</h2>
+<p><a href="../sessions/05-frame-crank.html">Module page</a></p>
+<p><strong>Stage</strong> (per team)</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Carbon frame plates (1.5 mm, top and bottom), M2×4 screws and brass inserts</label></li>
+<li><label><input type="checkbox">AL7075 crank and linkage</label></li>
+<li><label><input type="checkbox">4 mm crank–linkage shaft cut to <strong>10.5 mm</strong>, and a 4 mm circlip</label></li>
+<li><label><input type="checkbox">3 mm gear shafts</label></li>
+<li><label><input type="checkbox">Left and right wing gears</label></li>
+<li><label><input type="checkbox">Bearings: 10×4×4 (crank side), 8×3×4 (wing side), 8×4×4 flanged (middle plate), 4 × 7×3×3 flanged (wing pivots)</label></li>
+<li><label><input type="checkbox">M2×5 screws</label></li>
+<li><label><input type="checkbox">Drill press, metal glue, caliper</label></li>
+</ul>
+<p><strong>Prepare in advance</strong></p>
+<ul class="task-list">
+<li><label><input type="checkbox">CNC-cut the carbon plates</label></li>
+<li><label><input type="checkbox">CNC-cut the crank and linkage in AL7075</label></li>
+<li><label><input type="checkbox">Cut the 4 mm shafts to 10.5 mm</label></li>
+<li><label><input type="checkbox">Print the gears</label></li>
+<li><label><input type="checkbox"><strong>Buy 4 mm circlips</strong> (still a TODO on the module page)</label></li>
+</ul>
+</section>
+<section id="module-6-flapping-simulation-ptera" class="level2">
+<h2 class="anchored" data-anchor-id="module-6-flapping-simulation-ptera">Module 6 — Flapping simulation (Ptera)</h2>
+<p><a href="../sessions/06-simulation.html">Module page</a></p>
+<p><strong>Stage</strong></p>
+<ul class="task-list">
+<li><label><input type="checkbox">Students bring laptops with Ptera installed</label></li>
+</ul>
+<p><strong>Open items</strong></p>
+<p>This module has no counterpart in the manufacturing guide, so most of it still needs writing:</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Ptera installation instructions and a worked example</label></li>
+<li><label><input type="checkbox">The motor power curve students are given, and its file format</label></li>
+<li><label><input type="checkbox">How “most efficient thrust profile” is defined and scored</label></li>
+<li><label><input type="checkbox">Buildability constraints: span limits, root fitting, mass budget</label></li>
+<li><label><input type="checkbox">How far teams may deviate from the reference wing</label></li>
+</ul>
+</section>
+<section id="module-7-wing-fabrication" class="level2">
+<h2 class="anchored" data-anchor-id="module-7-wing-fabrication">Module 7 — Wing fabrication</h2>
+<p><a href="../sessions/07-wings.html">Module page</a></p>
+<p><strong>Stage</strong> (per team)</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Carbon rods and strips</label></li>
+<li><label><input type="checkbox">Carbon wing roots, drilled to mate with the gears</label></li>
+<li><label><input type="checkbox">2 × nylon adapters per wing (4 per robot)</label></li>
+<li><label><input type="checkbox">Ripstop nylon 40D membrane</label></li>
+<li><label><input type="checkbox">3M VHB tape</label></li>
+<li><label><input type="checkbox">Superglue</label></li>
+<li><label><input type="checkbox">Thread and needles</label></li>
+<li><label><input type="checkbox">Cutting mats, steel rules, scalpels</label></li>
+<li><label><input type="checkbox">Scale, for matching the mass of the two wings</label></li>
+<li><label><input type="checkbox">A printer that can print the team’s Module 6 geometry at 1:1</label></li>
+</ul>
+<p><strong>Prepare in advance</strong></p>
+<ul class="task-list">
+<li><label><input type="checkbox">Drill the wing roots</label></li>
+<li><label><input type="checkbox">Print the nylon adapters</label></li>
+</ul>
+<p><strong>Open items</strong></p>
+<ul class="task-list">
+<li><label><input type="checkbox">3M tape: which VHB product, what width, and where it goes on the leading edge</label></li>
+<li><label><input type="checkbox">Spar layup: rod and strip diameters, and where the diagonals attach</label></li>
+<li><label><input type="checkbox">Thread type and stitch spacing</label></li>
+<li><label><input type="checkbox">The allowed mass and geometry difference between left and right wings</label></li>
+</ul>
+</section>
+<section id="module-8-tail" class="level2">
+<h2 class="anchored" data-anchor-id="module-8-tail">Module 8 — Tail</h2>
+<p><a href="../sessions/08-tail-housing.html">Module page</a></p>
+<p><strong>Stage</strong> (per team)</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Carbon sheet and tail rod</label></li>
+<li><label><input type="checkbox">5 mm tail tube</label></li>
+<li><label><input type="checkbox">Foam stock (XPS or closed-cell PE)</label></li>
+<li><label><input type="checkbox">Epoxy</label></li>
+<li><label><input type="checkbox">M2 screws and square half nuts, for the trailing-edge holder collar</label></li>
+<li><label><input type="checkbox">Foam cutter, scalpel</label></li>
+<li><label><input type="checkbox">3D printer access for the students’ trailing-edge holder designs</label></li>
+</ul>
+<p><strong>Open items</strong></p>
+<ul class="task-list">
+<li><label><input type="checkbox">Tail sheet material and thickness, rod diameter, boom mount, and incidence setting</label></li>
+<li><label><input type="checkbox">Decide whether tail actuation is in scope (if time permits)</label></li>
+<li><label><input type="checkbox">Say which print material the trailing-edge holder should use</label></li>
+</ul>
+</section>
+<section id="module-9-flight-controller-pcb-and-dry-testing" class="level2">
+<h2 class="anchored" data-anchor-id="module-9-flight-controller-pcb-and-dry-testing">Module 9 — Flight controller, PCB and dry testing</h2>
+<p><a href="../sessions/09-electronics-dry-test.html">Module page</a></p>
+<p><strong>Stage</strong> (per team)</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Seeeduino XIAO, connectors, battery</label></li>
+<li><label><input type="checkbox">Hotplate, tweezers, multimeter</label></li>
+<li><label><input type="checkbox">Bench supply with current limit</label></li>
+</ul>
+<p><strong>Prepare in advance</strong></p>
+<ul class="task-list">
+<li><label><input type="checkbox">Custom PCBs from <a href="https://github.com/MIT-AURA-Lab/FAAV-PCB-v3">FAAV-PCB-v3</a> and their BOM components</label></li>
+<li><label><input type="checkbox"><a href="https://github.com/MIT-AURA-Lab/FAAV-Flight-Controller">FAAV-Flight-Controller</a> firmware checked against the hardware in use. <a href="../reference/software.html">Software</a> lists it as ESP32, while Modules 3 and 9 use the XIAO nRF52840</label></li>
+<li><label><input type="checkbox">Charged batteries</label></li>
+</ul>
+<p><strong>Open items</strong></p>
+<ul class="task-list">
+<li><label><input type="checkbox">Write the “Connect battery” instructions</label></li>
+<li><label><input type="checkbox">Dry-test protocol: the mount used while flapping in air, the frequency sweep, what gets measured, the wireless control setup, and abort criteria</label></li>
+</ul>
+</section>
+<section id="module-10-waterproofing" class="level2">
+<h2 class="anchored" data-anchor-id="module-10-waterproofing">Module 10 — Waterproofing</h2>
+<p><a href="../sessions/10-waterproofing.html">Module page</a></p>
+<div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>MIT manufacturing
+<span class="screen-reader-only">Warning</span>Schedule for the cure
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Central shop?</p>
+<p>Potting takes 12–24 h to cure. Plan the session so potting happens first, or split it across two sittings.</p>
 </div>
 </div>
+<p><strong>Stage</strong> (per team)</p>
+<ul class="task-list">
+<li><label><input type="checkbox">3D-printed flight controller waterproofing box (printed transparent)</label></li>
+<li><label><input type="checkbox">3D-printed ESC potting frame</label></li>
+<li><label><input type="checkbox">Silicone sealant (Dow 734) for the flight controller</label></li>
+<li><label><input type="checkbox">Silcoset for the ESC</label></li>
+<li><label><input type="checkbox">Kapton tape</label></li>
+<li><label><input type="checkbox">USB-C cable, to plug the port during potting</label></li>
+<li><label><input type="checkbox">CorrosionX and white lithium grease</label></li>
+<li><label><input type="checkbox">SlimSeal TE connectors (2 per robot)</label></li>
+<li><label><input type="checkbox">IPA for cleaning after immersion</label></li>
+<li><label><input type="checkbox">Needle, soldering iron</label></li>
+<li><label><input type="checkbox">Setup for the static immersion test</label></li>
+</ul>
+<p><strong>Prepare in advance</strong></p>
+<ul class="task-list">
+<li><label><input type="checkbox">Print the waterproofing boxes and ESC frames</label></li>
+<li><label><input type="checkbox">Somewhere the potted parts can cure undisturbed overnight</label></li>
+</ul>
+<p><strong>Open items</strong></p>
+<ul class="task-list">
+<li><label><input type="checkbox">Battery waterproofing procedure</label></li>
+<li><label><input type="checkbox">Battery connector waterproofing procedure</label></li>
+<li><label><input type="checkbox">The discussion of cost of transport and how it is measured</label></li>
+</ul>
+</section>
+<section id="module-11-wet-testing" class="level2">
+<h2 class="anchored" data-anchor-id="module-11-wet-testing">Module 11 — Wet testing</h2>
+<p><a href="../sessions/11-wet-testing.html">Module page</a></p>
+<p><strong>Stage</strong></p>
+<ul class="task-list">
+<li><label><input type="checkbox">Tank ready, with retrieval poles and towels</label></li>
+<li><label><input type="checkbox">Overhead tracking cameras working</label></li>
+<li><label><input type="checkbox">Charged 4S packs</label></li>
+<li><label><input type="checkbox">Spare crank–linkage shafts</label></li>
+<li><label><input type="checkbox">Floats or foam for trimming buoyancy</label></li>
+<li><label><input type="checkbox">Scale, for the robot mass used in cost of transport</label></li>
+</ul>
+<p><strong>Prepare in advance</strong></p>
+<ul class="task-list">
+<li><label><input type="checkbox">A way for teams to print housings for neutral buoyancy</label></li>
+<li><label><input type="checkbox">BLE retrieval of logged runs tested end to end</label></li>
+</ul>
+<p><strong>Open items</strong></p>
+<ul class="task-list">
+<li><label><input type="checkbox">Design the trailing-edge trim part: what it is, how it mounts, and its range of adjustment</label></li>
+<li><label><input type="checkbox">Run profile: depth, duration, and the flap-frequency sweep</label></li>
+<li><label><input type="checkbox">Abort procedure: what ends a run, and what students do at the tank edge</label></li>
+<li><label><input type="checkbox">Camera tracking: how a team starts a capture, and the format the position data comes back in</label></li>
+</ul>
+</section>
+<section id="module-12-competition" class="level2">
+<h2 class="anchored" data-anchor-id="module-12-competition">Module 12 — Competition</h2>
+<p><a href="../sessions/12-competition.html">Module page</a></p>
+<p><strong>Stage</strong></p>
+<ul class="task-list">
+<li><label><input type="checkbox">Tank and tracking cameras, set up as in Module 11</label></li>
+<li><label><input type="checkbox">Spare crank–linkage shafts, spare wing material, charged packs</label></li>
+</ul>
+<p><strong>Open items</strong></p>
+<ul class="task-list">
+<li><label><input type="checkbox">Write the competition rules section, which is currently empty</label></li>
+<li><label><input type="checkbox">Course layout and run rules for each category (most efficient, fastest)</label></li>
+<li><label><input type="checkbox">How cost of transport is computed and normalised across robot masses</label></li>
+<li><label><input type="checkbox">Number of attempts, and repair rules between attempts</label></li>
+<li><label><input type="checkbox">How the competition counts towards the grade</label></li>
+<li><label><input type="checkbox">What happens to the robots afterwards</label></li>
+</ul>
 
 
 </section>
@@ -1037,13 +1265,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../reference/software.html" class="pagination-link" aria-label="Software">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Software</span>
+      <a href="../reference/design-notes.html" class="pagination-link" aria-label="Design notes">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Design notes</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../reference/design-notes.html" class="pagination-link" aria-label="Design notes">
-        <span class="nav-page-text">Design notes</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../changelog.html" class="pagination-link" aria-label="Changelog">
+        <span class="nav-page-text">Changelog</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

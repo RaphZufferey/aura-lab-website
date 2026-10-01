@@ -2,17 +2,17 @@
 title: "Module 8 --- Tail"
 ---
 
-## What you build today
+## Summary
 
-The passive tail, cut to the shape your simulation produced and mounted on its
+The passive tail, cut to the shape the simulation produced and mounted on its
 rod and the trailing edge mount
-## Before you arrive
+## Requirements
 
 | | |
 |---|---|
 | **Parts** | Carbon sheet and tail rod, foam stock (XPS or closed-cell PE), epoxy |
 | **Tools** | Foam cutter, scalpel |
-| **Bring** | Your Module 6 tail geometry, printed 1:1 |
+| **Bring** | The Module 6 tail geometry, printed 1:1 |
 
 ## Tail
 
@@ -39,13 +39,13 @@ Move it and the wing behaves differently. So this part is a trim adjustment as
 much as it is a mount, which is why both its positions have to stay changeable
 after the robot is built.
 
-This one is yours to design. The requirements are fixed; the mechanism is not.
+This part is a design exercise. The requirements are fixed; the mechanism is not.
 
 | Requirement | Why |
 |---|---|
 | Rotates with the wing through the whole stroke | The root swings 34° up and 26° down. An anchor that cannot follow loads the membrane in the one direction it cannot take. |
-| Adjustable **longitudinally**, along the tube | Fore/aft position sets wing twist. This is the trim you will actually reach for in [Module 11](11-wet-testing.qmd). |
-| Each Wing mounts can change **laterally and longitudinally** | Sets how far the anchor stands off the boom, and is how you match left to right. |
+| Adjustable **longitudinally**, along the tube | Fore/aft position sets wing twist. This is the trim actually reached for in [Module 11](11-wet-testing.qmd). |
+| Each Wing mounts can change **laterally and longitudinally** | Sets how far the anchor stands off the boom, and is how left and right are matched. |
 | Wing comes off without dismantling anything | Wings get swapped, damaged and rebuilt. Nothing about this joint may be permanent. |
 | Survives repeated wet cycling | To not fail at competition |
 
@@ -58,15 +58,15 @@ convention in [Design notes](/reference/design-notes.qmd). Sliding it gives the
 longitudinal adjustment, rotating it about the tube gives some of the lateral,
 and a slotted arm gives the rest.
 
-Justify your design against @tbl-te-requirements, and be ready to defend the choices.
+The design must be justified against @tbl-te-requirements, and the choices defended.
 
 ### Print it
 
-1.  3D-print your part with the material required.
+1.  3D-print the part with the material required.
 
 ### Insert it on the tube
 
-Slide the collar onto the tail tube and set it to your starting station.
+Slide the collar onto the tail tube and set it to the starting station.
 Measure from a fixed datum, write the number down, and set the second one
 to the same number. 
 
