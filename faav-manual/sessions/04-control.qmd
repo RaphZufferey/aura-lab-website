@@ -136,7 +136,7 @@ With the output held there is no back-EMF and no mechanical work, so all the ele
 
 ## Calibration
 
-We'd like to also make sure that we have the right **motor parameters** for running at high speeds (above 400 rad/s). To this, we will follow the commissioning instrutions in the firmware above. To this with your TA. Run autocal until 1000 rad/s.
+We'd like to also make sure that we have the right **motor parameters** for running at high speeds (above 400 rad/s). To this, we will follow the commissioning instrutions in the firmware above. Do this with your TA. Run autocal until 1000 rad/s.
 
 ## Why we use an ESC that we reprogram
 

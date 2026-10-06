@@ -364,7 +364,7 @@
     "href": "sessions/04-control.html#calibration",
     "title": "Module 4 — Closed-loop control and tuning",
     "section": "Calibration",
-    "text": "Calibration\nWe’d like to also make sure that we have the right motor parameters for running at high speeds (above 400 rad/s). To this, we will follow the commissioning instrutions in the firmware above. To this with your TA. Run autocal until 1000 rad/s.",
+    "text": "Calibration\nWe’d like to also make sure that we have the right motor parameters for running at high speeds (above 400 rad/s). To this, we will follow the commissioning instrutions in the firmware above. Do this with your TA. Run autocal until 1000 rad/s.",
     "crumbs": [
       "Overview",
       "Build modules",
@@ -1288,7 +1288,7 @@
     "href": "sessions/05-frame-crank.html#reduction",
     "title": "Module 5 — Frame, crank, linkage and gears",
     "section": "Reduction",
-    "text": "Reduction\nThe motor is connected via a custom shaft to a gearbox with a 23.04:1 reduction by Faulhaber.2 Both parts are held in place by 3D-printed plates. The output shaft of the gearbox has its own bearing on the inside of the gearbox, and is also supported mid-way on the shaft by a 4×8 mm flanged bearing. This leaves 5 mm of shaft length free for the crank to be mounted on. A flat on the shaft helps lock the rotation of the M3 screw extending through the crank.\n\n\n\n\n\n\nMotor shaft\n\n\n\n\n\n\n\nFaulhaber gearbox\n\n\n\n\n\nFirst, we need to press + glue our sun gear is already pressed onto the motor shaft from Module 2.\nNext, we need to install the gearbox to the motor and fixing the pair to the plates.\n\nSlide the gearbox onto the motor shaft so the sun gear engages the planets. It should seat with light hand pressure, if it resists, back off and check the sun gear is square on the shaft rather than forcing it.\nFix the blue part of the gearbox: the custom screws that come with the gearbox on one side, and M2.5×10 screws on the other.\nCheck the output turns freely by hand through a full revolution before applying power.\nClose the gearbox: the silver part threads onto the blue part. Don’t tighten it.\nAttach the second vertical bracket to the silver part of the gearbox with 3 × M2.5 screws.\nSecure that bracket to the bottom fuselage plate with 3 × M2 screws. The motor bracket from Module 2 is already on the same plate, so between them the two brackets set the alignment of the whole drivetrain. Check the output still turns freely once both are bolted down.",
+    "text": "Reduction\nThe motor is connected via a custom shaft to a gearbox with a 23.04:1 reduction by Faulhaber.2 that leaves 5 mm of shaft length free for the crank to be mounted on. A flat on the shaft helps lock the rotation of the M3 screw extending through the crank.\n\n\n\n\n\n\nFaulhaber gearbox",
     "crumbs": [
       "Overview",
       "Build modules",
@@ -1312,7 +1312,7 @@
     "href": "sessions/05-frame-crank.html#gears",
     "title": "Module 5 — Frame, crank, linkage and gears",
     "section": "Gears",
-    "text": "Gears\nThe 3 mm shafts are pressed through the two gears’ centre holes. Should be a mildly tight fit at minimum, otherwise glue the shaft. Same for the linkage shaft.\nBetween the gears, a clearance of 0.4 mm (inter-axis spacing of 25.4 mm) ensures proper operation without too much backlash.\n\n\n\n\n\n\nTransmission assembled\n\n\n\n\n\n\n\nTransmission, second view\n\n\n\n\n\n\n\n\n\n\n\nNoteCheckpoint\n\n\n\nFrame assembled, crank–linkage rotating freely through a full cycle with no binding, linkage visibly perpendicular to the shafts, and gear backlash checked. Flapping shown at 1-5 Hz.\n\n\nTODO: buy circlip 4mm",
+    "text": "Gears\n\n4 mm shaft\nCNC-cut shaft already has a groove for a circlip. Press fit into crank until flush. It needs to be a good press fit, shouldn’t move at all. Then insert the link 10 mm bearing onto the shaft and lock in place with a 4 mm circlip.\n\n\n3 mm shafts\nCut 3 shafts to length. Select a stainless, 3-mm diameter rod for this. Two of the shafts (A and B) sit at the center of rotation of the wings, and the remaining shaft (C) connects the left gear to the crank link.\nThe A and B shafts are pressed through the two gears’ center holes and the . Should be a mildly tight fit at minimum, otherwise glue the shaft with a drop of superglue.\nBetween the gears, a clearance of 0.4 mm (inter-axis spacing of 25.4 mm) ensures proper operation without too much backlash.\n\n\n\n\n\n\nTransmission assembled\n\n\n\n\n\n\n\nCrank-linkage\n\n\n\n\n\n\n\n\n\n\n\nNoteCheckpoint\n\n\n\nFrame assembled, crank–linkage-gears assembled, linkage visibly perpendicular to the shafts, and gear backlash checked.",
     "crumbs": [
       "Overview",
       "Build modules",

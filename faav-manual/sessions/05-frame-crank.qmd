@@ -28,31 +28,13 @@ The sun gear from the Faulhaber 23.04:1 gearbox. Glue and press onto shaft. Chec
 
 ## Reduction
 
-The motor is connected via a custom shaft to a gearbox with a **23.04:1** reduction by Faulhaber.[^2] Both parts are held in place by 3D-printed plates. The output shaft of the gearbox has its own bearing on the inside of the gearbox, and is also supported mid-way on the shaft by a 4×8 mm flanged bearing. This leaves **5 mm of shaft length free** for the crank to be mounted on. A flat on the shaft helps lock the rotation of the M3 screw extending through the crank.
+The motor is connected via a custom shaft to a gearbox with a **23.04:1** reduction by Faulhaber.[^2] that leaves **5 mm of shaft length free** for the crank to be mounted on. A flat on the shaft helps lock the rotation of the M3 screw extending through the crank.
 
 [^2]: [Faulhaber gearhead reduction ratios](https://www.faulhaber.com/fileadmin/Import/Media/DE_GEARHEADS_REDUCTION_RATIOS.pdf) (accessed 20.02.2024).
 
-::: {layout-ncol="2"}
-![Motor shaft](/Fig/shaft_motor.jpg)
-
+::: {layout-ncol="1"}
 ![Faulhaber gearbox](/Fig/fhaber.jpg)
 :::
-
-First, we need to press + glue our sun gear is already pressed onto the motor shaft from [Module 2](02-motor.qmd).
-
-Next, we need to install the gearbox to the motor and fixing the pair to the plates.
-
-1.  Slide the gearbox onto the motor shaft so the sun gear engages the planets. It should seat with light hand pressure, if it resists, back off and check the sun gear is square on the shaft rather than forcing it.
-
-2.  Fix the blue part of the gearbox: the custom screws that come with the gearbox on one side, and **M2.5×10** screws on the other.
-
-3.  Check the output turns freely by hand through a full revolution before applying power.
-
-4.  Close the gearbox: the **silver part threads onto the blue part**. Don't tighten it.
-
-5.  Attach the **second vertical bracket** to the silver part of the gearbox with **3 × M2.5** screws.
-
-6.  Secure that bracket to the **bottom fuselage plate** with **3 × M2** screws. The motor bracket from [Module 2](02-motor.qmd) is already on the same plate, so between them the two brackets set the alignment of the whole drivetrain. Check the output still turns freely once both are bolted down.
 
 ## Crank and linkage
 
@@ -87,20 +69,26 @@ An offset of **1 mm** is sufficient to destroy the crank-link in a few strokes.
 
 ## Gears
 
-The 3 mm shafts are pressed through the two gears' centre holes. Should be a mildly tight fit at minimum, otherwise glue the shaft. Same for the linkage shaft.
+### 4 mm shaft
+
+CNC-cut shaft already has a groove for a circlip. Press fit into crank until flush. It needs to be a good press fit, shouldn't move at all. Then insert the link 10 mm bearing onto the shaft and lock in place with a 4 mm circlip.
+
+### 3 mm shafts
+
+Cut 3 shafts to length. Select a stainless, 3-mm diameter rod for this. Two of the shafts (A and B) sit at the center of rotation of the wings, and the remaining shaft (C) connects the left gear to the crank link.
+
+The A and B shafts are pressed through the two gears' center holes and the . Should be a mildly tight fit at minimum, otherwise glue the shaft with a drop of superglue.
 
 Between the gears, a clearance of **0.4 mm** (inter-axis spacing of 25.4 mm) ensures proper operation without too much backlash.
 
 ::: {layout-ncol="2"}
 ![Transmission assembled](/Fig/transmission.jpg){width="45%"}
 
-![Transmission, second view](/Fig/transmission2.jpg){width="45%"}
+![Crank-linkage](/Fig/transmission2.jpg){width="45%"}
 :::
 
 ::: callout-note
 ## Checkpoint
 
-Frame assembled, crank–linkage rotating freely through a full cycle with no binding, linkage visibly perpendicular to the shafts, and gear backlash checked. Flapping shown at 1-5 Hz.
+Frame assembled, crank–linkage-gears assembled, linkage visibly perpendicular to the shafts, and gear backlash checked.
 :::
-
-TODO: buy circlip 4mm
