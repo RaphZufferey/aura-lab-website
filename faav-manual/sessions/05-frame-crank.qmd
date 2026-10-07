@@ -18,19 +18,15 @@ We assemble the frame, the CNC-cut crank and linkage, the gears, and the full me
 
 ## Main body
 
-The main body is a carbon sandwich, spaced **24 mm** apart. The plates are CNC-cut from woven 1.5 mm plates. The top and bottom plates are identical, except for the chamfers needed for the M2 screws. The screws holding plate to plate are **M2×5**, screwing into brass inserts.
+The main body is a bi-plate structure, spaced **24 mm** apart. The plates are CNC-cut from 1.5 mm plates. The top and bottom plates are identical, except for the chamfers needed for the M2 screws. The screws holding plate to plate are **M2×5**, screwing into square nuts.
 
 ![Carbon/Aluminum frame structure](/Fig/Sideview-CAD.jpg){#fig-frame width="100%"}
 
 ## Reduction
 
-The motor will be connected via a custom shaft to a gearbox with a **23.04:1** reduction by Faulhaber.[^2] that leaves **5 mm of shaft length free** for the crank to be mounted on. A flat on the shaft helps lock the rotation of the M3 screw extending through the crank.
+The motor will be connected via a custom shaft to a gearbox with a **23.04:1** reduction by Faulhaber[^2] that leaves **5 mm of shaft length free** for the crank to be mounted on. A flat on the shaft helps lock the rotation of the M3 screw extending through the crank.
 
 [^2]: [Faulhaber gearhead reduction ratios](https://www.faulhaber.com/fileadmin/Import/Media/DE_GEARHEADS_REDUCTION_RATIOS.pdf) (accessed 20.02.2024).
-
-::: {layout-ncol="1"}
-![Faulhaber gearbox](/Fig/fhaber.jpg)
-:::
 
 ## Crank and linkage
 
@@ -43,10 +39,10 @@ The dimensions called out in @fig-transmission-exploded are the ones to cut to:
 | Crank radius | 4.5 mm |
 | Linkage length | 24 mm |
 | Crank–linkage shaft diameter | 4 mm |
-| Bearing, crank side | 10×4×4 mm |
-| Bearing, wing side | 8×3×4 mm |
+| Bearing, in linkage, crank side | 10×4×4 mm |
+| Bearing, in linkage, wing side (shaft C) | 8×3×4 mm |
 | Bearing, in the middle plate, around Faulhaber reduction | 8×4×4 mm flanged |
-| Bearings, around wing pivot shafts (4x) | 7×3×3 mm flanged |
+| Bearings, around wing gear shafts A and B | 7×3×3 mm flanged, 4x |
 
 : Crank–linkage dimensions
 
@@ -82,7 +78,7 @@ Cut the shafts to length as indicated below. Select a stainless, 3-mm diameter r
 
 Two of the shafts (A and B) sit at the center of rotation of the wings, and the remaining shaft (C) connects the left gear to the crank link.
 
-The A and B shafts are pressed through the two gears' center holes and the . Should be a mildly tight fit at minimum, otherwise glue the shaft with a drop of superglue.
+The A and B shafts are pressed through the two gears' center holes. Should be a mildly tight fit at minimum, otherwise glue the shaft with a drop of superglue.
 
 Between the gears, a clearance of **0.4 mm** (inter-axis spacing of 25.4 mm) ensures proper operation without too much backlash.
 
@@ -94,11 +90,7 @@ Between the gears, a clearance of **0.4 mm** (inter-axis spacing of 25.4 mm) ens
 
 ## Linkage-Gear assembly
 
-Press the last shaft (C) through the right wing gear, with the link in place. In other words, the 3 mm shaft rests on either side of the right gear and keeps the smaller bearing of the link in place.
-
-@fig-transmission-done is what the module should leave you with. Compare it against your own build.
-
-You should now have a right wing gear, connected to the crank and link.
+Press the last shaft (C) through the right wing gear, with the link in place. In other words, the 3 mm shaft rests on either side of the right gear and keeps the smaller bearing of the link in place. @fig-transmission-done is what the module should leave you with. Compare it against your own build. You should now have a right wing gear, connected to the crank and link.
 
 ## Mount the right wing
 
