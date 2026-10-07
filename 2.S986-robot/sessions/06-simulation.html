@@ -26,6 +26,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -52,6 +87,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/bootstrap/bootstrap-3bc97f2477fb7965bce9454950d60e55.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/bootstrap/bootstrap-dark-dea204dea6f735ae4ecf1dae3d686bcc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <link href="../site_libs/bootstrap/bootstrap-3bc97f2477fb7965bce9454950d60e55.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -545,7 +583,10 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#summary" id="toc-summary" class="nav-link active" data-scroll-target="#summary">Summary</a></li>
   <li><a href="#requirements" id="toc-requirements" class="nav-link" data-scroll-target="#requirements">Requirements</a></li>
-  <li><a href="#deliverable" id="toc-deliverable" class="nav-link" data-scroll-target="#deliverable">Deliverable</a></li>
+  <li><a href="#what-ptera-does" id="toc-what-ptera-does" class="nav-link" data-scroll-target="#what-ptera-does">What Ptera does</a></li>
+  <li><a href="#installing-ptera" id="toc-installing-ptera" class="nav-link" data-scroll-target="#installing-ptera">Installing Ptera</a></li>
+  <li><a href="#how-a-ptera-model-is-put-together" id="toc-how-a-ptera-model-is-put-together" class="nav-link" data-scroll-target="#how-a-ptera-model-is-put-together">How a Ptera model is put together</a></li>
+  <li><a href="#modelling-the-tail" id="toc-modelling-the-tail" class="nav-link" data-scroll-target="#modelling-the-tail">Modelling the tail</a></li>
   </ul>
 </nav>
     </div>
@@ -591,29 +632,106 @@ ul.task-list li input[type="checkbox"] {
 </tbody>
 </table>
 </section>
-<section id="deliverable" class="level2">
-<h2 class="anchored" data-anchor-id="deliverable">Deliverable</h2>
-<p>A wing planform and a tail geometry, with the simulation output that justifies them, carried forward into <a href="../sessions/07-wings.html">Module 7</a> and <a href="../sessions/08-tail-housing.html">Module 8</a>.</p>
-<div class="callout callout-style-default callout-important callout-titled">
+<section id="what-ptera-does" class="level2">
+<h2 class="anchored" data-anchor-id="what-ptera-does">What Ptera does</h2>
+<div id="fig-ptera" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ptera-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="../Fig/k=5_deformation.gif" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1: A Ptera run: the lifting surfaces are divided into the panel mesh the solver actually works on, and coloured by lift coefficient through the stroke. The deformation you can see is the point - the loading changes continuously as the wing flaps, which is exactly what a steady calculation cannot give you."><img src="../Fig/k=5_deformation.gif" class="img-fluid figure-img" style="width:85.0%"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ptera-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: A Ptera run: the lifting surfaces are divided into the panel mesh the solver actually works on, and coloured by lift coefficient through the stroke. The deformation you can see is the point - the loading changes continuously as the wing flaps, which is exactly what a steady calculation cannot give you.
+</figcaption>
+</figure>
+</div>
+<p><a href="https://github.com/camUrban/PteraSoftware">Ptera Software</a> is an open-source package for analysing flapping-wing flight. It exists because the usual options are bad: steady aerodynamics assumes the wing is not moving, which is the one assumption a flapping wing breaks, and full CFD is slow and expensive enough that you cannot use it to compare candidate planforms in an afternoon.</p>
+<p>It uses the <strong>unsteady ring vortex lattice method (UVLM)</strong>. The surfaces are reduced to a mesh of panels, each carrying a vortex ring, and the wake is shed and tracked as the wing moves. That is a large step up from a steady method - it captures the history of the flow, so the forces at one instant depend on what the wing did before - while staying fast enough to sweep a design space.</p>
+</section>
+<section id="installing-ptera" class="level2">
+<h2 class="anchored" data-anchor-id="installing-ptera">Installing Ptera</h2>
+<p>The examples are in the repository, so clone it rather than installing the package on its own:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/camUrban/PteraSoftware.git</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> PteraSoftware</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">-r</span> requirements.txt</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Then run the unsteady example to confirm the install works:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> examples/unsteady_ring_vortex_lattice_method_solver_variable.py</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>It should open an animation like <a href="#fig-ptera" class="quarto-xref">Figure&nbsp;1</a>. If it does, the solver, the geometry classes and the output stack are all working and you can start editing a copy of that script into your own geometry.</p>
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>To be written by the instructor
+<span class="screen-reader-only">Note</span>Two ways to install it
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This module has <strong>no counterpart in the manufacturing guide</strong> — the guide documents the research robot’s final geometry, not the design exercise. The following need to be written from course material:</p>
+<p><code>pip install pterasoftware</code> also works if you only want the library. It does <strong>not</strong> give you the <code>examples/</code> folder, which is where the working scripts are.</p>
+</div>
+</div>
+</section>
+<section id="how-a-ptera-model-is-put-together" class="level2">
+<h2 class="anchored" data-anchor-id="how-a-ptera-model-is-put-together">How a Ptera model is put together</h2>
+<p>The thing worth understanding before you open the example is that <strong>geometry and motion are two parallel hierarchies</strong>. You build the shape first, then build a matching movement object for each piece of that shape. Every geometry class has a movement twin.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 31%">
+<col style="width: 31%">
+<col style="width: 36%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Geometry</th>
+<th>Movement twin</th>
+<th>What it is</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>Airfoil</code></td>
+<td>—</td>
+<td>The 2D section. Does not move on its own</td>
+</tr>
+<tr class="even">
+<td><code>WingCrossSection</code></td>
+<td><code>WingCrossSectionMovement</code></td>
+<td>An airfoil placed at a span position, with its own chord, twist and offset</td>
+</tr>
+<tr class="odd">
+<td><code>Wing</code></td>
+<td><code>WingMovement</code></td>
+<td>Two or more cross-sections swept into a surface</td>
+</tr>
+<tr class="even">
+<td><code>Airplane</code></td>
+<td><code>AirplaneMovement</code></td>
+<td>All the wings together — on this robot, the two wings and the tail</td>
+</tr>
+<tr class="odd">
+<td><code>OperatingPoint</code></td>
+<td><code>OperatingPointMovement</code></td>
+<td>Freestream velocity, density and angles</td>
+</tr>
+</tbody>
+</table>
+<p>The two sides are then joined and solved:</p>
+<ol type="1">
+<li><code>Movement</code> takes the <code>AirplaneMovement</code> and the <code>OperatingPointMovement</code> and becomes the complete time-varying description of the problem.</li>
+<li><code>UnsteadyProblem</code> wraps that <code>Movement</code>.</li>
+<li><code>UnsteadyRingVortexLatticeMethodSolver</code> takes the problem and runs it.</li>
+</ol>
+<p>So the flapping is <strong>not</strong> a property of the wing. It lives in the movement twin, which is why the same geometry can be swept through different kinematics without rebuilding it.</p>
+</section>
+<section id="modelling-the-tail" class="level2">
+<h2 class="anchored" data-anchor-id="modelling-the-tail">Modelling the tail</h2>
+<p>In Ptera it is simply another <code>Wing</code> on the <code>Airplane</code>, built the same way as the flapping wings: two or more <code>WingCrossSection</code> objects, each with an <code>Airfoil</code>, swept into a surface. It needs a <code>WingMovement</code> like everything else, but for a fixed tail that movement is static (the object still has to exist).</p>
+<p>The planform follows from where you put the cross-sections and what chord you give each one:</p>
 <ul>
-<li>Ptera installation and a worked example</li>
-<li>The provided motor power curve, and its format</li>
-<li>What “most efficient thrust profile” means quantitatively here, and how it is scored</li>
-<li>Constraints the students must respect so their geometry remains buildable with the frame from <a href="../sessions/05-frame-crank.html">Module 5</a> — span limits, root fitting, mass budget</li>
-<li>Whether teams may deviate from the reference wing, and by how much</li>
+<li><strong>Rectangular</strong> - same chord at root and tip. The simplest thing to build and the easiest baseline to compare against.</li>
+<li><strong>Tapered</strong> - smaller chord at the tip. Less area outboard, less inertia at the end of the moment arm.</li>
+<li><strong>Delta or triangular</strong> - taper taken to the limit, chord going to near zero at the tip.</li>
+<li><strong>Forked</strong> - two surfaces leaving a common root, the shape many fish converge on.</li>
 </ul>
-</div>
-</div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1076,6 +1194,38 @@ ul.task-list li input[type="checkbox"] {
 </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 

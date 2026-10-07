@@ -4,7 +4,7 @@ title: "Module 5 --- Frame, crank, linkage and gears"
 
 ## Summary
 
-We assemble the carbon frame, the CNC-cut crank and linkage, the gears, and the full mechanical integration that turns motor rotation into flapping. Flapping amplitude is fixed by this design to **60 degrees** [^1] --- 34° up and 26° down, as laid out in @fig-transmission-exploded.
+We assemble the frame, the CNC-cut crank and linkage, the gears, and the full mechanical integration of the 4-bar linkage. Flapping amplitude is fixed by this design to **60 degrees** [^1] - 34° up and 26° down, as laid out in @fig-transmission-exploded.
 
 [^1]: Lapsansky AB, Zatz D, Tobalske BW (2020). [Alcids 'fly' at efficient Strouhal numbers in both air and water but vary stroke velocity and angle](https://doi.org/10.7554/eLife.55774). *eLife* **9**:e55774.
 
@@ -12,23 +12,19 @@ We assemble the carbon frame, the CNC-cut crank and linkage, the gears, and the 
 
 |  |  |
 |------------------------------------|------------------------------------|
-| **Parts** | sun gear and Faulhaber 23.04:1 gearbox, 5 mm aluminium link and crank, 2 gears, bearings, M2×5 screws |
+| **Parts** | 5 mm aluminium link and crank, 2 gears (3D-printed), bearings x5, M2×5 screws, shaft rods, circlip 4 mm, washer 4mm x 0.5mm, M3 screw for crank. |
 | **Tools** | drill press, metal glue, caliper |
 | **Read** | This page |
 
 ## Main body
 
-The main body is a carbon sandwich, spaced **24 mm** apart. The plates are CNC-cut from woven 1.5 mm plates. The top and bottom plates are identical, except for the chamfers needed for the M2 screws. The screws holding plate to plate are **M2×4**, screwing into brass inserts.
+The main body is a carbon sandwich, spaced **24 mm** apart. The plates are CNC-cut from woven 1.5 mm plates. The top and bottom plates are identical, except for the chamfers needed for the M2 screws. The screws holding plate to plate are **M2×5**, screwing into brass inserts.
 
 ![Carbon/Aluminum frame structure](/Fig/Sideview-CAD.jpg){#fig-frame width="100%"}
 
-## Sun gear
-
-The sun gear from the Faulhaber 23.04:1 gearbox. Glue and press onto shaft. Check that it fits into the reduction, without touching the first stage. Use a caliper for this.
-
 ## Reduction
 
-The motor is connected via a custom shaft to a gearbox with a **23.04:1** reduction by Faulhaber.[^2] that leaves **5 mm of shaft length free** for the crank to be mounted on. A flat on the shaft helps lock the rotation of the M3 screw extending through the crank.
+The motor will be connected via a custom shaft to a gearbox with a **23.04:1** reduction by Faulhaber.[^2] that leaves **5 mm of shaft length free** for the crank to be mounted on. A flat on the shaft helps lock the rotation of the M3 screw extending through the crank.
 
 [^2]: [Faulhaber gearhead reduction ratios](https://www.faulhaber.com/fileadmin/Import/Media/DE_GEARHEADS_REDUCTION_RATIOS.pdf) (accessed 20.02.2024).
 
@@ -38,7 +34,7 @@ The motor is connected via a custom shaft to a gearbox with a **23.04:1** reduct
 
 ## Crank and linkage
 
-![The transmission, exploded, with the length that matters and the material for each part. Follow it left to right: the gearbox output turns the crank, the crank drives the linkage, and the linkage swings the inter-wing gear. The **34°** up and **−26°** down at the right are where the 60° flapping amplitude comes from --- it is set here, by these lengths, and cannot be changed in software.](/Fig/transmission-exploded.png){#fig-transmission-exploded width="100%"}
+![The transmission, exploded, with the length that matters and the material for each part. Follow it left to right: the gearbox output turns the crank, the crank drives the linkage, and the linkage swings the inter-wing gear. The **34°** up and **−26°** down at the right are where the 60° flapping amplitude comes from - it is set here, by these lengths, and cannot be changed in software.](/Fig/transmission-exploded.png){#fig-transmission-exploded width="100%"}
 
 The dimensions called out in @fig-transmission-exploded are the ones to cut to:
 
@@ -56,8 +52,15 @@ The dimensions called out in @fig-transmission-exploded are the ones to cut to:
 
 Both the crank and linkage are CNC-cut in AL7075.
 
+### Crank and linkage assembly
+
 1.  Press the bearings into the linkage. They may need to be bonded with metal glue if the press fit is not good enough.
-2.  Join the crank and linkage with a short 4 mm shaft, cut to **10.5 mm**. The bearing is kept from coming out with a circlip.
+2.  Join the crank and linkage with a short 4 mm shaft (D). The bearing is kept from coming out with a circlip. The CNC-cut shaft already has a groove for a circlip.
+    1.  Press fit into crank (in the hole that does NOT have the perpendicular M3 thread) until flush with bottom of crank. It needs to be a good press fit, shouldn't move at all.
+    2.  Then add a **0.5 mm-thick** washer.
+    3.  Insert the link 10 mm bearing onto the shaft
+    4.  Lock in place with a 4 mm circlip.
+3.  Add an M3 screw to mount the crank on the (future) reduction.
 
 ::: callout-warning
 ### Alignment of the linkage, perpendicular to the shafts, is extremely important
@@ -67,25 +70,49 @@ An offset of **1 mm** is sufficient to destroy the crank-link in a few strokes.
 ![Transmission, top view](/Fig/transmissiontopview.jpg){fig-align="center" width="40%"}
 :::
 
-## Gears
+## Gears and shafts
 
-### 4 mm shaft
+Cut the shafts to length as indicated below. Select a stainless, 3-mm diameter rod for this.
 
-CNC-cut shaft already has a groove for a circlip. Press fit into crank until flush. It needs to be a good press fit, shouldn't move at all. Then insert the link 10 mm bearing onto the shaft and lock in place with a 4 mm circlip.
+| Shaft | Length |
+|-------|--------|
+| A     | 15     |
+| B     | 30     |
+| C     | 19     |
 
-### 3 mm shafts
-
-Cut 3 shafts to length. Select a stainless, 3-mm diameter rod for this. Two of the shafts (A and B) sit at the center of rotation of the wings, and the remaining shaft (C) connects the left gear to the crank link.
+Two of the shafts (A and B) sit at the center of rotation of the wings, and the remaining shaft (C) connects the left gear to the crank link.
 
 The A and B shafts are pressed through the two gears' center holes and the . Should be a mildly tight fit at minimum, otherwise glue the shaft with a drop of superglue.
 
 Between the gears, a clearance of **0.4 mm** (inter-axis spacing of 25.4 mm) ensures proper operation without too much backlash.
 
 ::: {layout-ncol="2"}
-![Transmission assembled](/Fig/transmission.jpg){width="45%"}
+![Transmission assembled](/Fig/transmission.jpg){width="90%"}
 
-![Crank-linkage](/Fig/transmission2.jpg){width="45%"}
+![Crank-linkage](/Fig/transmission2.jpg){width="90%"}
 :::
+
+## Linkage-Gear assembly
+
+Press the last shaft (C) through the right wing gear, with the link in place. In other words, the 3 mm shaft rests on either side of the right gear and keeps the smaller bearing of the link in place.
+
+@fig-transmission-done is what the module should leave you with. Compare it against your own build.
+
+You should now have a right wing gear, connected to the crank and link.
+
+## Mount the right wing
+
+Insert the flanged bearings into the 3D-printed support structures. Push the right wing + crank-link assembly into place (shaft in bearing). The wing gear has a conical flange that acts as a bearing on the tail side.
+
+## Mount the left wing
+
+Insert the flanged bearings into the 3D-printed support structures. Push the wing into place (shaft in bearing). The wing gear has a conical flange that acts as a bearing on the tail side.
+
+## Insert the front plate
+
+The front plate slides onto the 2 shafts. Lock it in place with the top and bottom screws from the frame.
+
+![The assembled drivetrain in CAD, from above. The carbon frame plates run from the nose at the left; the motor and its gearbox sit on the centreline with the ESC alongside; the crank, linkage and inter-wing gears are at the right. A render rather than a photograph, so use it for part placement and orientation rather than for what the finished hardware looks like.](/Fig/Transmission4.jpg){#fig-transmission-done width="100%"}
 
 ::: callout-note
 ## Checkpoint

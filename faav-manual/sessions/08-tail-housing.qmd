@@ -4,45 +4,62 @@ title: "Module 8 --- Tail"
 
 ## Summary
 
-The passive tail, cut to the shape the simulation produced and mounted on its
-rod and the trailing edge mount
-## Requirements
+The passive tail, cut to the shape the simulation produced and mounted on its rod and the trailing edge mount \## Requirements
 
-| | |
-|---|---|
+|  |  |
+|------------------------------------|------------------------------------|
 | **Parts** | Carbon sheet and tail rod, foam stock (XPS or closed-cell PE), epoxy |
 | **Tools** | Foam cutter, scalpel |
 | **Bring** | The Module 6 tail geometry, printed 1:1 |
 
-## Tail
+## Reduction installation
 
-![Tail assembly](/Fig/tail.jpg){#fig-tail width=75%}
+The motor is connected via a custom shaft to a gearbox with a **23.04:1** reduction by Faulhaber.[^1] Both parts are held in place by 3D-printed plates. The output shaft of the gearbox has its own bearing on the inside of the gearbox, and is also supported mid-way on the shaft by a 4×8 mm flanged bearing. This leaves **5 mm of shaft length free** for the crank to be mounted on. A flat on the shaft helps lock the rotation of the M3 screw extending through the crank.
 
-::: {.callout-important}
-## TBC
+[^1]: [Faulhaber gearhead reduction ratios](https://www.faulhaber.com/fileadmin/Import/Media/DE_GEARHEADS_REDUCTION_RATIOS.pdf) (accessed 20.02.2024).
 
-As with the wings, the guide contains **only the photograph above** for the
-tail. Still needed: sheet material and thickness, rod diameter, how the tail
-mounts to the boom, and the incidence setting. The project plan also notes tail
-actuation is optional if time permits --- decide before the semester whether
-that is in scope.
+::: {layout-ncol="2"}
+![Faulhaber gearbox](/Fig/fhaber.jpg){alt="Faulhaber gearbox"}
 :::
 
+First, we need to press + glue our sun gear is already pressed onto the motor shaft from [Module 2](02-motor.qmd).
+
+Next, we need to install the gearbox to the motor and fixing the pair to the plates.
+
+1.  Slide the gearbox onto the motor shaft so the sun gear engages the planets. It should seat with light hand pressure, if it resists, back off and check the sun gear is square on the shaft rather than forcing it.
+
+2.  Fix the blue part of the gearbox: the custom screws that come with the gearbox on one side, and **M2.5×10** screws on the other.
+
+3.  Check the output turns freely by hand through a full revolution before applying power.
+
+4.  Close the gearbox: the **silver part threads onto the blue part**. Don't tighten it.
+
+5.  Attach the **second vertical bracket** to the silver part of the gearbox with **3 × M2.5** screws.
+
+6.  Secure that bracket to the **bottom fuselage plate** with **3 × M2** screws. The motor bracket from [Module 2](02-motor.qmd) is already on the same plate, so between them the two brackets set the alignment of the whole drivetrain. Check the output still turns freely once both are bolted down.
+
+### Sun gear
+
+The sun gear from the Faulhaber 23.04:1 gearbox. Glue and press onto shaft. Check that it fits into the reduction, without touching the first stage. Use a caliper for this.
+
+## Tail
+
+![Tail assembly](/Fig/tail.jpg){#fig-tail width="75%"}
+
+::: callout-important
+## TBC
+
+As with the wings, the guide contains **only the photograph above** for the tail. Still needed: sheet material and thickness, rod diameter, how the tail mounts to the boom, and the incidence setting. The project plan also notes tail actuation is optional if time permits --- decide before the semester whether that is in scope.
+:::
 
 ## Trailing edge holder
 
-The wing root is driven by the gears and sweeps through the full **60°** set in
-[Module 5](05-frame-crank.qmd). The trailing edge is not driven. It is anchored
-to the **tail tube**, and that anchor is what makes the membrane twist as the
-wing sweeps. It sets the angle of attack the wing sees through the stroke.
-Move it and the wing behaves differently. So this part is a trim adjustment as
-much as it is a mount, which is why both its positions have to stay changeable
-after the robot is built.
+The wing root is driven by the gears and sweeps through the full **60°** set in [Module 5](05-frame-crank.qmd). The trailing edge is not driven. It is anchored to the **tail tube**, and that anchor is what makes the membrane twist as the wing sweeps. It sets the angle of attack the wing sees through the stroke. Move it and the wing behaves differently. So this part is a trim adjustment as much as it is a mount, which is why both its positions have to stay changeable after the robot is built.
 
 This part is a design exercise. The requirements are fixed; the mechanism is not.
 
 | Requirement | Why |
-|---|---|
+|------------------------------------|------------------------------------|
 | Rotates with the wing through the whole stroke | The root swings 34° up and 26° down. An anchor that cannot follow loads the membrane in the one direction it cannot take. |
 | Adjustable **longitudinally**, along the tube | Fore/aft position sets wing twist. This is the trim actually reached for in [Module 11](11-wet-testing.qmd). |
 | Each Wing mounts can change **laterally and longitudinally** | Sets how far the anchor stands off the boom, and is how left and right are matched. |
@@ -52,11 +69,8 @@ This part is a design exercise. The requirements are fixed; the mechanism is not
 : What the trailing edge holder has to do {#tbl-te-requirements}
 
 ### Find a solution
-Both flexible and rigid solutions are possible. For a rigid solution, the mount half is straightforward: a **split collar** that slides along the
-5 mm tube and clamps with an M2 screw into a square half nut, per the house
-convention in [Design notes](/reference/design-notes.qmd). Sliding it gives the
-longitudinal adjustment, rotating it about the tube gives some of the lateral,
-and a slotted arm gives the rest.
+
+Both flexible and rigid solutions are possible. For a rigid solution, the mount half is straightforward: a **split collar** that slides along the 5 mm tube and clamps with an M2 screw into a square half nut, per the house convention in [Design notes](/reference/design-notes.qmd). Sliding it gives the longitudinal adjustment, rotating it about the tube gives some of the lateral, and a slotted arm gives the rest.
 
 The design must be justified against @tbl-te-requirements, and the choices defended.
 
@@ -66,25 +80,19 @@ The design must be justified against @tbl-te-requirements, and the choices defen
 
 ### Insert it on the tube
 
-Slide the collar onto the tail tube and set it to the starting station.
-Measure from a fixed datum, write the number down, and set the second one
-to the same number. 
+Slide the collar onto the tail tube and set it to the starting station. Measure from a fixed datum, write the number down, and set the second one to the same number.
 
 ### Attach the wing
 
 Connect each wing's trailing edge to its holder.
 
-
-::: {.callout-warning}
+::: callout-warning
 ## Both sides must be set identically
 
-Different longitudinal stations left and right means different twist left and
-right, which is a roll bias -the same failure mode as mismatched wings in
-[Module 7](07-wings.qmd), arriving by a different route and just as hard to
-trim out in [Module 11](11-wet-testing.qmd).
+Different longitudinal stations left and right means different twist left and right, which is a roll bias -the same failure mode as mismatched wings in [Module 7](07-wings.qmd), arriving by a different route and just as hard to trim out in [Module 11](11-wet-testing.qmd).
 :::
 
-::: {.callout-note}
+::: callout-note
 ## Checkpoint
 
 Tail mounted, wings attached to tail.

@@ -13,21 +13,68 @@ The wing and tail geometry are chosen here. Candidate geometries are simulated i
 | **Bring** | Laptop with Ptera installed |
 | **Read**  | This page                   |
 
-## Deliverable
+## What Ptera does
 
-A wing planform and a tail geometry, with the simulation output that justifies them, carried forward into [Module 7](07-wings.qmd) and [Module 8](08-tail-housing.qmd).
+![A Ptera run: the lifting surfaces are divided into the panel mesh the solver actually works on, and coloured by lift coefficient through the stroke. The deformation you can see is the point - the loading changes continuously as the wing flaps, which is exactly what a steady calculation cannot give you.](/Fig/k=5_deformation.gif){#fig-ptera width="85%"}
 
-::: callout-important
-## To be written by the instructor
+[Ptera Software](https://github.com/camUrban/PteraSoftware) is an open-source package for analysing flapping-wing flight. It exists because the usual options are bad: steady aerodynamics assumes the wing is not moving, which is the one assumption a flapping wing breaks, and full CFD is slow and expensive enough that you cannot use it to compare candidate planforms in an afternoon.
 
-This module has **no counterpart in the manufacturing guide** --- the guide documents the research robot's final geometry, not the design exercise. The following need to be written from course material:
+It uses the **unsteady ring vortex lattice method (UVLM)**. The surfaces are reduced to a mesh of panels, each carrying a vortex ring, and the wake is shed and tracked as the wing moves. That is a large step up from a steady method - it captures the history of the flow, so the forces at one instant depend on what the wing did before - while staying fast enough to sweep a design space.
 
-- Ptera installation and a worked example
-- The provided motor power curve, and its format
-- What "most efficient thrust profile" means quantitatively here, and how it is scored
-- Constraints the students must respect so their geometry remains buildable with the frame from [Module 5](05-frame-crank.qmd) --- span limits, root fitting, mass budget
-- Whether teams may deviate from the reference wing, and by how much
+## Installing Ptera
+
+The examples are in the repository, so clone it rather than installing the package on its own:
+
+``` bash
+git clone https://github.com/camUrban/PteraSoftware.git
+cd PteraSoftware
+pip install -r requirements.txt
+```
+
+Then run the unsteady example to confirm the install works:
+
+``` bash
+python examples/unsteady_ring_vortex_lattice_method_solver_variable.py
+```
+
+It should open an animation like @fig-ptera. If it does, the solver, the geometry classes and the output stack are all working and you can start editing a copy of that script into your own geometry.
+
+::: callout-note
+### Two ways to install it
+
+`pip install pterasoftware` also works if you only want the library. It does **not** give you the `examples/` folder, which is where the working scripts are.
 :::
+
+## How a Ptera model is put together
+
+The thing worth understanding before you open the example is that **geometry and motion are two parallel hierarchies**. You build the shape first, then build a matching movement object for each piece of that shape. Every geometry class has a movement twin.
+
+| Geometry | Movement twin | What it is |
+|-----------------------|-----------------------|--------------------------|
+| `Airfoil` | --- | The 2D section. Does not move on its own |
+| `WingCrossSection` | `WingCrossSectionMovement` | An airfoil placed at a span position, with its own chord, twist and offset |
+| `Wing` | `WingMovement` | Two or more cross-sections swept into a surface |
+| `Airplane` | `AirplaneMovement` | All the wings together --- on this robot, the two wings and the tail |
+| `OperatingPoint` | `OperatingPointMovement` | Freestream velocity, density and angles |
+
+The two sides are then joined and solved:
+
+1.  `Movement` takes the `AirplaneMovement` and the `OperatingPointMovement` and becomes the complete time-varying description of the problem.
+2.  `UnsteadyProblem` wraps that `Movement`.
+3.  `UnsteadyRingVortexLatticeMethodSolver` takes the problem and runs it.
+
+So the flapping is **not** a property of the wing. It lives in the movement twin, which is why the same geometry can be swept through different kinematics without rebuilding it.
+
+## Modelling the tail
+
+In Ptera it is simply another `Wing` on the `Airplane`, built the same way as the flapping wings: two or more `WingCrossSection` objects, each with an `Airfoil`, swept into a surface. It needs a `WingMovement` like everything else, but for a fixed tail that movement is static (the object still has to exist).
+
+The planform follows from where you put the cross-sections and what chord you give each one:
+
+- **Rectangular** - same chord at root and tip. The simplest thing to build and the easiest baseline to compare against.
+- **Tapered** - smaller chord at the tip. Less area outboard, less inertia at the end of the moment arm.
+- **Delta or triangular** - taper taken to the limit, chord going to near zero at the tip.
+- **Forked** - two surfaces leaving a common root, the shape many fish converge on.
 
 ::: callout-note
 ## Checkpoint

@@ -549,14 +549,16 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#summary" id="toc-summary" class="nav-link active" data-scroll-target="#summary">Summary</a></li>
   <li><a href="#requirements" id="toc-requirements" class="nav-link" data-scroll-target="#requirements">Requirements</a></li>
   <li><a href="#main-body" id="toc-main-body" class="nav-link" data-scroll-target="#main-body">Main body</a></li>
-  <li><a href="#sun-gear" id="toc-sun-gear" class="nav-link" data-scroll-target="#sun-gear">Sun gear</a></li>
   <li><a href="#reduction" id="toc-reduction" class="nav-link" data-scroll-target="#reduction">Reduction</a></li>
-  <li><a href="#crank-and-linkage" id="toc-crank-and-linkage" class="nav-link" data-scroll-target="#crank-and-linkage">Crank and linkage</a></li>
-  <li><a href="#gears" id="toc-gears" class="nav-link" data-scroll-target="#gears">Gears</a>
+  <li><a href="#crank-and-linkage" id="toc-crank-and-linkage" class="nav-link" data-scroll-target="#crank-and-linkage">Crank and linkage</a>
   <ul class="collapse">
-  <li><a href="#mm-shaft" id="toc-mm-shaft" class="nav-link" data-scroll-target="#mm-shaft">4 mm shaft</a></li>
-  <li><a href="#mm-shafts" id="toc-mm-shafts" class="nav-link" data-scroll-target="#mm-shafts">3 mm shafts</a></li>
+  <li><a href="#crank-and-linkage-assembly" id="toc-crank-and-linkage-assembly" class="nav-link" data-scroll-target="#crank-and-linkage-assembly">Crank and linkage assembly</a></li>
   </ul></li>
+  <li><a href="#gears-and-shafts" id="toc-gears-and-shafts" class="nav-link" data-scroll-target="#gears-and-shafts">Gears and shafts</a></li>
+  <li><a href="#linkage-gear-assembly" id="toc-linkage-gear-assembly" class="nav-link" data-scroll-target="#linkage-gear-assembly">Linkage-Gear assembly</a></li>
+  <li><a href="#mount-the-right-wing" id="toc-mount-the-right-wing" class="nav-link" data-scroll-target="#mount-the-right-wing">Mount the right wing</a></li>
+  <li><a href="#mount-the-left-wing" id="toc-mount-the-left-wing" class="nav-link" data-scroll-target="#mount-the-left-wing">Mount the left wing</a></li>
+  <li><a href="#insert-the-front-plate" id="toc-insert-the-front-plate" class="nav-link" data-scroll-target="#insert-the-front-plate">Insert the front plate</a></li>
   </ul>
 </nav>
     </div>
@@ -585,7 +587,7 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="summary" class="level2">
 <h2 class="anchored" data-anchor-id="summary">Summary</h2>
-<p>We assemble the carbon frame, the CNC-cut crank and linkage, the gears, and the full mechanical integration that turns motor rotation into flapping. Flapping amplitude is fixed by this design to <strong>60 degrees</strong> <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> — 34° up and 26° down, as laid out in <a href="#fig-transmission-exploded" class="quarto-xref">Figure&nbsp;2</a>.</p>
+<p>We assemble the frame, the CNC-cut crank and linkage, the gears, and the full mechanical integration of the 4-bar linkage. Flapping amplitude is fixed by this design to <strong>60 degrees</strong> <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> - 34° up and 26° down, as laid out in <a href="#fig-transmission-exploded" class="quarto-xref">Figure&nbsp;2</a>.</p>
 </section>
 <section id="requirements" class="level2">
 <h2 class="anchored" data-anchor-id="requirements">Requirements</h2>
@@ -597,7 +599,7 @@ ul.task-list li input[type="checkbox"] {
 <tbody>
 <tr class="odd">
 <td><strong>Parts</strong></td>
-<td>sun gear and Faulhaber 23.04:1 gearbox, 5 mm aluminium link and crank, 2 gears, bearings, M2×5 screws</td>
+<td>5 mm aluminium link and crank, 2 gears (3D-printed), bearings x5, M2×5 screws, shaft rods, circlip 4 mm, washer 4mm x 0.5mm, M3 screw for crank.</td>
 </tr>
 <tr class="even">
 <td><strong>Tools</strong></td>
@@ -612,7 +614,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="main-body" class="level2">
 <h2 class="anchored" data-anchor-id="main-body">Main body</h2>
-<p>The main body is a carbon sandwich, spaced <strong>24 mm</strong> apart. The plates are CNC-cut from woven 1.5 mm plates. The top and bottom plates are identical, except for the chamfers needed for the M2 screws. The screws holding plate to plate are <strong>M2×4</strong>, screwing into brass inserts.</p>
+<p>The main body is a carbon sandwich, spaced <strong>24 mm</strong> apart. The plates are CNC-cut from woven 1.5 mm plates. The top and bottom plates are identical, except for the chamfers needed for the M2 screws. The screws holding plate to plate are <strong>M2×5</strong>, screwing into brass inserts.</p>
 <div id="fig-frame" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-frame-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -624,13 +626,9 @@ Figure&nbsp;1: Carbon/Aluminum frame structure
 </figure>
 </div>
 </section>
-<section id="sun-gear" class="level2">
-<h2 class="anchored" data-anchor-id="sun-gear">Sun gear</h2>
-<p>The sun gear from the Faulhaber 23.04:1 gearbox. Glue and press onto shaft. Check that it fits into the reduction, without touching the first stage. Use a caliper for this.</p>
-</section>
 <section id="reduction" class="level2">
 <h2 class="anchored" data-anchor-id="reduction">Reduction</h2>
-<p>The motor is connected via a custom shaft to a gearbox with a <strong>23.04:1</strong> reduction by Faulhaber.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> that leaves <strong>5 mm of shaft length free</strong> for the crank to be mounted on. A flat on the shaft helps lock the rotation of the M3 screw extending through the crank.</p>
+<p>The motor will be connected via a custom shaft to a gearbox with a <strong>23.04:1</strong> reduction by Faulhaber.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> that leaves <strong>5 mm of shaft length free</strong> for the crank to be mounted on. A flat on the shaft helps lock the rotation of the M3 screw extending through the crank.</p>
 <div class="quarto-layout-panel" data-layout-ncol="1">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
@@ -649,10 +647,10 @@ Figure&nbsp;1: Carbon/Aluminum frame structure
 <div id="fig-transmission-exploded" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-transmission-exploded-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="../Fig/transmission-exploded.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure&nbsp;2: The transmission, exploded, with the length that matters and the material for each part. Follow it left to right: the gearbox output turns the crank, the crank drives the linkage, and the linkage swings the inter-wing gear. The 34° up and −26° down at the right are where the 60° flapping amplitude comes from — it is set here, by these lengths, and cannot be changed in software."><img src="../Fig/transmission-exploded.png" class="img-fluid figure-img" style="width:100.0%"></a>
+<a href="../Fig/transmission-exploded.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure&nbsp;2: The transmission, exploded, with the length that matters and the material for each part. Follow it left to right: the gearbox output turns the crank, the crank drives the linkage, and the linkage swings the inter-wing gear. The 34° up and −26° down at the right are where the 60° flapping amplitude comes from - it is set here, by these lengths, and cannot be changed in software."><img src="../Fig/transmission-exploded.png" class="img-fluid figure-img" style="width:100.0%"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-transmission-exploded-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2: The transmission, exploded, with the length that matters and the material for each part. Follow it left to right: the gearbox output turns the crank, the crank drives the linkage, and the linkage swings the inter-wing gear. The <strong>34°</strong> up and <strong>−26°</strong> down at the right are where the 60° flapping amplitude comes from — it is set here, by these lengths, and cannot be changed in software.
+Figure&nbsp;2: The transmission, exploded, with the length that matters and the material for each part. Follow it left to right: the gearbox output turns the crank, the crank drives the linkage, and the linkage swings the inter-wing gear. The <strong>34°</strong> up and <strong>−26°</strong> down at the right are where the 60° flapping amplitude comes from - it is set here, by these lengths, and cannot be changed in software.
 </figcaption>
 </figure>
 </div>
@@ -701,9 +699,18 @@ Figure&nbsp;2: The transmission, exploded, with the length that matters and the 
 </tbody>
 </table>
 <p>Both the crank and linkage are CNC-cut in AL7075.</p>
+<section id="crank-and-linkage-assembly" class="level3">
+<h3 class="anchored" data-anchor-id="crank-and-linkage-assembly">Crank and linkage assembly</h3>
 <ol type="1">
 <li>Press the bearings into the linkage. They may need to be bonded with metal glue if the press fit is not good enough.</li>
-<li>Join the crank and linkage with a short 4 mm shaft, cut to <strong>10.5 mm</strong>. The bearing is kept from coming out with a circlip.</li>
+<li>Join the crank and linkage with a short 4 mm shaft (D). The bearing is kept from coming out with a circlip. The CNC-cut shaft already has a groove for a circlip.
+<ol type="1">
+<li>Press fit into crank (in the hole that does NOT have the perpendicular M3 thread) until flush with bottom of crank. It needs to be a good press fit, shouldn’t move at all.</li>
+<li>Then add a <strong>0.5 mm-thick</strong> washer.</li>
+<li>Insert the link 10 mm bearing onto the shaft</li>
+<li>Lock in place with a 4 mm circlip.</li>
+</ol></li>
+<li>Add an M3 screw to mount the crank on the (future) reduction.</li>
 </ol>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -729,15 +736,33 @@ Figure&nbsp;2: The transmission, exploded, with the length that matters and the 
 </div>
 </div>
 </section>
-<section id="gears" class="level2">
-<h2 class="anchored" data-anchor-id="gears">Gears</h2>
-<section id="mm-shaft" class="level3">
-<h3 class="anchored" data-anchor-id="mm-shaft">4 mm shaft</h3>
-<p>CNC-cut shaft already has a groove for a circlip. Press fit into crank until flush. It needs to be a good press fit, shouldn’t move at all. Then insert the link 10 mm bearing onto the shaft and lock in place with a 4 mm circlip.</p>
 </section>
-<section id="mm-shafts" class="level3">
-<h3 class="anchored" data-anchor-id="mm-shafts">3 mm shafts</h3>
-<p>Cut 3 shafts to length. Select a stainless, 3-mm diameter rod for this. Two of the shafts (A and B) sit at the center of rotation of the wings, and the remaining shaft (C) connects the left gear to the crank link.</p>
+<section id="gears-and-shafts" class="level2">
+<h2 class="anchored" data-anchor-id="gears-and-shafts">Gears and shafts</h2>
+<p>Cut the shafts to length as indicated below. Select a stainless, 3-mm diameter rod for this.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Shaft</th>
+<th>Length</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A</td>
+<td>15</td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td>30</td>
+</tr>
+<tr class="odd">
+<td>C</td>
+<td>19</td>
+</tr>
+</tbody>
+</table>
+<p>Two of the shafts (A and B) sit at the center of rotation of the wings, and the remaining shaft (C) connects the left gear to the crank link.</p>
 <p>The A and B shafts are pressed through the two gears’ center holes and the . Should be a mildly tight fit at minimum, otherwise glue the shaft with a drop of superglue.</p>
 <p>Between the gears, a clearance of <strong>0.4 mm</strong> (inter-axis spacing of 25.4 mm) ensures proper operation without too much backlash.</p>
 <div class="quarto-layout-panel" data-layout-ncol="2">
@@ -745,7 +770,7 @@ Figure&nbsp;2: The transmission, exploded, with the length that matters and the 
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../Fig/transmission.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Transmission assembled"><img src="../Fig/transmission.jpg" class="img-fluid figure-img" style="width:45.0%" alt="Transmission assembled"></a></p>
+<p><a href="../Fig/transmission.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Transmission assembled"><img src="../Fig/transmission.jpg" class="img-fluid figure-img" style="width:90.0%" alt="Transmission assembled"></a></p>
 <figcaption>Transmission assembled</figcaption>
 </figure>
 </div>
@@ -753,12 +778,40 @@ Figure&nbsp;2: The transmission, exploded, with the length that matters and the 
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../Fig/transmission2.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Crank-linkage"><img src="../Fig/transmission2.jpg" class="img-fluid figure-img" style="width:45.0%" alt="Crank-linkage"></a></p>
+<p><a href="../Fig/transmission2.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Crank-linkage"><img src="../Fig/transmission2.jpg" class="img-fluid figure-img" style="width:90.0%" alt="Crank-linkage"></a></p>
 <figcaption>Crank-linkage</figcaption>
 </figure>
 </div>
 </div>
 </div>
+</div>
+</section>
+<section id="linkage-gear-assembly" class="level2">
+<h2 class="anchored" data-anchor-id="linkage-gear-assembly">Linkage-Gear assembly</h2>
+<p>Press the last shaft (C) through the right wing gear, with the link in place. In other words, the 3 mm shaft rests on either side of the right gear and keeps the smaller bearing of the link in place.</p>
+<p><a href="#fig-transmission-done" class="quarto-xref">Figure&nbsp;3</a> is what the module should leave you with. Compare it against your own build.</p>
+<p>You should now have a right wing gear, connected to the crank and link.</p>
+</section>
+<section id="mount-the-right-wing" class="level2">
+<h2 class="anchored" data-anchor-id="mount-the-right-wing">Mount the right wing</h2>
+<p>Insert the flanged bearings into the 3D-printed support structures. Push the right wing + crank-link assembly into place (shaft in bearing). The wing gear has a conical flange that acts as a bearing on the tail side.</p>
+</section>
+<section id="mount-the-left-wing" class="level2">
+<h2 class="anchored" data-anchor-id="mount-the-left-wing">Mount the left wing</h2>
+<p>Insert the flanged bearings into the 3D-printed support structures. Push the wing into place (shaft in bearing). The wing gear has a conical flange that acts as a bearing on the tail side.</p>
+</section>
+<section id="insert-the-front-plate" class="level2">
+<h2 class="anchored" data-anchor-id="insert-the-front-plate">Insert the front plate</h2>
+<p>The front plate slides onto the 2 shafts. Lock it in place with the top and bottom screws from the frame.</p>
+<div id="fig-transmission-done" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-transmission-done-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="../Fig/Transmission4.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="Figure&nbsp;3: The assembled drivetrain in CAD, from above. The carbon frame plates run from the nose at the left; the motor and its gearbox sit on the centreline with the ESC alongside; the crank, linkage and inter-wing gears are at the right. A render rather than a photograph, so use it for part placement and orientation rather than for what the finished hardware looks like."><img src="../Fig/Transmission4.jpg" class="img-fluid figure-img" style="width:100.0%"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-transmission-done-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: The assembled drivetrain in CAD, from above. The carbon frame plates run from the nose at the left; the motor and its gearbox sit on the centreline with the ESC alongside; the crank, linkage and inter-wing gears are at the right. A render rather than a photograph, so use it for part placement and orientation rather than for what the finished hardware looks like.
+</figcaption>
+</figure>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -775,7 +828,6 @@ Figure&nbsp;2: The transmission, exploded, with the length that matters and the 
 </div>
 
 
-</section>
 </section>
 
 
