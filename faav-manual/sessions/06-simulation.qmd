@@ -98,9 +98,7 @@ What separates the two families is *which* classes take the prefix.
 | `UnsteadyProblem`                       |  prefixed   |  prefixed   |
 | `UnsteadyRingVortexLatticeMethodSolver` |  prefixed   |  prefixed   |
 
-: Which classes change in each family. The geometry classes --- `Airfoil`, `WingCrossSection`, `Wing` and `Airplane` --- are identical in all three.
-
-The split is almost complementary: free flight leaves the wing-level movement classes alone and swaps the operating point, while aeroelasticity does the reverse. Each solver also reports something the standard one does not --- free flight gives the body's position, attitude, velocity and rotation rate, aeroelasticity gives the twist of every wing cross-section. The standard solver adds nothing, because the motion is prescribed in full.
+: Which classes change in each family. The geometry classes - `Airfoil`, `WingCrossSection`, `Wing` and `Airplane` - are identical in all three. {#tbl-ptera-families}
 
 ### Free flight
 
@@ -193,7 +191,7 @@ To use aeroelasticity:
 ::: callout-important
 ## These two features are experimental
 
-Both features first shipped in **v5.1.0** (July 2026), which is what `pip install pterasoftware` gives you. The behaviour described here follows the newer `main` branch, which differs in several ways: class names are flat (`ps.FreeFlightMovement`) rather than long module paths, a free-flight run starts at the operating point's initial position rather than always at the origin, and saving a run with custom external loads works rather than raising.
+Both features first shipped in **v5.1.0** (July 2026), which is what `pip install pterasoftware` gives you. The behaviour described here follows the newer `main` branch, which differs in several ways: class names are flat (`ps.FreeFlightMovement`) rather than long module paths, a free-flight run starts at the operating point's initial position rather than always at the origin
 :::
 
 ::: callout-note

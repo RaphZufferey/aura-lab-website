@@ -774,8 +774,13 @@ Figure&nbsp;1: A Ptera run: the lifting surfaces are divided into the panel mesh
 <p><strong>Aeroelasticity</strong> lets each wing twist under load through a torsional spring at every cross-section, which matters here because a membrane wing is not rigid and the twist changes the loading.</p>
 <p>Both are switched on the same way: the geometry stays exactly as you built it, and you swap the <em>movement, problem and solver</em> classes for a different family. The naming follows one rule - take the standard class and put <code>FreeFlight</code> or <code>Aeroelastic</code> in front of it, so the free-flight solver is <code>FreeFlightUnsteadyRingVortexLatticeMethodSolver</code>.</p>
 <p>What separates the two families is <em>which</em> classes take the prefix.</p>
+<div id="tbl-ptera-families" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-ptera-families-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: Which classes change in each family. The geometry classes - <code>Airfoil</code>, <code>WingCrossSection</code>, <code>Wing</code> and <code>Airplane</code> - are identical in all three.
+</figcaption>
+<div aria-describedby="tbl-ptera-families-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
-<caption>Which classes change in each family. The geometry classes — <code>Airfoil</code>, <code>WingCrossSection</code>, <code>Wing</code> and <code>Airplane</code> — are identical in all three.</caption>
 <thead>
 <tr class="header">
 <th style="text-align: left;">Standard class</th>
@@ -821,7 +826,9 @@ Figure&nbsp;1: A Ptera run: the lifting surfaces are divided into the panel mesh
 </tr>
 </tbody>
 </table>
-<p>The split is almost complementary: free flight leaves the wing-level movement classes alone and swaps the operating point, while aeroelasticity does the reverse. Each solver also reports something the standard one does not — free flight gives the body’s position, attitude, velocity and rotation rate, aeroelasticity gives the twist of every wing cross-section. The standard solver adds nothing, because the motion is prescribed in full.</p>
+</div>
+</figure>
+</div>
 <section id="free-flight" class="level3">
 <h3 class="anchored" data-anchor-id="free-flight">Free flight</h3>
 <p>In a standard run you prescribe the operating point at every step. In free flight you give only the <strong>first</strong> one. After that MuJoCo integrates the rigid-body equations and the solver rebuilds each new operating point - speed, angle of attack, sideslip, attitude, position, body rates - from the result.</p>
@@ -1038,7 +1045,7 @@ Figure&nbsp;1: A Ptera run: the lifting surfaces are divided into the panel mesh
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Both features first shipped in <strong>v5.1.0</strong> (July 2026), which is what <code>pip install pterasoftware</code> gives you. The behaviour described here follows the newer <code>main</code> branch, which differs in several ways: class names are flat (<code>ps.FreeFlightMovement</code>) rather than long module paths, a free-flight run starts at the operating point’s initial position rather than always at the origin, and saving a run with custom external loads works rather than raising.</p>
+<p>Both features first shipped in <strong>v5.1.0</strong> (July 2026), which is what <code>pip install pterasoftware</code> gives you. The behaviour described here follows the newer <code>main</code> branch, which differs in several ways: class names are flat (<code>ps.FreeFlightMovement</code>) rather than long module paths, a free-flight run starts at the operating point’s initial position rather than always at the origin</p>
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
