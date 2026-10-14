@@ -772,74 +772,56 @@ Figure&nbsp;1: A Ptera run: the lifting surfaces are divided into the panel mesh
 <p>Everything above prescribes the motion completely: you say where the wing is at every instant, and the solver reports the loads. Ptera has two <u>beta features</u> that go beyond that</p>
 <p><strong>Free flight</strong> hands the airplane to the MuJoCo physics engine, so it flies a six-degree-of-freedom path under its own aerodynamic loads, weight and inertia: the question of whether a chosen geometry actually sustains flight or what maximum speed it can reach in swimming, rather than what lift it makes while held in place.</p>
 <p><strong>Aeroelasticity</strong> lets each wing twist under load through a torsional spring at every cross-section, which matters here because a membrane wing is not rigid and the twist changes the loading.</p>
-<p>Both are switched on the same way: the geometry stays exactly as you built it, and you swap the <em>movement, problem and solver</em> classes for a different family.</p>
+<p>Both are switched on the same way: the geometry stays exactly as you built it, and you swap the <em>movement, problem and solver</em> classes for a different family. The naming follows one rule - take the standard class and put <code>FreeFlight</code> or <code>Aeroelastic</code> in front of it, so the free-flight solver is <code>FreeFlightUnsteadyRingVortexLatticeMethodSolver</code>.</p>
+<p>What separates the two families is <em>which</em> classes take the prefix.</p>
 <table class="caption-top table">
-<caption>The three class families. Geometry is identical in all three columns; only the movement, problem and solver change.</caption>
-<colgroup>
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-</colgroup>
+<caption>Which classes change in each family. The geometry classes — <code>Airfoil</code>, <code>WingCrossSection</code>, <code>Wing</code> and <code>Airplane</code> — are identical in all three.</caption>
 <thead>
 <tr class="header">
-<th>Step</th>
-<th>Standard UVLM</th>
-<th>Free flight</th>
-<th>Aeroelastic</th>
+<th style="text-align: left;">Standard class</th>
+<th style="text-align: center;">Free flight</th>
+<th style="text-align: center;">Aeroelastic</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Cross-section motion</td>
-<td><code>WingCrossSectionMovement</code></td>
-<td><code>WingCrossSectionMovement</code></td>
-<td><code>AeroelasticWingCrossSectionMovement</code></td>
+<td style="text-align: left;"><code>WingCrossSectionMovement</code></td>
+<td style="text-align: center;">unchanged</td>
+<td style="text-align: center;">prefixed</td>
 </tr>
 <tr class="even">
-<td>Wing motion</td>
-<td><code>WingMovement</code></td>
-<td><code>WingMovement</code></td>
-<td><code>AeroelasticWingMovement</code></td>
+<td style="text-align: left;"><code>WingMovement</code></td>
+<td style="text-align: center;">unchanged</td>
+<td style="text-align: center;">prefixed</td>
 </tr>
 <tr class="odd">
-<td>Airplane motion</td>
-<td><code>AirplaneMovement</code></td>
-<td><code>AirplaneMovement</code></td>
-<td><code>AeroelasticAirplaneMovement</code></td>
+<td style="text-align: left;"><code>AirplaneMovement</code></td>
+<td style="text-align: center;">unchanged</td>
+<td style="text-align: center;">prefixed</td>
 </tr>
 <tr class="even">
-<td>Operating point</td>
-<td><code>OperatingPointMovement</code></td>
-<td><code>FreeFlightOperatingPointMovement</code></td>
-<td><code>OperatingPointMovement</code></td>
+<td style="text-align: left;"><code>OperatingPointMovement</code></td>
+<td style="text-align: center;">prefixed</td>
+<td style="text-align: center;">unchanged</td>
 </tr>
 <tr class="odd">
-<td>Movement</td>
-<td><code>Movement</code></td>
-<td><code>FreeFlightMovement</code></td>
-<td><code>AeroelasticMovement</code></td>
+<td style="text-align: left;"><code>Movement</code></td>
+<td style="text-align: center;">prefixed</td>
+<td style="text-align: center;">prefixed</td>
 </tr>
 <tr class="even">
-<td>Problem</td>
-<td><code>UnsteadyProblem</code></td>
-<td><code>FreeFlightUnsteadyProblem</code></td>
-<td><code>AeroelasticUnsteadyProblem</code></td>
+<td style="text-align: left;"><code>UnsteadyProblem</code></td>
+<td style="text-align: center;">prefixed</td>
+<td style="text-align: center;">prefixed</td>
 </tr>
 <tr class="odd">
-<td>Solver</td>
-<td><code>UnsteadyRingVortexLatticeMethodSolver</code></td>
-<td><code>FreeFlightUnsteadyRingVortexLatticeMethodSolver</code></td>
-<td><code>AeroelasticUnsteadyRingVortexLatticeMethodSolver</code></td>
-</tr>
-<tr class="even">
-<td>What the solver adds</td>
-<td>Nothing, motion is fully prescribed</td>
-<td>Body position, attitude, velocity and rotation rate</td>
-<td>The twist of each wing cross-section</td>
+<td style="text-align: left;"><code>UnsteadyRingVortexLatticeMethodSolver</code></td>
+<td style="text-align: center;">prefixed</td>
+<td style="text-align: center;">prefixed</td>
 </tr>
 </tbody>
 </table>
+<p>The split is almost complementary: free flight leaves the wing-level movement classes alone and swaps the operating point, while aeroelasticity does the reverse. Each solver also reports something the standard one does not — free flight gives the body’s position, attitude, velocity and rotation rate, aeroelasticity gives the twist of every wing cross-section. The standard solver adds nothing, because the motion is prescribed in full.</p>
 <section id="free-flight" class="level3">
 <h3 class="anchored" data-anchor-id="free-flight">Free flight</h3>
 <p>In a standard run you prescribe the operating point at every step. In free flight you give only the <strong>first</strong> one. After that MuJoCo integrates the rigid-body equations and the solver rebuilds each new operating point - speed, angle of attack, sideslip, attitude, position, body rates - from the result.</p>
@@ -872,8 +854,8 @@ Figure&nbsp;1: A Ptera run: the lifting surfaces are divided into the panel mesh
 <caption>Free-flight parameters worth checking before a run.</caption>
 <colgroup>
 <col style="width: 27%">
-<col style="width: 23%">
-<col style="width: 48%">
+<col style="width: 25%">
+<col style="width: 47%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1003,8 +985,8 @@ Figure&nbsp;1: A Ptera run: the lifting surfaces are divided into the panel mesh
 <caption>Aeroelastic parameters. <strong>None of these are range-checked</strong>, so a wrong unit or sign runs silently and returns nonsense.</caption>
 <colgroup>
 <col style="width: 27%">
-<col style="width: 23%">
-<col style="width: 48%">
+<col style="width: 25%">
+<col style="width: 47%">
 </colgroup>
 <thead>
 <tr class="header">

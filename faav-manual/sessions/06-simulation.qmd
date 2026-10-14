@@ -84,20 +84,23 @@ Everything above prescribes the motion completely: you say where the wing is at 
 
 **Aeroelasticity** lets each wing twist under load through a torsional spring at every cross-section, which matters here because a membrane wing is not rigid and the twist changes the loading.
 
-Both are switched on the same way: the geometry stays exactly as you built it, and you swap the *movement, problem and solver* classes for a different family.
+Both are switched on the same way: the geometry stays exactly as you built it, and you swap the *movement, problem and solver* classes for a different family. The naming follows one rule - take the standard class and put `FreeFlight` or `Aeroelastic` in front of it, so the free-flight solver is `FreeFlightUnsteadyRingVortexLatticeMethodSolver`.
 
-| Step | Standard UVLM | Free flight | Aeroelastic |
-|------------------|------------------|------------------|------------------|
-| Cross-section motion | `WingCrossSectionMovement` | `WingCrossSectionMovement` | `AeroelasticWingCrossSectionMovement` |
-| Wing motion | `WingMovement` | `WingMovement` | `AeroelasticWingMovement` |
-| Airplane motion | `AirplaneMovement` | `AirplaneMovement` | `AeroelasticAirplaneMovement` |
-| Operating point | `OperatingPointMovement` | `FreeFlightOperatingPointMovement` | `OperatingPointMovement` |
-| Movement | `Movement` | `FreeFlightMovement` | `AeroelasticMovement` |
-| Problem | `UnsteadyProblem` | `FreeFlightUnsteadyProblem` | `AeroelasticUnsteadyProblem` |
-| Solver | `UnsteadyRingVortexLatticeMethodSolver` | `FreeFlightUnsteadyRingVortexLatticeMethodSolver` | `AeroelasticUnsteadyRingVortexLatticeMethodSolver` |
-| What the solver adds | Nothing, motion is fully prescribed | Body position, attitude, velocity and rotation rate | The twist of each wing cross-section |
+What separates the two families is *which* classes take the prefix.
 
-: The three class families. Geometry is identical in all three columns; only the movement, problem and solver change.
+| Standard class                          | Free flight | Aeroelastic |
+|:----------------------------------------|:-----------:|:-----------:|
+| `WingCrossSectionMovement`              |  unchanged  |  prefixed   |
+| `WingMovement`                          |  unchanged  |  prefixed   |
+| `AirplaneMovement`                      |  unchanged  |  prefixed   |
+| `OperatingPointMovement`                |  prefixed   |  unchanged  |
+| `Movement`                              |  prefixed   |  prefixed   |
+| `UnsteadyProblem`                       |  prefixed   |  prefixed   |
+| `UnsteadyRingVortexLatticeMethodSolver` |  prefixed   |  prefixed   |
+
+: Which classes change in each family. The geometry classes --- `Airfoil`, `WingCrossSection`, `Wing` and `Airplane` --- are identical in all three.
+
+The split is almost complementary: free flight leaves the wing-level movement classes alone and swaps the operating point, while aeroelasticity does the reverse. Each solver also reports something the standard one does not --- free flight gives the body's position, attitude, velocity and rotation rate, aeroelasticity gives the twist of every wing cross-section. The standard solver adds nothing, because the motion is prescribed in full.
 
 ### Free flight
 
@@ -130,7 +133,7 @@ Free flight is enabled by building the free-flight class family instead of the s
 6.  **Run the `FreeFlightUnsteadyRingVortexLatticeMethodSolver`**, then use the usual output functions.
 
 | Parameter | Default | What to know |
-|--------------------|-----------------|-----------------------------------|
+|--------------------|------------------|----------------------------------|
 | `g_E` (OperatingPoint) | zero | **No gravity unless you set it.** Earth z points down, so standard gravity is (0, 0, 9.80665) |
 | `weight` (Airplane), `mass` (problem) | none | Must satisfy weight = mass × gravity, or the constructor raises. For zero gravity set both to zero |
 | `I_BP1_CgP1` (problem) | none | 3×3 symmetric, kg·m², about the CG, in **body** axes (forward, right, down). Geometry axes point aft, right, up --- if CAD gives it in geometry axes, flip the sign of Ixy and Iyz |
@@ -177,7 +180,7 @@ To use aeroelasticity:
 6.  **Run the `AeroelasticUnsteadyRingVortexLatticeMethodSolver`** and read the twist history from the problem.
 
 | Parameter | Default | What to know |
-|--------------------|-----------------|-----------------------------------|
+|--------------------|------------------|----------------------------------|
 | `spring_constant_rad` | none | Stiffness in N·m/rad. Static twist is roughly moment over stiffness, so a softer spring twists more. Examples use 1000. Too soft distorts the mesh |
 | `damping_constant_rad` | none | Damping in N·m·s/rad. Examples use 1000, which is heavily damped - lower it to see the strips oscillate |
 | `wing_density` | none | Mass per unit wing area, kg/m². Sets both inertias. **Zero breaks the equation** |
