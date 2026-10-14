@@ -58,13 +58,7 @@ Both the crank and linkage are CNC-cut in AL7075.
     4.  Lock in place with a 4 mm circlip.
 3.  Add an M3 screw to mount the crank on the (future) reduction.
 
-::: callout-warning
-### Alignment of the linkage, perpendicular to the shafts, is extremely important
-
-An offset of **1 mm** is sufficient to destroy the crank-link in a few strokes.
-
-![Transmission, top view](/Fig/transmissiontopview.jpg){fig-align="center" width="40%"}
-:::
+![The parts at the end of this step. The linkage has both bearings pressed in - the 10 mm one at the crank end, the 8 mm one at the wing end - and the crank sits behind it with its 4 mm shaft and the M3 mounting screw alongside.](/Fig/photo-crank-assembly.jpg){#fig-crank-assembly width="100%"}
 
 ## Gears and shafts
 
@@ -91,6 +85,14 @@ Between the gears, a clearance of **0.4 mm** (inter-axis spacing of 25.4 mm) ens
 ## Linkage-Gear assembly
 
 Press the last shaft (C) through the right wing gear, with the link in place. In other words, the 3 mm shaft rests on either side of the right gear and keeps the smaller bearing of the link in place. @fig-transmission-done is what the module should leave you with. Compare it against your own build. You should now have a right wing gear, connected to the crank and link.
+
+::: callout-warning
+### Alignment of the linkage, perpendicular to the shafts, is extremely important
+
+An offset of **1 mm** is sufficient to destroy the crank-link in a few strokes. Use spacer or even reprint parts if it is not the case.
+
+![Transmission, top view](/Fig/transmissiontopview.jpg){alt="Transmission, top view" fig-align="center" width="40%"}
+:::
 
 ## Mount the right wing
 
