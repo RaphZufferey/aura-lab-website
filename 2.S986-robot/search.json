@@ -1480,7 +1480,7 @@
     "href": "sessions/07-wings.html#requirements",
     "title": "Module 7 — Wing fabrication",
     "section": "Requirements",
-    "text": "Requirements\n\n\n\n\n\n\n\nParts\nCarbon rods and strips, wing roots, 2× nylon adapters per wing, ripstop nylon membrane, 3M tape, superglue, thread\n\n\nTools\nCutting mat, steel rule, scalpel, needle, printed full-size template of the chosen geometry\n\n\nBring\nThe Module 6 geometry, printed 1:1",
+    "text": "Requirements\n\n\n\n\n\n\n\nParts\nCarbon rods and strips, wing roots, 2× nylon adapters per wing, ripstop nylon membrane, 3M tape, superglue, thread\n\n\nTools\nCutting mat, steel rule, scalpel, needle, printed full-size template of the chosen geometry",
     "crumbs": [
       "Overview",
       "Build modules",
@@ -1492,7 +1492,7 @@
     "href": "sessions/07-wings.html#wing-roots",
     "title": "Module 7 — Wing fabrication",
     "section": "Wing roots",
-    "text": "Wing roots\nThe wing roots are carbon, drilled to mate with the gears from Module 5.\n\n\n\n\n\n\nFigure 1: Wing root parts and spar stock",
+    "text": "Wing roots\nThe wing roots are carbon, cut to mate with the gears from Module 5. A champfer needs to be cut in the wing roots for the countersunk head of the M3 screw.\n\n\n\n\n\n\nFigure 1: Wing root parts and spar stock",
     "crumbs": [
       "Overview",
       "Build modules",
@@ -1516,7 +1516,7 @@
     "href": "sessions/07-wings.html#assembly",
     "title": "Module 7 — Wing fabrication",
     "section": "Assembly",
-    "text": "Assembly\n\nMount each wing in its wing root using the two nylon adapters.\nMount the wing roots in the robot, onto the gears from Module 5.\n\n\n\n\n\n\n\nWarningBoth wings must match\n\n\n\nAsymmetry between left and right shows up as a roll bias that may not be possible to correct later. See Module 11 for trimming out. Weigh both wings and compare spar positions against the template before bonding.\n\n\n\n\n\n\n\n\nImportantTo be completed by the instructor\n\n\n\nStill missing from the procedure above:\n\nSpar layup: rod and strip diameters, and where the diagonals attach\nWhat to stitch with — thread type and stitch spacing\n\n\n\n\n\n\n\n\n\nNoteCheckpoint\n\n\n\nBoth wings complete, matched in mass and geometry, mounted in their roots and fitted to the robot",
+    "text": "Assembly\n\nMount each wing in its wing root using the two nylon adapters.\nMount the wing roots in the robot, onto the gears from Module 5.\n\n\n\n\n\n\n\nWarningBoth wings must match\n\n\n\nAsymmetry between left and right shows up as a roll bias that may not be possible to correct later. See Module 11 for trimming out. Weigh both wings and compare spar positions against the template before bonding.",
     "crumbs": [
       "Overview",
       "Build modules",
