@@ -12,11 +12,10 @@ Both wings: carbon skeleton, membrane cut to the geometry chosen in [Module 6](0
 |------------------------------------|------------------------------------|
 | **Parts** | Carbon rods and strips, wing roots, 2× nylon adapters per wing, ripstop nylon membrane, 3M tape, superglue, thread |
 | **Tools** | Cutting mat, steel rule, scalpel, needle, printed full-size template of the chosen geometry |
-| **Bring** | The Module 6 geometry, printed 1:1 |
 
 ## Wing roots
 
-The wing roots are carbon, drilled to mate with the gears from [Module 5](05-frame-crank.qmd).
+The wing roots are carbon, cut to mate with the gears from [Module 5](05-frame-crank.qmd). A champfer needs to be cut in the wing roots for the countersunk head of the M3 screw.
 
 ![Wing root parts and spar stock](/Fig/Wing_roots.jpg){#fig-wing-roots width="70%"}
 
@@ -55,19 +54,4 @@ Repeat for the second wing, and remember that it is flipped.
 ## Both wings must match
 
 Asymmetry between left and right shows up as a roll bias that may not be possible to correct later. See [Module 11](11-wet-testing.qmd) for trimming out. Weigh both wings and compare spar positions against the template before bonding.
-:::
-
-::: callout-important
-## To be completed by the instructor
-
-Still missing from the procedure above:
-
-- Spar layup: rod and strip diameters, and where the diagonals attach
-- What to stitch with --- thread type and stitch spacing
-:::
-
-::: callout-note
-## Checkpoint
-
-Both wings complete, matched in mass and geometry, mounted in their roots and fitted to the robot
 :::

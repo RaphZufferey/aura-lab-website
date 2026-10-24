@@ -547,6 +547,10 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#summary" id="toc-summary" class="nav-link active" data-scroll-target="#summary">Summary</a></li>
+  <li><a href="#reduction-installation" id="toc-reduction-installation" class="nav-link" data-scroll-target="#reduction-installation">Reduction installation</a>
+  <ul class="collapse">
+  <li><a href="#sun-gear" id="toc-sun-gear" class="nav-link" data-scroll-target="#sun-gear">Sun gear</a></li>
+  </ul></li>
   <li><a href="#tail" id="toc-tail" class="nav-link" data-scroll-target="#tail">Tail</a></li>
   <li><a href="#trailing-edge-holder" id="toc-trailing-edge-holder" class="nav-link" data-scroll-target="#trailing-edge-holder">Trailing edge holder</a>
   <ul class="collapse">
@@ -605,12 +609,42 @@ ul.task-list li input[type="checkbox"] {
 </tbody>
 </table>
 </section>
+<section id="reduction-installation" class="level2">
+<h2 class="anchored" data-anchor-id="reduction-installation">Reduction installation</h2>
+<p>The motor is connected via a custom shaft to a gearbox with a <strong>23.04:1</strong> reduction by Faulhaber.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> Both parts are held in place by 3D-printed plates. The output shaft of the gearbox has its own bearing on the inside of the gearbox, and is also supported mid-way on the shaft by a 4×8 mm flanged bearing. This leaves <strong>5 mm of shaft length free</strong> for the crank to be mounted on. A flat on the shaft helps lock the rotation of the M3 screw extending through the crank.</p>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../Fig/fhaber.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Faulhaber gearbox"><img src="../Fig/fhaber.jpg" class="img-fluid figure-img" alt="Faulhaber gearbox"></a></p>
+<figcaption>Faulhaber gearbox</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<p>First, we need to press + glue our sun gear is already pressed onto the motor shaft from <a href="../sessions/02-motor.html">Module 2</a>.</p>
+<p>Next, we need to install the gearbox to the motor and fixing the pair to the plates.</p>
+<ol type="1">
+<li><p>Slide the gearbox onto the motor shaft so the sun gear engages the planets. It should seat with light hand pressure, if it resists, back off and check the sun gear is square on the shaft rather than forcing it.</p></li>
+<li><p>Fix the blue part of the gearbox: the custom screws that come with the gearbox on one side, and <strong>M2.5×10</strong> screws on the other.</p></li>
+<li><p>Check the output turns freely by hand through a full revolution before applying power.</p></li>
+<li><p>Close the gearbox: the <strong>silver part threads onto the blue part</strong>. Don’t tighten it.</p></li>
+<li><p>Attach the <strong>second vertical bracket</strong> to the silver part of the gearbox with <strong>3 × M2.5</strong> screws.</p></li>
+<li><p>Secure that bracket to the <strong>bottom fuselage plate</strong> with <strong>3 × M2</strong> screws. The motor bracket from <a href="../sessions/02-motor.html">Module 2</a> is already on the same plate, so between them the two brackets set the alignment of the whole drivetrain. Check the output still turns freely once both are bolted down.</p></li>
+</ol>
+<section id="sun-gear" class="level3">
+<h3 class="anchored" data-anchor-id="sun-gear">Sun gear</h3>
+<p>The sun gear from the Faulhaber 23.04:1 gearbox. Glue and press onto shaft. Check that it fits into the reduction, without touching the first stage. Use a caliper for this.</p>
+</section>
+</section>
 <section id="tail" class="level2">
 <h2 class="anchored" data-anchor-id="tail">Tail</h2>
 <div id="fig-tail" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-tail-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="../Fig/tail.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1: Tail assembly"><img src="../Fig/tail.jpg" class="img-fluid figure-img" style="width:75.0%"></a>
+<a href="../Fig/tail.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure&nbsp;1: Tail assembly"><img src="../Fig/tail.jpg" class="img-fluid figure-img" style="width:75.0%"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-tail-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1: Tail assembly
@@ -723,7 +757,13 @@ Table&nbsp;1: What the trailing edge holder has to do
 </section>
 </section>
 
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p><a href="https://www.faulhaber.com/fileadmin/Import/Media/DE_GEARHEADS_REDUCTION_RATIOS.pdf">Faulhaber gearhead reduction ratios</a> (accessed 20.02.2024).<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right

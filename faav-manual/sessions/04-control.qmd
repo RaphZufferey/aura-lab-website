@@ -44,13 +44,7 @@ Do not change the torque control mode in the GUI. It will display `voltage mode`
 
 @fig-studio shows the parts you will actually use: the parameter tree on the left, the live plot of target, velocity and angle in the middle, and a command line at the bottom for anything the form does not expose.
 
-::: {.content-visible when-format="html"}
-![SimpleFOC Studio driving a motor. The tree on the left exposes every commander parameter as a form - motion control type, the four PID blocks, limits and sensor config - while the plot plays back target, velocity and angle as they change. Screen capture from the [SimpleFOCStudio](https://github.com/JorgeMaker/SimpleFOCStudio) project.](/Fig/simplefoc-studio.gif){#fig-studio width="100%"}
-:::
-
-::: {.content-hidden when-format="html"}
-![SimpleFOC Studio driving a motor. The tree on the left exposes every commander parameter as a form - motion control type, the four PID blocks, limits and sensor config - while the plot shows target, velocity and angle as they change. Screen capture from the [SimpleFOCStudio](https://github.com/JorgeMaker/SimpleFOCStudio) project; printed here as a single frame, the web version is animated.](/Fig/simplefoc-studio.png){#fig-studio width="100%"}
-:::
+![SimpleFOC Studio driving a motor. The tree on the left exposes every commander parameter as a form - motion control type, the four PID blocks, limits and sensor config - while the plot follows target, velocity and angle as they change. Screen capture from the [SimpleFOCStudio](https://github.com/JorgeMaker/SimpleFOCStudio) project; it animates on the web and prints as a single frame.](/Fig/simplefoc-studio.gif){#fig-studio width="100%"}
 
 ::: callout-note
 ## What the ESC code has to provide
@@ -136,7 +130,7 @@ With the output held there is no back-EMF and no mechanical work, so all the ele
 
 ## Calibration
 
-We'd like to also make sure that we have the right **motor parameters** for running at high speeds (above 400 rad/s). To this, we will follow the commissioning instrutions in the firmware above. To this with your TA. Run autocal until 1000 rad/s.
+We'd like to also make sure that we have the right **motor parameters** for running at high speeds (above 400 rad/s). To this, we will follow the commissioning instrutions in the firmware above. Do this with your TA. Run autocal until 1000 rad/s.
 
 ## Why we use an ESC that we reprogram
 

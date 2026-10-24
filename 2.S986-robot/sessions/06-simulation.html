@@ -26,6 +26,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -52,6 +87,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/bootstrap/bootstrap-3bc97f2477fb7965bce9454950d60e55.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/bootstrap/bootstrap-dark-dea204dea6f735ae4ecf1dae3d686bcc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <link href="../site_libs/bootstrap/bootstrap-3bc97f2477fb7965bce9454950d60e55.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -80,6 +118,35 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <meta name="robots" content="noindex, nofollow">
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
 </head>
@@ -545,7 +612,15 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#summary" id="toc-summary" class="nav-link active" data-scroll-target="#summary">Summary</a></li>
   <li><a href="#requirements" id="toc-requirements" class="nav-link" data-scroll-target="#requirements">Requirements</a></li>
-  <li><a href="#deliverable" id="toc-deliverable" class="nav-link" data-scroll-target="#deliverable">Deliverable</a></li>
+  <li><a href="#what-ptera-does" id="toc-what-ptera-does" class="nav-link" data-scroll-target="#what-ptera-does">What Ptera does</a></li>
+  <li><a href="#installing-ptera" id="toc-installing-ptera" class="nav-link" data-scroll-target="#installing-ptera">Installing Ptera</a></li>
+  <li><a href="#how-a-ptera-model-is-put-together" id="toc-how-a-ptera-model-is-put-together" class="nav-link" data-scroll-target="#how-a-ptera-model-is-put-together">How a Ptera model is put together</a></li>
+  <li><a href="#modelling-the-tail" id="toc-modelling-the-tail" class="nav-link" data-scroll-target="#modelling-the-tail">Modelling the tail</a></li>
+  <li><a href="#beyond-prescribed-motion" id="toc-beyond-prescribed-motion" class="nav-link" data-scroll-target="#beyond-prescribed-motion">Beyond prescribed motion</a>
+  <ul class="collapse">
+  <li><a href="#free-flight" id="toc-free-flight" class="nav-link" data-scroll-target="#free-flight">Free flight</a></li>
+  <li><a href="#aeroelasticity" id="toc-aeroelasticity" class="nav-link" data-scroll-target="#aeroelasticity">Aeroelasticity</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -591,27 +666,386 @@ ul.task-list li input[type="checkbox"] {
 </tbody>
 </table>
 </section>
-<section id="deliverable" class="level2">
-<h2 class="anchored" data-anchor-id="deliverable">Deliverable</h2>
-<p>A wing planform and a tail geometry, with the simulation output that justifies them, carried forward into <a href="../sessions/07-wings.html">Module 7</a> and <a href="../sessions/08-tail-housing.html">Module 8</a>.</p>
+<section id="what-ptera-does" class="level2">
+<h2 class="anchored" data-anchor-id="what-ptera-does">What Ptera does</h2>
+<div id="fig-ptera" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ptera-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="../Fig/k=5_deformation.gif" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1: A Ptera run: the lifting surfaces are divided into the panel mesh the solver actually works on, and coloured by lift coefficient through the stroke. The deformation you can see is the point - the loading changes continuously as the wing flaps, which is exactly what a steady calculation cannot give you."><img src="../Fig/k=5_deformation.gif" class="img-fluid figure-img" style="width:85.0%"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ptera-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: A Ptera run: the lifting surfaces are divided into the panel mesh the solver actually works on, and coloured by lift coefficient through the stroke. The deformation you can see is the point - the loading changes continuously as the wing flaps, which is exactly what a steady calculation cannot give you.
+</figcaption>
+</figure>
+</div>
+<p><a href="https://github.com/camUrban/PteraSoftware">Ptera Software</a> is an open-source package for analysing flapping-wing flight. It exists because the usual options are bad: steady aerodynamics assumes the wing is not moving, which is the one assumption a flapping wing breaks, and full CFD is slow and expensive enough that you cannot use it to compare candidate planforms in an afternoon.</p>
+<p>It uses the <strong>unsteady ring vortex lattice method (UVLM)</strong>. The surfaces are reduced to a mesh of panels, each carrying a vortex ring, and the wake is shed and tracked as the wing moves. That is a large step up from a steady method - it captures the history of the flow, so the forces at one instant depend on what the wing did before - while staying fast enough to sweep a design space.</p>
+</section>
+<section id="installing-ptera" class="level2">
+<h2 class="anchored" data-anchor-id="installing-ptera">Installing Ptera</h2>
+<p>The examples are in the repository, so clone it rather than installing the package on its own:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/camUrban/PteraSoftware.git</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> PteraSoftware</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">-r</span> requirements.txt</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Then run the unsteady example to confirm the install works:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> examples/unsteady_ring_vortex_lattice_method_solver_variable.py</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>It should open an animation like <a href="#fig-ptera" class="quarto-xref">Figure&nbsp;1</a>. If it does, the solver, the geometry classes and the output stack are all working and you can start editing a copy of that script into your own geometry.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Two ways to install it
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>pip install pterasoftware</code> also works if you only want the library. It does <strong>not</strong> give you the <code>examples/</code> folder, which is where the working scripts are.</p>
+</div>
+</div>
+</section>
+<section id="how-a-ptera-model-is-put-together" class="level2">
+<h2 class="anchored" data-anchor-id="how-a-ptera-model-is-put-together">How a Ptera model is put together</h2>
+<p>The thing worth understanding before you open the example is that <strong>geometry and motion are two parallel hierarchies</strong>. You build the shape first, then build a matching movement object for each piece of that shape. Every geometry class has a movement twin.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 31%">
+<col style="width: 31%">
+<col style="width: 36%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Geometry</th>
+<th>Movement twin</th>
+<th>What it is</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>Airfoil</code></td>
+<td>—</td>
+<td>The 2D section. Does not move on its own</td>
+</tr>
+<tr class="even">
+<td><code>WingCrossSection</code></td>
+<td><code>WingCrossSectionMovement</code></td>
+<td>An airfoil placed at a span position, with its own chord, twist and offset</td>
+</tr>
+<tr class="odd">
+<td><code>Wing</code></td>
+<td><code>WingMovement</code></td>
+<td>Two or more cross-sections swept into a surface</td>
+</tr>
+<tr class="even">
+<td><code>Airplane</code></td>
+<td><code>AirplaneMovement</code></td>
+<td>All the wings together — on this robot, the two wings and the tail</td>
+</tr>
+<tr class="odd">
+<td><code>OperatingPoint</code></td>
+<td><code>OperatingPointMovement</code></td>
+<td>Freestream velocity, density and angles</td>
+</tr>
+</tbody>
+</table>
+<p>The two sides are then joined and solved:</p>
+<ol type="1">
+<li><code>Movement</code> takes the <code>AirplaneMovement</code> and the <code>OperatingPointMovement</code> and becomes the complete time-varying description of the problem.</li>
+<li><code>UnsteadyProblem</code> wraps that <code>Movement</code>.</li>
+<li><code>UnsteadyRingVortexLatticeMethodSolver</code> takes the problem and runs it.</li>
+</ol>
+<p>So the flapping is <strong>not</strong> a property of the wing. It lives in the movement twin, which is why the same geometry can be swept through different kinematics without rebuilding it.</p>
+</section>
+<section id="modelling-the-tail" class="level2">
+<h2 class="anchored" data-anchor-id="modelling-the-tail">Modelling the tail</h2>
+<p>In Ptera it is simply another <code>Wing</code> on the <code>Airplane</code>, built the same way as the flapping wings: two or more <code>WingCrossSection</code> objects, each with an <code>Airfoil</code>, swept into a surface. It needs a <code>WingMovement</code> like everything else, but for a fixed tail that movement is static (the object still has to exist).</p>
+<p>The planform follows from where you put the cross-sections and what chord you give each one:</p>
+<ul>
+<li><strong>Rectangular</strong> - same chord at root and tip. The simplest thing to build and the easiest baseline to compare against.</li>
+<li><strong>Tapered</strong> - smaller chord at the tip. Less area outboard, less inertia at the end of the moment arm.</li>
+<li><strong>Delta or triangular</strong> - taper taken to the limit, chord going to near zero at the tip.</li>
+<li><strong>Forked</strong> - two surfaces leaving a common root, the shape many fish converge on.</li>
+</ul>
+</section>
+<section id="beyond-prescribed-motion" class="level2">
+<h2 class="anchored" data-anchor-id="beyond-prescribed-motion">Beyond prescribed motion</h2>
+<p>Everything above prescribes the motion completely: you say where the wing is at every instant, and the solver reports the loads. Ptera has two <u>beta features</u> that go beyond that</p>
+<p><strong>Free flight</strong> hands the airplane to the MuJoCo physics engine, so it flies a six-degree-of-freedom path under its own aerodynamic loads, weight and inertia: the question of whether a chosen geometry actually sustains flight or what maximum speed it can reach in swimming, rather than what lift it makes while held in place.</p>
+<p><strong>Aeroelasticity</strong> lets each wing twist under load through a torsional spring at every cross-section, which matters here because a membrane wing is not rigid and the twist changes the loading.</p>
+<p>Both are switched on the same way: the geometry stays exactly as you built it, and you swap the <em>movement, problem and solver</em> classes for a different family. The naming follows one rule - take the standard class and put <code>FreeFlight</code> or <code>Aeroelastic</code> in front of it, so the free-flight solver is <code>FreeFlightUnsteadyRingVortexLatticeMethodSolver</code>.</p>
+<p>What separates the two families is <em>which</em> classes take the prefix.</p>
+<div id="tbl-ptera-families" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-ptera-families-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: Which classes change in each family. The geometry classes - <code>Airfoil</code>, <code>WingCrossSection</code>, <code>Wing</code> and <code>Airplane</code> - are identical in all three.
+</figcaption>
+<div aria-describedby="tbl-ptera-families-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Standard class</th>
+<th style="text-align: center;">Free flight</th>
+<th style="text-align: center;">Aeroelastic</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>WingCrossSectionMovement</code></td>
+<td style="text-align: center;">unchanged</td>
+<td style="text-align: center;">prefixed</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>WingMovement</code></td>
+<td style="text-align: center;">unchanged</td>
+<td style="text-align: center;">prefixed</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>AirplaneMovement</code></td>
+<td style="text-align: center;">unchanged</td>
+<td style="text-align: center;">prefixed</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>OperatingPointMovement</code></td>
+<td style="text-align: center;">prefixed</td>
+<td style="text-align: center;">unchanged</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>Movement</code></td>
+<td style="text-align: center;">prefixed</td>
+<td style="text-align: center;">prefixed</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>UnsteadyProblem</code></td>
+<td style="text-align: center;">prefixed</td>
+<td style="text-align: center;">prefixed</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>UnsteadyRingVortexLatticeMethodSolver</code></td>
+<td style="text-align: center;">prefixed</td>
+<td style="text-align: center;">prefixed</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<section id="free-flight" class="level3">
+<h3 class="anchored" data-anchor-id="free-flight">Free flight</h3>
+<p>In a standard run you prescribe the operating point at every step. In free flight you give only the <strong>first</strong> one. After that MuJoCo integrates the rigid-body equations and the solver rebuilds each new operating point - speed, angle of attack, sideslip, attitude, position, body rates - from the result.</p>
+<p>MuJoCo treats the airplane as <u>one rigid body</u> on a free joint, with the mass and inertia matrix you supply. Ptera applies the entire load itself, the UVLM forces and moments plus anything from <code>external_loads_fn</code>, rotated into Earth axes, plus the weight.</p>
+<p>A run has two phases. During the <strong>prescribed phase</strong> the loads are withheld and the body coasts at its initial condition while the wake develops, which keeps the impulsive-start transient out of the dynamics. During the <strong>free phase</strong> the loads are applied and the airplane flies on its own. Wing motion stays prescribed throughout.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Why a free step costs several times a prescribed one
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The load over a step depends on where the body ends the step, and where it ends depends on the load. Using the previous step’s load is the obvious approach and it <strong>diverges</strong> for flapping cases, because of added mass: a velocity change alters the circulation, which alters the load, which alters the velocity again, with a loop gain of roughly added mass over vehicle mass.</p>
+<p>Each free step therefore solves a small fixed-point problem instead, iterating on the twelve-number body state until the weighted residual falls below a relative tolerance of <code>1e-6</code>, or until <code>k_max</code> iterations. Every pass costs one UVLM solve <em>and</em> one MuJoCo step. The full derivation is in <code>docs/STRONG_COUPLING.md</code>.</p>
+</div>
+</div>
+<p>Free flight is enabled by building the free-flight class family instead of the standard one. The script below is a trimmed-down version of <code>examples/free_flight_unsteady_ring_vortex_lattice_method_solver_glider.py</code>.</p>
+<ol type="1">
+<li><p><strong>Build the <code>Airplane</code></strong> as usual. Its <code>weight</code> must equal <code>mass * |g_E|</code>, or the problem constructor raises a <code>ValueError</code>.</p></li>
+<li><p><strong>Wrap each <code>Wing</code> in a <code>WingMovement</code></strong> and the airplane in an <code>AirplaneMovement</code>. Leave the amplitudes at zero for a glider, or set them to flap. Loop over <code>airplane.wings</code>, not over the wings you typed: a symmetric wing whose symmetry plane is offset is split into two <code>Wing</code> objects, and each needs its own movement.</p></li>
+<li><p><strong>Define the initial <code>OperatingPoint</code>.</strong> This is the only operating point you prescribe. Set <code>g_E</code> explicitly, because the default is no gravity. Keep <code>externalFX_W=0.0</code>.</p></li>
+<li><p><strong>Wrap it in a <code>FreeFlightOperatingPointMovement</code></strong>, then build a <code>FreeFlightMovement</code> with exactly one airplane movement, the time step, and the two phase lengths.</p></li>
+<li><p><strong>Build the <code>FreeFlightUnsteadyProblem</code></strong> with the mass (kg) and the inertia matrix (kg m^2, in body axes, about the CG).</p></li>
+<li><p><strong>Run the <code>FreeFlightUnsteadyRingVortexLatticeMethodSolver</code></strong>, then use the usual output functions.</p></li>
+</ol>
+<table class="caption-top table">
+<caption>Free-flight parameters worth checking before a run.</caption>
+<colgroup>
+<col style="width: 27%">
+<col style="width: 25%">
+<col style="width: 47%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th>Default</th>
+<th>What to know</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>g_E</code> (OperatingPoint)</td>
+<td>zero</td>
+<td><strong>No gravity unless you set it.</strong> Earth z points down, so standard gravity is (0, 0, 9.80665)</td>
+</tr>
+<tr class="even">
+<td><code>weight</code> (Airplane), <code>mass</code> (problem)</td>
+<td>none</td>
+<td>Must satisfy weight = mass × gravity, or the constructor raises. For zero gravity set both to zero</td>
+</tr>
+<tr class="odd">
+<td><code>I_BP1_CgP1</code> (problem)</td>
+<td>none</td>
+<td>3×3 symmetric, kg·m², about the CG, in <strong>body</strong> axes (forward, right, down). Geometry axes point aft, right, up — if CAD gives it in geometry axes, flip the sign of Ixy and Iyz</td>
+</tr>
+<tr class="even">
+<td><code>externalFX_W</code> (OperatingPoint)</td>
+<td>0.0</td>
+<td>Must stay zero; free flight raises otherwise. Use <code>external_loads_fn</code> for thrust</td>
+</tr>
+<tr class="odd">
+<td><code>external_loads_fn</code> (problem)</td>
+<td>none</td>
+<td>Returns force and moment as two 3-vectors in <strong>wind</strong> axes. Wind +x points along the velocity, so thrust along the flight path is (T, 0, 0)</td>
+</tr>
+<tr class="even">
+<td><code>prescribed_num_steps</code>, <code>free_num_steps</code></td>
+<td>none</td>
+<td>Both at least 1. The examples coast for 5 to 10 steps</td>
+</tr>
+<tr class="odd">
+<td><code>delta_time</code></td>
+<td>none</td>
+<td>Rule of thumb: the airplane travels about one chordwise panel length per step</td>
+</tr>
+<tr class="even">
+<td><code>k_max</code> (problem)</td>
+<td>20</td>
+<td>Cap on coupling iterations per step. Raise it if the log reports reaching the cap without converging - light vehicles need more</td>
+</tr>
+<tr class="odd">
+<td><code>integrator</code> (problem)</td>
+<td><code>"RK4"</code></td>
+<td>Prefer an implicit one once you add contact geometry</td>
+</tr>
+<tr class="even">
+<td><code>CgP1_E_Eo</code>, <code>omegas_BP1__E</code></td>
+<td>zeros</td>
+<td>Initial position and body rates. Only the free-flight solver accepts nonzero body rates</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="aeroelasticity" class="level3">
+<h3 class="anchored" data-anchor-id="aeroelasticity">Aeroelasticity</h3>
+<p>The structural model is deliberately first-order. Each spanwise <strong>strip</strong> (chord element, i.e.&nbsp;the panels between two neighbouring cross-sections) is a rigid plate hinged <strong>at its leading edge</strong> on a torsional spring, free only to twist about its spanwise axis. There is no spanwise bending in the current model, strips are not connected to each other structurally, and the root is clamped.</p>
+<p>Each strip’s twist angle follows a forced, damped oscillator,</p>
+<p><span id="eq-twist"><span class="math display">\[I\,\ddot{\theta} + c\,\dot{\theta} + k\,\theta = M_\text{aero} + M_\text{inertial} \tag{1}\]</span></span></p>
+<p>with the terms in <a href="#eq-twist" class="quarto-xref">Equation&nbsp;1</a> coming from:</p>
+<table class="caption-top table">
+<caption>What drives the twist of one strip.</caption>
+<colgroup>
+<col style="width: 27%">
+<col style="width: 27%">
+<col style="width: 44%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Symbol</th>
+<th>Meaning</th>
+<th>Where it comes from</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\theta\)</span></td>
+<td>Strip twist (rad)</td>
+<td>Solved for</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(k\)</span></td>
+<td>Torsional stiffness (N·m/rad)</td>
+<td><code>spring_constant_rad</code></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(c\)</span></td>
+<td>Torsional damping (N·m·s/rad)</td>
+<td><code>damping_constant_rad</code></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(I\)</span></td>
+<td>Strip torsional inertia, ½ML²</td>
+<td>M = <code>wing_density</code> × strip area, L = mean strip chord</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(M_\text{aero}\)</span></td>
+<td>Sum of the strip’s panel pitching moments about its leading edge</td>
+<td>UVLM loads at the current step</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(M_\text{inertial}\)</span></td>
+<td>Moment from the prescribed flapping acceleration</td>
+<td>Flapping inertia × flap angular acceleration</td>
+</tr>
+</tbody>
+</table>
+<p>Each step runs once through the loop: the UVLM solves on the current, already deformed geometry; the solver sums each strip’s panel moments about its leading edge; SciPy integrates <a href="#eq-twist" class="quarto-xref">Equation&nbsp;1</a> over one time step from that strip’s previous twist and twist rate; and the new twist is added to the outboard cross-section’s angle before the next step is meshed. That is <strong>loose coupling</strong>: the twist at one step uses the loads from the last one, with no sub-iteration. For the first few steps (<code>step_discards</code>, default 5) the twist is held at zero, because the impulsive start produces large unphysical loads. Only wings built with an <code>AeroelasticWingMovement</code> deform; a plain <code>WingMovement</code> in the same airplane stays rigid (which is how you model a flexible wing against a rigid tail).</p>
+<p>To use aeroelasticity:</p>
+<ol type="1">
+<li><strong>Mesh the deforming wing as thin strips.</strong> The spring model only behaves when each strip is narrow. Set <code>explode_into_strips=True</code> on the <code>Wing</code>, which requires uniform spanwise spacing on every non-tip cross-section.</li>
+<li><strong>Offset the wing root from the symmetry plane.</strong> A wing lying on the symmetry plane raises an error; offsetting it splits the wing into a left and a right <code>Wing</code>, which is what the solver expects.</li>
+<li><strong>Flap with sine spacing.</strong> The inertial moment needs the flap <em>acceleration</em>, so sawtooth spacing is rejected.</li>
+<li><strong>Wrap all wing movements in an <code>AeroelasticAirplaneMovement</code>.</strong> Rigid wings can keep a plain <code>WingMovement</code>.</li>
+<li><strong>Use an ordinary <code>OperatingPoint</code> and <code>OperatingPointMovement</code></strong>, then build the <code>AeroelasticMovement</code> and the <code>AeroelasticUnsteadyProblem</code> with the structural parameters.</li>
+<li><strong>Run the <code>AeroelasticUnsteadyRingVortexLatticeMethodSolver</code></strong> and read the twist history from the problem.</li>
+</ol>
+<table class="caption-top table">
+<caption>Aeroelastic parameters. <strong>None of these are range-checked</strong>, so a wrong unit or sign runs silently and returns nonsense.</caption>
+<colgroup>
+<col style="width: 27%">
+<col style="width: 25%">
+<col style="width: 47%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th>Default</th>
+<th>What to know</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>spring_constant_rad</code></td>
+<td>none</td>
+<td>Stiffness in N·m/rad. Static twist is roughly moment over stiffness, so a softer spring twists more. Examples use 1000. Too soft distorts the mesh</td>
+</tr>
+<tr class="even">
+<td><code>damping_constant_rad</code></td>
+<td>none</td>
+<td>Damping in N·m·s/rad. Examples use 1000, which is heavily damped - lower it to see the strips oscillate</td>
+</tr>
+<tr class="odd">
+<td><code>wing_density</code></td>
+<td>none</td>
+<td>Mass per unit wing area, kg/m². Sets both inertias. <strong>Zero breaks the equation</strong></td>
+</tr>
+<tr class="even">
+<td><code>step_discards</code></td>
+<td>5</td>
+<td>Start-up steps with twist held at zero. Raise it if the first deformed steps look violent</td>
+</tr>
+<tr class="odd">
+<td><code>explode_into_strips</code> (Wing)</td>
+<td>False</td>
+<td>Set true on deforming wings</td>
+</tr>
+<tr class="even">
+<td><code>prescribed_wake</code> (run)</td>
+<td>True</td>
+<td>True is much faster and fine for parameter sweeps; false (free wake) is more accurate</td>
+</tr>
+</tbody>
+</table>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>To be written by the instructor
+<span class="screen-reader-only">Important</span>These two features are experimental
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This module has <strong>no counterpart in the manufacturing guide</strong> — the guide documents the research robot’s final geometry, not the design exercise. The following need to be written from course material:</p>
-<ul>
-<li>Ptera installation and a worked example</li>
-<li>The provided motor power curve, and its format</li>
-<li>What “most efficient thrust profile” means quantitatively here, and how it is scored</li>
-<li>Constraints the students must respect so their geometry remains buildable with the frame from <a href="../sessions/05-frame-crank.html">Module 5</a> — span limits, root fitting, mass budget</li>
-<li>Whether teams may deviate from the reference wing, and by how much</li>
-</ul>
+<p>Both features first shipped in <strong>v5.1.0</strong> (July 2026), which is what <code>pip install pterasoftware</code> gives you. The behaviour described here follows the newer <code>main</code> branch, which differs in several ways: class names are flat (<code>ps.FreeFlightMovement</code>) rather than long module paths, a free-flight run starts at the operating point’s initial position rather than always at the origin</p>
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -629,6 +1063,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 
 
+</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
@@ -1076,6 +1511,38 @@ ul.task-list li input[type="checkbox"] {
 </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 

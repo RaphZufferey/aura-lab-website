@@ -557,6 +557,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#what-spi-is-and-why-we-run-it-at-10-mhz" id="toc-what-spi-is-and-why-we-run-it-at-10-mhz" class="nav-link" data-scroll-target="#what-spi-is-and-why-we-run-it-at-10-mhz">What SPI is, and why we run it at 10 MHz</a></li>
   <li><a href="#wire-it-to-the-board" id="toc-wire-it-to-the-board" class="nav-link" data-scroll-target="#wire-it-to-the-board">Wire it to the board</a></li>
   </ul></li>
+  <li><a href="#powering-the-encoder" id="toc-powering-the-encoder" class="nav-link" data-scroll-target="#powering-the-encoder">Powering the encoder</a></li>
   <li><a href="#mounting" id="toc-mounting" class="nav-link" data-scroll-target="#mounting">Mounting</a></li>
   </ul>
 </nav>
@@ -590,7 +591,7 @@ ul.task-list li input[type="checkbox"] {
 <div id="fig-wiring" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-wiring-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="../Fig/xiao-esc-wiring-diagram.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1: How the battery, ESC, encoder, motor and microcontroller connect. The XIAO nRF52840 shown here is the separate-microcontroller option for serial described below - note that TX and RX are crossed. SPI3 and UART pin assignments match the rework in Table&nbsp;2 and ST-Link serial."><img src="../Fig/xiao-esc-wiring-diagram.png" class="img-fluid figure-img" style="width:6.5in"></a>
+<a href="../Fig/xiao-esc-wiring-diagram.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1: How the battery, ESC, encoder, motor and microcontroller connect. The XIAO nRF52840 shown here is the separate-microcontroller option for serial described below - note that TX and RX are crossed. SPI3 and UART pin assignments match the rework in Table&nbsp;2 and ST-Link serial."><img src="../Fig/xiao-esc-wiring-diagram.jpg" class="img-fluid figure-img" style="width:6.5in"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-wiring-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1: How the battery, ESC, encoder, motor and microcontroller connect. The XIAO nRF52840 shown here is the separate-microcontroller option for serial described below - note that TX and RX are crossed. SPI3 and UART pin assignments match the rework in <a href="#tbl-spi3" class="quarto-xref">Table&nbsp;2</a> and <em>ST-Link serial</em>.
@@ -794,7 +795,7 @@ Table&nbsp;2: SPI3 connections on the G431. * This connection is on the outward 
 <th>MISO</th>
 <th>MOSI</th>
 <th>CS</th>
-<th>5V</th>
+<th>VDD</th>
 <th>GND</th>
 </tr>
 </thead>
@@ -814,7 +815,7 @@ Table&nbsp;2: SPI3 connections on the G431. * This connection is on the outward 
 <td>J3</td>
 <td>R14*</td>
 <td>J3</td>
-<td>J8</td>
+<td>J4 (3.3 V)</td>
 <td>J3</td>
 </tr>
 </tbody>
@@ -822,20 +823,70 @@ Table&nbsp;2: SPI3 connections on the G431. * This connection is on the outward 
 </div>
 </figure>
 </div>
+</section>
+</section>
+<section id="powering-the-encoder" class="level2">
+<h2 class="anchored" data-anchor-id="powering-the-encoder">Powering the encoder</h2>
+<p>The encoder is powered by the regulators on the ESC board. Since the STM32 operates at 3.3V, it is best to use the encoder <strong>in 3.3V mode</strong> (it can also work at 5V). The encoder boards may or may not offer the option to run at 3.3V.</p>
+<p>The AS5047P chip, however, can work on 3.3V or 5V. For 3.3V mode, the following changes need to be made:</p>
+<ul>
+<li><p>Remove the capacitor between the 3.3V line and ground (<strong>C2</strong>)</p></li>
+<li><p>Connect 3.3V to VDD. For that, tie together pin 11 and 12 on the chip.</p></li>
+</ul>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Voltage warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Once these changes made, the marked “5V” connection on the board where the cable is connected should now be connected <strong>to 3.3V only</strong>. Powering it with 5V will destroy the encoder.</p>
+</div>
+</div>
+<div class="quarto-layout-panel" data-layout="[[365,360,275]]">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 36.5%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../Fig/as5047p_3.3V.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="AS5047P in 3.3V mode: VDD tied to VDD3V3, bypassing the internal LDO"><img src="../Fig/as5047p_3.3V.jpg" class="img-fluid figure-img" style="width:95.0%" alt="AS5047P in 3.3V mode: VDD tied to VDD3V3, bypassing the internal LDO"></a></p>
+<figcaption>AS5047P in 3.3V mode: VDD tied to VDD3V3, bypassing the internal LDO</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 36.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../Fig/encoderA.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="AS5047 breakout board"><img src="../Fig/encoderA.jpg" class="img-fluid figure-img" style="width:95.0%" alt="AS5047 breakout board"></a></p>
+<figcaption>AS5047 breakout board</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 27.5%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../Fig/encoderB.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="Different AS5047 breakout, with the pads labelled CSN, SCK, MISO, MOSI, GND and 5V"><img src="../Fig/encoderB.jpg" class="img-fluid figure-img" style="width:95.0%" alt="Different AS5047 breakout, with the pads labelled CSN, SCK, MISO, MOSI, GND and 5V"></a></p>
+<figcaption>Different AS5047 breakout, with the pads labelled CSN, SCK, MISO, MOSI, GND and 5V</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Keep the SPI cables under 8 cm
+<span class="screen-reader-only">Tip</span>Keep the SPI cables short
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Cables between encoder and ESC need to be <strong>less than 8 cm</strong>. At 10 MHz longer runs start corrupting angle readings, and the symptom is a motor that behaves erratically rather than a sensor that obviously fails. Check the length that is needed. The cables also need to be the same length.</p>
+<p>Cables between encoder and ESC need to be <strong>as short as possible, but still fit in the robot</strong>. At 10 MHz longer runs start corrupting angle readings, and the symptom is a motor that behaves erratically rather than a sensor that obviously fails. Check the length that is needed. The cables also need to be the same length.</p>
 </div>
 </div>
-</section>
 </section>
 <section id="mounting" class="level2">
 <h2 class="anchored" data-anchor-id="mounting">Mounting</h2>
@@ -846,7 +897,7 @@ Table&nbsp;2: SPI3 connections on the G431. * This connection is on the outward 
 </ol>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../Fig/ESC_assembly.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Assembled motor-esc"><img src="../Fig/ESC_assembly.jpg" class="img-fluid figure-img" alt="Assembled motor-esc"></a></p>
+<p><a href="../Fig/ESC_assembly.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-9" title="Assembled motor-esc"><img src="../Fig/ESC_assembly.jpg" class="img-fluid figure-img" alt="Assembled motor-esc"></a></p>
 <figcaption>Assembled motor-esc</figcaption>
 </figure>
 </div>

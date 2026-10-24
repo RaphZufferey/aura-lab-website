@@ -192,6 +192,18 @@
     ]
   },
   {
+    "objectID": "sessions/08-tail-housing.html#reduction-installation",
+    "href": "sessions/08-tail-housing.html#reduction-installation",
+    "title": "Module 8 — Tail",
+    "section": "Reduction installation",
+    "text": "Reduction installation\nThe motor is connected via a custom shaft to a gearbox with a 23.04:1 reduction by Faulhaber.1 Both parts are held in place by 3D-printed plates. The output shaft of the gearbox has its own bearing on the inside of the gearbox, and is also supported mid-way on the shaft by a 4×8 mm flanged bearing. This leaves 5 mm of shaft length free for the crank to be mounted on. A flat on the shaft helps lock the rotation of the M3 screw extending through the crank.\n\n\n\n\n\n\nFaulhaber gearbox\n\n\n\n\n\nFirst, we need to press + glue our sun gear is already pressed onto the motor shaft from Module 2.\nNext, we need to install the gearbox to the motor and fixing the pair to the plates.\n\nSlide the gearbox onto the motor shaft so the sun gear engages the planets. It should seat with light hand pressure, if it resists, back off and check the sun gear is square on the shaft rather than forcing it.\nFix the blue part of the gearbox: the custom screws that come with the gearbox on one side, and M2.5×10 screws on the other.\nCheck the output turns freely by hand through a full revolution before applying power.\nClose the gearbox: the silver part threads onto the blue part. Don’t tighten it.\nAttach the second vertical bracket to the silver part of the gearbox with 3 × M2.5 screws.\nSecure that bracket to the bottom fuselage plate with 3 × M2 screws. The motor bracket from Module 2 is already on the same plate, so between them the two brackets set the alignment of the whole drivetrain. Check the output still turns freely once both are bolted down.\n\n\nSun gear\nThe sun gear from the Faulhaber 23.04:1 gearbox. Glue and press onto shaft. Check that it fits into the reduction, without touching the first stage. Use a caliper for this.",
+    "crumbs": [
+      "Overview",
+      "Build modules",
+      "Module 8 --- Tail"
+    ]
+  },
+  {
     "objectID": "sessions/08-tail-housing.html#tail",
     "href": "sessions/08-tail-housing.html#tail",
     "title": "Module 8 — Tail",
@@ -209,6 +221,18 @@
     "title": "Module 8 — Tail",
     "section": "Trailing edge holder",
     "text": "Trailing edge holder\nThe wing root is driven by the gears and sweeps through the full 60° set in Module 5. The trailing edge is not driven. It is anchored to the tail tube, and that anchor is what makes the membrane twist as the wing sweeps. It sets the angle of attack the wing sees through the stroke. Move it and the wing behaves differently. So this part is a trim adjustment as much as it is a mount, which is why both its positions have to stay changeable after the robot is built.\nThis part is a design exercise. The requirements are fixed; the mechanism is not.\n\n\n\nTable 1: What the trailing edge holder has to do\n\n\n\n\n\nRequirement\nWhy\n\n\n\n\nRotates with the wing through the whole stroke\nThe root swings 34° up and 26° down. An anchor that cannot follow loads the membrane in the one direction it cannot take.\n\n\nAdjustable longitudinally, along the tube\nFore/aft position sets wing twist. This is the trim actually reached for in Module 11.\n\n\nEach Wing mounts can change laterally and longitudinally\nSets how far the anchor stands off the boom, and is how left and right are matched.\n\n\nWing comes off without dismantling anything\nWings get swapped, damaged and rebuilt. Nothing about this joint may be permanent.\n\n\nSurvives repeated wet cycling\nTo not fail at competition\n\n\n\n\n\n\n\nFind a solution\nBoth flexible and rigid solutions are possible. For a rigid solution, the mount half is straightforward: a split collar that slides along the 5 mm tube and clamps with an M2 screw into a square half nut, per the house convention in Design notes. Sliding it gives the longitudinal adjustment, rotating it about the tube gives some of the lateral, and a slotted arm gives the rest.\nThe design must be justified against Table 1, and the choices defended.\n\n\nPrint it\n\n3D-print the part with the material required.\n\n\n\nInsert it on the tube\nSlide the collar onto the tail tube and set it to the starting station. Measure from a fixed datum, write the number down, and set the second one to the same number.\n\n\nAttach the wing\nConnect each wing’s trailing edge to its holder.\n\n\n\n\n\n\nWarningBoth sides must be set identically\n\n\n\nDifferent longitudinal stations left and right means different twist left and right, which is a roll bias -the same failure mode as mismatched wings in Module 7, arriving by a different route and just as hard to trim out in Module 11.\n\n\n\n\n\n\n\n\nNoteCheckpoint\n\n\n\nTail mounted, wings attached to tail.",
+    "crumbs": [
+      "Overview",
+      "Build modules",
+      "Module 8 --- Tail"
+    ]
+  },
+  {
+    "objectID": "sessions/08-tail-housing.html#footnotes",
+    "href": "sessions/08-tail-housing.html#footnotes",
+    "title": "Module 8 — Tail",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nFaulhaber gearhead reduction ratios (accessed 20.02.2024).↩︎",
     "crumbs": [
       "Overview",
       "Build modules",
@@ -252,11 +276,59 @@
     ]
   },
   {
-    "objectID": "sessions/06-simulation.html#deliverable",
-    "href": "sessions/06-simulation.html#deliverable",
+    "objectID": "sessions/06-simulation.html#what-ptera-does",
+    "href": "sessions/06-simulation.html#what-ptera-does",
     "title": "Module 6 — Flapping simulation (Ptera)",
-    "section": "Deliverable",
-    "text": "Deliverable\nA wing planform and a tail geometry, with the simulation output that justifies them, carried forward into Module 7 and Module 8.\n\n\n\n\n\n\nImportantTo be written by the instructor\n\n\n\nThis module has no counterpart in the manufacturing guide — the guide documents the research robot’s final geometry, not the design exercise. The following need to be written from course material:\n\nPtera installation and a worked example\nThe provided motor power curve, and its format\nWhat “most efficient thrust profile” means quantitatively here, and how it is scored\nConstraints the students must respect so their geometry remains buildable with the frame from Module 5 — span limits, root fitting, mass budget\nWhether teams may deviate from the reference wing, and by how much\n\n\n\n\n\n\n\n\n\nNoteCheckpoint\n\n\n\nA geometry chosen, with simulation evidence, and confirmed buildable against the frame and wing-root hardware.",
+    "section": "What Ptera does",
+    "text": "What Ptera does\n\n\n\n\n\n\nFigure 1: A Ptera run: the lifting surfaces are divided into the panel mesh the solver actually works on, and coloured by lift coefficient through the stroke. The deformation you can see is the point - the loading changes continuously as the wing flaps, which is exactly what a steady calculation cannot give you.\n\n\n\nPtera Software is an open-source package for analysing flapping-wing flight. It exists because the usual options are bad: steady aerodynamics assumes the wing is not moving, which is the one assumption a flapping wing breaks, and full CFD is slow and expensive enough that you cannot use it to compare candidate planforms in an afternoon.\nIt uses the unsteady ring vortex lattice method (UVLM). The surfaces are reduced to a mesh of panels, each carrying a vortex ring, and the wake is shed and tracked as the wing moves. That is a large step up from a steady method - it captures the history of the flow, so the forces at one instant depend on what the wing did before - while staying fast enough to sweep a design space.",
+    "crumbs": [
+      "Overview",
+      "Build modules",
+      "Module 6 --- Flapping simulation (Ptera)"
+    ]
+  },
+  {
+    "objectID": "sessions/06-simulation.html#installing-ptera",
+    "href": "sessions/06-simulation.html#installing-ptera",
+    "title": "Module 6 — Flapping simulation (Ptera)",
+    "section": "Installing Ptera",
+    "text": "Installing Ptera\nThe examples are in the repository, so clone it rather than installing the package on its own:\ngit clone https://github.com/camUrban/PteraSoftware.git\ncd PteraSoftware\npip install -r requirements.txt\nThen run the unsteady example to confirm the install works:\npython examples/unsteady_ring_vortex_lattice_method_solver_variable.py\nIt should open an animation like Figure 1. If it does, the solver, the geometry classes and the output stack are all working and you can start editing a copy of that script into your own geometry.\n\n\n\n\n\n\nNoteTwo ways to install it\n\n\n\npip install pterasoftware also works if you only want the library. It does not give you the examples/ folder, which is where the working scripts are.",
+    "crumbs": [
+      "Overview",
+      "Build modules",
+      "Module 6 --- Flapping simulation (Ptera)"
+    ]
+  },
+  {
+    "objectID": "sessions/06-simulation.html#how-a-ptera-model-is-put-together",
+    "href": "sessions/06-simulation.html#how-a-ptera-model-is-put-together",
+    "title": "Module 6 — Flapping simulation (Ptera)",
+    "section": "How a Ptera model is put together",
+    "text": "How a Ptera model is put together\nThe thing worth understanding before you open the example is that geometry and motion are two parallel hierarchies. You build the shape first, then build a matching movement object for each piece of that shape. Every geometry class has a movement twin.\n\n\n\n\n\n\n\n\nGeometry\nMovement twin\nWhat it is\n\n\n\n\nAirfoil\n—\nThe 2D section. Does not move on its own\n\n\nWingCrossSection\nWingCrossSectionMovement\nAn airfoil placed at a span position, with its own chord, twist and offset\n\n\nWing\nWingMovement\nTwo or more cross-sections swept into a surface\n\n\nAirplane\nAirplaneMovement\nAll the wings together — on this robot, the two wings and the tail\n\n\nOperatingPoint\nOperatingPointMovement\nFreestream velocity, density and angles\n\n\n\nThe two sides are then joined and solved:\n\nMovement takes the AirplaneMovement and the OperatingPointMovement and becomes the complete time-varying description of the problem.\nUnsteadyProblem wraps that Movement.\nUnsteadyRingVortexLatticeMethodSolver takes the problem and runs it.\n\nSo the flapping is not a property of the wing. It lives in the movement twin, which is why the same geometry can be swept through different kinematics without rebuilding it.",
+    "crumbs": [
+      "Overview",
+      "Build modules",
+      "Module 6 --- Flapping simulation (Ptera)"
+    ]
+  },
+  {
+    "objectID": "sessions/06-simulation.html#modelling-the-tail",
+    "href": "sessions/06-simulation.html#modelling-the-tail",
+    "title": "Module 6 — Flapping simulation (Ptera)",
+    "section": "Modelling the tail",
+    "text": "Modelling the tail\nIn Ptera it is simply another Wing on the Airplane, built the same way as the flapping wings: two or more WingCrossSection objects, each with an Airfoil, swept into a surface. It needs a WingMovement like everything else, but for a fixed tail that movement is static (the object still has to exist).\nThe planform follows from where you put the cross-sections and what chord you give each one:\n\nRectangular - same chord at root and tip. The simplest thing to build and the easiest baseline to compare against.\nTapered - smaller chord at the tip. Less area outboard, less inertia at the end of the moment arm.\nDelta or triangular - taper taken to the limit, chord going to near zero at the tip.\nForked - two surfaces leaving a common root, the shape many fish converge on.",
+    "crumbs": [
+      "Overview",
+      "Build modules",
+      "Module 6 --- Flapping simulation (Ptera)"
+    ]
+  },
+  {
+    "objectID": "sessions/06-simulation.html#beyond-prescribed-motion",
+    "href": "sessions/06-simulation.html#beyond-prescribed-motion",
+    "title": "Module 6 — Flapping simulation (Ptera)",
+    "section": "Beyond prescribed motion",
+    "text": "Beyond prescribed motion\nEverything above prescribes the motion completely: you say where the wing is at every instant, and the solver reports the loads. Ptera has two beta features that go beyond that\nFree flight hands the airplane to the MuJoCo physics engine, so it flies a six-degree-of-freedom path under its own aerodynamic loads, weight and inertia: the question of whether a chosen geometry actually sustains flight or what maximum speed it can reach in swimming, rather than what lift it makes while held in place.\nAeroelasticity lets each wing twist under load through a torsional spring at every cross-section, which matters here because a membrane wing is not rigid and the twist changes the loading.\nBoth are switched on the same way: the geometry stays exactly as you built it, and you swap the movement, problem and solver classes for a different family. The naming follows one rule - take the standard class and put FreeFlight or Aeroelastic in front of it, so the free-flight solver is FreeFlightUnsteadyRingVortexLatticeMethodSolver.\nWhat separates the two families is which classes take the prefix.\n\n\n\nTable 1: Which classes change in each family. The geometry classes - Airfoil, WingCrossSection, Wing and Airplane - are identical in all three.\n\n\n\n\n\nStandard class\nFree flight\nAeroelastic\n\n\n\n\nWingCrossSectionMovement\nunchanged\nprefixed\n\n\nWingMovement\nunchanged\nprefixed\n\n\nAirplaneMovement\nunchanged\nprefixed\n\n\nOperatingPointMovement\nprefixed\nunchanged\n\n\nMovement\nprefixed\nprefixed\n\n\nUnsteadyProblem\nprefixed\nprefixed\n\n\nUnsteadyRingVortexLatticeMethodSolver\nprefixed\nprefixed\n\n\n\n\n\n\n\nFree flight\nIn a standard run you prescribe the operating point at every step. In free flight you give only the first one. After that MuJoCo integrates the rigid-body equations and the solver rebuilds each new operating point - speed, angle of attack, sideslip, attitude, position, body rates - from the result.\nMuJoCo treats the airplane as one rigid body on a free joint, with the mass and inertia matrix you supply. Ptera applies the entire load itself, the UVLM forces and moments plus anything from external_loads_fn, rotated into Earth axes, plus the weight.\nA run has two phases. During the prescribed phase the loads are withheld and the body coasts at its initial condition while the wake develops, which keeps the impulsive-start transient out of the dynamics. During the free phase the loads are applied and the airplane flies on its own. Wing motion stays prescribed throughout.\n\n\n\n\n\n\nNoteWhy a free step costs several times a prescribed one\n\n\n\nThe load over a step depends on where the body ends the step, and where it ends depends on the load. Using the previous step’s load is the obvious approach and it diverges for flapping cases, because of added mass: a velocity change alters the circulation, which alters the load, which alters the velocity again, with a loop gain of roughly added mass over vehicle mass.\nEach free step therefore solves a small fixed-point problem instead, iterating on the twelve-number body state until the weighted residual falls below a relative tolerance of 1e-6, or until k_max iterations. Every pass costs one UVLM solve and one MuJoCo step. The full derivation is in docs/STRONG_COUPLING.md.\n\n\nFree flight is enabled by building the free-flight class family instead of the standard one. The script below is a trimmed-down version of examples/free_flight_unsteady_ring_vortex_lattice_method_solver_glider.py.\n\nBuild the Airplane as usual. Its weight must equal mass * |g_E|, or the problem constructor raises a ValueError.\nWrap each Wing in a WingMovement and the airplane in an AirplaneMovement. Leave the amplitudes at zero for a glider, or set them to flap. Loop over airplane.wings, not over the wings you typed: a symmetric wing whose symmetry plane is offset is split into two Wing objects, and each needs its own movement.\nDefine the initial OperatingPoint. This is the only operating point you prescribe. Set g_E explicitly, because the default is no gravity. Keep externalFX_W=0.0.\nWrap it in a FreeFlightOperatingPointMovement, then build a FreeFlightMovement with exactly one airplane movement, the time step, and the two phase lengths.\nBuild the FreeFlightUnsteadyProblem with the mass (kg) and the inertia matrix (kg m^2, in body axes, about the CG).\nRun the FreeFlightUnsteadyRingVortexLatticeMethodSolver, then use the usual output functions.\n\n\nFree-flight parameters worth checking before a run.\n\n\n\n\n\n\n\nParameter\nDefault\nWhat to know\n\n\n\n\ng_E (OperatingPoint)\nzero\nNo gravity unless you set it. Earth z points down, so standard gravity is (0, 0, 9.80665)\n\n\nweight (Airplane), mass (problem)\nnone\nMust satisfy weight = mass × gravity, or the constructor raises. For zero gravity set both to zero\n\n\nI_BP1_CgP1 (problem)\nnone\n3×3 symmetric, kg·m², about the CG, in body axes (forward, right, down). Geometry axes point aft, right, up — if CAD gives it in geometry axes, flip the sign of Ixy and Iyz\n\n\nexternalFX_W (OperatingPoint)\n0.0\nMust stay zero; free flight raises otherwise. Use external_loads_fn for thrust\n\n\nexternal_loads_fn (problem)\nnone\nReturns force and moment as two 3-vectors in wind axes. Wind +x points along the velocity, so thrust along the flight path is (T, 0, 0)\n\n\nprescribed_num_steps, free_num_steps\nnone\nBoth at least 1. The examples coast for 5 to 10 steps\n\n\ndelta_time\nnone\nRule of thumb: the airplane travels about one chordwise panel length per step\n\n\nk_max (problem)\n20\nCap on coupling iterations per step. Raise it if the log reports reaching the cap without converging - light vehicles need more\n\n\nintegrator (problem)\n\"RK4\"\nPrefer an implicit one once you add contact geometry\n\n\nCgP1_E_Eo, omegas_BP1__E\nzeros\nInitial position and body rates. Only the free-flight solver accepts nonzero body rates\n\n\n\n\n\nAeroelasticity\nThe structural model is deliberately first-order. Each spanwise strip (chord element, i.e. the panels between two neighbouring cross-sections) is a rigid plate hinged at its leading edge on a torsional spring, free only to twist about its spanwise axis. There is no spanwise bending in the current model, strips are not connected to each other structurally, and the root is clamped.\nEach strip’s twist angle follows a forced, damped oscillator,\n\\[I\\,\\ddot{\\theta} + c\\,\\dot{\\theta} + k\\,\\theta = M_\\text{aero} + M_\\text{inertial} \\tag{1}\\]\nwith the terms in Equation 1 coming from:\n\nWhat drives the twist of one strip.\n\n\n\n\n\n\n\nSymbol\nMeaning\nWhere it comes from\n\n\n\n\n\\(\\theta\\)\nStrip twist (rad)\nSolved for\n\n\n\\(k\\)\nTorsional stiffness (N·m/rad)\nspring_constant_rad\n\n\n\\(c\\)\nTorsional damping (N·m·s/rad)\ndamping_constant_rad\n\n\n\\(I\\)\nStrip torsional inertia, ½ML²\nM = wing_density × strip area, L = mean strip chord\n\n\n\\(M_\\text{aero}\\)\nSum of the strip’s panel pitching moments about its leading edge\nUVLM loads at the current step\n\n\n\\(M_\\text{inertial}\\)\nMoment from the prescribed flapping acceleration\nFlapping inertia × flap angular acceleration\n\n\n\nEach step runs once through the loop: the UVLM solves on the current, already deformed geometry; the solver sums each strip’s panel moments about its leading edge; SciPy integrates Equation 1 over one time step from that strip’s previous twist and twist rate; and the new twist is added to the outboard cross-section’s angle before the next step is meshed. That is loose coupling: the twist at one step uses the loads from the last one, with no sub-iteration. For the first few steps (step_discards, default 5) the twist is held at zero, because the impulsive start produces large unphysical loads. Only wings built with an AeroelasticWingMovement deform; a plain WingMovement in the same airplane stays rigid (which is how you model a flexible wing against a rigid tail).\nTo use aeroelasticity:\n\nMesh the deforming wing as thin strips. The spring model only behaves when each strip is narrow. Set explode_into_strips=True on the Wing, which requires uniform spanwise spacing on every non-tip cross-section.\nOffset the wing root from the symmetry plane. A wing lying on the symmetry plane raises an error; offsetting it splits the wing into a left and a right Wing, which is what the solver expects.\nFlap with sine spacing. The inertial moment needs the flap acceleration, so sawtooth spacing is rejected.\nWrap all wing movements in an AeroelasticAirplaneMovement. Rigid wings can keep a plain WingMovement.\nUse an ordinary OperatingPoint and OperatingPointMovement, then build the AeroelasticMovement and the AeroelasticUnsteadyProblem with the structural parameters.\nRun the AeroelasticUnsteadyRingVortexLatticeMethodSolver and read the twist history from the problem.\n\n\nAeroelastic parameters. None of these are range-checked, so a wrong unit or sign runs silently and returns nonsense.\n\n\n\n\n\n\n\nParameter\nDefault\nWhat to know\n\n\n\n\nspring_constant_rad\nnone\nStiffness in N·m/rad. Static twist is roughly moment over stiffness, so a softer spring twists more. Examples use 1000. Too soft distorts the mesh\n\n\ndamping_constant_rad\nnone\nDamping in N·m·s/rad. Examples use 1000, which is heavily damped - lower it to see the strips oscillate\n\n\nwing_density\nnone\nMass per unit wing area, kg/m². Sets both inertias. Zero breaks the equation\n\n\nstep_discards\n5\nStart-up steps with twist held at zero. Raise it if the first deformed steps look violent\n\n\nexplode_into_strips (Wing)\nFalse\nSet true on deforming wings\n\n\nprescribed_wake (run)\nTrue\nTrue is much faster and fine for parameter sweeps; false (free wake) is more accurate\n\n\n\n\n\n\n\n\n\nImportantThese two features are experimental\n\n\n\nBoth features first shipped in v5.1.0 (July 2026), which is what pip install pterasoftware gives you. The behaviour described here follows the newer main branch, which differs in several ways: class names are flat (ps.FreeFlightMovement) rather than long module paths, a free-flight run starts at the operating point’s initial position rather than always at the origin\n\n\n\n\n\n\n\n\nNoteCheckpoint\n\n\n\nA geometry chosen, with simulation evidence, and confirmed buildable against the frame and wing-root hardware.",
     "crumbs": [
       "Overview",
       "Build modules",
@@ -328,7 +400,7 @@
     "href": "sessions/04-control.html#controlling-the-motor-from-a-laptop",
     "title": "Module 4 — Closed-loop control and tuning",
     "section": "Controlling the motor from a laptop",
-    "text": "Controlling the motor from a laptop\nNext, install SimpleFOC Studio: SimpleFOCStudio. It is a desktop GUI that drives the same commander interface described below, so instead of typing commands into a serial monitor you get a form for every motor parameter, live plots of the monitored variables, and a button that dumps the tuned values back out as Arduino code.\nLaptops can block the connection to the Seeeduino (over USB-C) if the Seeeduino is powered over 5V through the pin. If that happens, power needs to be disconnected. Two options are possible: either a UBS-C power isolation module or disconnecting the 5V line between ESC and Seeeduino.\n\n\n\n\n\n\nWarningTorque control mode\n\n\n\nDo not change the torque control mode in the GUI. It will display voltage mode but the ESC actually runs a newer estimated control mode.\n\n\nFigure 1 shows the parts you will actually use: the parameter tree on the left, the live plot of target, velocity and angle in the middle, and a command line at the bottom for anything the form does not expose.\n\n\n\n\n\n\nFigure 1: SimpleFOC Studio driving a motor. The tree on the left exposes every commander parameter as a form - motion control type, the four PID blocks, limits and sensor config - while the plot plays back target, velocity and angle as they change. Screen capture from the SimpleFOCStudio project.\n\n\n\n\n\n\n\n\n\nNoteWhat the ESC code has to provide\n\n\n\nStudio does not work against arbitrary firmware. The ESC code must register the motor with the commander (command.add('M', doMotor, \"motor\")), enable monitoring with motor.useMonitoring(Serial), and call both motor.monitor() and command.run() every loop. The command letter set in Studio’s device settings has to match the one in the sketch - M in our case.\nOn this robot the ESC’s own micro-USB serial is gone - those pins were repurposed for the encoder’s SPI3 bus in Module 3 - so the port Studio opens is the Seeeduino’s USB serial, and the Seeeduino has to pass what it receives through to the ESC on Serial1 (essentially it needs to act as a relay). Studio cannot reach the ESC on its own.",
+    "text": "Controlling the motor from a laptop\nNext, install SimpleFOC Studio: SimpleFOCStudio. It is a desktop GUI that drives the same commander interface described below, so instead of typing commands into a serial monitor you get a form for every motor parameter, live plots of the monitored variables, and a button that dumps the tuned values back out as Arduino code.\nLaptops can block the connection to the Seeeduino (over USB-C) if the Seeeduino is powered over 5V through the pin. If that happens, power needs to be disconnected. Two options are possible: either a UBS-C power isolation module or disconnecting the 5V line between ESC and Seeeduino.\n\n\n\n\n\n\nWarningTorque control mode\n\n\n\nDo not change the torque control mode in the GUI. It will display voltage mode but the ESC actually runs a newer estimated control mode.\n\n\nFigure 1 shows the parts you will actually use: the parameter tree on the left, the live plot of target, velocity and angle in the middle, and a command line at the bottom for anything the form does not expose.\n\n\n\n\n\n\nFigure 1: SimpleFOC Studio driving a motor. The tree on the left exposes every commander parameter as a form - motion control type, the four PID blocks, limits and sensor config - while the plot follows target, velocity and angle as they change. Screen capture from the SimpleFOCStudio project; it animates on the web and prints as a single frame.\n\n\n\n\n\n\n\n\n\nNoteWhat the ESC code has to provide\n\n\n\nStudio does not work against arbitrary firmware. The ESC code must register the motor with the commander (command.add('M', doMotor, \"motor\")), enable monitoring with motor.useMonitoring(Serial), and call both motor.monitor() and command.run() every loop. The command letter set in Studio’s device settings has to match the one in the sketch - M in our case.\nOn this robot the ESC’s own micro-USB serial is gone - those pins were repurposed for the encoder’s SPI3 bus in Module 3 - so the port Studio opens is the Seeeduino’s USB serial, and the Seeeduino has to pass what it receives through to the ESC on Serial1 (essentially it needs to act as a relay). Studio cannot reach the ESC on its own.",
     "crumbs": [
       "Overview",
       "Build modules",
@@ -364,7 +436,7 @@
     "href": "sessions/04-control.html#calibration",
     "title": "Module 4 — Closed-loop control and tuning",
     "section": "Calibration",
-    "text": "Calibration\nWe’d like to also make sure that we have the right motor parameters for running at high speeds (above 400 rad/s). To this, we will follow the commissioning instrutions in the firmware above. To this with your TA. Run autocal until 1000 rad/s.",
+    "text": "Calibration\nWe’d like to also make sure that we have the right motor parameters for running at high speeds (above 400 rad/s). To this, we will follow the commissioning instrutions in the firmware above. Do this with your TA. Run autocal until 1000 rad/s.",
     "crumbs": [
       "Overview",
       "Build modules",
@@ -1204,7 +1276,19 @@
     "href": "sessions/03-esc.html#encoder-or-angular-sensor",
     "title": "Module 3 — Motor driver, sensor and serial connection",
     "section": "Encoder (or Angular sensor)",
-    "text": "Encoder (or Angular sensor)\n\nFirst, why does the motor need an encoder?\nField-Oriented Control works by holding the stator’s magnetic field roughly 90° ahead of the rotor’s magnets, which is the orientation that produces the most torque per amp. To place the field there, the controller has to know where the rotor is right now.\nOrdinary drone ESCs infer this from back-EMF, i.e the voltage the spinning rotor induces in the phase that is not currently being driven (?@eq-bemf in Module 2). That voltage is proportional to speed, so as the motor slows the signal sinks into the noise and the estimate falls apart. This causes loss of synchronisation at low speed described in Design notes. The AS5047P removes the guess. It measures the field of the magnet bonded to the shaft end and reports the absolute angle - valid at standstill just as much as at 15 000 rpm, and correct immediately at power-on with no homing move.\n\n\nWhat SPI is, and why we run it at 10 MHz\nWe will use an AS5047P encoder. The AS5047P reports angle over SPI, a four-wire synchronous bus: the controller drives the clock (SCLK), data goes out on MOSI and comes back on MISO, and CS selects the chip. Transfer speed is limited only by how fast the two ends can shift bits. We use SPI because it offers 10 MHz communication. The reason speed matters is that the angle has to be re-read every single control loop, and a stale angle is bad: the controller ends up placing the stator field where the rotor was, not where it is. That error shows up as wasted current and audible noise. The same 10 MHz clock is why the wiring has to stay short, see below.\n\n\nWire it to the board\nThere is no SPI link exposed directly on the ESC board. The solution is to use the SPI3 bus, exposed through a few hardware modifications and matching software changes. Figure 1 shows the four signals in context, including the MOSI tap on R14.\n\n\n\n\n\n\nWarningThe micro-USB serial link is lost\n\n\n\nSerial2, used by the daughterboard for serial communication will not work anymore as we are using those pins for SPI3 for the encoder instead. Flashing the ESC still works (programming runs over SWD, on different pins) but every command and every value read back now has to pass through serial1 (external TX/RX).\n\n\nThe encoder needs power as well as the four bus signals - six wires in total. Replace the default cable and use the 6x30AWG wire ribbon instead. This is small work! Sit down, use a clean soldering iron, take your time and make sure you have lots of light.\nCheck the R14 connection under the microscope. Use a drop of glue to fix the cable onto the board\n\n\n\n\n\n\nFigure 5: The MOSI tap on R14 under the microscope. The wire lands on the outward side of the resistor, and the bead of clear glue over the joint is to help with accidental pulls on the cable.\n\n\n\n\n\n\nTable 2: SPI3 connections on the G431. * This connection is on the outward side of the resistor.\n\n\n\n\n\n\nSCLK\nMISO\nMOSI\nCS\n5V\nGND\n\n\n\n\nMCU GPIO\nPB3\nPB4\nPB5\nPA15\n—\n—\n\n\nG431B pin\nJ3\nJ3\nR14*\nJ3\nJ8\nJ3\n\n\n\n\n\n\n\n\n\n\n\n\nTipKeep the SPI cables under 8 cm\n\n\n\nCables between encoder and ESC need to be less than 8 cm. At 10 MHz longer runs start corrupting angle readings, and the symptom is a motor that behaves erratically rather than a sensor that obviously fails. Check the length that is needed. The cables also need to be the same length.",
+    "text": "Encoder (or Angular sensor)\n\nFirst, why does the motor need an encoder?\nField-Oriented Control works by holding the stator’s magnetic field roughly 90° ahead of the rotor’s magnets, which is the orientation that produces the most torque per amp. To place the field there, the controller has to know where the rotor is right now.\nOrdinary drone ESCs infer this from back-EMF, i.e the voltage the spinning rotor induces in the phase that is not currently being driven (?@eq-bemf in Module 2). That voltage is proportional to speed, so as the motor slows the signal sinks into the noise and the estimate falls apart. This causes loss of synchronisation at low speed described in Design notes. The AS5047P removes the guess. It measures the field of the magnet bonded to the shaft end and reports the absolute angle - valid at standstill just as much as at 15 000 rpm, and correct immediately at power-on with no homing move.\n\n\nWhat SPI is, and why we run it at 10 MHz\nWe will use an AS5047P encoder. The AS5047P reports angle over SPI, a four-wire synchronous bus: the controller drives the clock (SCLK), data goes out on MOSI and comes back on MISO, and CS selects the chip. Transfer speed is limited only by how fast the two ends can shift bits. We use SPI because it offers 10 MHz communication. The reason speed matters is that the angle has to be re-read every single control loop, and a stale angle is bad: the controller ends up placing the stator field where the rotor was, not where it is. That error shows up as wasted current and audible noise. The same 10 MHz clock is why the wiring has to stay short, see below.\n\n\nWire it to the board\nThere is no SPI link exposed directly on the ESC board. The solution is to use the SPI3 bus, exposed through a few hardware modifications and matching software changes. Figure 1 shows the four signals in context, including the MOSI tap on R14.\n\n\n\n\n\n\nWarningThe micro-USB serial link is lost\n\n\n\nSerial2, used by the daughterboard for serial communication will not work anymore as we are using those pins for SPI3 for the encoder instead. Flashing the ESC still works (programming runs over SWD, on different pins) but every command and every value read back now has to pass through serial1 (external TX/RX).\n\n\nThe encoder needs power as well as the four bus signals - six wires in total. Replace the default cable and use the 6x30AWG wire ribbon instead. This is small work! Sit down, use a clean soldering iron, take your time and make sure you have lots of light.\nCheck the R14 connection under the microscope. Use a drop of glue to fix the cable onto the board\n\n\n\n\n\n\nFigure 5: The MOSI tap on R14 under the microscope. The wire lands on the outward side of the resistor, and the bead of clear glue over the joint is to help with accidental pulls on the cable.\n\n\n\n\n\n\nTable 2: SPI3 connections on the G431. * This connection is on the outward side of the resistor.\n\n\n\n\n\n\nSCLK\nMISO\nMOSI\nCS\nVDD\nGND\n\n\n\n\nMCU GPIO\nPB3\nPB4\nPB5\nPA15\n—\n—\n\n\nG431B pin\nJ3\nJ3\nR14*\nJ3\nJ4 (3.3 V)\nJ3",
+    "crumbs": [
+      "Overview",
+      "Build modules",
+      "Module 3 --- Motor driver, sensor and serial connection"
+    ]
+  },
+  {
+    "objectID": "sessions/03-esc.html#powering-the-encoder",
+    "href": "sessions/03-esc.html#powering-the-encoder",
+    "title": "Module 3 — Motor driver, sensor and serial connection",
+    "section": "Powering the encoder",
+    "text": "Powering the encoder\nThe encoder is powered by the regulators on the ESC board. Since the STM32 operates at 3.3V, it is best to use the encoder in 3.3V mode (it can also work at 5V). The encoder boards may or may not offer the option to run at 3.3V.\nThe AS5047P chip, however, can work on 3.3V or 5V. For 3.3V mode, the following changes need to be made:\n\nRemove the capacitor between the 3.3V line and ground (C2)\nConnect 3.3V to VDD. For that, tie together pin 11 and 12 on the chip.\n\n\n\n\n\n\n\nWarningVoltage warning\n\n\n\nOnce these changes made, the marked “5V” connection on the board where the cable is connected should now be connected to 3.3V only. Powering it with 5V will destroy the encoder.\n\n\n\n\n\n\n\n\nAS5047P in 3.3V mode: VDD tied to VDD3V3, bypassing the internal LDO\n\n\n\n\n\n\n\nAS5047 breakout board\n\n\n\n\n\n\n\nDifferent AS5047 breakout, with the pads labelled CSN, SCK, MISO, MOSI, GND and 5V\n\n\n\n\n\n\n\n\n\n\n\nTipKeep the SPI cables short\n\n\n\nCables between encoder and ESC need to be as short as possible, but still fit in the robot. At 10 MHz longer runs start corrupting angle readings, and the symptom is a motor that behaves erratically rather than a sensor that obviously fails. Check the length that is needed. The cables also need to be the same length.",
     "crumbs": [
       "Overview",
       "Build modules",
@@ -1228,7 +1312,7 @@
     "href": "sessions/05-frame-crank.html",
     "title": "Module 5 — Frame, crank, linkage and gears",
     "section": "",
-    "text": "We assemble the carbon frame, the CNC-cut crank and linkage, the gears, and the full mechanical integration that turns motor rotation into flapping. Flapping amplitude is fixed by this design to 60 degrees 1 — 34° up and 26° down, as laid out in Figure 2.",
+    "text": "We assemble the frame, the CNC-cut crank and linkage, the gears, and the full mechanical integration of the 4-bar linkage. Flapping amplitude is fixed by this design to 60 degrees 1 - 34° up and 26° down, as laid out in Figure 2.",
     "crumbs": [
       "Overview",
       "Build modules",
@@ -1240,7 +1324,7 @@
     "href": "sessions/05-frame-crank.html#summary",
     "title": "Module 5 — Frame, crank, linkage and gears",
     "section": "",
-    "text": "We assemble the carbon frame, the CNC-cut crank and linkage, the gears, and the full mechanical integration that turns motor rotation into flapping. Flapping amplitude is fixed by this design to 60 degrees 1 — 34° up and 26° down, as laid out in Figure 2.",
+    "text": "We assemble the frame, the CNC-cut crank and linkage, the gears, and the full mechanical integration of the 4-bar linkage. Flapping amplitude is fixed by this design to 60 degrees 1 - 34° up and 26° down, as laid out in Figure 2.",
     "crumbs": [
       "Overview",
       "Build modules",
@@ -1252,7 +1336,7 @@
     "href": "sessions/05-frame-crank.html#requirements",
     "title": "Module 5 — Frame, crank, linkage and gears",
     "section": "Requirements",
-    "text": "Requirements\n\n\n\n\n\n\n\nParts\nsun gear and Faulhaber 23.04:1 gearbox, 5 mm aluminium link and crank, 2 gears, bearings, M2×5 screws\n\n\nTools\ndrill press, metal glue, caliper\n\n\nRead\nThis page",
+    "text": "Requirements\n\n\n\n\n\n\n\nParts\n5 mm aluminium link and crank, 2 gears (3D-printed), bearings x5, M2×5 screws, shaft rods, circlip 4 mm, washer 4mm x 0.5mm, M3 screw for crank.\n\n\nTools\ndrill press, metal glue, caliper\n\n\nRead\nThis page",
     "crumbs": [
       "Overview",
       "Build modules",
@@ -1264,19 +1348,7 @@
     "href": "sessions/05-frame-crank.html#main-body",
     "title": "Module 5 — Frame, crank, linkage and gears",
     "section": "Main body",
-    "text": "Main body\nThe main body is a carbon sandwich, spaced 24 mm apart. The plates are CNC-cut from woven 1.5 mm plates. The top and bottom plates are identical, except for the chamfers needed for the M2 screws. The screws holding plate to plate are M2×4, screwing into brass inserts.\n\n\n\n\n\n\nFigure 1: Carbon/Aluminum frame structure",
-    "crumbs": [
-      "Overview",
-      "Build modules",
-      "Module 5 --- Frame, crank, linkage and gears"
-    ]
-  },
-  {
-    "objectID": "sessions/05-frame-crank.html#sun-gear",
-    "href": "sessions/05-frame-crank.html#sun-gear",
-    "title": "Module 5 — Frame, crank, linkage and gears",
-    "section": "Sun gear",
-    "text": "Sun gear\nThe sun gear from the Faulhaber 23.04:1 gearbox. Glue and press onto shaft. Check that it fits into the reduction, without touching the first stage. Use a caliper for this.",
+    "text": "Main body\nThe main body is a bi-plate structure, spaced 24 mm apart. The plates are CNC-cut from 1.5 mm plates. The top and bottom plates are identical, except for the chamfers needed for the M2 screws. The screws holding plate to plate are M2×5, screwing into square nuts.\n\n\n\n\n\n\nFigure 1: Carbon/Aluminum frame structure",
     "crumbs": [
       "Overview",
       "Build modules",
@@ -1288,7 +1360,7 @@
     "href": "sessions/05-frame-crank.html#reduction",
     "title": "Module 5 — Frame, crank, linkage and gears",
     "section": "Reduction",
-    "text": "Reduction\nThe motor is connected via a custom shaft to a gearbox with a 23.04:1 reduction by Faulhaber.2 Both parts are held in place by 3D-printed plates. The output shaft of the gearbox has its own bearing on the inside of the gearbox, and is also supported mid-way on the shaft by a 4×8 mm flanged bearing. This leaves 5 mm of shaft length free for the crank to be mounted on. A flat on the shaft helps lock the rotation of the M3 screw extending through the crank.\n\n\n\n\n\n\nMotor shaft\n\n\n\n\n\n\n\nFaulhaber gearbox\n\n\n\n\n\nFirst, we need to press + glue our sun gear is already pressed onto the motor shaft from Module 2.\nNext, we need to install the gearbox to the motor and fixing the pair to the plates.\n\nSlide the gearbox onto the motor shaft so the sun gear engages the planets. It should seat with light hand pressure, if it resists, back off and check the sun gear is square on the shaft rather than forcing it.\nFix the blue part of the gearbox: the custom screws that come with the gearbox on one side, and M2.5×10 screws on the other.\nCheck the output turns freely by hand through a full revolution before applying power.\nClose the gearbox: the silver part threads onto the blue part. Don’t tighten it.\nAttach the second vertical bracket to the silver part of the gearbox with 3 × M2.5 screws.\nSecure that bracket to the bottom fuselage plate with 3 × M2 screws. The motor bracket from Module 2 is already on the same plate, so between them the two brackets set the alignment of the whole drivetrain. Check the output still turns freely once both are bolted down.",
+    "text": "Reduction\nThe motor will be connected via a custom shaft to a gearbox with a 23.04:1 reduction by Faulhaber2 that leaves 5 mm of shaft length free for the crank to be mounted on. A flat on the shaft helps lock the rotation of the M3 screw extending through the crank.",
     "crumbs": [
       "Overview",
       "Build modules",
@@ -1300,7 +1372,7 @@
     "href": "sessions/05-frame-crank.html#crank-and-linkage",
     "title": "Module 5 — Frame, crank, linkage and gears",
     "section": "Crank and linkage",
-    "text": "Crank and linkage\n\n\n\n\n\n\nFigure 2: The transmission, exploded, with the length that matters and the material for each part. Follow it left to right: the gearbox output turns the crank, the crank drives the linkage, and the linkage swings the inter-wing gear. The 34° up and −26° down at the right are where the 60° flapping amplitude comes from — it is set here, by these lengths, and cannot be changed in software.\n\n\n\nThe dimensions called out in Figure 2 are the ones to cut to:\n\nCrank–linkage dimensions\n\n\n\n\n\n\n\nCrank-linkage dimensions\n\n\n\n\nCrank radius\n4.5 mm\n\n\nLinkage length\n24 mm\n\n\nCrank–linkage shaft diameter\n4 mm\n\n\nBearing, crank side\n10×4×4 mm\n\n\nBearing, wing side\n8×3×4 mm\n\n\nBearing, in the middle plate, around Faulhaber reduction\n8×4×4 mm flanged\n\n\nBearings, around wing pivot shafts (4x)\n7×3×3 mm flanged\n\n\n\nBoth the crank and linkage are CNC-cut in AL7075.\n\nPress the bearings into the linkage. They may need to be bonded with metal glue if the press fit is not good enough.\nJoin the crank and linkage with a short 4 mm shaft, cut to 10.5 mm. The bearing is kept from coming out with a circlip.\n\n\n\n\n\n\n\nWarningAlignment of the linkage, perpendicular to the shafts, is extremely important\n\n\n\nAn offset of 1 mm is sufficient to destroy the crank-link in a few strokes.\n\n\n\n\n\n\n\nTransmission, top view",
+    "text": "Crank and linkage\n\n\n\n\n\n\nFigure 2: The transmission, exploded, with the length that matters and the material for each part. Follow it left to right: the gearbox output turns the crank, the crank drives the linkage, and the linkage swings the inter-wing gear. The 34° up and −26° down at the right are where the 60° flapping amplitude comes from - it is set here, by these lengths, and cannot be changed in software.\n\n\n\nThe dimensions called out in Figure 2 are the ones to cut to:\n\nCrank–linkage dimensions\n\n\n\n\n\n\n\nCrank-linkage dimensions\n\n\n\n\nCrank radius\n4.5 mm\n\n\nLinkage length\n24 mm\n\n\nCrank–linkage shaft diameter\n4 mm\n\n\nBearing, in linkage, crank side\n10×4×4 mm\n\n\nBearing, in linkage, wing side (shaft C)\n8×3×4 mm\n\n\nBearing, in the middle plate, around Faulhaber reduction\n8×4×4 mm flanged\n\n\nBearings, around wing gear shafts A and B\n7×3×3 mm flanged, 4x\n\n\n\nBoth the crank and linkage are CNC-cut in AL7075.\n\nCrank and linkage assembly\n\nPress the bearings into the linkage. They may need to be bonded with metal glue if the press fit is not good enough.\nJoin the crank and linkage with a short 4 mm shaft (D). The bearing is kept from coming out with a circlip. The CNC-cut shaft already has a groove for a circlip.\n\nPress fit into crank (in the hole that does NOT have the perpendicular M3 thread) until flush with bottom of crank. It needs to be a good press fit, shouldn’t move at all.\nThen add a 0.5 mm-thick washer.\nInsert the link 10 mm bearing onto the shaft\nLock in place with a 4 mm circlip.\n\nAdd an M3 screw to mount the crank on the (future) reduction.\n\n\n\n\n\n\n\nFigure 3: The parts at the end of this step. The linkage has both bearings pressed in - the 10 mm one at the crank end, the 8 mm one at the wing end - and the crank sits behind it with its 4 mm shaft and the M3 mounting screw alongside.",
     "crumbs": [
       "Overview",
       "Build modules",
@@ -1308,11 +1380,59 @@
     ]
   },
   {
-    "objectID": "sessions/05-frame-crank.html#gears",
-    "href": "sessions/05-frame-crank.html#gears",
+    "objectID": "sessions/05-frame-crank.html#gears-and-shafts",
+    "href": "sessions/05-frame-crank.html#gears-and-shafts",
     "title": "Module 5 — Frame, crank, linkage and gears",
-    "section": "Gears",
-    "text": "Gears\nThe 3 mm shafts are pressed through the two gears’ centre holes. Should be a mildly tight fit at minimum, otherwise glue the shaft. Same for the linkage shaft.\nBetween the gears, a clearance of 0.4 mm (inter-axis spacing of 25.4 mm) ensures proper operation without too much backlash.\n\n\n\n\n\n\nTransmission assembled\n\n\n\n\n\n\n\nTransmission, second view\n\n\n\n\n\n\n\n\n\n\n\nNoteCheckpoint\n\n\n\nFrame assembled, crank–linkage rotating freely through a full cycle with no binding, linkage visibly perpendicular to the shafts, and gear backlash checked. Flapping shown at 1-5 Hz.\n\n\nTODO: buy circlip 4mm",
+    "section": "Gears and shafts",
+    "text": "Gears and shafts\nCut the shafts to length as indicated below. Select a stainless, 3-mm diameter rod for this.\n\n\n\nShaft\nLength\n\n\n\n\nA\n15\n\n\nB\n30\n\n\nC\n19\n\n\n\nTwo of the shafts (A and B) sit at the center of rotation of the wings, and the remaining shaft (C) connects the left gear to the crank link.\nThe A and B shafts are pressed through the two gears’ center holes. Should be a mildly tight fit at minimum, otherwise glue the shaft with a drop of superglue.\nBetween the gears, a clearance of 0.4 mm (inter-axis spacing of 25.4 mm) ensures proper operation without too much backlash.\n\n\n\n\n\n\nTransmission assembled\n\n\n\n\n\n\n\nCrank-linkage",
+    "crumbs": [
+      "Overview",
+      "Build modules",
+      "Module 5 --- Frame, crank, linkage and gears"
+    ]
+  },
+  {
+    "objectID": "sessions/05-frame-crank.html#linkage-gear-assembly",
+    "href": "sessions/05-frame-crank.html#linkage-gear-assembly",
+    "title": "Module 5 — Frame, crank, linkage and gears",
+    "section": "Linkage-Gear assembly",
+    "text": "Linkage-Gear assembly\nPress the last shaft (C) through the right wing gear, with the link in place. In other words, the 3 mm shaft rests on either side of the right gear and keeps the smaller bearing of the link in place. Figure 4 is what the module should leave you with. Compare it against your own build. You should now have a right wing gear, connected to the crank and link.\n\n\n\n\n\n\nWarningAlignment of the linkage, perpendicular to the shafts, is extremely important\n\n\n\nAn offset of 1 mm is sufficient to destroy the crank-link in a few strokes. Use spacer or even reprint parts if it is not the case.\n\n\n\n\n\n\n\nTransmission, top view",
+    "crumbs": [
+      "Overview",
+      "Build modules",
+      "Module 5 --- Frame, crank, linkage and gears"
+    ]
+  },
+  {
+    "objectID": "sessions/05-frame-crank.html#mount-the-right-wing",
+    "href": "sessions/05-frame-crank.html#mount-the-right-wing",
+    "title": "Module 5 — Frame, crank, linkage and gears",
+    "section": "Mount the right wing",
+    "text": "Mount the right wing\nInsert the flanged bearings into the 3D-printed support structures. Push the right wing + crank-link assembly into place (shaft in bearing). The wing gear has a conical flange that acts as a bearing on the tail side.",
+    "crumbs": [
+      "Overview",
+      "Build modules",
+      "Module 5 --- Frame, crank, linkage and gears"
+    ]
+  },
+  {
+    "objectID": "sessions/05-frame-crank.html#mount-the-left-wing",
+    "href": "sessions/05-frame-crank.html#mount-the-left-wing",
+    "title": "Module 5 — Frame, crank, linkage and gears",
+    "section": "Mount the left wing",
+    "text": "Mount the left wing\nInsert the flanged bearings into the 3D-printed support structures. Push the wing into place (shaft in bearing). The wing gear has a conical flange that acts as a bearing on the tail side.",
+    "crumbs": [
+      "Overview",
+      "Build modules",
+      "Module 5 --- Frame, crank, linkage and gears"
+    ]
+  },
+  {
+    "objectID": "sessions/05-frame-crank.html#insert-the-front-plate",
+    "href": "sessions/05-frame-crank.html#insert-the-front-plate",
+    "title": "Module 5 — Frame, crank, linkage and gears",
+    "section": "Insert the front plate",
+    "text": "Insert the front plate\nThe front plate slides onto the 2 shafts. Lock it in place with the top and bottom screws from the frame.\n\n\n\n\n\n\nFigure 4: The assembled drivetrain in CAD, from above. The carbon frame plates run from the nose at the left; the motor and its gearbox sit on the centreline with the ESC alongside; the crank, linkage and inter-wing gears are at the right. A render rather than a photograph, so use it for part placement and orientation rather than for what the finished hardware looks like.\n\n\n\n\n\n\n\n\n\nNoteCheckpoint\n\n\n\nFrame assembled, crank–linkage-gears assembled, linkage visibly perpendicular to the shafts, and gear backlash checked.",
     "crumbs": [
       "Overview",
       "Build modules",
@@ -1360,7 +1480,7 @@
     "href": "sessions/07-wings.html#requirements",
     "title": "Module 7 — Wing fabrication",
     "section": "Requirements",
-    "text": "Requirements\n\n\n\n\n\n\n\nParts\nCarbon rods and strips, wing roots, 2× nylon adapters per wing, ripstop nylon membrane, 3M tape, superglue, thread\n\n\nTools\nCutting mat, steel rule, scalpel, needle, printed full-size template of the chosen geometry\n\n\nBring\nThe Module 6 geometry, printed 1:1",
+    "text": "Requirements\n\n\n\n\n\n\n\nParts\nCarbon rods and strips, wing roots, 2× nylon adapters per wing, ripstop nylon membrane, 3M tape, superglue, thread\n\n\nTools\nCutting mat, steel rule, scalpel, needle, printed full-size template of the chosen geometry",
     "crumbs": [
       "Overview",
       "Build modules",
@@ -1372,7 +1492,7 @@
     "href": "sessions/07-wings.html#wing-roots",
     "title": "Module 7 — Wing fabrication",
     "section": "Wing roots",
-    "text": "Wing roots\nThe wing roots are carbon, drilled to mate with the gears from Module 5.\n\n\n\n\n\n\nFigure 1: Wing root parts and spar stock",
+    "text": "Wing roots\nThe wing roots are carbon, cut to mate with the gears from Module 5. A champfer needs to be cut in the wing roots for the countersunk head of the M3 screw.\n\n\n\n\n\n\nFigure 1: Wing root parts and spar stock",
     "crumbs": [
       "Overview",
       "Build modules",
@@ -1396,7 +1516,7 @@
     "href": "sessions/07-wings.html#assembly",
     "title": "Module 7 — Wing fabrication",
     "section": "Assembly",
-    "text": "Assembly\n\nMount each wing in its wing root using the two nylon adapters.\nMount the wing roots in the robot, onto the gears from Module 5.\n\n\n\n\n\n\n\nWarningBoth wings must match\n\n\n\nAsymmetry between left and right shows up as a roll bias that may not be possible to correct later. See Module 11 for trimming out. Weigh both wings and compare spar positions against the template before bonding.\n\n\n\n\n\n\n\n\nImportantTo be completed by the instructor\n\n\n\nStill missing from the procedure above:\n\nSpar layup: rod and strip diameters, and where the diagonals attach\nWhat to stitch with — thread type and stitch spacing\n\n\n\n\n\n\n\n\n\nNoteCheckpoint\n\n\n\nBoth wings complete, matched in mass and geometry, mounted in their roots and fitted to the robot",
+    "text": "Assembly\n\nMount each wing in its wing root using the two nylon adapters.\nMount the wing roots in the robot, onto the gears from Module 5.\n\n\n\n\n\n\n\nWarningBoth wings must match\n\n\n\nAsymmetry between left and right shows up as a roll bias that may not be possible to correct later. See Module 11 for trimming out. Weigh both wings and compare spar positions against the template before bonding.",
     "crumbs": [
       "Overview",
       "Build modules",

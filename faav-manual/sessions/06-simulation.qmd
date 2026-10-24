@@ -13,20 +13,185 @@ The wing and tail geometry are chosen here. Candidate geometries are simulated i
 | **Bring** | Laptop with Ptera installed |
 | **Read**  | This page                   |
 
-## Deliverable
+## What Ptera does
 
-A wing planform and a tail geometry, with the simulation output that justifies them, carried forward into [Module 7](07-wings.qmd) and [Module 8](08-tail-housing.qmd).
+![A Ptera run: the lifting surfaces are divided into the panel mesh the solver actually works on, and coloured by lift coefficient through the stroke. The deformation you can see is the point - the loading changes continuously as the wing flaps, which is exactly what a steady calculation cannot give you.](/Fig/k=5_deformation.gif){#fig-ptera width="85%"}
+
+[Ptera Software](https://github.com/camUrban/PteraSoftware) is an open-source package for analysing flapping-wing flight. It exists because the usual options are bad: steady aerodynamics assumes the wing is not moving, which is the one assumption a flapping wing breaks, and full CFD is slow and expensive enough that you cannot use it to compare candidate planforms in an afternoon.
+
+It uses the **unsteady ring vortex lattice method (UVLM)**. The surfaces are reduced to a mesh of panels, each carrying a vortex ring, and the wake is shed and tracked as the wing moves. That is a large step up from a steady method - it captures the history of the flow, so the forces at one instant depend on what the wing did before - while staying fast enough to sweep a design space.
+
+## Installing Ptera
+
+The examples are in the repository, so clone it rather than installing the package on its own:
+
+``` bash
+git clone https://github.com/camUrban/PteraSoftware.git
+cd PteraSoftware
+pip install -r requirements.txt
+```
+
+Then run the unsteady example to confirm the install works:
+
+``` bash
+python examples/unsteady_ring_vortex_lattice_method_solver_variable.py
+```
+
+It should open an animation like @fig-ptera. If it does, the solver, the geometry classes and the output stack are all working and you can start editing a copy of that script into your own geometry.
+
+::: callout-note
+### Two ways to install it
+
+`pip install pterasoftware` also works if you only want the library. It does **not** give you the `examples/` folder, which is where the working scripts are.
+:::
+
+## How a Ptera model is put together
+
+The thing worth understanding before you open the example is that **geometry and motion are two parallel hierarchies**. You build the shape first, then build a matching movement object for each piece of that shape. Every geometry class has a movement twin.
+
+| Geometry | Movement twin | What it is |
+|-----------------------|-----------------------|--------------------------|
+| `Airfoil` | --- | The 2D section. Does not move on its own |
+| `WingCrossSection` | `WingCrossSectionMovement` | An airfoil placed at a span position, with its own chord, twist and offset |
+| `Wing` | `WingMovement` | Two or more cross-sections swept into a surface |
+| `Airplane` | `AirplaneMovement` | All the wings together --- on this robot, the two wings and the tail |
+| `OperatingPoint` | `OperatingPointMovement` | Freestream velocity, density and angles |
+
+The two sides are then joined and solved:
+
+1.  `Movement` takes the `AirplaneMovement` and the `OperatingPointMovement` and becomes the complete time-varying description of the problem.
+2.  `UnsteadyProblem` wraps that `Movement`.
+3.  `UnsteadyRingVortexLatticeMethodSolver` takes the problem and runs it.
+
+So the flapping is **not** a property of the wing. It lives in the movement twin, which is why the same geometry can be swept through different kinematics without rebuilding it.
+
+## Modelling the tail
+
+In Ptera it is simply another `Wing` on the `Airplane`, built the same way as the flapping wings: two or more `WingCrossSection` objects, each with an `Airfoil`, swept into a surface. It needs a `WingMovement` like everything else, but for a fixed tail that movement is static (the object still has to exist).
+
+The planform follows from where you put the cross-sections and what chord you give each one:
+
+- **Rectangular** - same chord at root and tip. The simplest thing to build and the easiest baseline to compare against.
+- **Tapered** - smaller chord at the tip. Less area outboard, less inertia at the end of the moment arm.
+- **Delta or triangular** - taper taken to the limit, chord going to near zero at the tip.
+- **Forked** - two surfaces leaving a common root, the shape many fish converge on.
+
+## Beyond prescribed motion
+
+Everything above prescribes the motion completely: you say where the wing is at every instant, and the solver reports the loads. Ptera has two [beta features]{.underline} that go beyond that
+
+**Free flight** hands the airplane to the MuJoCo physics engine, so it flies a six-degree-of-freedom path under its own aerodynamic loads, weight and inertia: the question of whether a chosen geometry actually sustains flight or what maximum speed it can reach in swimming, rather than what lift it makes while held in place.
+
+**Aeroelasticity** lets each wing twist under load through a torsional spring at every cross-section, which matters here because a membrane wing is not rigid and the twist changes the loading.
+
+Both are switched on the same way: the geometry stays exactly as you built it, and you swap the *movement, problem and solver* classes for a different family. The naming follows one rule - take the standard class and put `FreeFlight` or `Aeroelastic` in front of it, so the free-flight solver is `FreeFlightUnsteadyRingVortexLatticeMethodSolver`.
+
+What separates the two families is *which* classes take the prefix.
+
+| Standard class                          | Free flight | Aeroelastic |
+|:----------------------------------------|:-----------:|:-----------:|
+| `WingCrossSectionMovement`              |  unchanged  |  prefixed   |
+| `WingMovement`                          |  unchanged  |  prefixed   |
+| `AirplaneMovement`                      |  unchanged  |  prefixed   |
+| `OperatingPointMovement`                |  prefixed   |  unchanged  |
+| `Movement`                              |  prefixed   |  prefixed   |
+| `UnsteadyProblem`                       |  prefixed   |  prefixed   |
+| `UnsteadyRingVortexLatticeMethodSolver` |  prefixed   |  prefixed   |
+
+: Which classes change in each family. The geometry classes - `Airfoil`, `WingCrossSection`, `Wing` and `Airplane` - are identical in all three. {#tbl-ptera-families}
+
+### Free flight
+
+In a standard run you prescribe the operating point at every step. In free flight you give only the **first** one. After that MuJoCo integrates the rigid-body equations and the solver rebuilds each new operating point - speed, angle of attack, sideslip, attitude, position, body rates - from the result.
+
+MuJoCo treats the airplane as [one rigid body]{.underline} on a free joint, with the mass and inertia matrix you supply. Ptera applies the entire load itself, the UVLM forces and moments plus anything from `external_loads_fn`, rotated into Earth axes, plus the weight.
+
+A run has two phases. During the **prescribed phase** the loads are withheld and the body coasts at its initial condition while the wake develops, which keeps the impulsive-start transient out of the dynamics. During the **free phase** the loads are applied and the airplane flies on its own. Wing motion stays prescribed throughout.
+
+::: callout-note
+## Why a free step costs several times a prescribed one
+
+The load over a step depends on where the body ends the step, and where it ends depends on the load. Using the previous step's load is the obvious approach and it **diverges** for flapping cases, because of added mass: a velocity change alters the circulation, which alters the load, which alters the velocity again, with a loop gain of roughly added mass over vehicle mass.
+
+Each free step therefore solves a small fixed-point problem instead, iterating on the twelve-number body state until the weighted residual falls below a relative tolerance of `1e-6`, or until `k_max` iterations. Every pass costs one UVLM solve *and* one MuJoCo step. The full derivation is in `docs/STRONG_COUPLING.md`.
+:::
+
+Free flight is enabled by building the free-flight class family instead of the standard one. The script below is a trimmed-down version of `examples/free_flight_unsteady_ring_vortex_lattice_method_solver_glider.py`.
+
+1.  **Build the `Airplane`** as usual. Its `weight` must equal `mass * |g_E|`, or the problem constructor raises a `ValueError`.
+
+2.  **Wrap each `Wing` in a `WingMovement`** and the airplane in an `AirplaneMovement`. Leave the amplitudes at zero for a glider, or set them to flap. Loop over `airplane.wings`, not over the wings you typed: a symmetric wing whose symmetry plane is offset is split into two `Wing` objects, and each needs its own movement.
+
+3.  **Define the initial `OperatingPoint`.** This is the only operating point you prescribe. Set `g_E` explicitly, because the default is no gravity. Keep `externalFX_W=0.0`.
+
+4.  **Wrap it in a `FreeFlightOperatingPointMovement`**, then build a `FreeFlightMovement` with exactly one airplane movement, the time step, and the two phase lengths.
+
+5.  **Build the `FreeFlightUnsteadyProblem`** with the mass (kg) and the inertia matrix (kg m\^2, in body axes, about the CG).
+
+6.  **Run the `FreeFlightUnsteadyRingVortexLatticeMethodSolver`**, then use the usual output functions.
+
+| Parameter | Default | What to know |
+|--------------------|------------------|----------------------------------|
+| `g_E` (OperatingPoint) | zero | **No gravity unless you set it.** Earth z points down, so standard gravity is (0, 0, 9.80665) |
+| `weight` (Airplane), `mass` (problem) | none | Must satisfy weight = mass × gravity, or the constructor raises. For zero gravity set both to zero |
+| `I_BP1_CgP1` (problem) | none | 3×3 symmetric, kg·m², about the CG, in **body** axes (forward, right, down). Geometry axes point aft, right, up --- if CAD gives it in geometry axes, flip the sign of Ixy and Iyz |
+| `externalFX_W` (OperatingPoint) | 0.0 | Must stay zero; free flight raises otherwise. Use `external_loads_fn` for thrust |
+| `external_loads_fn` (problem) | none | Returns force and moment as two 3-vectors in **wind** axes. Wind +x points along the velocity, so thrust along the flight path is (T, 0, 0) |
+| `prescribed_num_steps`, `free_num_steps` | none | Both at least 1. The examples coast for 5 to 10 steps |
+| `delta_time` | none | Rule of thumb: the airplane travels about one chordwise panel length per step |
+| `k_max` (problem) | 20 | Cap on coupling iterations per step. Raise it if the log reports reaching the cap without converging - light vehicles need more |
+| `integrator` (problem) | `"RK4"` | Prefer an implicit one once you add contact geometry |
+| `CgP1_E_Eo`, `omegas_BP1__E` | zeros | Initial position and body rates. Only the free-flight solver accepts nonzero body rates |
+
+: Free-flight parameters worth checking before a run.
+
+### Aeroelasticity
+
+The structural model is deliberately first-order. Each spanwise **strip** (chord element, i.e. the panels between two neighbouring cross-sections) is a rigid plate hinged **at its leading edge** on a torsional spring, free only to twist about its spanwise axis. There is no spanwise bending in the current model, strips are not connected to each other structurally, and the root is clamped.
+
+Each strip's twist angle follows a forced, damped oscillator,
+
+$$I\,\ddot{\theta} + c\,\dot{\theta} + k\,\theta = M_\text{aero} + M_\text{inertial}$$ {#eq-twist}
+
+with the terms in @eq-twist coming from:
+
+| Symbol | Meaning | Where it comes from |
+|--------------------|--------------------|--------------------------------|
+| $\theta$ | Strip twist (rad) | Solved for |
+| $k$ | Torsional stiffness (N·m/rad) | `spring_constant_rad` |
+| $c$ | Torsional damping (N·m·s/rad) | `damping_constant_rad` |
+| $I$ | Strip torsional inertia, ½ML² | M = `wing_density` × strip area, L = mean strip chord |
+| $M_\text{aero}$ | Sum of the strip's panel pitching moments about its leading edge | UVLM loads at the current step |
+| $M_\text{inertial}$ | Moment from the prescribed flapping acceleration | Flapping inertia × flap angular acceleration |
+
+: What drives the twist of one strip.
+
+Each step runs once through the loop: the UVLM solves on the current, already deformed geometry; the solver sums each strip's panel moments about its leading edge; SciPy integrates @eq-twist over one time step from that strip's previous twist and twist rate; and the new twist is added to the outboard cross-section's angle before the next step is meshed. That is **loose coupling**: the twist at one step uses the loads from the last one, with no sub-iteration. For the first few steps (`step_discards`, default 5) the twist is held at zero, because the impulsive start produces large unphysical loads. Only wings built with an `AeroelasticWingMovement` deform; a plain `WingMovement` in the same airplane stays rigid (which is how you model a flexible wing against a rigid tail).
+
+To use aeroelasticity:
+
+1.  **Mesh the deforming wing as thin strips.** The spring model only behaves when each strip is narrow. Set `explode_into_strips=True` on the `Wing`, which requires uniform spanwise spacing on every non-tip cross-section.
+2.  **Offset the wing root from the symmetry plane.** A wing lying on the symmetry plane raises an error; offsetting it splits the wing into a left and a right `Wing`, which is what the solver expects.
+3.  **Flap with sine spacing.** The inertial moment needs the flap *acceleration*, so sawtooth spacing is rejected.
+4.  **Wrap all wing movements in an `AeroelasticAirplaneMovement`.** Rigid wings can keep a plain `WingMovement`.
+5.  **Use an ordinary `OperatingPoint` and `OperatingPointMovement`**, then build the `AeroelasticMovement` and the `AeroelasticUnsteadyProblem` with the structural parameters.
+6.  **Run the `AeroelasticUnsteadyRingVortexLatticeMethodSolver`** and read the twist history from the problem.
+
+| Parameter | Default | What to know |
+|--------------------|------------------|----------------------------------|
+| `spring_constant_rad` | none | Stiffness in N·m/rad. Static twist is roughly moment over stiffness, so a softer spring twists more. Examples use 1000. Too soft distorts the mesh |
+| `damping_constant_rad` | none | Damping in N·m·s/rad. Examples use 1000, which is heavily damped - lower it to see the strips oscillate |
+| `wing_density` | none | Mass per unit wing area, kg/m². Sets both inertias. **Zero breaks the equation** |
+| `step_discards` | 5 | Start-up steps with twist held at zero. Raise it if the first deformed steps look violent |
+| `explode_into_strips` (Wing) | False | Set true on deforming wings |
+| `prescribed_wake` (run) | True | True is much faster and fine for parameter sweeps; false (free wake) is more accurate |
+
+: Aeroelastic parameters. **None of these are range-checked**, so a wrong unit or sign runs silently and returns nonsense.
 
 ::: callout-important
-## To be written by the instructor
+## These two features are experimental
 
-This module has **no counterpart in the manufacturing guide** --- the guide documents the research robot's final geometry, not the design exercise. The following need to be written from course material:
-
-- Ptera installation and a worked example
-- The provided motor power curve, and its format
-- What "most efficient thrust profile" means quantitatively here, and how it is scored
-- Constraints the students must respect so their geometry remains buildable with the frame from [Module 5](05-frame-crank.qmd) --- span limits, root fitting, mass budget
-- Whether teams may deviate from the reference wing, and by how much
+Both features first shipped in **v5.1.0** (July 2026), which is what `pip install pterasoftware` gives you. The behaviour described here follows the newer `main` branch, which differs in several ways: class names are flat (`ps.FreeFlightMovement`) rather than long module paths, a free-flight run starts at the operating point's initial position rather than always at the origin
 :::
 
 ::: callout-note

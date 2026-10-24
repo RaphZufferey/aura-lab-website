@@ -6,7 +6,7 @@ title: "Module 3 --- Motor driver, sensor and serial connection"
 
 We aim to get your laptop talking to a flashed G431 ESC via the flight controller, with the angular sensor wired on SPI. Lots of soldering. We will not use a battery for now, but a cable to a power source instead.
 
-![How the battery, ESC, encoder, motor and microcontroller connect. The XIAO nRF52840 shown here is the separate-microcontroller option for serial described below - note that TX and RX are crossed. SPI3 and UART pin assignments match the rework in @tbl-spi3 and *ST-Link serial*.](/Fig/xiao-esc-wiring-diagram.png){#fig-wiring width="6.5in"}
+![How the battery, ESC, encoder, motor and microcontroller connect. The XIAO nRF52840 shown here is the separate-microcontroller option for serial described below - note that TX and RX are crossed. SPI3 and UART pin assignments match the rework in @tbl-spi3 and *ST-Link serial*.](/Fig/xiao-esc-wiring-diagram.jpg){#fig-wiring width="6.5in"}
 
 Work through the module with this diagram open: every step below either wires one of these links or configures it in firmware.
 
@@ -103,17 +103,41 @@ Check the R14 connection under the microscope. Use a drop of glue to fix the cab
 
 ![The MOSI tap on **R14** under the microscope. The wire lands on the outward side of the resistor, and the bead of clear glue over the joint is to help with accidental pulls on the cable.](/Fig/R14connection.jpeg){#fig-r14 fig-align="center" width="25%"}
 
-|               | SCLK | MISO | MOSI  | CS   | 5V  | GND |
-|---------------|------|------|-------|------|-----|-----|
-| **MCU GPIO**  | PB3  | PB4  | PB5   | PA15 | --- | --- |
-| **G431B pin** | J3   | J3   | R14\* | J3   | J8  | J3  |
+|               | SCLK | MISO | MOSI  | CS   | VDD        | GND |
+|---------------|------|------|-------|------|------------|-----|
+| **MCU GPIO**  | PB3  | PB4  | PB5   | PA15 | ---        | --- |
+| **G431B pin** | J3   | J3   | R14\* | J3   | J4 (3.3 V) | J3  |
 
 : SPI3 connections on the G431. \* This connection is on the outward side of the resistor. {#tbl-spi3}
 
-::: callout-tip
-## Keep the SPI cables under 8 cm
+## Powering the encoder
 
-Cables between encoder and ESC need to be **less than 8 cm**. At 10 MHz longer runs start corrupting angle readings, and the symptom is a motor that behaves erratically rather than a sensor that obviously fails. Check the length that is needed. The cables also need to be the same length.
+The encoder is powered by the regulators on the ESC board. Since the STM32 operates at 3.3V, it is best to use the encoder **in 3.3V mode** (it can also work at 5V). The encoder boards may or may not offer the option to run at 3.3V.
+
+The AS5047P chip, however, can work on 3.3V or 5V. For 3.3V mode, the following changes need to be made:
+
+- Remove the capacitor between the 3.3V line and ground (**C2**)
+
+- Connect 3.3V to VDD. For that, tie together pin 11 and 12 on the chip.
+
+::: callout-warning
+## Voltage warning
+
+Once these changes made, the marked "5V" connection on the board where the cable is connected should now be connected **to 3.3V only**. Powering it with 5V will destroy the encoder.
+:::
+
+::: {layout="[[365,360,275]]"}
+![AS5047P in 3.3V mode: VDD tied to VDD3V3, bypassing the internal LDO](/Fig/as5047p_3.3V.jpg){width="95%"}
+
+![AS5047 breakout board](/Fig/encoderA.jpg){width="95%"}
+
+![Different AS5047 breakout, with the pads labelled CSN, SCK, MISO, MOSI, GND and 5V](/Fig/encoderB.jpg){width="95%"}
+:::
+
+::: callout-tip
+## Keep the SPI cables short
+
+Cables between encoder and ESC need to be **as short as possible, but still fit in the robot**. At 10 MHz longer runs start corrupting angle readings, and the symptom is a motor that behaves erratically rather than a sensor that obviously fails. Check the length that is needed. The cables also need to be the same length.
 :::
 
 ## Mounting
