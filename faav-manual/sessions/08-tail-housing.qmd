@@ -19,7 +19,7 @@ The motor is connected via a custom shaft to a gearbox with a **23.04:1** reduct
 [^1]: [Faulhaber gearhead reduction ratios](https://www.faulhaber.com/fileadmin/Import/Media/DE_GEARHEADS_REDUCTION_RATIOS.pdf) (accessed 20.02.2024).
 
 ::: {layout-ncol="2"}
-![Faulhaber gearbox](/Fig/fhaber.jpg){alt="Faulhaber gearbox"}
+![Faulhaber gearbox](/Fig/fhaber.jpg)
 :::
 
 First, we need to press + glue our sun gear is already pressed onto the motor shaft from [Module 2](02-motor.qmd).
@@ -40,17 +40,11 @@ Next, we need to install the gearbox to the motor and fixing the pair to the pla
 
 ### Sun gear
 
-The sun gear from the Faulhaber 23.04:1 gearbox. Glue and press onto shaft. Check that it fits into the reduction, without touching the first stage. Use a caliper for this.
+The sun gear from the Faulhaber 23.04:1 gearbox. Press onto shaft (glue if needed). Check that it fits into the reduction, without touching the first stage. Use the back end of the caliper for this.
 
 ## Tail
 
-![Tail assembly](/Fig/tail.jpg){#fig-tail width="75%"}
-
-::: callout-important
-## TBC
-
-As with the wings, the guide contains **only the photograph above** for the tail. Still needed: sheet material and thickness, rod diameter, how the tail mounts to the boom, and the incidence setting. The project plan also notes tail actuation is optional if time permits --- decide before the semester whether that is in scope.
-:::
+![Example tail assembly](/Fig/tail.jpg){#fig-tail width="75%"}
 
 ## Trailing edge holder
 
@@ -70,17 +64,9 @@ This part is a design exercise. The requirements are fixed; the mechanism is not
 
 ### Find a solution
 
-Both flexible and rigid solutions are possible. For a rigid solution, the mount half is straightforward: a **split collar** that slides along the 5 mm tube and clamps with an M2 screw into a square half nut, per the house convention in [Design notes](/reference/design-notes.qmd). Sliding it gives the longitudinal adjustment, rotating it about the tube gives some of the lateral, and a slotted arm gives the rest.
+Both flexible and rigid solutions are possible. For a rigid solution, the mount half is straightforward: a **split collar** that slides along the tail tube and clamps with an M2 screw into a square half nut, per the house convention in [Design notes](/reference/design-notes.qmd). Sliding it gives the longitudinal adjustment, rotating it about the tube gives some of the lateral, and a slotted arm gives the rest.
 
 The design must be justified against @tbl-te-requirements, and the choices defended.
-
-### Print it
-
-1.  3D-print the part with the material required.
-
-### Insert it on the tube
-
-Slide the collar onto the tail tube and set it to the starting station. Measure from a fixed datum, write the number down, and set the second one to the same number.
 
 ### Attach the wing
 
@@ -89,7 +75,7 @@ Connect each wing's trailing edge to its holder.
 ::: callout-warning
 ## Both sides must be set identically
 
-Different longitudinal stations left and right means different twist left and right, which is a roll bias -the same failure mode as mismatched wings in [Module 7](07-wings.qmd), arriving by a different route and just as hard to trim out in [Module 11](11-wet-testing.qmd).
+Different longitudinal stations left and right means different twist left and right, which is a roll bias -the same failure mode as mismatched wings in [Module 7](07-wings.qmd).
 :::
 
 ::: callout-note
