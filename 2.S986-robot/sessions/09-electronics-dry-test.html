@@ -52,9 +52,6 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/bootstrap/bootstrap-3bc97f2477fb7965bce9454950d60e55.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/bootstrap/bootstrap-dark-dea204dea6f735ae4ecf1dae3d686bcc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <link href="../site_libs/bootstrap/bootstrap-3bc97f2477fb7965bce9454950d60e55.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
-<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
-<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
-<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -548,8 +545,7 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#summary" id="toc-summary" class="nav-link active" data-scroll-target="#summary">Summary</a></li>
   <li><a href="#requirements" id="toc-requirements" class="nav-link" data-scroll-target="#requirements">Requirements</a></li>
-  <li><a href="#flight-controller" id="toc-flight-controller" class="nav-link" data-scroll-target="#flight-controller">Flight controller</a></li>
-  <li><a href="#connect-battery" id="toc-connect-battery" class="nav-link" data-scroll-target="#connect-battery">Connect battery</a></li>
+  <li><a href="#what-you-should-have-by-now" id="toc-what-you-should-have-by-now" class="nav-link" data-scroll-target="#what-you-should-have-by-now">What you should have by now</a></li>
   <li><a href="#dry-testing" id="toc-dry-testing" class="nav-link" data-scroll-target="#dry-testing">Dry testing</a></li>
   </ul>
 </nav>
@@ -579,23 +575,19 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="summary" class="level2">
 <h2 class="anchored" data-anchor-id="summary">Summary</h2>
-<p>The custom PCB assembled and validated, the flight controller flashed and talking to the ESC, and the robot flapping in air under wireless control.</p>
+<p>The core robot assembled and validated, the flight controller flashed and talking to the ESC, and the robot flapping in air under wireless control.</p>
 </section>
 <section id="requirements" class="level2">
 <h2 class="anchored" data-anchor-id="requirements">Requirements</h2>
 <table class="caption-top table">
-<colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
-</colgroup>
 <tbody>
 <tr class="odd">
 <td><strong>Parts</strong></td>
-<td>Seeeduino XIAO, connectors, battery</td>
+<td>Robot</td>
 </tr>
 <tr class="even">
 <td><strong>Tools</strong></td>
-<td>Hotplate, tweezers, multimeter, bench supply with current limit</td>
+<td>Power source, USB-C cable, Laptop</td>
 </tr>
 <tr class="odd">
 <td><strong>Read</strong></td>
@@ -604,39 +596,17 @@ ul.task-list li input[type="checkbox"] {
 </tbody>
 </table>
 </section>
-<section id="flight-controller" class="level2">
-<h2 class="anchored" data-anchor-id="flight-controller">Flight controller</h2>
-<div id="fig-mcu" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-mcu-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="../Fig/mcu1.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1: Microcontroller in its waterproofing box"><img src="../Fig/mcu1.jpg" class="img-fluid figure-img" style="width:50.0%"></a>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mcu-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: Microcontroller in its waterproofing box
-</figcaption>
-</figure>
-</div>
-<p>Firmware lives in <a href="https://github.com/MIT-AURA-Lab/FAAV-Flight-Controller">FAAV-Flight-Controller</a></p>
-</section>
-<section id="connect-battery" class="level2">
-<h2 class="anchored" data-anchor-id="connect-battery">Connect battery</h2>
-<p>Add instructions</p>
+<section id="what-you-should-have-by-now" class="level2">
+<h2 class="anchored" data-anchor-id="what-you-should-have-by-now">What you should have by now</h2>
+<ol type="1">
+<li><p>Core of the robot, including the reduction mounted to the motor vertical plate and to the gear vertical plate.</p></li>
+<li><p>A first set of wings</p></li>
+<li><p>A tail or tail tube</p></li>
+<li><p>Trailing edge attachment point at the end of the fuselage (wing-dependent)</p></li>
+</ol>
 </section>
 <section id="dry-testing" class="level2">
 <h2 class="anchored" data-anchor-id="dry-testing">Dry testing</h2>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>TBC
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>The dry-test protocol is course material, not in the guide. Needed: what the robot is mounted on while flapping in air, the flap frequency sweep, what is measured, the wireless control setup students reprogram to, and abort criteria.</p>
-</div>
-</div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1099,38 +1069,6 @@ Figure&nbsp;1: Microcontroller in its waterproofing box
 </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
-(function() {
-  let previousOnload = window.onload;
-  window.onload = () => {
-    if (previousOnload) {
-      previousOnload();
-    }
-    lightboxQuarto.on('slide_before_load', (data) => {
-      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-      const href = trigger.getAttribute('href');
-      if (href !== null) {
-        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
-        if (imgEl !== null) {
-          const srcAttr = imgEl.getAttribute("src");
-          if (srcAttr && srcAttr.startsWith("data:")) {
-            slideConfig.href = srcAttr;
-          }
-        }
-      } 
-    });
-  
-    lightboxQuarto.on('slide_after_load', (data) => {
-      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(slideNode);
-      }
-    });
-  
-  };
-  
-})();
-          </script>
 
 
 

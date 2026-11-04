@@ -4,37 +4,30 @@ title: "Module 9 --- Flight controller, PCB and dry testing"
 
 ## Summary
 
-The custom PCB assembled and validated, the flight controller flashed and
-talking to the ESC, and the robot flapping in air under wireless control.
+The core robot assembled and validated, the flight controller flashed and talking to the ESC, and the robot flapping in air under wireless control.
 
 ## Requirements
 
-| | |
-|---|---|
-| **Parts** | Seeeduino XIAO, connectors, battery |
-| **Tools** | Hotplate, tweezers, multimeter, bench supply with current limit |
-| **Read** | This page |
+|           |                                   |
+|-----------|-----------------------------------|
+| **Parts** | Robot                             |
+| **Tools** | Power source, USB-C cable, Laptop |
+| **Read**  | This page                         |
 
-## Flight controller
+## What you should have by now
 
-![Microcontroller in its waterproofing box](/Fig/mcu1.jpg){#fig-mcu width=50%}
+1.  Core of the robot, including the reduction mounted to the motor vertical plate and to the gear vertical plate.
 
-Firmware lives in [FAAV-Flight-Controller](https://github.com/MIT-AURA-Lab/FAAV-Flight-Controller)
+2.  A first set of wings
 
-## Connect battery
-Add instructions
+3.  A tail or tail tube
+
+4.  Trailing edge attachment point at the end of the fuselage (wing-dependent)
 
 ## Dry testing
 
-::: {.callout-important}
-## TBC
+::: callout-note
+## Checkpoint
 
-The dry-test protocol is course material, not in the guide. Needed: what the
-robot is mounted on while flapping in air, the flap frequency sweep, what is
-measured, the wireless control setup students reprogram to, and abort criteria.
-:::
-
-::: {.callout-note}
-## Checkpoint 
 Flight controller commanding the ESC over serial, and a supervised flapping run in air.
 :::

@@ -64,7 +64,7 @@
     "href": "sessions/10-waterproofing.html",
     "title": "Module 10 — Waterproofing",
     "section": "",
-    "text": "A potted PCB, a lubricated and sealed gearbox, and a robot that survives a static immersion test.\n\n\n\n\n\n\nWarningSilicone cure time gates this module\n\n\n\nThe PCB potting takes 12–24 hours to cure because of the depth. Plan the module so potting happens first and soldering happens after the cure, or across two sittings.",
+    "text": "Potted electronics, and a robot that survives a static immersion test.\n\n\n\n\n\n\nWarningSilicone cure time\n\n\n\nThe PCB potting takes 12–24 hours to cure because of the depth.",
     "crumbs": [
       "Overview",
       "Build modules",
@@ -76,7 +76,7 @@
     "href": "sessions/10-waterproofing.html#summary",
     "title": "Module 10 — Waterproofing",
     "section": "",
-    "text": "A potted PCB, a lubricated and sealed gearbox, and a robot that survives a static immersion test.\n\n\n\n\n\n\nWarningSilicone cure time gates this module\n\n\n\nThe PCB potting takes 12–24 hours to cure because of the depth. Plan the module so potting happens first and soldering happens after the cure, or across two sittings.",
+    "text": "Potted electronics, and a robot that survives a static immersion test.\n\n\n\n\n\n\nWarningSilicone cure time\n\n\n\nThe PCB potting takes 12–24 hours to cure because of the depth.",
     "crumbs": [
       "Overview",
       "Build modules",
@@ -88,7 +88,7 @@
     "href": "sessions/10-waterproofing.html#requirements",
     "title": "Module 10 — Waterproofing",
     "section": "Requirements",
-    "text": "Requirements\n\n\n\n\n\n\n\nParts\nWaterproofing box, Kapton tape, silicone sealant, USB-C cable, CorrosionX, white lithium grease\n\n\nTools\nNeedle, soldering iron\n\n\nRead\nThis whole page before starting — the ordering matters",
+    "text": "Requirements\n\n\n\n\n\n\n\nParts\nWaterproofing box, Kapton tape, USB-C cable, (CorrosionX, white lithium grease)\n\n\nTools\nSilicone sealant\n\n\nRead\nThis whole page before starting — the ordering matters",
     "crumbs": [
       "Overview",
       "Build modules",
@@ -1528,7 +1528,7 @@
     "href": "sessions/09-electronics-dry-test.html",
     "title": "Module 9 — Flight controller, PCB and dry testing",
     "section": "",
-    "text": "The custom PCB assembled and validated, the flight controller flashed and talking to the ESC, and the robot flapping in air under wireless control.",
+    "text": "The core robot assembled and validated, the flight controller flashed and talking to the ESC, and the robot flapping in air under wireless control.",
     "crumbs": [
       "Overview",
       "Build modules",
@@ -1540,7 +1540,7 @@
     "href": "sessions/09-electronics-dry-test.html#summary",
     "title": "Module 9 — Flight controller, PCB and dry testing",
     "section": "",
-    "text": "The custom PCB assembled and validated, the flight controller flashed and talking to the ESC, and the robot flapping in air under wireless control.",
+    "text": "The core robot assembled and validated, the flight controller flashed and talking to the ESC, and the robot flapping in air under wireless control.",
     "crumbs": [
       "Overview",
       "Build modules",
@@ -1552,7 +1552,7 @@
     "href": "sessions/09-electronics-dry-test.html#requirements",
     "title": "Module 9 — Flight controller, PCB and dry testing",
     "section": "Requirements",
-    "text": "Requirements\n\n\n\n\n\n\n\nParts\nSeeeduino XIAO, connectors, battery\n\n\nTools\nHotplate, tweezers, multimeter, bench supply with current limit\n\n\nRead\nThis page",
+    "text": "Requirements\n\n\n\nParts\nRobot\n\n\nTools\nPower source, USB-C cable, Laptop\n\n\nRead\nThis page",
     "crumbs": [
       "Overview",
       "Build modules",
@@ -1560,23 +1560,11 @@
     ]
   },
   {
-    "objectID": "sessions/09-electronics-dry-test.html#flight-controller",
-    "href": "sessions/09-electronics-dry-test.html#flight-controller",
+    "objectID": "sessions/09-electronics-dry-test.html#what-you-should-have-by-now",
+    "href": "sessions/09-electronics-dry-test.html#what-you-should-have-by-now",
     "title": "Module 9 — Flight controller, PCB and dry testing",
-    "section": "Flight controller",
-    "text": "Flight controller\n\n\n\n\n\n\nFigure 1: Microcontroller in its waterproofing box\n\n\n\nFirmware lives in FAAV-Flight-Controller",
-    "crumbs": [
-      "Overview",
-      "Build modules",
-      "Module 9 --- Flight controller, PCB and dry testing"
-    ]
-  },
-  {
-    "objectID": "sessions/09-electronics-dry-test.html#connect-battery",
-    "href": "sessions/09-electronics-dry-test.html#connect-battery",
-    "title": "Module 9 — Flight controller, PCB and dry testing",
-    "section": "Connect battery",
-    "text": "Connect battery\nAdd instructions",
+    "section": "What you should have by now",
+    "text": "What you should have by now\n\nCore of the robot, including the reduction mounted to the motor vertical plate and to the gear vertical plate.\nA first set of wings\nA tail or tail tube\nTrailing edge attachment point at the end of the fuselage (wing-dependent)",
     "crumbs": [
       "Overview",
       "Build modules",
@@ -1588,7 +1576,7 @@
     "href": "sessions/09-electronics-dry-test.html#dry-testing",
     "title": "Module 9 — Flight controller, PCB and dry testing",
     "section": "Dry testing",
-    "text": "Dry testing\n\n\n\n\n\n\nImportantTBC\n\n\n\nThe dry-test protocol is course material, not in the guide. Needed: what the robot is mounted on while flapping in air, the flap frequency sweep, what is measured, the wireless control setup students reprogram to, and abort criteria.\n\n\n\n\n\n\n\n\nNoteCheckpoint\n\n\n\nFlight controller commanding the ESC over serial, and a supervised flapping run in air.",
+    "text": "Dry testing\n\n\n\n\n\n\nNoteCheckpoint\n\n\n\nFlight controller commanding the ESC over serial, and a supervised flapping run in air.",
     "crumbs": [
       "Overview",
       "Build modules",
