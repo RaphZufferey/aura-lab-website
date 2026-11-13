@@ -14,9 +14,9 @@ The passive tail, cut to the shape the simulation produced and mounted on its ro
 
 ## Reduction installation
 
-The motor is connected via a custom shaft to a gearbox with a **23.04:1** reduction by Faulhaber.[^1] Both parts are held in place by 3D-printed plates. The output shaft of the gearbox has its own bearing on the inside of the gearbox, and is also supported mid-way on the shaft by a 4×8 mm flanged bearing. This leaves **5 mm of shaft length free** for the crank to be mounted on. A flat on the shaft helps lock the rotation of the M3 screw extending through the crank.
+The motor is connected via a custom shaft to a gearbox with a **23.04:1** reduction by Faulhaber.[^faulhaber] Both parts are held in place by 3D-printed plates. The output shaft of the gearbox has its own bearing on the inside of the gearbox, and is also supported mid-way on the shaft by a 4×8 mm flanged bearing. This leaves **5 mm of shaft length free** for the crank to be mounted on. A flat on the shaft helps lock the rotation of the M3 screw extending through the crank.
 
-[^1]: [Faulhaber gearhead reduction ratios](https://www.faulhaber.com/fileadmin/Import/Media/DE_GEARHEADS_REDUCTION_RATIOS.pdf) (accessed 20.02.2024).
+[^faulhaber]: [Faulhaber gearhead reduction ratios](https://www.faulhaber.com/fileadmin/Import/Media/DE_GEARHEADS_REDUCTION_RATIOS.pdf) (accessed 20.02.2024).
 
 ::: {layout-ncol="2"}
 ![Faulhaber gearbox](/Fig/fhaber.jpg)

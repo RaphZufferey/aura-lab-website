@@ -550,9 +550,9 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#requirements" id="toc-requirements" class="nav-link" data-scroll-target="#requirements">Requirements</a></li>
   <li><a href="#flight-controller-waterproofing" id="toc-flight-controller-waterproofing" class="nav-link" data-scroll-target="#flight-controller-waterproofing">Flight controller waterproofing</a></li>
   <li><a href="#esc-waterproofing" id="toc-esc-waterproofing" class="nav-link" data-scroll-target="#esc-waterproofing">ESC waterproofing</a></li>
-  <li><a href="#battery-waterproofing" id="toc-battery-waterproofing" class="nav-link" data-scroll-target="#battery-waterproofing">Battery waterproofing</a></li>
-  <li><a href="#battery-connector-waterproofing" id="toc-battery-connector-waterproofing" class="nav-link" data-scroll-target="#battery-connector-waterproofing">Battery connector waterproofing</a>
+  <li><a href="#battery" id="toc-battery" class="nav-link" data-scroll-target="#battery">Battery</a>
   <ul class="collapse">
+  <li><a href="#battery-connector" id="toc-battery-connector" class="nav-link" data-scroll-target="#battery-connector">Battery connector</a></li>
   <li><a href="#in-operation" id="toc-in-operation" class="nav-link" data-scroll-target="#in-operation">In operation</a></li>
   <li><a href="#charging" id="toc-charging" class="nav-link" data-scroll-target="#charging">Charging</a></li>
   </ul></li>
@@ -658,8 +658,8 @@ Figure&nbsp;2: The motor, the ESC and the potted frame. The dark block is the fr
 </figure>
 </div>
 </section>
-<section id="battery-waterproofing" class="level2">
-<h2 class="anchored" data-anchor-id="battery-waterproofing">Battery waterproofing</h2>
+<section id="battery" class="level2">
+<h2 class="anchored" data-anchor-id="battery">Battery</h2>
 <p>The robot runs on a single <strong>4S</strong> pack: four lithium-polymer cells in series. It is an <strong>HV</strong> (high-voltage) pack, so every voltage is a little higher than on a standard LiPo (<a href="#tbl-battery-voltages" class="quarto-xref">Table&nbsp;1</a>).</p>
 <div id="tbl-battery-voltages" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
@@ -710,9 +710,8 @@ Table&nbsp;1: Voltages of the 4S HV pack.
 <p>Standard LiPo cells are charged to 4.20 V. HV cells use a cathode and electrolyte formulated to stay stable at a higher voltage, so they can be charged to <strong>4.35 V</strong> and store a little more energy for the same weight; the nominal voltage rises with it, from 3.7 V to 3.8 V. The charger has to be told: in plain LiPo mode it stops at 4.20 V and leaves part of the pack unused.</p>
 </div>
 </div>
-</section>
-<section id="battery-connector-waterproofing" class="level2">
-<h2 class="anchored" data-anchor-id="battery-connector-waterproofing">Battery connector waterproofing</h2>
+<section id="battery-connector" class="level3">
+<h3 class="anchored" data-anchor-id="battery-connector">Battery connector</h3>
 <p>The battery’s 24 AWG wires are re-crimped in two sealed three-pin connectors (<a href="#fig-battery-connectors" class="quarto-xref">Figure&nbsp;3</a>):</p>
 <ul>
 <li><strong>Black - power.</strong> The full pack voltage, 0 to 4S: <strong>VBAT</strong> on pin 1, <strong>GND</strong> on pin 3. The connector uses the 2-pin variant.</li>
@@ -728,6 +727,7 @@ Figure&nbsp;3: The 4S pack and its two connectors. Of the five cell taps, the tw
 </figcaption>
 </figure>
 </div>
+</section>
 <section id="in-operation" class="level3">
 <h3 class="anchored" data-anchor-id="in-operation">In operation</h3>
 <ul>

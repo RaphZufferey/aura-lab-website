@@ -38,17 +38,19 @@ The ESC is potted the same way as the flight controller: it sits in its own 3D-p
 
 ![The motor, the ESC and the potted frame. The dark block is the frame filled with Silcoset; the ESC drops into it before the fill so the board ends up fully encapsulated with only the phase and signal wires leaving.](/Fig/esc-potted.png){#fig-esc-potted width="65%"}
 
-## Battery waterproofing
+## Battery
 
 The robot runs on a single **4S** pack: four lithium-polymer cells in series. It is an **HV** (high-voltage) pack, so every voltage is a little higher than on a standard LiPo (@tbl-battery-voltages).
 
+::: {#tbl-battery-voltages}
 |                          | **Per cell** | **Pack (4S)** |
 |--------------------------|--------------|---------------|
 | Full charge              | 4.35 V       | 17.4 V        |
 | Nominal                  | 3.8 V        | 15.2 V        |
 | Minimum - never go below | 3.3 V        | 13.2 V        |
 
-: Voltages of the 4S HV pack. {#tbl-battery-voltages}
+Voltages of the 4S HV pack.
+:::
 
 The pack is potted in a **flexible** epoxy or silicone. It has to be flexible: pouch cells swell slightly as they charge and as they age, and a rigid potting would crack.
 
@@ -58,7 +60,7 @@ The pack is potted in a **flexible** epoxy or silicone. It has to be flexible: p
 Standard LiPo cells are charged to 4.20 V. HV cells use a cathode and electrolyte formulated to stay stable at a higher voltage, so they can be charged to **4.35 V** and store a little more energy for the same weight; the nominal voltage rises with it, from 3.7 V to 3.8 V. The charger has to be told: in plain LiPo mode it stops at 4.20 V and leaves part of the pack unused.
 :::
 
-## Battery connector waterproofing
+### Battery connector
 
 The battery's 24 AWG wires are re-crimped in two sealed three-pin connectors (@fig-battery-connectors):
 
