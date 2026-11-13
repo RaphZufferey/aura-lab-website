@@ -28,7 +28,7 @@ First ensure that the FC fits within the 3D box before anything else.
 2.  *Carefully* slide the assembly in, with the Seeeduino facing the bottom of the box.
 3.  **Very important!** Insert a USB-C cable into the port. This keeps the sealant from flowing into the port, and the cable is a convenient point to hold the assembly by.
 4.  Add sealant along the three free edges to fill any gaps, until the sealant reaches the level of the top side of the PCB.
-5.  Let the silicone cure - because of the depth this takes about 12--24 h.
+5.  Let the silicone cure - because of the depth this takes about 12-24 h.
 
 ## ESC waterproofing
 
@@ -40,27 +40,59 @@ The ESC is potted the same way as the flight controller: it sits in its own 3D-p
 
 ## Battery waterproofing
 
-TBC
+The robot runs on a single **4S** pack: four lithium-polymer cells in series. It is an **HV** (high-voltage) pack, so every voltage is a little higher than on a standard LiPo (@tbl-battery-voltages).
+
+|                          | **Per cell** | **Pack (4S)** |
+|--------------------------|--------------|---------------|
+| Full charge              | 4.35 V       | 17.4 V        |
+| Nominal                  | 3.8 V        | 15.2 V        |
+| Minimum - never go below | 3.3 V        | 13.2 V        |
+
+: Voltages of the 4S HV pack. {#tbl-battery-voltages}
+
+The pack is potted in a **flexible** epoxy or silicone. It has to be flexible: pouch cells swell slightly as they charge and as they age, and a rigid potting would crack.
+
+::: callout-note
+## What LiHV means
+
+Standard LiPo cells are charged to 4.20 V. HV cells use a cathode and electrolyte formulated to stay stable at a higher voltage, so they can be charged to **4.35 V** and store a little more energy for the same weight; the nominal voltage rises with it, from 3.7 V to 3.8 V. The charger has to be told: in plain LiPo mode it stops at 4.20 V and leaves part of the pack unused.
+:::
 
 ## Battery connector waterproofing
 
-TBC
+The battery's 24 AWG wires are re-crimped in two sealed three-pin connectors (@fig-battery-connectors):
 
-## Spend time discussing COT and measurement
+- **Black - power.** The full pack voltage, 0 to 4S: **VBAT** on pin 1, **GND** on pin 3. The connector uses the 2-pin variant.
+- **Red - balance.** The three intermediate cell taps: **V3** (3S) on pin 1, then **V2** (2S) and **V1** (1S).
 
-TBC
+![The 4S pack and its two connectors. Of the five cell taps, the two ends (0 V and 4S) go to the black connector, which plugs into the ESC; the three intermediate taps go to the red connector, which is closed with a waterproof plug. Tap voltages are rounded to 4 V per cell for readability --- see @tbl-battery-voltages for the real values.](/Fig/Robot-connectors.png){#fig-battery-connectors width="100%"}
+
+### In operation
+
+- **Black** connector plugged into the robot.
+- **Red** connector closed with its **waterproof cap**. Never put the robot in the water with it open: the balance pins sit at different voltages, and through the water they corrode and slowly drain the cells.
+
+### Charging
+
+- Use the **custom charging cables** - the charger's standard plugs do not fit these connectors.
+- Plug the **red** connector **first**, then the black. The other way round, the charger reports an error.
+- Set the charger to **LiHV** mode.
+
+::: callout-warning
+## Never discharge below 3.3 V per cell
+
+That is 13.2 V for the whole pack, and below it the cells are damaged for good. **Before every test, measure the voltage with a battery tester** - every cell, not just the pack total, since one weak cell can hide behind three good ones.
+:::
 
 ## Gearbox
 
 By default the gearbox on the FAAV4 robot is **not waterproof at all**, and it is normal for it to end up completely filled with water once submerged. Over years of use the gearbox proved resistant to fresh water with the factory lubricant. If that is removed/cleaned, then use the right lubricant below. The best is to avoid opening the gearbox and cleaning the gears.
 
-::: callout-warning
-## Use the right lubricant
+::: callout-note
+## If absolutely needed, then use the right lubricant
 
 A mix of **CorrosionX and white lithium grease**. Several dives have since been performed with the same gearbox that previously corroded, and it now runs smoothly.
 :::
-
-Parts that rust: **sun gear, planet gears, ring gear, planet shafts.** Parts that do not: screws, motor shaft, washers, body, circlip.
 
 ::: callout-note
 ## Checkpoint

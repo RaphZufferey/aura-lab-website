@@ -9,7 +9,7 @@ subtitle: "MIT AURA Lab --- Fall 2026"
 ::: {.callout-note appearance="simple"}
 ## Printable manual
 
-Last modified: 2026-11-03
+Last modified: 2026-11-12
 
 [**Download the printable manual (PDF)**](/files/faav-build-manual.pdf) --- every module and reference page in a single file, for the bench or for printing. Rebuilt automatically whenever the manual changes.
 :::

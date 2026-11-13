@@ -551,8 +551,11 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#flight-controller-waterproofing" id="toc-flight-controller-waterproofing" class="nav-link" data-scroll-target="#flight-controller-waterproofing">Flight controller waterproofing</a></li>
   <li><a href="#esc-waterproofing" id="toc-esc-waterproofing" class="nav-link" data-scroll-target="#esc-waterproofing">ESC waterproofing</a></li>
   <li><a href="#battery-waterproofing" id="toc-battery-waterproofing" class="nav-link" data-scroll-target="#battery-waterproofing">Battery waterproofing</a></li>
-  <li><a href="#battery-connector-waterproofing" id="toc-battery-connector-waterproofing" class="nav-link" data-scroll-target="#battery-connector-waterproofing">Battery connector waterproofing</a></li>
-  <li><a href="#spend-time-discussing-cot-and-measurement" id="toc-spend-time-discussing-cot-and-measurement" class="nav-link" data-scroll-target="#spend-time-discussing-cot-and-measurement">Spend time discussing COT and measurement</a></li>
+  <li><a href="#battery-connector-waterproofing" id="toc-battery-connector-waterproofing" class="nav-link" data-scroll-target="#battery-connector-waterproofing">Battery connector waterproofing</a>
+  <ul class="collapse">
+  <li><a href="#in-operation" id="toc-in-operation" class="nav-link" data-scroll-target="#in-operation">In operation</a></li>
+  <li><a href="#charging" id="toc-charging" class="nav-link" data-scroll-target="#charging">Charging</a></li>
+  </ul></li>
   <li><a href="#gearbox" id="toc-gearbox" class="nav-link" data-scroll-target="#gearbox">Gearbox</a></li>
   </ul>
 </nav>
@@ -628,7 +631,7 @@ ul.task-list li input[type="checkbox"] {
 <li><em>Carefully</em> slide the assembly in, with the Seeeduino facing the bottom of the box.</li>
 <li><strong>Very important!</strong> Insert a USB-C cable into the port. This keeps the sealant from flowing into the port, and the cable is a convenient point to hold the assembly by.</li>
 <li>Add sealant along the three free edges to fill any gaps, until the sealant reaches the level of the top side of the PCB.</li>
-<li>Let the silicone cure - because of the depth this takes about 12–24 h.</li>
+<li>Let the silicone cure - because of the depth this takes about 12-24 h.</li>
 </ol>
 </section>
 <section id="esc-waterproofing" class="level2">
@@ -657,33 +660,119 @@ Figure&nbsp;2: The motor, the ESC and the potted frame. The dark block is the fr
 </section>
 <section id="battery-waterproofing" class="level2">
 <h2 class="anchored" data-anchor-id="battery-waterproofing">Battery waterproofing</h2>
-<p>TBC</p>
+<p>The robot runs on a single <strong>4S</strong> pack: four lithium-polymer cells in series. It is an <strong>HV</strong> (high-voltage) pack, so every voltage is a little higher than on a standard LiPo (<a href="#tbl-battery-voltages" class="quarto-xref">Table&nbsp;1</a>).</p>
+<div id="tbl-battery-voltages" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-battery-voltages-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: Voltages of the 4S HV pack.
+</figcaption>
+<div aria-describedby="tbl-battery-voltages-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th><strong>Per cell</strong></th>
+<th><strong>Pack (4S)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Full charge</td>
+<td>4.35 V</td>
+<td>17.4 V</td>
+</tr>
+<tr class="even">
+<td>Nominal</td>
+<td>3.8 V</td>
+<td>15.2 V</td>
+</tr>
+<tr class="odd">
+<td>Minimum - never go below</td>
+<td>3.3 V</td>
+<td>13.2 V</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>The pack is potted in a <strong>flexible</strong> epoxy or silicone. It has to be flexible: pouch cells swell slightly as they charge and as they age, and a rigid potting would crack.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>What LiHV means
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Standard LiPo cells are charged to 4.20 V. HV cells use a cathode and electrolyte formulated to stay stable at a higher voltage, so they can be charged to <strong>4.35 V</strong> and store a little more energy for the same weight; the nominal voltage rises with it, from 3.7 V to 3.8 V. The charger has to be told: in plain LiPo mode it stops at 4.20 V and leaves part of the pack unused.</p>
+</div>
+</div>
 </section>
 <section id="battery-connector-waterproofing" class="level2">
 <h2 class="anchored" data-anchor-id="battery-connector-waterproofing">Battery connector waterproofing</h2>
-<p>TBC</p>
+<p>The battery’s 24 AWG wires are re-crimped in two sealed three-pin connectors (<a href="#fig-battery-connectors" class="quarto-xref">Figure&nbsp;3</a>):</p>
+<ul>
+<li><strong>Black - power.</strong> The full pack voltage, 0 to 4S: <strong>VBAT</strong> on pin 1, <strong>GND</strong> on pin 3. The connector uses the 2-pin variant.</li>
+<li><strong>Red - balance.</strong> The three intermediate cell taps: <strong>V3</strong> (3S) on pin 1, then <strong>V2</strong> (2S) and <strong>V1</strong> (1S).</li>
+</ul>
+<div id="fig-battery-connectors" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-battery-connectors-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="../Fig/Robot-connectors.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure&nbsp;3: The 4S pack and its two connectors. Of the five cell taps, the two ends (0 V and 4S) go to the black connector, which plugs into the ESC; the three intermediate taps go to the red connector, which is closed with a waterproof plug. Tap voltages are rounded to 4 V per cell for readability — see Table&nbsp;1 for the real values."><img src="../Fig/Robot-connectors.png" class="img-fluid figure-img" style="width:100.0%"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-battery-connectors-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: The 4S pack and its two connectors. Of the five cell taps, the two ends (0 V and 4S) go to the black connector, which plugs into the ESC; the three intermediate taps go to the red connector, which is closed with a waterproof plug. Tap voltages are rounded to 4 V per cell for readability — see <a href="#tbl-battery-voltages" class="quarto-xref">Table&nbsp;1</a> for the real values.
+</figcaption>
+</figure>
+</div>
+<section id="in-operation" class="level3">
+<h3 class="anchored" data-anchor-id="in-operation">In operation</h3>
+<ul>
+<li><strong>Black</strong> connector plugged into the robot.</li>
+<li><strong>Red</strong> connector closed with its <strong>waterproof cap</strong>. Never put the robot in the water with it open: the balance pins sit at different voltages, and through the water they corrode and slowly drain the cells.</li>
+</ul>
 </section>
-<section id="spend-time-discussing-cot-and-measurement" class="level2">
-<h2 class="anchored" data-anchor-id="spend-time-discussing-cot-and-measurement">Spend time discussing COT and measurement</h2>
-<p>TBC</p>
-</section>
-<section id="gearbox" class="level2">
-<h2 class="anchored" data-anchor-id="gearbox">Gearbox</h2>
-<p>By default the gearbox on the FAAV4 robot is <strong>not waterproof at all</strong>, and it is normal for it to end up completely filled with water once submerged. Over years of use the gearbox proved resistant to fresh water with the factory lubricant. If that is removed/cleaned, then use the right lubricant below. The best is to avoid opening the gearbox and cleaning the gears.</p>
+<section id="charging" class="level3">
+<h3 class="anchored" data-anchor-id="charging">Charging</h3>
+<ul>
+<li>Use the <strong>custom charging cables</strong> - the charger’s standard plugs do not fit these connectors.</li>
+<li>Plug the <strong>red</strong> connector <strong>first</strong>, then the black. The other way round, the charger reports an error.</li>
+<li>Set the charger to <strong>LiHV</strong> mode.</li>
+</ul>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Warning</span>Use the right lubricant
+<span class="screen-reader-only">Warning</span>Never discharge below 3.3 V per cell
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>That is 13.2 V for the whole pack, and below it the cells are damaged for good. <strong>Before every test, measure the voltage with a battery tester</strong> - every cell, not just the pack total, since one weak cell can hide behind three good ones.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="gearbox" class="level2">
+<h2 class="anchored" data-anchor-id="gearbox">Gearbox</h2>
+<p>By default the gearbox on the FAAV4 robot is <strong>not waterproof at all</strong>, and it is normal for it to end up completely filled with water once submerged. Over years of use the gearbox proved resistant to fresh water with the factory lubricant. If that is removed/cleaned, then use the right lubricant below. The best is to avoid opening the gearbox and cleaning the gears.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>If absolutely needed, then use the right lubricant
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <p>A mix of <strong>CorrosionX and white lithium grease</strong>. Several dives have since been performed with the same gearbox that previously corroded, and it now runs smoothly.</p>
 </div>
 </div>
-<p>Parts that rust: <strong>sun gear, planet gears, ring gear, planet shafts.</strong> Parts that do not: screws, motor shaft, washers, body, circlip.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">

@@ -4,13 +4,12 @@ title: "Module 11 --- Wet testing"
 
 ## Summary
 
-Immersion, underwater runs, wing and tail trim, and a logged cost-of-transport
-measurement.
+Immersion, underwater runs, wing and tail trim, and a logged cost-of-transport measurement.
 
 ## Requirements
 
-| | |
-|---|---|
+|  |  |
+|------------------------------------|------------------------------------|
 | **Bring** | Fully waterproofed robot from [Module 10](10-waterproofing.qmd), charged 4S pack, spare crank–linkage shaft |
 | **Tools** | Retrieval poles and towels are at the tank --- see [Tank rules](#the-tank) |
 | **Read** | This page, and the notes from [Module 4](04-control.qmd) |
@@ -22,119 +21,93 @@ measurement.
 - [ ] Watchdog enabled on the ESC (`W`) - target drops to zero if commands stop
 - [ ] Robot floats level. If not, add floats.
 
-## The tank
+## The tank {#the-tank}
 
-Testing happens in the AURA Lab tank. The gantry along the near rail and the
-cameras overhead are part of the measurement setup, not scenery --- the ceiling
-cameras are what track the robot for the cost-of-transport number below.
+Testing happens in the AURA Lab tank. The gantry along the near rail and the cameras overhead are part of the measurement setup, not scenery --- the ceiling cameras are what track the robot for the cost-of-transport number below.
 
 ![The AURA Lab tank. The rail and gantry run the length of the near side; the tracking cameras are mounted overhead.](/Fig/AURALabTank.jpg){#fig-tank width="100%"}
 
-::: {.callout-warning}
+::: callout-warning
 ## Tank rules (repeat)
 
-**Nobody gets in the tank.** Not to retrieve a robot, not to reposition it, not
-for a moment. Use the **poles** to fish the robot back to the edge.
+**Nobody gets in the tank.** Not to retrieve a robot, not to reposition it, not for a moment. Use the **poles** to fish the robot back to the edge.
 
-**Keep water off the floor.** Water on the floor sets off an alarm, which ends
-the session for everyone. Lift the robot out over the tank and let it drain
-there rather than carrying it dripping, and keep **towels** to hand for what
-gets past. Dry the floor immediately if it happens.
+**Keep water off the floor.** Water on the floor sets off an alarm, which ends the session for everyone. Lift the robot out over the tank and let it drain there rather than carrying it dripping, and keep **towels** to hand for what gets past. Dry the floor immediately if it happens.
 :::
 
 ## What to log
+
 Every run should record, at minimum:
 
 - **Power consumption** --- the numerator of cost of transport
 - **IMU data** --- attitude and acceleration through the run
 - **Flapping frequency** --- the input being varied
 
-Since underwater we lose wireless communication, the data needs to be recorded and streamed back wirelessly after the run. 
-There are two places to record data on the flight controller, and the choice matters more than it looks:
+Since underwater we lose wireless communication, the data needs to be recorded and streamed back wirelessly after the run. There are two places to record data on the flight controller, and the choice matters more than it looks:
 
-| | **RAM** | **Flash** |
-|---|---|---|
-| Survives power loss | No | Yes |
-| Speed | Fast, no wear | Slower, finite write cycles |
-| Use it for | The normal case | Runs that cannot afford to be repeated |
+|                     | **RAM**         | **Flash**                              |
+|------------------------|------------------------|------------------------|
+| Survives power loss | No              | Yes                                    |
+| Speed               | Fast, no wear   | Slower, finite write cycles            |
+| Use it for          | The normal case | Runs that cannot afford to be repeated |
 
-The normal workflow is **log to RAM during the run, then broadcast over BLE
-once the robot is out of the water**. Nothing has to be opened and nothing has
-to be plugged in, which is the whole point: the board is potted from
-[Module 10](10-waterproofing.qmd) and there is no connector to reach.
+The normal workflow is **log to RAM during the run, then broadcast over BLE once the robot is out of the water**. Nothing has to be opened and nothing has to be plugged in, which is the whole point: the board is potted from [Module 10](10-waterproofing.qmd) and there is no connector to reach.
 
-::: {.callout-warning}
+::: callout-warning
 ## RAM is lost the moment power goes
-A brownout, a watchdog reset, or an accidental disconnect takes the whole run
-with it. Broadcast the data before changing the battery, not after - and if
-a run is expensive to repeat, write it to flash instead.
+
+A brownout, a watchdog reset, or an accidental disconnect takes the whole run with it. Broadcast the data before changing the battery, not after - and if a run is expensive to repeat, write it to flash instead.
 :::
 
 ## Housing
+
 Design and 3D-print an exterior housing to ensure neutral buoyancy as needed. Foam can also be used.
 
 ## Trim
 
-Two independent adjustments, both mechanical. Change **one at a time** with a
-run between them, otherwise there is no telling which one did what.
+Two independent adjustments, both mechanical. Change **one at a time** with a run between them, otherwise there is no telling which one did what.
 
 ### Wing trim
 
 Wing trim is adjusted at the **trailing edge**.
 
-::: {.callout-important}
+::: callout-important
 ## To be completed by the instructor
 
-The trailing-edge trim part itself is not designed yet --- decide what it is,
-how it mounts, and what range of adjustment it gives. Until then this step
-cannot be written as a procedure, and students have nothing to adjust against.
+The trailing-edge trim part itself is not designed yet --- decide what it is, how it mounts, and what range of adjustment it gives. Until then this step cannot be written as a procedure, and students have nothing to adjust against.
 :::
 
 ### Tail trim
 
-Tail trim is manual: **bend and twist the tail by hand**. Bending sets pitch,
-twisting sets roll. Work in small increments and expect to go back and forth
-- there is no scale and no reference mark, so the logged runs are the only
-feedback available.
+Tail trim is manual: **bend and twist the tail by hand**. Bending sets pitch, twisting sets roll. Work in small increments and expect to go back and forth - there is no scale and no reference mark, so the logged runs are the only feedback available.
 
 ## Cost of transport
 
-Cost of transport is the score in [Module 12](12-competition.qmd), so measure
-it the same way every time:
+Cost of transport is the score in [Module 12](12-competition.qmd), so measure it the same way every time:
 
 $$\mathrm{COT} = \frac{P}{m \, g \, v}$$ {#eq-cot}
 
-with $P$ the average electrical power over the run, $m$ the robot's mass, and
-$v$ its average forward speed. It is dimensionless, and lower is better.
+with $P$ the average electrical power over the run, $m$ the robot's mass, and $v$ its average forward speed. It is dimensionless, and lower is better.
 
 The two halves come from two different places:
 
-- **Power, onboard.** From the logged consumption above, averaged over the
-  steady part of the run --- not the acceleration at the start.
-- **Speed, from the ceiling cameras.** The overhead tracking in @fig-tank gives
-  position against time, which is the honest way to get $v$; timing it by eye
-  across the tank is not good enough for a scored number.
+- **Power, onboard.** From the logged consumption above, averaged over the steady part of the run --- not the acceleration at the start.
+- **Speed, from the ceiling cameras.** The overhead tracking in @fig-tank gives position against time, which is the honest way to get $v$; timing it by eye across the tank is not good enough for a scored number.
 
-Take both from the *same* window of the same run. Averaging power over one
-interval and speed over another is the most common way this number comes out
-wrong.
+Take both from the *same* window of the same run. Averaging power over one interval and speed over another is the most common way this number comes out wrong.
 
-::: {.callout-important}
+::: callout-important
 ## TBC
 
 Still missing from the protocol:
 
 - **Run profile** --- depth, duration, and the flap-frequency sweep to cover
-- **Abort procedure** --- what conditions end a run early, and what the student
-  does at the tank edge when they do
-- **Camera tracking, practically** --- how a team starts a capture, and in what
-  form the position data comes back
+- **Abort procedure** --- what conditions end a run early, and what the student does at the tank edge when they do
+- **Camera tracking, practically** --- how a team starts a capture, and in what form the position data comes back
 :::
 
-::: {.callout-note}
+::: callout-note
 ## Checkpoint
 
-A completed underwater run with power, IMU and flapping frequency logged and
-successfully retrieved over BLE, no water ingress on inspection afterwards, and
-a cost-of-transport figure computed from @eq-cot with the camera-derived speed.
+A completed underwater run with power, IMU and flapping frequency logged and successfully retrieved over BLE, no water ingress on inspection afterwards, and a cost-of-transport figure computed from @eq-cot with the camera-derived speed.
 :::

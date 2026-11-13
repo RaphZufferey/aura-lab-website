@@ -100,7 +100,7 @@
     "href": "sessions/10-waterproofing.html#flight-controller-waterproofing",
     "title": "Module 10 — Waterproofing",
     "section": "Flight controller waterproofing",
-    "text": "Flight controller waterproofing\nFirst ensure that the FC fits within the 3D box before anything else.\n\nFill the bottom of the box with silicone sealant until it reaches the USB port hole.\nCarefully slide the assembly in, with the Seeeduino facing the bottom of the box.\nVery important! Insert a USB-C cable into the port. This keeps the sealant from flowing into the port, and the cable is a convenient point to hold the assembly by.\nAdd sealant along the three free edges to fill any gaps, until the sealant reaches the level of the top side of the PCB.\nLet the silicone cure - because of the depth this takes about 12–24 h.",
+    "text": "Flight controller waterproofing\nFirst ensure that the FC fits within the 3D box before anything else.\n\nFill the bottom of the box with silicone sealant until it reaches the USB port hole.\nCarefully slide the assembly in, with the Seeeduino facing the bottom of the box.\nVery important! Insert a USB-C cable into the port. This keeps the sealant from flowing into the port, and the cable is a convenient point to hold the assembly by.\nAdd sealant along the three free edges to fill any gaps, until the sealant reaches the level of the top side of the PCB.\nLet the silicone cure - because of the depth this takes about 12-24 h.",
     "crumbs": [
       "Overview",
       "Build modules",
@@ -124,7 +124,7 @@
     "href": "sessions/10-waterproofing.html#battery-waterproofing",
     "title": "Module 10 — Waterproofing",
     "section": "Battery waterproofing",
-    "text": "Battery waterproofing\nTBC",
+    "text": "Battery waterproofing\nThe robot runs on a single 4S pack: four lithium-polymer cells in series. It is an HV (high-voltage) pack, so every voltage is a little higher than on a standard LiPo (Table 1).\n\n\n\nTable 1: Voltages of the 4S HV pack.\n\n\n\n\n\n\nPer cell\nPack (4S)\n\n\n\n\nFull charge\n4.35 V\n17.4 V\n\n\nNominal\n3.8 V\n15.2 V\n\n\nMinimum - never go below\n3.3 V\n13.2 V\n\n\n\n\n\n\nThe pack is potted in a flexible epoxy or silicone. It has to be flexible: pouch cells swell slightly as they charge and as they age, and a rigid potting would crack.\n\n\n\n\n\n\nNoteWhat LiHV means\n\n\n\nStandard LiPo cells are charged to 4.20 V. HV cells use a cathode and electrolyte formulated to stay stable at a higher voltage, so they can be charged to 4.35 V and store a little more energy for the same weight; the nominal voltage rises with it, from 3.7 V to 3.8 V. The charger has to be told: in plain LiPo mode it stops at 4.20 V and leaves part of the pack unused.",
     "crumbs": [
       "Overview",
       "Build modules",
@@ -136,19 +136,7 @@
     "href": "sessions/10-waterproofing.html#battery-connector-waterproofing",
     "title": "Module 10 — Waterproofing",
     "section": "Battery connector waterproofing",
-    "text": "Battery connector waterproofing\nTBC",
-    "crumbs": [
-      "Overview",
-      "Build modules",
-      "Module 10 --- Waterproofing"
-    ]
-  },
-  {
-    "objectID": "sessions/10-waterproofing.html#spend-time-discussing-cot-and-measurement",
-    "href": "sessions/10-waterproofing.html#spend-time-discussing-cot-and-measurement",
-    "title": "Module 10 — Waterproofing",
-    "section": "Spend time discussing COT and measurement",
-    "text": "Spend time discussing COT and measurement\nTBC",
+    "text": "Battery connector waterproofing\nThe battery’s 24 AWG wires are re-crimped in two sealed three-pin connectors (Figure 3):\n\nBlack - power. The full pack voltage, 0 to 4S: VBAT on pin 1, GND on pin 3. The connector uses the 2-pin variant.\nRed - balance. The three intermediate cell taps: V3 (3S) on pin 1, then V2 (2S) and V1 (1S).\n\n\n\n\n\n\n\nFigure 3: The 4S pack and its two connectors. Of the five cell taps, the two ends (0 V and 4S) go to the black connector, which plugs into the ESC; the three intermediate taps go to the red connector, which is closed with a waterproof plug. Tap voltages are rounded to 4 V per cell for readability — see Table 1 for the real values.\n\n\n\n\nIn operation\n\nBlack connector plugged into the robot.\nRed connector closed with its waterproof cap. Never put the robot in the water with it open: the balance pins sit at different voltages, and through the water they corrode and slowly drain the cells.\n\n\n\nCharging\n\nUse the custom charging cables - the charger’s standard plugs do not fit these connectors.\nPlug the red connector first, then the black. The other way round, the charger reports an error.\nSet the charger to LiHV mode.\n\n\n\n\n\n\n\nWarningNever discharge below 3.3 V per cell\n\n\n\nThat is 13.2 V for the whole pack, and below it the cells are damaged for good. Before every test, measure the voltage with a battery tester - every cell, not just the pack total, since one weak cell can hide behind three good ones.",
     "crumbs": [
       "Overview",
       "Build modules",
@@ -160,7 +148,7 @@
     "href": "sessions/10-waterproofing.html#gearbox",
     "title": "Module 10 — Waterproofing",
     "section": "Gearbox",
-    "text": "Gearbox\nBy default the gearbox on the FAAV4 robot is not waterproof at all, and it is normal for it to end up completely filled with water once submerged. Over years of use the gearbox proved resistant to fresh water with the factory lubricant. If that is removed/cleaned, then use the right lubricant below. The best is to avoid opening the gearbox and cleaning the gears.\n\n\n\n\n\n\nWarningUse the right lubricant\n\n\n\nA mix of CorrosionX and white lithium grease. Several dives have since been performed with the same gearbox that previously corroded, and it now runs smoothly.\n\n\nParts that rust: sun gear, planet gears, ring gear, planet shafts. Parts that do not: screws, motor shaft, washers, body, circlip.\n\n\n\n\n\n\nNoteCheckpoint\n\n\n\nFlight controller and ESC fully cured and potted, static immersion test passed with no ingress. Robot cleaned with IPA after each immersion.",
+    "text": "Gearbox\nBy default the gearbox on the FAAV4 robot is not waterproof at all, and it is normal for it to end up completely filled with water once submerged. Over years of use the gearbox proved resistant to fresh water with the factory lubricant. If that is removed/cleaned, then use the right lubricant below. The best is to avoid opening the gearbox and cleaning the gears.\n\n\n\n\n\n\nNoteIf absolutely needed, then use the right lubricant\n\n\n\nA mix of CorrosionX and white lithium grease. Several dives have since been performed with the same gearbox that previously corroded, and it now runs smoothly.\n\n\n\n\n\n\n\n\nNoteCheckpoint\n\n\n\nFlight controller and ESC fully cured and potted, static immersion test passed with no ingress. Robot cleaned with IPA after each immersion.",
     "crumbs": [
       "Overview",
       "Build modules",
