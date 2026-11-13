@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Module 9 — Flight controller, PCB and dry testing – FAAV Build Manual</title>
+<title>Module 9 — Flight controller and dry testing – FAAV Build Manual</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -52,6 +52,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/bootstrap/bootstrap-3bc97f2477fb7965bce9454950d60e55.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/bootstrap/bootstrap-dark-dea204dea6f735ae4ecf1dae3d686bcc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <link href="../site_libs/bootstrap/bootstrap-3bc97f2477fb7965bce9454950d60e55.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -306,7 +309,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
         <li>
     <a class="dropdown-item" href="../sessions/09-electronics-dry-test.html">
- <span class="dropdown-text">Module 9 — Flight controller, PCB and dry testing</span></a>
+ <span class="dropdown-text">Module 9 — Flight controller and dry testing</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../sessions/10-waterproofing.html">
@@ -373,7 +376,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../sessions/01-orientation.html">Build modules</a></li><li class="breadcrumb-item"><a href="../sessions/09-electronics-dry-test.html">Module 9 — Flight controller, PCB and dry testing</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../sessions/01-orientation.html">Build modules</a></li><li class="breadcrumb-item"><a href="../sessions/09-electronics-dry-test.html">Module 9 — Flight controller and dry testing</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -451,7 +454,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../sessions/09-electronics-dry-test.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Module 9 — Flight controller, PCB and dry testing</span></a>
+ <span class="menu-text">Module 9 — Flight controller and dry testing</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -546,6 +549,11 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#summary" id="toc-summary" class="nav-link active" data-scroll-target="#summary">Summary</a></li>
   <li><a href="#requirements" id="toc-requirements" class="nav-link" data-scroll-target="#requirements">Requirements</a></li>
   <li><a href="#what-you-should-have-by-now" id="toc-what-you-should-have-by-now" class="nav-link" data-scroll-target="#what-you-should-have-by-now">What you should have by now</a></li>
+  <li><a href="#wireless-communication" id="toc-wireless-communication" class="nav-link" data-scroll-target="#wireless-communication">Wireless communication</a>
+  <ul class="collapse">
+  <li><a href="#design-for-losing-the-link" id="toc-design-for-losing-the-link" class="nav-link" data-scroll-target="#design-for-losing-the-link">Design for losing the link</a></li>
+  <li><a href="#writing-the-firmware-with-claude" id="toc-writing-the-firmware-with-claude" class="nav-link" data-scroll-target="#writing-the-firmware-with-claude">Writing the firmware with Claude</a></li>
+  </ul></li>
   <li><a href="#dry-testing" id="toc-dry-testing" class="nav-link" data-scroll-target="#dry-testing">Dry testing</a></li>
   </ul>
 </nav>
@@ -554,9 +562,9 @@ ul.task-list li input[type="checkbox"] {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../sessions/01-orientation.html">Build modules</a></li><li class="breadcrumb-item"><a href="../sessions/09-electronics-dry-test.html">Module 9 — Flight controller, PCB and dry testing</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../sessions/01-orientation.html">Build modules</a></li><li class="breadcrumb-item"><a href="../sessions/09-electronics-dry-test.html">Module 9 — Flight controller and dry testing</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Module 9 — Flight controller, PCB and dry testing</h1>
+<h1 class="title">Module 9 — Flight controller and dry testing</h1>
 </div>
 
 
@@ -604,6 +612,95 @@ ul.task-list li input[type="checkbox"] {
 <li><p>A tail or tail tube</p></li>
 <li><p>Trailing edge attachment point at the end of the fuselage (wing-dependent)</p></li>
 </ol>
+</section>
+<section id="wireless-communication" class="level2">
+<h2 class="anchored" data-anchor-id="wireless-communication">Wireless communication</h2>
+<p>The flight controller, the XIAO nRF52840 (<a href="#fig-xiao-ble" class="quarto-xref">Figure&nbsp;1</a>), has <strong>Bluetooth Low Energy (BLE)</strong> built in: the same chip that runs your code also runs the radio, so wireless control needs no extra hardware. In BLE terms the robot is the <strong>peripheral</strong> (it advertises and waits) and whatever connects to it is the <strong>central</strong>. The central can be your laptop, your phone, or even another nRF52840 acting as a hand-held remote.</p>
+<div id="fig-xiao-ble" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-xiao-ble-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="../Fig/xiao-nrf52840.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1: The Seeed XIAO nRF52840 flight controller."><img src="../Fig/xiao-nrf52840.jpg" class="img-fluid figure-img" style="width:55.0%"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-xiao-ble-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: The Seeed XIAO nRF52840 flight controller.
+</figcaption>
+</figure>
+</div>
+<section id="design-for-losing-the-link" class="level3">
+<h3 class="anchored" data-anchor-id="design-for-losing-the-link">Design for losing the link</h3>
+<p>BLE runs at 2.4 GHz, which water absorbs within a few centimetres: <strong>the link drops as soon as the robot is submerged.</strong> One strategy therefore is to:</p>
+<ol type="1">
+<li><strong>Wait</strong> a few seconds after the command - time to put the robot in the water and let go.</li>
+<li><strong>Flap</strong> at a set frequency for a set duration.</li>
+<li><strong>Stop</strong>, and wait to be reconnected once it is back at the surface.</li>
+</ol>
+<p>The phone or laptop only <em>starts</em> the run. Two safety systems: the firmware caps the run duration, and the ESC watchdog from <a href="../sessions/04-control.html">Module 4</a> zeroes the target if the flight controller stops sending one for 1 s, so even a firmware crash stops the motor.</p>
+</section>
+<section id="writing-the-firmware-with-claude" class="level3">
+<h3 class="anchored" data-anchor-id="writing-the-firmware-with-claude">Writing the firmware with Claude</h3>
+<p>This is a good job to hand to an AI assistant: the BLE boilerplate is long and well documented. Use the one below as a starting point, and paste your current sketch from <a href="../sessions/04-control.html">Module 4</a> at the end so that the AI builds on it instead of starting over.</p>
+<pre class="text"><code>I'm building a flapping-wing robot. Write Arduino firmware for its flight
+controller that runs a timed flapping sequence, started over Bluetooth Low
+Energy (BLE).
+
+Hardware
+- Flight controller: Seeed XIAO nRF52840, programmed from the Arduino IDE.
+- It drives a B-G431B-ESC1 motor controller running SimpleFOC, over Serial1,
+  at the baud rate used in my sketch below. SimpleFOC commander commands:
+    MC1       velocity control mode
+    ME1, ME0  enable / disable the motor driver
+    T&lt;x&gt;      target; in velocity mode, motor speed in rad/s
+  The ESC has a watchdog: if no new T arrives for 1 s, the target goes to 0.
+- The gearbox is 23.04:1 and one output turn is one flap, so a flapping
+  frequency f in Hz is a motor speed of 2*pi*23.04*f rad/s.
+- My current sketch relays USB serial to the ESC. Keep that relay working.
+
+What the firmware must do
+- Advertise over BLE as "[TEAM NAME]" with the Nordic UART Service, so I can
+  connect from a phone app (e.g. nRF Connect) or a laptop.
+- Accept these text commands and confirm each one:
+    delay &lt;s&gt;   seconds to wait before flapping (default 5)
+    run &lt;s&gt;     seconds to flap (default 10; refuse more than 60)
+    freq &lt;Hz&gt;   flapping frequency (default 1; refuse more than [MAX] Hz)
+    go          start the sequence: wait, flap, stop
+    stop        stop the motor immediately, at any time
+    status      current state, time remaining, and the settings
+- To flap: send MC1 and ME1, ramp the speed up over about 1 s, re-send the
+  target at least every 200 ms so the ESC watchdog never trips, then ramp
+  down and finish with T0 and ME0.
+
+BLE disconnection is normal: the link drops as soon as the robot is
+underwater.
+- Once "go" is accepted, the sequence runs on the XIAO's own clock and must
+  finish exactly the same way whether or not anyone is connected.
+- No delay(): use a non-blocking state machine in loop() (IDLE, WAITING,
+  FLAPPING), so BLE events and the target refresh never stall each other.
+- Restart advertising after every disconnect so I can reconnect when the
+  robot surfaces, and make "status" report how the last run ended.
+- Only send over BLE when a central is connected; never wait for one.
+
+Before the code, tell me which board package and libraries to install, and
+explain the state machine in a few lines. Then give the complete sketch.
+
+My current sketch:
+[PASTE IT HERE]</code></pre>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Caution</span>Working with AI
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Read the code before you flash it</strong>, and ask the AI to explain any part you do not follow - you are the one who will debug it at the tank edge.</li>
+<li>Once the timed run works, extend the same conversation for <a href="../sessions/11-wet-testing.html">Module 11</a>: log power, IMU and flapping frequency to RAM during the run, and send the log over BLE once the robot is out of the water.</li>
+</ul>
+</div>
+</div>
+</section>
 </section>
 <section id="dry-testing" class="level2">
 <h2 class="anchored" data-anchor-id="dry-testing">Dry testing</h2>
@@ -1069,6 +1166,38 @@ ul.task-list li input[type="checkbox"] {
 </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 

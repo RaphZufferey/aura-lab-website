@@ -1,5 +1,5 @@
 ---
-title: "Module 9 --- Flight controller, PCB and dry testing"
+title: "Module 9 --- Flight controller and dry testing"
 ---
 
 ## Summary
@@ -23,6 +23,81 @@ The core robot assembled and validated, the flight controller flashed and talkin
 3.  A tail or tail tube
 
 4.  Trailing edge attachment point at the end of the fuselage (wing-dependent)
+
+## Wireless communication
+
+The flight controller, the XIAO nRF52840 (@fig-xiao-ble), has **Bluetooth Low Energy (BLE)** built in: the same chip that runs your code also runs the radio, so wireless control needs no extra hardware. In BLE terms the robot is the **peripheral** (it advertises and waits) and whatever connects to it is the **central**. The central can be your laptop, your phone, or even another nRF52840 acting as a hand-held remote.
+
+![The Seeed XIAO nRF52840 flight controller. ](/Fig/xiao-nrf52840.jpg){#fig-xiao-ble width="55%"}
+
+### Design for losing the link
+
+BLE runs at 2.4 GHz, which water absorbs within a few centimetres: **the link drops as soon as the robot is submerged.** One strategy therefore is to:
+
+1.  **Wait** a few seconds after the command - time to put the robot in the water and let go.
+2.  **Flap** at a set frequency for a set duration.
+3.  **Stop**, and wait to be reconnected once it is back at the surface.
+
+The phone or laptop only *starts* the run. Two safety systems: the firmware caps the run duration, and the ESC watchdog from [Module 4](04-control.qmd) zeroes the target if the flight controller stops sending one for 1 s, so even a firmware crash stops the motor.
+
+### Writing the firmware with Claude
+
+This is a good job to hand to an AI assistant: the BLE boilerplate is long and well documented. Use the one below as a starting point, and paste your current sketch from [Module 4](04-control.qmd) at the end so that the AI builds on it instead of starting over.
+
+``` text
+I'm building a flapping-wing robot. Write Arduino firmware for its flight
+controller that runs a timed flapping sequence, started over Bluetooth Low
+Energy (BLE).
+
+Hardware
+- Flight controller: Seeed XIAO nRF52840, programmed from the Arduino IDE.
+- It drives a B-G431B-ESC1 motor controller running SimpleFOC, over Serial1,
+  at the baud rate used in my sketch below. SimpleFOC commander commands:
+    MC1       velocity control mode
+    ME1, ME0  enable / disable the motor driver
+    T<x>      target; in velocity mode, motor speed in rad/s
+  The ESC has a watchdog: if no new T arrives for 1 s, the target goes to 0.
+- The gearbox is 23.04:1 and one output turn is one flap, so a flapping
+  frequency f in Hz is a motor speed of 2*pi*23.04*f rad/s.
+- My current sketch relays USB serial to the ESC. Keep that relay working.
+
+What the firmware must do
+- Advertise over BLE as "[TEAM NAME]" with the Nordic UART Service, so I can
+  connect from a phone app (e.g. nRF Connect) or a laptop.
+- Accept these text commands and confirm each one:
+    delay <s>   seconds to wait before flapping (default 5)
+    run <s>     seconds to flap (default 10; refuse more than 60)
+    freq <Hz>   flapping frequency (default 1; refuse more than [MAX] Hz)
+    go          start the sequence: wait, flap, stop
+    stop        stop the motor immediately, at any time
+    status      current state, time remaining, and the settings
+- To flap: send MC1 and ME1, ramp the speed up over about 1 s, re-send the
+  target at least every 200 ms so the ESC watchdog never trips, then ramp
+  down and finish with T0 and ME0.
+
+BLE disconnection is normal: the link drops as soon as the robot is
+underwater.
+- Once "go" is accepted, the sequence runs on the XIAO's own clock and must
+  finish exactly the same way whether or not anyone is connected.
+- No delay(): use a non-blocking state machine in loop() (IDLE, WAITING,
+  FLAPPING), so BLE events and the target refresh never stall each other.
+- Restart advertising after every disconnect so I can reconnect when the
+  robot surfaces, and make "status" report how the last run ended.
+- Only send over BLE when a central is connected; never wait for one.
+
+Before the code, tell me which board package and libraries to install, and
+explain the state machine in a few lines. Then give the complete sketch.
+
+My current sketch:
+[PASTE IT HERE]
+```
+
+::: callout-caution
+## Working with AI
+
+- **Read the code before you flash it**, and ask the AI to explain any part you do not follow - you are the one who will debug it at the tank edge.
+- Once the timed run works, extend the same conversation for [Module 11](11-wet-testing.qmd): log power, IMU and flapping frequency to RAM during the run, and send the log over BLE once the robot is out of the water.
+:::
 
 ## Dry testing
 
