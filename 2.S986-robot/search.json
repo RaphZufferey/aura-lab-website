@@ -132,6 +132,18 @@
     ]
   },
   {
+    "objectID": "sessions/10-waterproofing.html#waterproof-connectors",
+    "href": "sessions/10-waterproofing.html#waterproof-connectors",
+    "title": "Module 10 — Waterproofing",
+    "section": "Waterproof connectors",
+    "text": "Waterproof connectors\nTwo openings have to be sealed before every immersion: the battery’s red connector and the flight controller’s USB-C port.\n\nCharge plug (Figure 4). The waterproof cap on the red connector (Figure 3). Always leave it on - it comes off only to charge.\nUSB-C plug (Figure 5). A rubber plug that pushes into the USB-C port.\nUSB-C door (Figure 6). A 3D-printed door that presses onto the rubber plug and keeps it seated. Fix it with two M2×6 screws.\n\n\n\n\n\n\n\n\n\n\nFigure 4: Charge plug\n\n\n\n\n\n\n\n\n\n\n\nFigure 5: USB-C rubber plug\n\n\n\n\n\n\n\n\n\n\n\nFigure 6: USB-C door",
+    "crumbs": [
+      "Overview",
+      "Build modules",
+      "Module 10 --- Waterproofing"
+    ]
+  },
+  {
     "objectID": "sessions/10-waterproofing.html#gearbox",
     "href": "sessions/10-waterproofing.html#gearbox",
     "title": "Module 10 — Waterproofing",

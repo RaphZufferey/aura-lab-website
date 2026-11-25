@@ -86,6 +86,22 @@ The battery's 24 AWG wires are re-crimped in two sealed three-pin connectors (@f
 That is 13.2 V for the whole pack, and below it the cells are damaged for good. **Before every test, measure the voltage with a battery tester** - every cell, not just the pack total, since one weak cell can hide behind three good ones.
 :::
 
+## Waterproof connectors
+
+Two openings have to be sealed before every immersion: the battery's red connector and the flight controller's USB-C port.
+
+- **Charge plug** (@fig-charge-plug). The waterproof cap on the red connector (@fig-battery-connectors). **Always leave it on** - it comes off only to charge.
+- **USB-C plug** (@fig-usbc-plug). A rubber plug that pushes into the USB-C port.
+- **USB-C door** (@fig-usbc-door). A 3D-printed door that presses onto the rubber plug and keeps it seated. Fix it with two **M2×6** screws.
+
+::: {layout-ncol="3"}
+![Charge plug](/Fig/chargeplug.jpg){#fig-charge-plug}
+
+![USB-C rubber plug](/Fig/plug.jpg){#fig-usbc-plug}
+
+![USB-C door](/Fig/usbcplug.jpg){#fig-usbc-door}
+:::
+
 ## Gearbox
 
 By default the gearbox on the FAAV4 robot is **not waterproof at all**, and it is normal for it to end up completely filled with water once submerged. Over years of use the gearbox proved resistant to fresh water with the factory lubricant. If that is removed/cleaned, then use the right lubricant below. The best is to avoid opening the gearbox and cleaning the gears.
