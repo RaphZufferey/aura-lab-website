@@ -16,7 +16,7 @@ The PCB potting takes **12--24 hours** to cure because of the depth.
 
 |  |  |
 |------------------------------------|------------------------------------|
-| **Parts** | Waterproofing box, Kapton tape, USB-C cable, (CorrosionX, white lithium grease) |
+| **Parts** | Waterproofing box, Kapton tape, USB-C cable, nail polish (transparent or white), (CorrosionX, white lithium grease) |
 | **Tools** | Silicone sealant |
 | **Read** | This whole page before starting --- the ordering matters |
 
@@ -37,6 +37,10 @@ First ensure that the FC fits within the 3D box before anything else.
 The ESC is potted the same way as the flight controller: it sits in its own 3D-printed frame, which is then filled with **Silcoset** so only the wire exits remain open. @fig-esc-potted shows the three pieces together - motor, bare ESC, and the potted frame.
 
 ![The motor, the ESC and the potted frame. The dark block is the frame filled with Silcoset; the ESC drops into it before the fill so the board ends up fully encapsulated with only the phase and signal wires leaving.](/Fig/esc-potted.png){#fig-esc-potted width="65%"}
+
+## Encoder waterproofing
+
+The encoder board gets **two coats of nail polish**, transparent or white. Let the first coat dry for **20 minutes** before applying the second.
 
 ## Battery
 

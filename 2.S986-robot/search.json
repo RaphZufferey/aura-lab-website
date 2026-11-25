@@ -88,7 +88,7 @@
     "href": "sessions/10-waterproofing.html#requirements",
     "title": "Module 10 — Waterproofing",
     "section": "Requirements",
-    "text": "Requirements\n\n\n\n\n\n\n\nParts\nWaterproofing box, Kapton tape, USB-C cable, (CorrosionX, white lithium grease)\n\n\nTools\nSilicone sealant\n\n\nRead\nThis whole page before starting — the ordering matters",
+    "text": "Requirements\n\n\n\n\n\n\n\nParts\nWaterproofing box, Kapton tape, USB-C cable, nail polish (transparent or white), (CorrosionX, white lithium grease)\n\n\nTools\nSilicone sealant\n\n\nRead\nThis whole page before starting — the ordering matters",
     "crumbs": [
       "Overview",
       "Build modules",
@@ -113,6 +113,18 @@
     "title": "Module 10 — Waterproofing",
     "section": "ESC waterproofing",
     "text": "ESC waterproofing\n\n\n\n\n\n\nFigure 1: The B-G431B-ESC1 assembly.\n\n\n\nThe ESC is potted the same way as the flight controller: it sits in its own 3D-printed frame, which is then filled with Silcoset so only the wire exits remain open. Figure 2 shows the three pieces together - motor, bare ESC, and the potted frame.\n\n\n\n\n\n\nFigure 2: The motor, the ESC and the potted frame. The dark block is the frame filled with Silcoset; the ESC drops into it before the fill so the board ends up fully encapsulated with only the phase and signal wires leaving.",
+    "crumbs": [
+      "Overview",
+      "Build modules",
+      "Module 10 --- Waterproofing"
+    ]
+  },
+  {
+    "objectID": "sessions/10-waterproofing.html#encoder-waterproofing",
+    "href": "sessions/10-waterproofing.html#encoder-waterproofing",
+    "title": "Module 10 — Waterproofing",
+    "section": "Encoder waterproofing",
+    "text": "Encoder waterproofing\nThe encoder board gets two coats of nail polish, transparent or white. Let the first coat dry for 20 minutes before applying the second.",
     "crumbs": [
       "Overview",
       "Build modules",
