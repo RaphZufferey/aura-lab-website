@@ -1,0 +1,22 @@
+---
+title: "Cost of transport"
+---
+
+Background for [Module 11](/sessions/11-wet-testing.qmd) and [Module 12](/sessions/12-competition.qmd).
+
+## Definition
+
+Cost of transport is the score in [Module 12](/sessions/12-competition.qmd), so measure it the same way every time:
+
+$$\mathrm{COT} = \frac{P}{m \, g \, v}$$ {#eq-cot}
+
+with $P$ the average electrical power over the run, $m$ the robot's mass, and $v$ its average forward speed. It is dimensionless, and lower is better.
+
+## Measuring it
+
+The two halves come from two different places:
+
+- **Power, onboard.** From the consumption the robot logs during the run (see [Module 11](/sessions/11-wet-testing.qmd)), averaged over the steady part of the run --- not the acceleration at the start.
+- **Speed, from the ceiling cameras.** The overhead tracking in [the tank](/sessions/11-wet-testing.qmd#the-tank) gives position against time, which is the honest way to get $v$; timing it by eye across the tank is not good enough for a scored number.
+
+Take both from the *same* window of the same run. Averaging power over one interval and speed over another is the most common way this number comes out wrong.

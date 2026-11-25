@@ -672,6 +672,114 @@
     ]
   },
   {
+    "objectID": "reference/cost-of-transport.html",
+    "href": "reference/cost-of-transport.html",
+    "title": "Cost of transport",
+    "section": "",
+    "text": "Background for Module 11 and Module 12.",
+    "crumbs": [
+      "Overview",
+      "Reference",
+      "Cost of transport"
+    ]
+  },
+  {
+    "objectID": "reference/cost-of-transport.html#definition",
+    "href": "reference/cost-of-transport.html#definition",
+    "title": "Cost of transport",
+    "section": "Definition",
+    "text": "Definition\nCost of transport is the score in Module 12, so measure it the same way every time:\n\\[\\mathrm{COT} = \\frac{P}{m \\, g \\, v} \\tag{1}\\]\nwith \\(P\\) the average electrical power over the run, \\(m\\) the robot’s mass, and \\(v\\) its average forward speed. It is dimensionless, and lower is better.",
+    "crumbs": [
+      "Overview",
+      "Reference",
+      "Cost of transport"
+    ]
+  },
+  {
+    "objectID": "reference/cost-of-transport.html#measuring-it",
+    "href": "reference/cost-of-transport.html#measuring-it",
+    "title": "Cost of transport",
+    "section": "Measuring it",
+    "text": "Measuring it\nThe two halves come from two different places:\n\nPower, onboard. From the consumption the robot logs during the run (see Module 11), averaged over the steady part of the run — not the acceleration at the start.\nSpeed, from the ceiling cameras. The overhead tracking in the tank gives position against time, which is the honest way to get \\(v\\); timing it by eye across the tank is not good enough for a scored number.\n\nTake both from the same window of the same run. Averaging power over one interval and speed over another is the most common way this number comes out wrong.",
+    "crumbs": [
+      "Overview",
+      "Reference",
+      "Cost of transport"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "FAAV Build Manual",
+    "section": "",
+    "text": "Figure 1: The flapping-wing aerial-aquatic robot (FAAV)\nOver the semester you build a flapping vehicle: a robot that with the right design can fly and swim by flapping the same wings. The aim of this project is to demonstrate swimming behavior. This manual is the build side of the course. It is sequenced to the weekly modules, and each page covers exactly what you do in that module.",
+    "crumbs": [
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "index.html#how-this-manual-is-organised",
+    "href": "index.html#how-this-manual-is-organised",
+    "title": "FAAV Build Manual",
+    "section": "How this manual is organised",
+    "text": "How this manual is organised\nBuild modules are cumulative and in order.\nReference holds the material you consult rather than follow: the parts list, the firmware repositories, and the design notes explaining why the robot is the way it is.",
+    "crumbs": [
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "index.html#semester-map",
+    "href": "index.html#semester-map",
+    "title": "FAAV Build Manual",
+    "section": "Semester map",
+    "text": "Semester map\n\n\n\nModule\nWeek\nBuild\nPaired lecture\n\n\n\n\n1\nSep 9\n\nIntro to robotic locomotion\n\n\n2\nSep 14\nOrientation, teams, the robot. Motor and transmission shaft\nReaction forces in fluids\n\n\n3\nSep 21\nMotor driver, sensor, serial\nBird-scale flapping design\n\n\n4\nSep 28\nClosed-loop control and tuning\nSwimming robots I\n\n\n5\nOct 5\nFrame, crank, linkage, gears\nUndulatory locomotion\n\n\n—\nOct 12\nNo module\n—\n\n\n6\nOct 19\nFlapping simulation (Ptera)\nInsect-scale flapping\n\n\n7\nOct 26\nWing fabrication\nSwimming robots II\n\n\n8\nNov 2\nTail and housing\nMulti-modal locomotion\n\n\n9\nNov 9\nFlight controller, PCB, dry testing\nThe future of actuation\n\n\n10\nNov 16\nWaterproofing\nMultirotors\n\n\n11\nNov 23\nWet testing\nFixed-wing flyers\n\n\n12\nNov 30\nCompetition\nPair presentations",
+    "crumbs": [
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "index.html#conventions",
+    "href": "index.html#conventions",
+    "title": "FAAV Build Manual",
+    "section": "Conventions",
+    "text": "Conventions\n\n\n\n\n\n\nWarningWarning\n\n\n\nAn operation whose likely failure mode destroys a part or injures you. Read it twice before acting.\n\n\n\n\n\n\n\n\nNoteCheckpoint\n\n\n\nDo not proceed past this without having completed all the tasks listed.\n\n\n\n\n\n\n\n\nTipWhy\n\n\n\nDesign rationale.",
+    "crumbs": [
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "index.html#versioning",
+    "href": "index.html#versioning",
+    "title": "FAAV Build Manual",
+    "section": "Versioning",
+    "text": "Versioning\nThis is version fall-2026. Corrections published during the semester are dated in the Changelog. If a step here contradicts what we discuss, report it to Raph on slack so the next student does not lose time to it.",
+    "crumbs": [
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "changelog.html",
+    "href": "changelog.html",
+    "title": "Changelog",
+    "section": "",
+    "text": "Corrections and additions published during the semester, newest first.\nIf you are working from a printed copy, check this page before each module. Changes that affect a step you may already have completed are marked in bold.",
+    "crumbs": [
+      "Overview",
+      "Changelog"
+    ]
+  },
+  {
+    "objectID": "changelog.html#fall-2026",
+    "href": "changelog.html#fall-2026",
+    "title": "Changelog",
+    "section": "fall-2026",
+    "text": "fall-2026\n\n\n\n\n\n\n\n\n\nDate\nPage\nChange\nAction needed\n\n\n\n\n—\n—\nManual published for the Fall 2026 cohort, derived from FAAV Manufacturing Guide v4.0\n—",
+    "crumbs": [
+      "Overview",
+      "Changelog"
+    ]
+  },
+  {
     "objectID": "reference/bldc.html",
     "href": "reference/bldc.html",
     "title": "Brushless motors",
@@ -729,78 +837,6 @@
       "Overview",
       "Reference",
       "Brushless motors"
-    ]
-  },
-  {
-    "objectID": "changelog.html",
-    "href": "changelog.html",
-    "title": "Changelog",
-    "section": "",
-    "text": "Corrections and additions published during the semester, newest first.\nIf you are working from a printed copy, check this page before each module. Changes that affect a step you may already have completed are marked in bold.",
-    "crumbs": [
-      "Overview",
-      "Changelog"
-    ]
-  },
-  {
-    "objectID": "changelog.html#fall-2026",
-    "href": "changelog.html#fall-2026",
-    "title": "Changelog",
-    "section": "fall-2026",
-    "text": "fall-2026\n\n\n\n\n\n\n\n\n\nDate\nPage\nChange\nAction needed\n\n\n\n\n—\n—\nManual published for the Fall 2026 cohort, derived from FAAV Manufacturing Guide v4.0\n—",
-    "crumbs": [
-      "Overview",
-      "Changelog"
-    ]
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "FAAV Build Manual",
-    "section": "",
-    "text": "Figure 1: The flapping-wing aerial-aquatic robot (FAAV)\nOver the semester you build a flapping vehicle: a robot that with the right design can fly and swim by flapping the same wings. The aim of this project is to demonstrate swimming behavior. This manual is the build side of the course. It is sequenced to the weekly modules, and each page covers exactly what you do in that module.",
-    "crumbs": [
-      "Overview"
-    ]
-  },
-  {
-    "objectID": "index.html#how-this-manual-is-organised",
-    "href": "index.html#how-this-manual-is-organised",
-    "title": "FAAV Build Manual",
-    "section": "How this manual is organised",
-    "text": "How this manual is organised\nBuild modules are cumulative and in order.\nReference holds the material you consult rather than follow: the parts list, the firmware repositories, and the design notes explaining why the robot is the way it is.",
-    "crumbs": [
-      "Overview"
-    ]
-  },
-  {
-    "objectID": "index.html#semester-map",
-    "href": "index.html#semester-map",
-    "title": "FAAV Build Manual",
-    "section": "Semester map",
-    "text": "Semester map\n\n\n\nModule\nWeek\nBuild\nPaired lecture\n\n\n\n\n1\nSep 9\n\nIntro to robotic locomotion\n\n\n2\nSep 14\nOrientation, teams, the robot. Motor and transmission shaft\nReaction forces in fluids\n\n\n3\nSep 21\nMotor driver, sensor, serial\nBird-scale flapping design\n\n\n4\nSep 28\nClosed-loop control and tuning\nSwimming robots I\n\n\n5\nOct 5\nFrame, crank, linkage, gears\nUndulatory locomotion\n\n\n—\nOct 12\nNo module\n—\n\n\n6\nOct 19\nFlapping simulation (Ptera)\nInsect-scale flapping\n\n\n7\nOct 26\nWing fabrication\nSwimming robots II\n\n\n8\nNov 2\nTail and housing\nMulti-modal locomotion\n\n\n9\nNov 9\nFlight controller, PCB, dry testing\nThe future of actuation\n\n\n10\nNov 16\nWaterproofing\nMultirotors\n\n\n11\nNov 23\nWet testing\nFixed-wing flyers\n\n\n12\nNov 30\nCompetition\nPair presentations",
-    "crumbs": [
-      "Overview"
-    ]
-  },
-  {
-    "objectID": "index.html#conventions",
-    "href": "index.html#conventions",
-    "title": "FAAV Build Manual",
-    "section": "Conventions",
-    "text": "Conventions\n\n\n\n\n\n\nWarningWarning\n\n\n\nAn operation whose likely failure mode destroys a part or injures you. Read it twice before acting.\n\n\n\n\n\n\n\n\nNoteCheckpoint\n\n\n\nDo not proceed past this without having completed all the tasks listed.\n\n\n\n\n\n\n\n\nTipWhy\n\n\n\nDesign rationale.",
-    "crumbs": [
-      "Overview"
-    ]
-  },
-  {
-    "objectID": "index.html#versioning",
-    "href": "index.html#versioning",
-    "title": "FAAV Build Manual",
-    "section": "Versioning",
-    "text": "Versioning\nThis is version fall-2026. Corrections published during the semester are dated in the Changelog. If a step here contradicts what we discuss, report it to Raph on slack so the next student does not lose time to it.",
-    "crumbs": [
-      "Overview"
     ]
   },
   {
@@ -1600,7 +1636,7 @@
     "href": "sessions/11-wet-testing.html#requirements",
     "title": "Module 11 — Wet testing",
     "section": "Requirements",
-    "text": "Requirements\n\n\n\nBring\nFully waterproofed robot from Module 10, charged 4S pack, spare crank–linkage shaft\n\n\nTools\nRetrieval poles and towels are at the tank — see Tank rules\n\n\nRead\nThis page, and the notes from Module 4",
+    "text": "Requirements\n\n\n\nBring\nFully waterproofed robot from Module 10, charged 4S pack, spare crank–linkage shaft\n\n\nTools\nRetrieval poles and towels are at the tank — see Tank rules\n\n\nRead\nThis page, the notes from Module 4, and Cost of transport",
     "crumbs": [
       "Overview",
       "Build modules",
@@ -1608,11 +1644,23 @@
     ]
   },
   {
-    "objectID": "sessions/11-wet-testing.html#pre-immersion-checks",
-    "href": "sessions/11-wet-testing.html#pre-immersion-checks",
+    "objectID": "sessions/11-wet-testing.html#pre-immersion-flight-checks",
+    "href": "sessions/11-wet-testing.html#pre-immersion-flight-checks",
     "title": "Module 11 — Wet testing",
-    "section": "Pre-immersion checks",
-    "text": "Pre-immersion checks\n\nStatic immersion test from Module 10 passed\nConnector closed. USB-C port sealed\nWatchdog enabled on the ESC (W) - target drops to zero if commands stop\nRobot floats level. If not, add floats.",
+    "section": "Pre-immersion flight checks",
+    "text": "Pre-immersion flight checks\n\nRed charging connector closed.\nUSB-C port sealed.\nWatchdog enabled on the ESC (W) - target drops to zero if commands stop",
+    "crumbs": [
+      "Overview",
+      "Build modules",
+      "Module 11 --- Wet testing"
+    ]
+  },
+  {
+    "objectID": "sessions/11-wet-testing.html#after-immersion",
+    "href": "sessions/11-wet-testing.html#after-immersion",
+    "title": "Module 11 — Wet testing",
+    "section": "After immersion",
+    "text": "After immersion\n\nCheck for water in the two connectors\nRinse the bearings with Isopropyl Alcohol.",
     "crumbs": [
       "Overview",
       "Build modules",
@@ -1623,8 +1671,8 @@
     "objectID": "sessions/11-wet-testing.html#the-tank",
     "href": "sessions/11-wet-testing.html#the-tank",
     "title": "Module 11 — Wet testing",
-    "section": "The tank",
-    "text": "The tank\nTesting happens in the AURA Lab tank. The gantry along the near rail and the cameras overhead are part of the measurement setup, not scenery — the ceiling cameras are what track the robot for the cost-of-transport number below.\n\n\n\n\n\n\nFigure 1: The AURA Lab tank. The rail and gantry run the length of the near side; the tracking cameras are mounted overhead.\n\n\n\n\n\n\n\n\n\nWarningTank rules (repeat)\n\n\n\nNobody gets in the tank. Not to retrieve a robot, not to reposition it, not for a moment. Use the poles to fish the robot back to the edge.\nKeep water off the floor. Water on the floor sets off an alarm, which ends the session for everyone. Lift the robot out over the tank and let it drain there rather than carrying it dripping, and keep towels to hand for what gets past. Dry the floor immediately if it happens.",
+    "section": "The tank and tracking system",
+    "text": "The tank and tracking system\nTesting happens in the AURA Lab tank. The ceiling camera tracks the robot for the cost-of-transport number below.\n\n\n\n\n\n\nFigure 1: The AURA Lab tank. The rail and gantry run the length of the near side; the tracking cameras are mounted overhead.\n\n\n\n\n\n\n\n\n\nWarningTank rules\n\n\n\nNobody gets in the tank. Not to retrieve a robot, not to reposition it, not for a moment. Use the poles to fish the robot back to the edge.\nKeep water off the floor. Water on the floor sets off an alarm, which ends the session for everyone. Lift the robot out over the tank and let it drain there rather than carrying it dripping, and keep towels to hand for what gets past. Dry the floor immediately if it happens.",
     "crumbs": [
       "Overview",
       "Build modules",
@@ -1632,11 +1680,11 @@
     ]
   },
   {
-    "objectID": "sessions/11-wet-testing.html#what-to-log",
-    "href": "sessions/11-wet-testing.html#what-to-log",
+    "objectID": "sessions/11-wet-testing.html#what-data-your-robot-should-log",
+    "href": "sessions/11-wet-testing.html#what-data-your-robot-should-log",
     "title": "Module 11 — Wet testing",
-    "section": "What to log",
-    "text": "What to log\nEvery run should record, at minimum:\n\nPower consumption — the numerator of cost of transport\nIMU data — attitude and acceleration through the run\nFlapping frequency — the input being varied\n\nSince underwater we lose wireless communication, the data needs to be recorded and streamed back wirelessly after the run. There are two places to record data on the flight controller, and the choice matters more than it looks:\n\n\n\n\n\n\n\n\n\nRAM\nFlash\n\n\n\n\nSurvives power loss\nNo\nYes\n\n\nSpeed\nFast, no wear\nSlower, finite write cycles\n\n\nUse it for\nThe normal case\nRuns that cannot afford to be repeated\n\n\n\nThe normal workflow is log to RAM during the run, then broadcast over BLE once the robot is out of the water. Nothing has to be opened and nothing has to be plugged in, which is the whole point: the board is potted from Module 10 and there is no connector to reach.\n\n\n\n\n\n\nWarningRAM is lost the moment power goes\n\n\n\nA brownout, a watchdog reset, or an accidental disconnect takes the whole run with it. Broadcast the data before changing the battery, not after - and if a run is expensive to repeat, write it to flash instead.",
+    "section": "What data your robot should log",
+    "text": "What data your robot should log\nEvery run should record, at minimum:\n\nPower consumption — the numerator of cost of transport\nIMU data — attitude and acceleration through the run\nFlapping frequency\n\nSince underwater we lose wireless communication, the data needs to be recorded and streamed back wirelessly after the run. There are two places to record data on the flight controller, and the choice matters more than it looks:\n\n\n\n\n\n\n\n\n\nRAM\nFlash\n\n\n\n\nSurvives power loss\nNo\nYes\n\n\nSpeed\nFast, no wear\nSlower, finite write cycles\n\n\nUse it for\nThe normal case\nRuns that cannot afford to be repeated\n\n\n\nThe normal workflow is log to RAM during the run, then broadcast over BLE once the robot is out of the water. Nothing has to be opened and nothing has to be plugged in, which is the whole point: the board is potted from Module 10 and there is no connector to reach.\n\n\n\n\n\n\nWarningRAM is lost the moment power goes\n\n\n\nA brownout, a watchdog reset, or an accidental disconnect takes the whole run with it. Broadcast the data before changing the battery, not after - and if a run is expensive to repeat, write it to flash instead.",
     "crumbs": [
       "Overview",
       "Build modules",
@@ -1644,23 +1692,11 @@
     ]
   },
   {
-    "objectID": "sessions/11-wet-testing.html#housing",
-    "href": "sessions/11-wet-testing.html#housing",
+    "objectID": "sessions/11-wet-testing.html#robot-trim",
+    "href": "sessions/11-wet-testing.html#robot-trim",
     "title": "Module 11 — Wet testing",
-    "section": "Housing",
-    "text": "Housing\nDesign and 3D-print an exterior housing to ensure neutral buoyancy as needed. Foam can also be used.",
-    "crumbs": [
-      "Overview",
-      "Build modules",
-      "Module 11 --- Wet testing"
-    ]
-  },
-  {
-    "objectID": "sessions/11-wet-testing.html#trim",
-    "href": "sessions/11-wet-testing.html#trim",
-    "title": "Module 11 — Wet testing",
-    "section": "Trim",
-    "text": "Trim\nTwo independent adjustments, both mechanical. Change one at a time with a run between them, otherwise there is no telling which one did what.\n\nWing trim\nWing trim is adjusted at the trailing edge.\n\n\n\n\n\n\nImportantTo be completed by the instructor\n\n\n\nThe trailing-edge trim part itself is not designed yet — decide what it is, how it mounts, and what range of adjustment it gives. Until then this step cannot be written as a procedure, and students have nothing to adjust against.\n\n\n\n\nTail trim\nTail trim is manual: bend and twist the tail by hand. Bending sets pitch, twisting sets roll. Work in small increments and expect to go back and forth - there is no scale and no reference mark, so the logged runs are the only feedback available.",
+    "section": "Robot trim",
+    "text": "Robot trim\nTwo independent adjustments, both mechanical. Change one at a time with a run between them, otherwise there is no telling which one did what. Wing trim is typically adjusted at the trailing edge. Tail trim is manual: bend and twist the tail by hand. Bending sets pitch, twisting sets roll. Work in small increments and expect to go back and forth - there is no scale and no reference mark, so the logged runs are the only feedback available.\nRobot needs to float level. If not, add floats (foam, 3D-print).",
     "crumbs": [
       "Overview",
       "Build modules",
@@ -1672,7 +1708,7 @@
     "href": "sessions/11-wet-testing.html#cost-of-transport",
     "title": "Module 11 — Wet testing",
     "section": "Cost of transport",
-    "text": "Cost of transport\nCost of transport is the score in Module 12, so measure it the same way every time:\n\\[\\mathrm{COT} = \\frac{P}{m \\, g \\, v} \\tag{1}\\]\nwith \\(P\\) the average electrical power over the run, \\(m\\) the robot’s mass, and \\(v\\) its average forward speed. It is dimensionless, and lower is better.\nThe two halves come from two different places:\n\nPower, onboard. From the logged consumption above, averaged over the steady part of the run — not the acceleration at the start.\nSpeed, from the ceiling cameras. The overhead tracking in Figure 1 gives position against time, which is the honest way to get \\(v\\); timing it by eye across the tank is not good enough for a scored number.\n\nTake both from the same window of the same run. Averaging power over one interval and speed over another is the most common way this number comes out wrong.\n\n\n\n\n\n\nImportantTBC\n\n\n\nStill missing from the protocol:\n\nRun profile — depth, duration, and the flap-frequency sweep to cover\nAbort procedure — what conditions end a run early, and what the student does at the tank edge when they do\nCamera tracking, practically — how a team starts a capture, and in what form the position data comes back\n\n\n\n\n\n\n\n\n\nNoteCheckpoint\n\n\n\nA completed underwater run with power, IMU and flapping frequency logged and successfully retrieved over BLE, no water ingress on inspection afterwards, and a cost-of-transport figure computed from Equation 1 with the camera-derived speed.",
+    "text": "Cost of transport\nCost of transport is the score in Module 12. How it is defined and how to measure it - power from the robot’s log, speed from the ceiling cameras - is on the Cost of transport reference page. Read it before your first scored run.\n\n\n\n\n\n\nNoteCheckpoint\n\n\n\nA completed underwater run with power logged and successfully retrieved over BLE, no water ingress on inspection afterwards, and a cost-of-transport figure computed as on the Cost of transport page, with the camera-derived speed.",
     "crumbs": [
       "Overview",
       "Build modules",

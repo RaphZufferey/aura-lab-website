@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://aura.mit.edu/2.S986-robot/sessions/12-competition.html</loc>
-    <lastmod>2026-09-04T02:33:14.242Z</lastmod>
+    <lastmod>2026-11-25T15:29:23.687Z</lastmod>
   </url>
   <url>
     <loc>https://aura.mit.edu/2.S986-robot/sessions/10-waterproofing.html</loc>
@@ -37,16 +37,20 @@
     <lastmod>2026-08-05T21:47:11.183Z</lastmod>
   </url>
   <url>
-    <loc>https://aura.mit.edu/2.S986-robot/reference/bldc.html</loc>
-    <lastmod>2026-09-16T13:45:56.002Z</lastmod>
+    <loc>https://aura.mit.edu/2.S986-robot/reference/cost-of-transport.html</loc>
+    <lastmod>2026-11-25T15:30:05.646Z</lastmod>
+  </url>
+  <url>
+    <loc>https://aura.mit.edu/2.S986-robot/index.html</loc>
+    <lastmod>2026-11-25T15:39:04.783Z</lastmod>
   </url>
   <url>
     <loc>https://aura.mit.edu/2.S986-robot/changelog.html</loc>
     <lastmod>2026-08-04T03:04:40.471Z</lastmod>
   </url>
   <url>
-    <loc>https://aura.mit.edu/2.S986-robot/index.html</loc>
-    <lastmod>2026-11-13T02:27:01.396Z</lastmod>
+    <loc>https://aura.mit.edu/2.S986-robot/reference/bldc.html</loc>
+    <lastmod>2026-09-16T13:45:56.002Z</lastmod>
   </url>
   <url>
     <loc>https://aura.mit.edu/2.S986-robot/reference/design-notes.html</loc>
@@ -78,10 +82,10 @@
   </url>
   <url>
     <loc>https://aura.mit.edu/2.S986-robot/sessions/09-electronics-dry-test.html</loc>
-    <lastmod>2026-11-13T03:27:45.036Z</lastmod>
+    <lastmod>2026-11-25T15:28:29.638Z</lastmod>
   </url>
   <url>
     <loc>https://aura.mit.edu/2.S986-robot/sessions/11-wet-testing.html</loc>
-    <lastmod>2026-11-04T15:14:30.130Z</lastmod>
+    <lastmod>2026-11-25T15:39:03.288Z</lastmod>
   </url>
 </urlset>

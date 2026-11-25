@@ -49,6 +49,7 @@ website:
           - reference/bldc.qmd
           - reference/g431-esc.qmd
           - reference/simple-foc.qmd
+          - reference/cost-of-transport.qmd
           - reference/software.qmd
           - reference/design-notes.qmd
           - reference/instructor-checklist.qmd
@@ -81,6 +82,7 @@ website:
           - reference/bldc.qmd
           - reference/g431-esc.qmd
           - reference/simple-foc.qmd
+          - reference/cost-of-transport.qmd
           - reference/software.qmd
           - reference/design-notes.qmd
           - reference/instructor-checklist.qmd

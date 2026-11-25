@@ -28,7 +28,7 @@ The core robot assembled and validated, the flight controller flashed and talkin
 
 The flight controller, the XIAO nRF52840 (@fig-xiao-ble), has **Bluetooth Low Energy (BLE)** built in: the same chip that runs your code also runs the radio, so wireless control needs no extra hardware. In BLE terms the robot is the **peripheral** (it advertises and waits) and whatever connects to it is the **central**. The central can be your laptop, your phone, or even another nRF52840 acting as a hand-held remote.
 
-![The Seeed XIAO nRF52840 flight controller. ](/Fig/xiao-nrf52840.jpg){#fig-xiao-ble width="55%"}
+![The Seeed XIAO nRF52840 flight controller.](/Fig/xiao-nrf52840.jpg){#fig-xiao-ble width="55%"}
 
 ### Design for losing the link
 
